@@ -120,7 +120,7 @@ class POMPA:
         self.ButtonRun.configure(highlightbackground="#d9d9d9")
         self.ButtonRun.configure(highlightcolor="black")
         self.ButtonRun.configure(pady="0")
-        self.ButtonRun.configure(text='''Przelicz''')
+        self.ButtonRun.configure(text='''PPPPrzzzrzelicz''')
 
         self.RadioMode1 = Radiobutton(top)
         self.RadioMode1.place(relx=0.75, rely=0.74, relheight=0.03
