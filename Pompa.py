@@ -52,8 +52,8 @@ class POMPA:
         _bgcolor = '#d9d9d9'  # X11 color: 'gray85'
         _fgcolor = '#000000'  # X11 color: 'black'
         _compcolor = '#d9d9d9' # X11 color: 'gray85'
-        _ana1color = '#d9d9d9' # X11 color: 'gray85' 
-        _ana2color = '#d9d9d9' # X11 color: 'gray85' 
+        _ana1color = '#d9d9d9' # X11 color: 'gray85'
+        _ana2color = '#d9d9d9' # X11 color: 'gray85'
         font10 = "-family {Courier New} -size 9 -weight normal -slant "  \
             "roman -underline 0 -overstrike 0"
         font11 = "-family ISOCPEUR -size 16 -weight normal -slant "  \
@@ -120,7 +120,7 @@ class POMPA:
         self.ButtonRun.configure(highlightbackground="#d9d9d9")
         self.ButtonRun.configure(highlightcolor="black")
         self.ButtonRun.configure(pady="0")
-        self.ButtonRun.configure(text='''PPPPrzzzrzelicz''')
+        self.ButtonRun.configure(text='''Przelicz''')
 
         self.RadioMode1 = Radiobutton(top)
         self.RadioMode1.place(relx=0.75, rely=0.74, relheight=0.03
