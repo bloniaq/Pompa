@@ -17,9 +17,6 @@ class Application:
         # 3: Create the widget using a master as parent
         self.mainwindow = builder.get_object('Toplevel_Main')
 
-        self.mainmenu = menu = builder.get_object('Menu_Main')
-        self.set_menu(menu)
-
         builder.connect_callbacks(self)
 
         callbacks = {
