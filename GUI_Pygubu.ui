@@ -47,6 +47,7 @@
           <object class="ttk.Frame" id="Frame_Logo">
             <property name="padding">20</property>
             <property name="relief">groove</property>
+            <property name="width">200</property>
             <layout>
               <property name="column">3</property>
               <property name="propagate">True</property>
@@ -60,14 +61,14 @@
               </rows>
               <columns>
                 <column id="0">
-                  <property name="minsize">0</property>
+                  <property name="minsize">350</property>
                   <property name="weight">0</property>
                 </column>
               </columns>
             </layout>
             <child>
               <object class="ttk.Label" id="Label_Logo">
-                <property name="font">{Courier New} 12 {bold}</property>
+                <property name="font">{Courier New} 10 {bold}</property>
                 <property name="text" translatable="yes">POMPA   POMPA  POMPA  POMPA  POMPA
 __________________________________
 
@@ -2965,7 +2966,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </rows>
               <columns>
                 <column id="0">
-                  <property name="minsize">350</property>
+                  <property name="minsize">380</property>
                   <property name="pad">0</property>
                 </column>
               </columns>
@@ -2991,8 +2992,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             <property name="text" translatable="yes">Przelicz</property>
             <layout>
               <property name="column">3</property>
-              <property name="ipadx">127</property>
-              <property name="ipady">20</property>
+              <property name="ipadx">137</property>
+              <property name="ipady">15</property>
               <property name="propagate">True</property>
               <property name="row">4</property>
             </layout>
@@ -3024,7 +3025,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </rows>
               <columns>
                 <column id="0">
-                  <property name="minsize">0</property>
+                  <property name="minsize">380</property>
                   <property name="pad">36</property>
                   <property name="weight">0</property>
                 </column>
