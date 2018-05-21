@@ -91,7 +91,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Notebook" id="Notebook_Dane">
-            <property name="height">800</property>
+            <property name="height">700</property>
             <property name="width">800</property>
             <layout>
               <property name="column">0</property>
@@ -2960,7 +2960,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               <property name="row">2</property>
               <rows>
                 <row id="0">
-                  <property name="minsize">350</property>
+                  <property name="minsize">300</property>
                   <property name="pad">0</property>
                 </row>
               </rows>
@@ -2973,7 +2973,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             </layout>
             <child>
               <object class="ttk.Label" id="Label_Wskaz">
-                <property name="padding">50</property>
+                <property name="padding">10</property>
                 <property name="text" translatable="yes">Najedź na opis parametru aby otrzymać więcej informacji</property>
                 <property name="underline">0</property>
                 <property name="wraplength">250</property>
