@@ -19,13 +19,16 @@
               <property name="pad">20</property>
             </row>
             <row id="1">
-              <property name="pad">20</property>
+              <property name="pad">10</property>
             </row>
             <row id="2">
-              <property name="pad">20</property>
+              <property name="pad">10</property>
             </row>
             <row id="3">
-              <property name="pad">0</property>
+              <property name="pad">10</property>
+            </row>
+            <row id="4">
+              <property name="pad">10</property>
             </row>
           </rows>
           <columns>
@@ -49,7 +52,7 @@
             <property name="relief">groove</property>
             <property name="width">200</property>
             <layout>
-              <property name="column">3</property>
+              <property name="column">4</property>
               <property name="propagate">True</property>
               <property name="row">0</property>
               <property name="rowspan">2</property>
@@ -95,9 +98,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             <property name="width">800</property>
             <layout>
               <property name="column">0</property>
-              <property name="columnspan">3</property>
+              <property name="columnspan">4</property>
               <property name="padx">10</property>
-              <property name="pady">20</property>
               <property name="propagate">True</property>
               <property name="row">1</property>
               <property name="rowspan">4</property>
@@ -2924,7 +2926,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             <property name="text" translatable="yes">Wskazówki</property>
             <property name="width">350</property>
             <layout>
-              <property name="column">3</property>
+              <property name="column">4</property>
               <property name="propagate">True</property>
               <property name="row">2</property>
               <rows>
@@ -2960,7 +2962,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             <property name="command">calculate</property>
             <property name="text" translatable="yes">Przelicz</property>
             <layout>
-              <property name="column">3</property>
+              <property name="column">4</property>
               <property name="ipadx">137</property>
               <property name="ipady">15</property>
               <property name="propagate">True</property>
@@ -2975,7 +2977,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             <property name="text" translatable="yes">Tryb pracy</property>
             <property name="width">350</property>
             <layout>
-              <property name="column">3</property>
+              <property name="column">4</property>
               <property name="propagate">True</property>
               <property name="row">3</property>
               <rows>
@@ -3049,7 +3051,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
           </object>
         </child>
         <child>
-          <object class="pygubu.builder.widgets.pathchooserinput" id="pathchooserinput_1">
+          <object class="pygubu.builder.widgets.pathchooserinput" id="filepath">
             <property name="type">file</property>
             <layout>
               <property name="column">0</property>
@@ -3059,8 +3061,21 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
           </object>
         </child>
         <child>
-          <object class="pygubu.builder.widgets.pathchooserinput" id="pathchooserinput_2">
-            <property name="type">file</property>
+          <object class="ttk.Button" id="Button_Info">
+            <property name="command">info</property>
+            <property name="text" translatable="yes">O programie</property>
+            <layout>
+              <property name="column">3</property>
+              <property name="ipadx">10</property>
+              <property name="propagate">True</property>
+              <property name="row">0</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="Button_Wczytaj">
+            <property name="command">wczytaj_dane</property>
+            <property name="text" translatable="yes">Wczytaj Dane</property>
             <layout>
               <property name="column">1</property>
               <property name="propagate">True</property>
@@ -3069,8 +3084,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
           </object>
         </child>
         <child>
-          <object class="ttk.Button" id="Button_1">
-            <property name="text" translatable="yes">Button_1</property>
+          <object class="ttk.Button" id="Button_Zapisz">
+            <property name="command">zapisz_dane</property>
+            <property name="text" translatable="yes">Zapisz Dane</property>
             <layout>
               <property name="column">2</property>
               <property name="propagate">True</property>

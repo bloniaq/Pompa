@@ -16,6 +16,7 @@ class Application:
 
         # 3: Create the widget using a master as parent
         self.mainwindow = builder.get_object('Toplevel_Main')
+        self.filepath = builder.get_object('filepath')
 
         builder.connect_callbacks(self)
 
@@ -23,7 +24,10 @@ class Application:
             'zmien_tryb': self.zmien_tryb,
             'uwzgledniaj_zwg': self.uwzgledniaj_zwg,
             'ksztalt_wymiary': self.ksztalt_wymiary,
-            'calculate': self.calculate
+            'calculate': self.calculate,
+            'wczytaj_dane': self.wczytaj_dane,
+            'zapisz_dane': self.zapisz_dane,
+            'info': self.info
         }
 
         builder.connect_callbacks(callbacks)
@@ -73,6 +77,22 @@ class Application:
 
     def quit(self):
         self.mainwindow.quit()
+
+    def wczytaj_dane(self, event=None):
+        path = self.filepath.cget('path')
+        with open(path, 'r+') as file:
+            print('otwarto plik ' + str(file))
+            # rozpoznaj plik
+            first_line = file.readline()
+            if first_line[0] == '1' and first_line[1] == ')':
+                print('plik danych generowany wersją 1.0 aplikacji')
+            # tutaj wstawic elif i warunek na nowa wersje
+
+    def zapisz_dane(self):
+        print('zapisz dane')
+
+    def info(self):
+        print('info')
 
     def run(self):
         self.mainwindow.mainloop()
