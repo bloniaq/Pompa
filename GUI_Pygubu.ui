@@ -402,7 +402,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Minimalna_wys">
+                      <object class="ttk.Entry" id="Entry_Minimalna_wys">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:minimalna_wys</property>
@@ -416,7 +416,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Rzedna_terenu">
+                      <object class="ttk.Entry" id="Entry_Rzedna_terenu">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:rzedna_terenu</property>
@@ -430,7 +430,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Rzedna_wylotu">
+                      <object class="ttk.Entry" id="Entry_Rzedna_wylotu">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:rzedna_wylotu</property>
@@ -444,7 +444,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Rzedna_doplywu">
+                      <object class="ttk.Entry" id="Entry_Rzedna_doplywu">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:rzedna_doplywu</property>
@@ -458,7 +458,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Rzedna_dna">
+                      <object class="ttk.Entry" id="Entry_Rzedna_dna">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:rzedna_dna</property>
@@ -472,7 +472,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Rzedna_najwpunkt">
+                      <object class="ttk.Entry" id="Entry_Rzedna_najwpunkt">
                         <property name="justify">right</property>
                         <property name="textvariable">double:rzedna_najwpunkt</property>
                         <property name="width">7</property>
@@ -485,7 +485,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Rzedna_zwgorne">
+                      <object class="ttk.Entry" id="Entry_Rzedna_zwgorne">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:rzedna_zwgorne</property>
@@ -499,7 +499,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Dl_przewodu_tl">
+                      <object class="ttk.Entry" id="Entry_Dl_przewodu_tl">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:dl_przewodu_tl</property>
@@ -513,7 +513,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Sred_przewodu_tl">
+                      <object class="ttk.Entry" id="Entry_Sred_przewodu_tl">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:sred_przewodu_tl</property>
@@ -527,7 +527,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Chrop_przewodu_tl">
+                      <object class="ttk.Entry" id="Entry_Chrop_przewodu_tl">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:chrop+przewodu_tl</property>
@@ -541,7 +541,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Opory_przewodu_tl">
+                      <object class="ttk.Entry" id="Entry_Opory_przewodu_tl">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">string:opory_przewodu_tl</property>
@@ -556,7 +556,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Doplyw_min">
+                      <object class="ttk.Entry" id="Entry_Doplyw_min">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:doplyw_min</property>
@@ -570,7 +570,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Doplyw_max">
+                      <object class="ttk.Entry" id="Entry_Doplyw_max">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:doplyw_max</property>
@@ -584,7 +584,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Liczba_kol">
+                      <object class="ttk.Entry" id="Entry_Liczba_kol">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">int:liczba_kol</property>
@@ -598,7 +598,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Dl_kolektora">
+                      <object class="ttk.Entry" id="Entry_Dl_kolektora">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:dl_kolektora</property>
@@ -612,7 +612,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Sred_kolektora">
+                      <object class="ttk.Entry" id="Entry_Sred_kolektora">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:sr_kolektora</property>
@@ -626,7 +626,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Chrop_kolektora">
+                      <object class="ttk.Entry" id="Entry_Chrop_kolektora">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:chrop_kolektora</property>
@@ -640,7 +640,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_H_Opory_kolektora">
+                      <object class="ttk.Entry" id="Entry_Opory_kolektora">
                         <property name="justify">right</property>
                         <property name="textvariable">string:opory_kolektora</property>
                         <property name="width">24</property>
