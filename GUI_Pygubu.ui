@@ -106,9 +106,301 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               <property name="sticky">s</property>
             </layout>
             <child>
+              <object class="ttk.Notebook.Tab" id="Tab_Geometria">
+                <property name="padding">5</property>
+                <property name="text" translatable="yes">Dane geometryczne</property>
+                <property name="underline">0</property>
+                <child>
+                  <object class="ttk.Frame" id="Frame_Geometria">
+                    <property name="height">200</property>
+                    <property name="padding">40</property>
+                    <property name="relief">groove</property>
+                    <property name="width">200</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                      <rows>
+                        <row id="0">
+                          <property name="minsize">0</property>
+                          <property name="pad">60</property>
+                        </row>
+                        <row id="1">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="10">
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="2">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="3">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="4">
+                          <property name="pad">60</property>
+                        </row>
+                        <row id="5">
+                          <property name="pad">20</property>
+                          <property name="weight">0</property>
+                        </row>
+                        <row id="6">
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="7">
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="8">
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="9">
+                          <property name="pad">20</property>
+                        </row>
+                      </rows>
+                      <columns>
+                        <column id="0">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                          <property name="weight">0</property>
+                        </column>
+                        <column id="1">
+                          <property name="pad">20</property>
+                        </column>
+                        <column id="2">
+                          <property name="pad">20</property>
+                        </column>
+                        <column id="3">
+                          <property name="pad">20</property>
+                        </column>
+                      </columns>
+                    </layout>
+                    <child>
+                      <object class="ttk.Label" id="Label_Ksztalt">
+                        <property name="text" translatable="yes">Kształt pompowni:</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Ksztalt_kolo">
+                        <property name="command">ksztalt_wymiary</property>
+                        <property name="text" translatable="yes">Przekrój kołowy</property>
+                        <property name="value">kolo</property>
+                        <property name="variable">string:ksztalt</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Ksztalt_prostok">
+                        <property name="command">ksztalt_wymiary</property>
+                        <property name="text" translatable="yes">Przekrój prostokątny</property>
+                        <property name="value">prostokat</property>
+                        <property name="variable">string:ksztalt</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="columnspan">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Wymiary">
+                        <property name="text" translatable="yes">Wymiary charakterystyczne [m]:</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="columnspan">3</property>
+                          <property name="ipady">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">1</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Srednica_pompowni">
+                        <property name="text" translatable="yes">Średnica wewnętrzna    </property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">2</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Średnica_pompowni">
+                        <property name="exportselection">true</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:srednica_pompowni</property>
+                        <property name="width">5</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">2</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Dlugosc_pompowni">
+                        <property name="text" translatable="yes">Długość    </property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Dlugosc_pompowni">
+                        <property name="justify">right</property>
+                        <property name="state">disabled</property>
+                        <property name="textvariable">double:dlugosc_pompowni</property>
+                        <property name="width">5</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Szerokosc_pompowni">
+                        <property name="text" translatable="yes">Szerokość     </property>
+                        <layout>
+                          <property name="column">3</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Szerokosc_pompowni">
+                        <property name="justify">right</property>
+                        <property name="state">disabled</property>
+                        <property name="textvariable">double:szer_pompowni</property>
+                        <property name="width">5</property>
+                        <layout>
+                          <property name="column">4</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Uklad_pomp">
+                        <property name="text" translatable="yes">Układ ustawienia pomp:</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">4</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Uklad_jedno">
+                        <property name="text" translatable="yes">Układ jednorzędowy</property>
+                        <property name="value">jednorzedowy</property>
+                        <property name="variable">string:uklad_pompowni</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">4</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Uklad_optymalny">
+                        <property name="text" translatable="yes">Układ optymalny</property>
+                        <property name="value">optymalny</property>
+                        <property name="variable">string:uklad_pompowni</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="columnspan">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">4</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Wariant_rezerwa">
+                        <property name="text" translatable="yes">Wariant liczby pomp rezerwowych:</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="columnspan">3</property>
+                          <property name="ipadx">0</property>
+                          <property name="ipady">0</property>
+                          <property name="padx">0</property>
+                          <property name="pady">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">5</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Wariant_minimal">
+                        <property name="text" translatable="yes">Ekonomiczny</property>
+                        <property name="value">minimalna</property>
+                        <property name="variable">string:liczba_pomp_rez</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">8</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Wariant_optymal">
+                        <property name="text" translatable="yes">Optymalny</property>
+                        <property name="value">optymalna</property>
+                        <property name="variable">string:liczba_pomp_rez</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="columnspan">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">8</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Wariant_bezpiecz">
+                        <property name="text" translatable="yes">Bezpieczny</property>
+                        <property name="value">bezpieczna</property>
+                        <property name="variable">string:liczba_pomp_rez</property>
+                        <layout>
+                          <property name="column">4</property>
+                          <property name="propagate">True</property>
+                          <property name="row">8</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
               <object class="ttk.Notebook.Tab" id="Tab_Hydraulika">
                 <property name="padding">5</property>
-                <property name="text" translatable="yes">Dane hydrauliczne</property>
+                <property name="text" translatable="yes">Charakterystyka przewodów</property>
                 <property name="underline">0</property>
                 <child>
                   <object class="ttk.Frame" id="Frame_Hydraulika">
@@ -658,312 +950,20 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </object>
             </child>
             <child>
-              <object class="ttk.Notebook.Tab" id="Tab_Geometria">
-                <property name="padding">5</property>
-                <property name="text" translatable="yes">Dane geometryczne</property>
-                <property name="underline">0</property>
-                <child>
-                  <object class="ttk.Frame" id="Frame_Geometria">
-                    <property name="height">200</property>
-                    <property name="padding">40</property>
-                    <property name="relief">groove</property>
-                    <property name="width">200</property>
-                    <layout>
-                      <property name="column">0</property>
-                      <property name="propagate">False</property>
-                      <property name="row">0</property>
-                      <rows>
-                        <row id="0">
-                          <property name="minsize">0</property>
-                          <property name="pad">60</property>
-                        </row>
-                        <row id="1">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="10">
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="2">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="3">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="4">
-                          <property name="pad">60</property>
-                        </row>
-                        <row id="5">
-                          <property name="pad">20</property>
-                          <property name="weight">0</property>
-                        </row>
-                        <row id="6">
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="7">
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="8">
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="9">
-                          <property name="pad">20</property>
-                        </row>
-                      </rows>
-                      <columns>
-                        <column id="0">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                          <property name="weight">0</property>
-                        </column>
-                        <column id="1">
-                          <property name="pad">20</property>
-                        </column>
-                        <column id="2">
-                          <property name="pad">20</property>
-                        </column>
-                        <column id="3">
-                          <property name="pad">20</property>
-                        </column>
-                      </columns>
-                    </layout>
-                    <child>
-                      <object class="ttk.Label" id="Label_Ksztalt">
-                        <property name="text" translatable="yes">Kształt pompowni:</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Ksztalt_kolo">
-                        <property name="command">ksztalt_wymiary</property>
-                        <property name="text" translatable="yes">Przekrój kołowy</property>
-                        <property name="value">kolo</property>
-                        <property name="variable">string:ksztalt</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Ksztalt_prostok">
-                        <property name="command">ksztalt_wymiary</property>
-                        <property name="text" translatable="yes">Przekrój prostokątny</property>
-                        <property name="value">prostokat</property>
-                        <property name="variable">string:ksztalt</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="columnspan">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Wymiary">
-                        <property name="text" translatable="yes">Wymiary charakterystyczne [m]:</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="columnspan">3</property>
-                          <property name="ipady">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">1</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Srednica_pompowni">
-                        <property name="text" translatable="yes">Średnica wewnętrzna    </property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">2</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Średnica_pompowni">
-                        <property name="exportselection">true</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:srednica_pompowni</property>
-                        <property name="width">5</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">2</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Dlugosc_pompowni">
-                        <property name="text" translatable="yes">Długość    </property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Dlugosc_pompowni">
-                        <property name="justify">right</property>
-                        <property name="state">disabled</property>
-                        <property name="textvariable">double:dlugosc_pompowni</property>
-                        <property name="width">5</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Szerokosc_pompowni">
-                        <property name="text" translatable="yes">Szerokość     </property>
-                        <layout>
-                          <property name="column">3</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Szerokosc_pompowni">
-                        <property name="justify">right</property>
-                        <property name="state">disabled</property>
-                        <property name="textvariable">double:szer_pompowni</property>
-                        <property name="width">5</property>
-                        <layout>
-                          <property name="column">4</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Uklad_pomp">
-                        <property name="text" translatable="yes">Układ ustawienia pomp:</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Uklad_jedno">
-                        <property name="text" translatable="yes">Układ jednorzędowy</property>
-                        <property name="value">jednorzedowy</property>
-                        <property name="variable">string:uklad_pompowni</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Uklad_optymalny">
-                        <property name="text" translatable="yes">Układ optymalny</property>
-                        <property name="value">optymalny</property>
-                        <property name="variable">string:uklad_pompowni</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="columnspan">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Wariant_rezerwa">
-                        <property name="text" translatable="yes">Wariant liczby pomp rezerwowych:</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="columnspan">3</property>
-                          <property name="ipadx">0</property>
-                          <property name="ipady">0</property>
-                          <property name="padx">0</property>
-                          <property name="pady">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">5</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_minimal">
-                        <property name="text" translatable="yes">Ekonomiczny</property>
-                        <property name="value">minimalna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_optymal">
-                        <property name="text" translatable="yes">Optymalny</property>
-                        <property name="value">optymalna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="columnspan">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_bezpiecz">
-                        <property name="text" translatable="yes">Bezpieczny</property>
-                        <property name="value">bezpieczna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
-                        <layout>
-                          <property name="column">4</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
               <object class="ttk.Notebook.Tab" id="Tab_Pompa">
                 <property name="padding">5</property>
                 <property name="text" translatable="yes">Charakterystyka pompy</property>
                 <child>
                   <object class="tk.Frame" id="Frame_Pompa">
                     <property name="padx">220</property>
-                    <property name="pady">100</property>
+                    <property name="pady">60</property>
                     <layout>
                       <property name="column">0</property>
                       <property name="propagate">True</property>
                       <property name="row">2</property>
                       <rows>
                         <row id="1">
-                          <property name="pad">120</property>
+                          <property name="pad">80</property>
                         </row>
                       </rows>
                     </layout>
@@ -973,7 +973,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">0</property>
+                          <property name="row">1</property>
                         </layout>
                       </object>
                     </child>
@@ -985,7 +985,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">1</property>
                           <property name="propagate">True</property>
-                          <property name="row">0</property>
+                          <property name="row">1</property>
                         </layout>
                       </object>
                     </child>
@@ -999,7 +999,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           <property name="column">0</property>
                           <property name="columnspan">2</property>
                           <property name="propagate">True</property>
-                          <property name="row">1</property>
+                          <property name="row">2</property>
                           <rows>
                             <row id="0">
                               <property name="minsize">0</property>
@@ -1023,7 +1023,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               <property name="column">1</property>
                               <property name="ipady">10</property>
                               <property name="propagate">True</property>
-                              <property name="row">0</property>
+                              <property name="row">1</property>
                             </layout>
                           </object>
                         </child>
@@ -1034,7 +1034,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">0</property>
+                              <property name="row">1</property>
                               <property name="sticky">e</property>
                             </layout>
                           </object>
@@ -1045,7 +1045,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">1</property>
+                              <property name="row">2</property>
                             </layout>
                           </object>
                         </child>
@@ -1057,7 +1057,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">1</property>
+                              <property name="row">2</property>
                             </layout>
                           </object>
                         </child>
@@ -1069,7 +1069,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">1</property>
+                              <property name="row">2</property>
                             </layout>
                           </object>
                         </child>
@@ -1079,7 +1079,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">2</property>
+                              <property name="row">3</property>
                             </layout>
                           </object>
                         </child>
@@ -1091,7 +1091,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">2</property>
+                              <property name="row">3</property>
                             </layout>
                           </object>
                         </child>
@@ -1103,7 +1103,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">2</property>
+                              <property name="row">3</property>
                             </layout>
                           </object>
                         </child>
@@ -1113,7 +1113,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">3</property>
+                              <property name="row">4</property>
                             </layout>
                           </object>
                         </child>
@@ -1125,7 +1125,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">3</property>
+                              <property name="row">4</property>
                             </layout>
                           </object>
                         </child>
@@ -1137,7 +1137,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">3</property>
+                              <property name="row">4</property>
                             </layout>
                           </object>
                         </child>
@@ -1147,7 +1147,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">4</property>
+                              <property name="row">5</property>
                             </layout>
                           </object>
                         </child>
@@ -1159,7 +1159,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">4</property>
+                              <property name="row">5</property>
                             </layout>
                           </object>
                         </child>
@@ -1171,7 +1171,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">4</property>
+                              <property name="row">5</property>
                             </layout>
                           </object>
                         </child>
@@ -1181,7 +1181,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">5</property>
+                              <property name="row">6</property>
                             </layout>
                           </object>
                         </child>
@@ -1193,7 +1193,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">5</property>
+                              <property name="row">6</property>
                             </layout>
                           </object>
                         </child>
@@ -1205,7 +1205,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">5</property>
+                              <property name="row">6</property>
                             </layout>
                           </object>
                         </child>
@@ -1215,7 +1215,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">6</property>
+                              <property name="row">7</property>
                             </layout>
                           </object>
                         </child>
@@ -1227,7 +1227,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">6</property>
+                              <property name="row">7</property>
                             </layout>
                           </object>
                         </child>
@@ -1239,7 +1239,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">6</property>
+                              <property name="row">7</property>
                             </layout>
                           </object>
                         </child>
@@ -1249,7 +1249,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">7</property>
+                              <property name="row">8</property>
                             </layout>
                           </object>
                         </child>
@@ -1261,7 +1261,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">7</property>
+                              <property name="row">8</property>
                             </layout>
                           </object>
                         </child>
@@ -1273,7 +1273,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">7</property>
+                              <property name="row">8</property>
                             </layout>
                           </object>
                         </child>
@@ -1283,7 +1283,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">8</property>
+                              <property name="row">9</property>
                             </layout>
                           </object>
                         </child>
@@ -1295,7 +1295,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">8</property>
+                              <property name="row">9</property>
                             </layout>
                           </object>
                         </child>
@@ -1307,7 +1307,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">8</property>
+                              <property name="row">9</property>
                             </layout>
                           </object>
                         </child>
@@ -1317,7 +1317,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">9</property>
+                              <property name="row">10</property>
                             </layout>
                           </object>
                         </child>
@@ -1329,7 +1329,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">9</property>
+                              <property name="row">10</property>
                             </layout>
                           </object>
                         </child>
@@ -1341,7 +1341,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">9</property>
+                              <property name="row">10</property>
                             </layout>
                           </object>
                         </child>
@@ -1351,7 +1351,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
-                              <property name="row">10</property>
+                              <property name="row">11</property>
                             </layout>
                           </object>
                         </child>
@@ -1363,7 +1363,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
-                              <property name="row">10</property>
+                              <property name="row">11</property>
                             </layout>
                           </object>
                         </child>
@@ -1375,7 +1375,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">10</property>
+                              <property name="row">11</property>
                             </layout>
                           </object>
                         </child>
@@ -1387,7 +1387,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               <property name="columnspan">3</property>
                               <property name="pady">10</property>
                               <property name="propagate">True</property>
-                              <property name="row">11</property>
+                              <property name="row">12</property>
                               <property name="sticky">s</property>
                             </layout>
                           </object>
@@ -1399,7 +1399,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               <property name="column">0</property>
                               <property name="columnspan">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">12</property>
+                              <property name="row">13</property>
                             </layout>
                           </object>
                         </child>
@@ -1411,7 +1411,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">12</property>
+                              <property name="row">13</property>
                             </layout>
                           </object>
                         </child>
@@ -1422,7 +1422,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               <property name="column">0</property>
                               <property name="columnspan">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">13</property>
+                              <property name="row">14</property>
                             </layout>
                           </object>
                         </child>
@@ -1434,10 +1434,69 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
-                              <property name="row">13</property>
+                              <property name="row">14</property>
                             </layout>
                           </object>
                         </child>
+                        <child>
+                          <object class="tk.Label" id="Label_Jedn_char_pompy">
+                            <property name="text" translatable="yes">Jednostka:</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_m3">
+                            <property name="anchor">w</property>
+                            <property name="height">0</property>
+                            <property name="text" translatable="yes">[m³/h]</property>
+                            <property name="value">True</property>
+                            <property name="variable">boolean:jedn_char_pompy</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_l">
+                            <property name="text" translatable="yes">[l/s]</property>
+                            <property name="value">False</property>
+                            <property name="variable">boolean:jedn_char_pompy</property>
+                            <layout>
+                              <property name="column">2</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Obrys_pompy">
+                        <property name="text" translatable="yes">Średnica koła niezbędna do zainstalowania jednej pompy [m]</property>
+                        <property name="wraplength">250</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Obrys_pompy">
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:obrys_pompy</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                        </layout>
                       </object>
                     </child>
                   </object>
