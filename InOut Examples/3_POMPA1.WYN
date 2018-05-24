@@ -1,0 +1,93 @@
+POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA
+ 
+ 
+Liniowe ustawienie pomp w pompowni
+Liczba pomp rezerwowych..............n=1
+Srednica kola opisujacego pompe.....Dn= 1.20     [m]
+Srednica pompowni...................DN= 3.00     [m]
+Minimalna srednica pompowni......DNmin= 3.00     [m]
+Pole poziomego przekroju pompowni....F=  7.1    [m2]
+Ciezar objetosciowy betonu..........Gb= 2.10  [T/m3]
+Jednostkowa srednia sila tarcia......T= 2.00  [T/m2]
+Wsp. zmniejszajacy j.s.s.t...........a=40       [%]
+Stos. obj. szkieletu gruntowego cz...m= .65
+Sredni obj. ciezar gruntu suchego...Gg= 1.80  [T/m3]
+Kat tarcia wew. gruntu suchego......fs= 32.0 [stop.]
+Kat tarcia wew. gruntu mokrego......fm= 35.0 [stop.]
+Sredni wsp. tarcia gruntu...........mi=  .30
+Ilosc przewodow tlocznych (kolektor)...2
+Dlugosc kolektora tlocznego..........L= 136.0    [m]
+Dlugosc przewodu w pompowni..........L=   7.9    [m]
+Srednica kolektora tlocznego........Dn= 150.0   [mm]
+Srednica przewodu w pompowni........Dn= 150.0   [mm]
+Chropowatosc kolektora tlocznego.....k= 1.00    [mm]
+Chropowatosc przewodu w pompowni.....k= 1.00    [mm]
+Doplyw do pomowni...Qmin=   2.0   Qmax=   3.5  [l/s]
+Rzedna terenu.........................  50.00    [m]
+Rzedna zwierciadla wody gruntowej.....  47.50    [m]
+Rzedna doplywu sciekow................  45.00    [m]
+Rzedna wylotu sciekow /przejscie
+osi rury przez sciane pompowni/.......  47.00    [m]
+Rzedna najwyzszego pkt. na trasie.....  52.00    [m]
+Rzedna zwierciadla w zbiorniku gornym.  50.00    [m]
+Min. wysokosc sciekow w  pompowni.....  .30      [m]
+Suma wsp. oporow miejsc. kolektora.... 1.50
+Suma wsp. oporow miejsc. w pompowni... 2.20
+Objetosc robot ziemnych kolektora.....  235     [m3]
+Objetosc robot ziemnych pompowni......   83     [m3]
+Grubosc sciany pompowni...............  .47      [m]
+Objetosc betonu {sciany pompowni}.....   35.0   [m3]
+Srednia grubosc korka................. 1.00      [m]
+Objetosc betonu {korek}...............    9.5   [m3]
+Calkowita sila tarcia {opuszczanie}...   63.9    [T]
+Wypor pompowni........................   29.3    [T]
+Ciezar pompowni+{korek}...............   93.4    [T]
+ 
+CHARAKTERYSTYKA ZASTOSOWANYCH POMP
+ 
+Q=  6.0 [l/s]    H=  8.0 [m]
+Q=  5.0 [l/s]    H=  9.0 [m]
+Q=  4.0 [l/s]    H= 10.0 [m]
+Q=  3.0 [l/s]    H= 11.0 [m]
+Q=  2.0 [l/s]    H= 12.0 [m]
+ 
+Rzedna dna pompowni...................  44.11    [m]
+Rzedna wylaczenia sie pomp............  44.41    [m]
+Objetosc calkowita pompowni..........Vc= 41.7   [m3]
+Objetosc uzyteczna pompowni..........Vu=  1.0   [m3]
+Objetosc rezerwowa pompowni..........Vr=  3.2   [m3]
+Objetosc martwa pompowni.............Vm=  2.1   [m3]
+ 
+Vu/Vc =  2.4  %
+Vr/Vu =324.7  %
+Vr/Vc =  7.7  %
+Vm/Vc =  5.1  %
+ 
+PARAMETRY POMPY NR: 1
+ 
+Rzeczywisty czas cyklu pompy.......T= 515.2      [s]
+Rzeczywisty czas postoju pompy....Tp= 329.9      [s]
+Rzeczywisty czas pracy pompy......Tr= 185.3      [s]
+Obj. uzyt. wyzn. przez pompe......Vu=  1.0      [m3]
+Rzedna wlaczenia pompy..............  44.55      [m]
+ 
+Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr1
+ 
+-wys. lc. u wylotu pompy.........Hlc= 5.60       [m]
+-geometryczna wys. podnoszenia.....H= 5.45       [m]
+-wydatek...........................Q=   8.40   [l/s]
+-predkosc w kolektorze tlocznym....v= .24      [m/s]
+-predkosc w przewodach w pompowni..v= .48      [m/s]
+-zapas wysokosci cisnienia.....dh= 2.3   [m sl.wody]
+ 
+Parametry koncowe pracy zespolu pomp
+ 
+-wys. lc. u wylotu pompy.........Hlc= 5.72       [m]
+-geometryczna wys. podnoszenia.....H= 5.59       [m]
+-wydatek...........................Q=   8.28   [l/s]
+-predkosc w kolektorze tlocznym....v= .23      [m/s]
+-predkosc w przewodach w pompowni..v= .47      [m/s]
+-doplyw najniekorzystniejszy....Qdop=   3.00   [l/s]
+Zakres pracy pomp /maksymalna sprawnosc/
+Q1=  2.0 [l/s]    Q2=  4.0 [l/s]

@@ -1,0 +1,75 @@
+POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA
+ 
+ 
+Liniowe ustawienie pomp w pompowni
+Liczba pomp rezerwowych..............n=1
+Srednica kola opisujacego pompe.....Dn= 1.20     [m]
+Srednica pompowni...................DN= 3.50     [m]
+Minimalna srednica pompowni......DNmin= 3.00     [m]
+Pole poziomego przekroju pompowni....F=  9.6    [m2]
+Ilosc przewodow tlocznych (kolektor)...2
+Dlugosc kolektora tlocznego..........L= 136.0    [m]
+Dlugosc przewodu w pompowni..........L=   7.0    [m]
+Srednica kolektora tlocznego........Dn= 150.0   [mm]
+Srednica przewodu w pompowni........Dn= 150.0   [mm]
+Chropowatosc kolektora tlocznego.....k= 1.00    [mm]
+Chropowatosc przewodu w pompowni.....k= 1.00    [mm]
+Doplyw do pomowni...Qmin=   2.0   Qmax=   3.5  [l/s]
+Rzedna terenu.........................  50.00    [m]
+Rzedna doplywu sciekow................  45.00    [m]
+Rzedna wylotu sciekow /przejscie
+osi rury przez sciane pompowni/.......  47.00    [m]
+Rzedna najwyzszego pkt. na trasie.....  52.00    [m]
+Rzedna zwierciadla w zbiorniku gornym.  50.00    [m]
+Min. wysokosc sciekow w  pompowni.....  .30      [m]
+Suma wsp. oporow miejsc. kolektora.... 1.50
+Suma wsp. oporow miejsc. w pompowni... 2.20
+ 
+CHARAKTERYSTYKA ZASTOSOWANYCH POMP
+ 
+Q=  6.0 [l/s]    H=  8.0 [m]
+Q=  5.0 [l/s]    H=  9.0 [m]
+Q=  4.0 [l/s]    H= 10.0 [m]
+Q=  3.0 [l/s]    H= 11.0 [m]
+Q=  2.0 [l/s]    H= 12.0 [m]
+ 
+Rzedna dna pompowni...................  42.00    [m]
+Rzedna wylaczenia sie pomp............  42.30    [m]
+Objetosc calkowita pompowni..........Vc= 77.0   [m3]
+Objetosc uzyteczna pompowni..........Vu=   .8   [m3]
+Objetosc rezerwowa pompowni..........Vr= 25.2   [m3]
+Objetosc martwa pompowni.............Vm=  2.9   [m3]
+ 
+Vu/Vc =  1.0  %
+Vr/Vu =*****  %
+Vr/Vc = 32.7  %
+Vm/Vc =  3.8  %
+ 
+PARAMETRY POMPY NR: 1
+ 
+Rzeczywisty czas cyklu pompy.......T= 493.0      [s]
+Rzeczywisty czas postoju pompy....Tp= 256.6      [s]
+Rzeczywisty czas pracy pompy......Tr= 236.5      [s]
+Obj. uzyt. wyzn. przez pompe......Vu=   .8      [m3]
+Rzedna wlaczenia pompy..............  42.38      [m]
+ 
+Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr1
+ 
+-wys. lc. u wylotu pompy.........Hlc= 7.71       [m]
+-geometryczna wys. podnoszenia.....H= 7.62       [m]
+-wydatek...........................Q=   6.29   [l/s]
+-predkosc w kolektorze tlocznym....v= .18      [m/s]
+-predkosc w przewodach w pompowni..v= .36      [m/s]
+-zapas wysokosci cisnienia.....dh=  .2   [m sl.wody]
+ 
+Parametry koncowe pracy zespolu pomp
+ 
+-wys. lc. u wylotu pompy.........Hlc= 7.78       [m]
+-geometryczna wys. podnoszenia.....H= 7.70       [m]
+-wydatek...........................Q=   6.22   [l/s]
+-predkosc w kolektorze tlocznym....v= .18      [m/s]
+-predkosc w przewodach w pompowni..v= .35      [m/s]
+-doplyw najniekorzystniejszy....Qdop=   3.00   [l/s]
+Zakres pracy pomp /maksymalna sprawnosc/
+Q1=  2.0 [l/s]    Q2=  4.0 [l/s]
