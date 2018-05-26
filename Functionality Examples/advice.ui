@@ -67,7 +67,7 @@
         <child>
           <object class="ttk.Entry" id="Entry_3">
             <property name="textvariable">double:entry_3</property>
-            <bind add="" handler="lambda event: self.Show_advice(event, 'Entry_3')" sequence="&lt;Enter&gt;" />
+            <bind add="" handler="lambda Test_func: self.Show_advice(event, 'Entry_3')" sequence="&lt;Enter&gt;" />
             <layout>
               <property name="column">0</property>
               <property name="propagate">True</property>

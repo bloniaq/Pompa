@@ -29,7 +29,8 @@ class Myapp:
         builder.connect_callbacks(self)
 
         callbacks = {
-            'Advice_for_Entry_1': self.Advice_for_Entry_1
+            'Advice_for_Entry_1': self.Advice_for_Entry_1,
+            'Test_func': self.Test_func
         }
 
         builder.connect_callbacks(callbacks)
@@ -62,6 +63,9 @@ class Myapp:
                 break
         advice_variable.set(suitable_advice)
         print('Advice for ' + i.obj + ' is showed')
+
+    def Test_func(self):
+        print("test_func")
 
     def Advice_for_Entry_1(self, event):
         advice_variable = self.builder.get_variable('advice_text')
