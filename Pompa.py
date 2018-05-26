@@ -199,6 +199,9 @@ class Application():
     def calculate(self):
         print('uruchomiono przeliczanie')
 
+    def walidacja(self):
+        print('uruchomiono walidację')
+
     def quit(self):
         self.mainwindow.quit()
 
@@ -208,6 +211,7 @@ class Application():
             print('otwarto plik ' + str(file))
             # rozpoznaj plik
             first_line = file.readline()
+            # rozpoznanie wersji zapisu
             if first_line[0] == '1' and first_line[1] == ')':
                 print('plik danych generowany wersją 1.0 aplikacji')
                 file.seek(0)
@@ -242,6 +246,7 @@ class Application():
                                 eval(i.command)
                             break
                 print('\n\n\n')
+                walidacja()
             # tutaj wstawic elif i warunek na nowa wersje
 
     def zapisz_dane(self):
