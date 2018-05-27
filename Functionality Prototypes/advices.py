@@ -10,12 +10,15 @@ import pygubu
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '../'))
 
+alternative_var_list = []
 
 class Variables():
     def __init__(self, value, obj_id, adv_content):
         self.value = value
         self.obj_id = obj_id
         self.adv_content = adv_content
+        alternative_var_list.append(self)
+
 
 
 class Myapp:
@@ -29,8 +32,7 @@ class Myapp:
         builder.connect_callbacks(self)
 
         callbacks = {
-            'Advice_for_Entry_1': self.Advice_for_Entry_1,
-            'Test_func': self.Test_func
+            'Advice_for_Entry_1': self.Advice_for_Entry_1
         }
 
         builder.connect_callbacks(callbacks)
@@ -55,17 +57,22 @@ class Myapp:
 
         self.variables_list = [variable_1, variable_2, variable_3]
 
-    def Show_advice(self, event, widget_id):
-        advice_variable = self.builder.get_variable('advice_text')
-        for i in self.variables_list:
-            if widget_id == i.obj_id:
-                suitable_advice = i.adv_content
-                break
-        advice_variable.set(suitable_advice)
-        print('Advice for ' + i.obj + ' is showed')
+        print(alternative_var_list)
 
-    def Test_func(self):
-        print("test_func")
+        for x in alternative_var_list:
+            print(x.obj_id)
+
+        for v in self.variables_list:
+            widget = builder.get_object(v.obj_id)
+            print(v.obj_id + ' rozpoznano obiekt')
+            widget.bind('<Enter>', lambda e, advice=v.adv_content: self.Show_advice(e, advice))
+            print('wpisano mu treść podpowiedzi')
+            print(' ')
+
+    def Show_advice(self, event, advice):
+        advice_variable = self.builder.get_variable('advice_text')
+        advice_variable.set(advice)
+        print('Advice is showed')
 
     def Advice_for_Entry_1(self, event):
         advice_variable = self.builder.get_variable('advice_text')
