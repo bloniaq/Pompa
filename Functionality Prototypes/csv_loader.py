@@ -19,8 +19,9 @@ with open('var_data.csv', 'r', newline='\n') as file:
         expression = i[0] + ' = Variables(\"' + i[0] + '\", \"' + i[1] + '\", \"' + i[2] + '\", ' + i[3] + ')'
         print(expression)
         exec(expression)
-        append_to_list_expr = 'variables_list.append(' + i[0] + ')'
-        eval(append_to_list_expr)
+        variables_list.append(expression)
+        # append_to_list_expr = 'variables_list.append(' + i[0] + ')'
+        # eval(append_to_list_expr)
     print(headers)
     print(variables_list)
     print(ksztalt.value)
