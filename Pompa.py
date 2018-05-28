@@ -2,23 +2,31 @@ try:
     import tkinter as tk  # for python 3
 except:
     import Tkinter as tk  # for python
-import pygubu
+import pygubu, csv
+
+
+variables_list = []
+
 
 class Variables():
-    def __init__(self, value, declaration, dan_id, dan_dict, is_matter,
-        conditions, relatives, description, command=None):
+    def __init__(self, name, value, data_type, is_correct, valid_list, dan_id,
+                 dan_dict, is_active, advice):
+        self.name = name
         self.value = value
-        self.declaration = declaration
+        self.data_type = data_type
+        self.is_correct = is_correct
+        self.valid_list = valid_list
         self.dan_id = dan_id
         self.dan_dict = dan_dict
-        self.is_matter = is_matter
-        self.conditions = conditions
-        self.command = command
-        self.relatives = relatives
-        self.description = description
+        self.is_active = is_active
+        self.advice = advice
 
-    def __name__(self):
-        return self
+    def __repr__(self):
+        return self.name
+
+    def validate(self):
+        print('validation of ' + self.name)
+        return True
 
 
 class Application():
@@ -34,115 +42,30 @@ class Application():
         self.mainwindow = builder.get_object('Toplevel_Main')
         self.filepath = builder.get_object('filepath')
 
-        # lista zmiennych
-        # struktura zmiennej:
-        #   nazwa = [
-        #       wartość,
-        #       wskaźnik na wybór użytkownika,
-        #       'id w pliku DAN',
-        #       {wart z DAN: wart w aplikacji},
-        #       czy brany pod uwage,
-        #       [lista walidacyjna],
-        #       [lista obietkóœ powiązanych],
-        #       'treść wskazówki'
-        #       ],
-        #tryb_pracy = ['0',
-        #        self.builder.get_variable('tryb_pracy'),
-        #        '1',
-        #        {'0': 'minimalizacja', '1': 'sprawdzenie', '2':
-        #            'optymalizacja'},
-        #        True,
-        #        ['type(var) is string', 'var == \'minimalizacja\' or var == \'optymalizacja\' or var == \'spradzenie\''],
-        #        ['Frame_Tryb'],
-        #        'treść wskazówki']
-        #ksztalt = [
-        #       'kolo',
-        #       self.builder.get_variable('ksztalt'),
-        #       '2',
-        #       {'0': 'prostokat', '1': 'kolo'},
-        #       True,
-        #       ['type(var) is string', 'var == \'prostokat\'', 'var ==\'kolo\''],
-        #       ['Label_Ksztalt'],
-        #       'treść wskazówki'
-        #       ]
-        #uklad_pompowni = [
-        #       'optymalny',
-        #       self.builder.get_variable('uklad_pompowni'),
-        #       '3',
-        #       {'0': 'jednorzedowy', '1': 'optymalny'},
-        #       True,
-        #       ['type(var) is string', 'var == \'jednorzedowy\'', 'var == \'optymalny\''],
-        #       ['Label_Uklad_pomp'],
-        #       'treść wskazówki'
-        #       ]
-
-        #variables = [
-        #    tryb_pracy,
-        #    ksztalt,
-        #    uklad_pompowni,
-        #    ]
-
-        self.ksztalt = ksztalt = Variables('kolo', self.builder.get_variable('ksztalt'),
-            '2', {'0': 'prostokat', '1': 'kolo'}, True, ['type(var) is string', 'var == \'prostokat\'', 'var ==\'kolo\''], ['Label_Ksztalt'], 'treść wskazówki', 'self.ksztalt_wymiary()')
-
-        self.uklad_pompowni = uklad_pompowni = Variables('optymalny',
-               self.builder.get_variable('uklad_pompowni'),
-               '3',
-               {'0': 'jednorzedowy', '1': 'optymalny'},
-               True,
-               ['type(var) is string', 'var == \'jednorzedowy\'', 'var == \'optymalny\''],
-               ['Label_Uklad_pomp'],
-               'treść wskazówki')
-
-        self.tryb_pracy = tryb_pracy = Variables('0',
-                self.builder.get_variable('tryb_pracy'),
-                '1',
-                {'0': 'minimalizacja', '1': 'sprawdzenie', '2':
-                    'optymalizacja'},
-                True,
-                ['type(var) is string', 'var == \'minimalizacja\' or var == \'optymalizacja\' or var == \'spradzenie\''],
-                ['Frame_Tryb'],
-                'treść wskazówki', 'self.zmien_tryb()')
-        self.liczba_pomp_rez = liczba_pomp_rez = Variables('optymalna',
-                self.builder.get_variable('liczba_pomp_rez'),
-                '4',
-                {'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'},
-                True,
-                ['type(var) is string'],
-                ['Label_Wariant_rezerwa'],
-                'treść wskazówki'
-                )
-        self.minimalna_wys = minimalna_wys = Variables(0.0,
-                self.builder.get_variable('minimalna_wys'),
-                '9',
-                {},
-                True,
-                ['type(var) is double'],
-                ['Label_Minimalna_wys'],
-                'treść wskazówki'
-                )
-
-        self.rzedna_terenu = rzedna_terenu = Variables(0.0,
-                self.builder.get_variable('rzedna_terenu'),
-                '10',
-                {},
-                True,
-                ['type(var) is double'],
-                ['Label_Rzedna_terenu'],
-                'treść wskazówki'
-                )
-
-        self.rzedna_wylotu = rzedna_wylotu = Variables(0.0,
-                self.builder.get_variable('rzedna_wylotu'),
-                '11',
-                {},
-                True,
-                ['type(var) is double'],
-                ['Label_Rzedna_wylotu'],
-                'treść wskazówki'
-                )
-
-        self.variables = variables = [ksztalt, uklad_pompowni, tryb_pracy, liczba_pomp_rez, minimalna_wys, rzedna_terenu, rzedna_wylotu]
+        # 4: Loading variables form a csv file
+        with open('var_data.csv', 'r', newline='\n') as file:
+            reader = csv.reader(file, delimiter=',')
+            headers = reader.__next__()
+            print(headers)
+            for row in reader:
+                print(row[-1])
+                expression = 'self.' + row[0] + ' = ' + row[0] + \
+                    ' = Variables(\"' + \
+                    row[0] + '\", ' + \
+                    row[1] + ', \"' + \
+                    row[2] + '\", ' + \
+                    row[3] + ', ' +\
+                    row[4] + ', ' +\
+                    row[5] + ', ' +\
+                    row[6] + ', ' +\
+                    row[7] + ', \"' + \
+                    row[8] + '\")'
+                print(expression)
+                exec(expression)
+                append_to_list_expr = 'variables_list.append(self.' + \
+                    row[0] + ')'
+                eval(append_to_list_expr)
+            print(headers)
 
         builder.connect_callbacks(self)
 
@@ -224,7 +147,6 @@ class Application():
                     for i in self.variables:
                         print('czy to ta zmienna o id ' + i.dan_id)
                         if id_line == i.dan_id:
-                            # print('znalazłem zmienna ktorej moge cos przypsiac')
                             # print('wartosc przed przyspianiem: ' + i.value)
                             print('i value przed zmiana ' + str(type(i.value)))
                             if isinstance(i.value, str):
@@ -232,11 +154,8 @@ class Application():
                             else:
                                 i.value = eval(stored_value)
                             print('i value po zmianie ' + str(type(i.value)))
-                            # print('i value = ' + i.value + ' <- to przypisano')
-                            # print('stored value = ' + stored_value + ' <- z tego') 
                             for j in i.dan_dict:
                                 # print('czy to ten klucz: ' + j)
-                                # print('miałby taka wartość: ' + i.dan_dict[j])
                                 if i.value == j or i.value is j:
                                     # print('znalazłem klucz')
                                     i.value = i.dan_dict[j]
@@ -246,7 +165,6 @@ class Application():
                                 eval(i.command)
                             break
                 print('\n\n\n')
-                walidacja()
             # tutaj wstawic elif i warunek na nowa wersje
 
     def zapisz_dane(self):
