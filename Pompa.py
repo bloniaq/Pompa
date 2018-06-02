@@ -9,8 +9,10 @@ variables_list = []
 
 
 class Variables():
-    def __init__(self, name, value, data_type, is_correct, valid_list, dan_id,
-                 dan_dict, is_active, advice):
+    def __init__(
+        self, name, value, data_type, is_correct, valid_list, dan_id,
+            dan_dict, func_to_adjust, func_list, is_active, obj_to_advice,
+            advice):
         self.name = name
         self.value = value
         self.data_type = data_type
@@ -18,7 +20,10 @@ class Variables():
         self.valid_list = valid_list
         self.dan_id = dan_id
         self.dan_dict = dan_dict
+        self.func_to_adjust = func_to_adjust
+        self.func_list = func_list
         self.is_active = is_active
+        self.obj_to_advice = obj_to_advice
         self.advice = advice
 
     def __repr__(self):
@@ -27,6 +32,14 @@ class Variables():
     def validate(self):
         print('validation of ' + self.name)
         return True
+
+    def set_value(self, app_class):
+        gui_variable = app_class.builder.get_variable(self.name)
+        gui_variable.set(self.value)
+
+    def run_func_list(self, app_class):
+        for func in self.func_list:
+            exec('app_class.' + func)
 
 
 class Application():
@@ -42,31 +55,7 @@ class Application():
         self.mainwindow = builder.get_object('Toplevel_Main')
         self.filepath = builder.get_object('filepath')
 
-        # 4: Loading variables form a csv file
-        with open('var_data.csv', 'r', newline='\n') as file:
-            reader = csv.reader(file, delimiter=',')
-            headers = reader.__next__()
-            print(headers)
-            for row in reader:
-                print(row[-1])
-                expression = 'self.' + row[0] + ' = ' + row[0] + \
-                    ' = Variables(\"' + \
-                    row[0] + '\", ' + \
-                    row[1] + ', \"' + \
-                    row[2] + '\", ' + \
-                    row[3] + ', ' +\
-                    row[4] + ', ' +\
-                    row[5] + ', ' +\
-                    row[6] + ', ' +\
-                    row[7] + ', \"' + \
-                    row[8] + '\")'
-                print(expression)
-                exec(expression)
-                append_to_list_expr = 'variables_list.append(self.' + \
-                    row[0] + ')'
-                eval(append_to_list_expr)
-            print(headers)
-
+        # 4: Setting callbacks
         builder.connect_callbacks(self)
 
         callbacks = {
@@ -80,6 +69,48 @@ class Application():
         }
 
         builder.connect_callbacks(callbacks)
+
+        # 5: Loading variables form a csv file
+        with open('variables.csv', 'r', newline='\n') as file:
+            reader = csv.DictReader(file, delimiter=';')
+            for i in reader:
+                print('name : ' + i['name'])
+                print('value : ' + i['value'])
+                print('type i.value : ' + str(type(i['value'])))
+                if not i['data_type'] == 'string':
+                    print('eval value : ' + str(eval(i['value'])))
+                    print('type eval value : ' + str(type(eval(i['value']))))
+                    value = i['value']
+                else:
+                    value = '\"' + i['value'] + '\"'
+                print('\n')
+                expression = 'self.' + i['name'] + ' = Variables(\"' + \
+                    i['name'] + '\", ' + \
+                    value + ', \"' + \
+                    i['data_type'] + '\", ' + \
+                    i['is_correct'] + ', ' +\
+                    i['valid_list'] + ', ' +\
+                    i['dan_id'] + ', ' +\
+                    i['dan_dict'] + ', \"' +\
+                    i['func_to_adjust'] + '\", ' +\
+                    i['func_list'] + ', ' +\
+                    i['is_active'] + ', ' +\
+                    i['obj_to_advice'] + ', \"' +\
+                    i['advice'] + '\")'
+                print(expression)
+                exec(expression)
+                append_to_list_expr = 'variables_list.append(self.' + \
+                    i['name'] + ')'
+                eval(append_to_list_expr)
+            print(variables_list)
+            print(self.ksztalt.value)
+            print(self.tryb_pracy.value)
+            print(str(type(self.tryb_pracy.value)))
+
+        # 6: Setting default values in application
+        for i in variables_list:
+            i.set_value(self)
+            i.run_func_list(self)
 
     def zmien_tryb(self):
         mode = self.builder.tkvariables.__getitem__('tryb_pracy').get()

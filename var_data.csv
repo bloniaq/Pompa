@@ -1,7 +1,0 @@
-name,value,data_type,is_correct,valid_list,dan_id,dan_dict,is_active,advice
-tryb_pracy,‘sprawdzenie’,string,True,[],1,'{‘0’:,‘minimalizacja’,,‘1’:,‘sprawdzenie’,,‘2’:,‘optymalizacja’}',True,'''treść wskazówki’'
-ksztalt,‘kolo’,string,True,[],2,'{‘0’:,‘prostokat’,,‘1’:,‘kolo’}',True,'''treść wskazówki’'
-uklad_pompowni,‘optymalny’,string,True,[],3,'{‘0’:,‘jednorzedowy’,,‘1’:,‘optymalny’}',True,'''treść wskazówki’'
-liczba_pomp_rez,‘optymalna’,string,True,[],4,'{‘1’:,‘minimalna’,,‘2’:,‘optymalna’,,‘3’:,‘bezpieczna’}',True,'''treść wskazówki’'
-obrys_pompy,0.0,double,True,[],5,{},True,'''treść wskazówki’'
-dlugosc_pompowni,1.15,double,True,[],6,{},True,'''treść wskazówki’'

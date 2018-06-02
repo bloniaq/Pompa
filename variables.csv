@@ -1,0 +1,10 @@
+name;value;data_type;is_correct;valid_list;dan_id;dan_dict;func_to_adjust;func_list;is_active;obj_to_advice;advice
+tryb_pracy;sprawdzenie;string;True;"['type(var) is string', ""var == 'minimalizacja' or var == 'optymalizacja' or var == 'spradzenie'""]";1;{'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'};nazwa funkcji adjust;['zmien_tryb()'];True;['Frame_Tryb'];treść wskazówki
+ksztalt;kolo;string;True;"[""var = 'kolo'"", ""var = 'prostokat'""]";2;{'0': 'prostokat', '1': 'kolo'};nazwa funkcji adjust;['ksztalt_wymiary()'];True;['lista', 'obiektów advice'];treść porady dla wyboru ksztaltu pompowni
+uklad_pompowni;optymalny;string;True;"[""var = 'jednorzedowy'"", ""var = 'optymalny'""]";3;{'0': 'jednorzedowy', '1': 'optymalny'};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla wyboru układu pompowni
+liczba_pomp_rez;optymalna;string;True;"[""isinstance(var, string)"", ""var == 'optymalna' or var == 'minimalna' or var == 'bezpieczna'""]";4;{'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla pomp rezerwowych
+obrys_pompy;0.0;double;False;"[""var > 0.0""]";5;{};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla obrysu pompy
+dlugosc_pompowni;0.0;double;False;"[""var > 0.0""]";6;{};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla długości pompowni
+szer_pompowni;0.0;double;False;"[""var > 0.0""]";7;{};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla szerokości pompowni
+srednica_pompowni;0.0;double;False;"[""var > 0.0""]";8;{};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla szerokości pompowni
+minimalna_wys;0.0;double;False;['type(var) is double'];9;{};nazwa funkcji adjust;[];True;['Label_Minimalna_wys'];treść wskazówki
