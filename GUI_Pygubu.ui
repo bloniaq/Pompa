@@ -190,7 +190,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                     </child>
                     <child>
                       <object class="tk.Radiobutton" id="Radio_Ksztalt_kolo">
-                        <property name="command">ksztalt_wymiary</property>
+                        <property name="command">change_shape</property>
                         <property name="text" translatable="yes">Przekrój kołowy</property>
                         <property name="value">kolo</property>
                         <property name="variable">string:ksztalt</property>
@@ -203,7 +203,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                     </child>
                     <child>
                       <object class="tk.Radiobutton" id="Radio_Ksztalt_prostok">
-                        <property name="command">ksztalt_wymiary</property>
+                        <property name="command">change_shape</property>
                         <property name="text" translatable="yes">Przekrój prostokątny</property>
                         <property name="value">prostokat</property>
                         <property name="variable">string:ksztalt</property>
@@ -485,7 +485,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       <object class="ttk.Label" id="Label_Minimalna_wys">
                         <property name="text" translatable="yes">Minimalna wysokość ścieków w pompowni liczona od dna [m]</property>
                         <property name="wraplength">350</property>
-                        <bind add="" handler="callback" sequence="&lt;Enter&gt;" />
+                        <bind add="" handler="walidacja" sequence="&lt;Enter&gt;" />
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
@@ -545,7 +545,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">5</property>
+                          <property name="row">6</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -556,7 +556,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">6</property>
+                          <property name="row">7</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -567,7 +567,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">7</property>
+                          <property name="row">8</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -578,7 +578,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">8</property>
+                          <property name="row">9</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -589,7 +589,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">9</property>
+                          <property name="row">10</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -601,7 +601,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">10</property>
+                          <property name="row">11</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -612,7 +612,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">11</property>
+                          <property name="row">12</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -679,7 +679,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">1</property>
                           <property name="propagate">True</property>
-                          <property name="row">11</property>
+                          <property name="row">12</property>
                         </layout>
                       </object>
                     </child>
@@ -689,7 +689,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">3</property>
                           <property name="propagate">True</property>
-                          <property name="row">11</property>
+                          <property name="row">12</property>
                         </layout>
                       </object>
                     </child>
@@ -771,7 +771,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="propagate">True</property>
-                          <property name="row">5</property>
+                          <property name="row">6</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -785,7 +785,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="propagate">True</property>
-                          <property name="row">6</property>
+                          <property name="row">7</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -799,7 +799,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="propagate">True</property>
-                          <property name="row">7</property>
+                          <property name="row">8</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -813,7 +813,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="propagate">True</property>
-                          <property name="row">8</property>
+                          <property name="row">9</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -822,12 +822,12 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       <object class="ttk.Entry" id="Entry_Chrop_przewodu_tl">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:chrop+przewodu_tl</property>
+                        <property name="textvariable">double:chrop_przewodu_tl</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="propagate">True</property>
-                          <property name="row">9</property>
+                          <property name="row">10</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -842,7 +842,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           <property name="column">2</property>
                           <property name="columnspan">3</property>
                           <property name="propagate">True</property>
-                          <property name="row">10</property>
+                          <property name="row">11</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -856,7 +856,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="propagate">True</property>
-                          <property name="row">11</property>
+                          <property name="row">12</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -870,7 +870,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">4</property>
                           <property name="propagate">True</property>
-                          <property name="row">11</property>
+                          <property name="row">12</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -941,6 +941,31 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           <property name="columnspan">3</property>
                           <property name="propagate">True</property>
                           <property name="row">17</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Roznica_wlot_start">
+                        <property name="text" translatable="yes">Różnica między rzędną wlotu, a rzędna włączenia pompy [m]</property>
+                        <property name="wraplength">350</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">5</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Roznica_wlot_start">
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:roznica_wlot_start</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">5</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -3063,7 +3088,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             </layout>
             <child>
               <object class="tk.Radiobutton" id="Radio_Tryb_sprawdzenie">
-                <property name="command">zmien_tryb</property>
+                <property name="command">change_mode</property>
                 <property name="text" translatable="yes">     Sprawdzenie istniejącej pompowni</property>
                 <property name="value">sprawdzenie</property>
                 <property name="variable">string:tryb_pracy</property>
@@ -3078,7 +3103,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             </child>
             <child>
               <object class="tk.Radiobutton" id="Radio_Tryb_minimalizacja">
-                <property name="command">zmien_tryb</property>
+                <property name="command">change_mode</property>
                 <property name="text" translatable="yes">     Minimalizacja nakładów inwestycyjnych</property>
                 <property name="value">minimalizacja</property>
                 <property name="variable">string:tryb_pracy</property>
@@ -3093,7 +3118,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             </child>
             <child>
               <object class="tk.Radiobutton" id="Radio_Tryb_optymalizacja">
-                <property name="command">zmien_tryb</property>
+                <property name="command">change_mode</property>
                 <property name="text" translatable="yes">     Optymalizacja nakładów inwestycyjnych
      i kosztów eksploatacyjnych</property>
                 <property name="value">optymalizacja</property>

@@ -58,10 +58,9 @@ class Application():
         # 4: Setting callbacks
         builder.connect_callbacks(self)
 
+        '''
         callbacks = {
-            'zmien_tryb': self.zmien_tryb,
             'uwzgledniaj_zwg': self.uwzgledniaj_zwg,
-            'ksztalt_wymiary': self.ksztalt_wymiary,
             'calculate': self.calculate,
             'wczytaj_dane': self.wczytaj_dane,
             'zapisz_dane': self.zapisz_dane,
@@ -69,21 +68,22 @@ class Application():
         }
 
         builder.connect_callbacks(callbacks)
+        '''
 
         # 5: Loading variables form a csv file
         with open('variables.csv', 'r', newline='\n') as file:
             reader = csv.DictReader(file, delimiter=';')
             for i in reader:
-                print('name : ' + i['name'])
-                print('value : ' + i['value'])
-                print('type i.value : ' + str(type(i['value'])))
+                # print('name : ' + i['name'])
+                # print('value : ' + i['value'])
+                # print('type i.value : ' + str(type(i['value'])))
                 if not i['data_type'] == 'string':
-                    print('eval value : ' + str(eval(i['value'])))
-                    print('type eval value : ' + str(type(eval(i['value']))))
+                    # print('eval value : ' + str(eval(i['value'])))
+                    # print('type eval value : ' + str(type(eval(i['value']))))
                     value = i['value']
                 else:
                     value = '\"' + i['value'] + '\"'
-                print('\n')
+                # print('\n')
                 expression = 'self.' + i['name'] + ' = Variables(\"' + \
                     i['name'] + '\", ' + \
                     value + ', \"' + \
@@ -97,26 +97,27 @@ class Application():
                     i['is_active'] + ', ' +\
                     i['obj_to_advice'] + ', \"' +\
                     i['advice'] + '\")'
-                print(expression)
+                # print(expression)
                 exec(expression)
                 append_to_list_expr = 'variables_list.append(self.' + \
                     i['name'] + ')'
                 eval(append_to_list_expr)
-            print(variables_list)
-            print(self.ksztalt.value)
-            print(self.tryb_pracy.value)
-            print(str(type(self.tryb_pracy.value)))
+            # print(variables_list)
+            # print(self.ksztalt.value)
+            # print(self.tryb_pracy.value)
+            # print(str(type(self.tryb_pracy.value)))
 
         # 6: Setting default values in application
         for i in variables_list:
             i.set_value(self)
             i.run_func_list(self)
 
-    def zmien_tryb(self):
+    def change_mode(self):
+        ''' changes application mode
+        '''
         mode = self.builder.tkvariables.__getitem__('tryb_pracy').get()
         nbook = self.builder.get_object('Notebook_Dane')
         if mode == 'sprawdzenie':
-            print('wykonuje ' + mode)
             nbook.tab(3, state='disabled')
             nbook.tab(4, state='disabled')
         elif mode == 'minimalizacja':
@@ -125,7 +126,7 @@ class Application():
         elif mode == 'optymalizacja':
             nbook.tab(3, state='normal')
             nbook.tab(4, state='normal')
-        print('wykonano zmien_tryb')
+        print('changed mode:', mode)
 
     def uwzgledniaj_zwg(self):
         mode_zwg = self.builder.tkvariables.__getitem__('count_zwg').get()
@@ -135,7 +136,7 @@ class Application():
         else:
             entry_zwg.configure(state='disabled')
 
-    def ksztalt_wymiary(self):
+    def change_shape(self):
         current_ksztalt = self.builder.tkvariables.__getitem__('ksztalt').get()
         en_sr_pom = self.builder.get_object('Entry_Średnica_pompowni')
         en_dl_pom = self.builder.get_object('Entry_Dlugosc_pompowni')
@@ -148,7 +149,7 @@ class Application():
             en_sr_pom.configure(state='disabled')
             en_dl_pom.configure(state='normal')
             en_sz_pom.configure(state='normal')
-        print('wykonano ksztalt_wymiary')
+        print('setting shape:', current_ksztalt)
 
     def calculate(self):
         print('uruchomiono przeliczanie')
@@ -191,7 +192,7 @@ class Application():
                                     # print('znalazłem klucz')
                                     i.value = i.dan_dict[j]
                             i.declaration.set(i.value)
-                            if i.command != None:
+                            if i.command is not None:
                                 print('oho, bedzie funkcja moze ' + i.command)
                                 eval(i.command)
                             break
