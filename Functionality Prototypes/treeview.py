@@ -4,34 +4,39 @@ except:
     import Tkinter as tk  # for python
 import pygubu, os
 
+
 class Myapp:
     def __init__(self):
         self.builder = builder = pygubu.Builder()
-        fpath = os.path.join(os.path.dirname(__file__),"treeview.ui")
+        fpath = os.path.join(os.path.dirname(__file__), "treeview.ui")
         builder.add_from_file(fpath)
         self.pump_characteristic = {}
 
         self.mainwindow = builder.get_object('Toplevel_1')
-        self.tree = tree = builder.get_object('Treeview')
+        self.tree = builder.get_object('Treeview')
+
+        # setting first column #0 width
+        self.tree.heading('#0', text='id')
+        self.tree.column('#0', minwidth=20, width=40, stretch=False)
 
         builder.connect_callbacks(self)
-
 
     def run(self):
         self.mainwindow.mainloop()
 
     def add_point(self, xcoord, ycoord):
         print('uruchomiono funkcję add_point')
-        itemid = self.tree.insert('', tk.END, text='Punkt', values=(xcoord, ycoord))
+        itemid = self.tree.insert('', tk.END, text='Punkt',
+                                  values=(xcoord, ycoord))
         self.pump_characteristic[itemid] = (eval(xcoord), eval(ycoord))
         print(self.pump_characteristic)
         self.sort_points()
 
     def sort_points(self):
         print('uruchomiono funkcję sort_points')
-        col = self.builder.get_object('Column_x')
         print('odnaleziono obiekt kolumny')
-        xnumbers = [(self.tree.set(i, 'Column_x'), i) for i in self.tree.get_children('')]
+        xnumbers = [(self.tree.set(i, 'Column_x'), i)
+                    for i in self.tree.get_children('')]
         print('utworzono listę elementów')
         print(xnumbers)
         xnumbers.sort(key=lambda t: float(t[0]))
