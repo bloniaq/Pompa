@@ -62,7 +62,7 @@
         </child>
         <child>
           <object class="ttk.Button" id="Button_add">
-            <property name="command">add_point</property>
+            <property name="command">get_coords</property>
             <property name="compound">top</property>
             <property name="cursor">arrow</property>
             <property name="takefocus">false</property>
