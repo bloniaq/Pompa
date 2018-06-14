@@ -54,6 +54,8 @@ class Application():
         # 3: Create the widget using a master as parent
         self.mainwindow = builder.get_object('Toplevel_Main')
         self.filepath = builder.get_object('filepath')
+        self.tree = builder.get_object('Treeview_Pump')
+        self.pump_characteristic = {}
 
         # 4: Setting callbacks
         builder.connect_callbacks(self)
@@ -112,6 +114,9 @@ class Application():
             i.set_value(self)
             i.run_func_list(self)
 
+    def validate_floats(self):
+        print('zwalidowano - floats')
+
     def change_mode(self):
         ''' changes application mode
         '''
@@ -150,6 +155,49 @@ class Application():
             en_dl_pom.configure(state='normal')
             en_sz_pom.configure(state='normal')
         print('setting shape:', current_ksztalt)
+
+    def pump_add_point(self, qcoord, hcoord):
+        print('uruchomiono funkcję add_point')
+        itemid = self.tree.insert('', tk.END, text='Punkt',
+                                  values=('1', float(qcoord.replace(',', '.')),
+                                  float(hcoord.replace(',', '.'))))
+        self.pump_characteristic[itemid] = (qcoord, hcoord)
+        print(self.pump_characteristic)
+        self.pump_sort_points()
+
+    def pump_sort_points(self):
+        print('uruchomiono funkcję sort_points')
+        print('odnaleziono obiekt kolumny')
+        xnumbers = [(self.tree.set(i, 'Column_q'), i)
+                    for i in self.tree.get_children('')]
+        print('utworzono listę elementów')
+        print(xnumbers)
+        xnumbers.sort(key=lambda t: float(t[0]))
+
+        for index, (val, i) in enumerate(xnumbers):
+            self.tree.move(i, '', index)
+            self.tree.set(i, 'Column_nr', value=str(index + 1))
+
+    def pump_get_coords(self):
+        print('')
+        print('uruchomiono funkcję get_coords')
+        entry_q = self.builder.get_object('Entry_Wsp_q')
+        val_q = entry_q.get()
+        entry_q.delete(0, 'end')
+        entry_h = self.builder.get_object('Entry_Wsp_h')
+        val_h = entry_h.get()
+        entry_h.delete(0, 'end')
+        self.pump_add_point(val_q, val_h)
+
+    def pump_delete_point(self):
+        print('')
+        print('uruchomiono funkcję delete_point')
+        deleted_id = self.tree.focus()
+        if deleted_id != '':
+            self.tree.delete(deleted_id)
+            del self.pump_characteristic[deleted_id]
+        print(self.pump_characteristic)
+        self.pump_sort_points()
 
     def calculate(self):
         print('uruchomiono przeliczanie')
