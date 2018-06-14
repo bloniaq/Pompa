@@ -26,4 +26,4 @@ liczba_kol;0;int;False;"[""var > 0""]";41;{};nazwa funkcji adjust;[];True;[];tre
 dl_kolektora;0.0;double;False;"[""var > 0.0""]";42;{};nazwa funkcji adjust;[];True;[];treść porady dla długość kolektora
 sr_kolektora;0.0;double;False;"[""var > 0.0""]";43;{};nazwa funkcji adjust;[];True;[];treść porady dla średnicy kolektora
 chrop_kolektora;0.0;double;False;"[""var > 0.0""]";44;{};nazwa funkcji adjust;[];True;[];treść porady dla chropowatości kolektora
-opory_kolektora;;string;True;[];46;{};nazwa funkcji adjust;[];True;[];treść porady dla oporów miejscowych kolektora
+opory_kolektora;[];list;True;[];46;{};nazwa funkcji adjust;[];True;[];treść porady dla oporów miejscowych kolektora

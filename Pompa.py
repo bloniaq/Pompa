@@ -56,6 +56,7 @@ class Application():
         self.filepath = builder.get_object('filepath')
         self.tree = builder.get_object('Treeview_Pump')
         self.pump_characteristic = {}
+        self.punkty_pompy = {}
 
         # 4: Setting callbacks
         builder.connect_callbacks(self)
@@ -142,25 +143,25 @@ class Application():
             entry_zwg.configure(state='disabled')
 
     def change_shape(self):
-        current_ksztalt = self.builder.tkvariables.__getitem__('ksztalt').get()
+        current_shape = self.builder.tkvariables.__getitem__('ksztalt').get()
         en_sr_pom = self.builder.get_object('Entry_Średnica_pompowni')
         en_dl_pom = self.builder.get_object('Entry_Dlugosc_pompowni')
         en_sz_pom = self.builder.get_object('Entry_Szerokosc_pompowni')
-        if current_ksztalt == 'kolo':
+        if current_shape == 'kolo':
             en_sr_pom.configure(state='normal')
             en_dl_pom.configure(state='disabled')
             en_sz_pom.configure(state='disabled')
-        elif current_ksztalt == 'prostokat':
+        elif current_shape == 'prostokat':
             en_sr_pom.configure(state='disabled')
             en_dl_pom.configure(state='normal')
             en_sz_pom.configure(state='normal')
-        print('setting shape:', current_ksztalt)
+        print('setting shape:', current_shape)
 
     def pump_add_point(self, qcoord, hcoord):
-        print('uruchomiono funkcję add_point')
+        print('pump_add_point BEGUN')
         itemid = self.tree.insert('', tk.END, text='Punkt',
                                   values=('1', float(qcoord.replace(',', '.')),
-                                  float(hcoord.replace(',', '.'))))
+                                          float(hcoord.replace(',', '.'))))
         self.pump_characteristic[itemid] = (qcoord, hcoord)
         print(self.pump_characteristic)
         self.pump_sort_points()
@@ -198,6 +199,8 @@ class Application():
             del self.pump_characteristic[deleted_id]
         print(self.pump_characteristic)
         self.pump_sort_points()
+
+    # def pump_flow_unit_conversion(self):
 
     def calculate(self):
         print('uruchomiono przeliczanie')
