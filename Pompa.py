@@ -87,20 +87,13 @@ class Application():
                 else:
                     value = '\"' + i['value'] + '\"'
                 # print('\n')
-                expression = 'self.' + i['name'] + ' = Variables(\"' + \
-                    i['name'] + '\", ' + \
-                    value + ', \"' + \
-                    i['data_type'] + '\", ' + \
-                    i['is_correct'] + ', ' +\
-                    i['valid_list'] + ', ' +\
-                    i['dan_id'] + ', ' +\
-                    i['dan_dict'] + ', \"' +\
-                    i['func_to_adjust'] + '\", ' +\
-                    i['func_list'] + ', ' +\
-                    i['is_active'] + ', ' +\
-                    i['obj_to_advice'] + ', \"' +\
-                    i['advice'] + '\")'
-                # print(expression)
+                expression = 'self.{0} = Variables(\"{0}\", {1}, \"{2}\", {3},\
+                    {4}, {5}, {6}, \"{7}\", {8}, {9}, {10}, \"{11}\")'\
+                    .format(i['name'], value, i['data_type'], i['is_correct'],
+                            i['valid_list'], i['dan_id'], i['dan_dict'],
+                            i['func_to_adjust'], i['func_list'],
+                            i['is_active'], i['obj_to_advice'], i['advice'])
+                print(expression)
                 exec(expression)
                 append_to_list_expr = 'variables_list.append(self.' + \
                     i['name'] + ')'
