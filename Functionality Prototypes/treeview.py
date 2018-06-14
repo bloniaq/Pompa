@@ -17,7 +17,7 @@ class Myapp:
 
         # setting first column #0 width
         self.tree.heading('#0', text='id')
-        self.tree.column('#0', minwidth=20, width=40, stretch=False)
+        self.tree.column('#0', minwidth=0, width=0, stretch=False)
 
         builder.connect_callbacks(self)
 
@@ -26,8 +26,10 @@ class Myapp:
 
     def add_point(self, xcoord, ycoord):
         print('uruchomiono funkcję add_point')
+
+        # point_number_string = 'P{}'.format(str(point_number))
         itemid = self.tree.insert('', tk.END, text='Punkt',
-                                  values=(xcoord, ycoord))
+                                  values=('1', xcoord, ycoord))
         self.pump_characteristic[itemid] = (eval(xcoord), eval(ycoord))
         print(self.pump_characteristic)
         self.sort_points()
@@ -43,6 +45,7 @@ class Myapp:
 
         for index, (val, i) in enumerate(xnumbers):
             self.tree.move(i, '', index)
+            self.tree.set(i, 'Column_nr', value=str(index + 1))
 
     def get_coords(self):
         print('')
