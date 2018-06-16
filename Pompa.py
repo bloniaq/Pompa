@@ -108,101 +108,7 @@ class Application():
             i.set_value(self)
             i.run_func_list(self)
 
-    def validate_floats(self):
-        print('zwalidowano - floats')
-
-    def change_mode(self):
-        ''' changes application mode
-        '''
-        mode = self.builder.tkvariables.__getitem__('tryb_pracy').get()
-        nbook = self.builder.get_object('Notebook_Dane')
-        if mode == 'sprawdzenie':
-            nbook.tab(3, state='disabled')
-            nbook.tab(4, state='disabled')
-        elif mode == 'minimalizacja':
-            nbook.tab(3, state='normal')
-            nbook.tab(4, state='disabled')
-        elif mode == 'optymalizacja':
-            nbook.tab(3, state='normal')
-            nbook.tab(4, state='normal')
-        print('changed mode:', mode)
-
-    def uwzgledniaj_zwg(self):
-        mode_zwg = self.builder.tkvariables.__getitem__('count_zwg').get()
-        entry_zwg = self.builder.get_object('Entry_Woda_gruntowa')
-        if mode_zwg:
-            entry_zwg.configure(state='normal')
-        else:
-            entry_zwg.configure(state='disabled')
-
-    def change_shape(self):
-        current_shape = self.builder.tkvariables.__getitem__('ksztalt').get()
-        en_sr_pom = self.builder.get_object('Entry_Średnica_pompowni')
-        en_dl_pom = self.builder.get_object('Entry_Dlugosc_pompowni')
-        en_sz_pom = self.builder.get_object('Entry_Szerokosc_pompowni')
-        if current_shape == 'kolo':
-            en_sr_pom.configure(state='normal')
-            en_dl_pom.configure(state='disabled')
-            en_sz_pom.configure(state='disabled')
-        elif current_shape == 'prostokat':
-            en_sr_pom.configure(state='disabled')
-            en_dl_pom.configure(state='normal')
-            en_sz_pom.configure(state='normal')
-        print('setting shape:', current_shape)
-
-    def pump_add_point(self, qcoord, hcoord):
-        print('pump_add_point BEGUN')
-        itemid = self.tree.insert('', tk.END, text='Punkt',
-                                  values=('1', float(qcoord.replace(',', '.')),
-                                          float(hcoord.replace(',', '.'))))
-        self.pump_characteristic[itemid] = (qcoord, hcoord)
-        print(self.pump_characteristic)
-        self.pump_sort_points()
-
-    def pump_sort_points(self):
-        print('uruchomiono funkcję sort_points')
-        print('odnaleziono obiekt kolumny')
-        xnumbers = [(self.tree.set(i, 'Column_q'), i)
-                    for i in self.tree.get_children('')]
-        print('utworzono listę elementów')
-        print(xnumbers)
-        xnumbers.sort(key=lambda t: float(t[0]))
-
-        for index, (val, i) in enumerate(xnumbers):
-            self.tree.move(i, '', index)
-            self.tree.set(i, 'Column_nr', value=str(index + 1))
-
-    def pump_get_coords(self):
-        print('')
-        print('uruchomiono funkcję get_coords')
-        entry_q = self.builder.get_object('Entry_Wsp_q')
-        val_q = entry_q.get()
-        entry_q.delete(0, 'end')
-        entry_h = self.builder.get_object('Entry_Wsp_h')
-        val_h = entry_h.get()
-        entry_h.delete(0, 'end')
-        self.pump_add_point(val_q, val_h)
-
-    def pump_delete_point(self):
-        print('')
-        print('uruchomiono funkcję delete_point')
-        deleted_id = self.tree.focus()
-        if deleted_id != '':
-            self.tree.delete(deleted_id)
-            del self.pump_characteristic[deleted_id]
-        print(self.pump_characteristic)
-        self.pump_sort_points()
-
-    # def pump_flow_unit_conversion(self):
-
-    def calculate(self):
-        print('uruchomiono przeliczanie')
-
-    def walidacja(self):
-        print('uruchomiono walidację')
-
-    def quit(self):
-        self.mainwindow.quit()
+    # DATA MANAGEMENT FUNCTIONS
 
     def wczytaj_dane(self, event=None):
         path = self.filepath.cget('path')
@@ -246,11 +152,117 @@ class Application():
     def zapisz_dane(self):
         print('zapisz dane')
 
+    # INTERNAL FUNCTIONS
+
+    def change_mode(self):
+        ''' changes application mode
+        '''
+        mode = self.builder.tkvariables.__getitem__('tryb_pracy').get()
+        nbook = self.builder.get_object('Notebook_Dane')
+        if mode == 'sprawdzenie':
+            nbook.tab(3, state='disabled')
+            nbook.tab(4, state='disabled')
+        elif mode == 'minimalizacja':
+            nbook.tab(3, state='normal')
+            nbook.tab(4, state='disabled')
+        elif mode == 'optymalizacja':
+            nbook.tab(3, state='normal')
+            nbook.tab(4, state='normal')
+        print('changed mode:', mode)
+
+    def uwzgledniaj_zwg(self):
+        mode_zwg = self.builder.tkvariables.__getitem__('count_zwg').get()
+        entry_zwg = self.builder.get_object('Entry_Woda_gruntowa')
+        if mode_zwg:
+            entry_zwg.configure(state='normal')
+        else:
+            entry_zwg.configure(state='disabled')
+
+    def change_shape(self):
+        current_shape = self.builder.tkvariables.__getitem__('ksztalt').get()
+        en_sr_pom = self.builder.get_object('Entry_Średnica_pompowni')
+        en_dl_pom = self.builder.get_object('Entry_Dlugosc_pompowni')
+        en_sz_pom = self.builder.get_object('Entry_Szerokosc_pompowni')
+        if current_shape == 'kolo':
+            en_sr_pom.configure(state='normal')
+            en_dl_pom.configure(state='disabled')
+            en_sz_pom.configure(state='disabled')
+        elif current_shape == 'prostokat':
+            en_sr_pom.configure(state='disabled')
+            en_dl_pom.configure(state='normal')
+            en_sz_pom.configure(state='normal')
+        print('setting shape:', current_shape)
+
+        # TREEVIEW MANAGEMENT
+
+    def pump_get_coords(self):
+        print('')
+        print('uruchomiono funkcję get_coords')
+        entry_q = self.builder.get_object('Entry_Wsp_q')
+        val_q = entry_q.get()
+        entry_q.delete(0, 'end')
+        entry_h = self.builder.get_object('Entry_Wsp_h')
+        val_h = entry_h.get()
+        entry_h.delete(0, 'end')
+        self.pump_add_point(val_q, val_h)
+
+    def pump_add_point(self, qcoord, hcoord):
+        print('pump_add_point BEGUN')
+        itemid = self.tree.insert('', tk.END, text='Punkt',
+                                  values=('1', float(qcoord.replace(',', '.')),
+                                          float(hcoord.replace(',', '.'))))
+        self.pump_characteristic[itemid] = (qcoord, hcoord)
+        print(self.pump_characteristic)
+        self.pump_sort_points()
+
+    def pump_sort_points(self):
+        print('uruchomiono funkcję sort_points')
+        print('odnaleziono obiekt kolumny')
+        xnumbers = [(self.tree.set(i, 'Column_q'), i)
+                    for i in self.tree.get_children('')]
+        print('utworzono listę elementów')
+        print(xnumbers)
+        xnumbers.sort(key=lambda t: float(t[0]))
+
+        for index, (val, i) in enumerate(xnumbers):
+            self.tree.move(i, '', index)
+            self.tree.set(i, 'Column_nr', value=str(index + 1))
+
+    def pump_delete_point(self):
+        print('')
+        print('uruchomiono funkcję delete_point')
+        deleted_id = self.tree.focus()
+        if deleted_id != '':
+            self.tree.delete(deleted_id)
+            del self.pump_characteristic[deleted_id]
+        print(self.pump_characteristic)
+        self.pump_sort_points()
+
+    # def pump_flow_unit_conversion(self):
+
+    # VALIDATION FUNCTIONS
+
+    def validate_all(self):
+        print('uruchomiono walidację')
+
+    def validate_floats(self):
+        print('zwalidowano - floats')
+
+    # CALCULATE FUNCTION
+
+    def calculate(self):
+        print('uruchomiono przeliczanie')
+
+    # ABOUT PROGRAM FUNCTION
+
     def info(self):
         print('info')
         print('wartosc to ' + str(self.ksztalt.__name__))
         for i in self.variables:
             print(i.value + i.description)
+
+    def quit(self):
+        self.mainwindow.quit()
 
     def run(self):
         self.mainwindow.mainloop()
