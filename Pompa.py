@@ -10,21 +10,24 @@ variables_list = []
 
 class Variables():
     def __init__(
-        self, name, value, data_type, is_correct, valid_list, dan_id,
-            dan_dict, func_to_adjust, func_list, is_active, obj_to_advice,
-            advice):
+        self, name, value, data_type, is_repr, unit, is_active,
+            controlvar_func, controlvar, load_func, load_func_args, dan_id,
+            is_correct, valid_func, valid_func_args, adv_widgets, adv_content):
         self.name = name
         self.value = value
         self.data_type = data_type
-        self.is_correct = is_correct
-        self.valid_list = valid_list
-        self.dan_id = dan_id
-        self.dan_dict = dan_dict
-        self.func_to_adjust = func_to_adjust
-        self.func_list = func_list
+        self.is_repr = is_repr
+        self.unit = unit
         self.is_active = is_active
-        self.obj_to_advice = obj_to_advice
-        self.advice = advice
+        self.controlvar_func = controlvar_func
+        self.controlvar = controlvar
+        self.load_func = load_func
+        self.load_func_args = load_func_args
+        self.is_correct = is_correct
+        self.valid_func = valid_func
+        self.valid_func_args = valid_func_args
+        self.adv_widgets = adv_widgets
+        self.adv_content = adv_content
 
     def __repr__(self):
         return self.name
@@ -35,10 +38,11 @@ class Variables():
 
     def set_value(self, app_class):
         gui_variable = app_class.builder.get_variable(self.name)
+        # RUN FUNC value -> variable
         gui_variable.set(self.value)
 
     def run_func_list(self, app_class):
-        for func in self.func_list:
+        for func in self.controlvar_func:
             exec('app_class.' + func)
 
 
@@ -87,12 +91,45 @@ class Application():
                 else:
                     value = '\"' + i['value'] + '\"'
                 # print('\n')
+                '''
                 expression = 'self.{0} = Variables(\"{0}\", {1}, \"{2}\", {3},\
-                    {4}, {5}, {6}, \"{7}\", {8}, {9}, {10}, \"{11}\")'\
-                    .format(i['name'], value, i['data_type'], i['is_correct'],
-                            i['valid_list'], i['dan_id'], i['dan_dict'],
-                            i['func_to_adjust'], i['func_list'],
-                            i['is_active'], i['obj_to_advice'], i['advice'])
+                {4}, {5}, \"{6}\", \"{7}\", \"{8}\", \"{9}\", {10}, {11}, \
+                \"{12}\", {13}, {14}, \"{15}\"\
+                '''
+                expression = 'self.{0} = Variables(\
+\"{0}\", \
+{1}, \
+\"{2}\", \
+{3}, \
+{4}, \
+{5}, \
+\"{6}\", \
+\"{7}\", \
+\"{8}\", \
+\"{9}\", \
+{10}, \
+{11}, \
+\"{12}\", \
+{13}, \
+{14}, \
+\"{15}\"\
+)'.format(
+                    i['name'],                      # 0
+                    value,                          # 1
+                    i['data_type'],                 # 2
+                    i['is_repr'],                   # 3
+                    i['unit'],                      # 4
+                    i['is_active'],                 # 5
+                    i['controlvar_func'],           # 6
+                    i['controlvar'],                # 7
+                    i['load_func'],                 # 8
+                    i['load_func_args'],            # 9
+                    i['dan_id'],                    # 10
+                    i['is_correct'],                # 11
+                    i['valid_func'],                # 12
+                    i['valid_func_args'],           # 13
+                    i['adv_widgets'],               # 14
+                    i['adv_content'])               # 15
                 print(expression)
                 exec(expression)
                 append_to_list_expr = 'variables_list.append(self.' + \
@@ -104,9 +141,12 @@ class Application():
             # print(str(type(self.tryb_pracy.value)))
 
         # 6: Setting default values in application
+        '''
         for i in variables_list:
-            i.set_value(self)
-            i.run_func_list(self)
+            if i.is_repr:
+                i.set_value(self)
+                i.run_func_list(self)
+        '''
 
     # DATA MANAGEMENT FUNCTIONS
 

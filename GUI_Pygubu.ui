@@ -2137,7 +2137,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Średnica_pompowni">
+                      <object class="ttk.Entry" id="Entry_Srednica_pompowni">
                         <property name="exportselection">true</property>
                         <property name="justify">right</property>
                         <property name="textvariable">double:srednica_pompowni</property>

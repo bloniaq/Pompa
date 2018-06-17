@@ -1,29 +1,33 @@
-name;value;data_type;is_correct;valid_list;dan_id;dan_dict;func_to_adjust;func_list;is_active;obj_to_advice;advice
-tryb_pracy;sprawdzenie;string;True;"[""isinstance(var, string)"", ""var == 'minimalizacja' or var == 'optymalizacja' or var == 'sprawdzenie'""]";1;{'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'};nazwa funkcji adjust;['change_mode()'];True;['Frame_Tryb'];treść wskazówki
-ksztalt;kolo;string;True;"[""var = 'kolo'"", ""var = 'prostokat'""]";2;{'0': 'prostokat', '1': 'kolo'};nazwa funkcji adjust;['change_shape()'];True;['lista', 'obiektów advice'];treść porady dla wyboru ksztaltu pompowni
-uklad_pompowni;optymalny;string;True;"[""var = 'jednorzedowy'"", ""var = 'optymalny'""]";3;{'0': 'jednorzedowy', '1': 'optymalny'};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla wyboru układu pompowni
-liczba_pomp_rez;optymalna;string;True;"[""isinstance(var, string)"", ""var == 'optymalna' or var == 'minimalna' or var == 'bezpieczna'""]";4;{'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla pomp rezerwowych
-obrys_pompy;0.0;double;False;"[""var > 0.0""]";5;{};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla obrysu pompy
-dlugosc_pompowni;0.0;double;False;"[""var > 0.0""]";6;{};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla długości pompowni
-szer_pompowni;0.0;double;False;"[""var > 0.0""]";7;{};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla szerokości pompowni
-srednica_pompowni;0.0;double;False;"[""var > 0.0"", ""var >= obrys_pompy.value""]";8;{};nazwa funkcji adjust;[];True;['lista', 'obiektów advice'];treść porady dla szerokości pompowni
-minimalna_wys;0.0;double;False;"[""var > 0.0""]";9;{};nazwa funkcji adjust;[];True;['Label_Minimalna_wys'];treść wskazówki
-rzedna_terenu;0.0;double;True;"[""var > rzedna_dna.value"", ""var > rzedna_doplywu.value"", ""var > rzedna_wylotu.value""]";10;{};nazwa funkcji adjust;[];True;['Label_Rzedna_terenu', 'Entry_Rzedna_terenu'];treść porady dla rzędnej terenu
-rzedna_wylotu;0.0;double;True;"[""var < rzedna_terenu.value"", ""var > rzedna_dna.value""]";11;{};nazwa funkcji adjust;[];True;['Label_Rzedna_wylotu', 'Entry_Rzedna_wylotu'];treść porady dla rzędnej wylotu
-rzedna_doplywu;0.0;double;True;"[""var < rzedna_terenu.value"", ""var > rzedna_dna.value""]";12;{};nazwa funkcji adjust;[];True;['Label_Rzedna_doplywu', 'Entry_Rzedna_doplywu'];treść porady dla rzędnej dopływu
-rzedna_dna;0.0;double;True;"[""var < rzedna_doplywu.value"", ""var < rzedna_wylotu.value"", ""var < rzedna_terenu.value""]";13;{};nazwa funkcji adjust;[];True;['Label_Rzedna_dna', 'Entry_Rzedna_dna'];treść porady dla rzędnej dna
-roznica_wlot_start;0.0;double;False;"[""var > 0.0""]";14;{};nazwa funkcji adjust;[];False;[];treść porady dla różnicy wlotu i startu
-rzedna_najwpunkt;0.0;double;True;"[""var > rzedna_wylotu.value""]";15;{};nazwa funkcji adjust;[];True;[];treść porady dla rzednej najwyższego punktu na trasie
-rzedna_zwgorne;0.0;double;True;[];16;{};nazwa funkcji adjust;[];True;[];treść porady dla zwierciadło w zbiorniku górnym
-dl_przewodu_tl;0.0;double;False;"[""var > 0.0""]";28;{};nazwa funkcji adjust;[];True;[];treść porady dla długości przewodu tłocznego w pompowni
-sred_przewodu_tl;0.0;double;False;"[""var > 0.0""]";29;{};nazwa funkcji adjust;[];True;[];treść porady dla średnicy przewodu tłocznego w pompowni
-chrop_przewodu_tl;0.0;double;False;"[""var > 0.0""]";30;{};nazwa funkcji adjust;[];True;[];treść porady dla chropowatości przewodu tłocznego w pompowni
-opory_przewodu_tl;;string;True;[];32;{};nazwa funkcji adjust;[];True;[];treść porady dla oporów miejscowych przewodu
-doplyw_min;0.0;double;False;"[""var > 0.0"", ""var <= doplyw_max.value""]";33;{};nazwa funkcji adjust;[];True;[];Treść porady dla dopływu minimalnego
-doplyw_max;0.0;double;False;"[""var > 0.0"", ""var >= doplyw_min.value""]";34;{};nazwa funkcji adjust;[];True;[];treść porady dla dopływu maksymalnego
-czas_cyklu;0.0;double;False;"[""var > 0.0""]";35;{};nazwa funkcji adjust;[];True;[];treść porady dla czasu cyklu
-liczba_kol;0;int;False;"[""var > 0""]";41;{};nazwa funkcji adjust;[];True;[];treść porady dla liczby kolektorów
-dl_kolektora;0.0;double;False;"[""var > 0.0""]";42;{};nazwa funkcji adjust;[];True;[];treść porady dla długość kolektora
-sr_kolektora;0.0;double;False;"[""var > 0.0""]";43;{};nazwa funkcji adjust;[];True;[];treść porady dla średnicy kolektora
-chrop_kolektora;0.0;double;False;"[""var > 0.0""]";44;{};nazwa funkcji adjust;[];True;[];treść porady dla chropowatości kolektora
-opory_kolektora;[];list;True;[];46;{};nazwa funkcji adjust;[];True;[];treść porady dla oporów miejscowych kolektora
+name;value;data_type;is_repr;unit;is_active;controlvar_func;controlvar;load_func;load_func_args;dan_id;is_correct;valid_func;valid_func_args;adv_widgets;adv_content
+tryb_pracy;sprawdzenie;string;True;0;True;change_mode;tryb_pracy;use_dict;{'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'};1;True;0;"[""isinstance(var, string)"", ""var == 'minimalizacja' or var == 'optymalizacja' or var == 'sprawdzenie'""]";['Frame_Tryb'];treść wskazówki
+ksztalt;kolo;string;True;0;True;change_shape;ksztalt;use_dict;{'0': 'prostokat', '1': 'kolo'};2;True;;"[""var = 'kolo'"", ""var = 'prostokat'""]";['lista', 'obiektów advice'];treść porady dla wyboru ksztaltu pompowni
+uklad_pompowni;optymalny;string;True;0;True;;uklad_pompowni;use_dict;{'0': 'jednorzedowy', '1': 'optymalny'};3;True;;"[""var = 'jednorzedowy'"", ""var = 'optymalny'""]";['lista', 'obiektów advice'];treść porady dla wyboru układu pompowni
+liczba_pomp_rez;optymalna;string;True;0;True;;liczba_pomp_rez;use_dict;{'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'};4;True;;"[""isinstance(var, string)"", ""var == 'optymalna' or var == 'minimalna' or var == 'bezpieczna'""]";['lista', 'obiektów advice'];treść porady dla pomp rezerwowych
+obrys_pompy;0.0;double;True;1;True;;;rewrite;;5;False;;"[""var > 0.0""]";['lista', 'obiektów advice'];treść porady dla obrysu pompy
+dlugosc_pompowni;0.0;double;True;1;True;;dlugosc_pompowni;rewrite;;6;False;;"[""var > 0.0""]";['lista', 'obiektów advice'];treść porady dla długości pompowni
+szer_pompowni;0.0;double;True;1;True;;szer_pompowni;rewrite;;7;False;;"[""var > 0.0""]";['lista', 'obiektów advice'];treść porady dla szerokości pompowni
+srednica_pompowni;0.0;double;True;1;True;;srednica_pompowni;rewrite;;8;False;;"[""var > 0.0"", ""var >= obrys_pompy.value""]";['lista', 'obiektów advice'];treść porady dla szerokości pompowni
+minimalna_wys;0.0;double;True;1;True;;minimalna_wys;rewrite;;9;False;;"[""var > 0.0""]";['Label_Minimalna_wys'];treść wskazówki
+rzedna_terenu;0.0;double;True;1;True;;rzedna_terenu;rewrite;;10;True;;"[""var > rzedna_dna.value"", ""var > rzedna_doplywu.value"", ""var > rzedna_wylotu.value""]";['Label_Rzedna_terenu', 'Entry_Rzedna_terenu'];treść porady dla rzędnej terenu
+rzedna_wylotu;0.0;double;True;1;True;;;rewrite;;11;True;;"[""var < rzedna_terenu.value"", ""var > rzedna_dna.value""]";['Label_Rzedna_wylotu', 'Entry_Rzedna_wylotu'];treść porady dla rzędnej wylotu
+rzedna_doplywu;0.0;double;True;1;True;;;rewrite;;12;True;;"[""var < rzedna_terenu.value"", ""var > rzedna_dna.value""]";['Label_Rzedna_doplywu', 'Entry_Rzedna_doplywu'];treść porady dla rzędnej dopływu
+rzedna_dna;0.0;double;True;1;True;;;rewrite;;13;True;;"[""var < rzedna_doplywu.value"", ""var < rzedna_wylotu.value"", ""var < rzedna_terenu.value""]";['Label_Rzedna_dna', 'Entry_Rzedna_dna'];treść porady dla rzędnej dna
+roznica_wlot_start;0.0;double;True;1;False;;;rewrite;;14;False;;"[""var > 0.0""]";[];treść porady dla różnicy wlotu i startu
+rzedna_najwpunkt;0.0;double;True;1;True;;;rewrite;;15;True;;"[""var > rzedna_wylotu.value""]";[];treść porady dla rzednej najwyższego punktu na trasie
+rzedna_zwgorne;0.0;double;True;1;True;;;rewrite;;16;True;;[];[];treść porady dla zwierciadło w zbiorniku górnym
+dl_przewodu_tl;0.0;double;True;1;True;;;rewrite;;28;False;;"[""var > 0.0""]";[];treść porady dla długości przewodu tłocznego w pompowni
+sred_przewodu_tl;0.0;double;True;1;True;;;rewrite;;29;False;;"[""var > 0.0""]";[];treść porady dla średnicy przewodu tłocznego w pompowni
+chrop_przewodu_tl;0.0;double;True;1;True;;;rewrite;;30;False;;"[""var > 0.0""]";[];treść porady dla chropowatości przewodu tłocznego w pompowni
+opory_przewodu_tl;[];string;True;1;True;;;handle_loc_res;;32;True;;[];[];treść porady dla oporów miejscowych przewodu
+doplyw_min;0.0;double;True;1;True;;;rewrite;;33;False;;"[""var > 0.0"", ""var <= doplyw_max.value""]";[];Treść porady dla dopływu minimalnego
+doplyw_max;0.0;double;True;1;True;;;rewrite;;34;False;;"[""var > 0.0"", ""var >= doplyw_min.value""]";[];treść porady dla dopływu maksymalnego
+czas_cyklu;0.0;double;True;1;True;;;rewrite;;35;False;;"[""var > 0.0""]";[];treść porady dla czasu cyklu
+liczba_p_char;0;int;False;1;True;;;;;36;False;;;;
+char_pompy;{};dict;False;1;True;;;handle_pump_char;;37;False;;;;
+wydajnosc_od;0.0;double;True;1;True;;wydajnosc_od;rewrite;;39;False;;;;
+wydajnosc_do;0.0;double;True;1;True;;wydajnosc_do;rewrite;;40;False;;;;
+liczba_kol;0;int;True;1;True;;;rewrite;;41;False;;"[""var > 0""]";[];treść porady dla liczby kolektorów
+dl_kolektora;0.0;double;True;1;True;;;rewrite;;42;False;;"[""var > 0.0""]";[];treść porady dla długość kolektora
+sr_kolektora;0.0;double;True;1;True;;;rewrite;;43;False;;"[""var > 0.0""]";[];treść porady dla średnicy kolektora
+chrop_kolektora;0.0;double;True;1;True;;;rewrite;;44;False;;"[""var > 0.0""]";[];treść porady dla chropowatości kolektora
+opory_kolektora;[];list;True;1;True;;;handle_loc_res;;46;True;;[];[];treść porady dla oporów miejscowych kolektora
