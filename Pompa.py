@@ -9,8 +9,10 @@ variables_list = []
 
 
 class Variables():
+    _items = {}
+
     def __init__(
-        self, name, value, data_type, is_repr, unit, is_active, outcome_func, 
+        self, name, value, data_type, is_repr, unit, is_active, outcome_func,
             val_to_cvar, controlvar, load_func, load_func_args, dan_id,
             cvar_to_val, is_correct, valid_func, valid_func_args, adv_widgets,
             adv_content):
@@ -41,13 +43,10 @@ class Variables():
         return True
 
     def set_value(self, app_class):
-        gui_variable = app_class.builder.get_variable(self.name)
-        # RUN FUNC value -> variable
-        gui_variable.set(self.value)
+        exec('app_class.' + self.val_to_cvar + '(self)')
 
-    def run_func_list(self, app_class):
-        for func in self.controlvar_func:
-            exec('app_class.' + func)
+    def run_outcome_func(self, app_class):
+        exec('app_class.' + self.outcome_func + '()')
 
 
 class Application():
@@ -64,7 +63,6 @@ class Application():
         self.filepath = builder.get_object('filepath')
         self.tree = builder.get_object('Treeview_Pump')
         self.pump_characteristic = {}
-        self.punkty_pompy = {}
 
         # 4: Setting callbacks
         builder.connect_callbacks(self)
@@ -149,12 +147,29 @@ class Application():
             # print(str(type(self.tryb_pracy.value)))
 
         # 6: Setting default values in application
-        '''
         for i in variables_list:
-            if i.is_repr:
+            if i.val_to_cvar != "":
                 i.set_value(self)
-                i.run_func_list(self)
-        '''
+            if i.outcome_func != "":
+                i.run_outcome_func(self)
+
+    # VAL TO CVAR FUNCTIONS
+
+    def rewrite_to_cvar(self, variable):
+        gui_variable = self.builder.get_variable(variable.controlvar)
+        print(variable, type(variable.value))
+        gui_variable.set(variable.value)
+
+    def res_to_cvar(self, variable):
+        gui_variable = self.builder.get_variable(variable.controlvar)
+        res_string = ""
+        for i in variable.value:
+            print(i)
+            res_string += str(i) + ', '
+        res_string = res_string[:-2]
+        print(res_string)
+        print(variable, "res string", type(res_string))
+        gui_variable.set(res_string)
 
     # DATA MANAGEMENT FUNCTIONS
 
@@ -174,8 +189,8 @@ class Application():
                     line_datas_list = line_datas.split()
                     stored_value = line_datas_list[0]
                     print(id_line + ') ' + stored_value)
-                    for i in self.variables:
-                        print('czy to ta zmienna o id ' + i.dan_id)
+                    for i in variables_list:
+                        print('czy to ta zmienna o id ' + str(i.dan_id))
                         if id_line == i.dan_id:
                             # print('wartosc przed przyspianiem: ' + i.value)
                             print('i value przed zmiana ' + str(type(i.value)))
@@ -199,6 +214,13 @@ class Application():
 
     def zapisz_dane(self):
         print('zapisz dane')
+
+    # LOAD FUNCTIONS
+
+    def handle_pump_char(self, variable):
+        loaded_dict = {}
+        for i in loaded_dict:
+            self.pump_add_point(variable.value[i][0], variable.value[i][1])
 
     # INTERNAL FUNCTIONS
 
@@ -228,7 +250,7 @@ class Application():
 
     def change_shape(self):
         current_shape = self.builder.tkvariables.__getitem__('ksztalt').get()
-        en_sr_pom = self.builder.get_object('Entry_Średnica_pompowni')
+        en_sr_pom = self.builder.get_object('Entry_Srednica_pompowni')
         en_dl_pom = self.builder.get_object('Entry_Dlugosc_pompowni')
         en_sz_pom = self.builder.get_object('Entry_Szerokosc_pompowni')
         if current_shape == 'kolo':
@@ -256,11 +278,13 @@ class Application():
 
     def pump_add_point(self, qcoord, hcoord):
         print('pump_add_point BEGUN')
+        qcoord = str(qcoord)
+        hcoord = str(hcoord)
         itemid = self.tree.insert('', tk.END, text='Punkt',
                                   values=('1', float(qcoord.replace(',', '.')),
                                           float(hcoord.replace(',', '.'))))
-        self.pump_characteristic[itemid] = (qcoord, hcoord)
-        print(self.pump_characteristic)
+        self.char_pompy.value[itemid] = (qcoord, hcoord)
+        print(self.char_pompy.value)
         self.pump_sort_points()
 
     def pump_sort_points(self):
@@ -282,8 +306,8 @@ class Application():
         deleted_id = self.tree.focus()
         if deleted_id != '':
             self.tree.delete(deleted_id)
-            del self.pump_characteristic[deleted_id]
-        print(self.pump_characteristic)
+            del self.char_pompy.value[deleted_id]
+        print(self.char_pompy.value)
         self.pump_sort_points()
 
     # def pump_flow_unit_conversion(self):
