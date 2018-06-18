@@ -10,19 +10,23 @@ variables_list = []
 
 class Variables():
     def __init__(
-        self, name, value, data_type, is_repr, unit, is_active,
-            controlvar_func, controlvar, load_func, load_func_args, dan_id,
-            is_correct, valid_func, valid_func_args, adv_widgets, adv_content):
+        self, name, value, data_type, is_repr, unit, is_active, outcome_func, 
+            val_to_cvar, controlvar, load_func, load_func_args, dan_id,
+            cvar_to_val, is_correct, valid_func, valid_func_args, adv_widgets,
+            adv_content):
         self.name = name
         self.value = value
         self.data_type = data_type
         self.is_repr = is_repr
         self.unit = unit
         self.is_active = is_active
-        self.controlvar_func = controlvar_func
+        self.outcome_func = outcome_func
+        self.val_to_cvar = val_to_cvar
         self.controlvar = controlvar
         self.load_func = load_func
         self.load_func_args = load_func_args
+        self.dan_id = dan_id
+        self.cvar_to_val = cvar_to_val
         self.is_correct = is_correct
         self.valid_func = valid_func
         self.valid_func_args = valid_func_args
@@ -107,12 +111,14 @@ class Application():
 \"{7}\", \
 \"{8}\", \
 \"{9}\", \
-{10}, \
+\"{10}\", \
 {11}, \
 \"{12}\", \
 {13}, \
-{14}, \
-\"{15}\"\
+\"{14}\", \
+{15}, \
+{16}, \
+\"{17}\"\
 )'.format(
                     i['name'],                      # 0
                     value,                          # 1
@@ -120,16 +126,18 @@ class Application():
                     i['is_repr'],                   # 3
                     i['unit'],                      # 4
                     i['is_active'],                 # 5
-                    i['controlvar_func'],           # 6
-                    i['controlvar'],                # 7
-                    i['load_func'],                 # 8
-                    i['load_func_args'],            # 9
-                    i['dan_id'],                    # 10
-                    i['is_correct'],                # 11
-                    i['valid_func'],                # 12
-                    i['valid_func_args'],           # 13
-                    i['adv_widgets'],               # 14
-                    i['adv_content'])               # 15
+                    i['outcome_func'],              # 6
+                    i['val_to_cvar'],               # 7
+                    i['controlvar'],                # 8
+                    i['load_func'],                 # 9
+                    i['load_func_args'],            # 10
+                    i['dan_id'],                    # 11
+                    i['cvar_to_val'],               # 12
+                    i['is_correct'],                # 13
+                    i['valid_func'],                # 14
+                    i['valid_func_args'],           # 15
+                    i['adv_widgets'],               # 16
+                    i['adv_content'])               # 17
                 print(expression)
                 exec(expression)
                 append_to_list_expr = 'variables_list.append(self.' + \
