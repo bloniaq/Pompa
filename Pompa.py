@@ -2,10 +2,37 @@ try:
     import tkinter as tk  # for python 3
 except:
     import Tkinter as tk  # for python
-import pygubu, csv
+import pygubu, csv, logging
 
 
 variables_list = []
+
+# LOGGING CONFIGURATION
+
+# clearing root logger handlers
+log = logging.getLogger()
+log.handlers = []
+
+# setting new logger
+log = logging.getLogger('Pompa/main')
+log.setLevel(logging.DEBUG)
+
+# create console and file handler
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+fh = logging.FileHandler('logfile.log', 'w')
+fh.setLevel(logging.DEBUG)
+
+# create formatter
+formatter = logging.Formatter('%(asctime)s-%(levelname)s: %(message)s', datefmt='%Y.%m.%d %H:%M:%S')
+
+# add formatter to ch and fh
+ch.setFormatter(formatter)
+fh.setFormatter(formatter)
+
+# add ch to logger
+log.addHandler(ch)
+log.addHandler(fh)
 
 
 class Variables():
@@ -39,7 +66,7 @@ class Variables():
         return self.name
 
     def validate(self):
-        print('validation of ' + self.name)
+        log.info('validation of {0}'.format(self.name))
         return True
 
     def set_value(self, app_class):
@@ -136,15 +163,12 @@ class Application():
                     i['valid_func_args'],           # 15
                     i['adv_widgets'],               # 16
                     i['adv_content'])               # 17
-                print(expression)
+                log.debug('\n{0}\n\n'.format(expression))
                 exec(expression)
                 append_to_list_expr = 'variables_list.append(self.' + \
                     i['name'] + ')'
                 eval(append_to_list_expr)
-            # print(variables_list)
-            # print(self.ksztalt.value)
-            # print(self.tryb_pracy.value)
-            # print(str(type(self.tryb_pracy.value)))
+            log.info('\n{0}\n\n'.format(variables_list))
 
         # 6: Setting default values in application
         for i in variables_list:
@@ -157,18 +181,19 @@ class Application():
 
     def rewrite_to_cvar(self, variable):
         gui_variable = self.builder.get_variable(variable.controlvar)
-        print(variable, type(variable.value))
+        log.debug('\n\n{0}, {1}'.format(variable, type(variable.value)))
         gui_variable.set(variable.value)
 
     def res_to_cvar(self, variable):
         gui_variable = self.builder.get_variable(variable.controlvar)
         res_string = ""
+        log.debug('\n\n')
         for i in variable.value:
-            print(i)
+            log.debug(i)
             res_string += str(i) + ', '
         res_string = res_string[:-2]
-        print(res_string)
-        print(variable, "res string", type(res_string))
+        log.debug('\nres string : {0}'.format(res_string))
+        log.debug('{0}, {1}'.format(variable, "res string", type(res_string)))
         gui_variable.set(res_string)
 
     # DATA MANAGEMENT FUNCTIONS
@@ -176,29 +201,29 @@ class Application():
     def wczytaj_dane(self, event=None):
         path = self.filepath.cget('path')
         with open(path, 'r+') as file:
-            print('otwarto plik ' + str(file))
+            log.info('otwarto plik ' + str(file))
             # rozpoznaj plik
             first_line = file.readline()
             # rozpoznanie wersji zapisu
             if first_line[0] == '1' and first_line[1] == ')':
-                print('plik danych generowany wersją 1.0 aplikacji')
+                log.info('plik danych generowany wersją 1.0 aplikacji')
                 file.seek(0)
-                print('\n\n\n')
+                log.info('\n\n\n')
                 for line in file:
                     id_line, line_datas = line.split(')')
                     line_datas_list = line_datas.split()
                     stored_value = line_datas_list[0]
-                    print(id_line + ') ' + stored_value)
+                    log.info(id_line + ') ' + stored_value)
                     for i in variables_list:
-                        print('czy to ta zmienna o id ' + str(i.dan_id))
+                        log.debug('czy to ta zmienna o id ' + str(i.dan_id))
                         if id_line == i.dan_id:
                             # print('wartosc przed przyspianiem: ' + i.value)
-                            print('i value przed zmiana ' + str(type(i.value)))
+                            log.info('i value przed zmiana ' + str(type(i.value)))
                             if isinstance(i.value, str):
                                 i.value = stored_value
                             else:
                                 i.value = eval(stored_value)
-                            print('i value po zmianie ' + str(type(i.value)))
+                            log.info('i value po zmianie ' + str(type(i.value)))
                             for j in i.dan_dict:
                                 # print('czy to ten klucz: ' + j)
                                 if i.value == j or i.value is j:
@@ -206,14 +231,14 @@ class Application():
                                     i.value = i.dan_dict[j]
                             i.declaration.set(i.value)
                             if i.command is not None:
-                                print('oho, bedzie funkcja moze ' + i.command)
+                                log.debug('oho, bedzie funkcja moze ' + i.command)
                                 eval(i.command)
                             break
-                print('\n\n\n')
+                log.info('\n\n\n')
             # tutaj wstawic elif i warunek na nowa wersje
 
     def zapisz_dane(self):
-        print('zapisz dane')
+        log.info('zapisz dane')
 
     # LOAD FUNCTIONS
 
@@ -238,7 +263,7 @@ class Application():
         elif mode == 'optymalizacja':
             nbook.tab(3, state='normal')
             nbook.tab(4, state='normal')
-        print('changed mode:', mode)
+        log.info('changed mode: {0}'.format(mode))
 
     def uwzgledniaj_zwg(self):
         mode_zwg = self.builder.tkvariables.__getitem__('count_zwg').get()
@@ -261,13 +286,13 @@ class Application():
             en_sr_pom.configure(state='disabled')
             en_dl_pom.configure(state='normal')
             en_sz_pom.configure(state='normal')
-        print('setting shape:', current_shape)
+        log.info('changed shape: {0}'.format(current_shape))
 
         # TREEVIEW MANAGEMENT
 
     def pump_get_coords(self):
-        print('')
-        print('uruchomiono funkcję get_coords')
+        log.info('')
+        log.info('uruchomiono funkcję get_coords')
         entry_q = self.builder.get_object('Entry_Wsp_q')
         val_q = entry_q.get()
         entry_q.delete(0, 'end')
@@ -277,23 +302,23 @@ class Application():
         self.pump_add_point(val_q, val_h)
 
     def pump_add_point(self, qcoord, hcoord):
-        print('pump_add_point BEGUN')
+        log.info('pump_add_point BEGUN')
         qcoord = str(qcoord)
         hcoord = str(hcoord)
         itemid = self.tree.insert('', tk.END, text='Punkt',
                                   values=('1', float(qcoord.replace(',', '.')),
                                           float(hcoord.replace(',', '.'))))
         self.char_pompy.value[itemid] = (qcoord, hcoord)
-        print(self.char_pompy.value)
+        log.debug(self.char_pompy.value)
         self.pump_sort_points()
 
     def pump_sort_points(self):
-        print('uruchomiono funkcję sort_points')
-        print('odnaleziono obiekt kolumny')
+        log.info('uruchomiono funkcję sort_points')
+        log.debug('odnaleziono obiekt kolumny')
         xnumbers = [(self.tree.set(i, 'Column_q'), i)
                     for i in self.tree.get_children('')]
-        print('utworzono listę elementów')
-        print(xnumbers)
+        log.debug('utworzono listę elementów')
+        log.info(xnumbers)
         xnumbers.sort(key=lambda t: float(t[0]))
 
         for index, (val, i) in enumerate(xnumbers):
@@ -301,13 +326,13 @@ class Application():
             self.tree.set(i, 'Column_nr', value=str(index + 1))
 
     def pump_delete_point(self):
-        print('')
-        print('uruchomiono funkcję delete_point')
+        log.info('')
+        log.info('uruchomiono funkcję delete_point')
         deleted_id = self.tree.focus()
         if deleted_id != '':
             self.tree.delete(deleted_id)
             del self.char_pompy.value[deleted_id]
-        print(self.char_pompy.value)
+        log.debug(self.char_pompy.value)
         self.pump_sort_points()
 
     # def pump_flow_unit_conversion(self):
@@ -315,23 +340,23 @@ class Application():
     # VALIDATION FUNCTIONS
 
     def validate_all(self):
-        print('uruchomiono walidację')
+        log.info('uruchomiono walidację')
 
     def validate_floats(self):
-        print('zwalidowano - floats')
+        log.info('zwalidowano - floats')
 
     # CALCULATE FUNCTION
 
     def calculate(self):
-        print('uruchomiono przeliczanie')
+        log.info('uruchomiono przeliczanie')
 
     # ABOUT PROGRAM FUNCTION
 
     def info(self):
-        print('info')
-        print('wartosc to ' + str(self.ksztalt.__name__))
+        log.info('info')
+        log.info('wartosc to ' + str(self.ksztalt.__name__))
         for i in self.variables:
-            print(i.value + i.description)
+            log.debug(i.value + i.description)
 
     def quit(self):
         self.mainwindow.quit()
