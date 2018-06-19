@@ -3028,7 +3028,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="Button_Wczytaj">
-            <property name="command">wczytaj_dane</property>
+            <property name="command">data_load</property>
             <property name="text" translatable="yes">Wczytaj Dane</property>
             <layout>
               <property name="column">1</property>

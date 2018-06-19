@@ -237,15 +237,58 @@ class Application():
                 log.info('\n\n\n')
             # tutaj wstawic elif i warunek na nowa wersje
 
+    def data_load(self):
+        log.info('\ndata_load started\n')
+        path = self.filepath.cget('path')
+        with open(path, 'r+') as file:
+            log.info('opening file: {0}\n\n'.format(str(file)))
+            # rozpoznaj plik
+            first_line = file.readline()
+            # rozpoznanie wersji zapisu
+            if first_line[0] == '1' and first_line[1] == ')':
+                self.dan_load(path)
+
+    def dan_load(self, path):
+        log.info('\ndan_load started\n')
+        log.info('plik danych generowany wersją 1.0 aplikacji')
+        with open(path, 'r+') as file:
+            log.info('opening file: {0}\n\n'.format(str(file)))
+            for line in file:
+                id_line, line_datas = line.split(')')
+                line_datas_list = line_datas.split()
+                stored_value = line_datas_list[0]
+                log.debug('dan_id: {0}) {1} <-readed_value'.format(
+                    id_line, stored_value))
+                log.debug('type id_line: {0}'.format(type(id_line)))
+                for i in variables_list:
+                    log.debug('sprawdzam {0}, dan_id: {1}'.format(i, i.dan_id))
+                    log.debug('type dan_id: {0}'.format(type(i.dan_id)))
+                    if eval(id_line) == i.dan_id:
+                        exec('self.{0}({2}, {1})'.format(
+                            i.load_func, i.load_func_args, i.dan_id))
+                        log.info('i.load_func {0} executed'.format(
+                            i.load_func))
+                        break
+
+    def dict_dan_to_val(self, *args):
+        log.info('\ndict_dan_to_val started\n')
+
+    def rewrite_dan_to_val(self, name, *args):
+        log.info('\nrewrite_dan_to_val started\n')
+
+    def handle_loc_res(self, name, *args):
+        log.info('\nhandle_loc_res started\n')
+
+    def handle_pump_char(self, name, *args):
+        log.info('\nrewrite_dan_to_val started\n')
+        loaded_dict = {}
+        # for i in loaded_dict:
+        #     self.pump_add_point(variable.value[i][0], variable.value[i][1])
+
     def zapisz_dane(self):
         log.info('zapisz dane')
 
     # LOAD FUNCTIONS
-
-    def handle_pump_char(self, variable):
-        loaded_dict = {}
-        for i in loaded_dict:
-            self.pump_add_point(variable.value[i][0], variable.value[i][1])
 
     # INTERNAL FUNCTIONS
 
