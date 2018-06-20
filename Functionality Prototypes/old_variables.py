@@ -26,12 +26,14 @@
                 True,
                 ['type(var) is string'],
                 ['Label_Wariant_rezerwa'],
-                'treść wskazówki')
+                'treść wskazówki',
+                True)
         self.minimalna_wys = minimalna_wys = Variables(0.0,
                 self.builder.get_variable('minimalna_wys'),
                 '9',
                 {},
                 True,
+
                 ['type(var) is double'],
                 ['Label_Minimalna_wys'],
                 'treść wskazówki')
@@ -41,6 +43,7 @@
                 '10',
                 {},
                 True,
+                
                 ['type(var) is double'],
                 ['Label_Rzedna_terenu'],
                 'treść wskazówki')

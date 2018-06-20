@@ -18,6 +18,7 @@ rzedna_zwgorne;0.0;double;True;1;True;;rewrite_to_cvar;rzedna_zwgorne;rewrite_da
 dl_przewodu_tl;0.0;double;True;1;True;;rewrite_to_cvar;dl_przewodu_tl;rewrite_dan_to_val;;28;;False;;"[""var > 0.0""]";[];treść porady dla długości przewodu tłocznego w pompowni
 sred_przewodu_tl;0.0;double;True;1;True;;rewrite_to_cvar;sred_przewodu_tl;rewrite_dan_to_val;;29;;False;;"[""var > 0.0""]";[];treść porady dla średnicy przewodu tłocznego w pompowni
 chrop_przewodu_tl;0.0;double;True;1;True;;rewrite_to_cvar;chrop_przewodu_tl;rewrite_dan_to_val;;30;;False;;"[""var > 0.0""]";[];treść porady dla chropowatości przewodu tłocznego w pompowni
+liczba_op_prz_tl;0;int;False;1;True;;;;;;31;;True;;[];[];treść porady dla chropowatości kolektora
 opory_przewodu_tl;[];list;True;1;True;;res_to_cvar;opory_przewodu_tl;handle_loc_res;;32;;True;;[];[];treść porady dla oporów miejscowych przewodu
 doplyw_min;0.0;double;True;1;True;;rewrite_to_cvar;doplyw_min;rewrite_dan_to_val;;33;;False;;"[""var > 0.0"", ""var <= doplyw_max.value""]";[];Treść porady dla dopływu minimalnego
 doplyw_max;0.0;double;True;1;True;;rewrite_to_cvar;doplyw_max;rewrite_dan_to_val;;34;;False;;"[""var > 0.0"", ""var >= doplyw_min.value""]";[];treść porady dla dopływu maksymalnego
@@ -30,4 +31,5 @@ liczba_kol;0;int;True;1;True;;rewrite_to_cvar;liczba_kol;rewrite_dan_to_val;;41;
 dl_kolektora;0.0;double;True;1;True;;rewrite_to_cvar;dl_kolektora;rewrite_dan_to_val;;42;;False;;"[""var > 0.0""]";[];treść porady dla długość kolektora
 sr_kolektora;0.0;double;True;1;True;;rewrite_to_cvar;sr_kolektora;rewrite_dan_to_val;;43;;False;;"[""var > 0.0""]";[];treść porady dla średnicy kolektora
 chrop_kolektora;0.0;double;True;1;True;;rewrite_to_cvar;chrop_kolektora;rewrite_dan_to_val;;44;;False;;"[""var > 0.0""]";[];treść porady dla chropowatości kolektora
+liczba_op_kol;0;int;False;1;True;;;;;;45;;True;;[];[];
 opory_kolektora;[];list;True;1;True;;res_to_cvar;opory_kolektora;handle_loc_res;;46;;True;;[];[];treść porady dla oporów miejscowych kolektora

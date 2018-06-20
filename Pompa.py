@@ -5,6 +5,7 @@ except:
 import pygubu, csv, logging
 
 variables_list = []
+path = ""
 
 # LOGGING CONFIGURATION
 
@@ -23,7 +24,8 @@ fh = logging.FileHandler('logfile.log', 'w')
 fh.setLevel(logging.DEBUG)
 
 # create formatter
-formatter = logging.Formatter('%(asctime)s-%(levelname)s: %(message)s', datefmt='%Y.%m.%d %H:%M:%S')
+formatter = logging.Formatter('%(asctime)s-%(levelname)s: %(message)s',
+                              datefmt='%Y.%m.%d %H:%M:%S')
 
 # add formatter to ch and fh
 ch.setFormatter(formatter)
@@ -40,17 +42,26 @@ class Variables():
         self, name, value, data_type, is_repr, unit, is_active, outcome_func,
             val_to_cvar, controlvar, load_func, load_func_args, dan_id,
             cvar_to_val, is_correct, valid_func, valid_func_args, adv_widgets,
-            adv_content):
+            adv_content, app_instance):
         self.name = name
         self.value = value
         self.data_type = data_type
         self.is_repr = is_repr
         self.unit = unit
         self.is_active = is_active
-        self.outcome_func = outcome_func
-        self.val_to_cvar = val_to_cvar
+        if outcome_func != "":
+            self.outcome_func = eval('app_instance.{}'.format(outcome_func))
+        else:
+            self.outcome_func = None
+        if val_to_cvar != "":
+            self.val_to_cvar = eval('app_instance.{}'.format(val_to_cvar))
+        else:
+            self.val_to_cvar = None
         self.controlvar = controlvar
-        self.load_func = load_func
+        if load_func != '':
+            self.load_func = eval('app_instance.{}'.format(load_func))
+        else:
+            self.load_func = None
         self.load_func_args = load_func_args
         self.dan_id = dan_id
         self.cvar_to_val = cvar_to_val
@@ -59,6 +70,7 @@ class Variables():
         self.valid_func_args = valid_func_args
         self.adv_widgets = adv_widgets
         self.adv_content = adv_content
+        self.test_attr = load_func
 
     def __repr__(self):
         return self.name
@@ -68,21 +80,13 @@ class Variables():
         return True
 
     def set_value(self, app_class):
-        exec('app_class.' + self.val_to_cvar + '(self)')
+        if self.val_to_cvar is not None:
+            self.val_to_cvar(self)
 
     def run_outcome_func(self, app_class):
-        exec('app_class.' + self.outcome_func + '()')
+        if self.outcome_func is not None:
+            self.outcome_func()
 
-    def dan_load_expression(self, app_class, loaded_value):
-        loc = {}
-        expr = 'app.{0}(app.{1}, {2}, {3})'.format(
-            self.load_func, self.name, loaded_value, self.load_func_args)
-        lines_to_skip = 0
-        log.debug('lines to skip at begin: {0}'.format(lines_to_skip))
-        exec(expr, globals(), loc)
-        lines_to_skip = loc['result']
-        log.debug('lines to skip after exec: {0}'.format(lines_to_skip))
-        return lines_to_skip
 
 class Application():
     def __init__(self):
@@ -118,21 +122,16 @@ class Application():
         with open('variables.csv', 'r', newline='\n') as file:
             reader = csv.DictReader(file, delimiter=';')
             for i in reader:
-                # print('name : ' + i['name'])
-                # print('value : ' + i['value'])
-                # print('type i.value : ' + str(type(i['value'])))
                 if not i['data_type'] == 'string':
-                    # print('eval value : ' + str(eval(i['value'])))
-                    # print('type eval value : ' + str(type(eval(i['value']))))
                     value = i['value']
                 else:
                     value = '\"' + i['value'] + '\"'
-                # print('\n')
-                '''
-                expression = 'self.{0} = Variables(\"{0}\", {1}, \"{2}\", {3},\
-                {4}, {5}, \"{6}\", \"{7}\", \"{8}\", \"{9}\", {10}, {11}, \
-                \"{12}\", {13}, {14}, \"{15}\"\
-                '''
+                if not i['load_func_args'] == '':
+                    load_func_args = eval(i['load_func_args'])
+                    log.debug('load func args: {}'.format(load_func_args))
+                else:
+                    load_func_args = None
+                # Expression construction
                 expression = 'self.{0} = Variables(\
 \"{0}\", \
 {1}, \
@@ -144,14 +143,15 @@ class Application():
 \"{7}\", \
 \"{8}\", \
 \"{9}\", \
-\"{10}\", \
+{10}, \
 {11}, \
 \"{12}\", \
 {13}, \
 \"{14}\", \
 {15}, \
 {16}, \
-\"{17}\"\
+\"{17}\", \
+self\
 )'.format(
                     i['name'],                      # 0
                     value,                          # 1
@@ -163,7 +163,7 @@ class Application():
                     i['val_to_cvar'],               # 7
                     i['controlvar'],                # 8
                     i['load_func'],                 # 9
-                    i['load_func_args'],            # 10
+                    load_func_args,                 # 10
                     i['dan_id'],                    # 11
                     i['cvar_to_val'],               # 12
                     i['is_correct'],                # 13
@@ -184,8 +184,8 @@ class Application():
                 i.set_value(self)
             if i.outcome_func != "":
                 i.run_outcome_func(self)
-
-        print(globals())
+            log.debug('test_attr: {}'.format(i.test_attr))
+            log.debug('load_func: {}'.format(i.load_func))
 
     # VAL TO CVAR FUNCTIONS
 
@@ -208,47 +208,9 @@ class Application():
 
     # DATA MANAGEMENT FUNCTIONS
 
-    def wczytaj_dane(self, event=None):
-        path = self.filepath.cget('path')
-        with open(path, 'r+') as file:
-            log.info('otwarto plik ' + str(file))
-            # rozpoznaj plik
-            first_line = file.readline()
-            # rozpoznanie wersji zapisu
-            if first_line[0] == '1' and first_line[1] == ')':
-                log.info('plik danych generowany wersją 1.0 aplikacji')
-                file.seek(0)
-                log.info('\n\n\n')
-                for line in file:
-                    id_line, line_datas = line.split(')')
-                    line_datas_list = line_datas.split()
-                    stored_value = line_datas_list[0]
-                    log.info(id_line + ') ' + stored_value)
-                    for i in variables_list:
-                        log.debug('czy to ta zmienna o id ' + str(i.dan_id))
-                        if id_line == i.dan_id:
-                            # print('wartosc przed przyspianiem: ' + i.value)
-                            log.info('i value przed zmiana ' + str(type(i.value)))
-                            if isinstance(i.value, str):
-                                i.value = stored_value
-                            else:
-                                i.value = eval(stored_value)
-                            log.info('i value po zmianie ' + str(type(i.value)))
-                            for j in i.dan_dict:
-                                # print('czy to ten klucz: ' + j)
-                                if i.value == j or i.value is j:
-                                    # print('znalazłem klucz')
-                                    i.value = i.dan_dict[j]
-                            i.declaration.set(i.value)
-                            if i.command is not None:
-                                log.debug('oho, bedzie funkcja moze ' + i.command)
-                                eval(i.command)
-                            break
-                log.info('\n\n\n')
-            # tutaj wstawic elif i warunek na nowa wersje
-
     def data_load(self):
         log.info('\ndata_load started\n')
+        global path
         path = self.filepath.cget('path')
         with open(path, 'r+') as file:
             log.info('opening file: {0}\n\n'.format(str(file)))
@@ -271,12 +233,16 @@ class Application():
                     id_line, stored_value))
                 log.debug('type id_line: {0}'.format(type(id_line)))
                 for i in variables_list:
+                    if i.load_func is None:
+                        continue
                     if eval(id_line) == i.dan_id:
-                        lines_to_skip = i.dan_load_expression(
-                            self, stored_value)
+                        l_to_skip = i.load_func(i, stored_value,
+                                                i.load_func_args)
                         log.info('i.load_func {0} executed,\
                             returned {1}'.format(
-                            i.load_func, lines_to_skip))
+                            i.test_attr, l_to_skip))
+                        for _ in range(l_to_skip):
+                            next(file)
                         break
 
     def dict_dan_to_val(self, obj, value, dictionary):
@@ -289,8 +255,7 @@ class Application():
         if obj.outcome_func != "":
             obj.run_outcome_func(self)
         log.info('\nvalue set, function ended\n\n\n')
-        result = 3
-        return result
+        return 0
 
     def rewrite_dan_to_val(self, obj, value, *args):
         log.info('\nrewrite_dan_to_val started\n')
@@ -301,17 +266,33 @@ class Application():
         if obj.outcome_func != "":
             obj.run_outcome_func(self)
         log.info('\nvalue set, function ended\n\n\n')
-        result = 4
-        return result
+        return 0
 
-    def handle_loc_res(self, name, *args):
+    def handle_loc_res(self, obj, value, *args):
         log.info('\nhandle_loc_res started\n')
+        global path
+        obj.value = []
+        with open(path, 'r+') as file:
+            log.info('opening file: {0}\n\n'.format(str(file)))
+            for line in file:
+                id_line, line_datas = line.split(')')
+                line_datas_list = line_datas.split()
+                if eval(id_line) < obj.dan_id - 1:
+                    continue
+                elif eval(id_line) == obj.dan_id - 1:
+                    res_counter = eval(line_datas_list[0])
+                elif eval(id_line) == obj.dan_id:
+                    obj.value.append(line_datas_list[0])
+                elif eval(id_line) > obj.dan_id:
+                    continue
+            obj.val_to_cvar(obj)
+            return res_counter - 1
 
     def handle_pump_char(self, name, *args):
         log.info('\nrewrite_dan_to_val started\n')
-        loaded_dict = {}
         # for i in loaded_dict:
         #     self.pump_add_point(variable.value[i][0], variable.value[i][1])
+        return 0
 
     def zapisz_dane(self):
         log.info('zapisz dane')
