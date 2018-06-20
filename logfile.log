@@ -1,2456 +1,260 @@
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.tryb_pracy = Variables("tryb_pracy", "sprawdzenie", "string", True, 0, True, "change_mode", "rewrite_to_cvar", "tryb_pracy", "dict_dan_to_val", "{'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'}", 1, "", True, "0", ["isinstance(var, string)", "var == 'minimalizacja' or var == 'optymalizacja' or var == 'sprawdzenie'"], ['Frame_Tryb'], "treść wskazówki")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.ksztalt = Variables("ksztalt", "kolo", "string", True, 0, True, "change_shape", "rewrite_to_cvar", "ksztalt", "dict_dan_to_val", "{'0': 'prostokat', '1': 'kolo'}", 2, "", True, "", ["var = 'kolo'", "var = 'prostokat'"], ['lista', 'obiektów advice'], "treść porady dla wyboru ksztaltu pompowni")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.uklad_pompowni = Variables("uklad_pompowni", "optymalny", "string", True, 0, True, "", "rewrite_to_cvar", "uklad_pompowni", "dict_dan_to_val", "{'0': 'jednorzedowy', '1': 'optymalny'}", 3, "", True, "", ["var = 'jednorzedowy'", "var = 'optymalny'"], ['lista', 'obiektów advice'], "treść porady dla wyboru układu pompowni")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.liczba_pomp_rez = Variables("liczba_pomp_rez", "optymalna", "string", True, 0, True, "", "rewrite_to_cvar", "liczba_pomp_rez", "dict_dan_to_val", "{'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'}", 4, "", True, "", ["isinstance(var, string)", "var == 'optymalna' or var == 'minimalna' or var == 'bezpieczna'"], ['lista', 'obiektów advice'], "treść porady dla pomp rezerwowych")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.obrys_pompy = Variables("obrys_pompy", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "obrys_pompy", "rewrite_dan_to_val", "", 5, "", False, "", ["var > 0.0"], ['lista', 'obiektów advice'], "treść porady dla obrysu pompy")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.dlugosc_pompowni = Variables("dlugosc_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dlugosc_pompowni", "rewrite_dan_to_val", "", 6, "", False, "", ["var > 0.0"], ['lista', 'obiektów advice'], "treść porady dla długości pompowni")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.szer_pompowni = Variables("szer_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "szer_pompowni", "rewrite_dan_to_val", "", 7, "", False, "", ["var > 0.0"], ['lista', 'obiektów advice'], "treść porady dla szerokości pompowni")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.srednica_pompowni = Variables("srednica_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "srednica_pompowni", "rewrite_dan_to_val", "", 8, "", False, "", ["var > 0.0", "var >= obrys_pompy.value"], ['lista', 'obiektów advice'], "treść porady dla szerokości pompowni")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.minimalna_wys = Variables("minimalna_wys", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "minimalna_wys", "rewrite_dan_to_val", "", 9, "", False, "", ["var > 0.0"], ['Label_Minimalna_wys'], "treść wskazówki")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.rzedna_terenu = Variables("rzedna_terenu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_terenu", "rewrite_dan_to_val", "", 10, "", True, "", ["var > rzedna_dna.value", "var > rzedna_doplywu.value", "var > rzedna_wylotu.value"], ['Label_Rzedna_terenu', 'Entry_Rzedna_terenu'], "treść porady dla rzędnej terenu")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.rzedna_wylotu = Variables("rzedna_wylotu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_wylotu", "rewrite_dan_to_val", "", 11, "", True, "", ["var < rzedna_terenu.value", "var > rzedna_dna.value"], ['Label_Rzedna_wylotu', 'Entry_Rzedna_wylotu'], "treść porady dla rzędnej wylotu")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.rzedna_doplywu = Variables("rzedna_doplywu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_doplywu", "rewrite_dan_to_val", "", 12, "", True, "", ["var < rzedna_terenu.value", "var > rzedna_dna.value"], ['Label_Rzedna_doplywu', 'Entry_Rzedna_doplywu'], "treść porady dla rzędnej dopływu")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.rzedna_dna = Variables("rzedna_dna", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_dna", "rewrite_dan_to_val", "", 13, "", True, "", ["var < rzedna_doplywu.value", "var < rzedna_wylotu.value", "var < rzedna_terenu.value"], ['Label_Rzedna_dna', 'Entry_Rzedna_dna'], "treść porady dla rzędnej dna")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.roznica_wlot_start = Variables("roznica_wlot_start", 0.0, "double", True, 1, False, "", "rewrite_to_cvar", "roznica_wlot_start", "rewrite_dan_to_val", "", 14, "", False, "", ["var > 0.0"], [], "treść porady dla różnicy wlotu i startu")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.rzedna_najwpunkt = Variables("rzedna_najwpunkt", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_najwpunkt", "rewrite_dan_to_val", "", 15, "", True, "", ["var > rzedna_wylotu.value"], [], "treść porady dla rzednej najwyższego punktu na trasie")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.rzedna_zwgorne = Variables("rzedna_zwgorne", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_zwgorne", "rewrite_dan_to_val", "", 16, "", True, "", [], [], "treść porady dla zwierciadło w zbiorniku górnym")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.dl_przewodu_tl = Variables("dl_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dl_przewodu_tl", "rewrite_dan_to_val", "", 28, "", False, "", ["var > 0.0"], [], "treść porady dla długości przewodu tłocznego w pompowni")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.sred_przewodu_tl = Variables("sred_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "sred_przewodu_tl", "rewrite_dan_to_val", "", 29, "", False, "", ["var > 0.0"], [], "treść porady dla średnicy przewodu tłocznego w pompowni")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.chrop_przewodu_tl = Variables("chrop_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "chrop_przewodu_tl", "rewrite_dan_to_val", "", 30, "", False, "", ["var > 0.0"], [], "treść porady dla chropowatości przewodu tłocznego w pompowni")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.opory_przewodu_tl = Variables("opory_przewodu_tl", [], "list", True, 1, True, "", "res_to_cvar", "opory_przewodu_tl", "handle_loc_res", "", 32, "", True, "", [], [], "treść porady dla oporów miejscowych przewodu")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.doplyw_min = Variables("doplyw_min", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "doplyw_min", "rewrite_dan_to_val", "", 33, "", False, "", ["var > 0.0", "var <= doplyw_max.value"], [], "Treść porady dla dopływu minimalnego")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.doplyw_max = Variables("doplyw_max", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "doplyw_max", "rewrite_dan_to_val", "", 34, "", False, "", ["var > 0.0", "var >= doplyw_min.value"], [], "treść porady dla dopływu maksymalnego")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.czas_cyklu = Variables("czas_cyklu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "czas_cyklu", "rewrite_dan_to_val", "", 35, "", False, "", ["var > 0.0"], [], "treść porady dla czasu cyklu")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.liczba_p_char = Variables("liczba_p_char", 0, "int", False, 1, True, "", "", "", "rewrite_dan_to_val", "", 36, "", False, "", [], [], "")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.char_pompy = Variables("char_pompy", {}, "dict", False, 1, True, "", "", "", "handle_pump_char", "", 37, "", False, "", [], [], "")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.wydajnosc_od = Variables("wydajnosc_od", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "wydajnosc_od", "rewrite_dan_to_val", "", 39, "", False, "", [], [], "")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.wydajnosc_do = Variables("wydajnosc_do", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "wydajnosc_do", "rewrite_dan_to_val", "", 40, "", False, "", [], [], "")
 
 
-2018.06.19 22:40:05-DEBUG: 
-self.liczba_kol = Variables("liczba_kol", 0, "int", True, 1, True, "", "", "liczba_kol", "rewrite_dan_to_val", "", 41, "", False, "", ["var > 0"], [], "treść porady dla liczby kolektorów")
+2018.06.20 15:32:43-DEBUG: 
+self.liczba_kol = Variables("liczba_kol", 0, "int", True, 1, True, "", "rewrite_to_cvar", "liczba_kol", "rewrite_dan_to_val", "", 41, "", False, "", ["var > 0"], [], "treść porady dla liczby kolektorów")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.dl_kolektora = Variables("dl_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dl_kolektora", "rewrite_dan_to_val", "", 42, "", False, "", ["var > 0.0"], [], "treść porady dla długość kolektora")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.sr_kolektora = Variables("sr_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "sr_kolektora", "rewrite_dan_to_val", "", 43, "", False, "", ["var > 0.0"], [], "treść porady dla średnicy kolektora")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.chrop_kolektora = Variables("chrop_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "chrop_kolektora", "rewrite_dan_to_val", "", 44, "", False, "", ["var > 0.0"], [], "treść porady dla chropowatości kolektora")
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 self.opory_kolektora = Variables("opory_kolektora", [], "list", True, 1, True, "", "res_to_cvar", "opory_kolektora", "handle_loc_res", "", 46, "", True, "", [], [], "treść porady dla oporów miejscowych kolektora")
 
 
-2018.06.19 22:40:05-INFO: 
+2018.06.20 15:32:43-INFO: 
 [tryb_pracy, ksztalt, uklad_pompowni, liczba_pomp_rez, obrys_pompy, dlugosc_pompowni, szer_pompowni, srednica_pompowni, minimalna_wys, rzedna_terenu, rzedna_wylotu, rzedna_doplywu, rzedna_dna, roznica_wlot_start, rzedna_najwpunkt, rzedna_zwgorne, dl_przewodu_tl, sred_przewodu_tl, chrop_przewodu_tl, opory_przewodu_tl, doplyw_min, doplyw_max, czas_cyklu, liczba_p_char, char_pompy, wydajnosc_od, wydajnosc_do, liczba_kol, dl_kolektora, sr_kolektora, chrop_kolektora, opory_kolektora]
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 tryb_pracy, <class 'str'>
-2018.06.19 22:40:05-INFO: changed mode: sprawdzenie
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-INFO: changed mode: sprawdzenie
+2018.06.20 15:32:43-DEBUG: 
 
 ksztalt, <class 'str'>
-2018.06.19 22:40:05-INFO: changed shape: kolo
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-INFO: changed shape: kolo
+2018.06.20 15:32:43-DEBUG: 
 
 uklad_pompowni, <class 'str'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 liczba_pomp_rez, <class 'str'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 obrys_pompy, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 dlugosc_pompowni, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 szer_pompowni, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 srednica_pompowni, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 minimalna_wys, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 rzedna_terenu, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 rzedna_wylotu, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 rzedna_doplywu, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 rzedna_dna, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 roznica_wlot_start, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 rzedna_najwpunkt, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 rzedna_zwgorne, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 dl_przewodu_tl, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 sred_przewodu_tl, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 chrop_przewodu_tl, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 res string : 
-2018.06.19 22:40:05-DEBUG: opory_przewodu_tl, res string
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: opory_przewodu_tl, res string
+2018.06.20 15:32:43-DEBUG: 
 
 doplyw_min, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 doplyw_max, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 czas_cyklu, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 wydajnosc_od, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 wydajnosc_do, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
+
+liczba_kol, <class 'int'>
+2018.06.20 15:32:43-DEBUG: 
 
 dl_kolektora, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 sr_kolektora, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 chrop_kolektora, <class 'float'>
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 
 
-2018.06.19 22:40:05-DEBUG: 
+2018.06.20 15:32:43-DEBUG: 
 res string : 
-2018.06.19 22:40:05-DEBUG: opory_kolektora, res string
-2018.06.19 22:40:09-INFO: 
+2018.06.20 15:32:43-DEBUG: opory_kolektora, res string
+2018.06.20 15:32:47-INFO: 
 data_load started
 
-2018.06.19 22:40:09-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+2018.06.20 15:32:47-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Private/Pompa/STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-2018.06.19 22:40:09-INFO: 
+2018.06.20 15:32:47-INFO: 
 dan_load started
 
-2018.06.19 22:40:09-INFO: plik danych generowany wersją 1.0 aplikacji
-2018.06.19 22:40:09-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+2018.06.20 15:32:47-INFO: plik danych generowany wersj� 1.0 aplikacji
+2018.06.20 15:32:47-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Private/Pompa/STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-2018.06.19 22:40:09-DEBUG: dan_id: 1) 0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
+2018.06.20 15:32:47-DEBUG: dan_id: 1) 0 <-readed_value
+2018.06.20 15:32:47-DEBUG: type id_line: <class 'str'>
+2018.06.20 15:32:47-DEBUG: lines to skip at begin: 0
+2018.06.20 15:32:47-INFO: 
 dict_dan_to_val started
 
-2018.06.19 22:40:09-INFO: i.load_func dict_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 2) 1 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-dict_dan_to_val started
+2018.06.20 15:32:47-DEBUG: translated_value: minimalizacja
+2018.06.20 15:32:47-DEBUG: 
 
-2018.06.19 22:40:09-INFO: i.load_func dict_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 3) 0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-dict_dan_to_val started
+tryb_pracy, <class 'str'>
+2018.06.20 15:32:47-DEBUG: tryb_pracy.value changed to minimalizacja
+2018.06.20 15:32:47-INFO: changed mode: minimalizacja
+2018.06.20 15:32:47-INFO: 
+value set, function ended
 
-2018.06.19 22:40:09-INFO: i.load_func dict_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 4) 1 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-dict_dan_to_val started
 
-2018.06.19 22:40:09-INFO: i.load_func dict_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 5) .81 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
 
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 9) .30 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 10) 159.00 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 11) 157.40 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 12) 153.00 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 13) 151.50 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 14) .00 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 15) 158.00 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 16) 158.00 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 17) 2.60 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 18) 1.20 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 19) 1 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 20) 40 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 21) 0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 29) 125.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 30) .05 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 31) 1 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 32) 3.18 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-handle_loc_res started
-
-2018.06.19 22:40:09-INFO: i.load_func handle_loc_res executed
-2018.06.19 22:40:09-DEBUG: dan_id: 33) .2 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 34) 1.6 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 35) 6.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 36) 6 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 37) 47.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func handle_pump_char executed
-2018.06.19 22:40:09-DEBUG: dan_id: 37) 40.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func handle_pump_char executed
-2018.06.19 22:40:09-DEBUG: dan_id: 37) 30.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func handle_pump_char executed
-2018.06.19 22:40:09-DEBUG: dan_id: 37) 20.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func handle_pump_char executed
-2018.06.19 22:40:09-DEBUG: dan_id: 37) 10.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func handle_pump_char executed
-2018.06.19 22:40:09-DEBUG: dan_id: 37) .0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func handle_pump_char executed
-2018.06.19 22:40:09-DEBUG: dan_id: 38) .0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 38) 2.2 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 38) 5.7 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 38) 9.1 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 38) 12.5 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 38) 14.7 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: dan_id: 39) 11.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 40) 23.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 41) 1 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 42) 400.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 43) 160.0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 44) .10 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.19 22:40:09-INFO: i.load_func rewrite_dan_to_val executed
-2018.06.19 22:40:09-DEBUG: dan_id: 45) 0 <-readed_value
-2018.06.19 22:40:09-DEBUG: type id_line: <class 'str'>
-2018.06.19 22:40:09-DEBUG: sprawdzam tryb_pracy, dan_id: 1
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam ksztalt, dan_id: 2
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam uklad_pompowni, dan_id: 3
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_pomp_rez, dan_id: 4
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam obrys_pompy, dan_id: 5
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dlugosc_pompowni, dan_id: 6
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam szer_pompowni, dan_id: 7
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam srednica_pompowni, dan_id: 8
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam minimalna_wys, dan_id: 9
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_terenu, dan_id: 10
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_wylotu, dan_id: 11
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_doplywu, dan_id: 12
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_dna, dan_id: 13
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam roznica_wlot_start, dan_id: 14
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_najwpunkt, dan_id: 15
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam rzedna_zwgorne, dan_id: 16
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_przewodu_tl, dan_id: 28
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sred_przewodu_tl, dan_id: 29
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_przewodu_tl, dan_id: 30
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_przewodu_tl, dan_id: 32
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_min, dan_id: 33
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam doplyw_max, dan_id: 34
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam czas_cyklu, dan_id: 35
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_p_char, dan_id: 36
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam char_pompy, dan_id: 37
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_od, dan_id: 39
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam wydajnosc_do, dan_id: 40
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam liczba_kol, dan_id: 41
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam dl_kolektora, dan_id: 42
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam sr_kolektora, dan_id: 43
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam chrop_kolektora, dan_id: 44
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>
-2018.06.19 22:40:09-DEBUG: sprawdzam opory_kolektora, dan_id: 46
-2018.06.19 22:40:09-DEBUG: type dan_id: <class 'int'>

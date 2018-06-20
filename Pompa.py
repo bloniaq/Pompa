@@ -4,7 +4,6 @@ except:
     import Tkinter as tk  # for python
 import pygubu, csv, logging
 
-
 variables_list = []
 
 # LOGGING CONFIGURATION
@@ -36,7 +35,6 @@ log.addHandler(fh)
 
 
 class Variables():
-    _items = {}
 
     def __init__(
         self, name, value, data_type, is_repr, unit, is_active, outcome_func,
@@ -75,6 +73,16 @@ class Variables():
     def run_outcome_func(self, app_class):
         exec('app_class.' + self.outcome_func + '()')
 
+    def dan_load_expression(self, app_class, loaded_value):
+        loc = {}
+        expr = 'app.{0}(app.{1}, {2}, {3})'.format(
+            self.load_func, self.name, loaded_value, self.load_func_args)
+        lines_to_skip = 0
+        log.debug('lines to skip at begin: {0}'.format(lines_to_skip))
+        exec(expr, globals(), loc)
+        lines_to_skip = loc['result']
+        log.debug('lines to skip after exec: {0}'.format(lines_to_skip))
+        return lines_to_skip
 
 class Application():
     def __init__(self):
@@ -177,6 +185,8 @@ class Application():
             if i.outcome_func != "":
                 i.run_outcome_func(self)
 
+        print(globals())
+
     # VAL TO CVAR FUNCTIONS
 
     def rewrite_to_cvar(self, variable):
@@ -261,20 +271,38 @@ class Application():
                     id_line, stored_value))
                 log.debug('type id_line: {0}'.format(type(id_line)))
                 for i in variables_list:
-                    log.debug('sprawdzam {0}, dan_id: {1}'.format(i, i.dan_id))
-                    log.debug('type dan_id: {0}'.format(type(i.dan_id)))
                     if eval(id_line) == i.dan_id:
-                        exec('self.{0}({2}, {1})'.format(
-                            i.load_func, i.load_func_args, i.dan_id))
-                        log.info('i.load_func {0} executed'.format(
-                            i.load_func))
+                        lines_to_skip = i.dan_load_expression(
+                            self, stored_value)
+                        log.info('i.load_func {0} executed,\
+                            returned {1}'.format(
+                            i.load_func, lines_to_skip))
                         break
 
-    def dict_dan_to_val(self, *args):
+    def dict_dan_to_val(self, obj, value, dictionary):
         log.info('\ndict_dan_to_val started\n')
+        translated_value = dictionary[str(value)]
+        log.debug('translated_value: {0}'.format(translated_value))
+        obj.value = translated_value
+        obj.set_value(self)
+        log.debug('{0}.value changed to {1}'.format(obj, translated_value))
+        if obj.outcome_func != "":
+            obj.run_outcome_func(self)
+        log.info('\nvalue set, function ended\n\n\n')
+        result = 3
+        return result
 
-    def rewrite_dan_to_val(self, name, *args):
+    def rewrite_dan_to_val(self, obj, value, *args):
         log.info('\nrewrite_dan_to_val started\n')
+        obj.value = value
+        if obj.val_to_cvar != "":
+            obj.set_value(self)
+        log.debug('{0}.value changed to {1}'.format(obj, value))
+        if obj.outcome_func != "":
+            obj.run_outcome_func(self)
+        log.info('\nvalue set, function ended\n\n\n')
+        result = 4
+        return result
 
     def handle_loc_res(self, name, *args):
         log.info('\nhandle_loc_res started\n')

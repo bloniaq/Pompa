@@ -106,6 +106,875 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               <property name="sticky">s</property>
             </layout>
             <child>
+              <object class="ttk.Notebook.Tab" id="Tab_Geometria">
+                <property name="padding">5</property>
+                <property name="text" translatable="yes">Dane geometryczne</property>
+                <property name="underline">0</property>
+                <child>
+                  <object class="ttk.Frame" id="Frame_Geometria">
+                    <property name="height">200</property>
+                    <property name="padding">40</property>
+                    <property name="relief">groove</property>
+                    <property name="width">200</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                      <rows>
+                        <row id="0">
+                          <property name="minsize">0</property>
+                          <property name="pad">60</property>
+                        </row>
+                        <row id="1">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="10">
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="2">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="3">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="4">
+                          <property name="pad">60</property>
+                        </row>
+                        <row id="5">
+                          <property name="pad">20</property>
+                          <property name="weight">0</property>
+                        </row>
+                        <row id="6">
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="7">
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="8">
+                          <property name="pad">20</property>
+                        </row>
+                        <row id="9">
+                          <property name="pad">20</property>
+                        </row>
+                      </rows>
+                      <columns>
+                        <column id="0">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                          <property name="weight">0</property>
+                        </column>
+                        <column id="1">
+                          <property name="pad">20</property>
+                        </column>
+                        <column id="2">
+                          <property name="pad">20</property>
+                        </column>
+                        <column id="3">
+                          <property name="pad">20</property>
+                        </column>
+                      </columns>
+                    </layout>
+                    <child>
+                      <object class="ttk.Label" id="Label_Ksztalt">
+                        <property name="text" translatable="yes">Kształt pompowni:</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Ksztalt_kolo">
+                        <property name="command">change_shape</property>
+                        <property name="text" translatable="yes">Przekrój kołowy</property>
+                        <property name="value">kolo</property>
+                        <property name="variable">string:ksztalt</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Ksztalt_prostok">
+                        <property name="command">change_shape</property>
+                        <property name="text" translatable="yes">Przekrój prostokątny</property>
+                        <property name="value">prostokat</property>
+                        <property name="variable">string:ksztalt</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="columnspan">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Wymiary">
+                        <property name="text" translatable="yes">Wymiary charakterystyczne [m]:</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="columnspan">3</property>
+                          <property name="ipady">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">1</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Srednica_pompowni">
+                        <property name="text" translatable="yes">Średnica wewnętrzna    </property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">2</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Srednica_pompowni">
+                        <property name="exportselection">true</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:srednica_pompowni</property>
+                        <property name="width">5</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">2</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Dlugosc_pompowni">
+                        <property name="text" translatable="yes">Długość    </property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Dlugosc_pompowni">
+                        <property name="justify">right</property>
+                        <property name="state">disabled</property>
+                        <property name="textvariable">double:dlugosc_pompowni</property>
+                        <property name="width">5</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Szerokosc_pompowni">
+                        <property name="text" translatable="yes">Szerokość     </property>
+                        <layout>
+                          <property name="column">3</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Szerokosc_pompowni">
+                        <property name="justify">right</property>
+                        <property name="state">disabled</property>
+                        <property name="textvariable">double:szer_pompowni</property>
+                        <property name="width">5</property>
+                        <layout>
+                          <property name="column">4</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Uklad_pomp">
+                        <property name="text" translatable="yes">Układ ustawienia pomp:</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">4</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Uklad_jedno">
+                        <property name="text" translatable="yes">Układ jednorzędowy</property>
+                        <property name="value">jednorzedowy</property>
+                        <property name="variable">string:uklad_pompowni</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">4</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Uklad_optymalny">
+                        <property name="text" translatable="yes">Układ optymalny</property>
+                        <property name="value">optymalny</property>
+                        <property name="variable">string:uklad_pompowni</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="columnspan">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">4</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Wariant_rezerwa">
+                        <property name="text" translatable="yes">Wariant liczby pomp rezerwowych:</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="columnspan">3</property>
+                          <property name="ipadx">0</property>
+                          <property name="ipady">0</property>
+                          <property name="padx">0</property>
+                          <property name="pady">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">5</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Wariant_minimal">
+                        <property name="text" translatable="yes">Ekonomiczny</property>
+                        <property name="value">minimalna</property>
+                        <property name="variable">string:liczba_pomp_rez</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">8</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Wariant_optymal">
+                        <property name="text" translatable="yes">Optymalny</property>
+                        <property name="value">optymalna</property>
+                        <property name="variable">string:liczba_pomp_rez</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="columnspan">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">8</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="tk.Radiobutton" id="Radio_Wariant_bezpiecz">
+                        <property name="text" translatable="yes">Bezpieczny</property>
+                        <property name="value">bezpieczna</property>
+                        <property name="variable">string:liczba_pomp_rez</property>
+                        <layout>
+                          <property name="column">4</property>
+                          <property name="propagate">True</property>
+                          <property name="row">8</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="ttk.Notebook.Tab" id="Tab_Hydraulika">
+                <property name="padding">5</property>
+                <property name="text" translatable="yes">Charakterystyka przewodów</property>
+                <property name="underline">0</property>
+                <child>
+                  <object class="ttk.Frame" id="Frame_Hydraulika">
+                    <property name="height">200</property>
+                    <property name="padding">25</property>
+                    <property name="relief">groove</property>
+                    <property name="width">200</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="propagate">False</property>
+                      <property name="row">0</property>
+                      <rows>
+                        <row id="0">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="1">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="10">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="11">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="12">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="13">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="14">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="15">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="16">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="17">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="2">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="3">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="4">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="5">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="6">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="7">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="8">
+                          <property name="pad">10</property>
+                        </row>
+                        <row id="9">
+                          <property name="pad">10</property>
+                        </row>
+                      </rows>
+                      <columns>
+                        <column id="0">
+                          <property name="minsize">0</property>
+                          <property name="pad">20</property>
+                        </column>
+                        <column id="1">
+                          <property name="pad">20</property>
+                        </column>
+                        <column id="2">
+                          <property name="pad">20</property>
+                        </column>
+                      </columns>
+                    </layout>
+                    <child>
+                      <object class="ttk.Label" id="Label_Minimalna_wys">
+                        <property name="text" translatable="yes">Minimalna wysokość ścieków w pompowni liczona od dna [m]</property>
+                        <property name="wraplength">350</property>
+                        <bind add="" handler="walidacja" sequence="&lt;Enter&gt;" />
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Rzedna_terenu">
+                        <property name="text" translatable="yes">Rzędna terenu [m]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">1</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Rzedna_wylotu">
+                        <property name="text" translatable="yes">Rzędna wylotu ścieków [m]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">2</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Rzedna_doplywu">
+                        <property name="text" translatable="yes">Rzędna dopływu ścieków do pompowni [m]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Rzedna_dna">
+                        <property name="text" translatable="yes">Rzędna dna pompowni [m]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">4</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Rzedna_najw_punkt">
+                        <property name="text" translatable="yes">Rzędna najwyższego punktu na trasie przewodu tłocznego [m]</property>
+                        <property name="wraplength">350</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">6</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Rzedna_zwierciadla">
+                        <property name="text" translatable="yes">Rzędna zwierciadła w zbiorniku górnym [m]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">7</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Dl_przewodu_tl">
+                        <property name="text" translatable="yes">Długość przewodu tłocznego w pompowni [m]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">8</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Sred_przewodu_tl">
+                        <property name="text" translatable="yes">Średnica przewodu tłocznego w pompowni [mm]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">9</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Chrop_przewodu_tl">
+                        <property name="text" translatable="yes">Chropowatość przewodu tłocznego w pompowni [mm]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">10</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Opory_przewodu_tl">
+                        <property name="text" translatable="yes">Wartości współczynników oporów miejscowych na przewodzie tłocznym w pompowni</property>
+                        <property name="wraplength">350</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">11</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Doplyw">
+                        <property name="text" translatable="yes">Dopływ ścieków [l/s]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">12</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Liczba_kolektorow">
+                        <property name="text" translatable="yes">Liczba kolektorów tłocznych</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">13</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Dl_kolektora">
+                        <property name="text" translatable="yes">Długość kolektora tłocznego [m]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">14</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Sred_kolektora">
+                        <property name="text" translatable="yes">Średnica kolektora tłocznego [mm]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">15</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Chrop_kolektora">
+                        <property name="text" translatable="yes">Chropowatość kolektora tłocznego [mm]</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">16</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Opory_kolektora">
+                        <property name="text" translatable="yes">Wartości współczynników oporów miejscowych na kolektorze tłocznym</property>
+                        <property name="wraplength">350</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">17</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Doplyw_min">
+                        <property name="text" translatable="yes">Min.</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="propagate">True</property>
+                          <property name="row">12</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Doplyw_max">
+                        <property name="text" translatable="yes">Max.</property>
+                        <layout>
+                          <property name="column">3</property>
+                          <property name="propagate">True</property>
+                          <property name="row">12</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Minimalna_wys">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:minimalna_wys</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">0</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Rzedna_terenu">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:rzedna_terenu</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">1</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Rzedna_wylotu">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:rzedna_wylotu</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">2</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Rzedna_doplywu">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:rzedna_doplywu</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">3</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Rzedna_dna">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:rzedna_dna</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">4</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Rzedna_najwpunkt">
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:rzedna_najwpunkt</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">6</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Rzedna_zwgorne">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:rzedna_zwgorne</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">7</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Dl_przewodu_tl">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:dl_przewodu_tl</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">8</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Sred_przewodu_tl">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:sred_przewodu_tl</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">9</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Chrop_przewodu_tl">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:chrop_przewodu_tl</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">10</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Opory_przewodu_tl">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">string:opory_przewodu_tl</property>
+                        <property name="width">24</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="columnspan">3</property>
+                          <property name="propagate">True</property>
+                          <property name="row">11</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Doplyw_min">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:doplyw_min</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">12</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Doplyw_max">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:doplyw_max</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">4</property>
+                          <property name="propagate">True</property>
+                          <property name="row">12</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Liczba_kol">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">int:liczba_kol</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">13</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Dl_kolektora">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:dl_kolektora</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">14</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Sred_kolektora">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:sr_kolektora</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">15</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Chrop_kolektora">
+                        <property name="exportselection">false</property>
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:chrop_kolektora</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">16</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Opory_kolektora">
+                        <property name="justify">right</property>
+                        <property name="textvariable">string:opory_kolektora</property>
+                        <property name="width">24</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="columnspan">3</property>
+                          <property name="propagate">True</property>
+                          <property name="row">17</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Label" id="Label_Roznica_wlot_start">
+                        <property name="text" translatable="yes">Różnica między rzędną wlotu, a rzędna włączenia pompy [m]</property>
+                        <property name="wraplength">350</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">18</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Entry" id="Entry_Roznica_wlot_start">
+                        <property name="justify">right</property>
+                        <property name="textvariable">double:roznica_wlot_start</property>
+                        <property name="width">7</property>
+                        <layout>
+                          <property name="column">2</property>
+                          <property name="propagate">True</property>
+                          <property name="row">5</property>
+                          <property name="sticky">w</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
               <object class="ttk.Notebook.Tab" id="Tab_Pompa">
                 <property name="padding">5</property>
                 <property name="text" translatable="yes">Charakterystyka pompy</property>
@@ -337,7 +1206,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   <property name="column">0</property>
                                   <property name="columnspan">4</property>
                                   <property name="propagate">True</property>
-                                  <property name="row">2</property>
+                                  <property name="row">7</property>
                                 </layout>
                                 <child>
                                   <object class="ttk.Treeview" id="Treeview_Pump">
@@ -401,7 +1270,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   <property name="ipady">2</property>
                                   <property name="pady">10</property>
                                   <property name="propagate">True</property>
-                                  <property name="row">3</property>
+                                  <property name="row">8</property>
                                 </layout>
                               </object>
                             </child>
@@ -416,7 +1285,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   <property name="column">0</property>
                                   <property name="columnspan">3</property>
                                   <property name="propagate">True</property>
-                                  <property name="row">1</property>
+                                  <property name="row">9</property>
                                   <rows>
                                     <row id="0">
                                       <property name="pad">10</property>
@@ -1996,875 +2865,6 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             </child>
                           </object>
                         </child>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="ttk.Notebook.Tab" id="Tab_Geometria">
-                <property name="padding">5</property>
-                <property name="text" translatable="yes">Dane geometryczne</property>
-                <property name="underline">0</property>
-                <child>
-                  <object class="ttk.Frame" id="Frame_Geometria">
-                    <property name="height">200</property>
-                    <property name="padding">40</property>
-                    <property name="relief">groove</property>
-                    <property name="width">200</property>
-                    <layout>
-                      <property name="column">0</property>
-                      <property name="propagate">False</property>
-                      <property name="row">0</property>
-                      <rows>
-                        <row id="0">
-                          <property name="minsize">0</property>
-                          <property name="pad">60</property>
-                        </row>
-                        <row id="1">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="10">
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="2">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="3">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="4">
-                          <property name="pad">60</property>
-                        </row>
-                        <row id="5">
-                          <property name="pad">20</property>
-                          <property name="weight">0</property>
-                        </row>
-                        <row id="6">
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="7">
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="8">
-                          <property name="pad">20</property>
-                        </row>
-                        <row id="9">
-                          <property name="pad">20</property>
-                        </row>
-                      </rows>
-                      <columns>
-                        <column id="0">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                          <property name="weight">0</property>
-                        </column>
-                        <column id="1">
-                          <property name="pad">20</property>
-                        </column>
-                        <column id="2">
-                          <property name="pad">20</property>
-                        </column>
-                        <column id="3">
-                          <property name="pad">20</property>
-                        </column>
-                      </columns>
-                    </layout>
-                    <child>
-                      <object class="ttk.Label" id="Label_Ksztalt">
-                        <property name="text" translatable="yes">Kształt pompowni:</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Ksztalt_kolo">
-                        <property name="command">change_shape</property>
-                        <property name="text" translatable="yes">Przekrój kołowy</property>
-                        <property name="value">kolo</property>
-                        <property name="variable">string:ksztalt</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Ksztalt_prostok">
-                        <property name="command">change_shape</property>
-                        <property name="text" translatable="yes">Przekrój prostokątny</property>
-                        <property name="value">prostokat</property>
-                        <property name="variable">string:ksztalt</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="columnspan">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Wymiary">
-                        <property name="text" translatable="yes">Wymiary charakterystyczne [m]:</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="columnspan">3</property>
-                          <property name="ipady">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">1</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Srednica_pompowni">
-                        <property name="text" translatable="yes">Średnica wewnętrzna    </property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">2</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Srednica_pompowni">
-                        <property name="exportselection">true</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:srednica_pompowni</property>
-                        <property name="width">5</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">2</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Dlugosc_pompowni">
-                        <property name="text" translatable="yes">Długość    </property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Dlugosc_pompowni">
-                        <property name="justify">right</property>
-                        <property name="state">disabled</property>
-                        <property name="textvariable">double:dlugosc_pompowni</property>
-                        <property name="width">5</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Szerokosc_pompowni">
-                        <property name="text" translatable="yes">Szerokość     </property>
-                        <layout>
-                          <property name="column">3</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Szerokosc_pompowni">
-                        <property name="justify">right</property>
-                        <property name="state">disabled</property>
-                        <property name="textvariable">double:szer_pompowni</property>
-                        <property name="width">5</property>
-                        <layout>
-                          <property name="column">4</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Uklad_pomp">
-                        <property name="text" translatable="yes">Układ ustawienia pomp:</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Uklad_jedno">
-                        <property name="text" translatable="yes">Układ jednorzędowy</property>
-                        <property name="value">jednorzedowy</property>
-                        <property name="variable">string:uklad_pompowni</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Uklad_optymalny">
-                        <property name="text" translatable="yes">Układ optymalny</property>
-                        <property name="value">optymalny</property>
-                        <property name="variable">string:uklad_pompowni</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="columnspan">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Wariant_rezerwa">
-                        <property name="text" translatable="yes">Wariant liczby pomp rezerwowych:</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="columnspan">3</property>
-                          <property name="ipadx">0</property>
-                          <property name="ipady">0</property>
-                          <property name="padx">0</property>
-                          <property name="pady">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">5</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_minimal">
-                        <property name="text" translatable="yes">Ekonomiczny</property>
-                        <property name="value">minimalna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_optymal">
-                        <property name="text" translatable="yes">Optymalny</property>
-                        <property name="value">optymalna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="columnspan">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_bezpiecz">
-                        <property name="text" translatable="yes">Bezpieczny</property>
-                        <property name="value">bezpieczna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
-                        <layout>
-                          <property name="column">4</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                  </object>
-                </child>
-              </object>
-            </child>
-            <child>
-              <object class="ttk.Notebook.Tab" id="Tab_Hydraulika">
-                <property name="padding">5</property>
-                <property name="text" translatable="yes">Charakterystyka przewodów</property>
-                <property name="underline">0</property>
-                <child>
-                  <object class="ttk.Frame" id="Frame_Hydraulika">
-                    <property name="height">200</property>
-                    <property name="padding">25</property>
-                    <property name="relief">groove</property>
-                    <property name="width">200</property>
-                    <layout>
-                      <property name="column">0</property>
-                      <property name="propagate">False</property>
-                      <property name="row">0</property>
-                      <rows>
-                        <row id="0">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="1">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="10">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="11">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="12">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="13">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="14">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="15">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="16">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="17">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="2">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="3">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="4">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="5">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="6">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="7">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="8">
-                          <property name="pad">10</property>
-                        </row>
-                        <row id="9">
-                          <property name="pad">10</property>
-                        </row>
-                      </rows>
-                      <columns>
-                        <column id="0">
-                          <property name="minsize">0</property>
-                          <property name="pad">20</property>
-                        </column>
-                        <column id="1">
-                          <property name="pad">20</property>
-                        </column>
-                        <column id="2">
-                          <property name="pad">20</property>
-                        </column>
-                      </columns>
-                    </layout>
-                    <child>
-                      <object class="ttk.Label" id="Label_Minimalna_wys">
-                        <property name="text" translatable="yes">Minimalna wysokość ścieków w pompowni liczona od dna [m]</property>
-                        <property name="wraplength">350</property>
-                        <bind add="" handler="walidacja" sequence="&lt;Enter&gt;" />
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Rzedna_terenu">
-                        <property name="text" translatable="yes">Rzędna terenu [m]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">1</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Rzedna_wylotu">
-                        <property name="text" translatable="yes">Rzędna wylotu ścieków [m]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">2</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Rzedna_doplywu">
-                        <property name="text" translatable="yes">Rzędna dopływu ścieków do pompowni [m]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Rzedna_dna">
-                        <property name="text" translatable="yes">Rzędna dna pompowni [m]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Rzedna_najw_punkt">
-                        <property name="text" translatable="yes">Rzędna najwyższego punktu na trasie przewodu tłocznego [m]</property>
-                        <property name="wraplength">350</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">6</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Rzedna_zwierciadla">
-                        <property name="text" translatable="yes">Rzędna zwierciadła w zbiorniku górnym [m]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">7</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Dl_przewodu_tl">
-                        <property name="text" translatable="yes">Długość przewodu tłocznego w pompowni [m]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Sred_przewodu_tl">
-                        <property name="text" translatable="yes">Średnica przewodu tłocznego w pompowni [mm]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">9</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Chrop_przewodu_tl">
-                        <property name="text" translatable="yes">Chropowatość przewodu tłocznego w pompowni [mm]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">10</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Opory_przewodu_tl">
-                        <property name="text" translatable="yes">Wartości współczynników oporów miejscowych na przewodzie tłocznym w pompowni</property>
-                        <property name="wraplength">350</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">11</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Doplyw">
-                        <property name="text" translatable="yes">Dopływ ścieków [l/s]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">12</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Liczba_kolektorow">
-                        <property name="text" translatable="yes">Liczba kolektorów tłocznych</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">13</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Dl_kolektora">
-                        <property name="text" translatable="yes">Długość kolektora tłocznego [m]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">14</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Sred_kolektora">
-                        <property name="text" translatable="yes">Średnica kolektora tłocznego [mm]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">15</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Chrop_kolektora">
-                        <property name="text" translatable="yes">Chropowatość kolektora tłocznego [mm]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">16</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Opory_kolektora">
-                        <property name="text" translatable="yes">Wartości współczynników oporów miejscowych na kolektorze tłocznym</property>
-                        <property name="wraplength">350</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">17</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Doplyw_min">
-                        <property name="text" translatable="yes">Min.</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">12</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Doplyw_max">
-                        <property name="text" translatable="yes">Max.</property>
-                        <layout>
-                          <property name="column">3</property>
-                          <property name="propagate">True</property>
-                          <property name="row">12</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Minimalna_wys">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:minimalna_wys</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_terenu">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_terenu</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">1</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_wylotu">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_wylotu</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">2</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_doplywu">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_doplywu</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_dna">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_dna</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_najwpunkt">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_najwpunkt</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">6</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_zwgorne">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_zwgorne</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">7</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Dl_przewodu_tl">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:dl_przewodu_tl</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Sred_przewodu_tl">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:sred_przewodu_tl</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">9</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Chrop_przewodu_tl">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:chrop_przewodu_tl</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">10</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Opory_przewodu_tl">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">string:opory_przewodu_tl</property>
-                        <property name="width">24</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="columnspan">3</property>
-                          <property name="propagate">True</property>
-                          <property name="row">11</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Doplyw_min">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:doplyw_min</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">12</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Doplyw_max">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:doplyw_max</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">4</property>
-                          <property name="propagate">True</property>
-                          <property name="row">12</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Liczba_kol">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">int:liczba_kol</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">13</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Dl_kolektora">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:dl_kolektora</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">14</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Sred_kolektora">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:sr_kolektora</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">15</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Chrop_kolektora">
-                        <property name="exportselection">false</property>
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:chrop_kolektora</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">16</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Opory_kolektora">
-                        <property name="justify">right</property>
-                        <property name="textvariable">string:opory_kolektora</property>
-                        <property name="width">24</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="columnspan">3</property>
-                          <property name="propagate">True</property>
-                          <property name="row">17</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Label" id="Label_Roznica_wlot_start">
-                        <property name="text" translatable="yes">Różnica między rzędną wlotu, a rzędna włączenia pompy [m]</property>
-                        <property name="wraplength">350</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">18</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="ttk.Entry" id="Entry_Roznica_wlot_start">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:roznica_wlot_start</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">5</property>
-                          <property name="sticky">w</property>
-                        </layout>
                       </object>
                     </child>
                   </object>

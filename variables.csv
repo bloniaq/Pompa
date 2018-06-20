@@ -26,7 +26,7 @@ liczba_p_char;0;int;False;1;True;;;;rewrite_dan_to_val;;36;;False;;[];[];
 char_pompy;{};dict;False;1;True;;;;handle_pump_char;;37;;False;;[];[];
 wydajnosc_od;0.0;double;True;1;True;;rewrite_to_cvar;wydajnosc_od;rewrite_dan_to_val;;39;;False;;[];[];
 wydajnosc_do;0.0;double;True;1;True;;rewrite_to_cvar;wydajnosc_do;rewrite_dan_to_val;;40;;False;;[];[];
-liczba_kol;0;int;True;1;True;;;liczba_kol;rewrite_dan_to_val;;41;;False;;"[""var > 0""]";[];treść porady dla liczby kolektorów
+liczba_kol;0;int;True;1;True;;rewrite_to_cvar;liczba_kol;rewrite_dan_to_val;;41;;False;;"[""var > 0""]";[];treść porady dla liczby kolektorów
 dl_kolektora;0.0;double;True;1;True;;rewrite_to_cvar;dl_kolektora;rewrite_dan_to_val;;42;;False;;"[""var > 0.0""]";[];treść porady dla długość kolektora
 sr_kolektora;0.0;double;True;1;True;;rewrite_to_cvar;sr_kolektora;rewrite_dan_to_val;;43;;False;;"[""var > 0.0""]";[];treść porady dla średnicy kolektora
 chrop_kolektora;0.0;double;True;1;True;;rewrite_to_cvar;chrop_kolektora;rewrite_dan_to_val;;44;;False;;"[""var > 0.0""]";[];treść porady dla chropowatości kolektora
