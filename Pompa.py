@@ -298,6 +298,8 @@ self\
     def handle_pump_char(self, obj, value, *args):
         log.info('\nhandle_pump_char\n')
         global path
+        # for i in treeview:
+        #   pump_delete_point(i)
         q_list = []
         h_list = []
         res_counter = 0
@@ -309,7 +311,7 @@ self\
                 if eval(id_line) < obj.dan_id - 1:
                     continue
                 elif eval(id_line) == obj.dan_id - 1:
-                    res_counter = 2*eval(line_datas_list[0])
+                    res_counter = 2 * eval(line_datas_list[0])
                 elif eval(id_line) == obj.dan_id:
                     q_list.append(eval(line_datas_list[0]))
                 elif eval(id_line) == obj.dan_id + 1:

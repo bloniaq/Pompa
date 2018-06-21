@@ -607,17 +607,6 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Doplyw">
-                        <property name="text" translatable="yes">Dopływ ścieków [l/s]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">12</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
                       <object class="ttk.Label" id="Label_Liczba_kolektorow">
                         <property name="text" translatable="yes">Liczba kolektorów tłocznych</property>
                         <layout>
@@ -952,7 +941,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
-                          <property name="row">18</property>
+                          <property name="row">5</property>
                           <property name="sticky">w</property>
                         </layout>
                       </object>
@@ -968,6 +957,78 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           <property name="row">5</property>
                           <property name="sticky">w</property>
                         </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="ttk.Frame" id="Frame_Doplyw">
+                        <property name="height">200</property>
+                        <property name="width">200</property>
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="propagate">True</property>
+                          <property name="row">12</property>
+                          <property name="sticky">w</property>
+                          <rows>
+                            <row id="0">
+                              <property name="pad">0</property>
+                            </row>
+                          </rows>
+                          <columns>
+                            <column id="0">
+                              <property name="pad">30</property>
+                            </column>
+                          </columns>
+                        </layout>
+                        <child>
+                          <object class="ttk.Label" id="Label_Doplyw">
+                            <property name="text" translatable="yes">Dopływ ścieków</property>
+                            <property name="textvariable">string:label_doplyw</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="ttk.Label" id="Label_Doplyw_jednostka">
+                            <property name="text" translatable="yes">jednostka:</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Radiobutton" id="Radiobutton_Doplyw_metry">
+                            <property name="command">control_inflow_unit</property>
+                            <property name="text" translatable="yes">[m³/h]</property>
+                            <property name="value">2</property>
+                            <property name="variable">int:doplyw_jednostka</property>
+                            <layout>
+                              <property name="column">2</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Radiobutton" id="Radiobutton_Doplyw_litry">
+                            <property name="command">control_inflow_unit</property>
+                            <property name="compound">top</property>
+                            <property name="font">TkDefaultFont</property>
+                            <property name="text" translatable="yes">[l/s]</property>
+                            <property name="value">1</property>
+                            <property name="variable">int:doplyw_jednostka</property>
+                            <layout>
+                              <property name="column">3</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                            </layout>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>
@@ -1115,11 +1176,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <child>
                               <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_m3">
                                 <property name="anchor">w</property>
-                                <property name="command">pump_flow_unit_conversion</property>
+                                <property name="command">control_pump_flow_unit</property>
                                 <property name="height">0</property>
                                 <property name="text" translatable="yes">[m³/h]</property>
-                                <property name="value">metry</property>
-                                <property name="variable">string:jedn_char_pompy</property>
+                                <property name="value">2</property>
+                                <property name="variable">int:char_pompy_jednostka</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -1129,10 +1190,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             </child>
                             <child>
                               <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_l">
-                                <property name="command">pump_flow_unit_conversion</property>
+                                <property name="command">control_pump_flow_unit</property>
                                 <property name="text" translatable="yes">[l/s]</property>
-                                <property name="value">litry</property>
-                                <property name="variable">string:jedn_char_pompy</property>
+                                <property name="value">1</property>
+                                <property name="variable">int:char_pompy_jednostka</property>
                                 <layout>
                                   <property name="column">2</property>
                                   <property name="propagate">True</property>
@@ -1169,7 +1230,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="textvariable">double:wydajnosc_od</property>
                                 <property name="width">7</property>
                                 <layout>
-                                  <property name="column">2</property>
+                                  <property name="column">1</property>
                                   <property name="propagate">True</property>
                                   <property name="row">5</property>
                                 </layout>
@@ -1192,7 +1253,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="textvariable">double:wydajnosc_do</property>
                                 <property name="width">7</property>
                                 <layout>
-                                  <property name="column">2</property>
+                                  <property name="column">1</property>
                                   <property name="propagate">True</property>
                                   <property name="row">6</property>
                                 </layout>
@@ -1261,7 +1322,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             </child>
                             <child>
                               <object class="ttk.Button" id="Button_Usun">
-                                <property name="command">pump_delete_point</property>
+                                <property name="command">pump_delete_button</property>
                                 <property name="text" translatable="yes">Usuń wybrany punkt</property>
                                 <property name="width">34</property>
                                 <layout>
@@ -1285,7 +1346,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   <property name="column">0</property>
                                   <property name="columnspan">3</property>
                                   <property name="propagate">True</property>
-                                  <property name="row">9</property>
+                                  <property name="row">2</property>
                                   <rows>
                                     <row id="0">
                                       <property name="pad">10</property>
