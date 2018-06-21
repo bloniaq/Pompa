@@ -223,6 +223,7 @@ self\
     def dan_load(self, path):
         log.info('\ndan_load started\n')
         log.info('plik danych generowany wersją 1.0 aplikacji')
+        self.builder.tkvariables.__getitem__('doplyw_jednostka').set(1)
         with open(path, 'r+') as file:
             log.info('opening file: {0}\n\n'.format(str(file)))
             for line in file:
@@ -264,7 +265,8 @@ self\
 
     def rewrite_dan_to_val(self, obj, value, *args):
         log.info('\nrewrite_dan_to_val started\n')
-        obj.value = value
+        obj.value = eval(value)
+        obj.unit = 1
         if obj.val_to_cvar != "":
             obj.set_value(self)
         log.debug('{0}.value changed to {1}'.format(obj, value))
@@ -305,6 +307,7 @@ self\
             self.pump_delete_point(j)
         q_list = []
         h_list = []
+        obj.unit = 1
         res_counter = 0
         with open(path, 'r+') as file:
             log.info('opening file: {0}\n'.format(str(file)))
@@ -422,6 +425,30 @@ self\
 
     def control_inflow_unit(self):
         log.info('control_inflow_unit started')
+        current_setting = self.builder.tkvariables.__getitem__(
+            'doplyw_jednostka').get()
+        if current_setting != self.doplyw_max.unit:
+            self.change_inflow_unit(current_setting)
+
+    def change_inflow_unit(self, current_setting):
+        log.info('change_inflow_unit started')
+        log.debug('current setting passed: {}'.format(current_setting))
+        if current_setting == 1:
+            self.doplyw_max.value = self.doplyw_max.value / 3.6
+            self.doplyw_max.value = round(self.doplyw_max.value, 2)
+            self.doplyw_min.value = self.doplyw_min.value / 3.6
+            self.doplyw_min.value = round(self.doplyw_min.value, 2)
+        elif current_setting == 2:
+            log.debug('type doplyw_max.value: {}'.format(type(
+                self.doplyw_max.value)))
+            self.doplyw_max.value = self.doplyw_max.value * 3.6
+            self.doplyw_max.value = round(self.doplyw_max.value, 2)
+            self.doplyw_min.value = self.doplyw_min.value * 3.6
+            self.doplyw_min.value = round(self.doplyw_min.value, 2)
+        self.doplyw_min.unit = current_setting
+        self.doplyw_max.unit = current_setting
+        self.doplyw_max.val_to_cvar(self.doplyw_max)
+        self.doplyw_min.val_to_cvar(self.doplyw_min)
 
     def control_pump_flow_unit(self):
         log.info('control_pump_flow_unit started')

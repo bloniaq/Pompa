@@ -1,1777 +1,2788 @@
-2018.06.21 21:33:46-DEBUG: load func args: {'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'}
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: load func args: {'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'}
+2018.06.21 23:05:26-DEBUG: 
 self.tryb_pracy = Variables("tryb_pracy", "sprawdzenie", "string", True, 0, True, "change_mode", "rewrite_to_cvar", "tryb_pracy", "dict_dan_to_val", {'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'}, 1, "", True, "0", ["isinstance(var, string)", "var == 'minimalizacja' or var == 'optymalizacja' or var == 'sprawdzenie'"], ['Frame_Tryb'], "treść wskazówki", self)
 
 
-2018.06.21 21:33:46-DEBUG: load func args: {'0': 'prostokat', '1': 'kolo'}
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: load func args: {'0': 'prostokat', '1': 'kolo'}
+2018.06.21 23:05:26-DEBUG: 
 self.ksztalt = Variables("ksztalt", "kolo", "string", True, 0, True, "change_shape", "rewrite_to_cvar", "ksztalt", "dict_dan_to_val", {'0': 'prostokat', '1': 'kolo'}, 2, "", True, "", ["var = 'kolo'", "var = 'prostokat'"], ['lista', 'obiektów advice'], "treść porady dla wyboru ksztaltu pompowni", self)
 
 
-2018.06.21 21:33:46-DEBUG: load func args: {'0': 'jednorzedowy', '1': 'optymalny'}
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: load func args: {'0': 'jednorzedowy', '1': 'optymalny'}
+2018.06.21 23:05:26-DEBUG: 
 self.uklad_pompowni = Variables("uklad_pompowni", "optymalny", "string", True, 0, True, "", "rewrite_to_cvar", "uklad_pompowni", "dict_dan_to_val", {'0': 'jednorzedowy', '1': 'optymalny'}, 3, "", True, "", ["var = 'jednorzedowy'", "var = 'optymalny'"], ['lista', 'obiektów advice'], "treść porady dla wyboru układu pompowni", self)
 
 
-2018.06.21 21:33:46-DEBUG: load func args: {'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'}
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: load func args: {'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'}
+2018.06.21 23:05:26-DEBUG: 
 self.liczba_pomp_rez = Variables("liczba_pomp_rez", "optymalna", "string", True, 0, True, "", "rewrite_to_cvar", "liczba_pomp_rez", "dict_dan_to_val", {'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'}, 4, "", True, "", ["isinstance(var, string)", "var == 'optymalna' or var == 'minimalna' or var == 'bezpieczna'"], ['lista', 'obiektów advice'], "treść porady dla pomp rezerwowych", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.obrys_pompy = Variables("obrys_pompy", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "obrys_pompy", "rewrite_dan_to_val", None, 5, "", False, "", ["var > 0.0"], ['lista', 'obiektów advice'], "treść porady dla obrysu pompy", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.dlugosc_pompowni = Variables("dlugosc_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dlugosc_pompowni", "rewrite_dan_to_val", None, 6, "", False, "", ["var > 0.0"], ['lista', 'obiektów advice'], "treść porady dla długości pompowni", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.szer_pompowni = Variables("szer_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "szer_pompowni", "rewrite_dan_to_val", None, 7, "", False, "", ["var > 0.0"], ['lista', 'obiektów advice'], "treść porady dla szerokości pompowni", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.srednica_pompowni = Variables("srednica_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "srednica_pompowni", "rewrite_dan_to_val", None, 8, "", False, "", ["var > 0.0", "var >= obrys_pompy.value"], ['lista', 'obiektów advice'], "treść porady dla szerokości pompowni", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.minimalna_wys = Variables("minimalna_wys", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "minimalna_wys", "rewrite_dan_to_val", None, 9, "", False, "", ["var > 0.0"], ['Label_Minimalna_wys'], "treść wskazówki", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.rzedna_terenu = Variables("rzedna_terenu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_terenu", "rewrite_dan_to_val", None, 10, "", True, "", ["var > rzedna_dna.value", "var > rzedna_doplywu.value", "var > rzedna_wylotu.value"], ['Label_Rzedna_terenu', 'Entry_Rzedna_terenu'], "treść porady dla rzędnej terenu", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.rzedna_wylotu = Variables("rzedna_wylotu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_wylotu", "rewrite_dan_to_val", None, 11, "", True, "", ["var < rzedna_terenu.value", "var > rzedna_dna.value"], ['Label_Rzedna_wylotu', 'Entry_Rzedna_wylotu'], "treść porady dla rzędnej wylotu", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.rzedna_doplywu = Variables("rzedna_doplywu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_doplywu", "rewrite_dan_to_val", None, 12, "", True, "", ["var < rzedna_terenu.value", "var > rzedna_dna.value"], ['Label_Rzedna_doplywu', 'Entry_Rzedna_doplywu'], "treść porady dla rzędnej dopływu", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.rzedna_dna = Variables("rzedna_dna", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_dna", "rewrite_dan_to_val", None, 13, "", True, "", ["var < rzedna_doplywu.value", "var < rzedna_wylotu.value", "var < rzedna_terenu.value"], ['Label_Rzedna_dna', 'Entry_Rzedna_dna'], "treść porady dla rzędnej dna", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.roznica_wlot_start = Variables("roznica_wlot_start", 0.0, "double", True, 1, False, "", "rewrite_to_cvar", "roznica_wlot_start", "rewrite_dan_to_val", None, 14, "", False, "", ["var > 0.0"], [], "treść porady dla różnicy wlotu i startu", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.rzedna_najwpunkt = Variables("rzedna_najwpunkt", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_najwpunkt", "rewrite_dan_to_val", None, 15, "", True, "", ["var > rzedna_wylotu.value"], [], "treść porady dla rzednej najwyższego punktu na trasie", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.rzedna_zwgorne = Variables("rzedna_zwgorne", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_zwgorne", "rewrite_dan_to_val", None, 16, "", True, "", [], [], "treść porady dla zwierciadło w zbiorniku górnym", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.dl_przewodu_tl = Variables("dl_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dl_przewodu_tl", "rewrite_dan_to_val", None, 28, "", False, "", ["var > 0.0"], [], "treść porady dla długości przewodu tłocznego w pompowni", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.sred_przewodu_tl = Variables("sred_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "sred_przewodu_tl", "rewrite_dan_to_val", None, 29, "", False, "", ["var > 0.0"], [], "treść porady dla średnicy przewodu tłocznego w pompowni", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.chrop_przewodu_tl = Variables("chrop_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "chrop_przewodu_tl", "rewrite_dan_to_val", None, 30, "", False, "", ["var > 0.0"], [], "treść porady dla chropowatości przewodu tłocznego w pompowni", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.liczba_op_prz_tl = Variables("liczba_op_prz_tl", 0, "int", False, 1, True, "", "", "", "", None, 31, "", True, "", [], [], "treść porady dla chropowatości kolektora", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.opory_przewodu_tl = Variables("opory_przewodu_tl", [], "list", True, 1, True, "", "res_to_cvar", "opory_przewodu_tl", "handle_loc_res", None, 32, "", True, "", [], [], "treść porady dla oporów miejscowych przewodu", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.doplyw_min = Variables("doplyw_min", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "doplyw_min", "rewrite_dan_to_val", None, 33, "", False, "", ["var > 0.0", "var <= doplyw_max.value"], [], "Treść porady dla dopływu minimalnego", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.doplyw_max = Variables("doplyw_max", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "doplyw_max", "rewrite_dan_to_val", None, 34, "", False, "", ["var > 0.0", "var >= doplyw_min.value"], [], "treść porady dla dopływu maksymalnego", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.czas_cyklu = Variables("czas_cyklu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "czas_cyklu", "rewrite_dan_to_val", None, 35, "", False, "", ["var > 0.0"], [], "treść porady dla czasu cyklu", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.liczba_p_char = Variables("liczba_p_char", 0, "int", False, 1, True, "", "", "", "", None, 36, "", False, "", [], [], "", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.char_pompy = Variables("char_pompy", {}, "dict", False, 1, True, "", "", "", "handle_pump_char", None, 37, "", False, "", [], [], "", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.wydajnosc_od = Variables("wydajnosc_od", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "wydajnosc_od", "rewrite_dan_to_val", None, 39, "", False, "", [], [], "", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.wydajnosc_do = Variables("wydajnosc_do", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "wydajnosc_do", "rewrite_dan_to_val", None, 40, "", False, "", [], [], "", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.liczba_kol = Variables("liczba_kol", 0, "int", True, 1, True, "", "rewrite_to_cvar", "liczba_kol", "rewrite_dan_to_val", None, 41, "", False, "", ["var > 0"], [], "treść porady dla liczby kolektorów", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.dl_kolektora = Variables("dl_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dl_kolektora", "rewrite_dan_to_val", None, 42, "", False, "", ["var > 0.0"], [], "treść porady dla długość kolektora", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.sr_kolektora = Variables("sr_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "sr_kolektora", "rewrite_dan_to_val", None, 43, "", False, "", ["var > 0.0"], [], "treść porady dla średnicy kolektora", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.chrop_kolektora = Variables("chrop_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "chrop_kolektora", "rewrite_dan_to_val", None, 44, "", False, "", ["var > 0.0"], [], "treść porady dla chropowatości kolektora", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.liczba_op_kol = Variables("liczba_op_kol", 0, "int", False, 1, True, "", "", "", "", None, 45, "", True, "", [], [], "", self)
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 self.opory_kolektora = Variables("opory_kolektora", [], "list", True, 1, True, "", "res_to_cvar", "opory_kolektora", "handle_loc_res", None, 46, "", True, "", [], [], "treść porady dla oporów miejscowych kolektora", self)
 
 
-2018.06.21 21:33:46-INFO: 
+2018.06.21 23:05:26-INFO: 
 [tryb_pracy, ksztalt, uklad_pompowni, liczba_pomp_rez, obrys_pompy, dlugosc_pompowni, szer_pompowni, srednica_pompowni, minimalna_wys, rzedna_terenu, rzedna_wylotu, rzedna_doplywu, rzedna_dna, roznica_wlot_start, rzedna_najwpunkt, rzedna_zwgorne, dl_przewodu_tl, sred_przewodu_tl, chrop_przewodu_tl, liczba_op_prz_tl, opory_przewodu_tl, doplyw_min, doplyw_max, czas_cyklu, liczba_p_char, char_pompy, wydajnosc_od, wydajnosc_do, liczba_kol, dl_kolektora, sr_kolektora, chrop_kolektora, liczba_op_kol, opory_kolektora]
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 
 tryb_pracy, <class 'str'>
-2018.06.21 21:33:46-INFO: changed mode: sprawdzenie
-2018.06.21 21:33:46-DEBUG: test_attr: dict_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-INFO: changed mode: sprawdzenie
+2018.06.21 23:05:26-DEBUG: test_attr: dict_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 ksztalt, <class 'str'>
-2018.06.21 21:33:46-INFO: changed shape: kolo
-2018.06.21 21:33:46-DEBUG: test_attr: dict_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-INFO: changed shape: kolo
+2018.06.21 23:05:26-DEBUG: test_attr: dict_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 uklad_pompowni, <class 'str'>
-2018.06.21 21:33:46-DEBUG: test_attr: dict_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: dict_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 liczba_pomp_rez, <class 'str'>
-2018.06.21 21:33:46-DEBUG: test_attr: dict_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: dict_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 obrys_pompy, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 dlugosc_pompowni, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 szer_pompowni, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 srednica_pompowni, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 minimalna_wys, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 rzedna_terenu, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 rzedna_wylotu, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 rzedna_doplywu, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 rzedna_dna, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 roznica_wlot_start, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 rzedna_najwpunkt, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 rzedna_zwgorne, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 dl_przewodu_tl, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 sred_przewodu_tl, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 chrop_przewodu_tl, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: test_attr: 
-2018.06.21 21:33:46-DEBUG: load_func: None
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: test_attr: 
+2018.06.21 23:05:26-DEBUG: load_func: None
+2018.06.21 23:05:26-DEBUG: 
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 res string : 
-2018.06.21 21:33:46-DEBUG: opory_przewodu_tl, res string
-2018.06.21 21:33:46-DEBUG: test_attr: handle_loc_res
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.handle_loc_res of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: opory_przewodu_tl, res string
+2018.06.21 23:05:26-DEBUG: test_attr: handle_loc_res
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.handle_loc_res of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 doplyw_min, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 doplyw_max, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 czas_cyklu, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: test_attr: 
-2018.06.21 21:33:46-DEBUG: load_func: None
-2018.06.21 21:33:46-DEBUG: test_attr: handle_pump_char
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.handle_pump_char of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: test_attr: 
+2018.06.21 23:05:26-DEBUG: load_func: None
+2018.06.21 23:05:26-DEBUG: test_attr: handle_pump_char
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.handle_pump_char of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 wydajnosc_od, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 wydajnosc_do, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 liczba_kol, <class 'int'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 dl_kolektora, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 sr_kolektora, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: 
 
 chrop_kolektora, <class 'float'>
-2018.06.21 21:33:46-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:46-DEBUG: test_attr: 
-2018.06.21 21:33:46-DEBUG: load_func: None
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:26-DEBUG: test_attr: 
+2018.06.21 23:05:26-DEBUG: load_func: None
+2018.06.21 23:05:26-DEBUG: 
 
 
-2018.06.21 21:33:46-DEBUG: 
+2018.06.21 23:05:26-DEBUG: 
 res string : 
-2018.06.21 21:33:46-DEBUG: opory_kolektora, res string
-2018.06.21 21:33:46-DEBUG: test_attr: handle_loc_res
-2018.06.21 21:33:46-DEBUG: load_func: <bound method Application.handle_loc_res of <__main__.Application object at 0x7f666937d780>>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:26-DEBUG: opory_kolektora, res string
+2018.06.21 23:05:26-DEBUG: test_attr: handle_loc_res
+2018.06.21 23:05:26-DEBUG: load_func: <bound method Application.handle_loc_res of <__main__.Application object at 0x7f8ac998e710>>
+2018.06.21 23:05:30-INFO: 
 data_load started
 
-2018.06.21 21:33:55-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+2018.06.21 23:05:30-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
 
 
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: 
 dan_load started
 
-2018.06.21 21:33:55-INFO: plik danych generowany wersją 1.0 aplikacji
-2018.06.21 21:33:55-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+2018.06.21 23:05:30-INFO: plik danych generowany wersją 1.0 aplikacji
+2018.06.21 23:05:30-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
 
 
-2018.06.21 21:33:55-DEBUG: dan_id: 1) 0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-DEBUG: dan_id: 1) 0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 dict_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: translated_value: minimalizacja
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: translated_value: minimalizacja
+2018.06.21 23:05:30-DEBUG: 
 
 tryb_pracy, <class 'str'>
-2018.06.21 21:33:55-DEBUG: tryb_pracy.value changed to minimalizacja
-2018.06.21 21:33:55-INFO: changed mode: minimalizacja
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-DEBUG: tryb_pracy.value changed to minimalizacja
+2018.06.21 23:05:30-INFO: changed mode: minimalizacja
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 2) 1 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 2) 1 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 dict_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: translated_value: kolo
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: translated_value: kolo
+2018.06.21 23:05:30-DEBUG: 
 
 ksztalt, <class 'str'>
-2018.06.21 21:33:55-DEBUG: ksztalt.value changed to kolo
-2018.06.21 21:33:55-INFO: changed shape: kolo
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-DEBUG: ksztalt.value changed to kolo
+2018.06.21 23:05:30-INFO: changed shape: kolo
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 3) 0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 3) 0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 dict_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: translated_value: jednorzedowy
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: translated_value: jednorzedowy
+2018.06.21 23:05:30-DEBUG: 
 
 uklad_pompowni, <class 'str'>
-2018.06.21 21:33:55-DEBUG: uklad_pompowni.value changed to jednorzedowy
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-DEBUG: uklad_pompowni.value changed to jednorzedowy
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 4) 1 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 4) 1 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 dict_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: translated_value: minimalna
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: translated_value: minimalna
+2018.06.21 23:05:30-DEBUG: 
 
 liczba_pomp_rez, <class 'str'>
-2018.06.21 21:33:55-DEBUG: liczba_pomp_rez.value changed to minimalna
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-DEBUG: liczba_pomp_rez.value changed to minimalna
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 5) .81 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 5) .81 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-obrys_pompy, <class 'str'>
-2018.06.21 21:33:55-DEBUG: obrys_pompy.value changed to .81
-2018.06.21 21:33:55-INFO: 
+obrys_pompy, <class 'float'>
+2018.06.21 23:05:30-DEBUG: obrys_pompy.value changed to .81
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 9) .30 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 9) .30 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-minimalna_wys, <class 'str'>
-2018.06.21 21:33:55-DEBUG: minimalna_wys.value changed to .30
-2018.06.21 21:33:55-INFO: 
+minimalna_wys, <class 'float'>
+2018.06.21 23:05:30-DEBUG: minimalna_wys.value changed to .30
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 10) 159.00 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 10) 159.00 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-rzedna_terenu, <class 'str'>
-2018.06.21 21:33:55-DEBUG: rzedna_terenu.value changed to 159.00
-2018.06.21 21:33:55-INFO: 
+rzedna_terenu, <class 'float'>
+2018.06.21 23:05:30-DEBUG: rzedna_terenu.value changed to 159.00
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 11) 157.40 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 11) 157.40 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-rzedna_wylotu, <class 'str'>
-2018.06.21 21:33:55-DEBUG: rzedna_wylotu.value changed to 157.40
-2018.06.21 21:33:55-INFO: 
+rzedna_wylotu, <class 'float'>
+2018.06.21 23:05:30-DEBUG: rzedna_wylotu.value changed to 157.40
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 12) 153.00 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 12) 153.00 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-rzedna_doplywu, <class 'str'>
-2018.06.21 21:33:55-DEBUG: rzedna_doplywu.value changed to 153.00
-2018.06.21 21:33:55-INFO: 
+rzedna_doplywu, <class 'float'>
+2018.06.21 23:05:30-DEBUG: rzedna_doplywu.value changed to 153.00
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 13) 151.50 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 13) 151.50 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-rzedna_dna, <class 'str'>
-2018.06.21 21:33:55-DEBUG: rzedna_dna.value changed to 151.50
-2018.06.21 21:33:55-INFO: 
+rzedna_dna, <class 'float'>
+2018.06.21 23:05:30-DEBUG: rzedna_dna.value changed to 151.50
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 14) .00 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 14) .00 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-roznica_wlot_start, <class 'str'>
-2018.06.21 21:33:55-DEBUG: roznica_wlot_start.value changed to .00
-2018.06.21 21:33:55-INFO: 
+roznica_wlot_start, <class 'float'>
+2018.06.21 23:05:30-DEBUG: roznica_wlot_start.value changed to .00
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 15) 158.00 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 15) 158.00 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-rzedna_najwpunkt, <class 'str'>
-2018.06.21 21:33:55-DEBUG: rzedna_najwpunkt.value changed to 158.00
-2018.06.21 21:33:55-INFO: 
+rzedna_najwpunkt, <class 'float'>
+2018.06.21 23:05:30-DEBUG: rzedna_najwpunkt.value changed to 158.00
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 16) 158.00 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 16) 158.00 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-rzedna_zwgorne, <class 'str'>
-2018.06.21 21:33:55-DEBUG: rzedna_zwgorne.value changed to 158.00
-2018.06.21 21:33:55-INFO: 
+rzedna_zwgorne, <class 'float'>
+2018.06.21 23:05:30-DEBUG: rzedna_zwgorne.value changed to 158.00
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 17) 2.60 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-DEBUG: dan_id: 18) 1.20 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-DEBUG: dan_id: 19) 1 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-DEBUG: dan_id: 20) 40 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-DEBUG: dan_id: 21) 0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-DEBUG: dan_id: 29) 125.0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 17) 2.60 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-DEBUG: dan_id: 18) 1.20 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-DEBUG: dan_id: 19) 1 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-DEBUG: dan_id: 20) 40 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-DEBUG: dan_id: 21) 0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-DEBUG: dan_id: 29) 125.0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-sred_przewodu_tl, <class 'str'>
-2018.06.21 21:33:55-DEBUG: sred_przewodu_tl.value changed to 125.0
-2018.06.21 21:33:55-INFO: 
+sred_przewodu_tl, <class 'float'>
+2018.06.21 23:05:30-DEBUG: sred_przewodu_tl.value changed to 125.0
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 30) .05 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 30) .05 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-chrop_przewodu_tl, <class 'str'>
-2018.06.21 21:33:55-DEBUG: chrop_przewodu_tl.value changed to .05
-2018.06.21 21:33:55-INFO: 
+chrop_przewodu_tl, <class 'float'>
+2018.06.21 23:05:30-DEBUG: chrop_przewodu_tl.value changed to .05
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 31) 1 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-DEBUG: dan_id: 32) 3.18 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 31) 1 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-DEBUG: dan_id: 32) 3.18 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 handle_loc_res started
 
-2018.06.21 21:33:55-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+2018.06.21 23:05:30-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
 
-2018.06.21 21:33:55-DEBUG: 3.18
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 3.18
+2018.06.21 23:05:30-DEBUG: 
 res string : 3.18
-2018.06.21 21:33:55-DEBUG: opory_przewodu_tl, res string
-2018.06.21 21:33:55-INFO: handle_loc_res func ended
+2018.06.21 23:05:30-DEBUG: opory_przewodu_tl, res string
+2018.06.21 23:05:30-INFO: handle_loc_res func ended
 
 
-2018.06.21 21:33:55-INFO: i.load_func handle_loc_res executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 33) .2 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func handle_loc_res executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 33) .2 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-doplyw_min, <class 'str'>
-2018.06.21 21:33:55-DEBUG: doplyw_min.value changed to .2
-2018.06.21 21:33:55-INFO: 
+doplyw_min, <class 'float'>
+2018.06.21 23:05:30-DEBUG: doplyw_min.value changed to .2
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 34) 1.6 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 34) 1.6 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-doplyw_max, <class 'str'>
-2018.06.21 21:33:55-DEBUG: doplyw_max.value changed to 1.6
-2018.06.21 21:33:55-INFO: 
+doplyw_max, <class 'float'>
+2018.06.21 23:05:30-DEBUG: doplyw_max.value changed to 1.6
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 35) 6.0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 35) 6.0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-czas_cyklu, <class 'str'>
-2018.06.21 21:33:55-DEBUG: czas_cyklu.value changed to 6.0
-2018.06.21 21:33:55-INFO: 
+czas_cyklu, <class 'float'>
+2018.06.21 23:05:30-DEBUG: czas_cyklu.value changed to 6.0
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 36) 6 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-DEBUG: dan_id: 37) 47.0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 36) 6 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-DEBUG: dan_id: 37) 47.0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 handle_pump_char
 
-2018.06.21 21:33:55-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+2018.06.21 23:05:30-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
 
-2018.06.21 21:33:55-DEBUG: q_list: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0]
-2018.06.21 21:33:55-DEBUG: h_list: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
-2018.06.21 21:33:55-INFO: pump_add_point BEGUN
-2018.06.21 21:33:55-DEBUG: {'I001': ('47.0', '0.0')}
-2018.06.21 21:33:55-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:33:55-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:33:55-DEBUG: utworzono listę elementów
-2018.06.21 21:33:55-INFO: [('47.0', 'I001')]
-2018.06.21 21:33:55-INFO: pump_add_point BEGUN
-2018.06.21 21:33:55-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2')}
-2018.06.21 21:33:55-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:33:55-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:33:55-DEBUG: utworzono listę elementów
-2018.06.21 21:33:55-INFO: [('47.0', 'I001'), ('40.0', 'I002')]
-2018.06.21 21:33:55-INFO: pump_add_point BEGUN
-2018.06.21 21:33:55-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7')}
-2018.06.21 21:33:55-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:33:55-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:33:55-DEBUG: utworzono listę elementów
-2018.06.21 21:33:55-INFO: [('40.0', 'I002'), ('47.0', 'I001'), ('30.0', 'I003')]
-2018.06.21 21:33:55-INFO: pump_add_point BEGUN
-2018.06.21 21:33:55-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1')}
-2018.06.21 21:33:55-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:33:55-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:33:55-DEBUG: utworzono listę elementów
-2018.06.21 21:33:55-INFO: [('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('20.0', 'I004')]
-2018.06.21 21:33:55-INFO: pump_add_point BEGUN
-2018.06.21 21:33:55-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5')}
-2018.06.21 21:33:55-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:33:55-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:33:55-DEBUG: utworzono listę elementów
-2018.06.21 21:33:55-INFO: [('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('10.0', 'I005')]
-2018.06.21 21:33:55-INFO: pump_add_point BEGUN
-2018.06.21 21:33:55-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
-2018.06.21 21:33:55-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:33:55-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:33:55-DEBUG: utworzono listę elementów
-2018.06.21 21:33:55-INFO: [('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('0.0', 'I006')]
-2018.06.21 21:33:55-INFO: i.load_func handle_pump_char executed,                            returned 11
-2018.06.21 21:33:55-DEBUG: dan_id: 39) 11.0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-DEBUG: q_list: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0]
+2018.06.21 23:05:30-DEBUG: h_list: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+2018.06.21 23:05:30-INFO: pump_add_point BEGUN
+2018.06.21 23:05:30-DEBUG: {'I001': ('47.0', '0.0')}
+2018.06.21 23:05:30-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:30-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:30-DEBUG: utworzono listę elementów
+2018.06.21 23:05:30-INFO: [('47.0', 'I001')]
+2018.06.21 23:05:30-INFO: pump_add_point BEGUN
+2018.06.21 23:05:30-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2')}
+2018.06.21 23:05:30-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:30-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:30-DEBUG: utworzono listę elementów
+2018.06.21 23:05:30-INFO: [('47.0', 'I001'), ('40.0', 'I002')]
+2018.06.21 23:05:30-INFO: pump_add_point BEGUN
+2018.06.21 23:05:30-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7')}
+2018.06.21 23:05:30-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:30-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:30-DEBUG: utworzono listę elementów
+2018.06.21 23:05:30-INFO: [('40.0', 'I002'), ('47.0', 'I001'), ('30.0', 'I003')]
+2018.06.21 23:05:30-INFO: pump_add_point BEGUN
+2018.06.21 23:05:30-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1')}
+2018.06.21 23:05:30-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:30-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:30-DEBUG: utworzono listę elementów
+2018.06.21 23:05:30-INFO: [('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('20.0', 'I004')]
+2018.06.21 23:05:30-INFO: pump_add_point BEGUN
+2018.06.21 23:05:30-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5')}
+2018.06.21 23:05:30-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:30-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:30-DEBUG: utworzono listę elementów
+2018.06.21 23:05:30-INFO: [('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('10.0', 'I005')]
+2018.06.21 23:05:30-INFO: pump_add_point BEGUN
+2018.06.21 23:05:30-DEBUG: {'I001': ('47.0', '0.0'), 'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
+2018.06.21 23:05:30-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:30-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:30-DEBUG: utworzono listę elementów
+2018.06.21 23:05:30-INFO: [('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('0.0', 'I006')]
+2018.06.21 23:05:30-INFO: i.load_func handle_pump_char executed,                            returned 11
+2018.06.21 23:05:30-DEBUG: dan_id: 39) 11.0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-wydajnosc_od, <class 'str'>
-2018.06.21 21:33:55-DEBUG: wydajnosc_od.value changed to 11.0
-2018.06.21 21:33:55-INFO: 
+wydajnosc_od, <class 'float'>
+2018.06.21 23:05:30-DEBUG: wydajnosc_od.value changed to 11.0
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 40) 23.0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 40) 23.0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-wydajnosc_do, <class 'str'>
-2018.06.21 21:33:55-DEBUG: wydajnosc_do.value changed to 23.0
-2018.06.21 21:33:55-INFO: 
+wydajnosc_do, <class 'float'>
+2018.06.21 23:05:30-DEBUG: wydajnosc_do.value changed to 23.0
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 41) 1 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 41) 1 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-liczba_kol, <class 'str'>
-2018.06.21 21:33:55-DEBUG: liczba_kol.value changed to 1
-2018.06.21 21:33:55-INFO: 
+liczba_kol, <class 'int'>
+2018.06.21 23:05:30-DEBUG: liczba_kol.value changed to 1
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 42) 400.0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 42) 400.0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-dl_kolektora, <class 'str'>
-2018.06.21 21:33:55-DEBUG: dl_kolektora.value changed to 400.0
-2018.06.21 21:33:55-INFO: 
+dl_kolektora, <class 'float'>
+2018.06.21 23:05:30-DEBUG: dl_kolektora.value changed to 400.0
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 43) 160.0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 43) 160.0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-sr_kolektora, <class 'str'>
-2018.06.21 21:33:55-DEBUG: sr_kolektora.value changed to 160.0
-2018.06.21 21:33:55-INFO: 
+sr_kolektora, <class 'float'>
+2018.06.21 23:05:30-DEBUG: sr_kolektora.value changed to 160.0
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 44) .10 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:33:55-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 44) .10 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:30-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:33:55-DEBUG: 
+2018.06.21 23:05:30-DEBUG: 
 
-chrop_kolektora, <class 'str'>
-2018.06.21 21:33:55-DEBUG: chrop_kolektora.value changed to .10
-2018.06.21 21:33:55-INFO: 
+chrop_kolektora, <class 'float'>
+2018.06.21 23:05:30-DEBUG: chrop_kolektora.value changed to .10
+2018.06.21 23:05:30-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:33:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:33:55-DEBUG: dan_id: 45) 0 <-readed_value
-2018.06.21 21:33:55-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:30-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:30-DEBUG: dan_id: 45) 0 <-readed_value
+2018.06.21 23:05:30-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:32-INFO: control_inflow_unit started
+2018.06.21 23:05:32-INFO: change_inflow_unit started
+2018.06.21 23:05:32-DEBUG: current setting passed: 2
+2018.06.21 23:05:32-DEBUG: type doplyw_max.value: <class 'float'>
+2018.06.21 23:05:32-DEBUG: 
+
+doplyw_max, <class 'float'>
+2018.06.21 23:05:32-DEBUG: 
+
+doplyw_min, <class 'float'>
+2018.06.21 23:05:33-INFO: 
 data_load started
 
-2018.06.21 21:34:09-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/InOut Examples/1_STAND_1.DAN' mode='r+' encoding='UTF-8'>
+2018.06.21 23:05:33-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
 
 
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-INFO: 
 dan_load started
 
-2018.06.21 21:34:09-INFO: plik danych generowany wersją 1.0 aplikacji
-2018.06.21 21:34:09-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/InOut Examples/1_STAND_1.DAN' mode='r+' encoding='UTF-8'>
+2018.06.21 23:05:33-INFO: plik danych generowany wersją 1.0 aplikacji
+2018.06.21 23:05:33-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
 
 
-2018.06.21 21:34:09-DEBUG: dan_id: 1) 1 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-DEBUG: dan_id: 1) 0 <-readed_value
+2018.06.21 23:05:33-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:33-INFO: 
 dict_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: translated_value: sprawdzenie
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:33-DEBUG: translated_value: minimalizacja
+2018.06.21 23:05:33-DEBUG: 
 
 tryb_pracy, <class 'str'>
-2018.06.21 21:34:09-DEBUG: tryb_pracy.value changed to sprawdzenie
-2018.06.21 21:34:09-INFO: changed mode: sprawdzenie
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-DEBUG: tryb_pracy.value changed to minimalizacja
+2018.06.21 23:05:33-INFO: changed mode: minimalizacja
+2018.06.21 23:05:33-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 2) 1 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:33-DEBUG: dan_id: 2) 1 <-readed_value
+2018.06.21 23:05:33-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:33-INFO: 
 dict_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: translated_value: kolo
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:33-DEBUG: translated_value: kolo
+2018.06.21 23:05:33-DEBUG: 
 
 ksztalt, <class 'str'>
-2018.06.21 21:34:09-DEBUG: ksztalt.value changed to kolo
-2018.06.21 21:34:09-INFO: changed shape: kolo
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-DEBUG: ksztalt.value changed to kolo
+2018.06.21 23:05:33-INFO: changed shape: kolo
+2018.06.21 23:05:33-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 3) 0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:33-DEBUG: dan_id: 3) 0 <-readed_value
+2018.06.21 23:05:33-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:33-INFO: 
 dict_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: translated_value: jednorzedowy
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:33-DEBUG: translated_value: jednorzedowy
+2018.06.21 23:05:33-DEBUG: 
 
 uklad_pompowni, <class 'str'>
-2018.06.21 21:34:09-DEBUG: uklad_pompowni.value changed to jednorzedowy
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-DEBUG: uklad_pompowni.value changed to jednorzedowy
+2018.06.21 23:05:33-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 4) 2 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:33-DEBUG: dan_id: 4) 1 <-readed_value
+2018.06.21 23:05:33-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:33-INFO: 
 dict_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: translated_value: optymalna
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:33-DEBUG: translated_value: minimalna
+2018.06.21 23:05:33-DEBUG: 
 
 liczba_pomp_rez, <class 'str'>
-2018.06.21 21:34:09-DEBUG: liczba_pomp_rez.value changed to optymalna
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-DEBUG: liczba_pomp_rez.value changed to minimalna
+2018.06.21 23:05:33-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 5) 1.20 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:33-DEBUG: dan_id: 5) .81 <-readed_value
+2018.06.21 23:05:33-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:33-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:33-DEBUG: 
 
-obrys_pompy, <class 'str'>
-2018.06.21 21:34:09-DEBUG: obrys_pompy.value changed to 1.20
-2018.06.21 21:34:09-INFO: 
+obrys_pompy, <class 'float'>
+2018.06.21 23:05:33-DEBUG: obrys_pompy.value changed to .81
+2018.06.21 23:05:33-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 8) 3.50 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:33-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:33-DEBUG: dan_id: 9) .30 <-readed_value
+2018.06.21 23:05:33-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:33-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:33-DEBUG: 
 
-srednica_pompowni, <class 'str'>
-2018.06.21 21:34:09-DEBUG: srednica_pompowni.value changed to 3.50
-2018.06.21 21:34:09-INFO: 
+minimalna_wys, <class 'float'>
+2018.06.21 23:05:33-DEBUG: minimalna_wys.value changed to .30
+2018.06.21 23:05:33-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 9) .30 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 10) 159.00 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-minimalna_wys, <class 'str'>
-2018.06.21 21:34:09-DEBUG: minimalna_wys.value changed to .30
-2018.06.21 21:34:09-INFO: 
+rzedna_terenu, <class 'float'>
+2018.06.21 23:05:34-DEBUG: rzedna_terenu.value changed to 159.00
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 10) 50.00 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 11) 157.40 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-rzedna_terenu, <class 'str'>
-2018.06.21 21:34:09-DEBUG: rzedna_terenu.value changed to 50.00
-2018.06.21 21:34:09-INFO: 
+rzedna_wylotu, <class 'float'>
+2018.06.21 23:05:34-DEBUG: rzedna_wylotu.value changed to 157.40
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 11) 47.00 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 12) 153.00 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-rzedna_wylotu, <class 'str'>
-2018.06.21 21:34:09-DEBUG: rzedna_wylotu.value changed to 47.00
-2018.06.21 21:34:09-INFO: 
+rzedna_doplywu, <class 'float'>
+2018.06.21 23:05:34-DEBUG: rzedna_doplywu.value changed to 153.00
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 12) 45.00 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 13) 151.50 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-rzedna_doplywu, <class 'str'>
-2018.06.21 21:34:09-DEBUG: rzedna_doplywu.value changed to 45.00
-2018.06.21 21:34:09-INFO: 
+rzedna_dna, <class 'float'>
+2018.06.21 23:05:34-DEBUG: rzedna_dna.value changed to 151.50
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 13) 42.00 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 14) .00 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-rzedna_dna, <class 'str'>
-2018.06.21 21:34:09-DEBUG: rzedna_dna.value changed to 42.00
-2018.06.21 21:34:09-INFO: 
+roznica_wlot_start, <class 'float'>
+2018.06.21 23:05:34-DEBUG: roznica_wlot_start.value changed to .00
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 15) 52.00 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 15) 158.00 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-rzedna_najwpunkt, <class 'str'>
-2018.06.21 21:34:09-DEBUG: rzedna_najwpunkt.value changed to 52.00
-2018.06.21 21:34:09-INFO: 
+rzedna_najwpunkt, <class 'float'>
+2018.06.21 23:05:34-DEBUG: rzedna_najwpunkt.value changed to 158.00
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 16) 50.00 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 16) 158.00 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-rzedna_zwgorne, <class 'str'>
-2018.06.21 21:34:09-DEBUG: rzedna_zwgorne.value changed to 50.00
-2018.06.21 21:34:09-INFO: 
+rzedna_zwgorne, <class 'float'>
+2018.06.21 23:05:34-DEBUG: rzedna_zwgorne.value changed to 158.00
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 28) 7.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 17) 2.60 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-DEBUG: dan_id: 18) 1.20 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-DEBUG: dan_id: 19) 1 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-DEBUG: dan_id: 20) 40 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-DEBUG: dan_id: 21) 0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-DEBUG: dan_id: 29) 125.0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-dl_przewodu_tl, <class 'str'>
-2018.06.21 21:34:09-DEBUG: dl_przewodu_tl.value changed to 7.0
-2018.06.21 21:34:09-INFO: 
+sred_przewodu_tl, <class 'float'>
+2018.06.21 23:05:34-DEBUG: sred_przewodu_tl.value changed to 125.0
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 29) 150.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 30) .05 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-sred_przewodu_tl, <class 'str'>
-2018.06.21 21:34:09-DEBUG: sred_przewodu_tl.value changed to 150.0
-2018.06.21 21:34:09-INFO: 
+chrop_przewodu_tl, <class 'float'>
+2018.06.21 23:05:34-DEBUG: chrop_przewodu_tl.value changed to .05
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 30) 1.00 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-chrop_przewodu_tl, <class 'str'>
-2018.06.21 21:34:09-DEBUG: chrop_przewodu_tl.value changed to 1.00
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 31) 4 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-DEBUG: dan_id: 32) .50 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 31) 1 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-DEBUG: dan_id: 32) 3.18 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 handle_loc_res started
 
-2018.06.21 21:34:09-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/InOut Examples/1_STAND_1.DAN' mode='r+' encoding='UTF-8'>
+2018.06.21 23:05:34-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
 
-2018.06.21 21:34:09-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
 
-2018.06.21 21:34:09-DEBUG: .50
-2018.06.21 21:34:09-DEBUG: .50
-2018.06.21 21:34:09-DEBUG: .50
-2018.06.21 21:34:09-DEBUG: .70
-2018.06.21 21:34:09-DEBUG: 
-res string : .50, .50, .50, .70
-2018.06.21 21:34:09-DEBUG: opory_przewodu_tl, res string
-2018.06.21 21:34:09-INFO: handle_loc_res func ended
-
-
-2018.06.21 21:34:09-INFO: i.load_func handle_loc_res executed,                            returned 3
-2018.06.21 21:34:09-DEBUG: dan_id: 33) 2.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-doplyw_min, <class 'str'>
-2018.06.21 21:34:09-DEBUG: doplyw_min.value changed to 2.0
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 34) 3.5 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-doplyw_max, <class 'str'>
-2018.06.21 21:34:09-DEBUG: doplyw_max.value changed to 3.5
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 35) 8.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-czas_cyklu, <class 'str'>
-2018.06.21 21:34:09-DEBUG: czas_cyklu.value changed to 8.0
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 36) 5 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-DEBUG: dan_id: 37) 6.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-handle_pump_char
-
-2018.06.21 21:34:09-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:09-DEBUG: {'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002')]
-2018.06.21 21:34:09-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:09-DEBUG: {'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003')]
-2018.06.21 21:34:09-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:09-DEBUG: {'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004')]
-2018.06.21 21:34:09-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:09-DEBUG: {'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('0.0', 'I006'), ('10.0', 'I005')]
-2018.06.21 21:34:09-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:09-DEBUG: {'I006': ('0.0', '14.7')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('0.0', 'I006')]
-2018.06.21 21:34:09-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:09-DEBUG: {}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: []
-2018.06.21 21:34:09-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/InOut Examples/1_STAND_1.DAN' mode='r+' encoding='UTF-8'>
-
-2018.06.21 21:34:09-DEBUG: q_list: [6.0, 5.0, 4.0, 3.0, 2.0]
-2018.06.21 21:34:09-DEBUG: h_list: [8.0, 9.0, 10.0, 11.0, 12.0]
-2018.06.21 21:34:09-INFO: pump_add_point BEGUN
-2018.06.21 21:34:09-DEBUG: {'I007': ('6.0', '8.0')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('6.0', 'I007')]
-2018.06.21 21:34:09-INFO: pump_add_point BEGUN
-2018.06.21 21:34:09-DEBUG: {'I007': ('6.0', '8.0'), 'I008': ('5.0', '9.0')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('6.0', 'I007'), ('5.0', 'I008')]
-2018.06.21 21:34:09-INFO: pump_add_point BEGUN
-2018.06.21 21:34:09-DEBUG: {'I007': ('6.0', '8.0'), 'I008': ('5.0', '9.0'), 'I009': ('4.0', '10.0')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('5.0', 'I008'), ('6.0', 'I007'), ('4.0', 'I009')]
-2018.06.21 21:34:09-INFO: pump_add_point BEGUN
-2018.06.21 21:34:09-DEBUG: {'I007': ('6.0', '8.0'), 'I008': ('5.0', '9.0'), 'I009': ('4.0', '10.0'), 'I00A': ('3.0', '11.0')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('4.0', 'I009'), ('5.0', 'I008'), ('6.0', 'I007'), ('3.0', 'I00A')]
-2018.06.21 21:34:09-INFO: pump_add_point BEGUN
-2018.06.21 21:34:09-DEBUG: {'I007': ('6.0', '8.0'), 'I008': ('5.0', '9.0'), 'I009': ('4.0', '10.0'), 'I00A': ('3.0', '11.0'), 'I00B': ('2.0', '12.0')}
-2018.06.21 21:34:09-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:09-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:09-DEBUG: utworzono listę elementów
-2018.06.21 21:34:09-INFO: [('3.0', 'I00A'), ('4.0', 'I009'), ('5.0', 'I008'), ('6.0', 'I007'), ('2.0', 'I00B')]
-2018.06.21 21:34:09-INFO: i.load_func handle_pump_char executed,                            returned 9
-2018.06.21 21:34:09-DEBUG: dan_id: 39) 2.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-wydajnosc_od, <class 'str'>
-2018.06.21 21:34:09-DEBUG: wydajnosc_od.value changed to 2.0
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 40) 4.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-wydajnosc_do, <class 'str'>
-2018.06.21 21:34:09-DEBUG: wydajnosc_do.value changed to 4.0
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 41) 2 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-liczba_kol, <class 'str'>
-2018.06.21 21:34:09-DEBUG: liczba_kol.value changed to 2
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 42) 136.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-dl_kolektora, <class 'str'>
-2018.06.21 21:34:09-DEBUG: dl_kolektora.value changed to 136.0
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 43) 150.0 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-sr_kolektora, <class 'str'>
-2018.06.21 21:34:09-DEBUG: sr_kolektora.value changed to 150.0
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 44) 1.00 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:09-DEBUG: 
-
-chrop_kolektora, <class 'str'>
-2018.06.21 21:34:09-DEBUG: chrop_kolektora.value changed to 1.00
-2018.06.21 21:34:09-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:09-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:09-DEBUG: dan_id: 45) 5 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-DEBUG: dan_id: 46) .10 <-readed_value
-2018.06.21 21:34:09-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:09-INFO: 
-handle_loc_res started
-
-2018.06.21 21:34:09-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/InOut Examples/1_STAND_1.DAN' mode='r+' encoding='UTF-8'>
-
-2018.06.21 21:34:09-DEBUG: 
-
-
-2018.06.21 21:34:09-DEBUG: .10
-2018.06.21 21:34:09-DEBUG: .20
-2018.06.21 21:34:09-DEBUG: .30
-2018.06.21 21:34:09-DEBUG: .40
-2018.06.21 21:34:09-DEBUG: .50
-2018.06.21 21:34:09-DEBUG: 
-res string : .10, .20, .30, .40, .50
-2018.06.21 21:34:09-DEBUG: opory_kolektora, res string
-2018.06.21 21:34:09-INFO: handle_loc_res func ended
-
-
-2018.06.21 21:34:09-INFO: i.load_func handle_loc_res executed,                            returned 4
-2018.06.21 21:34:18-INFO: 
-data_load started
-
-2018.06.21 21:34:18-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
-
-
-2018.06.21 21:34:18-INFO: 
-dan_load started
-
-2018.06.21 21:34:18-INFO: plik danych generowany wersją 1.0 aplikacji
-2018.06.21 21:34:18-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
-
-
-2018.06.21 21:34:18-DEBUG: dan_id: 1) 0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-dict_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: translated_value: minimalizacja
-2018.06.21 21:34:18-DEBUG: 
-
-tryb_pracy, <class 'str'>
-2018.06.21 21:34:18-DEBUG: tryb_pracy.value changed to minimalizacja
-2018.06.21 21:34:18-INFO: changed mode: minimalizacja
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 2) 1 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-dict_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: translated_value: kolo
-2018.06.21 21:34:18-DEBUG: 
-
-ksztalt, <class 'str'>
-2018.06.21 21:34:18-DEBUG: ksztalt.value changed to kolo
-2018.06.21 21:34:18-INFO: changed shape: kolo
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 3) 0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-dict_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: translated_value: jednorzedowy
-2018.06.21 21:34:18-DEBUG: 
-
-uklad_pompowni, <class 'str'>
-2018.06.21 21:34:18-DEBUG: uklad_pompowni.value changed to jednorzedowy
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 4) 1 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-dict_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: translated_value: minimalna
-2018.06.21 21:34:18-DEBUG: 
-
-liczba_pomp_rez, <class 'str'>
-2018.06.21 21:34:18-DEBUG: liczba_pomp_rez.value changed to minimalna
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 5) .81 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-obrys_pompy, <class 'str'>
-2018.06.21 21:34:18-DEBUG: obrys_pompy.value changed to .81
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 9) .30 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-minimalna_wys, <class 'str'>
-2018.06.21 21:34:18-DEBUG: minimalna_wys.value changed to .30
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 10) 159.00 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-rzedna_terenu, <class 'str'>
-2018.06.21 21:34:18-DEBUG: rzedna_terenu.value changed to 159.00
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 11) 157.40 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-rzedna_wylotu, <class 'str'>
-2018.06.21 21:34:18-DEBUG: rzedna_wylotu.value changed to 157.40
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 12) 153.00 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-rzedna_doplywu, <class 'str'>
-2018.06.21 21:34:18-DEBUG: rzedna_doplywu.value changed to 153.00
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 13) 151.50 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-rzedna_dna, <class 'str'>
-2018.06.21 21:34:18-DEBUG: rzedna_dna.value changed to 151.50
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 14) .00 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-roznica_wlot_start, <class 'str'>
-2018.06.21 21:34:18-DEBUG: roznica_wlot_start.value changed to .00
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 15) 158.00 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-rzedna_najwpunkt, <class 'str'>
-2018.06.21 21:34:18-DEBUG: rzedna_najwpunkt.value changed to 158.00
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 16) 158.00 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-rzedna_zwgorne, <class 'str'>
-2018.06.21 21:34:18-DEBUG: rzedna_zwgorne.value changed to 158.00
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 17) 2.60 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-DEBUG: dan_id: 18) 1.20 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-DEBUG: dan_id: 19) 1 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-DEBUG: dan_id: 20) 40 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-DEBUG: dan_id: 21) 0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-DEBUG: dan_id: 29) 125.0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-sred_przewodu_tl, <class 'str'>
-2018.06.21 21:34:18-DEBUG: sred_przewodu_tl.value changed to 125.0
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 30) .05 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-rewrite_dan_to_val started
-
-2018.06.21 21:34:18-DEBUG: 
-
-chrop_przewodu_tl, <class 'str'>
-2018.06.21 21:34:18-DEBUG: chrop_przewodu_tl.value changed to .05
-2018.06.21 21:34:18-INFO: 
-value set, function ended
-
-
-
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 31) 1 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-DEBUG: dan_id: 32) 3.18 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
-handle_loc_res started
-
-2018.06.21 21:34:18-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
-
-2018.06.21 21:34:18-DEBUG: 
-
-
-2018.06.21 21:34:18-DEBUG: 3.18
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 3.18
+2018.06.21 23:05:34-DEBUG: 
 res string : 3.18
-2018.06.21 21:34:18-DEBUG: opory_przewodu_tl, res string
-2018.06.21 21:34:18-INFO: handle_loc_res func ended
+2018.06.21 23:05:34-DEBUG: opory_przewodu_tl, res string
+2018.06.21 23:05:34-INFO: handle_loc_res func ended
 
 
-2018.06.21 21:34:18-INFO: i.load_func handle_loc_res executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 33) .2 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func handle_loc_res executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 33) .2 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-doplyw_min, <class 'str'>
-2018.06.21 21:34:18-DEBUG: doplyw_min.value changed to .2
-2018.06.21 21:34:18-INFO: 
+doplyw_min, <class 'float'>
+2018.06.21 23:05:34-DEBUG: doplyw_min.value changed to .2
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 34) 1.6 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 34) 1.6 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-doplyw_max, <class 'str'>
-2018.06.21 21:34:18-DEBUG: doplyw_max.value changed to 1.6
-2018.06.21 21:34:18-INFO: 
+doplyw_max, <class 'float'>
+2018.06.21 23:05:34-DEBUG: doplyw_max.value changed to 1.6
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 35) 6.0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 35) 6.0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-czas_cyklu, <class 'str'>
-2018.06.21 21:34:18-DEBUG: czas_cyklu.value changed to 6.0
-2018.06.21 21:34:18-INFO: 
+czas_cyklu, <class 'float'>
+2018.06.21 23:05:34-DEBUG: czas_cyklu.value changed to 6.0
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 36) 6 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-DEBUG: dan_id: 37) 47.0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 36) 6 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-DEBUG: dan_id: 37) 47.0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 handle_pump_char
 
-2018.06.21 21:34:18-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:18-DEBUG: {'I008': ('5.0', '9.0'), 'I009': ('4.0', '10.0'), 'I00A': ('3.0', '11.0'), 'I00B': ('2.0', '12.0')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('2.0', 'I00B'), ('3.0', 'I00A'), ('4.0', 'I009'), ('5.0', 'I008')]
-2018.06.21 21:34:18-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:18-DEBUG: {'I009': ('4.0', '10.0'), 'I00A': ('3.0', '11.0'), 'I00B': ('2.0', '12.0')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('2.0', 'I00B'), ('3.0', 'I00A'), ('4.0', 'I009')]
-2018.06.21 21:34:18-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:18-DEBUG: {'I00A': ('3.0', '11.0'), 'I00B': ('2.0', '12.0')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('2.0', 'I00B'), ('3.0', 'I00A')]
-2018.06.21 21:34:18-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:18-DEBUG: {'I00B': ('2.0', '12.0')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('2.0', 'I00B')]
-2018.06.21 21:34:18-INFO: uruchomiono funkcję delete_point
-2018.06.21 21:34:18-DEBUG: {}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: []
-2018.06.21 21:34:18-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+2018.06.21 23:05:34-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:34-DEBUG: {'I002': ('40.0', '2.2'), 'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002')]
+2018.06.21 23:05:34-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:34-DEBUG: {'I003': ('30.0', '5.7'), 'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003')]
+2018.06.21 23:05:34-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:34-DEBUG: {'I004': ('20.0', '9.1'), 'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004')]
+2018.06.21 23:05:34-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:34-DEBUG: {'I005': ('10.0', '12.5'), 'I006': ('0.0', '14.7')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('0.0', 'I006'), ('10.0', 'I005')]
+2018.06.21 23:05:34-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:34-DEBUG: {'I006': ('0.0', '14.7')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('0.0', 'I006')]
+2018.06.21 23:05:34-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:34-DEBUG: {}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: []
+2018.06.21 23:05:34-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
 
-2018.06.21 21:34:18-DEBUG: q_list: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0]
-2018.06.21 21:34:18-DEBUG: h_list: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
-2018.06.21 21:34:18-INFO: pump_add_point BEGUN
-2018.06.21 21:34:18-DEBUG: {'I00C': ('47.0', '0.0')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('47.0', 'I00C')]
-2018.06.21 21:34:18-INFO: pump_add_point BEGUN
-2018.06.21 21:34:18-DEBUG: {'I00C': ('47.0', '0.0'), 'I00D': ('40.0', '2.2')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('47.0', 'I00C'), ('40.0', 'I00D')]
-2018.06.21 21:34:18-INFO: pump_add_point BEGUN
-2018.06.21 21:34:18-DEBUG: {'I00C': ('47.0', '0.0'), 'I00D': ('40.0', '2.2'), 'I00E': ('30.0', '5.7')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('40.0', 'I00D'), ('47.0', 'I00C'), ('30.0', 'I00E')]
-2018.06.21 21:34:18-INFO: pump_add_point BEGUN
-2018.06.21 21:34:18-DEBUG: {'I00C': ('47.0', '0.0'), 'I00D': ('40.0', '2.2'), 'I00E': ('30.0', '5.7'), 'I00F': ('20.0', '9.1')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('30.0', 'I00E'), ('40.0', 'I00D'), ('47.0', 'I00C'), ('20.0', 'I00F')]
-2018.06.21 21:34:18-INFO: pump_add_point BEGUN
-2018.06.21 21:34:18-DEBUG: {'I00C': ('47.0', '0.0'), 'I00D': ('40.0', '2.2'), 'I00E': ('30.0', '5.7'), 'I00F': ('20.0', '9.1'), 'I010': ('10.0', '12.5')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('20.0', 'I00F'), ('30.0', 'I00E'), ('40.0', 'I00D'), ('47.0', 'I00C'), ('10.0', 'I010')]
-2018.06.21 21:34:18-INFO: pump_add_point BEGUN
-2018.06.21 21:34:18-DEBUG: {'I00C': ('47.0', '0.0'), 'I00D': ('40.0', '2.2'), 'I00E': ('30.0', '5.7'), 'I00F': ('20.0', '9.1'), 'I010': ('10.0', '12.5'), 'I011': ('0.0', '14.7')}
-2018.06.21 21:34:18-INFO: uruchomiono funkcję sort_points
-2018.06.21 21:34:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.21 21:34:18-DEBUG: utworzono listę elementów
-2018.06.21 21:34:18-INFO: [('10.0', 'I010'), ('20.0', 'I00F'), ('30.0', 'I00E'), ('40.0', 'I00D'), ('47.0', 'I00C'), ('0.0', 'I011')]
-2018.06.21 21:34:18-INFO: i.load_func handle_pump_char executed,                            returned 11
-2018.06.21 21:34:18-DEBUG: dan_id: 39) 11.0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-DEBUG: q_list: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0]
+2018.06.21 23:05:34-DEBUG: h_list: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+2018.06.21 23:05:34-INFO: pump_add_point BEGUN
+2018.06.21 23:05:34-DEBUG: {'I007': ('47.0', '0.0')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('47.0', 'I007')]
+2018.06.21 23:05:34-INFO: pump_add_point BEGUN
+2018.06.21 23:05:34-DEBUG: {'I007': ('47.0', '0.0'), 'I008': ('40.0', '2.2')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('47.0', 'I007'), ('40.0', 'I008')]
+2018.06.21 23:05:34-INFO: pump_add_point BEGUN
+2018.06.21 23:05:34-DEBUG: {'I007': ('47.0', '0.0'), 'I008': ('40.0', '2.2'), 'I009': ('30.0', '5.7')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('40.0', 'I008'), ('47.0', 'I007'), ('30.0', 'I009')]
+2018.06.21 23:05:34-INFO: pump_add_point BEGUN
+2018.06.21 23:05:34-DEBUG: {'I007': ('47.0', '0.0'), 'I008': ('40.0', '2.2'), 'I009': ('30.0', '5.7'), 'I00A': ('20.0', '9.1')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('30.0', 'I009'), ('40.0', 'I008'), ('47.0', 'I007'), ('20.0', 'I00A')]
+2018.06.21 23:05:34-INFO: pump_add_point BEGUN
+2018.06.21 23:05:34-DEBUG: {'I007': ('47.0', '0.0'), 'I008': ('40.0', '2.2'), 'I009': ('30.0', '5.7'), 'I00A': ('20.0', '9.1'), 'I00B': ('10.0', '12.5')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('20.0', 'I00A'), ('30.0', 'I009'), ('40.0', 'I008'), ('47.0', 'I007'), ('10.0', 'I00B')]
+2018.06.21 23:05:34-INFO: pump_add_point BEGUN
+2018.06.21 23:05:34-DEBUG: {'I007': ('47.0', '0.0'), 'I008': ('40.0', '2.2'), 'I009': ('30.0', '5.7'), 'I00A': ('20.0', '9.1'), 'I00B': ('10.0', '12.5'), 'I00C': ('0.0', '14.7')}
+2018.06.21 23:05:34-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:34-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:34-DEBUG: utworzono listę elementów
+2018.06.21 23:05:34-INFO: [('10.0', 'I00B'), ('20.0', 'I00A'), ('30.0', 'I009'), ('40.0', 'I008'), ('47.0', 'I007'), ('0.0', 'I00C')]
+2018.06.21 23:05:34-INFO: i.load_func handle_pump_char executed,                            returned 11
+2018.06.21 23:05:34-DEBUG: dan_id: 39) 11.0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-wydajnosc_od, <class 'str'>
-2018.06.21 21:34:18-DEBUG: wydajnosc_od.value changed to 11.0
-2018.06.21 21:34:18-INFO: 
+wydajnosc_od, <class 'float'>
+2018.06.21 23:05:34-DEBUG: wydajnosc_od.value changed to 11.0
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 40) 23.0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 40) 23.0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-wydajnosc_do, <class 'str'>
-2018.06.21 21:34:18-DEBUG: wydajnosc_do.value changed to 23.0
-2018.06.21 21:34:18-INFO: 
+wydajnosc_do, <class 'float'>
+2018.06.21 23:05:34-DEBUG: wydajnosc_do.value changed to 23.0
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 41) 1 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 41) 1 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-liczba_kol, <class 'str'>
-2018.06.21 21:34:18-DEBUG: liczba_kol.value changed to 1
-2018.06.21 21:34:18-INFO: 
+liczba_kol, <class 'int'>
+2018.06.21 23:05:34-DEBUG: liczba_kol.value changed to 1
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 42) 400.0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 42) 400.0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-dl_kolektora, <class 'str'>
-2018.06.21 21:34:18-DEBUG: dl_kolektora.value changed to 400.0
-2018.06.21 21:34:18-INFO: 
+dl_kolektora, <class 'float'>
+2018.06.21 23:05:34-DEBUG: dl_kolektora.value changed to 400.0
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 43) 160.0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 43) 160.0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-sr_kolektora, <class 'str'>
-2018.06.21 21:34:18-DEBUG: sr_kolektora.value changed to 160.0
-2018.06.21 21:34:18-INFO: 
+sr_kolektora, <class 'float'>
+2018.06.21 23:05:34-DEBUG: sr_kolektora.value changed to 160.0
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 44) .10 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
-2018.06.21 21:34:18-INFO: 
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 44) .10 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: 
 rewrite_dan_to_val started
 
-2018.06.21 21:34:18-DEBUG: 
+2018.06.21 23:05:34-DEBUG: 
 
-chrop_kolektora, <class 'str'>
-2018.06.21 21:34:18-DEBUG: chrop_kolektora.value changed to .10
-2018.06.21 21:34:18-INFO: 
+chrop_kolektora, <class 'float'>
+2018.06.21 23:05:34-DEBUG: chrop_kolektora.value changed to .10
+2018.06.21 23:05:34-INFO: 
 value set, function ended
 
 
 
-2018.06.21 21:34:18-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.21 21:34:18-DEBUG: dan_id: 45) 0 <-readed_value
-2018.06.21 21:34:18-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:34-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:34-DEBUG: dan_id: 45) 0 <-readed_value
+2018.06.21 23:05:34-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+data_load started
+
+2018.06.21 23:05:46-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+
+2018.06.21 23:05:46-INFO: 
+dan_load started
+
+2018.06.21 23:05:46-INFO: plik danych generowany wersją 1.0 aplikacji
+2018.06.21 23:05:46-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+
+2018.06.21 23:05:46-DEBUG: dan_id: 1) 0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: translated_value: minimalizacja
+2018.06.21 23:05:46-DEBUG: 
+
+tryb_pracy, <class 'str'>
+2018.06.21 23:05:46-DEBUG: tryb_pracy.value changed to minimalizacja
+2018.06.21 23:05:46-INFO: changed mode: minimalizacja
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 2) 1 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: translated_value: kolo
+2018.06.21 23:05:46-DEBUG: 
+
+ksztalt, <class 'str'>
+2018.06.21 23:05:46-DEBUG: ksztalt.value changed to kolo
+2018.06.21 23:05:46-INFO: changed shape: kolo
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 3) 0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: translated_value: jednorzedowy
+2018.06.21 23:05:46-DEBUG: 
+
+uklad_pompowni, <class 'str'>
+2018.06.21 23:05:46-DEBUG: uklad_pompowni.value changed to jednorzedowy
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 4) 1 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: translated_value: minimalna
+2018.06.21 23:05:46-DEBUG: 
+
+liczba_pomp_rez, <class 'str'>
+2018.06.21 23:05:46-DEBUG: liczba_pomp_rez.value changed to minimalna
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 5) .81 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+obrys_pompy, <class 'float'>
+2018.06.21 23:05:46-DEBUG: obrys_pompy.value changed to .81
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 9) .30 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+minimalna_wys, <class 'float'>
+2018.06.21 23:05:46-DEBUG: minimalna_wys.value changed to .30
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 10) 159.00 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+rzedna_terenu, <class 'float'>
+2018.06.21 23:05:46-DEBUG: rzedna_terenu.value changed to 159.00
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 11) 157.40 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+rzedna_wylotu, <class 'float'>
+2018.06.21 23:05:46-DEBUG: rzedna_wylotu.value changed to 157.40
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 12) 153.00 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+rzedna_doplywu, <class 'float'>
+2018.06.21 23:05:46-DEBUG: rzedna_doplywu.value changed to 153.00
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 13) 151.50 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+rzedna_dna, <class 'float'>
+2018.06.21 23:05:46-DEBUG: rzedna_dna.value changed to 151.50
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 14) .00 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+roznica_wlot_start, <class 'float'>
+2018.06.21 23:05:46-DEBUG: roznica_wlot_start.value changed to .00
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 15) 158.00 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+rzedna_najwpunkt, <class 'float'>
+2018.06.21 23:05:46-DEBUG: rzedna_najwpunkt.value changed to 158.00
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 16) 158.00 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+rzedna_zwgorne, <class 'float'>
+2018.06.21 23:05:46-DEBUG: rzedna_zwgorne.value changed to 158.00
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 17) 2.60 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-DEBUG: dan_id: 18) 1.20 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-DEBUG: dan_id: 19) 1 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-DEBUG: dan_id: 20) 40 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-DEBUG: dan_id: 21) 0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-DEBUG: dan_id: 29) 125.0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+sred_przewodu_tl, <class 'float'>
+2018.06.21 23:05:46-DEBUG: sred_przewodu_tl.value changed to 125.0
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 30) .05 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+chrop_przewodu_tl, <class 'float'>
+2018.06.21 23:05:46-DEBUG: chrop_przewodu_tl.value changed to .05
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 31) 1 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-DEBUG: dan_id: 32) 3.18 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+handle_loc_res started
+
+2018.06.21 23:05:46-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+2018.06.21 23:05:46-DEBUG: 
+
+
+2018.06.21 23:05:46-DEBUG: 3.18
+2018.06.21 23:05:46-DEBUG: 
+res string : 3.18
+2018.06.21 23:05:46-DEBUG: opory_przewodu_tl, res string
+2018.06.21 23:05:46-INFO: handle_loc_res func ended
+
+
+2018.06.21 23:05:46-INFO: i.load_func handle_loc_res executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 33) .2 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+doplyw_min, <class 'float'>
+2018.06.21 23:05:46-DEBUG: doplyw_min.value changed to .2
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 34) 1.6 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+doplyw_max, <class 'float'>
+2018.06.21 23:05:46-DEBUG: doplyw_max.value changed to 1.6
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 35) 6.0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+czas_cyklu, <class 'float'>
+2018.06.21 23:05:46-DEBUG: czas_cyklu.value changed to 6.0
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 36) 6 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-DEBUG: dan_id: 37) 47.0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+handle_pump_char
+
+2018.06.21 23:05:46-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:46-DEBUG: {'I008': ('40.0', '2.2'), 'I009': ('30.0', '5.7'), 'I00A': ('20.0', '9.1'), 'I00B': ('10.0', '12.5'), 'I00C': ('0.0', '14.7')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('0.0', 'I00C'), ('10.0', 'I00B'), ('20.0', 'I00A'), ('30.0', 'I009'), ('40.0', 'I008')]
+2018.06.21 23:05:46-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:46-DEBUG: {'I009': ('30.0', '5.7'), 'I00A': ('20.0', '9.1'), 'I00B': ('10.0', '12.5'), 'I00C': ('0.0', '14.7')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('0.0', 'I00C'), ('10.0', 'I00B'), ('20.0', 'I00A'), ('30.0', 'I009')]
+2018.06.21 23:05:46-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:46-DEBUG: {'I00A': ('20.0', '9.1'), 'I00B': ('10.0', '12.5'), 'I00C': ('0.0', '14.7')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('0.0', 'I00C'), ('10.0', 'I00B'), ('20.0', 'I00A')]
+2018.06.21 23:05:46-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:46-DEBUG: {'I00B': ('10.0', '12.5'), 'I00C': ('0.0', '14.7')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('0.0', 'I00C'), ('10.0', 'I00B')]
+2018.06.21 23:05:46-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:46-DEBUG: {'I00C': ('0.0', '14.7')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('0.0', 'I00C')]
+2018.06.21 23:05:46-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:46-DEBUG: {}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: []
+2018.06.21 23:05:46-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+2018.06.21 23:05:46-DEBUG: q_list: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0]
+2018.06.21 23:05:46-DEBUG: h_list: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+2018.06.21 23:05:46-INFO: pump_add_point BEGUN
+2018.06.21 23:05:46-DEBUG: {'I00D': ('47.0', '0.0')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('47.0', 'I00D')]
+2018.06.21 23:05:46-INFO: pump_add_point BEGUN
+2018.06.21 23:05:46-DEBUG: {'I00D': ('47.0', '0.0'), 'I00E': ('40.0', '2.2')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('47.0', 'I00D'), ('40.0', 'I00E')]
+2018.06.21 23:05:46-INFO: pump_add_point BEGUN
+2018.06.21 23:05:46-DEBUG: {'I00D': ('47.0', '0.0'), 'I00E': ('40.0', '2.2'), 'I00F': ('30.0', '5.7')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('40.0', 'I00E'), ('47.0', 'I00D'), ('30.0', 'I00F')]
+2018.06.21 23:05:46-INFO: pump_add_point BEGUN
+2018.06.21 23:05:46-DEBUG: {'I00D': ('47.0', '0.0'), 'I00E': ('40.0', '2.2'), 'I00F': ('30.0', '5.7'), 'I010': ('20.0', '9.1')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('30.0', 'I00F'), ('40.0', 'I00E'), ('47.0', 'I00D'), ('20.0', 'I010')]
+2018.06.21 23:05:46-INFO: pump_add_point BEGUN
+2018.06.21 23:05:46-DEBUG: {'I00D': ('47.0', '0.0'), 'I00E': ('40.0', '2.2'), 'I00F': ('30.0', '5.7'), 'I010': ('20.0', '9.1'), 'I011': ('10.0', '12.5')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('20.0', 'I010'), ('30.0', 'I00F'), ('40.0', 'I00E'), ('47.0', 'I00D'), ('10.0', 'I011')]
+2018.06.21 23:05:46-INFO: pump_add_point BEGUN
+2018.06.21 23:05:46-DEBUG: {'I00D': ('47.0', '0.0'), 'I00E': ('40.0', '2.2'), 'I00F': ('30.0', '5.7'), 'I010': ('20.0', '9.1'), 'I011': ('10.0', '12.5'), 'I012': ('0.0', '14.7')}
+2018.06.21 23:05:46-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:46-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:46-DEBUG: utworzono listę elementów
+2018.06.21 23:05:46-INFO: [('10.0', 'I011'), ('20.0', 'I010'), ('30.0', 'I00F'), ('40.0', 'I00E'), ('47.0', 'I00D'), ('0.0', 'I012')]
+2018.06.21 23:05:46-INFO: i.load_func handle_pump_char executed,                            returned 11
+2018.06.21 23:05:46-DEBUG: dan_id: 39) 11.0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+wydajnosc_od, <class 'float'>
+2018.06.21 23:05:46-DEBUG: wydajnosc_od.value changed to 11.0
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 40) 23.0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+wydajnosc_do, <class 'float'>
+2018.06.21 23:05:46-DEBUG: wydajnosc_do.value changed to 23.0
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 41) 1 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+liczba_kol, <class 'int'>
+2018.06.21 23:05:46-DEBUG: liczba_kol.value changed to 1
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 42) 400.0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+dl_kolektora, <class 'float'>
+2018.06.21 23:05:46-DEBUG: dl_kolektora.value changed to 400.0
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 43) 160.0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+sr_kolektora, <class 'float'>
+2018.06.21 23:05:46-DEBUG: sr_kolektora.value changed to 160.0
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 44) .10 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:46-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:46-DEBUG: 
+
+chrop_kolektora, <class 'float'>
+2018.06.21 23:05:46-DEBUG: chrop_kolektora.value changed to .10
+2018.06.21 23:05:46-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:46-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:46-DEBUG: dan_id: 45) 0 <-readed_value
+2018.06.21 23:05:46-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:47-INFO: control_inflow_unit started
+2018.06.21 23:05:47-INFO: change_inflow_unit started
+2018.06.21 23:05:47-DEBUG: current setting passed: 2
+2018.06.21 23:05:47-DEBUG: type doplyw_max.value: <class 'float'>
+2018.06.21 23:05:47-DEBUG: 
+
+doplyw_max, <class 'float'>
+2018.06.21 23:05:47-DEBUG: 
+
+doplyw_min, <class 'float'>
+2018.06.21 23:05:47-INFO: control_inflow_unit started
+2018.06.21 23:05:47-INFO: change_inflow_unit started
+2018.06.21 23:05:47-DEBUG: current setting passed: 1
+2018.06.21 23:05:47-DEBUG: 
+
+doplyw_max, <class 'float'>
+2018.06.21 23:05:47-DEBUG: 
+
+doplyw_min, <class 'float'>
+2018.06.21 23:05:50-INFO: 
+data_load started
+
+2018.06.21 23:05:50-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+
+2018.06.21 23:05:50-INFO: 
+dan_load started
+
+2018.06.21 23:05:50-INFO: plik danych generowany wersją 1.0 aplikacji
+2018.06.21 23:05:50-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+
+2018.06.21 23:05:50-DEBUG: dan_id: 1) 0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: translated_value: minimalizacja
+2018.06.21 23:05:50-DEBUG: 
+
+tryb_pracy, <class 'str'>
+2018.06.21 23:05:50-DEBUG: tryb_pracy.value changed to minimalizacja
+2018.06.21 23:05:50-INFO: changed mode: minimalizacja
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 2) 1 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: translated_value: kolo
+2018.06.21 23:05:50-DEBUG: 
+
+ksztalt, <class 'str'>
+2018.06.21 23:05:50-DEBUG: ksztalt.value changed to kolo
+2018.06.21 23:05:50-INFO: changed shape: kolo
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 3) 0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: translated_value: jednorzedowy
+2018.06.21 23:05:50-DEBUG: 
+
+uklad_pompowni, <class 'str'>
+2018.06.21 23:05:50-DEBUG: uklad_pompowni.value changed to jednorzedowy
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 4) 1 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: translated_value: minimalna
+2018.06.21 23:05:50-DEBUG: 
+
+liczba_pomp_rez, <class 'str'>
+2018.06.21 23:05:50-DEBUG: liczba_pomp_rez.value changed to minimalna
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 5) .81 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+obrys_pompy, <class 'float'>
+2018.06.21 23:05:50-DEBUG: obrys_pompy.value changed to .81
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 9) .30 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+minimalna_wys, <class 'float'>
+2018.06.21 23:05:50-DEBUG: minimalna_wys.value changed to .30
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 10) 159.00 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+rzedna_terenu, <class 'float'>
+2018.06.21 23:05:50-DEBUG: rzedna_terenu.value changed to 159.00
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 11) 157.40 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+rzedna_wylotu, <class 'float'>
+2018.06.21 23:05:50-DEBUG: rzedna_wylotu.value changed to 157.40
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 12) 153.00 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+rzedna_doplywu, <class 'float'>
+2018.06.21 23:05:50-DEBUG: rzedna_doplywu.value changed to 153.00
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 13) 151.50 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+rzedna_dna, <class 'float'>
+2018.06.21 23:05:50-DEBUG: rzedna_dna.value changed to 151.50
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 14) .00 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+roznica_wlot_start, <class 'float'>
+2018.06.21 23:05:50-DEBUG: roznica_wlot_start.value changed to .00
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 15) 158.00 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+rzedna_najwpunkt, <class 'float'>
+2018.06.21 23:05:50-DEBUG: rzedna_najwpunkt.value changed to 158.00
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 16) 158.00 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+rzedna_zwgorne, <class 'float'>
+2018.06.21 23:05:50-DEBUG: rzedna_zwgorne.value changed to 158.00
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 17) 2.60 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-DEBUG: dan_id: 18) 1.20 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-DEBUG: dan_id: 19) 1 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-DEBUG: dan_id: 20) 40 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-DEBUG: dan_id: 21) 0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-DEBUG: dan_id: 29) 125.0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+sred_przewodu_tl, <class 'float'>
+2018.06.21 23:05:50-DEBUG: sred_przewodu_tl.value changed to 125.0
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 30) .05 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+chrop_przewodu_tl, <class 'float'>
+2018.06.21 23:05:50-DEBUG: chrop_przewodu_tl.value changed to .05
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 31) 1 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-DEBUG: dan_id: 32) 3.18 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+handle_loc_res started
+
+2018.06.21 23:05:50-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+2018.06.21 23:05:50-DEBUG: 
+
+
+2018.06.21 23:05:50-DEBUG: 3.18
+2018.06.21 23:05:50-DEBUG: 
+res string : 3.18
+2018.06.21 23:05:50-DEBUG: opory_przewodu_tl, res string
+2018.06.21 23:05:50-INFO: handle_loc_res func ended
+
+
+2018.06.21 23:05:50-INFO: i.load_func handle_loc_res executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 33) .2 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+doplyw_min, <class 'float'>
+2018.06.21 23:05:50-DEBUG: doplyw_min.value changed to .2
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 34) 1.6 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+doplyw_max, <class 'float'>
+2018.06.21 23:05:50-DEBUG: doplyw_max.value changed to 1.6
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 35) 6.0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+czas_cyklu, <class 'float'>
+2018.06.21 23:05:50-DEBUG: czas_cyklu.value changed to 6.0
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 36) 6 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-DEBUG: dan_id: 37) 47.0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+handle_pump_char
+
+2018.06.21 23:05:50-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:50-DEBUG: {'I00E': ('40.0', '2.2'), 'I00F': ('30.0', '5.7'), 'I010': ('20.0', '9.1'), 'I011': ('10.0', '12.5'), 'I012': ('0.0', '14.7')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('0.0', 'I012'), ('10.0', 'I011'), ('20.0', 'I010'), ('30.0', 'I00F'), ('40.0', 'I00E')]
+2018.06.21 23:05:50-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:50-DEBUG: {'I00F': ('30.0', '5.7'), 'I010': ('20.0', '9.1'), 'I011': ('10.0', '12.5'), 'I012': ('0.0', '14.7')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('0.0', 'I012'), ('10.0', 'I011'), ('20.0', 'I010'), ('30.0', 'I00F')]
+2018.06.21 23:05:50-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:50-DEBUG: {'I010': ('20.0', '9.1'), 'I011': ('10.0', '12.5'), 'I012': ('0.0', '14.7')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('0.0', 'I012'), ('10.0', 'I011'), ('20.0', 'I010')]
+2018.06.21 23:05:50-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:50-DEBUG: {'I011': ('10.0', '12.5'), 'I012': ('0.0', '14.7')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('0.0', 'I012'), ('10.0', 'I011')]
+2018.06.21 23:05:50-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:50-DEBUG: {'I012': ('0.0', '14.7')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('0.0', 'I012')]
+2018.06.21 23:05:50-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:50-DEBUG: {}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: []
+2018.06.21 23:05:50-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+2018.06.21 23:05:50-DEBUG: q_list: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0]
+2018.06.21 23:05:50-DEBUG: h_list: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+2018.06.21 23:05:50-INFO: pump_add_point BEGUN
+2018.06.21 23:05:50-DEBUG: {'I013': ('47.0', '0.0')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('47.0', 'I013')]
+2018.06.21 23:05:50-INFO: pump_add_point BEGUN
+2018.06.21 23:05:50-DEBUG: {'I013': ('47.0', '0.0'), 'I014': ('40.0', '2.2')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('47.0', 'I013'), ('40.0', 'I014')]
+2018.06.21 23:05:50-INFO: pump_add_point BEGUN
+2018.06.21 23:05:50-DEBUG: {'I013': ('47.0', '0.0'), 'I014': ('40.0', '2.2'), 'I015': ('30.0', '5.7')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('40.0', 'I014'), ('47.0', 'I013'), ('30.0', 'I015')]
+2018.06.21 23:05:50-INFO: pump_add_point BEGUN
+2018.06.21 23:05:50-DEBUG: {'I013': ('47.0', '0.0'), 'I014': ('40.0', '2.2'), 'I015': ('30.0', '5.7'), 'I016': ('20.0', '9.1')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('30.0', 'I015'), ('40.0', 'I014'), ('47.0', 'I013'), ('20.0', 'I016')]
+2018.06.21 23:05:50-INFO: pump_add_point BEGUN
+2018.06.21 23:05:50-DEBUG: {'I013': ('47.0', '0.0'), 'I014': ('40.0', '2.2'), 'I015': ('30.0', '5.7'), 'I016': ('20.0', '9.1'), 'I017': ('10.0', '12.5')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('20.0', 'I016'), ('30.0', 'I015'), ('40.0', 'I014'), ('47.0', 'I013'), ('10.0', 'I017')]
+2018.06.21 23:05:50-INFO: pump_add_point BEGUN
+2018.06.21 23:05:50-DEBUG: {'I013': ('47.0', '0.0'), 'I014': ('40.0', '2.2'), 'I015': ('30.0', '5.7'), 'I016': ('20.0', '9.1'), 'I017': ('10.0', '12.5'), 'I018': ('0.0', '14.7')}
+2018.06.21 23:05:50-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:50-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:50-DEBUG: utworzono listę elementów
+2018.06.21 23:05:50-INFO: [('10.0', 'I017'), ('20.0', 'I016'), ('30.0', 'I015'), ('40.0', 'I014'), ('47.0', 'I013'), ('0.0', 'I018')]
+2018.06.21 23:05:50-INFO: i.load_func handle_pump_char executed,                            returned 11
+2018.06.21 23:05:50-DEBUG: dan_id: 39) 11.0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+wydajnosc_od, <class 'float'>
+2018.06.21 23:05:50-DEBUG: wydajnosc_od.value changed to 11.0
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 40) 23.0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+wydajnosc_do, <class 'float'>
+2018.06.21 23:05:50-DEBUG: wydajnosc_do.value changed to 23.0
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 41) 1 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+liczba_kol, <class 'int'>
+2018.06.21 23:05:50-DEBUG: liczba_kol.value changed to 1
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 42) 400.0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+dl_kolektora, <class 'float'>
+2018.06.21 23:05:50-DEBUG: dl_kolektora.value changed to 400.0
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 43) 160.0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+sr_kolektora, <class 'float'>
+2018.06.21 23:05:50-DEBUG: sr_kolektora.value changed to 160.0
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 44) .10 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:50-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:50-DEBUG: 
+
+chrop_kolektora, <class 'float'>
+2018.06.21 23:05:50-DEBUG: chrop_kolektora.value changed to .10
+2018.06.21 23:05:50-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:50-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:50-DEBUG: dan_id: 45) 0 <-readed_value
+2018.06.21 23:05:50-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:51-INFO: control_inflow_unit started
+2018.06.21 23:05:51-INFO: change_inflow_unit started
+2018.06.21 23:05:51-DEBUG: current setting passed: 2
+2018.06.21 23:05:51-DEBUG: type doplyw_max.value: <class 'float'>
+2018.06.21 23:05:51-DEBUG: 
+
+doplyw_max, <class 'float'>
+2018.06.21 23:05:51-DEBUG: 
+
+doplyw_min, <class 'float'>
+2018.06.21 23:05:52-INFO: 
+data_load started
+
+2018.06.21 23:05:52-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+
+2018.06.21 23:05:52-INFO: 
+dan_load started
+
+2018.06.21 23:05:52-INFO: plik danych generowany wersją 1.0 aplikacji
+2018.06.21 23:05:52-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+
+2018.06.21 23:05:52-DEBUG: dan_id: 1) 0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: translated_value: minimalizacja
+2018.06.21 23:05:52-DEBUG: 
+
+tryb_pracy, <class 'str'>
+2018.06.21 23:05:52-DEBUG: tryb_pracy.value changed to minimalizacja
+2018.06.21 23:05:52-INFO: changed mode: minimalizacja
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 2) 1 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: translated_value: kolo
+2018.06.21 23:05:52-DEBUG: 
+
+ksztalt, <class 'str'>
+2018.06.21 23:05:52-DEBUG: ksztalt.value changed to kolo
+2018.06.21 23:05:52-INFO: changed shape: kolo
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 3) 0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: translated_value: jednorzedowy
+2018.06.21 23:05:52-DEBUG: 
+
+uklad_pompowni, <class 'str'>
+2018.06.21 23:05:52-DEBUG: uklad_pompowni.value changed to jednorzedowy
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 4) 1 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+dict_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: translated_value: minimalna
+2018.06.21 23:05:52-DEBUG: 
+
+liczba_pomp_rez, <class 'str'>
+2018.06.21 23:05:52-DEBUG: liczba_pomp_rez.value changed to minimalna
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func dict_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 5) .81 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+obrys_pompy, <class 'float'>
+2018.06.21 23:05:52-DEBUG: obrys_pompy.value changed to .81
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 9) .30 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+minimalna_wys, <class 'float'>
+2018.06.21 23:05:52-DEBUG: minimalna_wys.value changed to .30
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 10) 159.00 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+rzedna_terenu, <class 'float'>
+2018.06.21 23:05:52-DEBUG: rzedna_terenu.value changed to 159.00
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 11) 157.40 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+rzedna_wylotu, <class 'float'>
+2018.06.21 23:05:52-DEBUG: rzedna_wylotu.value changed to 157.40
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 12) 153.00 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+rzedna_doplywu, <class 'float'>
+2018.06.21 23:05:52-DEBUG: rzedna_doplywu.value changed to 153.00
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 13) 151.50 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+rzedna_dna, <class 'float'>
+2018.06.21 23:05:52-DEBUG: rzedna_dna.value changed to 151.50
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 14) .00 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+roznica_wlot_start, <class 'float'>
+2018.06.21 23:05:52-DEBUG: roznica_wlot_start.value changed to .00
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 15) 158.00 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+rzedna_najwpunkt, <class 'float'>
+2018.06.21 23:05:52-DEBUG: rzedna_najwpunkt.value changed to 158.00
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 16) 158.00 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+rzedna_zwgorne, <class 'float'>
+2018.06.21 23:05:52-DEBUG: rzedna_zwgorne.value changed to 158.00
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 17) 2.60 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-DEBUG: dan_id: 18) 1.20 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-DEBUG: dan_id: 19) 1 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-DEBUG: dan_id: 20) 40 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-DEBUG: dan_id: 21) 0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-DEBUG: dan_id: 29) 125.0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+sred_przewodu_tl, <class 'float'>
+2018.06.21 23:05:52-DEBUG: sred_przewodu_tl.value changed to 125.0
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 30) .05 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+chrop_przewodu_tl, <class 'float'>
+2018.06.21 23:05:52-DEBUG: chrop_przewodu_tl.value changed to .05
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 31) 1 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-DEBUG: dan_id: 32) 3.18 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+handle_loc_res started
+
+2018.06.21 23:05:52-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+2018.06.21 23:05:52-DEBUG: 
+
+
+2018.06.21 23:05:52-DEBUG: 3.18
+2018.06.21 23:05:52-DEBUG: 
+res string : 3.18
+2018.06.21 23:05:52-DEBUG: opory_przewodu_tl, res string
+2018.06.21 23:05:52-INFO: handle_loc_res func ended
+
+
+2018.06.21 23:05:52-INFO: i.load_func handle_loc_res executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 33) .2 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+doplyw_min, <class 'float'>
+2018.06.21 23:05:52-DEBUG: doplyw_min.value changed to .2
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 34) 1.6 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+doplyw_max, <class 'float'>
+2018.06.21 23:05:52-DEBUG: doplyw_max.value changed to 1.6
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 35) 6.0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+czas_cyklu, <class 'float'>
+2018.06.21 23:05:52-DEBUG: czas_cyklu.value changed to 6.0
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 36) 6 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-DEBUG: dan_id: 37) 47.0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+handle_pump_char
+
+2018.06.21 23:05:52-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:52-DEBUG: {'I014': ('40.0', '2.2'), 'I015': ('30.0', '5.7'), 'I016': ('20.0', '9.1'), 'I017': ('10.0', '12.5'), 'I018': ('0.0', '14.7')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('0.0', 'I018'), ('10.0', 'I017'), ('20.0', 'I016'), ('30.0', 'I015'), ('40.0', 'I014')]
+2018.06.21 23:05:52-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:52-DEBUG: {'I015': ('30.0', '5.7'), 'I016': ('20.0', '9.1'), 'I017': ('10.0', '12.5'), 'I018': ('0.0', '14.7')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('0.0', 'I018'), ('10.0', 'I017'), ('20.0', 'I016'), ('30.0', 'I015')]
+2018.06.21 23:05:52-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:52-DEBUG: {'I016': ('20.0', '9.1'), 'I017': ('10.0', '12.5'), 'I018': ('0.0', '14.7')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('0.0', 'I018'), ('10.0', 'I017'), ('20.0', 'I016')]
+2018.06.21 23:05:52-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:52-DEBUG: {'I017': ('10.0', '12.5'), 'I018': ('0.0', '14.7')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('0.0', 'I018'), ('10.0', 'I017')]
+2018.06.21 23:05:52-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:52-DEBUG: {'I018': ('0.0', '14.7')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('0.0', 'I018')]
+2018.06.21 23:05:52-INFO: uruchomiono funkcję delete_point
+2018.06.21 23:05:52-DEBUG: {}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: []
+2018.06.21 23:05:52-INFO: opening file: <_io.TextIOWrapper name='/home/kuba/Dokumenty/Python/Pompa/STAND.DAN' mode='r+' encoding='UTF-8'>
+
+2018.06.21 23:05:52-DEBUG: q_list: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0]
+2018.06.21 23:05:52-DEBUG: h_list: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+2018.06.21 23:05:52-INFO: pump_add_point BEGUN
+2018.06.21 23:05:52-DEBUG: {'I019': ('47.0', '0.0')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('47.0', 'I019')]
+2018.06.21 23:05:52-INFO: pump_add_point BEGUN
+2018.06.21 23:05:52-DEBUG: {'I019': ('47.0', '0.0'), 'I01A': ('40.0', '2.2')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('47.0', 'I019'), ('40.0', 'I01A')]
+2018.06.21 23:05:52-INFO: pump_add_point BEGUN
+2018.06.21 23:05:52-DEBUG: {'I019': ('47.0', '0.0'), 'I01A': ('40.0', '2.2'), 'I01B': ('30.0', '5.7')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('40.0', 'I01A'), ('47.0', 'I019'), ('30.0', 'I01B')]
+2018.06.21 23:05:52-INFO: pump_add_point BEGUN
+2018.06.21 23:05:52-DEBUG: {'I019': ('47.0', '0.0'), 'I01A': ('40.0', '2.2'), 'I01B': ('30.0', '5.7'), 'I01C': ('20.0', '9.1')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('30.0', 'I01B'), ('40.0', 'I01A'), ('47.0', 'I019'), ('20.0', 'I01C')]
+2018.06.21 23:05:52-INFO: pump_add_point BEGUN
+2018.06.21 23:05:52-DEBUG: {'I019': ('47.0', '0.0'), 'I01A': ('40.0', '2.2'), 'I01B': ('30.0', '5.7'), 'I01C': ('20.0', '9.1'), 'I01D': ('10.0', '12.5')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('20.0', 'I01C'), ('30.0', 'I01B'), ('40.0', 'I01A'), ('47.0', 'I019'), ('10.0', 'I01D')]
+2018.06.21 23:05:52-INFO: pump_add_point BEGUN
+2018.06.21 23:05:52-DEBUG: {'I019': ('47.0', '0.0'), 'I01A': ('40.0', '2.2'), 'I01B': ('30.0', '5.7'), 'I01C': ('20.0', '9.1'), 'I01D': ('10.0', '12.5'), 'I01E': ('0.0', '14.7')}
+2018.06.21 23:05:52-INFO: uruchomiono funkcję sort_points
+2018.06.21 23:05:52-DEBUG: odnaleziono obiekt kolumny
+2018.06.21 23:05:52-DEBUG: utworzono listę elementów
+2018.06.21 23:05:52-INFO: [('10.0', 'I01D'), ('20.0', 'I01C'), ('30.0', 'I01B'), ('40.0', 'I01A'), ('47.0', 'I019'), ('0.0', 'I01E')]
+2018.06.21 23:05:52-INFO: i.load_func handle_pump_char executed,                            returned 11
+2018.06.21 23:05:52-DEBUG: dan_id: 39) 11.0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+wydajnosc_od, <class 'float'>
+2018.06.21 23:05:52-DEBUG: wydajnosc_od.value changed to 11.0
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 40) 23.0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+wydajnosc_do, <class 'float'>
+2018.06.21 23:05:52-DEBUG: wydajnosc_do.value changed to 23.0
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 41) 1 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+liczba_kol, <class 'int'>
+2018.06.21 23:05:52-DEBUG: liczba_kol.value changed to 1
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 42) 400.0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+dl_kolektora, <class 'float'>
+2018.06.21 23:05:52-DEBUG: dl_kolektora.value changed to 400.0
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 43) 160.0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+sr_kolektora, <class 'float'>
+2018.06.21 23:05:52-DEBUG: sr_kolektora.value changed to 160.0
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 44) .10 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
+2018.06.21 23:05:52-INFO: 
+rewrite_dan_to_val started
+
+2018.06.21 23:05:52-DEBUG: 
+
+chrop_kolektora, <class 'float'>
+2018.06.21 23:05:52-DEBUG: chrop_kolektora.value changed to .10
+2018.06.21 23:05:52-INFO: 
+value set, function ended
+
+
+
+2018.06.21 23:05:52-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
+2018.06.21 23:05:52-DEBUG: dan_id: 45) 0 <-readed_value
+2018.06.21 23:05:52-DEBUG: type id_line: <class 'str'>
