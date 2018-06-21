@@ -23,7 +23,7 @@ opory_przewodu_tl;[];list;True;1;True;;res_to_cvar;opory_przewodu_tl;handle_loc_
 doplyw_min;0.0;double;True;1;True;;rewrite_to_cvar;doplyw_min;rewrite_dan_to_val;;33;;False;;"[""var > 0.0"", ""var <= doplyw_max.value""]";[];Treść porady dla dopływu minimalnego
 doplyw_max;0.0;double;True;1;True;;rewrite_to_cvar;doplyw_max;rewrite_dan_to_val;;34;;False;;"[""var > 0.0"", ""var >= doplyw_min.value""]";[];treść porady dla dopływu maksymalnego
 czas_cyklu;0.0;double;True;1;True;;rewrite_to_cvar;czas_cyklu;rewrite_dan_to_val;;35;;False;;"[""var > 0.0""]";[];treść porady dla czasu cyklu
-liczba_p_char;0;int;False;1;True;;;;rewrite_dan_to_val;;36;;False;;[];[];
+liczba_p_char;0;int;False;1;True;;;;;;36;;False;;[];[];
 char_pompy;{};dict;False;1;True;;;;handle_pump_char;;37;;False;;[];[];
 wydajnosc_od;0.0;double;True;1;True;;rewrite_to_cvar;wydajnosc_od;rewrite_dan_to_val;;39;;False;;[];[];
 wydajnosc_do;0.0;double;True;1;True;;rewrite_to_cvar;wydajnosc_do;rewrite_dan_to_val;;40;;False;;[];[];

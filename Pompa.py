@@ -245,6 +245,11 @@ self\
                             next(file)
                         break
 
+    def zapisz_dane(self):
+        log.info('zapisz dane')
+
+    # LOAD FUNCTIONS
+
     def dict_dan_to_val(self, obj, value, dictionary):
         log.info('\ndict_dan_to_val started\n')
         translated_value = dictionary[str(value)]
@@ -272,8 +277,9 @@ self\
         log.info('\nhandle_loc_res started\n')
         global path
         obj.value = []
+        res_counter = 0
         with open(path, 'r+') as file:
-            log.info('opening file: {0}\n\n'.format(str(file)))
+            log.info('opening file: {0}\n'.format(str(file)))
             for line in file:
                 id_line, line_datas = line.split(')')
                 line_datas_list = line_datas.split()
@@ -286,18 +292,35 @@ self\
                 elif eval(id_line) > obj.dan_id:
                     continue
             obj.val_to_cvar(obj)
-            return res_counter - 1
+        log.info('handle_loc_res func ended\n\n')
+        return res_counter - 1
 
-    def handle_pump_char(self, name, *args):
-        log.info('\nrewrite_dan_to_val started\n')
-        # for i in loaded_dict:
-        #     self.pump_add_point(variable.value[i][0], variable.value[i][1])
-        return 0
-
-    def zapisz_dane(self):
-        log.info('zapisz dane')
-
-    # LOAD FUNCTIONS
+    def handle_pump_char(self, obj, value, *args):
+        log.info('\nhandle_pump_char\n')
+        global path
+        q_list = []
+        h_list = []
+        res_counter = 0
+        with open(path, 'r+') as file:
+            log.info('opening file: {0}\n'.format(str(file)))
+            for line in file:
+                id_line, line_datas = line.split(')')
+                line_datas_list = line_datas.split()
+                if eval(id_line) < obj.dan_id - 1:
+                    continue
+                elif eval(id_line) == obj.dan_id - 1:
+                    res_counter = 2*eval(line_datas_list[0])
+                elif eval(id_line) == obj.dan_id:
+                    q_list.append(eval(line_datas_list[0]))
+                elif eval(id_line) == obj.dan_id + 1:
+                    h_list.append(eval(line_datas_list[0]))
+                elif eval(id_line) > obj.dan_id + 1:
+                    continue
+        log.debug('q_list: {}'.format(q_list))
+        log.debug('h_list: {}'.format(h_list))
+        for i in range(len(q_list)):
+            self.pump_add_point(q_list[i], h_list[i])
+        return res_counter - 1
 
     # INTERNAL FUNCTIONS
 
