@@ -298,8 +298,11 @@ self\
     def handle_pump_char(self, obj, value, *args):
         log.info('\nhandle_pump_char\n')
         global path
-        # for i in treeview:
-        #   pump_delete_point(i)
+        actual_id_list = []
+        for i in obj.value.keys():
+            actual_id_list.append(i)
+        for j in actual_id_list:
+            self.pump_delete_point(j)
         q_list = []
         h_list = []
         res_counter = 0
@@ -402,17 +405,26 @@ self\
             self.tree.move(i, '', index)
             self.tree.set(i, 'Column_nr', value=str(index + 1))
 
-    def pump_delete_point(self):
-        log.info('')
-        log.info('uruchomiono funkcję delete_point')
+    def pump_delete_button(self):
+        log.info('pump_delete_button started')
         deleted_id = self.tree.focus()
         if deleted_id != '':
-            self.tree.delete(deleted_id)
-            del self.char_pompy.value[deleted_id]
+            self.pump_delete_point(deleted_id)
+
+    def pump_delete_point(self, id_to_delete):
+        log.info('uruchomiono funkcję delete_point')
+        del self.char_pompy.value[id_to_delete]
+        self.tree.delete(id_to_delete)
         log.debug(self.char_pompy.value)
         self.pump_sort_points()
 
-    # def pump_flow_unit_conversion(self):
+    # CONVERSION FUNCTIONS
+
+    def control_inflow_unit(self):
+        log.info('control_inflow_unit started')
+
+    def control_pump_flow_unit(self):
+        log.info('control_pump_flow_unit started')
 
     # VALIDATION FUNCTIONS
 
