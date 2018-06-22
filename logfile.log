@@ -1,2734 +1,323 @@
-2018.06.22 10:14:47-DEBUG: load func args: {'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'}
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: load func args: {'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'}
+2018.06.22 11:23:22-DEBUG: 
 self.tryb_pracy = Variables("tryb_pracy", "sprawdzenie", "string", True, 0, True, "change_mode", "rewrite_to_cvar", "tryb_pracy", "dict_dan_to_val", {'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'}, 1, "", True, "0", ["isinstance(var, string)", "var == 'minimalizacja' or var == 'optymalizacja' or var == 'sprawdzenie'"], ['Frame_Tryb'], "treÅ›Ä‡ wskazÃ³wki", self)
 
 
-2018.06.22 10:14:47-DEBUG: load func args: {'0': 'prostokat', '1': 'kolo'}
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: load func args: {'0': 'prostokat', '1': 'kolo'}
+2018.06.22 11:23:22-DEBUG: 
 self.ksztalt = Variables("ksztalt", "kolo", "string", True, 0, True, "change_shape", "rewrite_to_cvar", "ksztalt", "dict_dan_to_val", {'0': 'prostokat', '1': 'kolo'}, 2, "", True, "", ["var = 'kolo'", "var = 'prostokat'"], ['lista', 'obiektÃ³w advice'], "treÅ›Ä‡ porady dla wyboru ksztaltu pompowni", self)
 
 
-2018.06.22 10:14:47-DEBUG: load func args: {'0': 'jednorzedowy', '1': 'optymalny'}
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: load func args: {'0': 'jednorzedowy', '1': 'optymalny'}
+2018.06.22 11:23:22-DEBUG: 
 self.uklad_pompowni = Variables("uklad_pompowni", "optymalny", "string", True, 0, True, "", "rewrite_to_cvar", "uklad_pompowni", "dict_dan_to_val", {'0': 'jednorzedowy', '1': 'optymalny'}, 3, "", True, "", ["var = 'jednorzedowy'", "var = 'optymalny'"], ['lista', 'obiektÃ³w advice'], "treÅ›Ä‡ porady dla wyboru ukÅ‚adu pompowni", self)
 
 
-2018.06.22 10:14:47-DEBUG: load func args: {'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'}
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: load func args: {'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'}
+2018.06.22 11:23:22-DEBUG: 
 self.liczba_pomp_rez = Variables("liczba_pomp_rez", "optymalna", "string", True, 0, True, "", "rewrite_to_cvar", "liczba_pomp_rez", "dict_dan_to_val", {'1': 'minimalna', '2': 'optymalna', '3': 'bezpieczna'}, 4, "", True, "", ["isinstance(var, string)", "var == 'optymalna' or var == 'minimalna' or var == 'bezpieczna'"], ['lista', 'obiektÃ³w advice'], "treÅ›Ä‡ porady dla pomp rezerwowych", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
-self.obrys_pompy = Variables("obrys_pompy", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "obrys_pompy", "rewrite_dan_to_val", None, 5, "", False, "", ["var > 0.0"], ['lista', 'obiektÃ³w advice'], "treÅ›Ä‡ porady dla obrysu pompy", self)
+2018.06.22 11:23:22-DEBUG: 
+self.obrys_pompy = Variables("obrys_pompy", 0.0, "double", True, 1, True, "", "bind_val_with_cvar", "obrys_pompy", "rewrite_dan_to_val", None, 5, "", False, "", ["var > 0.0"], ['lista', 'obiektÃ³w advice'], "treÅ›Ä‡ porady dla obrysu pompy", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.dlugosc_pompowni = Variables("dlugosc_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dlugosc_pompowni", "rewrite_dan_to_val", None, 6, "", False, "", ["var > 0.0"], ['lista', 'obiektÃ³w advice'], "treÅ›Ä‡ porady dla dÅ‚ugoÅ›ci pompowni", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.szer_pompowni = Variables("szer_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "szer_pompowni", "rewrite_dan_to_val", None, 7, "", False, "", ["var > 0.0"], ['lista', 'obiektÃ³w advice'], "treÅ›Ä‡ porady dla szerokoÅ›ci pompowni", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.srednica_pompowni = Variables("srednica_pompowni", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "srednica_pompowni", "rewrite_dan_to_val", None, 8, "", False, "", ["var > 0.0", "var >= obrys_pompy.value"], ['lista', 'obiektÃ³w advice'], "treÅ›Ä‡ porady dla szerokoÅ›ci pompowni", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.minimalna_wys = Variables("minimalna_wys", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "minimalna_wys", "rewrite_dan_to_val", None, 9, "", False, "", ["var > 0.0"], ['Label_Minimalna_wys'], "treÅ›Ä‡ wskazÃ³wki", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.rzedna_terenu = Variables("rzedna_terenu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_terenu", "rewrite_dan_to_val", None, 10, "", True, "", ["var > rzedna_dna.value", "var > rzedna_doplywu.value", "var > rzedna_wylotu.value"], ['Label_Rzedna_terenu', 'Entry_Rzedna_terenu'], "treÅ›Ä‡ porady dla rzÄ™dnej terenu", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.rzedna_wylotu = Variables("rzedna_wylotu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_wylotu", "rewrite_dan_to_val", None, 11, "", True, "", ["var < rzedna_terenu.value", "var > rzedna_dna.value"], ['Label_Rzedna_wylotu', 'Entry_Rzedna_wylotu'], "treÅ›Ä‡ porady dla rzÄ™dnej wylotu", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.rzedna_doplywu = Variables("rzedna_doplywu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_doplywu", "rewrite_dan_to_val", None, 12, "", True, "", ["var < rzedna_terenu.value", "var > rzedna_dna.value"], ['Label_Rzedna_doplywu', 'Entry_Rzedna_doplywu'], "treÅ›Ä‡ porady dla rzÄ™dnej dopÅ‚ywu", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.rzedna_dna = Variables("rzedna_dna", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_dna", "rewrite_dan_to_val", None, 13, "", True, "", ["var < rzedna_doplywu.value", "var < rzedna_wylotu.value", "var < rzedna_terenu.value"], ['Label_Rzedna_dna', 'Entry_Rzedna_dna'], "treÅ›Ä‡ porady dla rzÄ™dnej dna", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.roznica_wlot_start = Variables("roznica_wlot_start", 0.0, "double", True, 1, False, "", "rewrite_to_cvar", "roznica_wlot_start", "rewrite_dan_to_val", None, 14, "", False, "", ["var > 0.0"], [], "treÅ›Ä‡ porady dla rÃ³Å¼nicy wlotu i startu", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.rzedna_najwpunkt = Variables("rzedna_najwpunkt", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_najwpunkt", "rewrite_dan_to_val", None, 15, "", True, "", ["var > rzedna_wylotu.value"], [], "treÅ›Ä‡ porady dla rzednej najwyÅ¼szego punktu na trasie", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.rzedna_zwgorne = Variables("rzedna_zwgorne", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "rzedna_zwgorne", "rewrite_dan_to_val", None, 16, "", True, "", [], [], "treÅ›Ä‡ porady dla zwierciadÅ‚o w zbiorniku gÃ³rnym", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.dl_przewodu_tl = Variables("dl_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dl_przewodu_tl", "rewrite_dan_to_val", None, 28, "", False, "", ["var > 0.0"], [], "treÅ›Ä‡ porady dla dÅ‚ugoÅ›ci przewodu tÅ‚ocznego w pompowni", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.sred_przewodu_tl = Variables("sred_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "sred_przewodu_tl", "rewrite_dan_to_val", None, 29, "", False, "", ["var > 0.0"], [], "treÅ›Ä‡ porady dla Å›rednicy przewodu tÅ‚ocznego w pompowni", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.chrop_przewodu_tl = Variables("chrop_przewodu_tl", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "chrop_przewodu_tl", "rewrite_dan_to_val", None, 30, "", False, "", ["var > 0.0"], [], "treÅ›Ä‡ porady dla chropowatoÅ›ci przewodu tÅ‚ocznego w pompowni", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.liczba_op_prz_tl = Variables("liczba_op_prz_tl", 0, "int", False, 1, True, "", "", "", "", None, 31, "", True, "", [], [], "treÅ›Ä‡ porady dla chropowatoÅ›ci kolektora", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.opory_przewodu_tl = Variables("opory_przewodu_tl", [], "list", True, 1, True, "", "res_to_cvar", "opory_przewodu_tl", "handle_loc_res", None, 32, "", True, "", [], [], "treÅ›Ä‡ porady dla oporÃ³w miejscowych przewodu", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.doplyw_min = Variables("doplyw_min", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "doplyw_min", "rewrite_dan_to_val", None, 33, "", False, "", ["var > 0.0", "var <= doplyw_max.value"], [], "TreÅ›Ä‡ porady dla dopÅ‚ywu minimalnego", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.doplyw_max = Variables("doplyw_max", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "doplyw_max", "rewrite_dan_to_val", None, 34, "", False, "", ["var > 0.0", "var >= doplyw_min.value"], [], "treÅ›Ä‡ porady dla dopÅ‚ywu maksymalnego", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.czas_cyklu = Variables("czas_cyklu", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "czas_cyklu", "rewrite_dan_to_val", None, 35, "", False, "", ["var > 0.0"], [], "treÅ›Ä‡ porady dla czasu cyklu", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.liczba_p_char = Variables("liczba_p_char", 0, "int", False, 1, True, "", "", "", "", None, 36, "", False, "", [], [], "", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.char_pompy = Variables("char_pompy", {}, "dict", False, 1, True, "", "", "", "handle_pump_char", None, 37, "", False, "", [], [], "", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.wydajnosc_od = Variables("wydajnosc_od", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "wydajnosc_od", "rewrite_dan_to_val", None, 39, "", False, "", [], [], "", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.wydajnosc_do = Variables("wydajnosc_do", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "wydajnosc_do", "rewrite_dan_to_val", None, 40, "", False, "", [], [], "", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.liczba_kol = Variables("liczba_kol", 0, "int", True, 1, True, "", "rewrite_to_cvar", "liczba_kol", "rewrite_dan_to_val", None, 41, "", False, "", ["var > 0"], [], "treÅ›Ä‡ porady dla liczby kolektorÃ³w", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.dl_kolektora = Variables("dl_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "dl_kolektora", "rewrite_dan_to_val", None, 42, "", False, "", ["var > 0.0"], [], "treÅ›Ä‡ porady dla dÅ‚ugoÅ›Ä‡ kolektora", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.sr_kolektora = Variables("sr_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "sr_kolektora", "rewrite_dan_to_val", None, 43, "", False, "", ["var > 0.0"], [], "treÅ›Ä‡ porady dla Å›rednicy kolektora", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.chrop_kolektora = Variables("chrop_kolektora", 0.0, "double", True, 1, True, "", "rewrite_to_cvar", "chrop_kolektora", "rewrite_dan_to_val", None, 44, "", False, "", ["var > 0.0"], [], "treÅ›Ä‡ porady dla chropowatoÅ›ci kolektora", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.liczba_op_kol = Variables("liczba_op_kol", 0, "int", False, 1, True, "", "", "", "", None, 45, "", True, "", [], [], "", self)
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 self.opory_kolektora = Variables("opory_kolektora", [], "list", True, 1, True, "", "res_to_cvar", "opory_kolektora", "handle_loc_res", None, 46, "", True, "", [], [], "treÅ›Ä‡ porady dla oporÃ³w miejscowych kolektora", self)
 
 
-2018.06.22 10:14:47-INFO: 
+2018.06.22 11:23:22-INFO: 
 [tryb_pracy, ksztalt, uklad_pompowni, liczba_pomp_rez, obrys_pompy, dlugosc_pompowni, szer_pompowni, srednica_pompowni, minimalna_wys, rzedna_terenu, rzedna_wylotu, rzedna_doplywu, rzedna_dna, roznica_wlot_start, rzedna_najwpunkt, rzedna_zwgorne, dl_przewodu_tl, sred_przewodu_tl, chrop_przewodu_tl, liczba_op_prz_tl, opory_przewodu_tl, doplyw_min, doplyw_max, czas_cyklu, liczba_p_char, char_pompy, wydajnosc_od, wydajnosc_do, liczba_kol, dl_kolektora, sr_kolektora, chrop_kolektora, liczba_op_kol, opory_kolektora]
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 
 tryb_pracy, <class 'str'>
-2018.06.22 10:14:47-INFO: changed mode: sprawdzenie
-2018.06.22 10:14:47-DEBUG: test_attr: dict_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-INFO: changed mode: sprawdzenie
+2018.06.22 11:23:22-DEBUG: test_attr: dict_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 ksztalt, <class 'str'>
-2018.06.22 10:14:47-INFO: changed shape: kolo
-2018.06.22 10:14:47-DEBUG: test_attr: dict_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-INFO: changed shape: kolo
+2018.06.22 11:23:22-DEBUG: test_attr: dict_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 uklad_pompowni, <class 'str'>
-2018.06.22 10:14:47-DEBUG: test_attr: dict_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: dict_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 liczba_pomp_rez, <class 'str'>
-2018.06.22 10:14:47-DEBUG: test_attr: dict_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
-
-obrys_pompy, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: dict_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.dict_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: bind_val_with_cvar started
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 dlugosc_pompowni, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 szer_pompowni, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 srednica_pompowni, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 minimalna_wys, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 rzedna_terenu, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 rzedna_wylotu, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 rzedna_doplywu, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 rzedna_dna, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 roznica_wlot_start, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 rzedna_najwpunkt, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 rzedna_zwgorne, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 dl_przewodu_tl, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 sred_przewodu_tl, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 chrop_przewodu_tl, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: test_attr: 
-2018.06.22 10:14:47-DEBUG: load_func: None
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: test_attr: 
+2018.06.22 11:23:22-DEBUG: load_func: None
+2018.06.22 11:23:22-DEBUG: 
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 res string : 
-2018.06.22 10:14:47-DEBUG: opory_przewodu_tl, res string
-2018.06.22 10:14:47-DEBUG: test_attr: handle_loc_res
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.handle_loc_res of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: opory_przewodu_tl, res string
+2018.06.22 11:23:22-DEBUG: test_attr: handle_loc_res
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.handle_loc_res of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 doplyw_min, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 doplyw_max, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 czas_cyklu, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: test_attr: 
-2018.06.22 10:14:47-DEBUG: load_func: None
-2018.06.22 10:14:47-DEBUG: test_attr: handle_pump_char
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.handle_pump_char of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: test_attr: 
+2018.06.22 11:23:22-DEBUG: load_func: None
+2018.06.22 11:23:22-DEBUG: test_attr: handle_pump_char
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.handle_pump_char of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 wydajnosc_od, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 wydajnosc_do, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 liczba_kol, <class 'int'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 dl_kolektora, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 sr_kolektora, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: 
 
 chrop_kolektora, <class 'float'>
-2018.06.22 10:14:47-DEBUG: test_attr: rewrite_dan_to_val
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:47-DEBUG: test_attr: 
-2018.06.22 10:14:47-DEBUG: load_func: None
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: test_attr: rewrite_dan_to_val
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.rewrite_dan_to_val of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:22-DEBUG: test_attr: 
+2018.06.22 11:23:22-DEBUG: load_func: None
+2018.06.22 11:23:22-DEBUG: 
 
 
-2018.06.22 10:14:47-DEBUG: 
+2018.06.22 11:23:22-DEBUG: 
 res string : 
-2018.06.22 10:14:47-DEBUG: opory_kolektora, res string
-2018.06.22 10:14:47-DEBUG: test_attr: handle_loc_res
-2018.06.22 10:14:47-DEBUG: load_func: <bound method Application.handle_loc_res of <__main__.Application object at 0x02A1C450>>
-2018.06.22 10:14:54-INFO: 
-data_load started
-
-2018.06.22 10:14:54-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Private/Pompa/STAND.DAN' mode='r+' encoding='cp1250'>
-
-
-2018.06.22 10:14:54-INFO: 
-dan_load started
-
-2018.06.22 10:14:54-INFO: plik danych generowany wersj¹ 1.0 aplikacji
-2018.06.22 10:14:54-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Private/Pompa/STAND.DAN' mode='r+' encoding='cp1250'>
-
-
-2018.06.22 10:14:54-DEBUG: dan_id: 1) 0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-dict_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: translated_value: minimalizacja
-2018.06.22 10:14:54-DEBUG: 
-
-tryb_pracy, <class 'str'>
-2018.06.22 10:14:54-DEBUG: tryb_pracy.value changed to minimalizacja
-2018.06.22 10:14:54-INFO: changed mode: minimalizacja
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 2) 1 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-dict_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: translated_value: kolo
-2018.06.22 10:14:54-DEBUG: 
-
-ksztalt, <class 'str'>
-2018.06.22 10:14:54-DEBUG: ksztalt.value changed to kolo
-2018.06.22 10:14:54-INFO: changed shape: kolo
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 3) 0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-dict_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: translated_value: jednorzedowy
-2018.06.22 10:14:54-DEBUG: 
-
-uklad_pompowni, <class 'str'>
-2018.06.22 10:14:54-DEBUG: uklad_pompowni.value changed to jednorzedowy
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 4) 1 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-dict_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: translated_value: minimalna
-2018.06.22 10:14:54-DEBUG: 
-
-liczba_pomp_rez, <class 'str'>
-2018.06.22 10:14:54-DEBUG: liczba_pomp_rez.value changed to minimalna
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func dict_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 5) .81 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-obrys_pompy, <class 'float'>
-2018.06.22 10:14:54-DEBUG: obrys_pompy.value changed to .81
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 9) .30 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-minimalna_wys, <class 'float'>
-2018.06.22 10:14:54-DEBUG: minimalna_wys.value changed to .30
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 10) 159.00 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-rzedna_terenu, <class 'float'>
-2018.06.22 10:14:54-DEBUG: rzedna_terenu.value changed to 159.00
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 11) 157.40 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-rzedna_wylotu, <class 'float'>
-2018.06.22 10:14:54-DEBUG: rzedna_wylotu.value changed to 157.40
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 12) 153.00 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-rzedna_doplywu, <class 'float'>
-2018.06.22 10:14:54-DEBUG: rzedna_doplywu.value changed to 153.00
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 13) 151.50 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-rzedna_dna, <class 'float'>
-2018.06.22 10:14:54-DEBUG: rzedna_dna.value changed to 151.50
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 14) .00 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-roznica_wlot_start, <class 'float'>
-2018.06.22 10:14:54-DEBUG: roznica_wlot_start.value changed to .00
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 15) 158.00 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-rzedna_najwpunkt, <class 'float'>
-2018.06.22 10:14:54-DEBUG: rzedna_najwpunkt.value changed to 158.00
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 16) 158.00 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-rzedna_zwgorne, <class 'float'>
-2018.06.22 10:14:54-DEBUG: rzedna_zwgorne.value changed to 158.00
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 17) 2.60 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-DEBUG: dan_id: 18) 1.20 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-DEBUG: dan_id: 19) 1 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-DEBUG: dan_id: 20) 40 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-DEBUG: dan_id: 21) 0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-DEBUG: dan_id: 29) 125.0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-sred_przewodu_tl, <class 'float'>
-2018.06.22 10:14:54-DEBUG: sred_przewodu_tl.value changed to 125.0
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 30) .05 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-chrop_przewodu_tl, <class 'float'>
-2018.06.22 10:14:54-DEBUG: chrop_przewodu_tl.value changed to .05
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 31) 1 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-DEBUG: dan_id: 32) 3.18 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-handle_loc_res started
-
-2018.06.22 10:14:54-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Private/Pompa/STAND.DAN' mode='r+' encoding='cp1250'>
-
-2018.06.22 10:14:54-DEBUG: 
-
-
-2018.06.22 10:14:54-DEBUG: 3.18
-2018.06.22 10:14:54-DEBUG: 
-res string : 3.18
-2018.06.22 10:14:54-DEBUG: opory_przewodu_tl, res string
-2018.06.22 10:14:54-INFO: handle_loc_res func ended
-
-
-2018.06.22 10:14:54-INFO: i.load_func handle_loc_res executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 33) .2 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-doplyw_min, <class 'float'>
-2018.06.22 10:14:54-DEBUG: doplyw_min.value changed to .2
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 34) 1.6 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-doplyw_max, <class 'float'>
-2018.06.22 10:14:54-DEBUG: doplyw_max.value changed to 1.6
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 35) 6.0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-czas_cyklu, <class 'float'>
-2018.06.22 10:14:54-DEBUG: czas_cyklu.value changed to 6.0
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 36) 6 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-DEBUG: dan_id: 37) 47.0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-handle_pump_char
-
-2018.06.22 10:14:54-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Private/Pompa/STAND.DAN' mode='r+' encoding='cp1250'>
-
-2018.06.22 10:14:54-DEBUG: q_list: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0]
-2018.06.22 10:14:54-DEBUG: h_list: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
-2018.06.22 10:14:54-INFO: pump_add_point BEGUN
-2018.06.22 10:14:54-DEBUG: {'I001': (47.0, 0.0)}
-2018.06.22 10:14:54-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:14:54-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:14:54-DEBUG: utworzono listê elementów
-2018.06.22 10:14:54-INFO: [('47.0', 'I001')]
-2018.06.22 10:14:54-INFO: pump_add_point BEGUN
-2018.06.22 10:14:54-DEBUG: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2)}
-2018.06.22 10:14:54-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:14:54-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:14:54-DEBUG: utworzono listê elementów
-2018.06.22 10:14:54-INFO: [('47.0', 'I001'), ('40.0', 'I002')]
-2018.06.22 10:14:54-INFO: pump_add_point BEGUN
-2018.06.22 10:14:54-DEBUG: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7)}
-2018.06.22 10:14:54-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:14:54-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:14:54-DEBUG: utworzono listê elementów
-2018.06.22 10:14:54-INFO: [('40.0', 'I002'), ('47.0', 'I001'), ('30.0', 'I003')]
-2018.06.22 10:14:54-INFO: pump_add_point BEGUN
-2018.06.22 10:14:54-DEBUG: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1)}
-2018.06.22 10:14:54-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:14:54-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:14:54-DEBUG: utworzono listê elementów
-2018.06.22 10:14:54-INFO: [('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('20.0', 'I004')]
-2018.06.22 10:14:54-INFO: pump_add_point BEGUN
-2018.06.22 10:14:54-DEBUG: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5)}
-2018.06.22 10:14:54-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:14:54-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:14:54-DEBUG: utworzono listê elementów
-2018.06.22 10:14:54-INFO: [('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('10.0', 'I005')]
-2018.06.22 10:14:54-INFO: pump_add_point BEGUN
-2018.06.22 10:14:54-DEBUG: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
-2018.06.22 10:14:54-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:14:54-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:14:54-DEBUG: utworzono listê elementów
-2018.06.22 10:14:54-INFO: [('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('0.0', 'I006')]
-2018.06.22 10:14:54-INFO: i.load_func handle_pump_char executed,                            returned 11
-2018.06.22 10:14:54-DEBUG: dan_id: 39) 11.0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:14:54-DEBUG: wydajnosc_od.value changed to 11.0
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 40) 23.0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:14:54-DEBUG: wydajnosc_do.value changed to 23.0
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 41) 1 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-liczba_kol, <class 'int'>
-2018.06.22 10:14:54-DEBUG: liczba_kol.value changed to 1
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 42) 400.0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-dl_kolektora, <class 'float'>
-2018.06.22 10:14:54-DEBUG: dl_kolektora.value changed to 400.0
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:54-DEBUG: dan_id: 43) 160.0 <-readed_value
-2018.06.22 10:14:54-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:54-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:54-DEBUG: 
-
-sr_kolektora, <class 'float'>
-2018.06.22 10:14:54-DEBUG: sr_kolektora.value changed to 160.0
-2018.06.22 10:14:54-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:54-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:55-DEBUG: dan_id: 44) .10 <-readed_value
-2018.06.22 10:14:55-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:55-INFO: 
-rewrite_dan_to_val started
-
-2018.06.22 10:14:55-DEBUG: 
-
-chrop_kolektora, <class 'float'>
-2018.06.22 10:14:55-DEBUG: chrop_kolektora.value changed to .10
-2018.06.22 10:14:55-INFO: 
-value set, function ended
-
-
-
-2018.06.22 10:14:55-INFO: i.load_func rewrite_dan_to_val executed,                            returned 0
-2018.06.22 10:14:55-DEBUG: dan_id: 45) 0 <-readed_value
-2018.06.22 10:14:55-DEBUG: type id_line: <class 'str'>
-2018.06.22 10:14:58-INFO: 
-2018.06.22 10:14:58-INFO: uruchomiono funkcjê get_coords
-2018.06.22 10:14:58-INFO: pump_add_point BEGUN
-2018.06.22 10:14:59-DEBUG: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:14:59-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:14:59-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:14:59-DEBUG: utworzono listê elementów
-2018.06.22 10:14:59-INFO: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002'), ('47.0', 'I001'), ('0.0', 'I007')]
-2018.06.22 10:15:02-INFO: control_pump_flow_unit started
-2018.06.22 10:15:02-INFO: change_char_pompy_unit started
-2018.06.22 10:15:02-DEBUG: current setting passed: 2
-2018.06.22 10:15:02-DEBUG: current dict_value: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-DEBUG: current temp_dict: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-DEBUG: current key_list: ['I001', 'I002', 'I003', 'I004', 'I005', 'I006', 'I007']
-2018.06.22 10:15:02-DEBUG: start delete dict loop
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:02-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:02-DEBUG: actual dict: {'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('0.0', 'I006'), ('0.0', 'I007'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002')]
-2018.06.22 10:15:02-DEBUG: start delete dict loop
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:02-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:02-DEBUG: actual dict: {'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('0.0', 'I006'), ('0.0', 'I007'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003')]
-2018.06.22 10:15:02-DEBUG: start delete dict loop
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:02-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:02-DEBUG: actual dict: {'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('0.0', 'I006'), ('0.0', 'I007'), ('10.0', 'I005'), ('20.0', 'I004')]
-2018.06.22 10:15:02-DEBUG: start delete dict loop
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:02-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:02-DEBUG: actual dict: {'I005': (10.0, 12.5), 'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('0.0', 'I006'), ('0.0', 'I007'), ('10.0', 'I005')]
-2018.06.22 10:15:02-DEBUG: start delete dict loop
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:02-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:02-DEBUG: actual dict: {'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('0.0', 'I006'), ('0.0', 'I007')]
-2018.06.22 10:15:02-DEBUG: start delete dict loop
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:02-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:02-DEBUG: actual dict: {'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('0.0', 'I007')]
-2018.06.22 10:15:02-DEBUG: start delete dict loop
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:02-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:02-DEBUG: actual dict: {}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: []
-2018.06.22 10:15:02-DEBUG: current dict_value: {}
-2018.06.22 10:15:02-DEBUG: current temp_dict: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7), 'I007': (0.0, 0.0)}
-2018.06.22 10:15:02-DEBUG: current key_list: ['I001', 'I002', 'I003', 'I004', 'I005', 'I006', 'I007']
-2018.06.22 10:15:02-INFO: pump_add_point BEGUN
-2018.06.22 10:15:02-DEBUG: {'I008': (169.2, 0.0)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('169.2', 'I008')]
-2018.06.22 10:15:02-INFO: pump_add_point BEGUN
-2018.06.22 10:15:02-DEBUG: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('169.2', 'I008'), ('144.0', 'I009')]
-2018.06.22 10:15:02-INFO: pump_add_point BEGUN
-2018.06.22 10:15:02-DEBUG: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2), 'I00A': (108.0, 5.7)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('144.0', 'I009'), ('169.2', 'I008'), ('108.0', 'I00A')]
-2018.06.22 10:15:02-INFO: pump_add_point BEGUN
-2018.06.22 10:15:02-DEBUG: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2), 'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('108.0', 'I00A'), ('144.0', 'I009'), ('169.2', 'I008'), ('72.0', 'I00B')]
-2018.06.22 10:15:02-INFO: pump_add_point BEGUN
-2018.06.22 10:15:02-DEBUG: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2), 'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('72.0', 'I00B'), ('108.0', 'I00A'), ('144.0', 'I009'), ('169.2', 'I008'), ('36.0', 'I00C')]
-2018.06.22 10:15:02-INFO: pump_add_point BEGUN
-2018.06.22 10:15:02-DEBUG: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2), 'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('36.0', 'I00C'), ('72.0', 'I00B'), ('108.0', 'I00A'), ('144.0', 'I009'), ('169.2', 'I008'), ('0.0', 'I00D')]
-2018.06.22 10:15:02-INFO: pump_add_point BEGUN
-2018.06.22 10:15:02-DEBUG: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2), 'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:02-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:02-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:02-DEBUG: utworzono listê elementów
-2018.06.22 10:15:02-INFO: [('0.0', 'I00D'), ('36.0', 'I00C'), ('72.0', 'I00B'), ('108.0', 'I00A'), ('144.0', 'I009'), ('169.2', 'I008'), ('0.0', 'I00E')]
-2018.06.22 10:15:02-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:02-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:03-INFO: control_pump_flow_unit started
-2018.06.22 10:15:03-INFO: change_char_pompy_unit started
-2018.06.22 10:15:03-DEBUG: current setting passed: 1
-2018.06.22 10:15:03-DEBUG: current dict_value: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2), 'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-DEBUG: current temp_dict: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2), 'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-DEBUG: current key_list: ['I008', 'I009', 'I00A', 'I00B', 'I00C', 'I00D', 'I00E']
-2018.06.22 10:15:03-DEBUG: start delete dict loop
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:03-DEBUG: point to delete: (169.2, 0.0)
-2018.06.22 10:15:03-DEBUG: actual dict: {'I009': (144.0, 2.2), 'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('0.0', 'I00D'), ('0.0', 'I00E'), ('36.0', 'I00C'), ('72.0', 'I00B'), ('108.0', 'I00A'), ('144.0', 'I009')]
-2018.06.22 10:15:03-DEBUG: start delete dict loop
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:03-DEBUG: point to delete: (144.0, 2.2)
-2018.06.22 10:15:03-DEBUG: actual dict: {'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('0.0', 'I00D'), ('0.0', 'I00E'), ('36.0', 'I00C'), ('72.0', 'I00B'), ('108.0', 'I00A')]
-2018.06.22 10:15:03-DEBUG: start delete dict loop
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:03-DEBUG: point to delete: (108.0, 5.7)
-2018.06.22 10:15:03-DEBUG: actual dict: {'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('0.0', 'I00D'), ('0.0', 'I00E'), ('36.0', 'I00C'), ('72.0', 'I00B')]
-2018.06.22 10:15:03-DEBUG: start delete dict loop
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:03-DEBUG: point to delete: (72.0, 9.1)
-2018.06.22 10:15:03-DEBUG: actual dict: {'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('0.0', 'I00D'), ('0.0', 'I00E'), ('36.0', 'I00C')]
-2018.06.22 10:15:03-DEBUG: start delete dict loop
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:03-DEBUG: point to delete: (36.0, 12.5)
-2018.06.22 10:15:03-DEBUG: actual dict: {'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('0.0', 'I00D'), ('0.0', 'I00E')]
-2018.06.22 10:15:03-DEBUG: start delete dict loop
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:03-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:03-DEBUG: actual dict: {'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('0.0', 'I00E')]
-2018.06.22 10:15:03-DEBUG: start delete dict loop
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:03-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:03-DEBUG: actual dict: {}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: []
-2018.06.22 10:15:03-DEBUG: current dict_value: {}
-2018.06.22 10:15:03-DEBUG: current temp_dict: {'I008': (169.2, 0.0), 'I009': (144.0, 2.2), 'I00A': (108.0, 5.7), 'I00B': (72.0, 9.1), 'I00C': (36.0, 12.5), 'I00D': (0.0, 14.7), 'I00E': (0.0, 0.0)}
-2018.06.22 10:15:03-DEBUG: current key_list: ['I008', 'I009', 'I00A', 'I00B', 'I00C', 'I00D', 'I00E']
-2018.06.22 10:15:03-INFO: pump_add_point BEGUN
-2018.06.22 10:15:03-DEBUG: {'I00F': (47.0, 0.0)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('47.0', 'I00F')]
-2018.06.22 10:15:03-INFO: pump_add_point BEGUN
-2018.06.22 10:15:03-DEBUG: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('47.0', 'I00F'), ('40.0', 'I010')]
-2018.06.22 10:15:03-INFO: pump_add_point BEGUN
-2018.06.22 10:15:03-DEBUG: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2), 'I011': (30.0, 5.7)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('40.0', 'I010'), ('47.0', 'I00F'), ('30.0', 'I011')]
-2018.06.22 10:15:03-INFO: pump_add_point BEGUN
-2018.06.22 10:15:03-DEBUG: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2), 'I011': (30.0, 5.7), 'I012': (20.0, 9.1)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('30.0', 'I011'), ('40.0', 'I010'), ('47.0', 'I00F'), ('20.0', 'I012')]
-2018.06.22 10:15:03-INFO: pump_add_point BEGUN
-2018.06.22 10:15:03-DEBUG: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2), 'I011': (30.0, 5.7), 'I012': (20.0, 9.1), 'I013': (10.0, 12.5)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('20.0', 'I012'), ('30.0', 'I011'), ('40.0', 'I010'), ('47.0', 'I00F'), ('10.0', 'I013')]
-2018.06.22 10:15:03-INFO: pump_add_point BEGUN
-2018.06.22 10:15:03-DEBUG: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2), 'I011': (30.0, 5.7), 'I012': (20.0, 9.1), 'I013': (10.0, 12.5), 'I014': (0.0, 14.7)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('10.0', 'I013'), ('20.0', 'I012'), ('30.0', 'I011'), ('40.0', 'I010'), ('47.0', 'I00F'), ('0.0', 'I014')]
-2018.06.22 10:15:03-INFO: pump_add_point BEGUN
-2018.06.22 10:15:03-DEBUG: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2), 'I011': (30.0, 5.7), 'I012': (20.0, 9.1), 'I013': (10.0, 12.5), 'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:03-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:03-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:03-DEBUG: utworzono listê elementów
-2018.06.22 10:15:03-INFO: [('0.0', 'I014'), ('10.0', 'I013'), ('20.0', 'I012'), ('30.0', 'I011'), ('40.0', 'I010'), ('47.0', 'I00F'), ('0.0', 'I015')]
-2018.06.22 10:15:03-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:03-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:04-INFO: control_pump_flow_unit started
-2018.06.22 10:15:04-INFO: change_char_pompy_unit started
-2018.06.22 10:15:04-DEBUG: current setting passed: 2
-2018.06.22 10:15:04-DEBUG: current dict_value: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2), 'I011': (30.0, 5.7), 'I012': (20.0, 9.1), 'I013': (10.0, 12.5), 'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-DEBUG: current temp_dict: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2), 'I011': (30.0, 5.7), 'I012': (20.0, 9.1), 'I013': (10.0, 12.5), 'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-DEBUG: current key_list: ['I00F', 'I010', 'I011', 'I012', 'I013', 'I014', 'I015']
-2018.06.22 10:15:04-DEBUG: start delete dict loop
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:04-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:04-DEBUG: actual dict: {'I010': (40.0, 2.2), 'I011': (30.0, 5.7), 'I012': (20.0, 9.1), 'I013': (10.0, 12.5), 'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('0.0', 'I014'), ('0.0', 'I015'), ('10.0', 'I013'), ('20.0', 'I012'), ('30.0', 'I011'), ('40.0', 'I010')]
-2018.06.22 10:15:04-DEBUG: start delete dict loop
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:04-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:04-DEBUG: actual dict: {'I011': (30.0, 5.7), 'I012': (20.0, 9.1), 'I013': (10.0, 12.5), 'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('0.0', 'I014'), ('0.0', 'I015'), ('10.0', 'I013'), ('20.0', 'I012'), ('30.0', 'I011')]
-2018.06.22 10:15:04-DEBUG: start delete dict loop
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:04-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:04-DEBUG: actual dict: {'I012': (20.0, 9.1), 'I013': (10.0, 12.5), 'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('0.0', 'I014'), ('0.0', 'I015'), ('10.0', 'I013'), ('20.0', 'I012')]
-2018.06.22 10:15:04-DEBUG: start delete dict loop
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:04-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:04-DEBUG: actual dict: {'I013': (10.0, 12.5), 'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('0.0', 'I014'), ('0.0', 'I015'), ('10.0', 'I013')]
-2018.06.22 10:15:04-DEBUG: start delete dict loop
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:04-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:04-DEBUG: actual dict: {'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('0.0', 'I014'), ('0.0', 'I015')]
-2018.06.22 10:15:04-DEBUG: start delete dict loop
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:04-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:04-DEBUG: actual dict: {'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('0.0', 'I015')]
-2018.06.22 10:15:04-DEBUG: start delete dict loop
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:04-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:04-DEBUG: actual dict: {}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: []
-2018.06.22 10:15:04-DEBUG: current dict_value: {}
-2018.06.22 10:15:04-DEBUG: current temp_dict: {'I00F': (47.0, 0.0), 'I010': (40.0, 2.2), 'I011': (30.0, 5.7), 'I012': (20.0, 9.1), 'I013': (10.0, 12.5), 'I014': (0.0, 14.7), 'I015': (0.0, 0.0)}
-2018.06.22 10:15:04-DEBUG: current key_list: ['I00F', 'I010', 'I011', 'I012', 'I013', 'I014', 'I015']
-2018.06.22 10:15:04-INFO: pump_add_point BEGUN
-2018.06.22 10:15:04-DEBUG: {'I016': (169.2, 0.0)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('169.2', 'I016')]
-2018.06.22 10:15:04-INFO: pump_add_point BEGUN
-2018.06.22 10:15:04-DEBUG: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('169.2', 'I016'), ('144.0', 'I017')]
-2018.06.22 10:15:04-INFO: pump_add_point BEGUN
-2018.06.22 10:15:04-DEBUG: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2), 'I018': (108.0, 5.7)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('144.0', 'I017'), ('169.2', 'I016'), ('108.0', 'I018')]
-2018.06.22 10:15:04-INFO: pump_add_point BEGUN
-2018.06.22 10:15:04-DEBUG: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2), 'I018': (108.0, 5.7), 'I019': (72.0, 9.1)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('108.0', 'I018'), ('144.0', 'I017'), ('169.2', 'I016'), ('72.0', 'I019')]
-2018.06.22 10:15:04-INFO: pump_add_point BEGUN
-2018.06.22 10:15:04-DEBUG: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2), 'I018': (108.0, 5.7), 'I019': (72.0, 9.1), 'I01A': (36.0, 12.5)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('72.0', 'I019'), ('108.0', 'I018'), ('144.0', 'I017'), ('169.2', 'I016'), ('36.0', 'I01A')]
-2018.06.22 10:15:04-INFO: pump_add_point BEGUN
-2018.06.22 10:15:04-DEBUG: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2), 'I018': (108.0, 5.7), 'I019': (72.0, 9.1), 'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('36.0', 'I01A'), ('72.0', 'I019'), ('108.0', 'I018'), ('144.0', 'I017'), ('169.2', 'I016'), ('0.0', 'I01B')]
-2018.06.22 10:15:04-INFO: pump_add_point BEGUN
-2018.06.22 10:15:04-DEBUG: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2), 'I018': (108.0, 5.7), 'I019': (72.0, 9.1), 'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:04-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:04-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:04-DEBUG: utworzono listê elementów
-2018.06.22 10:15:04-INFO: [('0.0', 'I01B'), ('36.0', 'I01A'), ('72.0', 'I019'), ('108.0', 'I018'), ('144.0', 'I017'), ('169.2', 'I016'), ('0.0', 'I01C')]
-2018.06.22 10:15:04-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:04-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:05-INFO: control_pump_flow_unit started
-2018.06.22 10:15:05-INFO: change_char_pompy_unit started
-2018.06.22 10:15:05-DEBUG: current setting passed: 1
-2018.06.22 10:15:05-DEBUG: current dict_value: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2), 'I018': (108.0, 5.7), 'I019': (72.0, 9.1), 'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-DEBUG: current temp_dict: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2), 'I018': (108.0, 5.7), 'I019': (72.0, 9.1), 'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-DEBUG: current key_list: ['I016', 'I017', 'I018', 'I019', 'I01A', 'I01B', 'I01C']
-2018.06.22 10:15:05-DEBUG: start delete dict loop
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:05-DEBUG: point to delete: (169.2, 0.0)
-2018.06.22 10:15:05-DEBUG: actual dict: {'I017': (144.0, 2.2), 'I018': (108.0, 5.7), 'I019': (72.0, 9.1), 'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('0.0', 'I01B'), ('0.0', 'I01C'), ('36.0', 'I01A'), ('72.0', 'I019'), ('108.0', 'I018'), ('144.0', 'I017')]
-2018.06.22 10:15:05-DEBUG: start delete dict loop
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:05-DEBUG: point to delete: (144.0, 2.2)
-2018.06.22 10:15:05-DEBUG: actual dict: {'I018': (108.0, 5.7), 'I019': (72.0, 9.1), 'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('0.0', 'I01B'), ('0.0', 'I01C'), ('36.0', 'I01A'), ('72.0', 'I019'), ('108.0', 'I018')]
-2018.06.22 10:15:05-DEBUG: start delete dict loop
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:05-DEBUG: point to delete: (108.0, 5.7)
-2018.06.22 10:15:05-DEBUG: actual dict: {'I019': (72.0, 9.1), 'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('0.0', 'I01B'), ('0.0', 'I01C'), ('36.0', 'I01A'), ('72.0', 'I019')]
-2018.06.22 10:15:05-DEBUG: start delete dict loop
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:05-DEBUG: point to delete: (72.0, 9.1)
-2018.06.22 10:15:05-DEBUG: actual dict: {'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('0.0', 'I01B'), ('0.0', 'I01C'), ('36.0', 'I01A')]
-2018.06.22 10:15:05-DEBUG: start delete dict loop
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:05-DEBUG: point to delete: (36.0, 12.5)
-2018.06.22 10:15:05-DEBUG: actual dict: {'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('0.0', 'I01B'), ('0.0', 'I01C')]
-2018.06.22 10:15:05-DEBUG: start delete dict loop
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:05-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:05-DEBUG: actual dict: {'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('0.0', 'I01C')]
-2018.06.22 10:15:05-DEBUG: start delete dict loop
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:05-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:05-DEBUG: actual dict: {}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: []
-2018.06.22 10:15:05-DEBUG: current dict_value: {}
-2018.06.22 10:15:05-DEBUG: current temp_dict: {'I016': (169.2, 0.0), 'I017': (144.0, 2.2), 'I018': (108.0, 5.7), 'I019': (72.0, 9.1), 'I01A': (36.0, 12.5), 'I01B': (0.0, 14.7), 'I01C': (0.0, 0.0)}
-2018.06.22 10:15:05-DEBUG: current key_list: ['I016', 'I017', 'I018', 'I019', 'I01A', 'I01B', 'I01C']
-2018.06.22 10:15:05-INFO: pump_add_point BEGUN
-2018.06.22 10:15:05-DEBUG: {'I01D': (47.0, 0.0)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('47.0', 'I01D')]
-2018.06.22 10:15:05-INFO: pump_add_point BEGUN
-2018.06.22 10:15:05-DEBUG: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('47.0', 'I01D'), ('40.0', 'I01E')]
-2018.06.22 10:15:05-INFO: pump_add_point BEGUN
-2018.06.22 10:15:05-DEBUG: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('40.0', 'I01E'), ('47.0', 'I01D'), ('30.0', 'I01F')]
-2018.06.22 10:15:05-INFO: pump_add_point BEGUN
-2018.06.22 10:15:05-DEBUG: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7), 'I020': (20.0, 9.1)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('30.0', 'I01F'), ('40.0', 'I01E'), ('47.0', 'I01D'), ('20.0', 'I020')]
-2018.06.22 10:15:05-INFO: pump_add_point BEGUN
-2018.06.22 10:15:05-DEBUG: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7), 'I020': (20.0, 9.1), 'I021': (10.0, 12.5)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('20.0', 'I020'), ('30.0', 'I01F'), ('40.0', 'I01E'), ('47.0', 'I01D'), ('10.0', 'I021')]
-2018.06.22 10:15:05-INFO: pump_add_point BEGUN
-2018.06.22 10:15:05-DEBUG: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7), 'I020': (20.0, 9.1), 'I021': (10.0, 12.5), 'I022': (0.0, 14.7)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('10.0', 'I021'), ('20.0', 'I020'), ('30.0', 'I01F'), ('40.0', 'I01E'), ('47.0', 'I01D'), ('0.0', 'I022')]
-2018.06.22 10:15:05-INFO: pump_add_point BEGUN
-2018.06.22 10:15:05-DEBUG: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7), 'I020': (20.0, 9.1), 'I021': (10.0, 12.5), 'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:05-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:05-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:05-DEBUG: utworzono listê elementów
-2018.06.22 10:15:05-INFO: [('0.0', 'I022'), ('10.0', 'I021'), ('20.0', 'I020'), ('30.0', 'I01F'), ('40.0', 'I01E'), ('47.0', 'I01D'), ('0.0', 'I023')]
-2018.06.22 10:15:05-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:05-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:06-INFO: control_pump_flow_unit started
-2018.06.22 10:15:06-INFO: change_char_pompy_unit started
-2018.06.22 10:15:06-DEBUG: current setting passed: 2
-2018.06.22 10:15:06-DEBUG: current dict_value: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7), 'I020': (20.0, 9.1), 'I021': (10.0, 12.5), 'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-DEBUG: current temp_dict: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7), 'I020': (20.0, 9.1), 'I021': (10.0, 12.5), 'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-DEBUG: current key_list: ['I01D', 'I01E', 'I01F', 'I020', 'I021', 'I022', 'I023']
-2018.06.22 10:15:06-DEBUG: start delete dict loop
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:06-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:06-DEBUG: actual dict: {'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7), 'I020': (20.0, 9.1), 'I021': (10.0, 12.5), 'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('0.0', 'I022'), ('0.0', 'I023'), ('10.0', 'I021'), ('20.0', 'I020'), ('30.0', 'I01F'), ('40.0', 'I01E')]
-2018.06.22 10:15:06-DEBUG: start delete dict loop
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:06-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:06-DEBUG: actual dict: {'I01F': (30.0, 5.7), 'I020': (20.0, 9.1), 'I021': (10.0, 12.5), 'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('0.0', 'I022'), ('0.0', 'I023'), ('10.0', 'I021'), ('20.0', 'I020'), ('30.0', 'I01F')]
-2018.06.22 10:15:06-DEBUG: start delete dict loop
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:06-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:06-DEBUG: actual dict: {'I020': (20.0, 9.1), 'I021': (10.0, 12.5), 'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('0.0', 'I022'), ('0.0', 'I023'), ('10.0', 'I021'), ('20.0', 'I020')]
-2018.06.22 10:15:06-DEBUG: start delete dict loop
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:06-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:06-DEBUG: actual dict: {'I021': (10.0, 12.5), 'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('0.0', 'I022'), ('0.0', 'I023'), ('10.0', 'I021')]
-2018.06.22 10:15:06-DEBUG: start delete dict loop
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:06-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:06-DEBUG: actual dict: {'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('0.0', 'I022'), ('0.0', 'I023')]
-2018.06.22 10:15:06-DEBUG: start delete dict loop
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:06-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:06-DEBUG: actual dict: {'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('0.0', 'I023')]
-2018.06.22 10:15:06-DEBUG: start delete dict loop
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:06-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:06-DEBUG: actual dict: {}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: []
-2018.06.22 10:15:06-DEBUG: current dict_value: {}
-2018.06.22 10:15:06-DEBUG: current temp_dict: {'I01D': (47.0, 0.0), 'I01E': (40.0, 2.2), 'I01F': (30.0, 5.7), 'I020': (20.0, 9.1), 'I021': (10.0, 12.5), 'I022': (0.0, 14.7), 'I023': (0.0, 0.0)}
-2018.06.22 10:15:06-DEBUG: current key_list: ['I01D', 'I01E', 'I01F', 'I020', 'I021', 'I022', 'I023']
-2018.06.22 10:15:06-INFO: pump_add_point BEGUN
-2018.06.22 10:15:06-DEBUG: {'I024': (169.2, 0.0)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('169.2', 'I024')]
-2018.06.22 10:15:06-INFO: pump_add_point BEGUN
-2018.06.22 10:15:06-DEBUG: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('169.2', 'I024'), ('144.0', 'I025')]
-2018.06.22 10:15:06-INFO: pump_add_point BEGUN
-2018.06.22 10:15:06-DEBUG: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2), 'I026': (108.0, 5.7)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('144.0', 'I025'), ('169.2', 'I024'), ('108.0', 'I026')]
-2018.06.22 10:15:06-INFO: pump_add_point BEGUN
-2018.06.22 10:15:06-DEBUG: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2), 'I026': (108.0, 5.7), 'I027': (72.0, 9.1)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('108.0', 'I026'), ('144.0', 'I025'), ('169.2', 'I024'), ('72.0', 'I027')]
-2018.06.22 10:15:06-INFO: pump_add_point BEGUN
-2018.06.22 10:15:06-DEBUG: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2), 'I026': (108.0, 5.7), 'I027': (72.0, 9.1), 'I028': (36.0, 12.5)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('72.0', 'I027'), ('108.0', 'I026'), ('144.0', 'I025'), ('169.2', 'I024'), ('36.0', 'I028')]
-2018.06.22 10:15:06-INFO: pump_add_point BEGUN
-2018.06.22 10:15:06-DEBUG: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2), 'I026': (108.0, 5.7), 'I027': (72.0, 9.1), 'I028': (36.0, 12.5), 'I029': (0.0, 14.7)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('36.0', 'I028'), ('72.0', 'I027'), ('108.0', 'I026'), ('144.0', 'I025'), ('169.2', 'I024'), ('0.0', 'I029')]
-2018.06.22 10:15:06-INFO: pump_add_point BEGUN
-2018.06.22 10:15:06-DEBUG: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2), 'I026': (108.0, 5.7), 'I027': (72.0, 9.1), 'I028': (36.0, 12.5), 'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:06-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:06-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:06-DEBUG: utworzono listê elementów
-2018.06.22 10:15:06-INFO: [('0.0', 'I029'), ('36.0', 'I028'), ('72.0', 'I027'), ('108.0', 'I026'), ('144.0', 'I025'), ('169.2', 'I024'), ('0.0', 'I02A')]
-2018.06.22 10:15:06-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:06-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:07-INFO: control_pump_flow_unit started
-2018.06.22 10:15:07-INFO: change_char_pompy_unit started
-2018.06.22 10:15:07-DEBUG: current setting passed: 1
-2018.06.22 10:15:07-DEBUG: current dict_value: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2), 'I026': (108.0, 5.7), 'I027': (72.0, 9.1), 'I028': (36.0, 12.5), 'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-DEBUG: current temp_dict: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2), 'I026': (108.0, 5.7), 'I027': (72.0, 9.1), 'I028': (36.0, 12.5), 'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-DEBUG: current key_list: ['I024', 'I025', 'I026', 'I027', 'I028', 'I029', 'I02A']
-2018.06.22 10:15:07-DEBUG: start delete dict loop
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:07-DEBUG: point to delete: (169.2, 0.0)
-2018.06.22 10:15:07-DEBUG: actual dict: {'I025': (144.0, 2.2), 'I026': (108.0, 5.7), 'I027': (72.0, 9.1), 'I028': (36.0, 12.5), 'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('0.0', 'I029'), ('0.0', 'I02A'), ('36.0', 'I028'), ('72.0', 'I027'), ('108.0', 'I026'), ('144.0', 'I025')]
-2018.06.22 10:15:07-DEBUG: start delete dict loop
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:07-DEBUG: point to delete: (144.0, 2.2)
-2018.06.22 10:15:07-DEBUG: actual dict: {'I026': (108.0, 5.7), 'I027': (72.0, 9.1), 'I028': (36.0, 12.5), 'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('0.0', 'I029'), ('0.0', 'I02A'), ('36.0', 'I028'), ('72.0', 'I027'), ('108.0', 'I026')]
-2018.06.22 10:15:07-DEBUG: start delete dict loop
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:07-DEBUG: point to delete: (108.0, 5.7)
-2018.06.22 10:15:07-DEBUG: actual dict: {'I027': (72.0, 9.1), 'I028': (36.0, 12.5), 'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('0.0', 'I029'), ('0.0', 'I02A'), ('36.0', 'I028'), ('72.0', 'I027')]
-2018.06.22 10:15:07-DEBUG: start delete dict loop
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:07-DEBUG: point to delete: (72.0, 9.1)
-2018.06.22 10:15:07-DEBUG: actual dict: {'I028': (36.0, 12.5), 'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('0.0', 'I029'), ('0.0', 'I02A'), ('36.0', 'I028')]
-2018.06.22 10:15:07-DEBUG: start delete dict loop
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:07-DEBUG: point to delete: (36.0, 12.5)
-2018.06.22 10:15:07-DEBUG: actual dict: {'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('0.0', 'I029'), ('0.0', 'I02A')]
-2018.06.22 10:15:07-DEBUG: start delete dict loop
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:07-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:07-DEBUG: actual dict: {'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('0.0', 'I02A')]
-2018.06.22 10:15:07-DEBUG: start delete dict loop
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:07-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:07-DEBUG: actual dict: {}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: []
-2018.06.22 10:15:07-DEBUG: current dict_value: {}
-2018.06.22 10:15:07-DEBUG: current temp_dict: {'I024': (169.2, 0.0), 'I025': (144.0, 2.2), 'I026': (108.0, 5.7), 'I027': (72.0, 9.1), 'I028': (36.0, 12.5), 'I029': (0.0, 14.7), 'I02A': (0.0, 0.0)}
-2018.06.22 10:15:07-DEBUG: current key_list: ['I024', 'I025', 'I026', 'I027', 'I028', 'I029', 'I02A']
-2018.06.22 10:15:07-INFO: pump_add_point BEGUN
-2018.06.22 10:15:07-DEBUG: {'I02B': (47.0, 0.0)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('47.0', 'I02B')]
-2018.06.22 10:15:07-INFO: pump_add_point BEGUN
-2018.06.22 10:15:07-DEBUG: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('47.0', 'I02B'), ('40.0', 'I02C')]
-2018.06.22 10:15:07-INFO: pump_add_point BEGUN
-2018.06.22 10:15:07-DEBUG: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('40.0', 'I02C'), ('47.0', 'I02B'), ('30.0', 'I02D')]
-2018.06.22 10:15:07-INFO: pump_add_point BEGUN
-2018.06.22 10:15:07-DEBUG: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('30.0', 'I02D'), ('40.0', 'I02C'), ('47.0', 'I02B'), ('20.0', 'I02E')]
-2018.06.22 10:15:07-INFO: pump_add_point BEGUN
-2018.06.22 10:15:07-DEBUG: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('20.0', 'I02E'), ('30.0', 'I02D'), ('40.0', 'I02C'), ('47.0', 'I02B'), ('10.0', 'I02F')]
-2018.06.22 10:15:07-INFO: pump_add_point BEGUN
-2018.06.22 10:15:07-DEBUG: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5), 'I030': (0.0, 14.7)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('10.0', 'I02F'), ('20.0', 'I02E'), ('30.0', 'I02D'), ('40.0', 'I02C'), ('47.0', 'I02B'), ('0.0', 'I030')]
-2018.06.22 10:15:07-INFO: pump_add_point BEGUN
-2018.06.22 10:15:07-DEBUG: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5), 'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:07-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:07-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:07-DEBUG: utworzono listê elementów
-2018.06.22 10:15:07-INFO: [('0.0', 'I030'), ('10.0', 'I02F'), ('20.0', 'I02E'), ('30.0', 'I02D'), ('40.0', 'I02C'), ('47.0', 'I02B'), ('0.0', 'I031')]
-2018.06.22 10:15:07-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:07-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:08-INFO: control_pump_flow_unit started
-2018.06.22 10:15:08-INFO: change_char_pompy_unit started
-2018.06.22 10:15:08-DEBUG: current setting passed: 2
-2018.06.22 10:15:08-DEBUG: current dict_value: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5), 'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-DEBUG: current temp_dict: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5), 'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-DEBUG: current key_list: ['I02B', 'I02C', 'I02D', 'I02E', 'I02F', 'I030', 'I031']
-2018.06.22 10:15:08-DEBUG: start delete dict loop
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:08-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:08-DEBUG: actual dict: {'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5), 'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('0.0', 'I030'), ('0.0', 'I031'), ('10.0', 'I02F'), ('20.0', 'I02E'), ('30.0', 'I02D'), ('40.0', 'I02C')]
-2018.06.22 10:15:08-DEBUG: start delete dict loop
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:08-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:08-DEBUG: actual dict: {'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5), 'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('0.0', 'I030'), ('0.0', 'I031'), ('10.0', 'I02F'), ('20.0', 'I02E'), ('30.0', 'I02D')]
-2018.06.22 10:15:08-DEBUG: start delete dict loop
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:08-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:08-DEBUG: actual dict: {'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5), 'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('0.0', 'I030'), ('0.0', 'I031'), ('10.0', 'I02F'), ('20.0', 'I02E')]
-2018.06.22 10:15:08-DEBUG: start delete dict loop
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:08-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:08-DEBUG: actual dict: {'I02F': (10.0, 12.5), 'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('0.0', 'I030'), ('0.0', 'I031'), ('10.0', 'I02F')]
-2018.06.22 10:15:08-DEBUG: start delete dict loop
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:08-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:08-DEBUG: actual dict: {'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('0.0', 'I030'), ('0.0', 'I031')]
-2018.06.22 10:15:08-DEBUG: start delete dict loop
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:08-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:08-DEBUG: actual dict: {'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('0.0', 'I031')]
-2018.06.22 10:15:08-DEBUG: start delete dict loop
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:08-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:08-DEBUG: actual dict: {}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: []
-2018.06.22 10:15:08-DEBUG: current dict_value: {}
-2018.06.22 10:15:08-DEBUG: current temp_dict: {'I02B': (47.0, 0.0), 'I02C': (40.0, 2.2), 'I02D': (30.0, 5.7), 'I02E': (20.0, 9.1), 'I02F': (10.0, 12.5), 'I030': (0.0, 14.7), 'I031': (0.0, 0.0)}
-2018.06.22 10:15:08-DEBUG: current key_list: ['I02B', 'I02C', 'I02D', 'I02E', 'I02F', 'I030', 'I031']
-2018.06.22 10:15:08-INFO: pump_add_point BEGUN
-2018.06.22 10:15:08-DEBUG: {'I032': (169.2, 0.0)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('169.2', 'I032')]
-2018.06.22 10:15:08-INFO: pump_add_point BEGUN
-2018.06.22 10:15:08-DEBUG: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('169.2', 'I032'), ('144.0', 'I033')]
-2018.06.22 10:15:08-INFO: pump_add_point BEGUN
-2018.06.22 10:15:08-DEBUG: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2), 'I034': (108.0, 5.7)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('144.0', 'I033'), ('169.2', 'I032'), ('108.0', 'I034')]
-2018.06.22 10:15:08-INFO: pump_add_point BEGUN
-2018.06.22 10:15:08-DEBUG: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2), 'I034': (108.0, 5.7), 'I035': (72.0, 9.1)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('108.0', 'I034'), ('144.0', 'I033'), ('169.2', 'I032'), ('72.0', 'I035')]
-2018.06.22 10:15:08-INFO: pump_add_point BEGUN
-2018.06.22 10:15:08-DEBUG: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2), 'I034': (108.0, 5.7), 'I035': (72.0, 9.1), 'I036': (36.0, 12.5)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('72.0', 'I035'), ('108.0', 'I034'), ('144.0', 'I033'), ('169.2', 'I032'), ('36.0', 'I036')]
-2018.06.22 10:15:08-INFO: pump_add_point BEGUN
-2018.06.22 10:15:08-DEBUG: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2), 'I034': (108.0, 5.7), 'I035': (72.0, 9.1), 'I036': (36.0, 12.5), 'I037': (0.0, 14.7)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('36.0', 'I036'), ('72.0', 'I035'), ('108.0', 'I034'), ('144.0', 'I033'), ('169.2', 'I032'), ('0.0', 'I037')]
-2018.06.22 10:15:08-INFO: pump_add_point BEGUN
-2018.06.22 10:15:08-DEBUG: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2), 'I034': (108.0, 5.7), 'I035': (72.0, 9.1), 'I036': (36.0, 12.5), 'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:08-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:08-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:08-DEBUG: utworzono listê elementów
-2018.06.22 10:15:08-INFO: [('0.0', 'I037'), ('36.0', 'I036'), ('72.0', 'I035'), ('108.0', 'I034'), ('144.0', 'I033'), ('169.2', 'I032'), ('0.0', 'I038')]
-2018.06.22 10:15:08-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:08-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:11-INFO: control_pump_flow_unit started
-2018.06.22 10:15:11-INFO: change_char_pompy_unit started
-2018.06.22 10:15:11-DEBUG: current setting passed: 1
-2018.06.22 10:15:11-DEBUG: current dict_value: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2), 'I034': (108.0, 5.7), 'I035': (72.0, 9.1), 'I036': (36.0, 12.5), 'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-DEBUG: current temp_dict: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2), 'I034': (108.0, 5.7), 'I035': (72.0, 9.1), 'I036': (36.0, 12.5), 'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-DEBUG: current key_list: ['I032', 'I033', 'I034', 'I035', 'I036', 'I037', 'I038']
-2018.06.22 10:15:11-DEBUG: start delete dict loop
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:11-DEBUG: point to delete: (169.2, 0.0)
-2018.06.22 10:15:11-DEBUG: actual dict: {'I033': (144.0, 2.2), 'I034': (108.0, 5.7), 'I035': (72.0, 9.1), 'I036': (36.0, 12.5), 'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('0.0', 'I037'), ('0.0', 'I038'), ('36.0', 'I036'), ('72.0', 'I035'), ('108.0', 'I034'), ('144.0', 'I033')]
-2018.06.22 10:15:11-DEBUG: start delete dict loop
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:11-DEBUG: point to delete: (144.0, 2.2)
-2018.06.22 10:15:11-DEBUG: actual dict: {'I034': (108.0, 5.7), 'I035': (72.0, 9.1), 'I036': (36.0, 12.5), 'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('0.0', 'I037'), ('0.0', 'I038'), ('36.0', 'I036'), ('72.0', 'I035'), ('108.0', 'I034')]
-2018.06.22 10:15:11-DEBUG: start delete dict loop
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:11-DEBUG: point to delete: (108.0, 5.7)
-2018.06.22 10:15:11-DEBUG: actual dict: {'I035': (72.0, 9.1), 'I036': (36.0, 12.5), 'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('0.0', 'I037'), ('0.0', 'I038'), ('36.0', 'I036'), ('72.0', 'I035')]
-2018.06.22 10:15:11-DEBUG: start delete dict loop
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:11-DEBUG: point to delete: (72.0, 9.1)
-2018.06.22 10:15:11-DEBUG: actual dict: {'I036': (36.0, 12.5), 'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('0.0', 'I037'), ('0.0', 'I038'), ('36.0', 'I036')]
-2018.06.22 10:15:11-DEBUG: start delete dict loop
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:11-DEBUG: point to delete: (36.0, 12.5)
-2018.06.22 10:15:11-DEBUG: actual dict: {'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('0.0', 'I037'), ('0.0', 'I038')]
-2018.06.22 10:15:11-DEBUG: start delete dict loop
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:11-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:11-DEBUG: actual dict: {'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('0.0', 'I038')]
-2018.06.22 10:15:11-DEBUG: start delete dict loop
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:11-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:11-DEBUG: actual dict: {}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: []
-2018.06.22 10:15:11-DEBUG: current dict_value: {}
-2018.06.22 10:15:11-DEBUG: current temp_dict: {'I032': (169.2, 0.0), 'I033': (144.0, 2.2), 'I034': (108.0, 5.7), 'I035': (72.0, 9.1), 'I036': (36.0, 12.5), 'I037': (0.0, 14.7), 'I038': (0.0, 0.0)}
-2018.06.22 10:15:11-DEBUG: current key_list: ['I032', 'I033', 'I034', 'I035', 'I036', 'I037', 'I038']
-2018.06.22 10:15:11-INFO: pump_add_point BEGUN
-2018.06.22 10:15:11-DEBUG: {'I039': (47.0, 0.0)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('47.0', 'I039')]
-2018.06.22 10:15:11-INFO: pump_add_point BEGUN
-2018.06.22 10:15:11-DEBUG: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('47.0', 'I039'), ('40.0', 'I03A')]
-2018.06.22 10:15:11-INFO: pump_add_point BEGUN
-2018.06.22 10:15:11-DEBUG: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('40.0', 'I03A'), ('47.0', 'I039'), ('30.0', 'I03B')]
-2018.06.22 10:15:11-INFO: pump_add_point BEGUN
-2018.06.22 10:15:11-DEBUG: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('30.0', 'I03B'), ('40.0', 'I03A'), ('47.0', 'I039'), ('20.0', 'I03C')]
-2018.06.22 10:15:11-INFO: pump_add_point BEGUN
-2018.06.22 10:15:11-DEBUG: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('20.0', 'I03C'), ('30.0', 'I03B'), ('40.0', 'I03A'), ('47.0', 'I039'), ('10.0', 'I03D')]
-2018.06.22 10:15:11-INFO: pump_add_point BEGUN
-2018.06.22 10:15:11-DEBUG: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('10.0', 'I03D'), ('20.0', 'I03C'), ('30.0', 'I03B'), ('40.0', 'I03A'), ('47.0', 'I039'), ('0.0', 'I03E')]
-2018.06.22 10:15:11-INFO: pump_add_point BEGUN
-2018.06.22 10:15:11-DEBUG: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:11-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:11-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:11-DEBUG: utworzono listê elementów
-2018.06.22 10:15:11-INFO: [('0.0', 'I03E'), ('10.0', 'I03D'), ('20.0', 'I03C'), ('30.0', 'I03B'), ('40.0', 'I03A'), ('47.0', 'I039'), ('0.0', 'I03F')]
-2018.06.22 10:15:11-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:11-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:12-INFO: control_pump_flow_unit started
-2018.06.22 10:15:12-INFO: change_char_pompy_unit started
-2018.06.22 10:15:12-DEBUG: current setting passed: 2
-2018.06.22 10:15:12-DEBUG: current dict_value: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-DEBUG: current temp_dict: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-DEBUG: current key_list: ['I039', 'I03A', 'I03B', 'I03C', 'I03D', 'I03E', 'I03F']
-2018.06.22 10:15:12-DEBUG: start delete dict loop
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:12-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:12-DEBUG: actual dict: {'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('0.0', 'I03E'), ('0.0', 'I03F'), ('10.0', 'I03D'), ('20.0', 'I03C'), ('30.0', 'I03B'), ('40.0', 'I03A')]
-2018.06.22 10:15:12-DEBUG: start delete dict loop
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:12-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:12-DEBUG: actual dict: {'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('0.0', 'I03E'), ('0.0', 'I03F'), ('10.0', 'I03D'), ('20.0', 'I03C'), ('30.0', 'I03B')]
-2018.06.22 10:15:12-DEBUG: start delete dict loop
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:12-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:12-DEBUG: actual dict: {'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('0.0', 'I03E'), ('0.0', 'I03F'), ('10.0', 'I03D'), ('20.0', 'I03C')]
-2018.06.22 10:15:12-DEBUG: start delete dict loop
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:12-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:12-DEBUG: actual dict: {'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('0.0', 'I03E'), ('0.0', 'I03F'), ('10.0', 'I03D')]
-2018.06.22 10:15:12-DEBUG: start delete dict loop
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:12-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:12-DEBUG: actual dict: {'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('0.0', 'I03E'), ('0.0', 'I03F')]
-2018.06.22 10:15:12-DEBUG: start delete dict loop
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:12-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:12-DEBUG: actual dict: {'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('0.0', 'I03F')]
-2018.06.22 10:15:12-DEBUG: start delete dict loop
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:12-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:12-DEBUG: actual dict: {}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: []
-2018.06.22 10:15:12-DEBUG: current dict_value: {}
-2018.06.22 10:15:12-DEBUG: current temp_dict: {'I039': (47.0, 0.0), 'I03A': (40.0, 2.2), 'I03B': (30.0, 5.7), 'I03C': (20.0, 9.1), 'I03D': (10.0, 12.5), 'I03E': (0.0, 14.7), 'I03F': (0.0, 0.0)}
-2018.06.22 10:15:12-DEBUG: current key_list: ['I039', 'I03A', 'I03B', 'I03C', 'I03D', 'I03E', 'I03F']
-2018.06.22 10:15:12-INFO: pump_add_point BEGUN
-2018.06.22 10:15:12-DEBUG: {'I040': (169.2, 0.0)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('169.2', 'I040')]
-2018.06.22 10:15:12-INFO: pump_add_point BEGUN
-2018.06.22 10:15:12-DEBUG: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('169.2', 'I040'), ('144.0', 'I041')]
-2018.06.22 10:15:12-INFO: pump_add_point BEGUN
-2018.06.22 10:15:12-DEBUG: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2), 'I042': (108.0, 5.7)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('144.0', 'I041'), ('169.2', 'I040'), ('108.0', 'I042')]
-2018.06.22 10:15:12-INFO: pump_add_point BEGUN
-2018.06.22 10:15:12-DEBUG: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2), 'I042': (108.0, 5.7), 'I043': (72.0, 9.1)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('108.0', 'I042'), ('144.0', 'I041'), ('169.2', 'I040'), ('72.0', 'I043')]
-2018.06.22 10:15:12-INFO: pump_add_point BEGUN
-2018.06.22 10:15:12-DEBUG: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2), 'I042': (108.0, 5.7), 'I043': (72.0, 9.1), 'I044': (36.0, 12.5)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('72.0', 'I043'), ('108.0', 'I042'), ('144.0', 'I041'), ('169.2', 'I040'), ('36.0', 'I044')]
-2018.06.22 10:15:12-INFO: pump_add_point BEGUN
-2018.06.22 10:15:12-DEBUG: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2), 'I042': (108.0, 5.7), 'I043': (72.0, 9.1), 'I044': (36.0, 12.5), 'I045': (0.0, 14.7)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('36.0', 'I044'), ('72.0', 'I043'), ('108.0', 'I042'), ('144.0', 'I041'), ('169.2', 'I040'), ('0.0', 'I045')]
-2018.06.22 10:15:12-INFO: pump_add_point BEGUN
-2018.06.22 10:15:12-DEBUG: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2), 'I042': (108.0, 5.7), 'I043': (72.0, 9.1), 'I044': (36.0, 12.5), 'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:12-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:12-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:12-DEBUG: utworzono listê elementów
-2018.06.22 10:15:12-INFO: [('0.0', 'I045'), ('36.0', 'I044'), ('72.0', 'I043'), ('108.0', 'I042'), ('144.0', 'I041'), ('169.2', 'I040'), ('0.0', 'I046')]
-2018.06.22 10:15:12-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:12-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:15-INFO: control_pump_flow_unit started
-2018.06.22 10:15:15-INFO: change_char_pompy_unit started
-2018.06.22 10:15:15-DEBUG: current setting passed: 1
-2018.06.22 10:15:15-DEBUG: current dict_value: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2), 'I042': (108.0, 5.7), 'I043': (72.0, 9.1), 'I044': (36.0, 12.5), 'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-DEBUG: current temp_dict: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2), 'I042': (108.0, 5.7), 'I043': (72.0, 9.1), 'I044': (36.0, 12.5), 'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-DEBUG: current key_list: ['I040', 'I041', 'I042', 'I043', 'I044', 'I045', 'I046']
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (169.2, 0.0)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I041': (144.0, 2.2), 'I042': (108.0, 5.7), 'I043': (72.0, 9.1), 'I044': (36.0, 12.5), 'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I045'), ('0.0', 'I046'), ('36.0', 'I044'), ('72.0', 'I043'), ('108.0', 'I042'), ('144.0', 'I041')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (144.0, 2.2)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I042': (108.0, 5.7), 'I043': (72.0, 9.1), 'I044': (36.0, 12.5), 'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I045'), ('0.0', 'I046'), ('36.0', 'I044'), ('72.0', 'I043'), ('108.0', 'I042')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (108.0, 5.7)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I043': (72.0, 9.1), 'I044': (36.0, 12.5), 'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I045'), ('0.0', 'I046'), ('36.0', 'I044'), ('72.0', 'I043')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (72.0, 9.1)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I044': (36.0, 12.5), 'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I045'), ('0.0', 'I046'), ('36.0', 'I044')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (36.0, 12.5)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I045'), ('0.0', 'I046')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I046')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:15-DEBUG: actual dict: {}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: []
-2018.06.22 10:15:15-DEBUG: current dict_value: {}
-2018.06.22 10:15:15-DEBUG: current temp_dict: {'I040': (169.2, 0.0), 'I041': (144.0, 2.2), 'I042': (108.0, 5.7), 'I043': (72.0, 9.1), 'I044': (36.0, 12.5), 'I045': (0.0, 14.7), 'I046': (0.0, 0.0)}
-2018.06.22 10:15:15-DEBUG: current key_list: ['I040', 'I041', 'I042', 'I043', 'I044', 'I045', 'I046']
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I047': (47.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('47.0', 'I047')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('47.0', 'I047'), ('40.0', 'I048')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2), 'I049': (30.0, 5.7)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('40.0', 'I048'), ('47.0', 'I047'), ('30.0', 'I049')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2), 'I049': (30.0, 5.7), 'I04A': (20.0, 9.1)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('30.0', 'I049'), ('40.0', 'I048'), ('47.0', 'I047'), ('20.0', 'I04A')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2), 'I049': (30.0, 5.7), 'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('20.0', 'I04A'), ('30.0', 'I049'), ('40.0', 'I048'), ('47.0', 'I047'), ('10.0', 'I04B')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2), 'I049': (30.0, 5.7), 'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('10.0', 'I04B'), ('20.0', 'I04A'), ('30.0', 'I049'), ('40.0', 'I048'), ('47.0', 'I047'), ('0.0', 'I04C')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2), 'I049': (30.0, 5.7), 'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I04C'), ('10.0', 'I04B'), ('20.0', 'I04A'), ('30.0', 'I049'), ('40.0', 'I048'), ('47.0', 'I047'), ('0.0', 'I04D')]
-2018.06.22 10:15:15-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:15-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:15-INFO: control_pump_flow_unit started
-2018.06.22 10:15:15-INFO: change_char_pompy_unit started
-2018.06.22 10:15:15-DEBUG: current setting passed: 2
-2018.06.22 10:15:15-DEBUG: current dict_value: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2), 'I049': (30.0, 5.7), 'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-DEBUG: current temp_dict: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2), 'I049': (30.0, 5.7), 'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-DEBUG: current key_list: ['I047', 'I048', 'I049', 'I04A', 'I04B', 'I04C', 'I04D']
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I048': (40.0, 2.2), 'I049': (30.0, 5.7), 'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I04C'), ('0.0', 'I04D'), ('10.0', 'I04B'), ('20.0', 'I04A'), ('30.0', 'I049'), ('40.0', 'I048')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I049': (30.0, 5.7), 'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I04C'), ('0.0', 'I04D'), ('10.0', 'I04B'), ('20.0', 'I04A'), ('30.0', 'I049')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I04C'), ('0.0', 'I04D'), ('10.0', 'I04B'), ('20.0', 'I04A')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I04C'), ('0.0', 'I04D'), ('10.0', 'I04B')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I04C'), ('0.0', 'I04D')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:15-DEBUG: actual dict: {'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I04D')]
-2018.06.22 10:15:15-DEBUG: start delete dict loop
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:15-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:15-DEBUG: actual dict: {}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: []
-2018.06.22 10:15:15-DEBUG: current dict_value: {}
-2018.06.22 10:15:15-DEBUG: current temp_dict: {'I047': (47.0, 0.0), 'I048': (40.0, 2.2), 'I049': (30.0, 5.7), 'I04A': (20.0, 9.1), 'I04B': (10.0, 12.5), 'I04C': (0.0, 14.7), 'I04D': (0.0, 0.0)}
-2018.06.22 10:15:15-DEBUG: current key_list: ['I047', 'I048', 'I049', 'I04A', 'I04B', 'I04C', 'I04D']
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I04E': (169.2, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('169.2', 'I04E')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('169.2', 'I04E'), ('144.0', 'I04F')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2), 'I050': (108.0, 5.7)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('144.0', 'I04F'), ('169.2', 'I04E'), ('108.0', 'I050')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2), 'I050': (108.0, 5.7), 'I051': (72.0, 9.1)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('108.0', 'I050'), ('144.0', 'I04F'), ('169.2', 'I04E'), ('72.0', 'I051')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2), 'I050': (108.0, 5.7), 'I051': (72.0, 9.1), 'I052': (36.0, 12.5)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('72.0', 'I051'), ('108.0', 'I050'), ('144.0', 'I04F'), ('169.2', 'I04E'), ('36.0', 'I052')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2), 'I050': (108.0, 5.7), 'I051': (72.0, 9.1), 'I052': (36.0, 12.5), 'I053': (0.0, 14.7)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('36.0', 'I052'), ('72.0', 'I051'), ('108.0', 'I050'), ('144.0', 'I04F'), ('169.2', 'I04E'), ('0.0', 'I053')]
-2018.06.22 10:15:15-INFO: pump_add_point BEGUN
-2018.06.22 10:15:15-DEBUG: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2), 'I050': (108.0, 5.7), 'I051': (72.0, 9.1), 'I052': (36.0, 12.5), 'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:15-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:15-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:15-DEBUG: utworzono listê elementów
-2018.06.22 10:15:15-INFO: [('0.0', 'I053'), ('36.0', 'I052'), ('72.0', 'I051'), ('108.0', 'I050'), ('144.0', 'I04F'), ('169.2', 'I04E'), ('0.0', 'I054')]
-2018.06.22 10:15:15-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:15-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:16-INFO: control_pump_flow_unit started
-2018.06.22 10:15:16-INFO: change_char_pompy_unit started
-2018.06.22 10:15:16-DEBUG: current setting passed: 1
-2018.06.22 10:15:16-DEBUG: current dict_value: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2), 'I050': (108.0, 5.7), 'I051': (72.0, 9.1), 'I052': (36.0, 12.5), 'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-DEBUG: current temp_dict: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2), 'I050': (108.0, 5.7), 'I051': (72.0, 9.1), 'I052': (36.0, 12.5), 'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-DEBUG: current key_list: ['I04E', 'I04F', 'I050', 'I051', 'I052', 'I053', 'I054']
-2018.06.22 10:15:16-DEBUG: start delete dict loop
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:16-DEBUG: point to delete: (169.2, 0.0)
-2018.06.22 10:15:16-DEBUG: actual dict: {'I04F': (144.0, 2.2), 'I050': (108.0, 5.7), 'I051': (72.0, 9.1), 'I052': (36.0, 12.5), 'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('0.0', 'I053'), ('0.0', 'I054'), ('36.0', 'I052'), ('72.0', 'I051'), ('108.0', 'I050'), ('144.0', 'I04F')]
-2018.06.22 10:15:16-DEBUG: start delete dict loop
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:16-DEBUG: point to delete: (144.0, 2.2)
-2018.06.22 10:15:16-DEBUG: actual dict: {'I050': (108.0, 5.7), 'I051': (72.0, 9.1), 'I052': (36.0, 12.5), 'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('0.0', 'I053'), ('0.0', 'I054'), ('36.0', 'I052'), ('72.0', 'I051'), ('108.0', 'I050')]
-2018.06.22 10:15:16-DEBUG: start delete dict loop
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:16-DEBUG: point to delete: (108.0, 5.7)
-2018.06.22 10:15:16-DEBUG: actual dict: {'I051': (72.0, 9.1), 'I052': (36.0, 12.5), 'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('0.0', 'I053'), ('0.0', 'I054'), ('36.0', 'I052'), ('72.0', 'I051')]
-2018.06.22 10:15:16-DEBUG: start delete dict loop
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:16-DEBUG: point to delete: (72.0, 9.1)
-2018.06.22 10:15:16-DEBUG: actual dict: {'I052': (36.0, 12.5), 'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('0.0', 'I053'), ('0.0', 'I054'), ('36.0', 'I052')]
-2018.06.22 10:15:16-DEBUG: start delete dict loop
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:16-DEBUG: point to delete: (36.0, 12.5)
-2018.06.22 10:15:16-DEBUG: actual dict: {'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('0.0', 'I053'), ('0.0', 'I054')]
-2018.06.22 10:15:16-DEBUG: start delete dict loop
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:16-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:16-DEBUG: actual dict: {'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('0.0', 'I054')]
-2018.06.22 10:15:16-DEBUG: start delete dict loop
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:16-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:16-DEBUG: actual dict: {}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: []
-2018.06.22 10:15:16-DEBUG: current dict_value: {}
-2018.06.22 10:15:16-DEBUG: current temp_dict: {'I04E': (169.2, 0.0), 'I04F': (144.0, 2.2), 'I050': (108.0, 5.7), 'I051': (72.0, 9.1), 'I052': (36.0, 12.5), 'I053': (0.0, 14.7), 'I054': (0.0, 0.0)}
-2018.06.22 10:15:16-DEBUG: current key_list: ['I04E', 'I04F', 'I050', 'I051', 'I052', 'I053', 'I054']
-2018.06.22 10:15:16-INFO: pump_add_point BEGUN
-2018.06.22 10:15:16-DEBUG: {'I055': (47.0, 0.0)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('47.0', 'I055')]
-2018.06.22 10:15:16-INFO: pump_add_point BEGUN
-2018.06.22 10:15:16-DEBUG: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('47.0', 'I055'), ('40.0', 'I056')]
-2018.06.22 10:15:16-INFO: pump_add_point BEGUN
-2018.06.22 10:15:16-DEBUG: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2), 'I057': (30.0, 5.7)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('40.0', 'I056'), ('47.0', 'I055'), ('30.0', 'I057')]
-2018.06.22 10:15:16-INFO: pump_add_point BEGUN
-2018.06.22 10:15:16-DEBUG: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2), 'I057': (30.0, 5.7), 'I058': (20.0, 9.1)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('30.0', 'I057'), ('40.0', 'I056'), ('47.0', 'I055'), ('20.0', 'I058')]
-2018.06.22 10:15:16-INFO: pump_add_point BEGUN
-2018.06.22 10:15:16-DEBUG: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2), 'I057': (30.0, 5.7), 'I058': (20.0, 9.1), 'I059': (10.0, 12.5)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('20.0', 'I058'), ('30.0', 'I057'), ('40.0', 'I056'), ('47.0', 'I055'), ('10.0', 'I059')]
-2018.06.22 10:15:16-INFO: pump_add_point BEGUN
-2018.06.22 10:15:16-DEBUG: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2), 'I057': (30.0, 5.7), 'I058': (20.0, 9.1), 'I059': (10.0, 12.5), 'I05A': (0.0, 14.7)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('10.0', 'I059'), ('20.0', 'I058'), ('30.0', 'I057'), ('40.0', 'I056'), ('47.0', 'I055'), ('0.0', 'I05A')]
-2018.06.22 10:15:16-INFO: pump_add_point BEGUN
-2018.06.22 10:15:16-DEBUG: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2), 'I057': (30.0, 5.7), 'I058': (20.0, 9.1), 'I059': (10.0, 12.5), 'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:16-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:16-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:16-DEBUG: utworzono listê elementów
-2018.06.22 10:15:16-INFO: [('0.0', 'I05A'), ('10.0', 'I059'), ('20.0', 'I058'), ('30.0', 'I057'), ('40.0', 'I056'), ('47.0', 'I055'), ('0.0', 'I05B')]
-2018.06.22 10:15:16-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:16-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:17-INFO: control_pump_flow_unit started
-2018.06.22 10:15:17-INFO: change_char_pompy_unit started
-2018.06.22 10:15:17-DEBUG: current setting passed: 2
-2018.06.22 10:15:17-DEBUG: current dict_value: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2), 'I057': (30.0, 5.7), 'I058': (20.0, 9.1), 'I059': (10.0, 12.5), 'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-DEBUG: current temp_dict: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2), 'I057': (30.0, 5.7), 'I058': (20.0, 9.1), 'I059': (10.0, 12.5), 'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-DEBUG: current key_list: ['I055', 'I056', 'I057', 'I058', 'I059', 'I05A', 'I05B']
-2018.06.22 10:15:17-DEBUG: start delete dict loop
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:17-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:17-DEBUG: actual dict: {'I056': (40.0, 2.2), 'I057': (30.0, 5.7), 'I058': (20.0, 9.1), 'I059': (10.0, 12.5), 'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('0.0', 'I05A'), ('0.0', 'I05B'), ('10.0', 'I059'), ('20.0', 'I058'), ('30.0', 'I057'), ('40.0', 'I056')]
-2018.06.22 10:15:17-DEBUG: start delete dict loop
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:17-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:17-DEBUG: actual dict: {'I057': (30.0, 5.7), 'I058': (20.0, 9.1), 'I059': (10.0, 12.5), 'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('0.0', 'I05A'), ('0.0', 'I05B'), ('10.0', 'I059'), ('20.0', 'I058'), ('30.0', 'I057')]
-2018.06.22 10:15:17-DEBUG: start delete dict loop
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:17-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:17-DEBUG: actual dict: {'I058': (20.0, 9.1), 'I059': (10.0, 12.5), 'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('0.0', 'I05A'), ('0.0', 'I05B'), ('10.0', 'I059'), ('20.0', 'I058')]
-2018.06.22 10:15:17-DEBUG: start delete dict loop
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:17-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:17-DEBUG: actual dict: {'I059': (10.0, 12.5), 'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('0.0', 'I05A'), ('0.0', 'I05B'), ('10.0', 'I059')]
-2018.06.22 10:15:17-DEBUG: start delete dict loop
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:17-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:17-DEBUG: actual dict: {'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('0.0', 'I05A'), ('0.0', 'I05B')]
-2018.06.22 10:15:17-DEBUG: start delete dict loop
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:17-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:17-DEBUG: actual dict: {'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('0.0', 'I05B')]
-2018.06.22 10:15:17-DEBUG: start delete dict loop
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:17-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:17-DEBUG: actual dict: {}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: []
-2018.06.22 10:15:17-DEBUG: current dict_value: {}
-2018.06.22 10:15:17-DEBUG: current temp_dict: {'I055': (47.0, 0.0), 'I056': (40.0, 2.2), 'I057': (30.0, 5.7), 'I058': (20.0, 9.1), 'I059': (10.0, 12.5), 'I05A': (0.0, 14.7), 'I05B': (0.0, 0.0)}
-2018.06.22 10:15:17-DEBUG: current key_list: ['I055', 'I056', 'I057', 'I058', 'I059', 'I05A', 'I05B']
-2018.06.22 10:15:17-INFO: pump_add_point BEGUN
-2018.06.22 10:15:17-DEBUG: {'I05C': (169.2, 0.0)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('169.2', 'I05C')]
-2018.06.22 10:15:17-INFO: pump_add_point BEGUN
-2018.06.22 10:15:17-DEBUG: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('169.2', 'I05C'), ('144.0', 'I05D')]
-2018.06.22 10:15:17-INFO: pump_add_point BEGUN
-2018.06.22 10:15:17-DEBUG: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('144.0', 'I05D'), ('169.2', 'I05C'), ('108.0', 'I05E')]
-2018.06.22 10:15:17-INFO: pump_add_point BEGUN
-2018.06.22 10:15:17-DEBUG: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('108.0', 'I05E'), ('144.0', 'I05D'), ('169.2', 'I05C'), ('72.0', 'I05F')]
-2018.06.22 10:15:17-INFO: pump_add_point BEGUN
-2018.06.22 10:15:17-DEBUG: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1), 'I060': (36.0, 12.5)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('72.0', 'I05F'), ('108.0', 'I05E'), ('144.0', 'I05D'), ('169.2', 'I05C'), ('36.0', 'I060')]
-2018.06.22 10:15:17-INFO: pump_add_point BEGUN
-2018.06.22 10:15:17-DEBUG: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1), 'I060': (36.0, 12.5), 'I061': (0.0, 14.7)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('36.0', 'I060'), ('72.0', 'I05F'), ('108.0', 'I05E'), ('144.0', 'I05D'), ('169.2', 'I05C'), ('0.0', 'I061')]
-2018.06.22 10:15:17-INFO: pump_add_point BEGUN
-2018.06.22 10:15:17-DEBUG: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1), 'I060': (36.0, 12.5), 'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:17-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:17-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:17-DEBUG: utworzono listê elementów
-2018.06.22 10:15:17-INFO: [('0.0', 'I061'), ('36.0', 'I060'), ('72.0', 'I05F'), ('108.0', 'I05E'), ('144.0', 'I05D'), ('169.2', 'I05C'), ('0.0', 'I062')]
-2018.06.22 10:15:17-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:17-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:18-INFO: control_pump_flow_unit started
-2018.06.22 10:15:18-INFO: change_char_pompy_unit started
-2018.06.22 10:15:18-DEBUG: current setting passed: 1
-2018.06.22 10:15:18-DEBUG: current dict_value: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1), 'I060': (36.0, 12.5), 'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-DEBUG: current temp_dict: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1), 'I060': (36.0, 12.5), 'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-DEBUG: current key_list: ['I05C', 'I05D', 'I05E', 'I05F', 'I060', 'I061', 'I062']
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (169.2, 0.0)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1), 'I060': (36.0, 12.5), 'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I061'), ('0.0', 'I062'), ('36.0', 'I060'), ('72.0', 'I05F'), ('108.0', 'I05E'), ('144.0', 'I05D')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (144.0, 2.2)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1), 'I060': (36.0, 12.5), 'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I061'), ('0.0', 'I062'), ('36.0', 'I060'), ('72.0', 'I05F'), ('108.0', 'I05E')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (108.0, 5.7)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I05F': (72.0, 9.1), 'I060': (36.0, 12.5), 'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I061'), ('0.0', 'I062'), ('36.0', 'I060'), ('72.0', 'I05F')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (72.0, 9.1)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I060': (36.0, 12.5), 'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I061'), ('0.0', 'I062'), ('36.0', 'I060')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (36.0, 12.5)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I061'), ('0.0', 'I062')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I062')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:18-DEBUG: actual dict: {}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: []
-2018.06.22 10:15:18-DEBUG: current dict_value: {}
-2018.06.22 10:15:18-DEBUG: current temp_dict: {'I05C': (169.2, 0.0), 'I05D': (144.0, 2.2), 'I05E': (108.0, 5.7), 'I05F': (72.0, 9.1), 'I060': (36.0, 12.5), 'I061': (0.0, 14.7), 'I062': (0.0, 0.0)}
-2018.06.22 10:15:18-DEBUG: current key_list: ['I05C', 'I05D', 'I05E', 'I05F', 'I060', 'I061', 'I062']
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I063': (47.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('47.0', 'I063')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('47.0', 'I063'), ('40.0', 'I064')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2), 'I065': (30.0, 5.7)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('40.0', 'I064'), ('47.0', 'I063'), ('30.0', 'I065')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2), 'I065': (30.0, 5.7), 'I066': (20.0, 9.1)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('30.0', 'I065'), ('40.0', 'I064'), ('47.0', 'I063'), ('20.0', 'I066')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2), 'I065': (30.0, 5.7), 'I066': (20.0, 9.1), 'I067': (10.0, 12.5)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('20.0', 'I066'), ('30.0', 'I065'), ('40.0', 'I064'), ('47.0', 'I063'), ('10.0', 'I067')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2), 'I065': (30.0, 5.7), 'I066': (20.0, 9.1), 'I067': (10.0, 12.5), 'I068': (0.0, 14.7)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('10.0', 'I067'), ('20.0', 'I066'), ('30.0', 'I065'), ('40.0', 'I064'), ('47.0', 'I063'), ('0.0', 'I068')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2), 'I065': (30.0, 5.7), 'I066': (20.0, 9.1), 'I067': (10.0, 12.5), 'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I068'), ('10.0', 'I067'), ('20.0', 'I066'), ('30.0', 'I065'), ('40.0', 'I064'), ('47.0', 'I063'), ('0.0', 'I069')]
-2018.06.22 10:15:18-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:18-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:18-INFO: control_pump_flow_unit started
-2018.06.22 10:15:18-INFO: change_char_pompy_unit started
-2018.06.22 10:15:18-DEBUG: current setting passed: 2
-2018.06.22 10:15:18-DEBUG: current dict_value: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2), 'I065': (30.0, 5.7), 'I066': (20.0, 9.1), 'I067': (10.0, 12.5), 'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-DEBUG: current temp_dict: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2), 'I065': (30.0, 5.7), 'I066': (20.0, 9.1), 'I067': (10.0, 12.5), 'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-DEBUG: current key_list: ['I063', 'I064', 'I065', 'I066', 'I067', 'I068', 'I069']
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I064': (40.0, 2.2), 'I065': (30.0, 5.7), 'I066': (20.0, 9.1), 'I067': (10.0, 12.5), 'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I068'), ('0.0', 'I069'), ('10.0', 'I067'), ('20.0', 'I066'), ('30.0', 'I065'), ('40.0', 'I064')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I065': (30.0, 5.7), 'I066': (20.0, 9.1), 'I067': (10.0, 12.5), 'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I068'), ('0.0', 'I069'), ('10.0', 'I067'), ('20.0', 'I066'), ('30.0', 'I065')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I066': (20.0, 9.1), 'I067': (10.0, 12.5), 'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I068'), ('0.0', 'I069'), ('10.0', 'I067'), ('20.0', 'I066')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I067': (10.0, 12.5), 'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I068'), ('0.0', 'I069'), ('10.0', 'I067')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I068'), ('0.0', 'I069')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:18-DEBUG: actual dict: {'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I069')]
-2018.06.22 10:15:18-DEBUG: start delete dict loop
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:18-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:18-DEBUG: actual dict: {}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: []
-2018.06.22 10:15:18-DEBUG: current dict_value: {}
-2018.06.22 10:15:18-DEBUG: current temp_dict: {'I063': (47.0, 0.0), 'I064': (40.0, 2.2), 'I065': (30.0, 5.7), 'I066': (20.0, 9.1), 'I067': (10.0, 12.5), 'I068': (0.0, 14.7), 'I069': (0.0, 0.0)}
-2018.06.22 10:15:18-DEBUG: current key_list: ['I063', 'I064', 'I065', 'I066', 'I067', 'I068', 'I069']
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I06A': (169.2, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('169.2', 'I06A')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('169.2', 'I06A'), ('144.0', 'I06B')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('144.0', 'I06B'), ('169.2', 'I06A'), ('108.0', 'I06C')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('108.0', 'I06C'), ('144.0', 'I06B'), ('169.2', 'I06A'), ('72.0', 'I06D')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('72.0', 'I06D'), ('108.0', 'I06C'), ('144.0', 'I06B'), ('169.2', 'I06A'), ('36.0', 'I06E')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('36.0', 'I06E'), ('72.0', 'I06D'), ('108.0', 'I06C'), ('144.0', 'I06B'), ('169.2', 'I06A'), ('0.0', 'I06F')]
-2018.06.22 10:15:18-INFO: pump_add_point BEGUN
-2018.06.22 10:15:18-DEBUG: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:18-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:18-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:18-DEBUG: utworzono listê elementów
-2018.06.22 10:15:18-INFO: [('0.0', 'I06F'), ('36.0', 'I06E'), ('72.0', 'I06D'), ('108.0', 'I06C'), ('144.0', 'I06B'), ('169.2', 'I06A'), ('0.0', 'I070')]
-2018.06.22 10:15:18-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:18-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:19-INFO: control_pump_flow_unit started
-2018.06.22 10:15:19-INFO: change_char_pompy_unit started
-2018.06.22 10:15:19-DEBUG: current setting passed: 1
-2018.06.22 10:15:19-DEBUG: current dict_value: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-DEBUG: current temp_dict: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-DEBUG: current key_list: ['I06A', 'I06B', 'I06C', 'I06D', 'I06E', 'I06F', 'I070']
-2018.06.22 10:15:19-DEBUG: start delete dict loop
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:19-DEBUG: point to delete: (169.2, 0.0)
-2018.06.22 10:15:19-DEBUG: actual dict: {'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('0.0', 'I06F'), ('0.0', 'I070'), ('36.0', 'I06E'), ('72.0', 'I06D'), ('108.0', 'I06C'), ('144.0', 'I06B')]
-2018.06.22 10:15:19-DEBUG: start delete dict loop
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:19-DEBUG: point to delete: (144.0, 2.2)
-2018.06.22 10:15:19-DEBUG: actual dict: {'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('0.0', 'I06F'), ('0.0', 'I070'), ('36.0', 'I06E'), ('72.0', 'I06D'), ('108.0', 'I06C')]
-2018.06.22 10:15:19-DEBUG: start delete dict loop
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:19-DEBUG: point to delete: (108.0, 5.7)
-2018.06.22 10:15:19-DEBUG: actual dict: {'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('0.0', 'I06F'), ('0.0', 'I070'), ('36.0', 'I06E'), ('72.0', 'I06D')]
-2018.06.22 10:15:19-DEBUG: start delete dict loop
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:19-DEBUG: point to delete: (72.0, 9.1)
-2018.06.22 10:15:19-DEBUG: actual dict: {'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('0.0', 'I06F'), ('0.0', 'I070'), ('36.0', 'I06E')]
-2018.06.22 10:15:19-DEBUG: start delete dict loop
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:19-DEBUG: point to delete: (36.0, 12.5)
-2018.06.22 10:15:19-DEBUG: actual dict: {'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('0.0', 'I06F'), ('0.0', 'I070')]
-2018.06.22 10:15:19-DEBUG: start delete dict loop
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:19-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:19-DEBUG: actual dict: {'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('0.0', 'I070')]
-2018.06.22 10:15:19-DEBUG: start delete dict loop
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:19-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:19-DEBUG: actual dict: {}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: []
-2018.06.22 10:15:19-DEBUG: current dict_value: {}
-2018.06.22 10:15:19-DEBUG: current temp_dict: {'I06A': (169.2, 0.0), 'I06B': (144.0, 2.2), 'I06C': (108.0, 5.7), 'I06D': (72.0, 9.1), 'I06E': (36.0, 12.5), 'I06F': (0.0, 14.7), 'I070': (0.0, 0.0)}
-2018.06.22 10:15:19-DEBUG: current key_list: ['I06A', 'I06B', 'I06C', 'I06D', 'I06E', 'I06F', 'I070']
-2018.06.22 10:15:19-INFO: pump_add_point BEGUN
-2018.06.22 10:15:19-DEBUG: {'I071': (47.0, 0.0)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('47.0', 'I071')]
-2018.06.22 10:15:19-INFO: pump_add_point BEGUN
-2018.06.22 10:15:19-DEBUG: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('47.0', 'I071'), ('40.0', 'I072')]
-2018.06.22 10:15:19-INFO: pump_add_point BEGUN
-2018.06.22 10:15:19-DEBUG: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2), 'I073': (30.0, 5.7)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('40.0', 'I072'), ('47.0', 'I071'), ('30.0', 'I073')]
-2018.06.22 10:15:19-INFO: pump_add_point BEGUN
-2018.06.22 10:15:19-DEBUG: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2), 'I073': (30.0, 5.7), 'I074': (20.0, 9.1)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('30.0', 'I073'), ('40.0', 'I072'), ('47.0', 'I071'), ('20.0', 'I074')]
-2018.06.22 10:15:19-INFO: pump_add_point BEGUN
-2018.06.22 10:15:19-DEBUG: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2), 'I073': (30.0, 5.7), 'I074': (20.0, 9.1), 'I075': (10.0, 12.5)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('20.0', 'I074'), ('30.0', 'I073'), ('40.0', 'I072'), ('47.0', 'I071'), ('10.0', 'I075')]
-2018.06.22 10:15:19-INFO: pump_add_point BEGUN
-2018.06.22 10:15:19-DEBUG: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2), 'I073': (30.0, 5.7), 'I074': (20.0, 9.1), 'I075': (10.0, 12.5), 'I076': (0.0, 14.7)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('10.0', 'I075'), ('20.0', 'I074'), ('30.0', 'I073'), ('40.0', 'I072'), ('47.0', 'I071'), ('0.0', 'I076')]
-2018.06.22 10:15:19-INFO: pump_add_point BEGUN
-2018.06.22 10:15:19-DEBUG: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2), 'I073': (30.0, 5.7), 'I074': (20.0, 9.1), 'I075': (10.0, 12.5), 'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:19-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:19-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:19-DEBUG: utworzono listê elementów
-2018.06.22 10:15:19-INFO: [('0.0', 'I076'), ('10.0', 'I075'), ('20.0', 'I074'), ('30.0', 'I073'), ('40.0', 'I072'), ('47.0', 'I071'), ('0.0', 'I077')]
-2018.06.22 10:15:19-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:19-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:20-INFO: control_pump_flow_unit started
-2018.06.22 10:15:20-INFO: change_char_pompy_unit started
-2018.06.22 10:15:20-DEBUG: current setting passed: 2
-2018.06.22 10:15:20-DEBUG: current dict_value: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2), 'I073': (30.0, 5.7), 'I074': (20.0, 9.1), 'I075': (10.0, 12.5), 'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-DEBUG: current temp_dict: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2), 'I073': (30.0, 5.7), 'I074': (20.0, 9.1), 'I075': (10.0, 12.5), 'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-DEBUG: current key_list: ['I071', 'I072', 'I073', 'I074', 'I075', 'I076', 'I077']
-2018.06.22 10:15:20-DEBUG: start delete dict loop
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:20-DEBUG: point to delete: (47.0, 0.0)
-2018.06.22 10:15:20-DEBUG: actual dict: {'I072': (40.0, 2.2), 'I073': (30.0, 5.7), 'I074': (20.0, 9.1), 'I075': (10.0, 12.5), 'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('0.0', 'I076'), ('0.0', 'I077'), ('10.0', 'I075'), ('20.0', 'I074'), ('30.0', 'I073'), ('40.0', 'I072')]
-2018.06.22 10:15:20-DEBUG: start delete dict loop
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:20-DEBUG: point to delete: (40.0, 2.2)
-2018.06.22 10:15:20-DEBUG: actual dict: {'I073': (30.0, 5.7), 'I074': (20.0, 9.1), 'I075': (10.0, 12.5), 'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('0.0', 'I076'), ('0.0', 'I077'), ('10.0', 'I075'), ('20.0', 'I074'), ('30.0', 'I073')]
-2018.06.22 10:15:20-DEBUG: start delete dict loop
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:20-DEBUG: point to delete: (30.0, 5.7)
-2018.06.22 10:15:20-DEBUG: actual dict: {'I074': (20.0, 9.1), 'I075': (10.0, 12.5), 'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('0.0', 'I076'), ('0.0', 'I077'), ('10.0', 'I075'), ('20.0', 'I074')]
-2018.06.22 10:15:20-DEBUG: start delete dict loop
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:20-DEBUG: point to delete: (20.0, 9.1)
-2018.06.22 10:15:20-DEBUG: actual dict: {'I075': (10.0, 12.5), 'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('0.0', 'I076'), ('0.0', 'I077'), ('10.0', 'I075')]
-2018.06.22 10:15:20-DEBUG: start delete dict loop
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:20-DEBUG: point to delete: (10.0, 12.5)
-2018.06.22 10:15:20-DEBUG: actual dict: {'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('0.0', 'I076'), ('0.0', 'I077')]
-2018.06.22 10:15:20-DEBUG: start delete dict loop
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:20-DEBUG: point to delete: (0.0, 14.7)
-2018.06.22 10:15:20-DEBUG: actual dict: {'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('0.0', 'I077')]
-2018.06.22 10:15:20-DEBUG: start delete dict loop
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê delete_point
-2018.06.22 10:15:20-DEBUG: point to delete: (0.0, 0.0)
-2018.06.22 10:15:20-DEBUG: actual dict: {}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: []
-2018.06.22 10:15:20-DEBUG: current dict_value: {}
-2018.06.22 10:15:20-DEBUG: current temp_dict: {'I071': (47.0, 0.0), 'I072': (40.0, 2.2), 'I073': (30.0, 5.7), 'I074': (20.0, 9.1), 'I075': (10.0, 12.5), 'I076': (0.0, 14.7), 'I077': (0.0, 0.0)}
-2018.06.22 10:15:20-DEBUG: current key_list: ['I071', 'I072', 'I073', 'I074', 'I075', 'I076', 'I077']
-2018.06.22 10:15:20-INFO: pump_add_point BEGUN
-2018.06.22 10:15:20-DEBUG: {'I078': (169.2, 0.0)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('169.2', 'I078')]
-2018.06.22 10:15:20-INFO: pump_add_point BEGUN
-2018.06.22 10:15:20-DEBUG: {'I078': (169.2, 0.0), 'I079': (144.0, 2.2)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('169.2', 'I078'), ('144.0', 'I079')]
-2018.06.22 10:15:20-INFO: pump_add_point BEGUN
-2018.06.22 10:15:20-DEBUG: {'I078': (169.2, 0.0), 'I079': (144.0, 2.2), 'I07A': (108.0, 5.7)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('144.0', 'I079'), ('169.2', 'I078'), ('108.0', 'I07A')]
-2018.06.22 10:15:20-INFO: pump_add_point BEGUN
-2018.06.22 10:15:20-DEBUG: {'I078': (169.2, 0.0), 'I079': (144.0, 2.2), 'I07A': (108.0, 5.7), 'I07B': (72.0, 9.1)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('108.0', 'I07A'), ('144.0', 'I079'), ('169.2', 'I078'), ('72.0', 'I07B')]
-2018.06.22 10:15:20-INFO: pump_add_point BEGUN
-2018.06.22 10:15:20-DEBUG: {'I078': (169.2, 0.0), 'I079': (144.0, 2.2), 'I07A': (108.0, 5.7), 'I07B': (72.0, 9.1), 'I07C': (36.0, 12.5)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('72.0', 'I07B'), ('108.0', 'I07A'), ('144.0', 'I079'), ('169.2', 'I078'), ('36.0', 'I07C')]
-2018.06.22 10:15:20-INFO: pump_add_point BEGUN
-2018.06.22 10:15:20-DEBUG: {'I078': (169.2, 0.0), 'I079': (144.0, 2.2), 'I07A': (108.0, 5.7), 'I07B': (72.0, 9.1), 'I07C': (36.0, 12.5), 'I07D': (0.0, 14.7)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('36.0', 'I07C'), ('72.0', 'I07B'), ('108.0', 'I07A'), ('144.0', 'I079'), ('169.2', 'I078'), ('0.0', 'I07D')]
-2018.06.22 10:15:20-INFO: pump_add_point BEGUN
-2018.06.22 10:15:20-DEBUG: {'I078': (169.2, 0.0), 'I079': (144.0, 2.2), 'I07A': (108.0, 5.7), 'I07B': (72.0, 9.1), 'I07C': (36.0, 12.5), 'I07D': (0.0, 14.7), 'I07E': (0.0, 0.0)}
-2018.06.22 10:15:20-INFO: uruchomiono funkcjê sort_points
-2018.06.22 10:15:20-DEBUG: odnaleziono obiekt kolumny
-2018.06.22 10:15:20-DEBUG: utworzono listê elementów
-2018.06.22 10:15:20-INFO: [('0.0', 'I07D'), ('36.0', 'I07C'), ('72.0', 'I07B'), ('108.0', 'I07A'), ('144.0', 'I079'), ('169.2', 'I078'), ('0.0', 'I07E')]
-2018.06.22 10:15:20-DEBUG: 
-
-wydajnosc_od, <class 'float'>
-2018.06.22 10:15:20-DEBUG: 
-
-wydajnosc_do, <class 'float'>
-2018.06.22 10:15:22-INFO: control_inflow_unit started
-2018.06.22 10:15:22-INFO: change_inflow_unit started
-2018.06.22 10:15:22-DEBUG: current setting passed: 2
-2018.06.22 10:15:22-DEBUG: 
-
-doplyw_max, <class 'float'>
-2018.06.22 10:15:22-DEBUG: 
-
-doplyw_min, <class 'float'>
-2018.06.22 10:15:23-INFO: control_inflow_unit started
-2018.06.22 10:15:23-INFO: change_inflow_unit started
-2018.06.22 10:15:23-DEBUG: current setting passed: 1
-2018.06.22 10:15:23-DEBUG: 
-
-doplyw_max, <class 'float'>
-2018.06.22 10:15:23-DEBUG: 
-
-doplyw_min, <class 'float'>
-2018.06.22 10:15:23-INFO: control_inflow_unit started
-2018.06.22 10:15:23-INFO: change_inflow_unit started
-2018.06.22 10:15:23-DEBUG: current setting passed: 2
-2018.06.22 10:15:23-DEBUG: 
-
-doplyw_max, <class 'float'>
-2018.06.22 10:15:23-DEBUG: 
-
-doplyw_min, <class 'float'>
-2018.06.22 10:15:23-INFO: control_inflow_unit started
-2018.06.22 10:15:23-INFO: change_inflow_unit started
-2018.06.22 10:15:23-DEBUG: current setting passed: 1
-2018.06.22 10:15:23-DEBUG: 
-
-doplyw_max, <class 'float'>
-2018.06.22 10:15:23-DEBUG: 
-
-doplyw_min, <class 'float'>
+2018.06.22 11:23:22-DEBUG: opory_kolektora, res string
+2018.06.22 11:23:22-DEBUG: test_attr: handle_loc_res
+2018.06.22 11:23:22-DEBUG: load_func: <bound method Application.handle_loc_res of <__main__.Application object at 0x02A1C490>>
+2018.06.22 11:23:27-INFO: info
+2018.06.22 11:23:27-DEBUG: obrys_pompy.value: 0.0
+2018.06.22 11:23:27-DEBUG: type obrys_pompy.value: <class 'float'>
+2018.06.22 11:23:27-DEBUG: obrys_pompy.var: 0.0
+2018.06.22 11:23:27-DEBUG: type obrys_pompy.value: <class 'float'>
+2018.06.22 11:23:31-INFO: info
+2018.06.22 11:23:31-DEBUG: obrys_pompy.value: 0.0
+2018.06.22 11:23:31-DEBUG: type obrys_pompy.value: <class 'float'>
+2018.06.22 11:23:31-DEBUG: obrys_pompy.var: 213.0
+2018.06.22 11:23:31-DEBUG: type obrys_pompy.value: <class 'float'>
+2018.06.22 11:34:48-INFO: info
+2018.06.22 11:34:48-DEBUG: obrys_pompy.value: 0.0
+2018.06.22 11:34:48-DEBUG: type obrys_pompy.value: <class 'float'>
+2018.06.22 11:34:48-DEBUG: obrys_pompy.var: 213.0
+2018.06.22 11:34:48-DEBUG: type obrys_pompy.value: <class 'float'>

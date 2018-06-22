@@ -206,6 +206,11 @@ self\
         log.debug('{0}, {1}'.format(variable, "res string", type(res_string)))
         gui_variable.set(res_string)
 
+    def bind_val_with_cvar(self, variable):
+        log.debug('bind_val_with_cvar started')
+        gui_variable = self.builder.get_variable(variable.controlvar) 
+        gui_variable.set(variable.value)
+
     # DATA MANAGEMENT FUNCTIONS
 
     def data_load(self):
@@ -526,9 +531,11 @@ self\
 
     def info(self):
         log.info('info')
-        log.info('wartosc to ' + str(self.ksztalt.__name__))
-        for i in self.variables:
-            log.debug(i.value + i.description)
+        log.debug('obrys_pompy.value: {}'.format(self.obrys_pompy.value))
+        log.debug('type obrys_pompy.value: {}'.format(type(self.obrys_pompy.value)))
+        log.debug('obrys_pompy.var: {}'.format(self.builder.tkvariables.__getitem__('obrys_pompy').get()))
+        log.debug('type obrys_pompy.value: {}'.format(type(self.builder.tkvariables.__getitem__('obrys_pompy').get())))
+
 
     def quit(self):
         self.mainwindow.quit()
