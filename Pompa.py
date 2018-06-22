@@ -2,7 +2,7 @@ try:
     import tkinter as tk  # for python 3
 except:
     import Tkinter as tk  # for python
-import pygubu, csv, logging
+import pygubu, csv, logging, copy
 
 variables_list = []
 path = ""
@@ -224,6 +224,9 @@ self\
         log.info('\ndan_load started\n')
         log.info('plik danych generowany wersją 1.0 aplikacji')
         self.builder.tkvariables.__getitem__('doplyw_jednostka').set(1)
+        self.builder.tkvariables.__getitem__('wydajnosc_do').set(1)
+        self.builder.tkvariables.__getitem__('wydajnosc_od').set(1)
+        self.builder.tkvariables.__getitem__('char_pompy_jednostka').set(1)
         with open(path, 'r+') as file:
             log.info('opening file: {0}\n\n'.format(str(file)))
             for line in file:
@@ -391,7 +394,7 @@ self\
         itemid = self.tree.insert('', tk.END, text='Punkt',
                                   values=('1', float(qcoord.replace(',', '.')),
                                           float(hcoord.replace(',', '.'))))
-        self.char_pompy.value[itemid] = (qcoord, hcoord)
+        self.char_pompy.value[itemid] = (eval(qcoord), eval(hcoord))
         log.debug(self.char_pompy.value)
         self.pump_sort_points()
 
@@ -416,9 +419,10 @@ self\
 
     def pump_delete_point(self, id_to_delete):
         log.info('uruchomiono funkcję delete_point')
+        log.debug('point to delete: {}'.format(self.char_pompy.value[id_to_delete]))
         del self.char_pompy.value[id_to_delete]
         self.tree.delete(id_to_delete)
-        log.debug(self.char_pompy.value)
+        log.debug('actual dict: {}'.format(self.char_pompy.value))
         self.pump_sort_points()
 
     # CONVERSION FUNCTIONS
@@ -439,8 +443,6 @@ self\
             self.doplyw_min.value = self.doplyw_min.value / 3.6
             self.doplyw_min.value = round(self.doplyw_min.value, 2)
         elif current_setting == 2:
-            log.debug('type doplyw_max.value: {}'.format(type(
-                self.doplyw_max.value)))
             self.doplyw_max.value = self.doplyw_max.value * 3.6
             self.doplyw_max.value = round(self.doplyw_max.value, 2)
             self.doplyw_min.value = self.doplyw_min.value * 3.6
@@ -452,6 +454,60 @@ self\
 
     def control_pump_flow_unit(self):
         log.info('control_pump_flow_unit started')
+        current_setting = self.builder.tkvariables.__getitem__(
+            'char_pompy_jednostka').get()
+        if current_setting != self.char_pompy.unit:
+            self.change_char_pompy_unit(current_setting)
+
+    def change_char_pompy_unit(self, current_setting):
+        log.info('change_char_pompy_unit started')
+        log.debug('current setting passed: {}'.format(current_setting))
+        key_list = []
+        for key in self.char_pompy.value.keys():
+            key_list.append(key)
+        temp_dict = copy.deepcopy(self.char_pompy.value)
+        log.debug('current dict_value: {}'.format(self.char_pompy.value))
+        log.debug('current temp_dict: {}'.format(temp_dict))
+        log.debug('current key_list: {}'.format(key_list))
+        for key in key_list:
+            log.debug('start delete dict loop')
+            self.pump_delete_point(key)
+        log.debug('current dict_value: {}'.format(self.char_pompy.value))
+        log.debug('current temp_dict: {}'.format(temp_dict))
+        log.debug('current key_list: {}'.format(key_list))
+        if current_setting == 1:
+            self.wydajnosc_od.value /= 3.6
+            self.wydajnosc_do.value /= 3.6
+            unit_text = '[l/s]'
+            self.builder.tkvariables.__getitem__('wsp_q_text').set(
+                'Przepływ Q {}'.format(unit_text))
+            self.builder.tkvariables.__getitem__('wydajnosc_od_text').set(
+                'Od {}'.format(unit_text))
+            self.builder.tkvariables.__getitem__('wydajnosc_do_text').set(
+                'Do {}'.format(unit_text))
+            for key in temp_dict.keys():
+                conv_flow = temp_dict[key][0] / 3.6
+                conv_flow = round(conv_flow, 2)
+                self.pump_add_point(conv_flow, temp_dict[key][1])
+        elif current_setting == 2:
+            self.wydajnosc_od.value *= 3.6
+            self.wydajnosc_do.value *= 3.6
+            unit_text = '[m³/h]'
+            self.builder.tkvariables.__getitem__('wsp_q_text').set(
+                'Przepływ Q {}'.format(unit_text))
+            self.builder.tkvariables.__getitem__('wydajnosc_od_text').set(
+                'Od {}'.format(unit_text))
+            self.builder.tkvariables.__getitem__('wydajnosc_do_text').set(
+                'Do {}'.format(unit_text))
+            for key in temp_dict.keys():
+                conv_flow = temp_dict[key][0] * 3.6
+                conv_flow = round(conv_flow, 2)
+                self.pump_add_point(conv_flow, temp_dict[key][1])
+        self.char_pompy.unit = current_setting
+        self.wydajnosc_do.unit = current_setting
+        self.wydajnosc_od.unit = current_setting
+        self.wydajnosc_od.set_value(self)
+        self.wydajnosc_do.set_value(self)        
 
     # VALIDATION FUNCTIONS
 

@@ -1215,7 +1215,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             </child>
                             <child>
                               <object class="tk.Label" id="Label_Wydajnosc_od">
-                                <property name="text" translatable="yes">Od [m³/h]</property>
+                                <property name="text" translatable="yes">Od [l/s]</property>
+                                <property name="textvariable">string:wydajnosc_od_text</property>
                                 <layout>
                                   <property name="column">0</property>
                                   <property name="columnspan">2</property>
@@ -1238,7 +1239,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             </child>
                             <child>
                               <object class="tk.Label" id="Label_Wydajnosc_do">
-                                <property name="text" translatable="yes">Do [m³/h]</property>
+                                <property name="text" translatable="yes">Do [l/s]</property>
+                                <property name="textvariable">string:wydajnosc_do_text</property>
                                 <layout>
                                   <property name="column">0</property>
                                   <property name="columnspan">2</property>
@@ -1369,7 +1371,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 </layout>
                                 <child>
                                   <object class="ttk.Label" id="Label_Wsp_q">
-                                    <property name="text" translatable="yes">Przepływ Q</property>
+                                    <property name="text" translatable="yes">Przepływ Q [l/s]</property>
+                                    <property name="textvariable">string:wsp_q_text</property>
                                     <layout>
                                       <property name="column">0</property>
                                       <property name="propagate">True</property>
@@ -1390,7 +1393,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 </child>
                                 <child>
                                   <object class="ttk.Label" id="Label_Wsp_h">
-                                    <property name="text" translatable="yes">Wys. podnoszenia</property>
+                                    <property name="text" translatable="yes">Wys. podnoszenia [m]</property>
                                     <layout>
                                       <property name="column">0</property>
                                       <property name="propagate">True</property>
