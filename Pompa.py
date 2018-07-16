@@ -187,6 +187,9 @@ self\
             log.debug('test_attr: {}'.format(i.test_attr))
             log.debug('load_func: {}'.format(i.load_func))
 
+        # 7: Binding advices content
+        self.bind_advices()
+
     # VAL TO CVAR FUNCTIONS
 
     def rewrite_to_cvar(self, variable):
@@ -512,7 +515,24 @@ self\
         self.wydajnosc_do.unit = current_setting
         self.wydajnosc_od.unit = current_setting
         self.wydajnosc_od.set_value(self)
-        self.wydajnosc_do.set_value(self)        
+        self.wydajnosc_do.set_value(self)
+
+    # ADVICES
+
+    def bind_advices(self):
+        for variable in variables_list:
+            for widget in variable.adv_widgets:
+                handler = self.builder.get_object(widget)
+                print(widget + ' rozpoznano obiekt')
+                handler.bind('<Enter>', lambda e,
+                             advice=variable.adv_content: self.Show_advice(e, advice))
+                print('wpisano mu treść podpowiedzi')
+                print(' ')
+
+    def Show_advice(self, event, advice):
+        advice_variable = self.builder.get_variable('advice_text')
+        advice_variable.set(advice)
+        print('Advice is showed')
 
     # VALIDATION FUNCTIONS
 

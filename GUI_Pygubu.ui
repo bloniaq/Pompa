@@ -2964,6 +2964,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               <object class="ttk.Label" id="Label_Wskaz">
                 <property name="padding">10</property>
                 <property name="text" translatable="yes">Najedź na opis parametru aby otrzymać więcej informacji</property>
+                <property name="textvariable">string:advice_text</property>
                 <property name="underline">0</property>
                 <property name="wraplength">250</property>
                 <layout>
