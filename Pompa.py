@@ -211,7 +211,7 @@ self\
 
     def bind_val_with_cvar(self, variable):
         log.debug('bind_val_with_cvar started')
-        gui_variable = self.builder.get_variable(variable.controlvar) 
+        gui_variable = self.builder.get_variable(variable.controlvar)
         gui_variable.set(variable.value)
 
     # DATA MANAGEMENT FUNCTIONS
@@ -427,7 +427,8 @@ self\
 
     def pump_delete_point(self, id_to_delete):
         log.info('uruchomiono funkcję delete_point')
-        log.debug('point to delete: {}'.format(self.char_pompy.value[id_to_delete]))
+        log.debug('point to delete: {}'.format(
+            self.char_pompy.value[id_to_delete]))
         del self.char_pompy.value[id_to_delete]
         self.tree.delete(id_to_delete)
         log.debug('actual dict: {}'.format(self.char_pompy.value))
@@ -524,8 +525,9 @@ self\
             for widget in variable.adv_widgets:
                 handler = self.builder.get_object(widget)
                 print(widget + ' rozpoznano obiekt')
-                handler.bind('<Enter>', lambda e,
-                             advice=variable.adv_content: self.Show_advice(e, advice))
+                handler.bind(
+                    '<Enter>', lambda e,
+                    advice=variable.adv_content: self.Show_advice(e, advice))
                 print('wpisano mu treść podpowiedzi')
                 print(' ')
 
@@ -552,10 +554,12 @@ self\
     def info(self):
         log.info('info')
         log.debug('obrys_pompy.value: {}'.format(self.obrys_pompy.value))
-        log.debug('type obrys_pompy.value: {}'.format(type(self.obrys_pompy.value)))
-        log.debug('obrys_pompy.var: {}'.format(self.builder.tkvariables.__getitem__('obrys_pompy').get()))
-        log.debug('type obrys_pompy.value: {}'.format(type(self.builder.tkvariables.__getitem__('obrys_pompy').get())))
-
+        log.debug('type obrys_pompy.value: {}'.format(type(
+            self.obrys_pompy.value)))
+        log.debug('obrys_pompy.var: {}'.format(
+            self.builder.tkvariables.__getitem__('obrys_pompy').get()))
+        log.debug('type obrys_pompy.value: {}'.format(type(
+            self.builder.tkvariables.__getitem__('obrys_pompy').get())))
 
     def quit(self):
         self.mainwindow.quit()
