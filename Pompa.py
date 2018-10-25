@@ -3,6 +3,7 @@ try:
 except:
     import Tkinter as tk  # for python
 import pygubu, csv, logging, copy
+import models
 
 variables_list = []
 path = ""
@@ -35,7 +36,7 @@ fh.setFormatter(formatter)
 log.addHandler(ch)
 log.addHandler(fh)
 
-
+'''
 class Variables():
 
     def __init__(
@@ -87,6 +88,8 @@ class Variables():
         if self.outcome_func is not None:
             self.outcome_func()
 
+'''
+
 
 class Application():
     def __init__(self):
@@ -106,6 +109,13 @@ class Application():
         # 4: Setting callbacks
         builder.connect_callbacks(self)
 
+        # 5: creating objects
+
+        self.well = models.Well()
+        self.pump = models.Pump()
+        self.inlet = models.Pipe()
+        self.outlet = models.Pipe()
+
         '''
         callbacks = {
             'uwzgledniaj_zwg': self.uwzgledniaj_zwg,
@@ -119,6 +129,7 @@ class Application():
         '''
 
         # 5: Loading variables form a csv file
+'''
         with open('variables.csv', 'r', newline='\n') as file:
             reader = csv.DictReader(file, delimiter=';')
             for i in reader:
@@ -189,6 +200,8 @@ self\
 
         # 7: Binding advices content
         self.bind_advices()
+'''
+
 
     # VAL TO CVAR FUNCTIONS
 
