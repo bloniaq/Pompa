@@ -57,10 +57,11 @@ class Well():
 
     dan_shape = {'0': 'rectangle', '1': 'round'}
     dan_configuration = {'0': 'linear', '1': 'optimal'}
+    dan_reserve = {'1': 'minimal', '2': 'optimal', '3': 'safe'}
 
     def __init__(self):
         self.configuration = 'round'
-        self.reservoir_pumps = 'safe'
+        self.reserve_pumps = 'safe'
         self.shape = 'round'
         self.dimension = 0
         self.length = 0

@@ -190,10 +190,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                     </child>
                     <child>
                       <object class="tk.Radiobutton" id="Radio_Ksztalt_kolo">
-                        <property name="command">change_shape</property>
+                        <property name="command">set_shape</property>
                         <property name="text" translatable="yes">Przekrój kołowy</property>
-                        <property name="value">kolo</property>
-                        <property name="variable">string:ksztalt</property>
+                        <property name="value">round</property>
+                        <property name="variable">string:shape</property>
                         <layout>
                           <property name="column">1</property>
                           <property name="propagate">True</property>
@@ -203,10 +203,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                     </child>
                     <child>
                       <object class="tk.Radiobutton" id="Radio_Ksztalt_prostok">
-                        <property name="command">change_shape</property>
+                        <property name="command">set_shape</property>
                         <property name="text" translatable="yes">Przekrój prostokątny</property>
-                        <property name="value">prostokat</property>
-                        <property name="variable">string:ksztalt</property>
+                        <property name="value">rectangle</property>
+                        <property name="variable">string:shape</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="columnspan">2</property>

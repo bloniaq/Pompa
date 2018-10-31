@@ -116,6 +116,7 @@ class Application():
         self.inlet = models.Pipe()
         self.outlet = models.Pipe()
 
+
         '''
         callbacks = {
             'uwzgledniaj_zwg': self.uwzgledniaj_zwg,
@@ -202,8 +203,7 @@ self\
         self.bind_advices()
 '''
 
-
-    # VAL TO CVAR FUNCTIONS
+# VAL TO CVAR FUNCTIONS
 
     def rewrite_to_cvar(self, variable):
         gui_variable = self.builder.get_variable(variable.controlvar)
@@ -380,16 +380,16 @@ self\
         else:
             entry_zwg.configure(state='disabled')
 
-    def change_shape(self):
-        current_shape = self.builder.tkvariables.__getitem__('ksztalt').get()
+    def set_shape(self):
+        current_shape = self.builder.tkvariables.__getitem__('shape').get()
         en_sr_pom = self.builder.get_object('Entry_Srednica_pompowni')
         en_dl_pom = self.builder.get_object('Entry_Dlugosc_pompowni')
         en_sz_pom = self.builder.get_object('Entry_Szerokosc_pompowni')
-        if current_shape == 'kolo':
+        if current_shape == 'round':
             en_sr_pom.configure(state='normal')
             en_dl_pom.configure(state='disabled')
             en_sz_pom.configure(state='disabled')
-        elif current_shape == 'prostokat':
+        elif current_shape == 'rectangle':
             en_sr_pom.configure(state='disabled')
             en_dl_pom.configure(state='normal')
             en_sz_pom.configure(state='normal')
