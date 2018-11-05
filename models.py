@@ -27,7 +27,7 @@ class Pipe():
         self.length = 0
         self.dimension = 0
         self.grittiness = 0
-        self.local_resitance = 0
+        self.local_resitance = []
         self.parallels = 1
 
 
