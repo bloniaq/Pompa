@@ -30,6 +30,12 @@ class Pipe():
         self.local_resitance = []
         self.parallels = 1
 
+    def value_to_cvar(self, app, variable):
+        var = app.builder.get_variable(variable)
+        
+
+
+
 
 class Pump():
     """class for pumps"""
