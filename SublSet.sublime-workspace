@@ -140,7 +140,7 @@
 			"file": "models.py",
 			"settings":
 			{
-				"buffer_size": 2102,
+				"buffer_size": 2107,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -335,7 +335,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6399.0,
+						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
@@ -353,15 +353,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2102,
+						"buffer_size": 2107,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								695,
-								695
+								642,
+								642
 							]
 						],
 						"settings":
@@ -547,12 +547,16 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"E:\\# PROGRAMOWANIE\\MusicLibraryManager\\Project.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{

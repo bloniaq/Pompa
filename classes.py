@@ -1,3 +1,8 @@
+import logging
+
+log = logging.getLogger('Pompa/main.classes')
+
+
 class Flow():
     """class for flow"""
 
@@ -23,24 +28,23 @@ class Lift():
 class Pipe():
     """class for pipes"""
 
-    def __init__(self):
+    def __init__(self, builder):
+        self.builder = builder
         self.length = 0
         self.dimension = 0
         self.grittiness = 0
         self.local_resitance = []
         self.parallels = 1
 
-    def value_to_cvar(self, app, variable):
+    def resistance_to_cvar(self, app, variable):
         var = app.builder.get_variable(variable)
-        
-
-
 
 
 class Pump():
     """class for pumps"""
 
-    def __init__(self):
+    def __init__(self, builder):
+        self.builder = builder
         self.cycle_time = 0
         self.contour = 0
         self.characteristic = {}
@@ -65,10 +69,11 @@ class Well():
     dan_configuration = {'0': 'linear', '1': 'optimal'}
     dan_reserve = {'1': 'minimal', '2': 'optimal', '3': 'safe'}
 
-    def __init__(self):
-        self.configuration = 'round'
+    def __init__(self, builder):
+        self.builder = builder
         self.reserve_pumps = 'safe'
-        self.shape = 'round'
+        self.shape = builder.tkvariables.__getitem__('shape').get()
+        self.set_shape(default=True)
         self.dimension = 0
         self.length = 0
         self.width = 0
@@ -82,9 +87,23 @@ class Well():
         self.influx_max = 0
         self.influx_min = 0
 
-    def set_shape(self, new_shape):
-        self.shape = new_shape
-        if self.shape == 'round':
-            pass
-        elif self.shape == 'rectangle':
-            pass
+    def set_shape(self, default=False):
+        log.debug('started setting shape')
+        item = self.builder.tkvariables.__getitem__('shape')
+        current_shape = item.get()
+        if default:
+            current_shape = 'round'
+            item.set(current_shape)
+        log.debug('new shape: {}'.format(current_shape))
+        diameter = self.builder.get_object('Entry_Well_diameter')
+        length = self.builder.get_object('Entry_Well_length')
+        width = self.builder.get_object('Entry_Well_width')
+        if current_shape == 'round':
+            diameter.configure(state='normal')
+            length.configure(state='disabled')
+            width.configure(state='disabled')
+        elif current_shape == 'rectangle':
+            diameter.configure(state='disabled')
+            length.configure(state='normal')
+            width.configure(state='normal')
+        log.debug('changed shape to {}'.format(current_shape))
