@@ -3023,7 +3023,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             </layout>
             <child>
               <object class="tk.Radiobutton" id="Radio_Mode_checking">
-                <property name="command">set_mode</property>
+                <property name="command">ui_set_mode</property>
                 <property name="text" translatable="yes">     Sprawdzenie istniejącej pompowni</property>
                 <property name="value">checking</property>
                 <property name="variable">string:mode</property>
@@ -3038,7 +3038,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             </child>
             <child>
               <object class="tk.Radiobutton" id="Radio_Mode_minimalisation">
-                <property name="command">set_mode</property>
+                <property name="command">ui_set_mode</property>
                 <property name="text" translatable="yes">     Minimalizacja nakładów inwestycyjnych</property>
                 <property name="value">minimalisation</property>
                 <property name="variable">string:mode</property>
@@ -3053,7 +3053,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
             </child>
             <child>
               <object class="tk.Radiobutton" id="Radio_Mode_optimalisation">
-                <property name="command">set_mode</property>
+                <property name="command">ui_set_mode</property>
                 <property name="text" translatable="yes">     Optymalizacja nakładów inwestycyjnych
      i kosztów eksploatacyjnych</property>
                 <property name="value">optimalisation</property>

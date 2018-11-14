@@ -1,5 +1,7 @@
 import logging
 
+import config
+
 log = logging.getLogger('Pompa/main.classes')
 
 
@@ -69,13 +71,13 @@ class Well():
     dan_configuration = {'0': 'linear', '1': 'optimal'}
     dan_reserve = {'1': 'minimal', '2': 'optimal', '3': 'safe'}
 
-    default = {'shape': 'round'}
+    default = config.default
 
     def __init__(self, builder):
         self.builder = builder
         self.reserve_pumps = 'safe'
         self.shape = builder.tkvariables.__getitem__('shape')
-        self.set_shape('round')
+        self.set_shape(self.default['shape'])
         self.dimension = 0
         self.length = 0
         self.width = 0

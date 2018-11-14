@@ -41,6 +41,10 @@ log.addHandler(fh)
 
 
 class Application():
+
+    dan_mode = {'0': 'minimalisation', '1': 'checking', '2': 'optimalisation'}
+    default = config.default
+
     def __init__(self):
 
         # 1: Create a builder
@@ -61,8 +65,7 @@ class Application():
         # 5: creating objects
 
         self.clear_objects()
-        self.set_mode(default=True)
-        self.load_last_data()
+        self.set_mode(self.default['mode'])
 
     def run(self):
         self.mainwindow.mainloop()
@@ -73,23 +76,21 @@ class Application():
         self.inlet = classes.Pipe(self.builder)
         self.outlet = classes.Pipe(self.builder)
 
-    def load_last_data(self):
+    def load_data(self):
         pass
 
     def ui_set_shape(self):
         shape = self.builder.tkvariables.__getitem__('shape').get()
         self.well.set_shape(shape)
 
-    def set_mode(self, default=False):
+    def ui_set_mode(self):
+        mode = self.builder.tkvariables.__getitem__('mode').get()
+        self.set_mode(mode)
+
+    def set_mode(self, mode):
         ''' changes application mode
         '''
-        self.dan_mode = {'0': 'minimalisation',
-                         '1': 'checking', '2': 'optimalisation'}
-        item = self.builder.tkvariables.__getitem__('mode')
-        mode = item.get()
-        if default:
-            mode = 'checking'
-            item.set(mode)
+        self.builder.tkvariables.__getitem__('mode').set(mode)
         nbook = self.builder.get_object('Notebook_Data')
         if mode == 'checking':
             nbook.tab(3, state='disabled')
