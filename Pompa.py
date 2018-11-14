@@ -76,8 +76,9 @@ class Application():
     def load_last_data(self):
         pass
 
-    def set_shape(self):
-        self.well.set_shape()
+    def ui_set_shape(self):
+        shape = self.builder.tkvariables.__getitem__('shape').get()
+        self.well.set_shape(shape)
 
     def set_mode(self, default=False):
         ''' changes application mode

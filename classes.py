@@ -69,11 +69,13 @@ class Well():
     dan_configuration = {'0': 'linear', '1': 'optimal'}
     dan_reserve = {'1': 'minimal', '2': 'optimal', '3': 'safe'}
 
+    default = {'shape': 'round'}
+
     def __init__(self, builder):
         self.builder = builder
         self.reserve_pumps = 'safe'
-        self.shape = builder.tkvariables.__getitem__('shape').get()
-        self.set_shape(default=True)
+        self.shape = builder.tkvariables.__getitem__('shape')
+        self.set_shape('round')
         self.dimension = 0
         self.length = 0
         self.width = 0
@@ -87,23 +89,19 @@ class Well():
         self.influx_max = 0
         self.influx_min = 0
 
-    def set_shape(self, default=False):
+    def set_shape(self, shape):
+        self.builder.tkvariables.__getitem__('shape').set(shape)
         log.debug('started setting shape')
-        item = self.builder.tkvariables.__getitem__('shape')
-        current_shape = item.get()
-        if default:
-            current_shape = 'round'
-            item.set(current_shape)
-        log.debug('new shape: {}'.format(current_shape))
+        log.debug('new shape: {}'.format(shape))
         diameter = self.builder.get_object('Entry_Well_diameter')
         length = self.builder.get_object('Entry_Well_length')
         width = self.builder.get_object('Entry_Well_width')
-        if current_shape == 'round':
+        if shape == 'round':
             diameter.configure(state='normal')
             length.configure(state='disabled')
             width.configure(state='disabled')
-        elif current_shape == 'rectangle':
+        elif shape == 'rectangle':
             diameter.configure(state='disabled')
             length.configure(state='normal')
             width.configure(state='normal')
-        log.debug('changed shape to {}'.format(current_shape))
+        log.debug('changed shape to {}'.format(shape))
