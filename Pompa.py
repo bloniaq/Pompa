@@ -64,17 +64,17 @@ class Application():
 
         # 5: creating objects
 
-        self.clear_objects()
+        self.create_objects()
         self.set_mode(self.default['mode'])
 
     def run(self):
         self.mainwindow.mainloop()
 
-    def clear_objects(self):
-        self.well = classes.Well(self.builder)
-        self.pump = classes.Pump(self.builder)
-        self.inlet = classes.Pipe(self.builder)
-        self.outlet = classes.Pipe(self.builder)
+    def create_objects(self):
+        self.well = classes.Well(self)
+        self.pump = classes.Pump(self)
+        self.inlet = classes.Pipe(self)
+        self.outlet = classes.Pipe(self)
 
     def load_data(self):
         pass
@@ -102,6 +102,12 @@ class Application():
             nbook.tab(3, state='normal')
             nbook.tab(4, state='normal')
         log.info('changed mode: {0}'.format(mode))
+
+    def set_var_value(self, variable_name, obj):
+        log.info('app set_var_value starts for {}'.format(variable_name))
+        value = self.builder.get_variable(variable_name).get()
+        log.info('the value: {}'.format(value))
+        obj.set_var_value(variable_name, value)
 
 
 if __name__ == '__main__':

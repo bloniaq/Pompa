@@ -5,6 +5,29 @@ import config
 log = logging.getLogger('Pompa/main.classes')
 
 
+class Variable():
+
+    def __init__(self, app):
+        pass
+
+    def set_var_value(self, variable_name, value):
+        log.info('setting {} value to: {}'.format(variable_name, value))
+        variable = self.builder.get_variable(variable_name)
+        self.variables[variable_name][0] = value
+        if variable.get() != value:
+            variable.set(value)
+        log.debug('{} - var value: {}, ui var value: {}'.format(
+            variable_name, self.variables[variable_name][0], variable.get()))
+
+    def bind_traceing_to_ui_variables(self, app):
+        for variable in self.variables:
+            variable_object = self.builder.get_variable(variable)
+            variable_object.trace(
+                'w', lambda *_, var=variable,
+                obj=self: app.set_var_value(var, obj)
+            )
+
+
 class Flow():
     """class for flow"""
 
@@ -27,26 +50,28 @@ class Lift():
         pass
 
 
-class Pipe():
+class Pipe(Variable):
     """class for pipes"""
 
-    def __init__(self, builder):
-        self.builder = builder
+    def __init__(self, app):
+        self.app = app
+        self.builder = app.builder
         self.length = 0
         self.dimension = 0
         self.grittiness = 0
         self.local_resitance = []
         self.parallels = 1
 
-    def resistance_to_cvar(self, app, variable):
-        var = app.builder.get_variable(variable)
+    def resistance_to_cvar(self, variable):
+        var = self.app.builder.get_variable(variable)
 
 
-class Pump():
+class Pump(Variable):
     """class for pumps"""
 
-    def __init__(self, builder):
-        self.builder = builder
+    def __init__(self, app):
+        self.app = app
+        self.builder = app.builder
         self.cycle_time = 0
         self.contour = 0
         self.characteristic = {}
@@ -64,7 +89,7 @@ class Pump():
         pass
 
 
-class Well():
+class Well(Variable):
     """class for well"""
 
     dan_shape = {'0': 'rectangle', '1': 'round'}
@@ -73,12 +98,13 @@ class Well():
 
     default = config.default
 
-    def __init__(self, builder):
-        self.builder = builder
+    def __init__(self, app):
+        self.app = app
+        self.builder = app.builder
         self.reserve_pumps = 'safe'
-        self.shape = builder.tkvariables.__getitem__('shape')
+        self.shape = self.builder.tkvariables.__getitem__('shape')
         self.set_shape(self.default['shape'])
-        self.dimension = 0
+        self.diameter = 0
         self.length = 0
         self.width = 0
         self.ord_terrain = 0
@@ -90,6 +116,12 @@ class Well():
         self.ord_upper_level = 0
         self.influx_max = 0
         self.influx_min = 0
+        self.variables = {
+            'well_diameter': [self.diameter],
+            'well_length': [self.length],
+            'well_width': [self.width]
+        }
+        self.bind_traceing_to_ui_variables(self.app)
 
     def set_shape(self, shape):
         self.builder.tkvariables.__getitem__('shape').set(shape)
