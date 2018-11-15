@@ -686,7 +686,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       <object class="ttk.Entry" id="Entry_Minimal_height">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:minimal_height</property>
+                        <property name="textvariable">double:minimal_sewage_level</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -935,7 +935,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Difference_in_out">
+                      <object class="ttk.Label" id="Label_Difference_in_start">
                         <property name="text" translatable="yes">Różnica między rzędną wlotu, a rzędna włączenia pompy [m]</property>
                         <property name="wraplength">350</property>
                         <layout>
@@ -947,9 +947,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Difference_in_out">
+                      <object class="ttk.Entry" id="Entry_Difference_in_start">
                         <property name="justify">right</property>
-                        <property name="textvariable">double:difference_in_out</property>
+                        <property name="textvariable">double:difference_in_start</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>

@@ -1,4 +1,104 @@
-2018.11.15 15:11:28-DEBUG: started setting shape
-2018.11.15 15:11:28-DEBUG: new shape: round
-2018.11.15 15:11:28-DEBUG: changed shape to round
-2018.11.15 15:11:28-INFO: changed mode: checking
+2018.11.15 20:05:48-DEBUG: started setting shape
+2018.11.15 20:05:48-DEBUG: new shape: round
+2018.11.15 20:05:48-DEBUG: changed shape to round
+2018.11.15 20:05:48-DEBUG: variable: well_diameter
+2018.11.15 20:05:48-DEBUG: variable: well_length
+2018.11.15 20:05:48-DEBUG: variable: well_width
+2018.11.15 20:05:48-DEBUG: variable: minimal_height
+2018.11.15 20:05:48-DEBUG: variable: ordinate_terrain
+2018.11.15 20:05:48-DEBUG: variable: ordinate_inlet
+2018.11.15 20:05:48-DEBUG: variable: ordinate_outlet
+2018.11.15 20:05:48-DEBUG: variable: ordinate_bottom
+2018.11.15 20:05:48-DEBUG: variable: ordinate_highest_point
+2018.11.15 20:05:48-DEBUG: variable: ordinate_final_table
+2018.11.15 20:05:48-DEBUG: variable: difference_in_out
+2018.11.15 20:05:48-DEBUG: variable: inflow_min
+2018.11.15 20:05:48-DEBUG: variable: inflow_max
+2018.11.15 20:05:48-INFO: changed mode: checking
+2018.11.15 20:05:52-DEBUG: started setting shape
+2018.11.15 20:05:52-DEBUG: new shape: rectangle
+2018.11.15 20:05:52-DEBUG: changed shape to rectangle
+2018.11.15 20:05:53-DEBUG: started setting shape
+2018.11.15 20:05:53-DEBUG: new shape: round
+2018.11.15 20:05:53-DEBUG: changed shape to round
+2018.11.15 20:05:54-INFO: app set_var_value starts for well_diameter
+2018.11.15 20:05:54-INFO: app set_var_value starts for well_diameter
+2018.11.15 20:05:54-INFO: the value: 1.0
+2018.11.15 20:05:54-INFO: setting well_diameter value to: 1.0
+2018.11.15 20:05:54-DEBUG: well_diameter - var value: 1.0, ui var value: 1.0
+2018.11.15 20:05:55-INFO: app set_var_value starts for well_diameter
+2018.11.15 20:05:55-INFO: the value: 12.0
+2018.11.15 20:05:55-INFO: setting well_diameter value to: 12.0
+2018.11.15 20:05:55-DEBUG: well_diameter - var value: 12.0, ui var value: 12.0
+2018.11.15 20:06:01-INFO: app set_var_value starts for ordinate_inlet
+2018.11.15 20:06:01-INFO: the value: 0.0
+2018.11.15 20:06:01-INFO: setting ordinate_inlet value to: 0.0
+2018.11.15 20:06:01-DEBUG: ordinate_inlet - var value: 0.0, ui var value: 0.0
+2018.11.15 20:06:01-INFO: app set_var_value starts for ordinate_inlet
+2018.11.15 20:06:01-INFO: the value: 3.0
+2018.11.15 20:06:01-INFO: setting ordinate_inlet value to: 3.0
+2018.11.15 20:06:01-DEBUG: ordinate_inlet - var value: 3.0, ui var value: 3.0
+2018.11.15 20:06:03-INFO: app set_var_value starts for ordinate_bottom
+2018.11.15 20:06:03-INFO: the value: 0.0
+2018.11.15 20:06:03-INFO: setting ordinate_bottom value to: 0.0
+2018.11.15 20:06:03-DEBUG: ordinate_bottom - var value: 0.0, ui var value: 0.0
+2018.11.15 20:06:03-INFO: app set_var_value starts for ordinate_bottom
+2018.11.15 20:06:03-INFO: the value: 10.0
+2018.11.15 20:06:03-INFO: setting ordinate_bottom value to: 10.0
+2018.11.15 20:06:03-DEBUG: ordinate_bottom - var value: 10.0, ui var value: 10.0
+2018.11.15 20:06:04-INFO: app set_var_value starts for ordinate_bottom
+2018.11.15 20:06:04-INFO: the value: 1.0
+2018.11.15 20:06:04-INFO: setting ordinate_bottom value to: 1.0
+2018.11.15 20:06:04-DEBUG: ordinate_bottom - var value: 1.0, ui var value: 1.0
+2018.11.15 20:06:05-INFO: app set_var_value starts for ordinate_bottom
+2018.11.15 20:06:05-INFO: the value: 1.9
+2018.11.15 20:06:05-INFO: setting ordinate_bottom value to: 1.9
+2018.11.15 20:06:05-DEBUG: ordinate_bottom - var value: 1.9, ui var value: 1.9
+2018.11.15 20:06:33-INFO: app set_var_value starts for difference_in_out
+2018.11.15 20:06:33-INFO: app set_var_value starts for difference_in_out
+2018.11.15 20:06:33-INFO: the value: 1.0
+2018.11.15 20:06:33-INFO: setting difference_in_out value to: 1.0
+2018.11.15 20:06:33-DEBUG: difference_in_out - var value: 1.0, ui var value: 1.0
+2018.11.15 20:06:34-INFO: app set_var_value starts for difference_in_out
+2018.11.15 20:06:34-INFO: the value: 13.0
+2018.11.15 20:06:34-INFO: setting difference_in_out value to: 13.0
+2018.11.15 20:06:34-DEBUG: difference_in_out - var value: 13.0, ui var value: 13.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 40.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 40.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 40.0, ui var value: 40.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 0.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 0.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 0.0, ui var value: 0.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 40.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 40.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 40.0, ui var value: 40.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 4.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 4.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 4.0, ui var value: 4.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 4.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 4.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 4.0, ui var value: 4.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 4.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 4.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 4.0, ui var value: 4.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 44.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 44.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 44.0, ui var value: 44.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 444.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 444.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 444.0, ui var value: 444.0
+2018.11.15 20:06:50-INFO: app set_var_value starts for ordinate_outlet
+2018.11.15 20:06:50-INFO: the value: 4444.0
+2018.11.15 20:06:50-INFO: setting ordinate_outlet value to: 4444.0
+2018.11.15 20:06:50-DEBUG: ordinate_outlet - var value: 4444.0, ui var value: 4444.0

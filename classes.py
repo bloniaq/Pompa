@@ -21,6 +21,7 @@ class Variable():
 
     def bind_traceing_to_ui_variables(self, app):
         for variable in self.variables:
+            log.debug('variable: {}'.format(variable))
             variable_object = self.builder.get_variable(variable)
             variable_object.trace(
                 'w', lambda *_, var=variable,
@@ -57,8 +58,9 @@ class Pipe(Variable):
         self.app = app
         self.builder = app.builder
         self.length = 0
-        self.dimension = 0
-        self.grittiness = 0
+        self.diameter = 0
+        self.roughness = 0
+        self.resistance_string = ''
         self.local_resitance = []
         self.parallels = 1
 
@@ -107,21 +109,17 @@ class Well(Variable):
         self.diameter = 0
         self.length = 0
         self.width = 0
+        self.minimal_sewage_level = 0
         self.ord_terrain = 0
         self.ord_inlet = 0
         self.ord_outlet = 0
         self.ord_bottom = 0
-        self.ord_start = 0
+        self.difference_in_start = 0
         self.ord_highest_point = 0
         self.ord_upper_level = 0
-        self.influx_max = 0
-        self.influx_min = 0
-        self.variables = {
-            'well_diameter': [self.diameter],
-            'well_length': [self.length],
-            'well_width': [self.width]
-        }
-        self.bind_traceing_to_ui_variables(self.app)
+        self.inflow_max = Flow(0, 'liters')
+        self.inflow_min = Flow(0, 'liters')
+        self.variables = {}
 
     def set_shape(self, shape):
         self.builder.tkvariables.__getitem__('shape').set(shape)
@@ -139,3 +137,5 @@ class Well(Variable):
             length.configure(state='normal')
             width.configure(state='normal')
         log.debug('changed shape to {}'.format(shape))
+
+    def set_inflow(self, variable, value, unit)

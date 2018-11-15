@@ -72,9 +72,21 @@ class Application():
 
     def create_objects(self):
         self.well = classes.Well(self)
+        self.bind_ui_variables(self.well, config.well_vars(self.well))
         self.pump = classes.Pump(self)
-        self.inlet = classes.Pipe(self)
-        self.outlet = classes.Pipe(self)
+        # self.bind_ui_variables(self.pump)
+        self.discharge_pipe = classes.Pipe(self)
+        # self.bind_ui_variables(self.inlet)
+        self.collector = classes.Pipe(self)
+        # self.bind_ui_variables(self.outlet)+
+        self.special_traces_binding()
+
+    def bind_ui_variables(self, instance, binder):
+        instance.variables = binder
+        instance.bind_traceing_to_ui_variables(self)
+
+    def special_traces_binding(self):
+        pass
 
     def load_data(self):
         pass
