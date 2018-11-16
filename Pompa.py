@@ -73,6 +73,7 @@ class Application():
     def create_objects(self):
         self.well = classes.Well(self)
         self.bind_ui_variables(self.well, config.well_vars(self.well))
+        self.set_inflow_unit()
         self.pump = classes.Pump(self)
         # self.bind_ui_variables(self.pump)
         self.discharge_pipe = classes.Pipe(self)
@@ -120,6 +121,35 @@ class Application():
         value = self.builder.get_variable(variable_name).get()
         log.info('the value: {}'.format(value))
         obj.set_var_value(variable_name, value)
+
+    def set_flow_value(self, variable_name, obj_variable):
+        value = self.builder.tkvariables.__getitem__(variable_name).get()
+        obj.set_flow_value(value)
+        pass
+
+    def set_inflow_unit(self):
+        log.info('changing unit of station inflow')
+        unit = self.builder.tkvariables.__getitem__('inflow_unit').get()
+        log.info('ui max value: {}'.format(self.builder.tkvariables.__getitem__(
+            'inflow_max').get()))
+        log.info('engine max value: {}'.format(self.well.inflow_max.value))
+        log.info('ooold value: {}'.format(self.builder.tkvariables.__getitem__(
+            'inflow_min').get()))
+        log.info('new unit: {}'.format(unit))
+        self.well.inflow_max.convert(unit)
+        self.well.inflow_min.convert(unit)
+        self.builder.tkvariables.__getitem__('inflow_max').set(
+            self.well.inflow_max.value)
+        self.builder.tkvariables.__getitem__('inflow_min').set(
+            self.well.inflow_min.value)
+
+    def print_values(self):
+        for key in self.well.variables:
+            log.debug('{} - ui: {}, engine: {}'.format(
+                key, self.builder.tkvariables.__getitem__('inflow_unit').get(),
+                self.well.variables[key][0]))
+        log.debug('engine value: {}'.format(self.well.inflow_max.value))
+        log.debug('engine value: {}'.format(self.well.diameter))
 
 
 if __name__ == '__main__':

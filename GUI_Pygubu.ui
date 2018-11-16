@@ -960,7 +960,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Frame" id="Frame_Doplyw">
+                      <object class="ttk.Frame" id="Frame_Inflow">
                         <property name="height">200</property>
                         <property name="width">200</property>
                         <layout>
@@ -980,7 +980,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </columns>
                         </layout>
                         <child>
-                          <object class="ttk.Label" id="Label_Doplyw">
+                          <object class="ttk.Label" id="Label_Inflow">
                             <property name="text" translatable="yes">Dopływ ścieków</property>
                             <property name="textvariable">string:label_doplyw</property>
                             <layout>
@@ -992,7 +992,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="ttk.Label" id="Label_Doplyw_jednostka">
+                          <object class="ttk.Label" id="Label_Inflow_unit">
                             <property name="text" translatable="yes">jednostka:</property>
                             <layout>
                               <property name="column">1</property>
@@ -1002,11 +1002,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="tk.Radiobutton" id="Radiobutton_Doplyw_metry">
-                            <property name="command">control_inflow_unit</property>
+                          <object class="tk.Radiobutton" id="Radiobutton_Inflow_unit_meters">
+                            <property name="command">set_inflow_unit</property>
                             <property name="text" translatable="yes">[m³/h]</property>
-                            <property name="value">2</property>
-                            <property name="variable">int:doplyw_jednostka</property>
+                            <property name="value">meters</property>
+                            <property name="variable">string:inflow_unit</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
@@ -1015,13 +1015,13 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="tk.Radiobutton" id="Radiobutton_Doplyw_litry">
-                            <property name="command">control_inflow_unit</property>
+                          <object class="tk.Radiobutton" id="Radiobutton_Inflow_unit_liters">
+                            <property name="command">set_inflow_unit</property>
                             <property name="compound">top</property>
                             <property name="font">TkDefaultFont</property>
                             <property name="text" translatable="yes">[l/s]</property>
-                            <property name="value">1</property>
-                            <property name="variable">int:doplyw_jednostka</property>
+                            <property name="value">liters</property>
+                            <property name="variable">string:inflow_unit</property>
                             <layout>
                               <property name="column">3</property>
                               <property name="propagate">True</property>
@@ -2978,7 +2978,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="But_Calculate">
-            <property name="command">calculate</property>
+            <property name="command">print_values</property>
             <property name="text" translatable="yes">Przelicz</property>
             <layout>
               <property name="column">4</property>

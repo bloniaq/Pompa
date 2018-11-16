@@ -28,6 +28,9 @@ class Variable():
                 obj=self: app.set_var_value(var, obj)
             )
 
+    def set_flow_value(self, variable_name, value):
+        pass
+
 
 class Flow():
     """class for flow"""
@@ -37,7 +40,18 @@ class Flow():
         self.unit = flow_unit
 
     def convert(self, new_unit):
-        pass
+        log.info('conversion func starts')
+        log.info('old value: {}'.format(self.value))
+        if new_unit == self.unit:
+            log.info('no need to conversion')
+            return
+        elif new_unit == 'meters':
+            self.unit = new_unit
+            self.value *= 3.6
+        elif new_unit == 'liters':
+            self.unit = new_unit
+            self.value /= 3.6
+        log.info('new value: {}'.format(self.value))
 
 
 class Lift():
@@ -120,6 +134,7 @@ class Well(Variable):
         self.inflow_max = Flow(0, 'liters')
         self.inflow_min = Flow(0, 'liters')
         self.variables = {}
+        # self.bind_traces_manual(self.app)
 
     def set_shape(self, shape):
         self.builder.tkvariables.__getitem__('shape').set(shape)
@@ -138,4 +153,11 @@ class Well(Variable):
             width.configure(state='normal')
         log.debug('changed shape to {}'.format(shape))
 
-    def set_inflow(self, variable, value, unit)
+    def bind_traces_manual(self, app):
+        variable = 'inflow_max'
+        log.debug('variable: {}'.format(variable))
+        variable_object = self.builder.get_variable(variable)
+        variable_object.trace(
+            'w', lambda *_,
+            var=variable: app.set_var_value(var, self.inflow_max)
+        )
