@@ -120,6 +120,7 @@ class Application():
         log.info('app set_var_value starts for {}'.format(variable_name))
         value = self.builder.get_variable(variable_name).get()
         log.info('the value: {}'.format(value))
+        log.warning(id(self.well.variables['well_diameter'][0]))
         obj.set_var_value(variable_name, value)
 
     def set_flow_value(self, variable_name, obj_variable):

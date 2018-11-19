@@ -1,3 +1,7 @@
+import logging
+
+log = logging.getLogger('Pompa/main.classes')
+
 default = {'mode': 'checking',
            'shape': 'round'}
 

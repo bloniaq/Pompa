@@ -1,99 +1,38 @@
-2018.11.16 15:30:34-DEBUG: started setting shape
-2018.11.16 15:30:34-DEBUG: new shape: round
-2018.11.16 15:30:34-DEBUG: changed shape to round
-2018.11.16 15:30:34-DEBUG: variable: well_diameter
-2018.11.16 15:30:34-DEBUG: variable: well_length
-2018.11.16 15:30:34-DEBUG: variable: well_width
-2018.11.16 15:30:34-DEBUG: variable: minimal_sewage_level
-2018.11.16 15:30:34-DEBUG: variable: ordinate_terrain
-2018.11.16 15:30:34-DEBUG: variable: ordinate_inlet
-2018.11.16 15:30:34-DEBUG: variable: ordinate_outlet
-2018.11.16 15:30:34-DEBUG: variable: ordinate_bottom
-2018.11.16 15:30:34-DEBUG: variable: ordinate_highest_point
-2018.11.16 15:30:34-DEBUG: variable: ordinate_final_table
-2018.11.16 15:30:34-DEBUG: variable: difference_in_start
-2018.11.16 15:30:34-DEBUG: variable: inflow_max
-2018.11.16 15:30:34-DEBUG: variable: inflow_min
-2018.11.16 15:30:34-INFO: changing unit of station inflow
-2018.11.16 15:30:34-INFO: ui max value: 0.0
-2018.11.16 15:30:34-INFO: engine max value: 0
-2018.11.16 15:30:34-INFO: ooold value: 0.0
-2018.11.16 15:30:34-INFO: new unit: liters
-2018.11.16 15:30:34-INFO: conversion func starts
-2018.11.16 15:30:34-INFO: old value: 0
-2018.11.16 15:30:34-INFO: no need to conversion
-2018.11.16 15:30:34-INFO: conversion func starts
-2018.11.16 15:30:34-INFO: old value: 0
-2018.11.16 15:30:34-INFO: no need to conversion
-2018.11.16 15:30:34-INFO: app set_var_value starts for inflow_max
-2018.11.16 15:30:34-INFO: the value: 0.0
-2018.11.16 15:30:34-INFO: setting inflow_max value to: 0.0
-2018.11.16 15:30:34-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
-2018.11.16 15:30:34-INFO: app set_var_value starts for inflow_min
-2018.11.16 15:30:34-INFO: the value: 0.0
-2018.11.16 15:30:34-INFO: setting inflow_min value to: 0.0
-2018.11.16 15:30:34-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
-2018.11.16 15:30:34-INFO: changed mode: checking
-2018.11.16 15:30:36-DEBUG: well_diameter - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: well_length - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: well_width - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: minimal_sewage_level - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: ordinate_terrain - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: ordinate_inlet - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: ordinate_outlet - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: ordinate_bottom - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: ordinate_highest_point - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: ordinate_final_table - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: difference_in_start - ui: liters, engine: 0
-2018.11.16 15:30:36-DEBUG: inflow_max - ui: liters, engine: 0.0
-2018.11.16 15:30:36-DEBUG: inflow_min - ui: liters, engine: 0.0
-2018.11.16 15:30:36-DEBUG: engine value: 0
-2018.11.16 15:30:36-DEBUG: engine value: 0
-2018.11.16 15:30:42-INFO: app set_var_value starts for well_diameter
-2018.11.16 15:30:42-INFO: app set_var_value starts for well_diameter
-2018.11.16 15:30:42-INFO: the value: 2.0
-2018.11.16 15:30:42-INFO: setting well_diameter value to: 2.0
-2018.11.16 15:30:42-DEBUG: well_diameter - var value: 2.0, ui var value: 2.0
-2018.11.16 15:30:43-DEBUG: well_diameter - ui: liters, engine: 2.0
-2018.11.16 15:30:43-DEBUG: well_length - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: well_width - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: minimal_sewage_level - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: ordinate_terrain - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: ordinate_inlet - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: ordinate_outlet - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: ordinate_bottom - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: ordinate_highest_point - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: ordinate_final_table - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: difference_in_start - ui: liters, engine: 0
-2018.11.16 15:30:43-DEBUG: inflow_max - ui: liters, engine: 0.0
-2018.11.16 15:30:43-DEBUG: inflow_min - ui: liters, engine: 0.0
-2018.11.16 15:30:43-DEBUG: engine value: 0
-2018.11.16 15:30:43-DEBUG: engine value: 0
-2018.11.16 15:30:51-INFO: app set_var_value starts for well_diameter
-2018.11.16 15:30:51-INFO: app set_var_value starts for well_diameter
-2018.11.16 15:30:51-INFO: the value: 4.0
-2018.11.16 15:30:51-INFO: setting well_diameter value to: 4.0
-2018.11.16 15:30:51-DEBUG: well_diameter - var value: 4.0, ui var value: 4.0
-2018.11.16 15:30:51-INFO: app set_var_value starts for well_diameter
-2018.11.16 15:30:51-INFO: the value: 45.0
-2018.11.16 15:30:51-INFO: setting well_diameter value to: 45.0
-2018.11.16 15:30:51-DEBUG: well_diameter - var value: 45.0, ui var value: 45.0
-2018.11.16 15:30:51-INFO: app set_var_value starts for well_diameter
-2018.11.16 15:30:51-INFO: the value: 455.0
-2018.11.16 15:30:51-INFO: setting well_diameter value to: 455.0
-2018.11.16 15:30:51-DEBUG: well_diameter - var value: 455.0, ui var value: 455.0
-2018.11.16 15:30:53-DEBUG: well_diameter - ui: liters, engine: 455.0
-2018.11.16 15:30:53-DEBUG: well_length - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: well_width - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: minimal_sewage_level - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: ordinate_terrain - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: ordinate_inlet - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: ordinate_outlet - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: ordinate_bottom - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: ordinate_highest_point - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: ordinate_final_table - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: difference_in_start - ui: liters, engine: 0
-2018.11.16 15:30:53-DEBUG: inflow_max - ui: liters, engine: 0.0
-2018.11.16 15:30:53-DEBUG: inflow_min - ui: liters, engine: 0.0
-2018.11.16 15:30:53-DEBUG: engine value: 0
-2018.11.16 15:30:53-DEBUG: engine value: 0
+2018.11.19 20:25:39-DEBUG: started setting shape
+2018.11.19 20:25:39-DEBUG: new shape: round
+2018.11.19 20:25:39-DEBUG: changed shape to round
+2018.11.19 20:25:39-DEBUG: variable: well_diameter
+2018.11.19 20:25:39-DEBUG: variable: well_length
+2018.11.19 20:25:39-DEBUG: variable: well_width
+2018.11.19 20:25:39-DEBUG: variable: minimal_sewage_level
+2018.11.19 20:25:39-DEBUG: variable: ordinate_terrain
+2018.11.19 20:25:39-DEBUG: variable: ordinate_inlet
+2018.11.19 20:25:39-DEBUG: variable: ordinate_outlet
+2018.11.19 20:25:39-DEBUG: variable: ordinate_bottom
+2018.11.19 20:25:39-DEBUG: variable: ordinate_highest_point
+2018.11.19 20:25:39-DEBUG: variable: ordinate_final_table
+2018.11.19 20:25:39-DEBUG: variable: difference_in_start
+2018.11.19 20:25:39-DEBUG: variable: inflow_max
+2018.11.19 20:25:39-DEBUG: variable: inflow_min
+2018.11.19 20:25:39-ERROR: 2. Bind traceing, well.diameter: 0
+2018.11.19 20:25:39-INFO: changing unit of station inflow
+2018.11.19 20:25:39-INFO: ui max value: 0.0
+2018.11.19 20:25:39-INFO: engine max value: 0
+2018.11.19 20:25:39-INFO: ooold value: 0.0
+2018.11.19 20:25:39-INFO: new unit: liters
+2018.11.19 20:25:39-INFO: conversion func starts
+2018.11.19 20:25:39-INFO: old value: 0
+2018.11.19 20:25:39-INFO: no need to conversion
+2018.11.19 20:25:39-INFO: conversion func starts
+2018.11.19 20:25:39-INFO: old value: 0
+2018.11.19 20:25:39-INFO: no need to conversion
+2018.11.19 20:25:39-INFO: app set_var_value starts for inflow_max
+2018.11.19 20:25:39-INFO: the value: 0.0
+2018.11.19 20:25:39-INFO: app set_var_value starts for inflow_min
+2018.11.19 20:25:39-INFO: the value: 0.0
+2018.11.19 20:25:39-INFO: changed mode: checking
+2018.11.19 20:25:54-INFO: app set_var_value starts for well_diameter
+2018.11.19 20:25:54-INFO: app set_var_value starts for well_diameter
+2018.11.19 20:25:54-INFO: the value: 1.0
+2018.11.19 20:25:55-INFO: app set_var_value starts for well_diameter
+2018.11.19 20:25:55-INFO: the value: 12.0

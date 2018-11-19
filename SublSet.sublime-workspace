@@ -279,7 +279,7 @@
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -336,8 +336,8 @@
 						"selection":
 						[
 							[
-								1529,
-								1529
+								3328,
+								3328
 							]
 						],
 						"settings":
@@ -363,10 +363,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 972.0,
+						"translation.y": 1503.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -459,7 +459,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1980.0,
+						"translation.y": 1278.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -490,10 +490,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 17487.0,
+						"translation.y": 981.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -521,10 +521,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 457.0,
+						"translation.y": 3049.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				}
 			]
@@ -614,7 +614,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

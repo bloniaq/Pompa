@@ -8,12 +8,21 @@ log = logging.getLogger('Pompa/main.classes')
 class Variable():
 
     def __init__(self, app):
-        pass
+        self.app = app
+        self.variables = {}
 
     def set_var_value(self, variable_name, value):
         log.info('setting {} value to: {}'.format(variable_name, value))
         variable = self.builder.get_variable(variable_name)
+        log.debug('dict przed przypisaniem {}'.format(id(self.variables[variable_name][0])))
         self.variables[variable_name][0] = value
+        log.debug('dict po przypsianiu {}'.format(id(self.variables[variable_name][0])))
+        log.debug('engine przed przypisaniem {}'.format(id(self.diameter)))
+        self.diameter = value
+        log.debug('engine po przypisaniu {}'.format(id(self.diameter)))
+        log.error(
+            '4. Var.set_var_value, well.diameter: {}'.format(
+                self.app.well.diameter))
         if variable.get() != value:
             variable.set(value)
         log.debug('{} - var value: {}, ui var value: {}'.format(
@@ -24,9 +33,11 @@ class Variable():
             log.debug('variable: {}'.format(variable))
             variable_object = self.builder.get_variable(variable)
             variable_object.trace(
-                'w', lambda *_, var=variable,
-                obj=self: app.set_var_value(var, obj)
+                'w', lambda *_, var=variable: app.set_var_value(var, self)
             )
+        log.error(
+            '2. Bind traceing, well.diameter: {}'.format(
+                self.app.well.diameter))
 
     def set_flow_value(self, variable_name, value):
         pass
@@ -133,7 +144,6 @@ class Well(Variable):
         self.ord_upper_level = 0
         self.inflow_max = Flow(0, 'liters')
         self.inflow_min = Flow(0, 'liters')
-        self.variables = {}
         # self.bind_traces_manual(self.app)
 
     def set_shape(self, shape):
