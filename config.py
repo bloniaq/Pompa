@@ -8,7 +8,7 @@ default = {'mode': 'checking',
 
 def well_vars(object_):
     variables = {
-        'well_diameter': [object_.diameter],
+        'well_diameter': [object_.__dict__['diameter']],
         'well_length': [object_.length],
         'well_width': [object_.width],
         'minimal_sewage_level': [object_.minimal_sewage_level],
