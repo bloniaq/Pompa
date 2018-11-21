@@ -1,66 +1,49 @@
-2018.11.20 23:31:31-DEBUG: started setting shape
-2018.11.20 23:31:31-DEBUG: new shape: round
-2018.11.20 23:31:31-DEBUG: changed shape to round
-2018.11.20 23:31:31-DEBUG: variable: well_diameter
-2018.11.20 23:31:31-DEBUG: variable: well_length
-2018.11.20 23:31:31-DEBUG: variable: well_width
-2018.11.20 23:31:31-DEBUG: variable: minimal_sewage_level
-2018.11.20 23:31:31-DEBUG: variable: ordinate_terrain
-2018.11.20 23:31:31-DEBUG: variable: ordinate_inlet
-2018.11.20 23:31:31-DEBUG: variable: ordinate_outlet
-2018.11.20 23:31:31-DEBUG: variable: ordinate_bottom
-2018.11.20 23:31:31-DEBUG: variable: ordinate_highest_point
-2018.11.20 23:31:31-DEBUG: variable: ordinate_final_table
-2018.11.20 23:31:31-DEBUG: variable: difference_in_start
-2018.11.20 23:31:31-DEBUG: variable: inflow_max
-2018.11.20 23:31:31-DEBUG: variable: inflow_min
-2018.11.20 23:31:31-INFO: changing unit of station inflow
-2018.11.20 23:31:31-INFO: ui max value: 0.0
-2018.11.20 23:31:31-INFO: engine max value: 0
-2018.11.20 23:31:31-INFO: ooold value: 0.0
-2018.11.20 23:31:31-INFO: new unit: liters
-2018.11.20 23:31:31-INFO: conversion func starts
-2018.11.20 23:31:31-INFO: old value: 0
-2018.11.20 23:31:31-INFO: no need to conversion
-2018.11.20 23:31:31-INFO: conversion func starts
-2018.11.20 23:31:31-INFO: old value: 0
-2018.11.20 23:31:31-INFO: no need to conversion
-2018.11.20 23:31:31-INFO: app set_var_value starts for inflow_max
-2018.11.20 23:31:31-INFO: the value: 0.0
-2018.11.20 23:31:31-INFO: setting inflow_max value to: 0.0
-2018.11.20 23:31:31-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
-2018.11.20 23:31:31-DEBUG: diam engine value: 0
-2018.11.20 23:31:31-INFO: app set_var_value starts for inflow_min
-2018.11.20 23:31:31-INFO: the value: 0.0
-2018.11.20 23:31:31-INFO: setting inflow_min value to: 0.0
-2018.11.20 23:31:31-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
-2018.11.20 23:31:31-DEBUG: diam engine value: 0
-2018.11.20 23:31:31-INFO: changed mode: checking
-2018.11.20 23:31:32-INFO: app set_var_value starts for well_diameter
-2018.11.20 23:31:32-INFO: app set_var_value starts for well_diameter
-2018.11.20 23:31:32-INFO: the value: 2.0
-2018.11.20 23:31:32-INFO: setting well_diameter value to: 2.0
-2018.11.20 23:31:32-DEBUG: well_diameter - var value: 2.0, ui var value: 2.0
-2018.11.20 23:31:32-DEBUG: diam engine value: 0
-2018.11.20 23:31:32-INFO: app set_var_value starts for well_diameter
-2018.11.20 23:31:32-INFO: app set_var_value starts for well_diameter
-2018.11.20 23:31:32-INFO: the value: 3.0
-2018.11.20 23:31:32-INFO: setting well_diameter value to: 3.0
-2018.11.20 23:31:32-DEBUG: well_diameter - var value: 3.0, ui var value: 3.0
-2018.11.20 23:31:32-DEBUG: diam engine value: 0
-2018.11.20 23:31:36-INFO: app set_var_value starts for well_diameter
-2018.11.20 23:31:36-INFO: app set_var_value starts for well_diameter
-2018.11.20 23:31:36-INFO: the value: 2.0
-2018.11.20 23:31:36-INFO: setting well_diameter value to: 2.0
-2018.11.20 23:31:36-DEBUG: well_diameter - var value: 2.0, ui var value: 2.0
-2018.11.20 23:31:36-DEBUG: diam engine value: 0
-2018.11.20 23:31:36-INFO: app set_var_value starts for well_diameter
-2018.11.20 23:31:36-INFO: the value: 23.0
-2018.11.20 23:31:36-INFO: setting well_diameter value to: 23.0
-2018.11.20 23:31:36-DEBUG: well_diameter - var value: 23.0, ui var value: 23.0
-2018.11.20 23:31:36-DEBUG: diam engine value: 0
-2018.11.20 23:31:37-INFO: app set_var_value starts for well_diameter
-2018.11.20 23:31:37-INFO: the value: 231.0
-2018.11.20 23:31:37-INFO: setting well_diameter value to: 231.0
-2018.11.20 23:31:37-DEBUG: well_diameter - var value: 231.0, ui var value: 231.0
-2018.11.20 23:31:37-DEBUG: diam engine value: 0
+2018.11.21 22:05:24-DEBUG: started setting shape
+2018.11.21 22:05:24-DEBUG: new shape: round
+2018.11.21 22:05:24-DEBUG: changed shape to round
+2018.11.21 22:05:24-DEBUG: variable: well_diameter
+2018.11.21 22:05:24-DEBUG: variable: well_length
+2018.11.21 22:05:24-DEBUG: variable: well_width
+2018.11.21 22:05:24-DEBUG: variable: minimal_sewage_level
+2018.11.21 22:05:24-DEBUG: variable: ordinate_terrain
+2018.11.21 22:05:24-DEBUG: variable: ordinate_inlet
+2018.11.21 22:05:24-DEBUG: variable: ordinate_outlet
+2018.11.21 22:05:24-DEBUG: variable: ordinate_bottom
+2018.11.21 22:05:24-DEBUG: variable: ordinate_highest_point
+2018.11.21 22:05:24-DEBUG: variable: ordinate_final_table
+2018.11.21 22:05:24-DEBUG: variable: difference_in_start
+2018.11.21 22:05:24-DEBUG: variable: inflow_max
+2018.11.21 22:05:24-DEBUG: variable: inflow_min
+2018.11.21 22:05:24-INFO: changing unit of station inflow
+2018.11.21 22:05:24-INFO: ui max value: 0.0
+2018.11.21 22:05:24-INFO: engine max value: 0
+2018.11.21 22:05:24-INFO: ooold value: 0.0
+2018.11.21 22:05:24-INFO: new unit: liters
+2018.11.21 22:05:24-INFO: conversion func starts
+2018.11.21 22:05:24-INFO: old value: 0
+2018.11.21 22:05:24-INFO: no need to conversion
+2018.11.21 22:05:24-INFO: conversion func starts
+2018.11.21 22:05:24-INFO: old value: 0
+2018.11.21 22:05:24-INFO: no need to conversion
+2018.11.21 22:05:24-INFO: app set_var_value starts for inflow_max
+2018.11.21 22:05:24-INFO: the value: 0.0
+2018.11.21 22:05:24-INFO: setting inflow_max value to: 0.0
+2018.11.21 22:05:24-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
+2018.11.21 22:05:24-DEBUG: diam engine value: 0
+2018.11.21 22:05:24-INFO: app set_var_value starts for inflow_min
+2018.11.21 22:05:24-INFO: the value: 0.0
+2018.11.21 22:05:24-INFO: setting inflow_min value to: 0.0
+2018.11.21 22:05:24-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
+2018.11.21 22:05:24-DEBUG: diam engine value: 0
+2018.11.21 22:05:24-INFO: changed mode: checking
+2018.11.21 22:05:25-INFO: app set_var_value starts for well_diameter
+2018.11.21 22:05:25-INFO: app set_var_value starts for well_diameter
+2018.11.21 22:05:25-INFO: the value: 1.0
+2018.11.21 22:05:25-INFO: setting well_diameter value to: 1.0
+2018.11.21 22:05:25-DEBUG: well_diameter - var value: 1.0, ui var value: 1.0
+2018.11.21 22:05:25-DEBUG: diam engine value: 1.0
+2018.11.21 22:05:26-INFO: app set_var_value starts for well_diameter
+2018.11.21 22:05:26-INFO: the value: 12.0
+2018.11.21 22:05:26-INFO: setting well_diameter value to: 12.0
+2018.11.21 22:05:26-DEBUG: well_diameter - var value: 12.0, ui var value: 12.0
+2018.11.21 22:05:26-DEBUG: diam engine value: 12.0

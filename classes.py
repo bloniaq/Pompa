@@ -11,14 +11,29 @@ class Variable():
         self.app = app
         self.variables = {}
 
+    def __setattr__(self, attr, value):
+        if '.' not in attr:
+            self.__dict__[attr] = value
+        else:
+            attr_name, rest = attr.split('.', 1)
+            setattr(getattr(self, attr_name), rest, value)
+
+    def __getattr__(self, attr):
+        if '.' not in attr:
+            return self.__dict__[attr]
+        else:
+            attr_name, rest = attr.split('.', 1)
+            return getattr(getattr(self, attr_name), rest)
+
     def set_var_value(self, variable_name, value):
         log.info('setting {} value to: {}'.format(variable_name, value))
         variable = self.builder.get_variable(variable_name)
-        self.variables[variable_name][0] = value
+        attribute = self.variables[variable_name][0]
+        setattr(self, attribute, value)
         if variable.get() != value:
             variable.set(value)
         log.debug('{} - var value: {}, ui var value: {}'.format(
-            variable_name, self.variables[variable_name][0], variable.get()))
+            variable_name, getattr(self, attribute), variable.get()))
         log.debug('diam engine value: {}'.format(self.diameter))
 
     def bind_traceing_to_ui_variables(self, app):

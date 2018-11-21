@@ -122,11 +122,6 @@ class Application():
         log.info('the value: {}'.format(value))
         obj.set_var_value(variable_name, value)
 
-    def set_flow_value(self, variable_name, obj_variable):
-        value = self.builder.tkvariables.__getitem__(variable_name).get()
-        obj.set_flow_value(value)
-        pass
-
     def set_inflow_unit(self):
         log.info('changing unit of station inflow')
         unit = self.builder.tkvariables.__getitem__('inflow_unit').get()
@@ -147,7 +142,7 @@ class Application():
         for key in self.well.variables:
             log.debug('{} - ui: {}, engine: {}'.format(
                 key, self.builder.tkvariables.__getitem__(key).get(),
-                self.well.variables[key][0]))
+                getattr(self.well, self.well.variables[key][0])))
         log.debug('inflow engine value: {}'.format(self.well.inflow_max.value))
         log.debug('diam engine value: {}'.format(self.well.diameter))
 
