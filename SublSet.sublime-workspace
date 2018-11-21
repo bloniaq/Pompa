@@ -143,7 +143,7 @@
 			"file": "Pompa.py",
 			"settings":
 			{
-				"buffer_size": 3556,
+				"buffer_size": 4961,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -152,7 +152,7 @@
 			"file": "config.py",
 			"settings":
 			{
-				"buffer_size": 1564,
+				"buffer_size": 1951,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -161,7 +161,7 @@
 			"file": "classes.py",
 			"settings":
 			{
-				"buffer_size": 4123,
+				"buffer_size": 4985,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -170,7 +170,7 @@
 			"file": "GUI_Pygubu.ui",
 			"settings":
 			{
-				"buffer_size": 177561,
+				"buffer_size": 177569,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -231,6 +231,7 @@
 	],
 	"file_history":
 	[
+		"/E/# PROGRAMOWANIE/Pompa/config.py",
 		"/E/# PROGRAMOWANIE/Pompa/.gitignore",
 		"/E/# PROGRAMOWANIE/Pompa/variables.csv",
 		"/E/# PROGRAMOWANIE/Pompa/oldPompa.py",
@@ -293,6 +294,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"variables",
+			"\n    ",
 			"textvariable",
 			"]\n",
 			"textvariable",
@@ -320,7 +323,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -329,15 +332,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3556,
+						"buffer_size": 4961,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3328,
-								3328
+								4893,
+								4893
 							]
 						],
 						"settings":
@@ -347,6 +350,14 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -363,10 +374,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1503.0,
+						"translation.y": 1674.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -375,15 +386,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1564,
+						"buffer_size": 1951,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								706,
-								706
+								1057,
+								1057
 							]
 						],
 						"settings":
@@ -400,13 +411,16 @@
 								}
 							],
 							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"spell_check": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
@@ -421,15 +435,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4123,
+						"buffer_size": 4985,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4123,
-								4123
+								677,
+								677
 							]
 						],
 						"settings":
@@ -451,6 +465,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -459,10 +477,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1278.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -471,7 +489,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 177561,
+						"buffer_size": 177569,
 						"regions":
 						{
 						},
@@ -493,7 +511,7 @@
 						"translation.y": 981.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -524,7 +542,7 @@
 						"translation.y": 3049.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

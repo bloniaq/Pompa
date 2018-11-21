@@ -14,19 +14,12 @@ class Variable():
     def set_var_value(self, variable_name, value):
         log.info('setting {} value to: {}'.format(variable_name, value))
         variable = self.builder.get_variable(variable_name)
-        log.debug('dict przed przypisaniem {}'.format(id(self.variables[variable_name][0])))
         self.variables[variable_name][0] = value
-        log.debug('dict po przypsianiu {}'.format(id(self.variables[variable_name][0])))
-        log.debug('engine przed przypisaniem {}'.format(id(self.diameter)))
-        self.diameter = value
-        log.debug('engine po przypisaniu {}'.format(id(self.diameter)))
-        log.error(
-            '4. Var.set_var_value, well.diameter: {}'.format(
-                self.app.well.diameter))
         if variable.get() != value:
             variable.set(value)
         log.debug('{} - var value: {}, ui var value: {}'.format(
             variable_name, self.variables[variable_name][0], variable.get()))
+        log.debug('diam engine value: {}'.format(self.diameter))
 
     def bind_traceing_to_ui_variables(self, app):
         for variable in self.variables:
@@ -35,9 +28,6 @@ class Variable():
             variable_object.trace(
                 'w', lambda *_, var=variable: app.set_var_value(var, self)
             )
-        log.error(
-            '2. Bind traceing, well.diameter: {}'.format(
-                self.app.well.diameter))
 
     def set_flow_value(self, variable_name, value):
         pass

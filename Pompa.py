@@ -120,7 +120,6 @@ class Application():
         log.info('app set_var_value starts for {}'.format(variable_name))
         value = self.builder.get_variable(variable_name).get()
         log.info('the value: {}'.format(value))
-        log.warning(id(self.well.variables['well_diameter'][0]))
         obj.set_var_value(variable_name, value)
 
     def set_flow_value(self, variable_name, obj_variable):
@@ -147,10 +146,10 @@ class Application():
     def print_values(self):
         for key in self.well.variables:
             log.debug('{} - ui: {}, engine: {}'.format(
-                key, self.builder.tkvariables.__getitem__('inflow_unit').get(),
+                key, self.builder.tkvariables.__getitem__(key).get(),
                 self.well.variables[key][0]))
-        log.debug('engine value: {}'.format(self.well.inflow_max.value))
-        log.debug('engine value: {}'.format(self.well.diameter))
+        log.debug('inflow engine value: {}'.format(self.well.inflow_max.value))
+        log.debug('diam engine value: {}'.format(self.well.diameter))
 
 
 if __name__ == '__main__':
