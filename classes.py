@@ -9,6 +9,7 @@ class Variable():
 
     def __init__(self, app):
         self.app = app
+        self.builder = app.builder
         self.variables = {}
 
     def __setattr__(self, attr, value):
@@ -70,40 +71,44 @@ class Flow():
         log.info('new value: {}'.format(self.value))
 
 
-class Lift():
+class Resistance():
     """class for lift"""
 
-    def __init__(self, lift_val, lift_unit):
-        self.value = lift_val
-        self.unit = lift_unit
+    def __init__(self):
+        self.string = ''
+        self.values = []
 
-    def convert(self, new_unit):
-        pass
+    def __setattr__(self, attribute, value):
+        if attribute != 'string':
+            super().__setattr__(attribute, value)
+        elif value != '':
+            super().__setattr__(attribute, value)
+            self.values = [float(s) for s in value.split(',')]
 
 
 class Pipe(Variable):
     """class for pipes"""
 
     def __init__(self, app):
-        self.app = app
-        self.builder = app.builder
+        super().__init__(app)
         self.length = 0
         self.diameter = 0
         self.roughness = 0
-        self.resistance_string = ''
-        self.local_resitance = []
+        self.resistance = Resistance()
         self.parallels = 1
 
+
+'''
     def resistance_to_cvar(self, variable):
         var = self.app.builder.get_variable(variable)
+'''
 
 
 class Pump(Variable):
     """class for pumps"""
 
     def __init__(self, app):
-        self.app = app
-        self.builder = app.builder
+        super().__init__(app)
         self.cycle_time = 0
         self.contour = 0
         self.characteristic = {}
@@ -113,8 +118,7 @@ class Pump(Variable):
     def add_characteristic_points(
             self, point_id, flow_val, flow_unit, lift_val, lift_unit):
         flow = Flow(flow_val, flow_unit)
-        lift = Lift(lift_val, lift_unit)
-        self.characteristic[point_id] = (flow, lift)
+        self.characteristic[point_id] = (flow)
         self.sort_characteristic_points()
 
     def sort_characteristic_points(self):
@@ -131,8 +135,7 @@ class Well(Variable):
     default = config.default
 
     def __init__(self, app):
-        self.app = app
-        self.builder = app.builder
+        super().__init__(app)
         self.reserve_pumps = 'safe'
         self.shape = self.builder.tkvariables.__getitem__('shape')
         self.set_shape(self.default['shape'])

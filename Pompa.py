@@ -77,13 +77,14 @@ class Application():
         self.pump = classes.Pump(self)
         # self.bind_ui_variables(self.pump)
         self.discharge_pipe = classes.Pipe(self)
-        # self.bind_ui_variables(self.inlet)
+        self.bind_ui_variables(
+            self.discharge_pipe, config.discharge_pipe_vars(self.well))
         self.collector = classes.Pipe(self)
-        # self.bind_ui_variables(self.outlet)+
+        # self.bind_ui_variables(self.collector)
         self.special_traces_binding()
 
     def bind_ui_variables(self, instance, binder):
-        instance.variables = binder
+        setattr(instance, 'variables', binder)
         instance.bind_traceing_to_ui_variables(self)
 
     def special_traces_binding(self):
@@ -145,6 +146,8 @@ class Application():
                 getattr(self.well, self.well.variables[key][0])))
         log.debug('inflow engine value: {}'.format(self.well.inflow_max.value))
         log.debug('diam engine value: {}'.format(self.well.diameter))
+        log.debug('res engine value: {}'.format(
+            self.discharge_pipe.resistance.values))
 
 
 if __name__ == '__main__':

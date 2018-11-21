@@ -1,49 +1,128 @@
-2018.11.21 22:05:24-DEBUG: started setting shape
-2018.11.21 22:05:24-DEBUG: new shape: round
-2018.11.21 22:05:24-DEBUG: changed shape to round
-2018.11.21 22:05:24-DEBUG: variable: well_diameter
-2018.11.21 22:05:24-DEBUG: variable: well_length
-2018.11.21 22:05:24-DEBUG: variable: well_width
-2018.11.21 22:05:24-DEBUG: variable: minimal_sewage_level
-2018.11.21 22:05:24-DEBUG: variable: ordinate_terrain
-2018.11.21 22:05:24-DEBUG: variable: ordinate_inlet
-2018.11.21 22:05:24-DEBUG: variable: ordinate_outlet
-2018.11.21 22:05:24-DEBUG: variable: ordinate_bottom
-2018.11.21 22:05:24-DEBUG: variable: ordinate_highest_point
-2018.11.21 22:05:24-DEBUG: variable: ordinate_final_table
-2018.11.21 22:05:24-DEBUG: variable: difference_in_start
-2018.11.21 22:05:24-DEBUG: variable: inflow_max
-2018.11.21 22:05:24-DEBUG: variable: inflow_min
-2018.11.21 22:05:24-INFO: changing unit of station inflow
-2018.11.21 22:05:24-INFO: ui max value: 0.0
-2018.11.21 22:05:24-INFO: engine max value: 0
-2018.11.21 22:05:24-INFO: ooold value: 0.0
-2018.11.21 22:05:24-INFO: new unit: liters
-2018.11.21 22:05:24-INFO: conversion func starts
-2018.11.21 22:05:24-INFO: old value: 0
-2018.11.21 22:05:24-INFO: no need to conversion
-2018.11.21 22:05:24-INFO: conversion func starts
-2018.11.21 22:05:24-INFO: old value: 0
-2018.11.21 22:05:24-INFO: no need to conversion
-2018.11.21 22:05:24-INFO: app set_var_value starts for inflow_max
-2018.11.21 22:05:24-INFO: the value: 0.0
-2018.11.21 22:05:24-INFO: setting inflow_max value to: 0.0
-2018.11.21 22:05:24-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
-2018.11.21 22:05:24-DEBUG: diam engine value: 0
-2018.11.21 22:05:24-INFO: app set_var_value starts for inflow_min
-2018.11.21 22:05:24-INFO: the value: 0.0
-2018.11.21 22:05:24-INFO: setting inflow_min value to: 0.0
-2018.11.21 22:05:24-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
-2018.11.21 22:05:24-DEBUG: diam engine value: 0
-2018.11.21 22:05:24-INFO: changed mode: checking
-2018.11.21 22:05:25-INFO: app set_var_value starts for well_diameter
-2018.11.21 22:05:25-INFO: app set_var_value starts for well_diameter
-2018.11.21 22:05:25-INFO: the value: 1.0
-2018.11.21 22:05:25-INFO: setting well_diameter value to: 1.0
-2018.11.21 22:05:25-DEBUG: well_diameter - var value: 1.0, ui var value: 1.0
-2018.11.21 22:05:25-DEBUG: diam engine value: 1.0
-2018.11.21 22:05:26-INFO: app set_var_value starts for well_diameter
-2018.11.21 22:05:26-INFO: the value: 12.0
-2018.11.21 22:05:26-INFO: setting well_diameter value to: 12.0
-2018.11.21 22:05:26-DEBUG: well_diameter - var value: 12.0, ui var value: 12.0
-2018.11.21 22:05:26-DEBUG: diam engine value: 12.0
+2018.11.21 22:53:19-DEBUG: started setting shape
+2018.11.21 22:53:19-DEBUG: new shape: round
+2018.11.21 22:53:19-DEBUG: changed shape to round
+2018.11.21 22:53:19-DEBUG: variable: well_diameter
+2018.11.21 22:53:19-DEBUG: variable: well_length
+2018.11.21 22:53:19-DEBUG: variable: well_width
+2018.11.21 22:53:19-DEBUG: variable: minimal_sewage_level
+2018.11.21 22:53:19-DEBUG: variable: ordinate_terrain
+2018.11.21 22:53:19-DEBUG: variable: ordinate_inlet
+2018.11.21 22:53:19-DEBUG: variable: ordinate_outlet
+2018.11.21 22:53:19-DEBUG: variable: ordinate_bottom
+2018.11.21 22:53:19-DEBUG: variable: ordinate_highest_point
+2018.11.21 22:53:19-DEBUG: variable: ordinate_final_table
+2018.11.21 22:53:19-DEBUG: variable: difference_in_start
+2018.11.21 22:53:19-DEBUG: variable: inflow_max
+2018.11.21 22:53:19-DEBUG: variable: inflow_min
+2018.11.21 22:53:19-INFO: changing unit of station inflow
+2018.11.21 22:53:19-INFO: ui max value: 0.0
+2018.11.21 22:53:19-INFO: engine max value: 0
+2018.11.21 22:53:19-INFO: ooold value: 0.0
+2018.11.21 22:53:19-INFO: new unit: liters
+2018.11.21 22:53:19-INFO: conversion func starts
+2018.11.21 22:53:19-INFO: old value: 0
+2018.11.21 22:53:19-INFO: no need to conversion
+2018.11.21 22:53:19-INFO: conversion func starts
+2018.11.21 22:53:19-INFO: old value: 0
+2018.11.21 22:53:19-INFO: no need to conversion
+2018.11.21 22:53:19-INFO: app set_var_value starts for inflow_max
+2018.11.21 22:53:19-INFO: the value: 0.0
+2018.11.21 22:53:19-INFO: setting inflow_max value to: 0.0
+2018.11.21 22:53:19-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
+2018.11.21 22:53:19-DEBUG: diam engine value: 0
+2018.11.21 22:53:19-INFO: app set_var_value starts for inflow_min
+2018.11.21 22:53:19-INFO: the value: 0.0
+2018.11.21 22:53:19-INFO: setting inflow_min value to: 0.0
+2018.11.21 22:53:19-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
+2018.11.21 22:53:19-DEBUG: diam engine value: 0
+2018.11.21 22:53:19-DEBUG: variable: length_discharge_pipe
+2018.11.21 22:53:19-DEBUG: variable: diameter_discharge_pipe
+2018.11.21 22:53:19-DEBUG: variable: roughness_discharge_pipe
+2018.11.21 22:53:19-DEBUG: variable: resistance_discharge_pipe
+2018.11.21 22:53:19-INFO: changed mode: checking
+2018.11.21 22:53:24-INFO: app set_var_value starts for resistance_discharge_pipe
+2018.11.21 22:53:24-INFO: the value: 1
+2018.11.21 22:53:24-INFO: setting resistance_discharge_pipe value to: 1
+2018.11.21 22:53:24-DEBUG: resistance_discharge_pipe - var value: 1, ui var value: 1
+2018.11.21 22:53:24-DEBUG: diam engine value: 0
+2018.11.21 22:53:24-INFO: app set_var_value starts for resistance_discharge_pipe
+2018.11.21 22:53:24-INFO: the value: 12
+2018.11.21 22:53:24-INFO: setting resistance_discharge_pipe value to: 12
+2018.11.21 22:53:24-DEBUG: resistance_discharge_pipe - var value: 12, ui var value: 12
+2018.11.21 22:53:24-DEBUG: diam engine value: 0
+2018.11.21 22:53:24-INFO: app set_var_value starts for resistance_discharge_pipe
+2018.11.21 22:53:24-INFO: the value: 123
+2018.11.21 22:53:24-INFO: setting resistance_discharge_pipe value to: 123
+2018.11.21 22:53:24-DEBUG: resistance_discharge_pipe - var value: 123, ui var value: 123
+2018.11.21 22:53:24-DEBUG: diam engine value: 0
+2018.11.21 22:53:26-INFO: app set_var_value starts for resistance_discharge_pipe
+2018.11.21 22:53:26-INFO: the value: 123,
+2018.11.21 22:53:26-INFO: setting resistance_discharge_pipe value to: 123,
+2018.11.21 22:53:27-INFO: app set_var_value starts for resistance_discharge_pipe
+2018.11.21 22:53:27-INFO: the value: 123,5
+2018.11.21 22:53:27-INFO: setting resistance_discharge_pipe value to: 123,5
+2018.11.21 22:53:27-DEBUG: resistance_discharge_pipe - var value: 123,5, ui var value: 123,5
+2018.11.21 22:53:27-DEBUG: diam engine value: 0
+2018.11.21 22:53:27-INFO: app set_var_value starts for resistance_discharge_pipe
+2018.11.21 22:53:27-INFO: the value: 123,56
+2018.11.21 22:53:27-INFO: setting resistance_discharge_pipe value to: 123,56
+2018.11.21 22:53:27-DEBUG: resistance_discharge_pipe - var value: 123,56, ui var value: 123,56
+2018.11.21 22:53:27-DEBUG: diam engine value: 0
+2018.11.21 22:53:28-INFO: app set_var_value starts for resistance_discharge_pipe
+2018.11.21 22:53:28-INFO: the value: 123,56.
+2018.11.21 22:53:28-INFO: setting resistance_discharge_pipe value to: 123,56.
+2018.11.21 22:53:28-DEBUG: resistance_discharge_pipe - var value: 123,56., ui var value: 123,56.
+2018.11.21 22:53:28-DEBUG: diam engine value: 0
+2018.11.21 22:53:28-INFO: app set_var_value starts for resistance_discharge_pipe
+2018.11.21 22:53:28-INFO: the value: 123,56.7
+2018.11.21 22:53:28-INFO: setting resistance_discharge_pipe value to: 123,56.7
+2018.11.21 22:53:28-DEBUG: resistance_discharge_pipe - var value: 123,56.7, ui var value: 123,56.7
+2018.11.21 22:53:28-DEBUG: diam engine value: 0
+2018.11.21 22:53:30-DEBUG: well_diameter - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: well_length - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: well_width - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: minimal_sewage_level - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: ordinate_terrain - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: ordinate_inlet - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: ordinate_outlet - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: ordinate_bottom - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: ordinate_highest_point - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: ordinate_final_table - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: difference_in_start - ui: 0.0, engine: 0
+2018.11.21 22:53:30-DEBUG: inflow_max - ui: 0.0, engine: 0.0
+2018.11.21 22:53:30-DEBUG: inflow_min - ui: 0.0, engine: 0.0
+2018.11.21 22:53:30-DEBUG: inflow engine value: 0.0
+2018.11.21 22:53:30-DEBUG: diam engine value: 0
+2018.11.21 22:53:30-DEBUG: res engine value: [123.0, 56.7]
+2018.11.21 22:54:27-INFO: app set_var_value starts for minimal_sewage_level
+2018.11.21 22:54:27-INFO: app set_var_value starts for minimal_sewage_level
+2018.11.21 22:54:27-INFO: the value: 1.0
+2018.11.21 22:54:27-INFO: setting minimal_sewage_level value to: 1.0
+2018.11.21 22:54:27-DEBUG: minimal_sewage_level - var value: 1.0, ui var value: 1.0
+2018.11.21 22:54:27-DEBUG: diam engine value: 0
+2018.11.21 22:54:27-INFO: app set_var_value starts for minimal_sewage_level
+2018.11.21 22:54:27-INFO: the value: 12.0
+2018.11.21 22:54:27-INFO: setting minimal_sewage_level value to: 12.0
+2018.11.21 22:54:27-DEBUG: minimal_sewage_level - var value: 12.0, ui var value: 12.0
+2018.11.21 22:54:27-DEBUG: diam engine value: 0
+2018.11.21 22:54:27-INFO: app set_var_value starts for minimal_sewage_level
+2018.11.21 22:54:27-INFO: the value: 123.0
+2018.11.21 22:54:27-INFO: setting minimal_sewage_level value to: 123.0
+2018.11.21 22:54:27-DEBUG: minimal_sewage_level - var value: 123.0, ui var value: 123.0
+2018.11.21 22:54:27-DEBUG: diam engine value: 0
+2018.11.21 22:54:29-DEBUG: well_diameter - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: well_length - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: well_width - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: minimal_sewage_level - ui: 123.0, engine: 123.0
+2018.11.21 22:54:29-DEBUG: ordinate_terrain - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: ordinate_inlet - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: ordinate_outlet - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: ordinate_bottom - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: ordinate_highest_point - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: ordinate_final_table - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: difference_in_start - ui: 0.0, engine: 0
+2018.11.21 22:54:29-DEBUG: inflow_max - ui: 0.0, engine: 0.0
+2018.11.21 22:54:29-DEBUG: inflow_min - ui: 0.0, engine: 0.0
+2018.11.21 22:54:29-DEBUG: inflow engine value: 0.0
+2018.11.21 22:54:29-DEBUG: diam engine value: 0
+2018.11.21 22:54:29-DEBUG: res engine value: [123.0, 56.7]

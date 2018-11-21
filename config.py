@@ -40,7 +40,7 @@ def discharge_pipe_vars(object_):
         'length_discharge_pipe': ['length'],
         'diameter_discharge_pipe': ['diameter'],
         'roughness_discharge_pipe': ['roughness'],
-        'resistance_discharge_pipe': ['resistance_string']
+        'resistance_discharge_pipe': ['resistance.string']
     }
     return variables
 
@@ -50,7 +50,7 @@ def collector_vars(object_):
         'number_of_collectors': ['parallels'],
         'length_collector': ['length'],
         'roughness_collector': ['roughness'],
-        'resistance_collector': ['resistance_string'],
+        'resistance_collector': ['resistance.string'],
         'diameter_collector': ['diameter']
     }
     return variables
