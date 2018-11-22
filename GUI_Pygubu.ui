@@ -1176,7 +1176,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <child>
                               <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_m3">
                                 <property name="anchor">w</property>
-                                <property name="command">control_pump_flow_unit</property>
+                                <property name="command">set_pump_flow_unit</property>
                                 <property name="height">0</property>
                                 <property name="text" translatable="yes">[m³/h]</property>
                                 <property name="value">2</property>
@@ -1190,7 +1190,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             </child>
                             <child>
                               <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_l">
-                                <property name="command">control_pump_flow_unit</property>
+                                <property name="command">set_pump_flow_unit</property>
                                 <property name="text" translatable="yes">[l/s]</property>
                                 <property name="value">1</property>
                                 <property name="variable">int:char_pompy_jednostka</property>

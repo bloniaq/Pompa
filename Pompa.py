@@ -81,14 +81,10 @@ class Application():
             self.discharge_pipe, config.discharge_pipe_vars(self.well))
         self.collector = classes.Pipe(self)
         # self.bind_ui_variables(self.collector)
-        self.special_traces_binding()
 
     def bind_ui_variables(self, instance, binder):
         setattr(instance, 'variables', binder)
         instance.bind_traceing_to_ui_variables(self)
-
-    def special_traces_binding(self):
-        pass
 
     def load_data(self):
         pass
@@ -126,8 +122,8 @@ class Application():
     def set_inflow_unit(self):
         log.info('changing unit of station inflow')
         unit = self.builder.tkvariables.__getitem__('inflow_unit').get()
-        log.info('ui max value: {}'.format(self.builder.tkvariables.__getitem__(
-            'inflow_max').get()))
+        log.info('ui max value: {}'.format(
+            self.builder.tkvariables.__getitem__('inflow_max').get()))
         log.info('engine max value: {}'.format(self.well.inflow_max.value))
         log.info('ooold value: {}'.format(self.builder.tkvariables.__getitem__(
             'inflow_min').get()))
@@ -138,6 +134,20 @@ class Application():
             self.well.inflow_max.value)
         self.builder.tkvariables.__getitem__('inflow_min').set(
             self.well.inflow_min.value)
+
+    def set_pump_flow_unit(self):
+        pass
+
+    def pump_get_coords(self):
+        log.info('')
+        log.info('uruchomiono funkcję get_coords')
+        entry_q = self.builder.get_object('Entry_Wsp_q')
+        val_q = entry_q.get()
+        entry_q.delete(0, 'end')
+        entry_h = self.builder.get_object('Entry_Wsp_h')
+        val_h = entry_h.get()
+        entry_h.delete(0, 'end')
+        # self.pump_add_point(val_q, val_h)
 
     def print_values(self):
         for key in self.well.variables:

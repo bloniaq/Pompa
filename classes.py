@@ -45,9 +45,6 @@ class Variable():
                 'w', lambda *_, var=variable: app.set_var_value(var, self)
             )
 
-    def set_flow_value(self, variable_name, value):
-        pass
-
 
 class Flow():
     """class for flow"""
@@ -64,10 +61,10 @@ class Flow():
             return
         elif new_unit == 'meters':
             self.unit = new_unit
-            self.value *= 3.6
+            self.value = round(self.value * 3.6, 3)
         elif new_unit == 'liters':
             self.unit = new_unit
-            self.value /= 3.6
+            self.value = round(self.value / 3.6, 3)
         log.info('new value: {}'.format(self.value))
 
 
@@ -96,12 +93,6 @@ class Pipe(Variable):
         self.roughness = 0
         self.resistance = Resistance()
         self.parallels = 1
-
-
-'''
-    def resistance_to_cvar(self, variable):
-        var = self.app.builder.get_variable(variable)
-'''
 
 
 class Pump(Variable):
