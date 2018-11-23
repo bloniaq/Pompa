@@ -139,12 +139,11 @@ class Application():
         pass
 
     def pump_get_coords(self):
-        log.info('')
-        log.info('uruchomiono funkcję get_coords')
-        entry_q = self.builder.get_object('Entry_Wsp_q')
+        log.info('get_coords started')
+        entry_q = self.builder.get_object('Entry_Add_char_point_flow')
         val_q = entry_q.get()
         entry_q.delete(0, 'end')
-        entry_h = self.builder.get_object('Entry_Wsp_h')
+        entry_h = self.builder.get_object('Entry_Add_char_point_lift')
         val_h = entry_h.get()
         entry_h.delete(0, 'end')
         # self.pump_add_point(val_q, val_h)

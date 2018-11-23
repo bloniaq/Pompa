@@ -1370,7 +1370,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </columns>
                                 </layout>
                                 <child>
-                                  <object class="ttk.Label" id="Label_Wsp_q">
+                                  <object class="ttk.Label" id="Label_Add_char_point_flow">
                                     <property name="text" translatable="yes">Przepływ Q [l/s]</property>
                                     <property name="textvariable">string:wsp_q_text</property>
                                     <layout>
@@ -1381,8 +1381,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="ttk.Entry" id="Entry_Wsp_q">
-                                    <property name="textvariable">double:wsp_q</property>
+                                  <object class="ttk.Entry" id="Entry_Add_char_point_flow">
+                                    <property name="textvariable">double:add_char_point_flow</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -1392,7 +1392,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="ttk.Label" id="Label_Wsp_h">
+                                  <object class="ttk.Label" id="Label_Add_char_point_lift">
                                     <property name="text" translatable="yes">Wys. podnoszenia [m]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -1402,8 +1402,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="ttk.Entry" id="Entry_Wsp_h">
-                                    <property name="textvariable">double:wsp_h</property>
+                                  <object class="ttk.Entry" id="Entry_Add_char_point_lift">
+                                    <property name="textvariable">double:add_char_point_lift</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -1433,7 +1433,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Frame" id="Frame_Wykres">
+                      <object class="ttk.Frame" id="Frame_Chart">
                         <property name="height">100</property>
                         <property name="padding">20</property>
                         <property name="relief">groove</property>
@@ -1463,12 +1463,12 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </object>
             </child>
             <child>
-              <object class="ttk.Notebook.Tab" id="Tab_Materialy">
+              <object class="ttk.Notebook.Tab" id="Tab_Materials">
                 <property name="padding">5</property>
                 <property name="state">normal</property>
                 <property name="text" translatable="yes">Dane materiałowe</property>
                 <child>
-                  <object class="ttk.Frame" id="Frame_Materialy">
+                  <object class="ttk.Frame" id="Frame_Materials">
                     <property name="height">200</property>
                     <property name="padding">40</property>
                     <property name="relief">groove</property>
