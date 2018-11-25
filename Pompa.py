@@ -1,7 +1,10 @@
+import tkinter as tk  # for python 3
+'''
 try:
     import tkinter as tk  # for python 3
 except:
     import Tkinter as tk  # for python
+'''
 import pygubu
 import logging
 
@@ -56,7 +59,6 @@ class Application():
         # 3: Create the widget using a master as parent
         self.mainwindow = self.builder.get_object('Toplevel_Main')
         self.filepath = self.builder.get_object('filepath')
-        self.tree = self.builder.get_object('Treeview_Pump')
         self.pump_characteristic = {}
 
         # 4: Setting callbacks
@@ -72,15 +74,15 @@ class Application():
 
     def create_objects(self):
         self.well = classes.Well(self)
-        self.bind_ui_variables(self.well, config.well_vars(self.well))
+        self.bind_ui_variables(self.well, config.well_vars())
         self.set_inflow_unit()
         self.pump = classes.Pump(self)
-        # self.bind_ui_variables(self.pump)
+        self.bind_ui_variables(self.pump, config.pump_vars())
         self.discharge_pipe = classes.Pipe(self)
         self.bind_ui_variables(
-            self.discharge_pipe, config.discharge_pipe_vars(self.well))
+            self.discharge_pipe, config.discharge_pipe_vars())
         self.collector = classes.Pipe(self)
-        # self.bind_ui_variables(self.collector)
+        self.bind_ui_variables(self.collector, config.collector_vars())
 
     def bind_ui_variables(self, instance, binder):
         setattr(instance, 'variables', binder)
@@ -136,17 +138,26 @@ class Application():
             self.well.inflow_min.value)
 
     def set_pump_flow_unit(self):
-        pass
+        log.info('set_pump_flow_unit started')
+        current_setting = self.builder.tkvariables.__getitem__(
+            'pump_flow_unit').get()
+        self.pump.set_flow_unit(current_setting)
 
     def pump_get_coords(self):
         log.info('get_coords started')
-        entry_q = self.builder.get_object('Entry_Add_char_point_flow')
-        val_q = entry_q.get()
-        entry_q.delete(0, 'end')
-        entry_h = self.builder.get_object('Entry_Add_char_point_lift')
-        val_h = entry_h.get()
-        entry_h.delete(0, 'end')
-        # self.pump_add_point(val_q, val_h)
+        flow_entry = self.builder.get_object('Entry_Add_char_point_flow')
+        flow_value = flow_entry.get()
+        flow_entry.delete(0, 'end')
+        lift_entry = self.builder.get_object('Entry_Add_char_point_lift')
+        lift_value = lift_entry.get()
+        lift_entry.delete(0, 'end')
+        self.pump.add_point(flow_value, lift_value)
+
+    def pump_delete_point(self):
+        log.info('pump_delete_button started')
+        deleted_id = self.pump.tree.focus()
+        if deleted_id != '':
+            self.pump.delete_point(deleted_id)
 
     def print_values(self):
         for key in self.well.variables:
@@ -157,6 +168,9 @@ class Application():
         log.debug('diam engine value: {}'.format(self.well.diameter))
         log.debug('res engine value: {}'.format(
             self.discharge_pipe.resistance.values))
+        log.debug('types: diam: {}, res: {}'.format(
+            type(self.well.diameter), type(
+                self.discharge_pipe.resistance.values)))
 
 
 if __name__ == '__main__':

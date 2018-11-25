@@ -1,509 +1,320 @@
-2018.11.22 15:07:30-DEBUG: started setting shape
-2018.11.22 15:07:30-DEBUG: new shape: round
-2018.11.22 15:07:30-DEBUG: changed shape to round
-2018.11.22 15:07:30-DEBUG: variable: well_diameter
-2018.11.22 15:07:30-DEBUG: variable: well_length
-2018.11.22 15:07:30-DEBUG: variable: well_width
-2018.11.22 15:07:30-DEBUG: variable: minimal_sewage_level
-2018.11.22 15:07:30-DEBUG: variable: ordinate_terrain
-2018.11.22 15:07:30-DEBUG: variable: ordinate_inlet
-2018.11.22 15:07:30-DEBUG: variable: ordinate_outlet
-2018.11.22 15:07:30-DEBUG: variable: ordinate_bottom
-2018.11.22 15:07:30-DEBUG: variable: ordinate_highest_point
-2018.11.22 15:07:30-DEBUG: variable: ordinate_final_table
-2018.11.22 15:07:30-DEBUG: variable: difference_in_start
-2018.11.22 15:07:30-DEBUG: variable: inflow_max
-2018.11.22 15:07:30-DEBUG: variable: inflow_min
-2018.11.22 15:07:30-INFO: changing unit of station inflow
-2018.11.22 15:07:30-INFO: ui max value: 0.0
-2018.11.22 15:07:30-INFO: engine max value: 0
-2018.11.22 15:07:30-INFO: ooold value: 0.0
-2018.11.22 15:07:30-INFO: new unit: liters
-2018.11.22 15:07:30-INFO: conversion func starts
-2018.11.22 15:07:30-INFO: old value: 0
-2018.11.22 15:07:30-INFO: no need to conversion
-2018.11.22 15:07:30-INFO: conversion func starts
-2018.11.22 15:07:30-INFO: old value: 0
-2018.11.22 15:07:30-INFO: no need to conversion
-2018.11.22 15:07:30-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:30-INFO: the value: 0.0
-2018.11.22 15:07:30-INFO: setting inflow_max value to: 0.0
-2018.11.22 15:07:30-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
-2018.11.22 15:07:30-DEBUG: diam engine value: 0
-2018.11.22 15:07:30-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:30-INFO: the value: 0.0
-2018.11.22 15:07:30-INFO: setting inflow_min value to: 0.0
-2018.11.22 15:07:30-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
-2018.11.22 15:07:30-DEBUG: diam engine value: 0
-2018.11.22 15:07:30-DEBUG: variable: length_discharge_pipe
-2018.11.22 15:07:30-DEBUG: variable: diameter_discharge_pipe
-2018.11.22 15:07:30-DEBUG: variable: roughness_discharge_pipe
-2018.11.22 15:07:30-DEBUG: variable: resistance_discharge_pipe
-2018.11.22 15:07:30-INFO: changed mode: checking
-2018.11.22 15:07:34-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:34-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:34-INFO: the value: 1.0
-2018.11.22 15:07:34-INFO: setting inflow_min value to: 1.0
-2018.11.22 15:07:34-DEBUG: inflow_min - var value: 1.0, ui var value: 1.0
-2018.11.22 15:07:34-DEBUG: diam engine value: 0
-2018.11.22 15:07:34-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:34-INFO: the value: 13.0
-2018.11.22 15:07:34-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:34-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:34-DEBUG: diam engine value: 0
-2018.11.22 15:07:34-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:34-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:34-INFO: the value: 5.0
-2018.11.22 15:07:34-INFO: setting inflow_max value to: 5.0
-2018.11.22 15:07:34-DEBUG: inflow_max - var value: 5.0, ui var value: 5.0
-2018.11.22 15:07:34-DEBUG: diam engine value: 0
-2018.11.22 15:07:35-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:35-INFO: the value: 52.0
-2018.11.22 15:07:35-INFO: setting inflow_max value to: 52.0
-2018.11.22 15:07:35-DEBUG: inflow_max - var value: 52.0, ui var value: 52.0
-2018.11.22 15:07:35-DEBUG: diam engine value: 0
-2018.11.22 15:07:35-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:35-INFO: the value: 521.0
-2018.11.22 15:07:35-INFO: setting inflow_max value to: 521.0
-2018.11.22 15:07:35-DEBUG: inflow_max - var value: 521.0, ui var value: 521.0
-2018.11.22 15:07:35-DEBUG: diam engine value: 0
-2018.11.22 15:07:36-INFO: changing unit of station inflow
-2018.11.22 15:07:36-INFO: ui max value: 521.0
-2018.11.22 15:07:36-INFO: engine max value: 521.0
-2018.11.22 15:07:36-INFO: ooold value: 13.0
-2018.11.22 15:07:36-INFO: new unit: meters
-2018.11.22 15:07:36-INFO: conversion func starts
-2018.11.22 15:07:36-INFO: old value: 521.0
-2018.11.22 15:07:36-INFO: new value: 1875.6
-2018.11.22 15:07:36-INFO: conversion func starts
-2018.11.22 15:07:36-INFO: old value: 13.0
-2018.11.22 15:07:36-INFO: new value: 46.8
-2018.11.22 15:07:36-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:36-INFO: the value: 1875.6
-2018.11.22 15:07:36-INFO: setting inflow_max value to: 1875.6
-2018.11.22 15:07:36-DEBUG: inflow_max - var value: 1875.6, ui var value: 1875.6
-2018.11.22 15:07:36-DEBUG: diam engine value: 0
-2018.11.22 15:07:36-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:36-INFO: the value: 46.8
-2018.11.22 15:07:36-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:07:36-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:07:36-DEBUG: diam engine value: 0
-2018.11.22 15:07:37-INFO: changing unit of station inflow
-2018.11.22 15:07:37-INFO: ui max value: 1875.6
-2018.11.22 15:07:37-INFO: engine max value: 1875.6
-2018.11.22 15:07:37-INFO: ooold value: 46.8
-2018.11.22 15:07:37-INFO: new unit: liters
-2018.11.22 15:07:37-INFO: conversion func starts
-2018.11.22 15:07:37-INFO: old value: 1875.6
-2018.11.22 15:07:37-INFO: new value: 521.0
-2018.11.22 15:07:37-INFO: conversion func starts
-2018.11.22 15:07:37-INFO: old value: 46.8
-2018.11.22 15:07:37-INFO: new value: 13.0
-2018.11.22 15:07:37-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:37-INFO: the value: 521.0
-2018.11.22 15:07:37-INFO: setting inflow_max value to: 521.0
-2018.11.22 15:07:37-DEBUG: inflow_max - var value: 521.0, ui var value: 521.0
-2018.11.22 15:07:37-DEBUG: diam engine value: 0
-2018.11.22 15:07:37-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:37-INFO: the value: 13.0
-2018.11.22 15:07:37-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:37-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:37-DEBUG: diam engine value: 0
-2018.11.22 15:07:38-INFO: changing unit of station inflow
-2018.11.22 15:07:38-INFO: ui max value: 521.0
-2018.11.22 15:07:38-INFO: engine max value: 521.0
-2018.11.22 15:07:38-INFO: ooold value: 13.0
-2018.11.22 15:07:38-INFO: new unit: meters
-2018.11.22 15:07:38-INFO: conversion func starts
-2018.11.22 15:07:38-INFO: old value: 521.0
-2018.11.22 15:07:38-INFO: new value: 1875.6
-2018.11.22 15:07:38-INFO: conversion func starts
-2018.11.22 15:07:38-INFO: old value: 13.0
-2018.11.22 15:07:38-INFO: new value: 46.8
-2018.11.22 15:07:38-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:38-INFO: the value: 1875.6
-2018.11.22 15:07:38-INFO: setting inflow_max value to: 1875.6
-2018.11.22 15:07:38-DEBUG: inflow_max - var value: 1875.6, ui var value: 1875.6
-2018.11.22 15:07:38-DEBUG: diam engine value: 0
-2018.11.22 15:07:38-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:38-INFO: the value: 46.8
-2018.11.22 15:07:38-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:07:38-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:07:38-DEBUG: diam engine value: 0
-2018.11.22 15:07:39-INFO: changing unit of station inflow
-2018.11.22 15:07:39-INFO: ui max value: 1875.6
-2018.11.22 15:07:39-INFO: engine max value: 1875.6
-2018.11.22 15:07:39-INFO: ooold value: 46.8
-2018.11.22 15:07:39-INFO: new unit: liters
-2018.11.22 15:07:39-INFO: conversion func starts
-2018.11.22 15:07:39-INFO: old value: 1875.6
-2018.11.22 15:07:39-INFO: new value: 521.0
-2018.11.22 15:07:39-INFO: conversion func starts
-2018.11.22 15:07:39-INFO: old value: 46.8
-2018.11.22 15:07:39-INFO: new value: 13.0
-2018.11.22 15:07:39-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:39-INFO: the value: 521.0
-2018.11.22 15:07:39-INFO: setting inflow_max value to: 521.0
-2018.11.22 15:07:39-DEBUG: inflow_max - var value: 521.0, ui var value: 521.0
-2018.11.22 15:07:39-DEBUG: diam engine value: 0
-2018.11.22 15:07:39-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:39-INFO: the value: 13.0
-2018.11.22 15:07:39-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:39-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:39-DEBUG: diam engine value: 0
-2018.11.22 15:07:40-INFO: changing unit of station inflow
-2018.11.22 15:07:40-INFO: ui max value: 521.0
-2018.11.22 15:07:40-INFO: engine max value: 521.0
-2018.11.22 15:07:40-INFO: ooold value: 13.0
-2018.11.22 15:07:40-INFO: new unit: meters
-2018.11.22 15:07:40-INFO: conversion func starts
-2018.11.22 15:07:40-INFO: old value: 521.0
-2018.11.22 15:07:40-INFO: new value: 1875.6
-2018.11.22 15:07:40-INFO: conversion func starts
-2018.11.22 15:07:40-INFO: old value: 13.0
-2018.11.22 15:07:40-INFO: new value: 46.8
-2018.11.22 15:07:40-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:40-INFO: the value: 1875.6
-2018.11.22 15:07:40-INFO: setting inflow_max value to: 1875.6
-2018.11.22 15:07:40-DEBUG: inflow_max - var value: 1875.6, ui var value: 1875.6
-2018.11.22 15:07:40-DEBUG: diam engine value: 0
-2018.11.22 15:07:40-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:40-INFO: the value: 46.8
-2018.11.22 15:07:40-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:07:40-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:07:40-DEBUG: diam engine value: 0
-2018.11.22 15:07:41-INFO: changing unit of station inflow
-2018.11.22 15:07:41-INFO: ui max value: 1875.6
-2018.11.22 15:07:41-INFO: engine max value: 1875.6
-2018.11.22 15:07:41-INFO: ooold value: 46.8
-2018.11.22 15:07:41-INFO: new unit: liters
-2018.11.22 15:07:41-INFO: conversion func starts
-2018.11.22 15:07:41-INFO: old value: 1875.6
-2018.11.22 15:07:41-INFO: new value: 521.0
-2018.11.22 15:07:41-INFO: conversion func starts
-2018.11.22 15:07:41-INFO: old value: 46.8
-2018.11.22 15:07:41-INFO: new value: 13.0
-2018.11.22 15:07:41-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:41-INFO: the value: 521.0
-2018.11.22 15:07:41-INFO: setting inflow_max value to: 521.0
-2018.11.22 15:07:41-DEBUG: inflow_max - var value: 521.0, ui var value: 521.0
-2018.11.22 15:07:41-DEBUG: diam engine value: 0
-2018.11.22 15:07:41-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:41-INFO: the value: 13.0
-2018.11.22 15:07:41-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:41-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:41-DEBUG: diam engine value: 0
-2018.11.22 15:07:44-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:44-INFO: the value: 521.05
-2018.11.22 15:07:44-INFO: setting inflow_max value to: 521.05
-2018.11.22 15:07:44-DEBUG: inflow_max - var value: 521.05, ui var value: 521.05
-2018.11.22 15:07:44-DEBUG: diam engine value: 0
-2018.11.22 15:07:45-INFO: changing unit of station inflow
-2018.11.22 15:07:45-INFO: ui max value: 521.05
-2018.11.22 15:07:45-INFO: engine max value: 521.05
-2018.11.22 15:07:45-INFO: ooold value: 13.0
-2018.11.22 15:07:45-INFO: new unit: meters
-2018.11.22 15:07:45-INFO: conversion func starts
-2018.11.22 15:07:45-INFO: old value: 521.05
-2018.11.22 15:07:45-INFO: new value: 1875.78
-2018.11.22 15:07:45-INFO: conversion func starts
-2018.11.22 15:07:45-INFO: old value: 13.0
-2018.11.22 15:07:45-INFO: new value: 46.8
-2018.11.22 15:07:45-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:45-INFO: the value: 1875.78
-2018.11.22 15:07:45-INFO: setting inflow_max value to: 1875.78
-2018.11.22 15:07:45-DEBUG: inflow_max - var value: 1875.78, ui var value: 1875.78
-2018.11.22 15:07:45-DEBUG: diam engine value: 0
-2018.11.22 15:07:45-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:45-INFO: the value: 46.8
-2018.11.22 15:07:45-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:07:45-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:07:45-DEBUG: diam engine value: 0
-2018.11.22 15:07:46-INFO: changing unit of station inflow
-2018.11.22 15:07:46-INFO: ui max value: 1875.78
-2018.11.22 15:07:46-INFO: engine max value: 1875.78
-2018.11.22 15:07:46-INFO: ooold value: 46.8
-2018.11.22 15:07:46-INFO: new unit: liters
-2018.11.22 15:07:46-INFO: conversion func starts
-2018.11.22 15:07:46-INFO: old value: 1875.78
-2018.11.22 15:07:46-INFO: new value: 521.05
-2018.11.22 15:07:46-INFO: conversion func starts
-2018.11.22 15:07:46-INFO: old value: 46.8
-2018.11.22 15:07:46-INFO: new value: 13.0
-2018.11.22 15:07:46-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:46-INFO: the value: 521.05
-2018.11.22 15:07:46-INFO: setting inflow_max value to: 521.05
-2018.11.22 15:07:46-DEBUG: inflow_max - var value: 521.05, ui var value: 521.05
-2018.11.22 15:07:46-DEBUG: diam engine value: 0
-2018.11.22 15:07:46-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:46-INFO: the value: 13.0
-2018.11.22 15:07:46-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:46-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:46-DEBUG: diam engine value: 0
-2018.11.22 15:07:46-INFO: changing unit of station inflow
-2018.11.22 15:07:46-INFO: ui max value: 521.05
-2018.11.22 15:07:46-INFO: engine max value: 521.05
-2018.11.22 15:07:46-INFO: ooold value: 13.0
-2018.11.22 15:07:46-INFO: new unit: meters
-2018.11.22 15:07:46-INFO: conversion func starts
-2018.11.22 15:07:46-INFO: old value: 521.05
-2018.11.22 15:07:46-INFO: new value: 1875.78
-2018.11.22 15:07:46-INFO: conversion func starts
-2018.11.22 15:07:46-INFO: old value: 13.0
-2018.11.22 15:07:46-INFO: new value: 46.8
-2018.11.22 15:07:46-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:46-INFO: the value: 1875.78
-2018.11.22 15:07:46-INFO: setting inflow_max value to: 1875.78
-2018.11.22 15:07:46-DEBUG: inflow_max - var value: 1875.78, ui var value: 1875.78
-2018.11.22 15:07:46-DEBUG: diam engine value: 0
-2018.11.22 15:07:46-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:46-INFO: the value: 46.8
-2018.11.22 15:07:46-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:07:46-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:07:46-DEBUG: diam engine value: 0
-2018.11.22 15:07:47-INFO: changing unit of station inflow
-2018.11.22 15:07:47-INFO: ui max value: 1875.78
-2018.11.22 15:07:47-INFO: engine max value: 1875.78
-2018.11.22 15:07:47-INFO: ooold value: 46.8
-2018.11.22 15:07:47-INFO: new unit: liters
-2018.11.22 15:07:47-INFO: conversion func starts
-2018.11.22 15:07:47-INFO: old value: 1875.78
-2018.11.22 15:07:47-INFO: new value: 521.05
-2018.11.22 15:07:47-INFO: conversion func starts
-2018.11.22 15:07:47-INFO: old value: 46.8
-2018.11.22 15:07:47-INFO: new value: 13.0
-2018.11.22 15:07:47-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:47-INFO: the value: 521.05
-2018.11.22 15:07:47-INFO: setting inflow_max value to: 521.05
-2018.11.22 15:07:47-DEBUG: inflow_max - var value: 521.05, ui var value: 521.05
-2018.11.22 15:07:47-DEBUG: diam engine value: 0
-2018.11.22 15:07:47-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:47-INFO: the value: 13.0
-2018.11.22 15:07:47-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:47-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:47-DEBUG: diam engine value: 0
-2018.11.22 15:07:48-INFO: changing unit of station inflow
-2018.11.22 15:07:48-INFO: ui max value: 521.05
-2018.11.22 15:07:48-INFO: engine max value: 521.05
-2018.11.22 15:07:48-INFO: ooold value: 13.0
-2018.11.22 15:07:48-INFO: new unit: meters
-2018.11.22 15:07:48-INFO: conversion func starts
-2018.11.22 15:07:48-INFO: old value: 521.05
-2018.11.22 15:07:48-INFO: new value: 1875.78
-2018.11.22 15:07:48-INFO: conversion func starts
-2018.11.22 15:07:48-INFO: old value: 13.0
-2018.11.22 15:07:48-INFO: new value: 46.8
-2018.11.22 15:07:48-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:48-INFO: the value: 1875.78
-2018.11.22 15:07:48-INFO: setting inflow_max value to: 1875.78
-2018.11.22 15:07:48-DEBUG: inflow_max - var value: 1875.78, ui var value: 1875.78
-2018.11.22 15:07:48-DEBUG: diam engine value: 0
-2018.11.22 15:07:48-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:48-INFO: the value: 46.8
-2018.11.22 15:07:48-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:07:48-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:07:48-DEBUG: diam engine value: 0
-2018.11.22 15:07:48-INFO: changing unit of station inflow
-2018.11.22 15:07:48-INFO: ui max value: 1875.78
-2018.11.22 15:07:48-INFO: engine max value: 1875.78
-2018.11.22 15:07:48-INFO: ooold value: 46.8
-2018.11.22 15:07:48-INFO: new unit: liters
-2018.11.22 15:07:48-INFO: conversion func starts
-2018.11.22 15:07:48-INFO: old value: 1875.78
-2018.11.22 15:07:48-INFO: new value: 521.05
-2018.11.22 15:07:48-INFO: conversion func starts
-2018.11.22 15:07:48-INFO: old value: 46.8
-2018.11.22 15:07:48-INFO: new value: 13.0
-2018.11.22 15:07:48-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:48-INFO: the value: 521.05
-2018.11.22 15:07:48-INFO: setting inflow_max value to: 521.05
-2018.11.22 15:07:48-DEBUG: inflow_max - var value: 521.05, ui var value: 521.05
-2018.11.22 15:07:48-DEBUG: diam engine value: 0
-2018.11.22 15:07:48-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:48-INFO: the value: 13.0
-2018.11.22 15:07:48-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:48-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:48-DEBUG: diam engine value: 0
-2018.11.22 15:07:49-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:49-INFO: the value: 521.052
-2018.11.22 15:07:49-INFO: setting inflow_max value to: 521.052
-2018.11.22 15:07:49-DEBUG: inflow_max - var value: 521.052, ui var value: 521.052
-2018.11.22 15:07:49-DEBUG: diam engine value: 0
-2018.11.22 15:07:49-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:49-INFO: the value: 521.0521
-2018.11.22 15:07:49-INFO: setting inflow_max value to: 521.0521
-2018.11.22 15:07:49-DEBUG: inflow_max - var value: 521.0521, ui var value: 521.0521
-2018.11.22 15:07:49-DEBUG: diam engine value: 0
-2018.11.22 15:07:49-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:49-INFO: the value: 521.05213
-2018.11.22 15:07:49-INFO: setting inflow_max value to: 521.05213
-2018.11.22 15:07:49-DEBUG: inflow_max - var value: 521.05213, ui var value: 521.05213
-2018.11.22 15:07:49-DEBUG: diam engine value: 0
-2018.11.22 15:07:50-INFO: changing unit of station inflow
-2018.11.22 15:07:50-INFO: ui max value: 521.05213
-2018.11.22 15:07:50-INFO: engine max value: 521.05213
-2018.11.22 15:07:50-INFO: ooold value: 13.0
-2018.11.22 15:07:50-INFO: new unit: meters
-2018.11.22 15:07:50-INFO: conversion func starts
-2018.11.22 15:07:50-INFO: old value: 521.05213
-2018.11.22 15:07:50-INFO: new value: 1875.788
-2018.11.22 15:07:50-INFO: conversion func starts
-2018.11.22 15:07:50-INFO: old value: 13.0
-2018.11.22 15:07:50-INFO: new value: 46.8
-2018.11.22 15:07:50-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:50-INFO: the value: 1875.788
-2018.11.22 15:07:50-INFO: setting inflow_max value to: 1875.788
-2018.11.22 15:07:50-DEBUG: inflow_max - var value: 1875.788, ui var value: 1875.788
-2018.11.22 15:07:50-DEBUG: diam engine value: 0
-2018.11.22 15:07:50-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:50-INFO: the value: 46.8
-2018.11.22 15:07:50-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:07:50-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:07:50-DEBUG: diam engine value: 0
-2018.11.22 15:07:51-INFO: changing unit of station inflow
-2018.11.22 15:07:51-INFO: ui max value: 1875.788
-2018.11.22 15:07:51-INFO: engine max value: 1875.788
-2018.11.22 15:07:51-INFO: ooold value: 46.8
-2018.11.22 15:07:51-INFO: new unit: liters
-2018.11.22 15:07:51-INFO: conversion func starts
-2018.11.22 15:07:51-INFO: old value: 1875.788
-2018.11.22 15:07:51-INFO: new value: 521.052
-2018.11.22 15:07:51-INFO: conversion func starts
-2018.11.22 15:07:51-INFO: old value: 46.8
-2018.11.22 15:07:51-INFO: new value: 13.0
-2018.11.22 15:07:51-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:51-INFO: the value: 521.052
-2018.11.22 15:07:51-INFO: setting inflow_max value to: 521.052
-2018.11.22 15:07:51-DEBUG: inflow_max - var value: 521.052, ui var value: 521.052
-2018.11.22 15:07:51-DEBUG: diam engine value: 0
-2018.11.22 15:07:51-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:51-INFO: the value: 13.0
-2018.11.22 15:07:51-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:51-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:51-DEBUG: diam engine value: 0
-2018.11.22 15:07:52-INFO: changing unit of station inflow
-2018.11.22 15:07:52-INFO: ui max value: 521.052
-2018.11.22 15:07:52-INFO: engine max value: 521.052
-2018.11.22 15:07:52-INFO: ooold value: 13.0
-2018.11.22 15:07:52-INFO: new unit: meters
-2018.11.22 15:07:52-INFO: conversion func starts
-2018.11.22 15:07:52-INFO: old value: 521.052
-2018.11.22 15:07:52-INFO: new value: 1875.787
-2018.11.22 15:07:52-INFO: conversion func starts
-2018.11.22 15:07:52-INFO: old value: 13.0
-2018.11.22 15:07:52-INFO: new value: 46.8
-2018.11.22 15:07:52-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:52-INFO: the value: 1875.787
-2018.11.22 15:07:52-INFO: setting inflow_max value to: 1875.787
-2018.11.22 15:07:52-DEBUG: inflow_max - var value: 1875.787, ui var value: 1875.787
-2018.11.22 15:07:52-DEBUG: diam engine value: 0
-2018.11.22 15:07:52-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:52-INFO: the value: 46.8
-2018.11.22 15:07:52-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:07:52-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:07:52-DEBUG: diam engine value: 0
-2018.11.22 15:07:52-INFO: changing unit of station inflow
-2018.11.22 15:07:52-INFO: ui max value: 1875.787
-2018.11.22 15:07:52-INFO: engine max value: 1875.787
-2018.11.22 15:07:52-INFO: ooold value: 46.8
-2018.11.22 15:07:52-INFO: new unit: liters
-2018.11.22 15:07:52-INFO: conversion func starts
-2018.11.22 15:07:52-INFO: old value: 1875.787
-2018.11.22 15:07:52-INFO: new value: 521.052
-2018.11.22 15:07:52-INFO: conversion func starts
-2018.11.22 15:07:52-INFO: old value: 46.8
-2018.11.22 15:07:52-INFO: new value: 13.0
-2018.11.22 15:07:52-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:07:52-INFO: the value: 521.052
-2018.11.22 15:07:52-INFO: setting inflow_max value to: 521.052
-2018.11.22 15:07:52-DEBUG: inflow_max - var value: 521.052, ui var value: 521.052
-2018.11.22 15:07:52-DEBUG: diam engine value: 0
-2018.11.22 15:07:52-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:07:52-INFO: the value: 13.0
-2018.11.22 15:07:52-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:07:52-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:07:52-DEBUG: diam engine value: 0
-2018.11.22 15:08:14-INFO: changing unit of station inflow
-2018.11.22 15:08:14-INFO: ui max value: 521.052
-2018.11.22 15:08:14-INFO: engine max value: 521.052
-2018.11.22 15:08:14-INFO: ooold value: 13.0
-2018.11.22 15:08:14-INFO: new unit: meters
-2018.11.22 15:08:14-INFO: conversion func starts
-2018.11.22 15:08:14-INFO: old value: 521.052
-2018.11.22 15:08:14-INFO: new value: 1875.787
-2018.11.22 15:08:14-INFO: conversion func starts
-2018.11.22 15:08:14-INFO: old value: 13.0
-2018.11.22 15:08:14-INFO: new value: 46.8
-2018.11.22 15:08:14-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:08:14-INFO: the value: 1875.787
-2018.11.22 15:08:14-INFO: setting inflow_max value to: 1875.787
-2018.11.22 15:08:14-DEBUG: inflow_max - var value: 1875.787, ui var value: 1875.787
-2018.11.22 15:08:14-DEBUG: diam engine value: 0
-2018.11.22 15:08:14-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:08:14-INFO: the value: 46.8
-2018.11.22 15:08:14-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:08:14-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:08:14-DEBUG: diam engine value: 0
-2018.11.22 15:08:15-INFO: changing unit of station inflow
-2018.11.22 15:08:15-INFO: ui max value: 1875.787
-2018.11.22 15:08:15-INFO: engine max value: 1875.787
-2018.11.22 15:08:15-INFO: ooold value: 46.8
-2018.11.22 15:08:15-INFO: new unit: liters
-2018.11.22 15:08:15-INFO: conversion func starts
-2018.11.22 15:08:15-INFO: old value: 1875.787
-2018.11.22 15:08:15-INFO: new value: 521.052
-2018.11.22 15:08:15-INFO: conversion func starts
-2018.11.22 15:08:15-INFO: old value: 46.8
-2018.11.22 15:08:15-INFO: new value: 13.0
-2018.11.22 15:08:15-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:08:15-INFO: the value: 521.052
-2018.11.22 15:08:15-INFO: setting inflow_max value to: 521.052
-2018.11.22 15:08:15-DEBUG: inflow_max - var value: 521.052, ui var value: 521.052
-2018.11.22 15:08:15-DEBUG: diam engine value: 0
-2018.11.22 15:08:15-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:08:15-INFO: the value: 13.0
-2018.11.22 15:08:15-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:08:15-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:08:15-DEBUG: diam engine value: 0
-2018.11.22 15:08:15-INFO: changing unit of station inflow
-2018.11.22 15:08:15-INFO: ui max value: 521.052
-2018.11.22 15:08:15-INFO: engine max value: 521.052
-2018.11.22 15:08:15-INFO: ooold value: 13.0
-2018.11.22 15:08:15-INFO: new unit: liters
-2018.11.22 15:08:15-INFO: conversion func starts
-2018.11.22 15:08:15-INFO: old value: 521.052
-2018.11.22 15:08:15-INFO: no need to conversion
-2018.11.22 15:08:15-INFO: conversion func starts
-2018.11.22 15:08:15-INFO: old value: 13.0
-2018.11.22 15:08:15-INFO: no need to conversion
-2018.11.22 15:08:15-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:08:15-INFO: the value: 521.052
-2018.11.22 15:08:15-INFO: setting inflow_max value to: 521.052
-2018.11.22 15:08:15-DEBUG: inflow_max - var value: 521.052, ui var value: 521.052
-2018.11.22 15:08:15-DEBUG: diam engine value: 0
-2018.11.22 15:08:15-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:08:15-INFO: the value: 13.0
-2018.11.22 15:08:15-INFO: setting inflow_min value to: 13.0
-2018.11.22 15:08:15-DEBUG: inflow_min - var value: 13.0, ui var value: 13.0
-2018.11.22 15:08:15-DEBUG: diam engine value: 0
-2018.11.22 15:08:16-INFO: changing unit of station inflow
-2018.11.22 15:08:16-INFO: ui max value: 521.052
-2018.11.22 15:08:16-INFO: engine max value: 521.052
-2018.11.22 15:08:16-INFO: ooold value: 13.0
-2018.11.22 15:08:16-INFO: new unit: meters
-2018.11.22 15:08:16-INFO: conversion func starts
-2018.11.22 15:08:16-INFO: old value: 521.052
-2018.11.22 15:08:16-INFO: new value: 1875.787
-2018.11.22 15:08:16-INFO: conversion func starts
-2018.11.22 15:08:16-INFO: old value: 13.0
-2018.11.22 15:08:16-INFO: new value: 46.8
-2018.11.22 15:08:16-INFO: app set_var_value starts for inflow_max
-2018.11.22 15:08:16-INFO: the value: 1875.787
-2018.11.22 15:08:16-INFO: setting inflow_max value to: 1875.787
-2018.11.22 15:08:16-DEBUG: inflow_max - var value: 1875.787, ui var value: 1875.787
-2018.11.22 15:08:16-DEBUG: diam engine value: 0
-2018.11.22 15:08:16-INFO: app set_var_value starts for inflow_min
-2018.11.22 15:08:16-INFO: the value: 46.8
-2018.11.22 15:08:16-INFO: setting inflow_min value to: 46.8
-2018.11.22 15:08:16-DEBUG: inflow_min - var value: 46.8, ui var value: 46.8
-2018.11.22 15:08:16-DEBUG: diam engine value: 0
+2018.11.25 18:25:38-DEBUG: started setting shape
+2018.11.25 18:25:38-DEBUG: new shape: round
+2018.11.25 18:25:38-DEBUG: changed shape to round
+2018.11.25 18:25:38-DEBUG: variable: well_diameter
+2018.11.25 18:25:38-DEBUG: variable: well_length
+2018.11.25 18:25:38-DEBUG: variable: well_width
+2018.11.25 18:25:38-DEBUG: variable: minimal_sewage_level
+2018.11.25 18:25:38-DEBUG: variable: ordinate_terrain
+2018.11.25 18:25:38-DEBUG: variable: ordinate_inlet
+2018.11.25 18:25:38-DEBUG: variable: ordinate_outlet
+2018.11.25 18:25:38-DEBUG: variable: ordinate_bottom
+2018.11.25 18:25:38-DEBUG: variable: ordinate_highest_point
+2018.11.25 18:25:38-DEBUG: variable: ordinate_final_table
+2018.11.25 18:25:38-DEBUG: variable: difference_in_start
+2018.11.25 18:25:38-DEBUG: variable: inflow_max
+2018.11.25 18:25:38-DEBUG: variable: inflow_min
+2018.11.25 18:25:38-INFO: changing unit of station inflow
+2018.11.25 18:25:38-INFO: ui max value: 0.0
+2018.11.25 18:25:38-INFO: engine max value: 0
+2018.11.25 18:25:38-INFO: ooold value: 0.0
+2018.11.25 18:25:38-INFO: new unit: liters
+2018.11.25 18:25:38-INFO: conversion func starts
+2018.11.25 18:25:38-INFO: old value: 0
+2018.11.25 18:25:38-INFO: no need to conversion
+2018.11.25 18:25:38-INFO: conversion func starts
+2018.11.25 18:25:38-INFO: old value: 0
+2018.11.25 18:25:38-INFO: no need to conversion
+2018.11.25 18:25:38-INFO: app set_var_value starts for inflow_max
+2018.11.25 18:25:38-INFO: the value: 0.0
+2018.11.25 18:25:38-INFO: setting inflow_max value to: 0.0
+2018.11.25 18:25:38-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:38-INFO: app set_var_value starts for inflow_min
+2018.11.25 18:25:38-INFO: the value: 0.0
+2018.11.25 18:25:38-INFO: setting inflow_min value to: 0.0
+2018.11.25 18:25:38-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:38-INFO: set_flow_unit started
+2018.11.25 18:25:38-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:38-INFO: conversion func starts
+2018.11.25 18:25:38-INFO: old value: 0
+2018.11.25 18:25:38-INFO: no need to conversion
+2018.11.25 18:25:38-INFO: conversion func starts
+2018.11.25 18:25:38-INFO: old value: 0
+2018.11.25 18:25:38-INFO: no need to conversion
+2018.11.25 18:25:38-DEBUG: variable: work_cycle
+2018.11.25 18:25:38-DEBUG: variable: pump_contour
+2018.11.25 18:25:38-DEBUG: variable: pump_efficiency_from
+2018.11.25 18:25:38-DEBUG: variable: pump_efficiency_to
+2018.11.25 18:25:38-DEBUG: variable: length_discharge_pipe
+2018.11.25 18:25:38-DEBUG: variable: diameter_discharge_pipe
+2018.11.25 18:25:38-DEBUG: variable: roughness_discharge_pipe
+2018.11.25 18:25:38-DEBUG: variable: resistance_discharge_pipe
+2018.11.25 18:25:38-DEBUG: variable: number_of_collectors
+2018.11.25 18:25:38-DEBUG: variable: length_collector
+2018.11.25 18:25:38-DEBUG: variable: roughness_collector
+2018.11.25 18:25:38-DEBUG: variable: resistance_collector
+2018.11.25 18:25:38-DEBUG: variable: diameter_collector
+2018.11.25 18:25:38-INFO: changed mode: checking
+2018.11.25 18:25:40-INFO: set_pump_flow_unit started
+2018.11.25 18:25:40-INFO: set_flow_unit started
+2018.11.25 18:25:40-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:40-INFO: conversion func starts
+2018.11.25 18:25:40-INFO: old value: 0
+2018.11.25 18:25:40-DEBUG: 0 * 3.6 = 0.0
+2018.11.25 18:25:40-INFO: new value: 0.0
+2018.11.25 18:25:40-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:25:40-INFO: the value: 0.0
+2018.11.25 18:25:40-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:25:40-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:40-INFO: conversion func starts
+2018.11.25 18:25:40-INFO: old value: 0
+2018.11.25 18:25:40-DEBUG: 0 * 3.6 = 0.0
+2018.11.25 18:25:40-INFO: new value: 0.0
+2018.11.25 18:25:40-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:25:40-INFO: the value: 0.0
+2018.11.25 18:25:40-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:25:40-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:41-INFO: get_coords started
+2018.11.25 18:25:41-DEBUG: Add point method started
+2018.11.25 18:25:41-DEBUG: types: flow: <class 'str'>, lift: <class 'str'>
+2018.11.25 18:25:41-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.25 18:25:41-INFO: sort_points started
+2018.11.25 18:25:41-DEBUG: id numbers raised: [('1.0', 'I001')]
+2018.11.25 18:25:41-INFO: sort_points ended
+2018.11.25 18:25:41-DEBUG: char points: {'I001': (1.0, 0.0)}
+2018.11.25 18:25:42-INFO: set_pump_flow_unit started
+2018.11.25 18:25:42-INFO: set_flow_unit started
+2018.11.25 18:25:42-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:42-INFO: conversion func starts
+2018.11.25 18:25:42-INFO: old value: 0.0
+2018.11.25 18:25:42-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:25:42-INFO: new value: 0.0
+2018.11.25 18:25:42-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:25:42-INFO: the value: 0.0
+2018.11.25 18:25:42-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:25:42-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:42-INFO: conversion func starts
+2018.11.25 18:25:42-INFO: old value: 0.0
+2018.11.25 18:25:42-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:25:42-INFO: new value: 0.0
+2018.11.25 18:25:42-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:25:42-INFO: the value: 0.0
+2018.11.25 18:25:42-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:25:42-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:42-INFO: conversion func starts
+2018.11.25 18:25:42-INFO: old value: 1.0
+2018.11.25 18:25:42-DEBUG: 1.0 / 3.6 = 0.2777777777777778
+2018.11.25 18:25:42-INFO: new value: 0.278
+2018.11.25 18:25:43-INFO: set_pump_flow_unit started
+2018.11.25 18:25:43-INFO: set_flow_unit started
+2018.11.25 18:25:43-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:43-INFO: conversion func starts
+2018.11.25 18:25:43-INFO: old value: 0.0
+2018.11.25 18:25:43-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:25:43-INFO: new value: 0.0
+2018.11.25 18:25:43-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:25:43-INFO: the value: 0.0
+2018.11.25 18:25:43-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:25:43-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:43-INFO: conversion func starts
+2018.11.25 18:25:43-INFO: old value: 0.0
+2018.11.25 18:25:43-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:25:43-INFO: new value: 0.0
+2018.11.25 18:25:43-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:25:43-INFO: the value: 0.0
+2018.11.25 18:25:43-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:25:43-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:43-INFO: conversion func starts
+2018.11.25 18:25:43-INFO: old value: 0.278
+2018.11.25 18:25:43-DEBUG: 0.278 * 3.6 = 1.0008000000000001
+2018.11.25 18:25:43-INFO: new value: 1.001
+2018.11.25 18:25:45-INFO: set_pump_flow_unit started
+2018.11.25 18:25:45-INFO: set_flow_unit started
+2018.11.25 18:25:45-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:45-INFO: conversion func starts
+2018.11.25 18:25:45-INFO: old value: 0.0
+2018.11.25 18:25:45-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:25:45-INFO: new value: 0.0
+2018.11.25 18:25:45-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:25:45-INFO: the value: 0.0
+2018.11.25 18:25:45-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:25:45-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:45-INFO: conversion func starts
+2018.11.25 18:25:45-INFO: old value: 0.0
+2018.11.25 18:25:45-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:25:45-INFO: new value: 0.0
+2018.11.25 18:25:45-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:25:45-INFO: the value: 0.0
+2018.11.25 18:25:45-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:25:45-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:45-INFO: conversion func starts
+2018.11.25 18:25:45-INFO: old value: 1.001
+2018.11.25 18:25:45-DEBUG: 1.001 / 3.6 = 0.2780555555555555
+2018.11.25 18:25:45-INFO: new value: 0.278
+2018.11.25 18:25:46-INFO: set_pump_flow_unit started
+2018.11.25 18:25:46-INFO: set_flow_unit started
+2018.11.25 18:25:46-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:46-INFO: conversion func starts
+2018.11.25 18:25:46-INFO: old value: 0.0
+2018.11.25 18:25:46-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:25:46-INFO: new value: 0.0
+2018.11.25 18:25:46-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:25:46-INFO: the value: 0.0
+2018.11.25 18:25:46-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:25:46-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:46-INFO: conversion func starts
+2018.11.25 18:25:46-INFO: old value: 0.0
+2018.11.25 18:25:46-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:25:46-INFO: new value: 0.0
+2018.11.25 18:25:46-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:25:46-INFO: the value: 0.0
+2018.11.25 18:25:46-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:25:46-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:46-INFO: conversion func starts
+2018.11.25 18:25:46-INFO: old value: 0.278
+2018.11.25 18:25:46-DEBUG: 0.278 * 3.6 = 1.0008000000000001
+2018.11.25 18:25:46-INFO: new value: 1.001
+2018.11.25 18:25:47-INFO: set_pump_flow_unit started
+2018.11.25 18:25:47-INFO: set_flow_unit started
+2018.11.25 18:25:47-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:47-INFO: conversion func starts
+2018.11.25 18:25:47-INFO: old value: 0.0
+2018.11.25 18:25:47-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:25:47-INFO: new value: 0.0
+2018.11.25 18:25:47-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:25:47-INFO: the value: 0.0
+2018.11.25 18:25:47-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:25:47-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:47-INFO: conversion func starts
+2018.11.25 18:25:47-INFO: old value: 0.0
+2018.11.25 18:25:47-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:25:47-INFO: new value: 0.0
+2018.11.25 18:25:47-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:25:47-INFO: the value: 0.0
+2018.11.25 18:25:47-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:25:47-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:47-INFO: conversion func starts
+2018.11.25 18:25:47-INFO: old value: 1.001
+2018.11.25 18:25:47-DEBUG: 1.001 / 3.6 = 0.2780555555555555
+2018.11.25 18:25:47-INFO: new value: 0.278
+2018.11.25 18:25:48-INFO: set_pump_flow_unit started
+2018.11.25 18:25:48-INFO: set_flow_unit started
+2018.11.25 18:25:48-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:48-INFO: conversion func starts
+2018.11.25 18:25:48-INFO: old value: 0.0
+2018.11.25 18:25:48-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:25:48-INFO: new value: 0.0
+2018.11.25 18:25:48-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:25:48-INFO: the value: 0.0
+2018.11.25 18:25:48-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:25:48-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:48-INFO: conversion func starts
+2018.11.25 18:25:48-INFO: old value: 0.0
+2018.11.25 18:25:48-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:25:48-INFO: new value: 0.0
+2018.11.25 18:25:48-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:25:48-INFO: the value: 0.0
+2018.11.25 18:25:48-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:25:48-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:48-INFO: conversion func starts
+2018.11.25 18:25:48-INFO: old value: 0.278
+2018.11.25 18:25:48-DEBUG: 0.278 * 3.6 = 1.0008000000000001
+2018.11.25 18:25:48-INFO: new value: 1.001
+2018.11.25 18:25:53-INFO: set_pump_flow_unit started
+2018.11.25 18:25:53-INFO: set_flow_unit started
+2018.11.25 18:25:53-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:25:53-INFO: conversion func starts
+2018.11.25 18:25:53-INFO: old value: 0.0
+2018.11.25 18:25:53-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:25:53-INFO: new value: 0.0
+2018.11.25 18:25:53-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:25:53-INFO: the value: 0.0
+2018.11.25 18:25:53-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:25:53-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:53-INFO: conversion func starts
+2018.11.25 18:25:53-INFO: old value: 0.0
+2018.11.25 18:25:53-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:25:53-INFO: new value: 0.0
+2018.11.25 18:25:53-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:25:53-INFO: the value: 0.0
+2018.11.25 18:25:53-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:25:53-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:25:53-INFO: conversion func starts
+2018.11.25 18:25:53-INFO: old value: 1.001
+2018.11.25 18:25:53-DEBUG: 1.001 / 3.6 = 0.2780555555555555
+2018.11.25 18:25:53-INFO: new value: 0.278
+2018.11.25 18:26:34-INFO: set_pump_flow_unit started
+2018.11.25 18:26:34-INFO: set_flow_unit started
+2018.11.25 18:26:34-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:26:34-INFO: conversion func starts
+2018.11.25 18:26:34-INFO: old value: 0.0
+2018.11.25 18:26:34-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:26:34-INFO: new value: 0.0
+2018.11.25 18:26:34-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:26:34-INFO: the value: 0.0
+2018.11.25 18:26:34-INFO: setting pump_efficiency_from value to: 0.0
+2018.11.25 18:26:34-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
+2018.11.25 18:26:34-INFO: conversion func starts
+2018.11.25 18:26:34-INFO: old value: 0.0
+2018.11.25 18:26:34-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:26:34-INFO: new value: 0.0
+2018.11.25 18:26:34-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:26:34-INFO: the value: 0.0
+2018.11.25 18:26:34-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:26:34-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:26:34-INFO: conversion func starts
+2018.11.25 18:26:34-INFO: old value: 0.278
+2018.11.25 18:26:34-DEBUG: 0.278 * 3.6 = 1.0008000000000001
+2018.11.25 18:26:34-INFO: new value: 1.001
+2018.11.25 18:26:36-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:26:36-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:26:36-INFO: the value: 1.0
+2018.11.25 18:26:36-INFO: setting pump_efficiency_from value to: 1.0
+2018.11.25 18:26:36-DEBUG: pump_efficiency_from - var value: 1.0, ui var value: 1.0
+2018.11.25 18:26:42-INFO: set_pump_flow_unit started
+2018.11.25 18:26:42-INFO: set_flow_unit started
+2018.11.25 18:26:42-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:26:42-INFO: conversion func starts
+2018.11.25 18:26:42-INFO: old value: 1.0
+2018.11.25 18:26:42-DEBUG: 1.0 / 3.6 = 0.2777777777777778
+2018.11.25 18:26:42-INFO: new value: 0.278
+2018.11.25 18:26:42-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:26:42-INFO: the value: 0.278
+2018.11.25 18:26:42-INFO: setting pump_efficiency_from value to: 0.278
+2018.11.25 18:26:42-DEBUG: pump_efficiency_from - var value: 0.278, ui var value: 0.278
+2018.11.25 18:26:42-INFO: conversion func starts
+2018.11.25 18:26:42-INFO: old value: 0.0
+2018.11.25 18:26:42-DEBUG: 0.0 / 3.6 = 0.0
+2018.11.25 18:26:42-INFO: new value: 0.0
+2018.11.25 18:26:42-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:26:42-INFO: the value: 0.0
+2018.11.25 18:26:42-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:26:42-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:26:42-INFO: conversion func starts
+2018.11.25 18:26:42-INFO: old value: 1.001
+2018.11.25 18:26:42-DEBUG: 1.001 / 3.6 = 0.2780555555555555
+2018.11.25 18:26:42-INFO: new value: 0.278
+2018.11.25 18:26:46-INFO: set_pump_flow_unit started
+2018.11.25 18:26:46-INFO: set_flow_unit started
+2018.11.25 18:26:46-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.25 18:26:46-INFO: conversion func starts
+2018.11.25 18:26:46-INFO: old value: 0.278
+2018.11.25 18:26:46-DEBUG: 0.278 * 3.6 = 1.0008000000000001
+2018.11.25 18:26:46-INFO: new value: 1.001
+2018.11.25 18:26:46-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.25 18:26:46-INFO: the value: 1.001
+2018.11.25 18:26:46-INFO: setting pump_efficiency_from value to: 1.001
+2018.11.25 18:26:46-DEBUG: pump_efficiency_from - var value: 1.001, ui var value: 1.001
+2018.11.25 18:26:46-INFO: conversion func starts
+2018.11.25 18:26:46-INFO: old value: 0.0
+2018.11.25 18:26:46-DEBUG: 0.0 * 3.6 = 0.0
+2018.11.25 18:26:46-INFO: new value: 0.0
+2018.11.25 18:26:46-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.25 18:26:46-INFO: the value: 0.0
+2018.11.25 18:26:46-INFO: setting pump_efficiency_to value to: 0.0
+2018.11.25 18:26:46-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
+2018.11.25 18:26:46-INFO: conversion func starts
+2018.11.25 18:26:46-INFO: old value: 0.278
+2018.11.25 18:26:46-DEBUG: 0.278 * 3.6 = 1.0008000000000001
+2018.11.25 18:26:46-INFO: new value: 1.001
+2018.11.25 18:27:32-INFO: changed mode: optimalisation

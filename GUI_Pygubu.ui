@@ -1060,7 +1060,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </columns>
                     </layout>
                     <child>
-                      <object class="ttk.Frame" id="Frame_Dane_pompy">
+                      <object class="ttk.Frame" id="Frame_Pump_data">
                         <property name="height">200</property>
                         <property name="padding">10</property>
                         <property name="relief">groove</property>
@@ -1076,7 +1076,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </rows>
                         </layout>
                         <child>
-                          <object class="ttk.Label" id="Label_Obrys_pompy">
+                          <object class="ttk.Label" id="Label_Pump_contour">
                             <property name="text" translatable="yes">Średnica koła niezbędna do zainstalowania jednej pompy [m]</property>
                             <property name="wraplength">250</property>
                             <layout>
@@ -1087,9 +1087,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="ttk.Entry" id="Entry_Obrys_pompy">
+                          <object class="ttk.Entry" id="Entry_Pump_contour">
                             <property name="justify">right</property>
-                            <property name="textvariable">double:obrys_pompy</property>
+                            <property name="textvariable">double:pump_contour</property>
                             <property name="validate">focus</property>
                             <property name="width">7</property>
                             <layout>
@@ -1100,8 +1100,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="tk.Label" id="Label_Czas_cyklu">
-                            <property name="text" translatable="yes">Czas cyklu pracy pompy [min]</property>
+                          <object class="tk.Label" id="Label_Work_cycle">
+                            <property name="text" translatable="yes">Cykl pracy pompy [min]</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
@@ -1110,9 +1110,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="tk.Entry" id="Entry_Czas_cyklu">
+                          <object class="tk.Entry" id="Entry_Work_cycle">
                             <property name="justify">right</property>
-                            <property name="textvariable">double:czas_cyklu</property>
+                            <property name="textvariable">double:work_cycle</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1122,7 +1122,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="ttk.Labelframe" id="Labelframe_Punkty_char">
+                          <object class="ttk.Labelframe" id="Labelframe_Char_points">
                             <property name="height">200</property>
                             <property name="padding">10</property>
                             <property name="text" translatable="yes">Punkty charakterystyki pompy</property>
@@ -1164,7 +1164,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </columns>
                             </layout>
                             <child>
-                              <object class="tk.Label" id="Label_Jedn_char_pompy">
+                              <object class="tk.Label" id="Label_Pump_char_unit">
                                 <property name="text" translatable="yes">Jednostka przepływu:</property>
                                 <layout>
                                   <property name="column">0</property>
@@ -1174,13 +1174,13 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_m3">
+                              <object class="tk.Radiobutton" id="Radiobutton_Pump_char_unit_meters">
                                 <property name="anchor">w</property>
                                 <property name="command">set_pump_flow_unit</property>
                                 <property name="height">0</property>
                                 <property name="text" translatable="yes">[m³/h]</property>
-                                <property name="value">2</property>
-                                <property name="variable">int:char_pompy_jednostka</property>
+                                <property name="value">meters</property>
+                                <property name="variable">string:pump_flow_unit</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -1189,11 +1189,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_l">
+                              <object class="tk.Radiobutton" id="Radiobutton_Pump_char_unit_liters">
                                 <property name="command">set_pump_flow_unit</property>
                                 <property name="text" translatable="yes">[l/s]</property>
-                                <property name="value">1</property>
-                                <property name="variable">int:char_pompy_jednostka</property>
+                                <property name="value">liters</property>
+                                <property name="variable">string:pump_flow_unit</property>
                                 <layout>
                                   <property name="column">2</property>
                                   <property name="propagate">True</property>
@@ -1202,7 +1202,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Label" id="Label_Wydajnosc_pompy">
+                              <object class="tk.Label" id="Label_Pump_efficiency">
                                 <property name="text" translatable="yes">Zakres maksymalnej wydajności pompy</property>
                                 <layout>
                                   <property name="column">0</property>
@@ -1214,9 +1214,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Label" id="Label_Wydajnosc_od">
+                              <object class="tk.Label" id="Label_Pump_efficiency_from">
                                 <property name="text" translatable="yes">Od [l/s]</property>
-                                <property name="textvariable">string:wydajnosc_od_text</property>
+                                <property name="textvariable">string:pump_efficiency_from_txt</property>
                                 <layout>
                                   <property name="column">0</property>
                                   <property name="columnspan">2</property>
@@ -1226,9 +1226,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Entry" id="Entry_Wydajnosc_od">
+                              <object class="tk.Entry" id="Entry_Pump_efficiency_from">
                                 <property name="justify">right</property>
-                                <property name="textvariable">double:wydajnosc_od</property>
+                                <property name="textvariable">double:pump_efficiency_from</property>
                                 <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
@@ -1238,9 +1238,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Label" id="Label_Wydajnosc_do">
+                              <object class="tk.Label" id="Label_Pump_efficiency_to">
                                 <property name="text" translatable="yes">Do [l/s]</property>
-                                <property name="textvariable">string:wydajnosc_do_text</property>
+                                <property name="textvariable">string:pump_efficiency_to_txt</property>
                                 <layout>
                                   <property name="column">0</property>
                                   <property name="columnspan">2</property>
@@ -1250,9 +1250,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Entry" id="Entry_Wydajnosc_do">
+                              <object class="tk.Entry" id="Entry_Pump_efficiency_to">
                                 <property name="justify">right</property>
-                                <property name="textvariable">double:wydajnosc_do</property>
+                                <property name="textvariable">double:pump_efficiency_to</property>
                                 <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
@@ -1324,7 +1324,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             </child>
                             <child>
                               <object class="ttk.Button" id="Button_Usun">
-                                <property name="command">pump_delete_button</property>
+                                <property name="command">pump_delete_point</property>
                                 <property name="text" translatable="yes">Usuń wybrany punkt</property>
                                 <property name="width">34</property>
                                 <layout>
@@ -1338,7 +1338,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="ttk.Labelframe" id="Labelframe_Dodaj">
+                              <object class="ttk.Labelframe" id="Labelframe_Add_char_point">
                                 <property name="height">10</property>
                                 <property name="padding">10</property>
                                 <property name="relief">groove</property>
@@ -1372,7 +1372,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <child>
                                   <object class="ttk.Label" id="Label_Add_char_point_flow">
                                     <property name="text" translatable="yes">Przepływ Q [l/s]</property>
-                                    <property name="textvariable">string:wsp_q_text</property>
+                                    <property name="textvariable">string:add_point_flow_text</property>
                                     <layout>
                                       <property name="column">0</property>
                                       <property name="propagate">True</property>
@@ -3093,7 +3093,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="Button_Load">
-            <property name="command">data_load</property>
+            <property name="command">load_data</property>
             <property name="text" translatable="yes">Wczytaj Dane</property>
             <layout>
               <property name="column">1</property>

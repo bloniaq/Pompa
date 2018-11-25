@@ -5,8 +5,10 @@ log = logging.getLogger('Pompa/main.classes')
 default = {'mode': 'checking',
            'shape': 'round'}
 
+unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
 
-def well_vars(object_):
+
+def well_vars():
     variables = {
         'well_diameter': ['diameter'],
         'well_length': ['length'],
@@ -25,17 +27,18 @@ def well_vars(object_):
     return variables
 
 
-def pump_vars(object_):
+def pump_vars():
     variables = {
-        '': ['diameter'],
-        'length_discharge_pipe': ['length'],
-        '': ['width'],
-        '': ['width']
+        'work_cycle': ['cycle_time'],
+        # '': ['suction_level'],
+        'pump_contour': ['contour'],
+        'pump_efficiency_from': ['efficiency_from.value'],
+        'pump_efficiency_to': ['efficiency_to.value']
     }
     return variables
 
 
-def discharge_pipe_vars(object_):
+def discharge_pipe_vars():
     variables = {
         'length_discharge_pipe': ['length'],
         'diameter_discharge_pipe': ['diameter'],
@@ -45,7 +48,7 @@ def discharge_pipe_vars(object_):
     return variables
 
 
-def collector_vars(object_):
+def collector_vars():
     variables = {
         'number_of_collectors': ['parallels'],
         'length_collector': ['length'],

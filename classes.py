@@ -1,8 +1,10 @@
 import logging
+import tkinter as tk  # for python 3
 
 import config
 
 log = logging.getLogger('Pompa/main.classes')
+unit_bracket_dict = config.unit_bracket_dict
 
 
 class Variable():
@@ -35,7 +37,6 @@ class Variable():
             variable.set(value)
         log.debug('{} - var value: {}, ui var value: {}'.format(
             variable_name, getattr(self, attribute), variable.get()))
-        log.debug('diam engine value: {}'.format(self.diameter))
 
     def bind_traceing_to_ui_variables(self, app):
         for variable in self.variables:
@@ -49,9 +50,12 @@ class Variable():
 class Flow():
     """class for flow"""
 
-    def __init__(self, flow_val, flow_unit):
-        self.value = flow_val
-        self.unit = flow_unit
+    def __init__(self, value, unit):
+        self.value = value
+        self.unit = unit
+
+    def __repr__(self):
+        return str(self.value)
 
     def convert(self, new_unit):
         log.info('conversion func starts')
@@ -61,9 +65,11 @@ class Flow():
             return
         elif new_unit == 'meters':
             self.unit = new_unit
+            log.debug('{} * 3.6 = {}'.format(self.value, self.value * 3.6))
             self.value = round(self.value * 3.6, 3)
         elif new_unit == 'liters':
             self.unit = new_unit
+            log.debug('{} / 3.6 = {}'.format(self.value, self.value / 3.6))
             self.value = round(self.value / 3.6, 3)
         log.info('new value: {}'.format(self.value))
 
@@ -100,20 +106,75 @@ class Pump(Variable):
 
     def __init__(self, app):
         super().__init__(app)
+        self.tree = self.builder.get_object('Treeview_Pump')
         self.cycle_time = 0
         self.contour = 0
         self.characteristic = {}
-        self.efficiency = []
         self.suction_level = 0
+        self.efficiency_from = Flow(
+            0, self.builder.tkvariables.__getitem__('pump_flow_unit').get())
+        self.efficiency_to = Flow(
+            0, self.builder.tkvariables.__getitem__('pump_flow_unit').get())
+        self.set_flow_unit(
+            self.builder.tkvariables.__getitem__('pump_flow_unit').get())
 
-    def add_characteristic_points(
-            self, point_id, flow_val, flow_unit, lift_val, lift_unit):
-        flow = Flow(flow_val, flow_unit)
-        self.characteristic[point_id] = (flow)
-        self.sort_characteristic_points()
+    def add_point(self, flow, lift):
+        log.debug('Add point method started')
+        log.debug('types: flow: {}, lift: {}'.format(type(flow), type(lift)))
+        flow = round(float(flow), 3)
+        lift = round(float(lift), 3)
+        log.debug('types: flow: {}, lift: {}'.format(type(flow), type(lift)))
+        unit = self.builder.tkvariables.__getitem__('pump_flow_unit').get()
+        itemid = self.tree.insert('', tk.END, text='Punkt',
+                                  values=('1', flow, lift))
+        self.characteristic[itemid] = (Flow(flow, unit), lift)
+        self.sort_points()
+        log.debug('char points: {}'.format(self.characteristic))
 
-    def sort_characteristic_points(self):
-        pass
+    def sort_points(self):
+        log.info('sort_points started')
+        id_numbers = [(self.tree.set(i, 'Column_q'), i)
+                      for i in self.tree.get_children('')]
+        log.debug('id numbers raised: {}'.format(id_numbers))
+        id_numbers.sort(key=lambda t: float(t[0]))
+        for index, (val, i) in enumerate(id_numbers):
+            self.tree.move(i, '', index)
+            self.tree.set(i, 'Column_nr', value=str(index + 1))
+        log.info('sort_points ended')
+
+    def delete_point(self, selected_id):
+        log.info('delete_point started')
+        log.debug('point to delete: {}'.format(
+            self.characteristic[selected_id]))
+        del self.characteristic[selected_id]
+        self.tree.delete(selected_id)
+        log.debug('actual dict: {}'.format(self.characteristic))
+        self.sort_points()
+        log.info('delete_points ended')
+
+    def set_flow_unit(self, unit):
+        log.info('set_flow_unit started')
+        unit_bracket = unit_bracket_dict[unit]
+        efficiency_from_label = self.builder.tkvariables.__getitem__(
+            'pump_efficiency_from_txt')
+        efficiency_to_label = self.builder.tkvariables.__getitem__(
+            'pump_efficiency_to_txt')
+        add_point_label = self.builder.tkvariables.__getitem__(
+            'add_point_flow_text')
+        efficiency_from_label.set('Od {}'.format(unit_bracket))
+        efficiency_to_label.set('Do {}'.format(unit_bracket))
+        add_point_label.set('Przepływ Q {}'.format(unit_bracket))
+        log.info('self.efficiency_from type: {}'.format(
+            type(self.efficiency_from)))
+        self.efficiency_from.convert(unit)
+        self.builder.tkvariables.__getitem__('pump_efficiency_from').set(
+            self.efficiency_from.value)
+        self.efficiency_to.convert(unit)
+        self.builder.tkvariables.__getitem__('pump_efficiency_to').set(
+            self.efficiency_to.value)
+        for key in self.characteristic:
+            self.characteristic[key][0].convert(unit)
+            self.tree.set(key, 'Column_q', self.characteristic[key][0])
 
 
 class Well(Variable):
