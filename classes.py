@@ -30,21 +30,34 @@ class Variable():
 
     def set_var_value(self, variable_name, value):
         log.info('setting {} value to: {}'.format(variable_name, value))
-        variable = self.builder.get_variable(variable_name)
         attribute = self.variables[variable_name][0]
         setattr(self, attribute, value)
-        if variable.get() != value:
-            variable.set(value)
+        try:
+            variable = self.builder.get_variable(variable_name)
+        except KeyError as e:
+            log.warning('variable <{}> doesn\'t exist'.format(e))
+        else:
+            if variable.get() != value:
+                variable.set(value)
         log.debug('{} - var value: {}, ui var value: {}'.format(
             variable_name, getattr(self, attribute), variable.get()))
 
-    def bind_traceing_to_ui_variables(self, app):
+    def bind_traceing_to_ui_variables(self):
         for variable in self.variables:
-            log.debug('variable: {}'.format(variable))
-            variable_object = self.builder.get_variable(variable)
-            variable_object.trace(
-                'w', lambda *_, var=variable: app.set_var_value(var, self)
-            )
+            if variable in self.app.builder.tkvariables:
+                log.debug('variable: {}'.format(variable))
+                variable_object = self.builder.get_variable(variable)
+                variable_object.trace(
+                    'w', lambda *_,
+                    var=variable: self.app.set_var_value(var, self)
+                )
+
+    def load_data(self, data_dict):
+        for variable in self.variables:
+            if (variable in self.app.builder.tkvariables and
+                    self.variables[variable][1] in data_dict):
+                self.set_var_value(
+                    variable, data_dict[self.variables[variable][1]])
 
 
 class Flow():
@@ -111,6 +124,8 @@ class Pump(Variable):
         self.contour = 0
         self.characteristic = {}
         self.suction_level = 0
+        self.pump_flow_coords = []
+        self.pump_lift_coords = []
         self.efficiency_from = Flow(
             0, self.builder.tkvariables.__getitem__('pump_flow_unit').get())
         self.efficiency_to = Flow(
@@ -130,6 +145,12 @@ class Pump(Variable):
         self.characteristic[itemid] = (Flow(flow, unit), lift)
         self.sort_points()
         log.debug('char points: {}'.format(self.characteristic))
+
+    def load_characteristic_coords(self):
+        if len(self.pump_flow_coords) == len(self.pump_lift_coords) != 0:
+            for coord in self.pump_flow_coords:
+                self.add_point(self, self.pump_flow_coords[coord],
+                               self.pump_lift_coords[coord])
 
     def sort_points(self):
         log.info('sort_points started')
@@ -179,10 +200,6 @@ class Pump(Variable):
 
 class Well(Variable):
     """class for well"""
-
-    dan_shape = {'0': 'rectangle', '1': 'round'}
-    dan_configuration = {'0': 'linear', '1': 'optimal'}
-    dan_reserve = {'1': 'minimal', '2': 'optimal', '3': 'safe'}
 
     default = config.default
 

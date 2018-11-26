@@ -86,10 +86,47 @@ class Application():
 
     def bind_ui_variables(self, instance, binder):
         setattr(instance, 'variables', binder)
-        instance.bind_traceing_to_ui_variables(self)
+        instance.bind_traceing_to_ui_variables()
 
     def load_data(self):
-        pass
+        log.info('\ndata_load started\n')
+        global path
+        path = self.filepath.cget('path')
+        with open(path, 'r+') as file:
+            log.info('opening file: {0}\n\n'.format(str(file)))
+            # rozpoznaj plik
+            first_line = file.readline()
+            # rozpoznanie wersji zapisu
+            if first_line[0] == '1' and first_line[1] == ')':
+                self.dan_load(path)
+
+    def dan_load(self, path):
+        log.info('\ndan_load started\n')
+        log.info('plik danych generowany wersją 1.0 aplikacji')
+        data_dictionary = {}
+        with open(path, 'r+') as file:
+            log.info('opening file: {0}\n\n'.format(str(file)))
+            for line in file:
+                id_line, line_datas = line.split(')')
+                line_datas_list = line_datas.split()
+                stored_value = line_datas_list[0]
+                log.debug('id: {}, stored value: {}'.format(
+                    id_line, stored_value))
+                if id_line not in data_dictionary:
+                    data_dictionary[id_line] = []
+                data_dictionary[id_line].append(stored_value)
+                data_dictionary[id_line] = config.prepare_value(
+                    id_line, data_dictionary[id_line])
+                log.debug('dan_id: {0}) {1} <-readed_value'.format(
+                    id_line, data_dictionary[id_line]))
+        log.info(data_dictionary)
+        log.info('dan load ended')
+        log.info('load data started')
+        self.well.load_data(data_dictionary)
+        self.pump.load_data(data_dictionary)
+        self.pump.load_characteristic_coords()
+        self.discharge_pipe.load_data(data_dictionary)
+        self.collector.load_data(data_dictionary)
 
     def ui_set_shape(self):
         shape = self.builder.tkvariables.__getitem__('shape').get()

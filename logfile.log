@@ -1,320 +1,422 @@
-2018.11.25 18:25:38-DEBUG: started setting shape
-2018.11.25 18:25:38-DEBUG: new shape: round
-2018.11.25 18:25:38-DEBUG: changed shape to round
-2018.11.25 18:25:38-DEBUG: variable: well_diameter
-2018.11.25 18:25:38-DEBUG: variable: well_length
-2018.11.25 18:25:38-DEBUG: variable: well_width
-2018.11.25 18:25:38-DEBUG: variable: minimal_sewage_level
-2018.11.25 18:25:38-DEBUG: variable: ordinate_terrain
-2018.11.25 18:25:38-DEBUG: variable: ordinate_inlet
-2018.11.25 18:25:38-DEBUG: variable: ordinate_outlet
-2018.11.25 18:25:38-DEBUG: variable: ordinate_bottom
-2018.11.25 18:25:38-DEBUG: variable: ordinate_highest_point
-2018.11.25 18:25:38-DEBUG: variable: ordinate_final_table
-2018.11.25 18:25:38-DEBUG: variable: difference_in_start
-2018.11.25 18:25:38-DEBUG: variable: inflow_max
-2018.11.25 18:25:38-DEBUG: variable: inflow_min
-2018.11.25 18:25:38-INFO: changing unit of station inflow
-2018.11.25 18:25:38-INFO: ui max value: 0.0
-2018.11.25 18:25:38-INFO: engine max value: 0
-2018.11.25 18:25:38-INFO: ooold value: 0.0
-2018.11.25 18:25:38-INFO: new unit: liters
-2018.11.25 18:25:38-INFO: conversion func starts
-2018.11.25 18:25:38-INFO: old value: 0
-2018.11.25 18:25:38-INFO: no need to conversion
-2018.11.25 18:25:38-INFO: conversion func starts
-2018.11.25 18:25:38-INFO: old value: 0
-2018.11.25 18:25:38-INFO: no need to conversion
-2018.11.25 18:25:38-INFO: app set_var_value starts for inflow_max
-2018.11.25 18:25:38-INFO: the value: 0.0
-2018.11.25 18:25:38-INFO: setting inflow_max value to: 0.0
-2018.11.25 18:25:38-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:38-INFO: app set_var_value starts for inflow_min
-2018.11.25 18:25:38-INFO: the value: 0.0
-2018.11.25 18:25:38-INFO: setting inflow_min value to: 0.0
-2018.11.25 18:25:38-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:38-INFO: set_flow_unit started
-2018.11.25 18:25:38-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:38-INFO: conversion func starts
-2018.11.25 18:25:38-INFO: old value: 0
-2018.11.25 18:25:38-INFO: no need to conversion
-2018.11.25 18:25:38-INFO: conversion func starts
-2018.11.25 18:25:38-INFO: old value: 0
-2018.11.25 18:25:38-INFO: no need to conversion
-2018.11.25 18:25:38-DEBUG: variable: work_cycle
-2018.11.25 18:25:38-DEBUG: variable: pump_contour
-2018.11.25 18:25:38-DEBUG: variable: pump_efficiency_from
-2018.11.25 18:25:38-DEBUG: variable: pump_efficiency_to
-2018.11.25 18:25:38-DEBUG: variable: length_discharge_pipe
-2018.11.25 18:25:38-DEBUG: variable: diameter_discharge_pipe
-2018.11.25 18:25:38-DEBUG: variable: roughness_discharge_pipe
-2018.11.25 18:25:38-DEBUG: variable: resistance_discharge_pipe
-2018.11.25 18:25:38-DEBUG: variable: number_of_collectors
-2018.11.25 18:25:38-DEBUG: variable: length_collector
-2018.11.25 18:25:38-DEBUG: variable: roughness_collector
-2018.11.25 18:25:38-DEBUG: variable: resistance_collector
-2018.11.25 18:25:38-DEBUG: variable: diameter_collector
-2018.11.25 18:25:38-INFO: changed mode: checking
-2018.11.25 18:25:40-INFO: set_pump_flow_unit started
-2018.11.25 18:25:40-INFO: set_flow_unit started
-2018.11.25 18:25:40-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:40-INFO: conversion func starts
-2018.11.25 18:25:40-INFO: old value: 0
-2018.11.25 18:25:40-DEBUG: 0 * 3.6 = 0.0
-2018.11.25 18:25:40-INFO: new value: 0.0
-2018.11.25 18:25:40-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:25:40-INFO: the value: 0.0
-2018.11.25 18:25:40-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:25:40-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:40-INFO: conversion func starts
-2018.11.25 18:25:40-INFO: old value: 0
-2018.11.25 18:25:40-DEBUG: 0 * 3.6 = 0.0
-2018.11.25 18:25:40-INFO: new value: 0.0
-2018.11.25 18:25:40-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:25:40-INFO: the value: 0.0
-2018.11.25 18:25:40-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:25:40-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:41-INFO: get_coords started
-2018.11.25 18:25:41-DEBUG: Add point method started
-2018.11.25 18:25:41-DEBUG: types: flow: <class 'str'>, lift: <class 'str'>
-2018.11.25 18:25:41-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.25 18:25:41-INFO: sort_points started
-2018.11.25 18:25:41-DEBUG: id numbers raised: [('1.0', 'I001')]
-2018.11.25 18:25:41-INFO: sort_points ended
-2018.11.25 18:25:41-DEBUG: char points: {'I001': (1.0, 0.0)}
-2018.11.25 18:25:42-INFO: set_pump_flow_unit started
-2018.11.25 18:25:42-INFO: set_flow_unit started
-2018.11.25 18:25:42-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:42-INFO: conversion func starts
-2018.11.25 18:25:42-INFO: old value: 0.0
-2018.11.25 18:25:42-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:25:42-INFO: new value: 0.0
-2018.11.25 18:25:42-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:25:42-INFO: the value: 0.0
-2018.11.25 18:25:42-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:25:42-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:42-INFO: conversion func starts
-2018.11.25 18:25:42-INFO: old value: 0.0
-2018.11.25 18:25:42-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:25:42-INFO: new value: 0.0
-2018.11.25 18:25:42-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:25:42-INFO: the value: 0.0
-2018.11.25 18:25:42-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:25:42-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:42-INFO: conversion func starts
-2018.11.25 18:25:42-INFO: old value: 1.0
-2018.11.25 18:25:42-DEBUG: 1.0 / 3.6 = 0.2777777777777778
-2018.11.25 18:25:42-INFO: new value: 0.278
-2018.11.25 18:25:43-INFO: set_pump_flow_unit started
-2018.11.25 18:25:43-INFO: set_flow_unit started
-2018.11.25 18:25:43-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:43-INFO: conversion func starts
-2018.11.25 18:25:43-INFO: old value: 0.0
-2018.11.25 18:25:43-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:25:43-INFO: new value: 0.0
-2018.11.25 18:25:43-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:25:43-INFO: the value: 0.0
-2018.11.25 18:25:43-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:25:43-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:43-INFO: conversion func starts
-2018.11.25 18:25:43-INFO: old value: 0.0
-2018.11.25 18:25:43-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:25:43-INFO: new value: 0.0
-2018.11.25 18:25:43-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:25:43-INFO: the value: 0.0
-2018.11.25 18:25:43-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:25:43-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:43-INFO: conversion func starts
-2018.11.25 18:25:43-INFO: old value: 0.278
-2018.11.25 18:25:43-DEBUG: 0.278 * 3.6 = 1.0008000000000001
-2018.11.25 18:25:43-INFO: new value: 1.001
-2018.11.25 18:25:45-INFO: set_pump_flow_unit started
-2018.11.25 18:25:45-INFO: set_flow_unit started
-2018.11.25 18:25:45-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:45-INFO: conversion func starts
-2018.11.25 18:25:45-INFO: old value: 0.0
-2018.11.25 18:25:45-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:25:45-INFO: new value: 0.0
-2018.11.25 18:25:45-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:25:45-INFO: the value: 0.0
-2018.11.25 18:25:45-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:25:45-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:45-INFO: conversion func starts
-2018.11.25 18:25:45-INFO: old value: 0.0
-2018.11.25 18:25:45-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:25:45-INFO: new value: 0.0
-2018.11.25 18:25:45-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:25:45-INFO: the value: 0.0
-2018.11.25 18:25:45-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:25:45-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:45-INFO: conversion func starts
-2018.11.25 18:25:45-INFO: old value: 1.001
-2018.11.25 18:25:45-DEBUG: 1.001 / 3.6 = 0.2780555555555555
-2018.11.25 18:25:45-INFO: new value: 0.278
-2018.11.25 18:25:46-INFO: set_pump_flow_unit started
-2018.11.25 18:25:46-INFO: set_flow_unit started
-2018.11.25 18:25:46-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:46-INFO: conversion func starts
-2018.11.25 18:25:46-INFO: old value: 0.0
-2018.11.25 18:25:46-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:25:46-INFO: new value: 0.0
-2018.11.25 18:25:46-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:25:46-INFO: the value: 0.0
-2018.11.25 18:25:46-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:25:46-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:46-INFO: conversion func starts
-2018.11.25 18:25:46-INFO: old value: 0.0
-2018.11.25 18:25:46-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:25:46-INFO: new value: 0.0
-2018.11.25 18:25:46-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:25:46-INFO: the value: 0.0
-2018.11.25 18:25:46-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:25:46-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:46-INFO: conversion func starts
-2018.11.25 18:25:46-INFO: old value: 0.278
-2018.11.25 18:25:46-DEBUG: 0.278 * 3.6 = 1.0008000000000001
-2018.11.25 18:25:46-INFO: new value: 1.001
-2018.11.25 18:25:47-INFO: set_pump_flow_unit started
-2018.11.25 18:25:47-INFO: set_flow_unit started
-2018.11.25 18:25:47-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:47-INFO: conversion func starts
-2018.11.25 18:25:47-INFO: old value: 0.0
-2018.11.25 18:25:47-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:25:47-INFO: new value: 0.0
-2018.11.25 18:25:47-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:25:47-INFO: the value: 0.0
-2018.11.25 18:25:47-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:25:47-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:47-INFO: conversion func starts
-2018.11.25 18:25:47-INFO: old value: 0.0
-2018.11.25 18:25:47-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:25:47-INFO: new value: 0.0
-2018.11.25 18:25:47-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:25:47-INFO: the value: 0.0
-2018.11.25 18:25:47-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:25:47-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:47-INFO: conversion func starts
-2018.11.25 18:25:47-INFO: old value: 1.001
-2018.11.25 18:25:47-DEBUG: 1.001 / 3.6 = 0.2780555555555555
-2018.11.25 18:25:47-INFO: new value: 0.278
-2018.11.25 18:25:48-INFO: set_pump_flow_unit started
-2018.11.25 18:25:48-INFO: set_flow_unit started
-2018.11.25 18:25:48-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:48-INFO: conversion func starts
-2018.11.25 18:25:48-INFO: old value: 0.0
-2018.11.25 18:25:48-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:25:48-INFO: new value: 0.0
-2018.11.25 18:25:48-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:25:48-INFO: the value: 0.0
-2018.11.25 18:25:48-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:25:48-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:48-INFO: conversion func starts
-2018.11.25 18:25:48-INFO: old value: 0.0
-2018.11.25 18:25:48-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:25:48-INFO: new value: 0.0
-2018.11.25 18:25:48-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:25:48-INFO: the value: 0.0
-2018.11.25 18:25:48-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:25:48-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:48-INFO: conversion func starts
-2018.11.25 18:25:48-INFO: old value: 0.278
-2018.11.25 18:25:48-DEBUG: 0.278 * 3.6 = 1.0008000000000001
-2018.11.25 18:25:48-INFO: new value: 1.001
-2018.11.25 18:25:53-INFO: set_pump_flow_unit started
-2018.11.25 18:25:53-INFO: set_flow_unit started
-2018.11.25 18:25:53-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:25:53-INFO: conversion func starts
-2018.11.25 18:25:53-INFO: old value: 0.0
-2018.11.25 18:25:53-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:25:53-INFO: new value: 0.0
-2018.11.25 18:25:53-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:25:53-INFO: the value: 0.0
-2018.11.25 18:25:53-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:25:53-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:53-INFO: conversion func starts
-2018.11.25 18:25:53-INFO: old value: 0.0
-2018.11.25 18:25:53-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:25:53-INFO: new value: 0.0
-2018.11.25 18:25:53-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:25:53-INFO: the value: 0.0
-2018.11.25 18:25:53-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:25:53-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:25:53-INFO: conversion func starts
-2018.11.25 18:25:53-INFO: old value: 1.001
-2018.11.25 18:25:53-DEBUG: 1.001 / 3.6 = 0.2780555555555555
-2018.11.25 18:25:53-INFO: new value: 0.278
-2018.11.25 18:26:34-INFO: set_pump_flow_unit started
-2018.11.25 18:26:34-INFO: set_flow_unit started
-2018.11.25 18:26:34-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:26:34-INFO: conversion func starts
-2018.11.25 18:26:34-INFO: old value: 0.0
-2018.11.25 18:26:34-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:26:34-INFO: new value: 0.0
-2018.11.25 18:26:34-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:26:34-INFO: the value: 0.0
-2018.11.25 18:26:34-INFO: setting pump_efficiency_from value to: 0.0
-2018.11.25 18:26:34-DEBUG: pump_efficiency_from - var value: 0.0, ui var value: 0.0
-2018.11.25 18:26:34-INFO: conversion func starts
-2018.11.25 18:26:34-INFO: old value: 0.0
-2018.11.25 18:26:34-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:26:34-INFO: new value: 0.0
-2018.11.25 18:26:34-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:26:34-INFO: the value: 0.0
-2018.11.25 18:26:34-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:26:34-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:26:34-INFO: conversion func starts
-2018.11.25 18:26:34-INFO: old value: 0.278
-2018.11.25 18:26:34-DEBUG: 0.278 * 3.6 = 1.0008000000000001
-2018.11.25 18:26:34-INFO: new value: 1.001
-2018.11.25 18:26:36-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:26:36-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:26:36-INFO: the value: 1.0
-2018.11.25 18:26:36-INFO: setting pump_efficiency_from value to: 1.0
-2018.11.25 18:26:36-DEBUG: pump_efficiency_from - var value: 1.0, ui var value: 1.0
-2018.11.25 18:26:42-INFO: set_pump_flow_unit started
-2018.11.25 18:26:42-INFO: set_flow_unit started
-2018.11.25 18:26:42-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:26:42-INFO: conversion func starts
-2018.11.25 18:26:42-INFO: old value: 1.0
-2018.11.25 18:26:42-DEBUG: 1.0 / 3.6 = 0.2777777777777778
-2018.11.25 18:26:42-INFO: new value: 0.278
-2018.11.25 18:26:42-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:26:42-INFO: the value: 0.278
-2018.11.25 18:26:42-INFO: setting pump_efficiency_from value to: 0.278
-2018.11.25 18:26:42-DEBUG: pump_efficiency_from - var value: 0.278, ui var value: 0.278
-2018.11.25 18:26:42-INFO: conversion func starts
-2018.11.25 18:26:42-INFO: old value: 0.0
-2018.11.25 18:26:42-DEBUG: 0.0 / 3.6 = 0.0
-2018.11.25 18:26:42-INFO: new value: 0.0
-2018.11.25 18:26:42-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:26:42-INFO: the value: 0.0
-2018.11.25 18:26:42-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:26:42-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:26:42-INFO: conversion func starts
-2018.11.25 18:26:42-INFO: old value: 1.001
-2018.11.25 18:26:42-DEBUG: 1.001 / 3.6 = 0.2780555555555555
-2018.11.25 18:26:42-INFO: new value: 0.278
-2018.11.25 18:26:46-INFO: set_pump_flow_unit started
-2018.11.25 18:26:46-INFO: set_flow_unit started
-2018.11.25 18:26:46-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.25 18:26:46-INFO: conversion func starts
-2018.11.25 18:26:46-INFO: old value: 0.278
-2018.11.25 18:26:46-DEBUG: 0.278 * 3.6 = 1.0008000000000001
-2018.11.25 18:26:46-INFO: new value: 1.001
-2018.11.25 18:26:46-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.25 18:26:46-INFO: the value: 1.001
-2018.11.25 18:26:46-INFO: setting pump_efficiency_from value to: 1.001
-2018.11.25 18:26:46-DEBUG: pump_efficiency_from - var value: 1.001, ui var value: 1.001
-2018.11.25 18:26:46-INFO: conversion func starts
-2018.11.25 18:26:46-INFO: old value: 0.0
-2018.11.25 18:26:46-DEBUG: 0.0 * 3.6 = 0.0
-2018.11.25 18:26:46-INFO: new value: 0.0
-2018.11.25 18:26:46-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.25 18:26:46-INFO: the value: 0.0
-2018.11.25 18:26:46-INFO: setting pump_efficiency_to value to: 0.0
-2018.11.25 18:26:46-DEBUG: pump_efficiency_to - var value: 0.0, ui var value: 0.0
-2018.11.25 18:26:46-INFO: conversion func starts
-2018.11.25 18:26:46-INFO: old value: 0.278
-2018.11.25 18:26:46-DEBUG: 0.278 * 3.6 = 1.0008000000000001
-2018.11.25 18:26:46-INFO: new value: 1.001
-2018.11.25 18:27:32-INFO: changed mode: optimalisation
+2018.11.26 15:25:40-DEBUG: started setting shape
+2018.11.26 15:25:40-DEBUG: new shape: round
+2018.11.26 15:25:40-DEBUG: changed shape to round
+2018.11.26 15:25:40-DEBUG: variable: well_diameter
+2018.11.26 15:25:40-DEBUG: variable: well_length
+2018.11.26 15:25:40-DEBUG: variable: well_width
+2018.11.26 15:25:40-DEBUG: variable: minimal_sewage_level
+2018.11.26 15:25:40-DEBUG: variable: ordinate_terrain
+2018.11.26 15:25:40-DEBUG: variable: ordinate_inlet
+2018.11.26 15:25:40-DEBUG: variable: ordinate_outlet
+2018.11.26 15:25:40-DEBUG: variable: ordinate_bottom
+2018.11.26 15:25:40-DEBUG: variable: ordinate_highest_point
+2018.11.26 15:25:40-DEBUG: variable: ordinate_final_table
+2018.11.26 15:25:40-DEBUG: variable: difference_in_start
+2018.11.26 15:25:40-DEBUG: variable: inflow_max
+2018.11.26 15:25:40-DEBUG: variable: inflow_min
+2018.11.26 15:25:40-INFO: changing unit of station inflow
+2018.11.26 15:25:40-INFO: ui max value: 0.0
+2018.11.26 15:25:40-INFO: engine max value: 0
+2018.11.26 15:25:40-INFO: ooold value: 0.0
+2018.11.26 15:25:40-INFO: new unit: liters
+2018.11.26 15:25:40-INFO: conversion func starts
+2018.11.26 15:25:40-INFO: old value: 0
+2018.11.26 15:25:40-INFO: no need to conversion
+2018.11.26 15:25:40-INFO: conversion func starts
+2018.11.26 15:25:40-INFO: old value: 0
+2018.11.26 15:25:40-INFO: no need to conversion
+2018.11.26 15:25:40-INFO: app set_var_value starts for inflow_max
+2018.11.26 15:25:40-INFO: the value: 0.0
+2018.11.26 15:25:40-INFO: setting inflow_max value to: 0.0
+2018.11.26 15:25:40-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
+2018.11.26 15:25:40-INFO: app set_var_value starts for inflow_min
+2018.11.26 15:25:40-INFO: the value: 0.0
+2018.11.26 15:25:40-INFO: setting inflow_min value to: 0.0
+2018.11.26 15:25:40-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
+2018.11.26 15:25:40-INFO: set_flow_unit started
+2018.11.26 15:25:40-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.26 15:25:40-INFO: conversion func starts
+2018.11.26 15:25:40-INFO: old value: 0
+2018.11.26 15:25:40-INFO: no need to conversion
+2018.11.26 15:25:40-INFO: conversion func starts
+2018.11.26 15:25:40-INFO: old value: 0
+2018.11.26 15:25:40-INFO: no need to conversion
+2018.11.26 15:25:40-DEBUG: variable: work_cycle
+2018.11.26 15:25:40-DEBUG: variable: pump_contour
+2018.11.26 15:25:40-DEBUG: variable: pump_efficiency_from
+2018.11.26 15:25:40-DEBUG: variable: pump_efficiency_to
+2018.11.26 15:25:40-DEBUG: variable: length_discharge_pipe
+2018.11.26 15:25:40-DEBUG: variable: diameter_discharge_pipe
+2018.11.26 15:25:40-DEBUG: variable: roughness_discharge_pipe
+2018.11.26 15:25:40-DEBUG: variable: resistance_discharge_pipe
+2018.11.26 15:25:40-DEBUG: variable: number_of_collectors
+2018.11.26 15:25:40-DEBUG: variable: length_collector
+2018.11.26 15:25:40-DEBUG: variable: roughness_collector
+2018.11.26 15:25:40-DEBUG: variable: resistance_collector
+2018.11.26 15:25:40-DEBUG: variable: diameter_collector
+2018.11.26 15:25:40-INFO: changed mode: checking
+2018.11.26 15:25:44-INFO: 
+data_load started
+
+2018.11.26 15:25:44-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
+
+
+2018.11.26 15:25:44-INFO: 
+dan_load started
+
+2018.11.26 15:25:44-INFO: plik danych generowany wersj¹ 1.0 aplikacji
+2018.11.26 15:25:44-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
+
+
+2018.11.26 15:25:44-DEBUG: id: 1, stored value: 1
+2018.11.26 15:25:44-DEBUG: input data: ['1'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: checking, <class 'str'>
+2018.11.26 15:25:44-DEBUG: dan_id: 1) checking <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 2, stored value: 0
+2018.11.26 15:25:44-DEBUG: input data: ['0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: rectangle, <class 'str'>
+2018.11.26 15:25:44-DEBUG: dan_id: 2) rectangle <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 3, stored value: 0
+2018.11.26 15:25:44-DEBUG: input data: ['0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: linear, <class 'str'>
+2018.11.26 15:25:44-DEBUG: dan_id: 3) linear <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 4, stored value: 2
+2018.11.26 15:25:44-DEBUG: input data: ['2'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: optimal, <class 'str'>
+2018.11.26 15:25:44-DEBUG: dan_id: 4) optimal <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 5, stored value: 1.20
+2018.11.26 15:25:44-DEBUG: input data: ['1.20'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 1.2, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 5) 1.2 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 6, stored value: 6.00
+2018.11.26 15:25:44-DEBUG: input data: ['6.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 6.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 6) 6.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 7, stored value: 2.40
+2018.11.26 15:25:44-DEBUG: input data: ['2.40'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 2.4, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 7) 2.4 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 9, stored value: .30
+2018.11.26 15:25:44-DEBUG: input data: ['.30'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 0.3, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 9) 0.3 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 10, stored value: 50.00
+2018.11.26 15:25:44-DEBUG: input data: ['50.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 50.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 10) 50.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 11, stored value: 47.00
+2018.11.26 15:25:44-DEBUG: input data: ['47.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 47.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 11) 47.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 12, stored value: 45.00
+2018.11.26 15:25:44-DEBUG: input data: ['45.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 45.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 12) 45.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 13, stored value: 42.00
+2018.11.26 15:25:44-DEBUG: input data: ['42.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 42.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 13) 42.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 15, stored value: 52.00
+2018.11.26 15:25:44-DEBUG: input data: ['52.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 52.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 15) 52.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 16, stored value: 50.00
+2018.11.26 15:25:44-DEBUG: input data: ['50.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 50.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 16) 50.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 28, stored value: 7.0
+2018.11.26 15:25:44-DEBUG: input data: ['7.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 7.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 28) 7.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 29, stored value: 150.0
+2018.11.26 15:25:44-DEBUG: input data: ['150.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 150.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 29) 150.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 30, stored value: 1.00
+2018.11.26 15:25:44-DEBUG: input data: ['1.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 1.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 30) 1.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 31, stored value: 1
+2018.11.26 15:25:44-DEBUG: input data: ['1'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 31)  <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 32, stored value: 2.20
+2018.11.26 15:25:44-DEBUG: input data: ['2.20'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: ['2.20'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 32) ['2.20'] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 33, stored value: 2.0
+2018.11.26 15:25:44-DEBUG: input data: ['2.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 2.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 33) 2.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 34, stored value: 3.5
+2018.11.26 15:25:44-DEBUG: input data: ['3.5'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 3.5, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 34) 3.5 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 35, stored value: 8.0
+2018.11.26 15:25:44-DEBUG: input data: ['8.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 8.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 35) 8.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 36, stored value: 5
+2018.11.26 15:25:44-DEBUG: input data: ['5'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 36)  <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 37, stored value: 6.0
+2018.11.26 15:25:44-DEBUG: input data: ['6.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [6.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 37) [6.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 37, stored value: 5.0
+2018.11.26 15:25:44-DEBUG: input data: [6.0, '5.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [6.0, 5.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 37) [6.0, 5.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 37, stored value: 4.0
+2018.11.26 15:25:44-DEBUG: input data: [6.0, 5.0, '4.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [6.0, 5.0, 4.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 37) [6.0, 5.0, 4.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 37, stored value: 3.0
+2018.11.26 15:25:44-DEBUG: input data: [6.0, 5.0, 4.0, '3.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [6.0, 5.0, 4.0, 3.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 37) [6.0, 5.0, 4.0, 3.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 37, stored value: 2.0
+2018.11.26 15:25:44-DEBUG: input data: [6.0, 5.0, 4.0, 3.0, '2.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [6.0, 5.0, 4.0, 3.0, 2.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 37) [6.0, 5.0, 4.0, 3.0, 2.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 38, stored value: 8.0
+2018.11.26 15:25:44-DEBUG: input data: ['8.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [8.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 38) [8.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 38, stored value: 9.0
+2018.11.26 15:25:44-DEBUG: input data: [8.0, '9.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [8.0, 9.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 38) [8.0, 9.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 38, stored value: 10.0
+2018.11.26 15:25:44-DEBUG: input data: [8.0, 9.0, '10.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [8.0, 9.0, 10.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 38) [8.0, 9.0, 10.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 38, stored value: 11.0
+2018.11.26 15:25:44-DEBUG: input data: [8.0, 9.0, 10.0, '11.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [8.0, 9.0, 10.0, 11.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 38) [8.0, 9.0, 10.0, 11.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 38, stored value: 12.0
+2018.11.26 15:25:44-DEBUG: input data: [8.0, 9.0, 10.0, 11.0, '12.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: [8.0, 9.0, 10.0, 11.0, 12.0], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 38) [8.0, 9.0, 10.0, 11.0, 12.0] <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 39, stored value: 2.0
+2018.11.26 15:25:44-DEBUG: input data: ['2.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 2.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 39) 2.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 40, stored value: 4.0
+2018.11.26 15:25:44-DEBUG: input data: ['4.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 4.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 40) 4.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 41, stored value: 2
+2018.11.26 15:25:44-DEBUG: input data: ['2'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 2, <class 'int'>
+2018.11.26 15:25:44-DEBUG: dan_id: 41) 2 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 42, stored value: 136.0
+2018.11.26 15:25:44-DEBUG: input data: ['136.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 136.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 42) 136.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 43, stored value: 150.0
+2018.11.26 15:25:44-DEBUG: input data: ['150.0'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 150.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 43) 150.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 44, stored value: 1.00
+2018.11.26 15:25:44-DEBUG: input data: ['1.00'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 1.0, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 44) 1.0 <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 45, stored value: 1
+2018.11.26 15:25:44-DEBUG: input data: ['1'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: dan_id: 45)  <-readed_value
+2018.11.26 15:25:44-DEBUG: id: 46, stored value: 1.50
+2018.11.26 15:25:44-DEBUG: input data: ['1.50'], <class 'list'>
+2018.11.26 15:25:44-DEBUG: output data: 1.5, <class 'float'>
+2018.11.26 15:25:44-DEBUG: dan_id: 46) 1.5 <-readed_value
+2018.11.26 15:25:44-INFO: {'1': 'checking', '2': 'rectangle', '3': 'linear', '4': 'optimal', '5': 1.2, '6': 6.0, '7': 2.4, '9': 0.3, '10': 50.0, '11': 47.0, '12': 45.0, '13': 42.0, '15': 52.0, '16': 50.0, '28': 7.0, '29': 150.0, '30': 1.0, '31': '', '32': ['2.20'], '33': 2.0, '34': 3.5, '35': 8.0, '36': '', '37': [6.0, 5.0, 4.0, 3.0, 2.0], '38': [8.0, 9.0, 10.0, 11.0, 12.0], '39': 2.0, '40': 4.0, '41': 2, '42': 136.0, '43': 150.0, '44': 1.0, '45': '', '46': 1.5}
+2018.11.26 15:25:44-INFO: dan load ended
+2018.11.26 15:25:44-INFO: load data started
+2018.11.26 15:25:44-INFO: setting well_length value to: 6.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for well_length
+2018.11.26 15:25:44-INFO: the value: 6.0
+2018.11.26 15:25:44-INFO: setting well_length value to: 6.0
+2018.11.26 15:25:44-DEBUG: well_length - var value: 6.0, ui var value: 6.0
+2018.11.26 15:25:44-DEBUG: well_length - var value: 6.0, ui var value: 6.0
+2018.11.26 15:25:44-INFO: setting well_width value to: 2.4
+2018.11.26 15:25:44-INFO: app set_var_value starts for well_width
+2018.11.26 15:25:44-INFO: the value: 2.4
+2018.11.26 15:25:44-INFO: setting well_width value to: 2.4
+2018.11.26 15:25:44-DEBUG: well_width - var value: 2.4, ui var value: 2.4
+2018.11.26 15:25:44-DEBUG: well_width - var value: 2.4, ui var value: 2.4
+2018.11.26 15:25:44-INFO: setting minimal_sewage_level value to: 0.3
+2018.11.26 15:25:44-INFO: app set_var_value starts for minimal_sewage_level
+2018.11.26 15:25:44-INFO: the value: 0.3
+2018.11.26 15:25:44-INFO: setting minimal_sewage_level value to: 0.3
+2018.11.26 15:25:44-DEBUG: minimal_sewage_level - var value: 0.3, ui var value: 0.3
+2018.11.26 15:25:44-DEBUG: minimal_sewage_level - var value: 0.3, ui var value: 0.3
+2018.11.26 15:25:44-INFO: setting ordinate_terrain value to: 50.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for ordinate_terrain
+2018.11.26 15:25:44-INFO: the value: 50.0
+2018.11.26 15:25:44-INFO: setting ordinate_terrain value to: 50.0
+2018.11.26 15:25:44-DEBUG: ordinate_terrain - var value: 50.0, ui var value: 50.0
+2018.11.26 15:25:44-DEBUG: ordinate_terrain - var value: 50.0, ui var value: 50.0
+2018.11.26 15:25:44-INFO: setting ordinate_inlet value to: 45.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for ordinate_inlet
+2018.11.26 15:25:44-INFO: the value: 45.0
+2018.11.26 15:25:44-INFO: setting ordinate_inlet value to: 45.0
+2018.11.26 15:25:44-DEBUG: ordinate_inlet - var value: 45.0, ui var value: 45.0
+2018.11.26 15:25:44-DEBUG: ordinate_inlet - var value: 45.0, ui var value: 45.0
+2018.11.26 15:25:44-INFO: setting ordinate_outlet value to: 47.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for ordinate_outlet
+2018.11.26 15:25:44-INFO: the value: 47.0
+2018.11.26 15:25:44-INFO: setting ordinate_outlet value to: 47.0
+2018.11.26 15:25:44-DEBUG: ordinate_outlet - var value: 47.0, ui var value: 47.0
+2018.11.26 15:25:44-DEBUG: ordinate_outlet - var value: 47.0, ui var value: 47.0
+2018.11.26 15:25:44-INFO: setting ordinate_bottom value to: 42.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for ordinate_bottom
+2018.11.26 15:25:44-INFO: the value: 42.0
+2018.11.26 15:25:44-INFO: setting ordinate_bottom value to: 42.0
+2018.11.26 15:25:44-DEBUG: ordinate_bottom - var value: 42.0, ui var value: 42.0
+2018.11.26 15:25:44-DEBUG: ordinate_bottom - var value: 42.0, ui var value: 42.0
+2018.11.26 15:25:44-INFO: setting ordinate_highest_point value to: 52.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for ordinate_highest_point
+2018.11.26 15:25:44-INFO: the value: 52.0
+2018.11.26 15:25:44-INFO: setting ordinate_highest_point value to: 52.0
+2018.11.26 15:25:44-DEBUG: ordinate_highest_point - var value: 52.0, ui var value: 52.0
+2018.11.26 15:25:44-DEBUG: ordinate_highest_point - var value: 52.0, ui var value: 52.0
+2018.11.26 15:25:44-INFO: setting ordinate_final_table value to: 50.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for ordinate_final_table
+2018.11.26 15:25:44-INFO: the value: 50.0
+2018.11.26 15:25:44-INFO: setting ordinate_final_table value to: 50.0
+2018.11.26 15:25:44-DEBUG: ordinate_final_table - var value: 50.0, ui var value: 50.0
+2018.11.26 15:25:44-DEBUG: ordinate_final_table - var value: 50.0, ui var value: 50.0
+2018.11.26 15:25:44-INFO: setting inflow_max value to: 3.5
+2018.11.26 15:25:44-INFO: app set_var_value starts for inflow_max
+2018.11.26 15:25:44-INFO: the value: 3.5
+2018.11.26 15:25:44-INFO: setting inflow_max value to: 3.5
+2018.11.26 15:25:44-DEBUG: inflow_max - var value: 3.5, ui var value: 3.5
+2018.11.26 15:25:44-DEBUG: inflow_max - var value: 3.5, ui var value: 3.5
+2018.11.26 15:25:44-INFO: setting inflow_min value to: 2.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for inflow_min
+2018.11.26 15:25:44-INFO: the value: 2.0
+2018.11.26 15:25:44-INFO: setting inflow_min value to: 2.0
+2018.11.26 15:25:44-DEBUG: inflow_min - var value: 2.0, ui var value: 2.0
+2018.11.26 15:25:44-DEBUG: inflow_min - var value: 2.0, ui var value: 2.0
+2018.11.26 15:25:44-INFO: setting work_cycle value to: 8.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for work_cycle
+2018.11.26 15:25:44-INFO: the value: 8.0
+2018.11.26 15:25:44-INFO: setting work_cycle value to: 8.0
+2018.11.26 15:25:44-DEBUG: work_cycle - var value: 8.0, ui var value: 8.0
+2018.11.26 15:25:44-DEBUG: work_cycle - var value: 8.0, ui var value: 8.0
+2018.11.26 15:25:44-INFO: setting pump_contour value to: 1.2
+2018.11.26 15:25:44-INFO: app set_var_value starts for pump_contour
+2018.11.26 15:25:44-INFO: the value: 1.2
+2018.11.26 15:25:44-INFO: setting pump_contour value to: 1.2
+2018.11.26 15:25:44-DEBUG: pump_contour - var value: 1.2, ui var value: 1.2
+2018.11.26 15:25:44-DEBUG: pump_contour - var value: 1.2, ui var value: 1.2
+2018.11.26 15:25:44-INFO: setting pump_efficiency_from value to: 2.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for pump_efficiency_from
+2018.11.26 15:25:44-INFO: the value: 2.0
+2018.11.26 15:25:44-INFO: setting pump_efficiency_from value to: 2.0
+2018.11.26 15:25:44-DEBUG: pump_efficiency_from - var value: 2.0, ui var value: 2.0
+2018.11.26 15:25:44-DEBUG: pump_efficiency_from - var value: 2.0, ui var value: 2.0
+2018.11.26 15:25:44-INFO: setting pump_efficiency_to value to: 4.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for pump_efficiency_to
+2018.11.26 15:25:44-INFO: the value: 4.0
+2018.11.26 15:25:44-INFO: setting pump_efficiency_to value to: 4.0
+2018.11.26 15:25:44-DEBUG: pump_efficiency_to - var value: 4.0, ui var value: 4.0
+2018.11.26 15:25:44-DEBUG: pump_efficiency_to - var value: 4.0, ui var value: 4.0
+2018.11.26 15:25:44-INFO: setting length_discharge_pipe value to: 7.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for length_discharge_pipe
+2018.11.26 15:25:44-INFO: the value: 7.0
+2018.11.26 15:25:44-INFO: setting length_discharge_pipe value to: 7.0
+2018.11.26 15:25:44-DEBUG: length_discharge_pipe - var value: 7.0, ui var value: 7.0
+2018.11.26 15:25:44-DEBUG: length_discharge_pipe - var value: 7.0, ui var value: 7.0
+2018.11.26 15:25:44-INFO: setting diameter_discharge_pipe value to: 1.0
+2018.11.26 15:25:44-INFO: app set_var_value starts for diameter_discharge_pipe
+2018.11.26 15:25:44-INFO: the value: 1.0
+2018.11.26 15:25:44-INFO: setting diameter_discharge_pipe value to: 1.0
+2018.11.26 15:25:44-DEBUG: diameter_discharge_pipe - var value: 1.0, ui var value: 1.0
+2018.11.26 15:25:44-DEBUG: diameter_discharge_pipe - var value: 1.0, ui var value: 1.0
+2018.11.26 15:25:44-INFO: setting roughness_discharge_pipe value to: ['2.20']
+2018.11.26 15:25:44-INFO: app set_var_value starts for roughness_discharge_pipe
+2018.11.26 15:25:55-INFO: changing unit of station inflow
+2018.11.26 15:25:55-INFO: ui max value: 3.5
+2018.11.26 15:25:55-INFO: engine max value: 3.5
+2018.11.26 15:25:55-INFO: ooold value: 2.0
+2018.11.26 15:25:55-INFO: new unit: meters
+2018.11.26 15:25:55-INFO: conversion func starts
+2018.11.26 15:25:55-INFO: old value: 3.5
+2018.11.26 15:25:55-DEBUG: 3.5 * 3.6 = 12.6
+2018.11.26 15:25:55-INFO: new value: 12.6
+2018.11.26 15:25:55-INFO: conversion func starts
+2018.11.26 15:25:55-INFO: old value: 2.0
+2018.11.26 15:25:55-DEBUG: 2.0 * 3.6 = 7.2
+2018.11.26 15:25:55-INFO: new value: 7.2
+2018.11.26 15:25:55-INFO: app set_var_value starts for inflow_max
+2018.11.26 15:25:55-INFO: the value: 12.6
+2018.11.26 15:25:55-INFO: setting inflow_max value to: 12.6
+2018.11.26 15:25:55-DEBUG: inflow_max - var value: 12.6, ui var value: 12.6
+2018.11.26 15:25:55-INFO: app set_var_value starts for inflow_min
+2018.11.26 15:25:55-INFO: the value: 7.2
+2018.11.26 15:25:55-INFO: setting inflow_min value to: 7.2
+2018.11.26 15:25:55-DEBUG: inflow_min - var value: 7.2, ui var value: 7.2
+2018.11.26 15:25:56-INFO: changing unit of station inflow
+2018.11.26 15:25:56-INFO: ui max value: 12.6
+2018.11.26 15:25:56-INFO: engine max value: 12.6
+2018.11.26 15:25:56-INFO: ooold value: 7.2
+2018.11.26 15:25:56-INFO: new unit: liters
+2018.11.26 15:25:56-INFO: conversion func starts
+2018.11.26 15:25:56-INFO: old value: 12.6
+2018.11.26 15:25:56-DEBUG: 12.6 / 3.6 = 3.5
+2018.11.26 15:25:56-INFO: new value: 3.5
+2018.11.26 15:25:56-INFO: conversion func starts
+2018.11.26 15:25:56-INFO: old value: 7.2
+2018.11.26 15:25:56-DEBUG: 7.2 / 3.6 = 2.0
+2018.11.26 15:25:56-INFO: new value: 2.0
+2018.11.26 15:25:56-INFO: app set_var_value starts for inflow_max
+2018.11.26 15:25:56-INFO: the value: 3.5
+2018.11.26 15:25:56-INFO: setting inflow_max value to: 3.5
+2018.11.26 15:25:56-DEBUG: inflow_max - var value: 3.5, ui var value: 3.5
+2018.11.26 15:25:56-INFO: app set_var_value starts for inflow_min
+2018.11.26 15:25:56-INFO: the value: 2.0
+2018.11.26 15:25:56-INFO: setting inflow_min value to: 2.0
+2018.11.26 15:25:56-DEBUG: inflow_min - var value: 2.0, ui var value: 2.0
+2018.11.26 15:26:02-INFO: changing unit of station inflow
+2018.11.26 15:26:02-INFO: ui max value: 3.5
+2018.11.26 15:26:02-INFO: engine max value: 3.5
+2018.11.26 15:26:02-INFO: ooold value: 2.0
+2018.11.26 15:26:02-INFO: new unit: meters
+2018.11.26 15:26:02-INFO: conversion func starts
+2018.11.26 15:26:02-INFO: old value: 3.5
+2018.11.26 15:26:02-DEBUG: 3.5 * 3.6 = 12.6
+2018.11.26 15:26:02-INFO: new value: 12.6
+2018.11.26 15:26:02-INFO: conversion func starts
+2018.11.26 15:26:02-INFO: old value: 2.0
+2018.11.26 15:26:02-DEBUG: 2.0 * 3.6 = 7.2
+2018.11.26 15:26:02-INFO: new value: 7.2
+2018.11.26 15:26:02-INFO: app set_var_value starts for inflow_max
+2018.11.26 15:26:02-INFO: the value: 12.6
+2018.11.26 15:26:02-INFO: setting inflow_max value to: 12.6
+2018.11.26 15:26:02-DEBUG: inflow_max - var value: 12.6, ui var value: 12.6
+2018.11.26 15:26:02-INFO: app set_var_value starts for inflow_min
+2018.11.26 15:26:02-INFO: the value: 7.2
+2018.11.26 15:26:02-INFO: setting inflow_min value to: 7.2
+2018.11.26 15:26:02-DEBUG: inflow_min - var value: 7.2, ui var value: 7.2
+2018.11.26 15:26:04-INFO: changing unit of station inflow
+2018.11.26 15:26:04-INFO: ui max value: 12.6
+2018.11.26 15:26:04-INFO: engine max value: 12.6
+2018.11.26 15:26:04-INFO: ooold value: 7.2
+2018.11.26 15:26:04-INFO: new unit: liters
+2018.11.26 15:26:04-INFO: conversion func starts
+2018.11.26 15:26:04-INFO: old value: 12.6
+2018.11.26 15:26:04-DEBUG: 12.6 / 3.6 = 3.5
+2018.11.26 15:26:04-INFO: new value: 3.5
+2018.11.26 15:26:04-INFO: conversion func starts
+2018.11.26 15:26:04-INFO: old value: 7.2
+2018.11.26 15:26:04-DEBUG: 7.2 / 3.6 = 2.0
+2018.11.26 15:26:04-INFO: new value: 2.0
+2018.11.26 15:26:04-INFO: app set_var_value starts for inflow_max
+2018.11.26 15:26:04-INFO: the value: 3.5
+2018.11.26 15:26:04-INFO: setting inflow_max value to: 3.5
+2018.11.26 15:26:04-DEBUG: inflow_max - var value: 3.5, ui var value: 3.5
+2018.11.26 15:26:04-INFO: app set_var_value starts for inflow_min
+2018.11.26 15:26:04-INFO: the value: 2.0
+2018.11.26 15:26:04-INFO: setting inflow_min value to: 2.0
+2018.11.26 15:26:04-DEBUG: inflow_min - var value: 2.0, ui var value: 2.0
