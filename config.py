@@ -49,7 +49,7 @@ load_dictionary = {
     '42': ['length_collector', 'float'],
     '43': ['diameter_collector', 'float'],
     '44': ['roughness_collector', 'float'],
-    '46': ['resistance_collector', 'float']
+    '46': ['resistance_collector', 'list']
 }
 
 
@@ -65,7 +65,10 @@ def prepare_value(input_id, input_data):
     elif method == 'int':
         output = int(input_data[0])
     elif method == 'list':
-        output = input_data
+        output = str(input_data[0])
+        if len(input_data) > 1:
+            for element in range(1, len(input_data)):
+                output += ', {}'.format(str(element))
     elif method == 'pump':
         output = [float(val) for val in input_data]
     log.debug('output data: {}, {}'.format(output, type(output)))
@@ -74,6 +77,7 @@ def prepare_value(input_id, input_data):
 
 def well_vars():
     variables = {
+        'shape': ['shape', '2'],
         'well_diameter': ['diameter', '8'],
         'well_length': ['length', '6'],
         'well_width': ['width', '7'],
@@ -107,9 +111,9 @@ def pump_vars():
 def discharge_pipe_vars():
     variables = {
         'length_discharge_pipe': ['length', '28'],
-        'diameter_discharge_pipe': ['diameter', '30'],
-        'roughness_discharge_pipe': ['roughness', '32'],
-        'resistance_discharge_pipe': ['resistance.string', '29']
+        'diameter_discharge_pipe': ['diameter', '29'],
+        'roughness_discharge_pipe': ['roughness', '30'],
+        'resistance_discharge_pipe': ['resistance.string', '32']
     }
     return variables
 

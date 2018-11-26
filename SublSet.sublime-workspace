@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"input_data\tparam"
+			],
+			[
+				"var",
+				"variable_name"
+			],
+			[
+				"di",
+				"discharge_pipe\tstatement"
+			],
+			[
 				"ef",
 				"efficiency_to\tstatement"
 			],
@@ -164,25 +176,27 @@
 	"buffers":
 	[
 		{
-			"contents": "import tkinter as tk  # for python 3\n'''\ntry:\n    import tkinter as tk  # for python 3\nexcept:\n    import Tkinter as tk  # for python\n'''\nimport pygubu\nimport logging\n\nimport classes\nimport config\n\nvariables_list = []\npath = \"\"\n\n# LOGGING CONFIGURATION\n\n# clearing root logger handlers\nlog = logging.getLogger()\nlog.handlers = []\n\n# setting new logger\nlog = logging.getLogger('Pompa/main')\nlog.setLevel(logging.DEBUG)\n\n# create console and file handler\nch = logging.StreamHandler()\nch.setLevel(logging.DEBUG)\nfh = logging.FileHandler('logfile.log', 'w')\nfh.setLevel(logging.DEBUG)\n\n# create formatter\nformatter = logging.Formatter('%(asctime)s-%(levelname)s: %(message)s',\n                              datefmt='%Y.%m.%d %H:%M:%S')\n\n# add formatter to ch and fh\nch.setFormatter(formatter)\nfh.setFormatter(formatter)\n\n# add ch to logger\nlog.addHandler(ch)\nlog.addHandler(fh)\n\n\nclass Application():\n\n    dan_mode = {'0': 'minimalisation', '1': 'checking', '2': 'optimalisation'}\n    default = config.default\n\n    def __init__(self):\n\n        # 1: Create a builder\n        self.builder = pygubu.Builder()\n\n        # 2: Load an ui file\n        self.builder.add_from_file('GUI_Pygubu.ui')\n\n        # 3: Create the widget using a master as parent\n        self.mainwindow = self.builder.get_object('Toplevel_Main')\n        self.filepath = self.builder.get_object('filepath')\n        self.pump_characteristic = {}\n\n        # 4: Setting callbacks\n        self.builder.connect_callbacks(self)\n\n        # 5: creating objects\n\n        self.create_objects()\n        self.set_mode(self.default['mode'])\n\n    def run(self):\n        self.mainwindow.mainloop()\n\n    def create_objects(self):\n        self.well = classes.Well(self)\n        self.bind_ui_variables(self.well, config.well_vars())\n        self.set_inflow_unit()\n        self.pump = classes.Pump(self)\n        self.bind_ui_variables(self.pump, config.pump_vars())\n        self.discharge_pipe = classes.Pipe(self)\n        self.bind_ui_variables(\n            self.discharge_pipe, config.discharge_pipe_vars())\n        self.collector = classes.Pipe(self)\n        self.bind_ui_variables(self.collector, config.collector_vars())\n\n    def bind_ui_variables(self, instance, binder):\n        setattr(instance, 'variables', binder)\n        instance.bind_traceing_to_ui_variables(self)\n\n    def load_data(self):\n        log.info('\\ndata_load started\\n')\n        global path\n        path = self.filepath.cget('path')\n        with open(path, 'r+') as file:\n            log.info('opening file: {0}\\n\\n'.format(str(file)))\n            # rozpoznaj plik\n            first_line = file.readline()\n            # rozpoznanie wersji zapisu\n            if first_line[0] == '1' and first_line[1] == ')':\n                self.dan_load(path)\n\n    def dan_load(self, path):\n        log.info('\\ndan_load started\\n')\n        log.info('plik danych generowany wersją 1.0 aplikacji')\n        with open(path, 'r+') as file:\n            log.info('opening file: {0}\\n\\n'.format(str(file)))\n            for line in file:\n                id_line, line_data = line.split(')')\n                line_data_list = line_data.split()\n                stored_value = line_data_list[0]\n                log.debug('dan_id: {}) {} <-readed_value'.format(\n                    id_line, stored_value))\n                log.debug('type id_line: {0}'.format(type(id_line)))\n                for i in variables_list:\n                    if i.load_func is None:\n                        continue\n                    if eval(id_line) == i.dan_id:\n                        l_to_skip = i.load_func(i, stored_value,\n                                                i.load_func_args)\n                        log.info('i.load_func {0} executed,\\\n                            returned {1}'.format(\n                            i.test_attr, l_to_skip))\n                        for _ in range(l_to_skip):\n                            next(file)\n                        break\n\n    def ui_set_shape(self):\n        shape = self.builder.tkvariables.__getitem__('shape').get()\n        self.well.set_shape(shape)\n\n    def ui_set_mode(self):\n        mode = self.builder.tkvariables.__getitem__('mode').get()\n        self.set_mode(mode)\n\n    def set_mode(self, mode):\n        ''' changes application mode\n        '''\n        self.builder.tkvariables.__getitem__('mode').set(mode)\n        nbook = self.builder.get_object('Notebook_Data')\n        if mode == 'checking':\n            nbook.tab(3, state='disabled')\n            nbook.tab(4, state='disabled')\n        elif mode == 'minimalisation':\n            nbook.tab(3, state='normal')\n            nbook.tab(4, state='disabled')\n        elif mode == 'optimalisation':\n            nbook.tab(3, state='normal')\n            nbook.tab(4, state='normal')\n        log.info('changed mode: {0}'.format(mode))\n\n    def set_var_value(self, variable_name, obj):\n        log.info('app set_var_value starts for {}'.format(variable_name))\n        value = self.builder.get_variable(variable_name).get()\n        log.info('the value: {}'.format(value))\n        obj.set_var_value(variable_name, value)\n\n    def set_inflow_unit(self):\n        log.info('changing unit of station inflow')\n        unit = self.builder.tkvariables.__getitem__('inflow_unit').get()\n        log.info('ui max value: {}'.format(\n            self.builder.tkvariables.__getitem__('inflow_max').get()))\n        log.info('engine max value: {}'.format(self.well.inflow_max.value))\n        log.info('ooold value: {}'.format(self.builder.tkvariables.__getitem__(\n            'inflow_min').get()))\n        log.info('new unit: {}'.format(unit))\n        self.well.inflow_max.convert(unit)\n        self.well.inflow_min.convert(unit)\n        self.builder.tkvariables.__getitem__('inflow_max').set(\n            self.well.inflow_max.value)\n        self.builder.tkvariables.__getitem__('inflow_min').set(\n            self.well.inflow_min.value)\n\n    def set_pump_flow_unit(self):\n        log.info('set_pump_flow_unit started')\n        current_setting = self.builder.tkvariables.__getitem__(\n            'pump_flow_unit').get()\n        self.pump.set_flow_unit(current_setting)\n\n    def pump_get_coords(self):\n        log.info('get_coords started')\n        flow_entry = self.builder.get_object('Entry_Add_char_point_flow')\n        flow_value = flow_entry.get()\n        flow_entry.delete(0, 'end')\n        lift_entry = self.builder.get_object('Entry_Add_char_point_lift')\n        lift_value = lift_entry.get()\n        lift_entry.delete(0, 'end')\n        self.pump.add_point(flow_value, lift_value)\n\n    def pump_delete_point(self):\n        log.info('pump_delete_button started')\n        deleted_id = self.pump.tree.focus()\n        if deleted_id != '':\n            self.pump.delete_point(deleted_id)\n\n    def print_values(self):\n        for key in self.well.variables:\n            log.debug('{} - ui: {}, engine: {}'.format(\n                key, self.builder.tkvariables.__getitem__(key).get(),\n                getattr(self.well, self.well.variables[key][0])))\n        log.debug('inflow engine value: {}'.format(self.well.inflow_max.value))\n        log.debug('diam engine value: {}'.format(self.well.diameter))\n        log.debug('res engine value: {}'.format(\n            self.discharge_pipe.resistance.values))\n        log.debug('types: diam: {}, res: {}'.format(\n            type(self.well.diameter), type(\n                self.discharge_pipe.resistance.values)))\n\n\nif __name__ == '__main__':\n\n    app = Application()\n    app.run()\n",
 			"file": "Pompa.py",
-			"file_size": 6074,
-			"file_write_time": 131876405133932001,
 			"settings":
 			{
-				"buffer_size": 7481,
+				"buffer_size": 9158,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "import logging\n\nlog = logging.getLogger('Pompa/main.classes')\n\ndefault = {'mode': 'checking',\n           'shape': 'round'}\n\nunit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}\n\nload_variables = {\n    '1': \n}\n\n\ndef well_vars():\n    variables = {\n        'well_diameter': ['diameter'],\n        'well_length': ['length'],\n        'well_width': ['width'],\n        'minimal_sewage_level': ['minimal_sewage_level'],\n        'ordinate_terrain': ['ord_terrain'],\n        'ordinate_inlet': ['ord_inlet'],\n        'ordinate_outlet': ['ord_outlet'],\n        'ordinate_bottom': ['ord_bottom'],\n        'ordinate_highest_point': ['ord_highest_point'],\n        'ordinate_final_table': ['ord_upper_level'],\n        'difference_in_start': ['difference_in_start'],\n        'inflow_max': ['inflow_max.value'],\n        'inflow_min': ['inflow_min.value']\n    }\n    return variables\n\n\ndef pump_vars():\n    variables = {\n        'work_cycle': ['cycle_time'],\n        # '': ['suction_level'],\n        'pump_contour': ['contour'],\n        'pump_efficiency_from': ['efficiency_from.value'],\n        'pump_efficiency_to': ['efficiency_to.value']\n    }\n    return variables\n\n\ndef discharge_pipe_vars():\n    variables = {\n        'length_discharge_pipe': ['length'],\n        'diameter_discharge_pipe': ['diameter'],\n        'roughness_discharge_pipe': ['roughness'],\n        'resistance_discharge_pipe': ['resistance.string']\n    }\n    return variables\n\n\ndef collector_vars():\n    variables = {\n        'number_of_collectors': ['parallels'],\n        'length_collector': ['length'],\n        'roughness_collector': ['roughness'],\n        'resistance_collector': ['resistance.string'],\n        'diameter_collector': ['diameter']\n    }\n    return variables\n",
-			"file": "config.py",
-			"file_size": 1761,
-			"file_write_time": 131876347576903168,
+			"file": "InOut Examples/2_STAND.DAN",
 			"settings":
 			{
-				"buffer_size": 1733,
+				"buffer_size": 348,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config.py",
+			"settings":
+			{
+				"buffer_size": 4450,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -191,7 +205,7 @@
 			"file": "classes.py",
 			"settings":
 			{
-				"buffer_size": 8455,
+				"buffer_size": 9457,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -257,13 +271,15 @@
 	"expanded_folders":
 	[
 		"/E/# PROGRAMOWANIE/Pompa",
-		"/E/# PROGRAMOWANIE/Pompa/archive"
+		"/E/# PROGRAMOWANIE/Pompa/archive",
+		"/E/# PROGRAMOWANIE/Pompa/InOut Examples"
 	],
 	"file_history":
 	[
+		"/E/# PROGRAMOWANIE/Pompa/config.py",
+		"/E/# PROGRAMOWANIE/Pompa/Pompa.py",
 		"/E/# PROGRAMOWANIE/Pompa/.gitignore",
 		"/E/# PROGRAMOWANIE/Pompa/gitignore",
-		"/E/# PROGRAMOWANIE/Pompa/config.py",
 		"/E/# PROGRAMOWANIE/Pompa/variables.csv",
 		"/E/# PROGRAMOWANIE/Pompa/oldPompa.py",
 		"/E/# PROGRAMOWANIE/Pompa/archive.py",
@@ -275,7 +291,6 @@
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/logs/log-2018.11.05-07.01.log",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/dbase.py",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/discogs_con.py",
-		"/E/# PROGRAMOWANIE/Pompa/Pompa.py",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/logs/log-2018.10.31-18.18.log",
 		"/C/Users/blons/;",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/logs/log-2018.10.30-18.50.log",
@@ -311,7 +326,7 @@
 	],
 	"find":
 	{
-		"height": 41.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -325,6 +340,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"self",
 			"/ ",
 			"przepł",
 			"level",
@@ -358,7 +374,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -367,15 +383,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7481,
+						"buffer_size": 9158,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3399,
-								3399
+								8401,
+								8401
 							]
 						],
 						"settings":
@@ -389,30 +405,6 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -421,27 +413,56 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1508.0,
+						"translation.y": 2023.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "InOut Examples/2_STAND.DAN",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 348,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								272,
+								272
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 2,
 					"file": "config.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1733,
+						"buffer_size": 4450,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								213,
-								213
+								2885,
+								2885
 							]
 						],
 						"settings":
@@ -455,46 +476,41 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
-							"spell_check": false,
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1436.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 2,
+					"buffer": 3,
 					"file": "classes.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8455,
+						"buffer_size": 9457,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2313,
-								2313
+								5524,
+								5524
 							]
 						],
 						"settings":
@@ -541,14 +557,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2410.0,
+						"translation.y": 3636.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 4,
 					"file": "GUI_Pygubu.ui",
 					"semi_transient": false,
 					"settings":
@@ -560,8 +576,8 @@
 						"selection":
 						[
 							[
-								177059,
-								177059
+								177721,
+								177721
 							]
 						],
 						"settings":
@@ -572,14 +588,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 58977.0,
+						"translation.y": 58995.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "archive/oldPompa kopia.py",
 					"semi_transient": false,
 					"settings":
@@ -606,7 +622,7 @@
 						"translation.y": 3983.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 5,
 					"type": "text"
 				}
 			]

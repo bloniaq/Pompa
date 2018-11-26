@@ -122,6 +122,10 @@ class Application():
         log.info(data_dictionary)
         log.info('dan load ended')
         log.info('load data started')
+        self.builder.tkvariables.__getitem__('mode').set(data_dictionary['1'])
+        self.ui_set_mode()
+        self.builder.tkvariables.__getitem__('shape').set(data_dictionary['2'])
+        self.ui_set_shape()
         self.well.load_data(data_dictionary)
         self.pump.load_data(data_dictionary)
         self.pump.load_characteristic_coords()
@@ -154,6 +158,7 @@ class Application():
 
     def set_var_value(self, variable_name, obj):
         log.info('app set_var_value starts for {}'.format(variable_name))
+        log.info('variable_name type: {}'.format(type(variable_name)))
         value = self.builder.get_variable(variable_name).get()
         log.info('the value: {}'.format(value))
         obj.set_var_value(variable_name, value)
@@ -201,6 +206,32 @@ class Application():
             log.debug('{} - ui: {}, engine: {}'.format(
                 key, self.builder.tkvariables.__getitem__(key).get(),
                 getattr(self.well, self.well.variables[key][0])))
+        for key in self.discharge_pipe.variables:
+            try:
+                log.debug('{} - ui: {}, engine: {}'.format(
+                    key, self.builder.tkvariables.__getitem__(key).get(),
+                    getattr(self.discharge_pipe,
+                            self.discharge_pipe.variables[key][0])))
+            except TypeError as e:
+                log.error('TypeError: {}, attribute: {}, type: {}'.format(
+                    e, self.discharge_pipe.variables[key][0], type(
+                        self.discharge_pipe.variables[key][0])))
+        for key in self.pump.variables:
+            try:
+                ui_item = self.builder.tkvariables.__getitem__(key).get()
+            except KeyError as e:
+                log.error('KeyError: {}, key: {} - not in builder'.format(
+                    e, key))
+            try:
+                log.debug('{} - ui: {}, engine: {}'.format(
+                    key, ui_item,
+                    getattr(self.pump,
+                            self.pump.variables[key][0])))
+            except TypeError as e:
+                log.error('TypeError: {}, attribute: {}, type: {}'.format(
+                    e, self.pump.variables[key][0], type(
+                        self.pump.variables[key][0])))
+
         log.debug('inflow engine value: {}'.format(self.well.inflow_max.value))
         log.debug('diam engine value: {}'.format(self.well.diameter))
         log.debug('res engine value: {}'.format(

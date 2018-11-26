@@ -39,8 +39,8 @@ class Variable():
         else:
             if variable.get() != value:
                 variable.set(value)
-        log.debug('{} - var value: {}, ui var value: {}'.format(
-            variable_name, getattr(self, attribute), variable.get()))
+            log.debug('{} - var value: {}, ui var value: {}'.format(
+                variable_name, getattr(self, attribute), variable.get()))
 
     def bind_traceing_to_ui_variables(self):
         for variable in self.variables:
@@ -54,10 +54,18 @@ class Variable():
 
     def load_data(self, data_dict):
         for variable in self.variables:
+            if self.variables[variable][1] in data_dict:
+                self.set_var_value(
+                    variable, data_dict[self.variables[variable][1]])
+
+    '''
+    def load_data(self, data_dict):
+        for variable in self.variables:
             if (variable in self.app.builder.tkvariables and
                     self.variables[variable][1] in data_dict):
                 self.set_var_value(
                     variable, data_dict[self.variables[variable][1]])
+    '''
 
 
 class Flow():
@@ -148,8 +156,8 @@ class Pump(Variable):
 
     def load_characteristic_coords(self):
         if len(self.pump_flow_coords) == len(self.pump_lift_coords) != 0:
-            for coord in self.pump_flow_coords:
-                self.add_point(self, self.pump_flow_coords[coord],
+            for coord in range(len(self.pump_flow_coords)):
+                self.add_point(self.pump_flow_coords[coord],
                                self.pump_lift_coords[coord])
 
     def sort_points(self):
