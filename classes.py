@@ -7,6 +7,116 @@ log = logging.getLogger('Pompa/main.classes')
 unit_bracket_dict = config.unit_bracket_dict
 
 
+class Variable():
+
+    def __init__(self, app, ui_variable, dan_id):
+        self.app = app
+        self.builder = app.builder
+        self.tkvars = app.builder.tkvariables
+        self.dan_id = dan_id
+        if ui_variable in self.tkvars:
+            self.ui_var = self.tkvars.__getitem__(ui_variable)
+        else:
+            log.debug('No ui_variable named {}'.format(ui_variable))
+
+    def set_trace(self, attr):
+        self.ui_var.trace(
+            'w', lambda *_: self.setattr(self, attr, self.ui_var.get())
+        )
+
+
+class Numeric(Variable):
+    """keeps rational numbers or integers and connect them with ui variables"""
+
+    def __init__(self, app, value, ui_variable, dan_id):
+        super().__init__(app, value, ui_variable, dan_id)
+        self.value = value
+        self.set_trace(self.value)
+
+    def __setattr__(self, attr, value):
+        self.__dict__[attr] = value
+        if attr == 'value' and self.ui_var.get() != self.value:
+            self.ui_var.set(self.value)
+
+
+class Logic(Variable):
+    """keeps logic variables and connect them with ui variables"""
+
+    def __init__(self, app, value, ui_variable, dan_id, dictionary, function):
+        super().__init__(app, ui_variable, dan_id)
+        if value in dictionary:
+            self.value = dictionary[value]
+        else:
+            self.value = value
+        # self.function = function
+        self.set_trace(self.value)
+
+    def __setattr__(self, attr, value):
+        self.__dict__[attr] = value
+        if attr == 'value' and self.ui_var.get() != self.value:
+            self.ui_var.set(self.value)
+        # return self.function()
+
+
+class Resistance(Variable):
+    """class for local resistance in pipes"""
+
+    def __init__(self, app, string, ui_variable, dan_id):
+        super().__init__(app, ui_variable, dan_id)
+        self.string = string
+        self.set_trace(self.string)
+
+    def __setattr__(self, attribute, value):
+        if attribute != 'string':
+            super().__setattr__(attribute, value)
+        elif value != '':
+            super().__setattr__(attribute, value)
+            self.values = [float(s) for s in value.split(',')]
+            if value != self.string:
+                self.ui_var.set(value)
+
+
+class Flow(Variable):
+    """class for flow"""
+
+    def __init__(self, app, value, ui_variable, dan_id, unit_ui_var):
+        super().__init__(app, value, ui_variable, dan_id)
+        self.unit_var = self.tkvars.__getitem__(unit_ui_var)
+        self.unit = self.unit_var.get()
+        self.set_trace(value)
+        self.unit_var.trace('w', lambda *_: self.convert(self.unit_var.get()))
+
+    def __repr__(self):
+        return str(self.value)
+
+    def convert(self, new_unit):
+        log.info('conversion func starts')
+        log.info('old value: {}'.format(self.value))
+        if new_unit == self.unit:
+            log.info('no need to conversion')
+            return
+        elif new_unit == 'meters':
+            self.unit = new_unit
+            log.debug('{} * 3.6 = {}'.format(self.value, self.value * 3.6))
+            self.value = round(self.value * 3.6, 3)
+        elif new_unit == 'liters':
+            self.unit = new_unit
+            log.debug('{} / 3.6 = {}'.format(self.value, self.value / 3.6))
+            self.value = round(self.value / 3.6, 3)
+        log.info('new value: {}'.format(self.value))
+
+
+class ListOfFlows(Variable):
+    pass
+
+
+class ListOfLifts(Variable):
+    pass
+
+
+################################################################
+
+
 class StationObject():
 
     def __init__(self, app):
@@ -57,98 +167,6 @@ class StationObject():
             if self.variables[variable][1] in data_dict:
                 self.set_var_value(
                     variable, data_dict[self.variables[variable][1]])
-
-    '''
-    def load_data(self, data_dict):
-        for variable in self.variables:
-            if (variable in self.app.builder.tkvariables and
-                    self.variables[variable][1] in data_dict):
-                self.set_var_value(
-                    variable, data_dict[self.variables[variable][1]])
-    '''
-
-
-class Variable():
-    def __init__(self, app, value, ui_variable, dan_id):
-        self.value = value
-        self.app = app
-        self.builder = app.builder
-        self.tkvars = app.builder.tkvariables
-        self.dan_id = dan_id
-        if ui_variable in self.tkvars:
-            self.ui_var = self.tkvars.__getitem__(ui_variable)
-            self.set_trace()
-        else:
-            log.debug('No ui_variable {}'.format(ui_variable))
-
-    def set_trace(self):
-        self.ui_var.trace(
-            'w', lambda *_: self.setattr(self.ui_var, self.ui_var.get())
-        )
-
-
-class Numeric(Variable):
-    def __init__(self, app, value, ui_variable, dan_id):
-        super().__init__(app, value, ui_variable, dan_id)
-
-    def __setattr__(self, attr, value):
-        self.__dict__[attr] = value
-        if attr == 'value' and self.ui_var.get() != self.value:
-            self.ui_var.set(self.value)
-
-
-class Commandable(Variable):
-    def __init__(self, app, value, ui_variable, dan_id, function):
-        super().__init__(app, value, ui_variable, dan_id)
-        self.function = function
-
-    def __setattr__(self, attr, value):
-        self.__dict__[attr] = value
-        if attr == 'value' and self.ui_var.get() != self.value:
-            self.ui_var.set(self.value)
-        return self.function()
-
-
-class Flow():
-    """class for flow"""
-
-    def __init__(self, value, unit):
-        self.value = value
-        self.unit = unit
-
-    def __repr__(self):
-        return str(self.value)
-
-    def convert(self, new_unit):
-        log.info('conversion func starts')
-        log.info('old value: {}'.format(self.value))
-        if new_unit == self.unit:
-            log.info('no need to conversion')
-            return
-        elif new_unit == 'meters':
-            self.unit = new_unit
-            log.debug('{} * 3.6 = {}'.format(self.value, self.value * 3.6))
-            self.value = round(self.value * 3.6, 3)
-        elif new_unit == 'liters':
-            self.unit = new_unit
-            log.debug('{} / 3.6 = {}'.format(self.value, self.value / 3.6))
-            self.value = round(self.value / 3.6, 3)
-        log.info('new value: {}'.format(self.value))
-
-
-class Resistance(Variable):
-    """class for local resistance in pipes"""
-
-    def __init__(self, app, value, ui_variable, dan_id):
-        super().__init__(app, value, ui_variable, dan_id)
-        self.string = value
-
-    def __setattr__(self, attribute, value):
-        if attribute != 'string':
-            super().__setattr__(attribute, value)
-        elif value != '':
-            super().__setattr__(attribute, value)
-            self.values = [float(s) for s in value.split(',')]
 
 
 class Pipe(StationObject):
