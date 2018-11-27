@@ -7,7 +7,7 @@ log = logging.getLogger('Pompa/main.classes')
 unit_bracket_dict = config.unit_bracket_dict
 
 
-class Variable():
+class StationObject():
 
     def __init__(self, app):
         self.app = app
@@ -68,6 +68,47 @@ class Variable():
     '''
 
 
+class Variable():
+    def __init__(self, app, value, ui_variable, dan_id):
+        self.value = value
+        self.app = app
+        self.builder = app.builder
+        self.tkvars = app.builder.tkvariables
+        self.dan_id = dan_id
+        if ui_variable in self.tkvars:
+            self.ui_var = self.tkvars.__getitem__(ui_variable)
+            self.set_trace()
+        else:
+            log.debug('No ui_variable {}'.format(ui_variable))
+
+    def set_trace(self):
+        self.ui_var.trace(
+            'w', lambda *_: self.setattr(self.ui_var, self.ui_var.get())
+        )
+
+
+class Numeric(Variable):
+    def __init__(self, app, value, ui_variable, dan_id):
+        super().__init__(app, value, ui_variable, dan_id)
+
+    def __setattr__(self, attr, value):
+        self.__dict__[attr] = value
+        if attr == 'value' and self.ui_var.get() != self.value:
+            self.ui_var.set(self.value)
+
+
+class Commandable(Variable):
+    def __init__(self, app, value, ui_variable, dan_id, function):
+        super().__init__(app, value, ui_variable, dan_id)
+        self.function = function
+
+    def __setattr__(self, attr, value):
+        self.__dict__[attr] = value
+        if attr == 'value' and self.ui_var.get() != self.value:
+            self.ui_var.set(self.value)
+        return self.function()
+
+
 class Flow():
     """class for flow"""
 
@@ -95,12 +136,12 @@ class Flow():
         log.info('new value: {}'.format(self.value))
 
 
-class Resistance():
-    """class for lift"""
+class Resistance(Variable):
+    """class for local resistance in pipes"""
 
-    def __init__(self):
-        self.string = ''
-        self.values = []
+    def __init__(self, app, value, ui_variable, dan_id):
+        super().__init__(app, value, ui_variable, dan_id)
+        self.string = value
 
     def __setattr__(self, attribute, value):
         if attribute != 'string':
@@ -110,7 +151,7 @@ class Resistance():
             self.values = [float(s) for s in value.split(',')]
 
 
-class Pipe(Variable):
+class Pipe(StationObject):
     """class for pipes"""
 
     def __init__(self, app):
@@ -122,7 +163,7 @@ class Pipe(Variable):
         self.parallels = 1
 
 
-class Pump(Variable):
+class Pump(StationObject):
     """class for pumps"""
 
     def __init__(self, app):
@@ -206,7 +247,7 @@ class Pump(Variable):
             self.tree.set(key, 'Column_q', self.characteristic[key][0])
 
 
-class Well(Variable):
+class Well(StationObject):
     """class for well"""
 
     default = config.default
