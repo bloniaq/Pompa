@@ -24,6 +24,9 @@ class Variable():
             'w', lambda *_: self.setattr(self, attr, self.ui_var.get())
         )
 
+    def load_data(self, data_dict):
+        setattr(self, self.value, data_dict[self.dan_id])
+
 
 class Numeric(Variable):
     """keeps rational numbers or integers and connect them with ui variables"""
@@ -44,16 +47,18 @@ class Logic(Variable):
 
     def __init__(self, app, value, ui_variable, dan_id, dictionary, function):
         super().__init__(app, ui_variable, dan_id)
-        if value in dictionary:
-            self.value = dictionary[value]
-        else:
-            self.value = value
+        self.dictionary = dictionary
         # self.function = function
+        self.value = value
         self.set_trace(self.value)
 
     def __setattr__(self, attr, value):
         self.__dict__[attr] = value
         if attr == 'value' and self.ui_var.get() != self.value:
+            if isinstance(value, int):
+                self.value = self.dictionary[value]
+            else:
+                self.value = value
             self.ui_var.set(self.value)
         # return self.function()
 
@@ -66,28 +71,52 @@ class Resistance(Variable):
         self.string = string
         self.set_trace(self.string)
 
-    def __setattr__(self, attribute, value):
-        if attribute != 'string':
-            super().__setattr__(attribute, value)
-        elif value != '':
-            super().__setattr__(attribute, value)
+    def __setattr__(self, attr, value):
+        if attr != 'string':
+            self.__dict__[attr] = value
+        elif isinstance(value, float):
+            self.__dict__[attr] = str(value)
+            self.values = [value]
+        elif isinstance(value, str):
+            self.__dict__[attr] = value
             self.values = [float(s) for s in value.split(',')]
-            if value != self.string:
-                self.ui_var.set(value)
+        elif isinstance(value, list):
+            self.values = value
+            string = str(value[0])
+            if len(value) > 1:
+                for element in range(1, len(value)):
+                    string += ', {}'.format(str(element))
+            self.__dict__[attr] = string
+        if self.string != self.ui_var.get():
+                self.ui_var.set(self.string)
+
+    def load_data(self, data_dict):
+        setattr(self, self.value, data_dict[self.dan_id])
 
 
 class Flow(Variable):
     """class for flow"""
 
-    def __init__(self, app, value, ui_variable, dan_id, unit_ui_var):
+    def __init__(self, app, value, ui_variable, dan_id, unit_ui_var,
+                 unit='meters'):
         super().__init__(app, value, ui_variable, dan_id)
         self.unit_var = self.tkvars.__getitem__(unit_ui_var)
-        self.unit = self.unit_var.get()
-        self.set_trace(value)
+        self.value = value
+        self.unit = unit
+        if ui_variable in self.tkvars:
+            self.set_trace(value)
+            self.has_ui_var = True
+        else:
+            self.has_ui_var = False
         self.unit_var.trace('w', lambda *_: self.convert(self.unit_var.get()))
 
     def __repr__(self):
         return str(self.value)
+
+    def __setattr__(self, attr, value):
+        self.__dict__[attr] = value
+        if attr == 'value' and self.has_ui_var:
+            self.ui_var.set(self.value)
 
     def convert(self, new_unit):
         log.info('conversion func starts')
@@ -152,21 +181,10 @@ class StationObject():
             log.debug('{} - var value: {}, ui var value: {}'.format(
                 variable_name, getattr(self, attribute), variable.get()))
 
-    def bind_traceing_to_ui_variables(self):
-        for variable in self.variables:
-            if variable in self.app.builder.tkvariables:
-                log.debug('variable: {}'.format(variable))
-                variable_object = self.builder.get_variable(variable)
-                variable_object.trace(
-                    'w', lambda *_,
-                    var=variable: self.app.set_var_value(var, self)
-                )
-
     def load_data(self, data_dict):
-        for variable in self.variables:
-            if self.variables[variable][1] in data_dict:
-                self.set_var_value(
-                    variable, data_dict[self.variables[variable][1]])
+        for attribute in self.__dict__:
+            if hasattr(self.attribute, 'dan_id'):
+                self.attribute.load_data(data_dict)
 
 
 class Pipe(StationObject):

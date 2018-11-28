@@ -98,8 +98,42 @@ class Application():
             first_line = file.readline()
             # rozpoznanie wersji zapisu
             if first_line[0] == '1' and first_line[1] == ')':
-                self.dan_load(path)
+                data_dictionary = self.dan_data_dictionary(path)
+        self.well.load_data(data_dictionary)
+        self.pump.load_data(data_dictionary)
+        self.discharge_pipe.load_data(data_dictionary)
+        self.collector.load_data(data_dictionary)
 
+    def dan_data_dictionary(self, path):
+        log.info('\ndan_load started\n')
+        log.info('plik danych generowany wersją 1.0 aplikacji')
+        data_dictionary = {}
+        with open(path, 'r+') as file:
+            log.info('opening file: {0}\n\n'.format(str(file)))
+            for line in file:
+                id_line, line_datas = line.split(')')
+                line_datas_list = line_datas.split()
+                stored_value = line_datas_list[0]
+                log.debug('id: {}, stored value: {}'.format(
+                    id_line, stored_value))
+                if id_line not in data_dictionary:
+                    data_dictionary[id_line] = []
+                data_dictionary[id_line].append(stored_value)
+                log.debug('dan_id: {}, value: {}'.format(
+                    id_line, data_dictionary[id_line]))
+            log.debug('dictionary in progress: {}'.format(data_dictionary))
+            for id_ in data_dictionary:
+                if len(data_dictionary[id_]) == 1:
+                    data_dictionary[id_] = data_dictionary[id_][0]
+                    data_dictionary[id_] = int(data_dictionary[id_])
+                    # expand for exceptions, make floats
+                else:
+                    data_dictionary[id_] = [float(s)
+                                            for s in data_dictionary[id_]]
+            log.debug('dictionary at finish: {}'.format(data_dictionary))
+            return data_dictionary
+
+    '''
     def dan_load(self, path):
         log.info('\ndan_load started\n')
         log.info('plik danych generowany wersją 1.0 aplikacji')
@@ -131,6 +165,7 @@ class Application():
         self.pump.load_characteristic_coords()
         self.discharge_pipe.load_data(data_dictionary)
         self.collector.load_data(data_dictionary)
+    '''
 
     def ui_set_shape(self):
         shape = self.builder.tkvariables.__getitem__('shape').get()
