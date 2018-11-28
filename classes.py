@@ -21,25 +21,33 @@ class Variable():
 
     def set_trace(self, attr):
         self.ui_var.trace(
-            'w', lambda *_: self.setattr(self, attr, self.ui_var.get())
+            'w', lambda *_: setattr(self, attr, self.ui_var.get())
         )
 
     def load_data(self, data_dict):
-        setattr(self, self.value, data_dict[self.dan_id])
+        if self.dan_id in data_dict:
+            self.value = data_dict[self.dan_id]
 
 
 class Numeric(Variable):
     """keeps rational numbers or integers and connect them with ui variables"""
 
-    def __init__(self, app, value, ui_variable, dan_id):
-        super().__init__(app, value, ui_variable, dan_id)
+    def __init__(self, app, value, ui_variable, dan_id, is_int=False):
+        self.is_int = is_int
+        super().__init__(app, ui_variable, dan_id)
         self.value = value
-        self.set_trace(self.value)
+        self.set_trace('value')
 
     def __setattr__(self, attr, value):
-        self.__dict__[attr] = value
-        if attr == 'value' and self.ui_var.get() != self.value:
-            self.ui_var.set(self.value)
+        if attr != 'value':
+            self.__dict__[attr] = value
+        else:
+            if not self.is_int:
+                self.__dict__['value'] = float(value)
+            else:
+                self.__dict__['value'] = value
+            if self.ui_var.get() != self.value:
+                self.ui_var.set(self.value)
 
 
 class Logic(Variable):
@@ -47,20 +55,22 @@ class Logic(Variable):
 
     def __init__(self, app, value, ui_variable, dan_id, dictionary, function):
         super().__init__(app, ui_variable, dan_id)
+        self.function = function
         self.dictionary = dictionary
-        # self.function = function
         self.value = value
-        self.set_trace(self.value)
+        self.set_trace('value')
 
     def __setattr__(self, attr, value):
         self.__dict__[attr] = value
         if attr == 'value' and self.ui_var.get() != self.value:
-            if isinstance(value, int):
-                self.value = self.dictionary[value]
+            if isinstance(value, int) or isinstance(value, float):
+                value = str(int(value))
+                self.__dict__['value'] = self.dictionary[value]
             else:
-                self.value = value
+                self.__dict__['value'] = value
             self.ui_var.set(self.value)
-        # return self.function()
+            if self.function is not None:
+                self.function()
 
 
 class Resistance(Variable):
@@ -69,29 +79,34 @@ class Resistance(Variable):
     def __init__(self, app, string, ui_variable, dan_id):
         super().__init__(app, ui_variable, dan_id)
         self.string = string
-        self.set_trace(self.string)
+        self.set_trace('string')
 
     def __setattr__(self, attr, value):
         if attr != 'string':
             self.__dict__[attr] = value
         elif isinstance(value, float):
-            self.__dict__[attr] = str(value)
-            self.values = [value]
+            self.__dict__['string'] = str(value)
+            self.__dict__['values'] = [value]
         elif isinstance(value, str):
-            self.__dict__[attr] = value
-            self.values = [float(s) for s in value.split(',')]
+            self.__dict__['string'] = value
+            log.debug('trying to convert: {} to floats list'.format(value))
+            if value != '':
+                self.__dict__['values'] = [float(s) for s in value.split(',')]
+            else:
+                self.__dict__['values'] = []
         elif isinstance(value, list):
-            self.values = value
+            self.__dict__['values'] = value
             string = str(value[0])
             if len(value) > 1:
                 for element in range(1, len(value)):
                     string += ', {}'.format(str(element))
-            self.__dict__[attr] = string
-        if self.string != self.ui_var.get():
-                self.ui_var.set(self.string)
+            self.__dict__['string'] = string
+        if attr == 'string' and self.string != self.ui_var.get():
+            self.ui_var.set(self.string)
 
     def load_data(self, data_dict):
-        setattr(self, self.value, data_dict[self.dan_id])
+        if self.dan_id in data_dict:
+            self.string = data_dict[self.dan_id]
 
 
 class Flow(Variable):
@@ -99,24 +114,22 @@ class Flow(Variable):
 
     def __init__(self, app, value, ui_variable, dan_id, unit_ui_var,
                  unit='meters'):
-        super().__init__(app, value, ui_variable, dan_id)
+        super().__init__(app, ui_variable, dan_id)
         self.unit_var = self.tkvars.__getitem__(unit_ui_var)
         self.value = value
         self.unit = unit
+        self.unit_var.set(unit)
         if ui_variable in self.tkvars:
-            self.set_trace(value)
-            self.has_ui_var = True
-        else:
-            self.has_ui_var = False
+            self.set_trace('value')
         self.unit_var.trace('w', lambda *_: self.convert(self.unit_var.get()))
 
-    def __repr__(self):
-        return str(self.value)
-
     def __setattr__(self, attr, value):
-        self.__dict__[attr] = value
-        if attr == 'value' and self.has_ui_var:
-            self.ui_var.set(self.value)
+        if attr != 'value':
+            self.__dict__[attr] = value
+        else:
+            self.__dict__['value'] = float(value)
+            if self.__dict__['value'] != self.ui_var.get():
+                self.ui_var.set(self.value)
 
     def convert(self, new_unit):
         log.info('conversion func starts')
@@ -134,13 +147,79 @@ class Flow(Variable):
             self.value = round(self.value / 3.6, 3)
         log.info('new value: {}'.format(self.value))
 
+    def load_data(self, data_dict):
+        if self.dan_id in data_dict:
+            self.unit_var.set('meters')
+            super().load_data(data_dict)
 
-class ListOfFlows(Variable):
-    pass
+
+class PumpCharFlow(Flow):
+
+    def __init__(self, value, unit):
+        self.value = value
+        self.unit = unit
+
+    def __repr__(self):
+        return str(self.value)
+
+    def __setattr__(self, attr, value):
+        self.__dict__[attr] = value
 
 
-class ListOfLifts(Variable):
-    pass
+class PumpCharacteristic(Variable):
+
+    def __init__(self, app, treename, dan_id):
+        self.coords = {}
+        self.dan_id = dan_id
+        self.tree = app.builder.get_object(treename)
+        self.tkvars = app.builder.tkvariables
+
+    def load_data(self, data_dict):
+        input_flow_vals = data_dict[self.dan_id[0]]
+        input_lift_vals = data_dict[self.dan_id[1]]
+        if len(input_flow_vals) == len(input_lift_vals) != 0:
+            for pair in range(len(input_flow_vals)):
+                self.add_point(input_flow_vals[pair], input_lift_vals[pair])
+
+    def add_point(self, flow, lift):
+        """CLEAN THIS AFTER MAKING SURE OF TYPES WHICH WILL WORKS"""
+
+        log.debug('Add point method started')
+        log.debug('types: flow: {}, lift: {}'.format(type(flow), type(lift)))
+        flow = round(float(flow), 3)
+        lift = round(float(lift), 3)
+        log.debug('types: flow: {}, lift: {}'.format(type(flow), type(lift)))
+        unit = self.tkvars.__getitem__('pump_flow_unit').get()
+        itemid = self.tree.insert('', tk.END, text='Punkt',
+                                  values=('1', flow, lift))
+        self.coords[itemid] = (PumpCharFlow(flow, unit), lift)
+        self.sort_points()
+        log.debug('char points: {}'.format(self.coords))
+
+    def sort_points(self):
+        log.info('sort_points started')
+        id_numbers = [(self.tree.set(i, 'Column_q'), i)
+                      for i in self.tree.get_children('')]
+        log.debug('id numbers raised: {}'.format(id_numbers))
+        id_numbers.sort(key=lambda t: float(t[0]))
+        for index, (val, i) in enumerate(id_numbers):
+            self.tree.move(i, '', index)
+            self.tree.set(i, 'Column_nr', value=str(index + 1))
+        log.info('sort_points ended')
+
+    def delete_point(self, selected_id):
+        log.info('delete_point started')
+        log.debug('point to delete: {}'.format(self.coords[selected_id]))
+        del self.coords[selected_id]
+        self.tree.delete(selected_id)
+        log.debug('actual dict: {}'.format(self.coords))
+        self.sort_points()
+        log.info('delete_points ended')
+
+    def set_unit(self, unit):
+        for key in self.coords:
+            self.coords[key][0].convert(unit)
+            self.tree.set(key, 'Column_q', self.coords[key][0])
 
 
 ################################################################
@@ -151,7 +230,7 @@ class StationObject():
     def __init__(self, app):
         self.app = app
         self.builder = app.builder
-        self.variables = {}
+        self.ui_vars = app.builder.tkvariables
 
     def __setattr__(self, attr, value):
         if '.' not in attr:
@@ -167,24 +246,10 @@ class StationObject():
             attr_name, rest = attr.split('.', 1)
             return getattr(getattr(self, attr_name), rest)
 
-    def set_var_value(self, variable_name, value):
-        log.info('setting {} value to: {}'.format(variable_name, value))
-        attribute = self.variables[variable_name][0]
-        setattr(self, attribute, value)
-        try:
-            variable = self.builder.get_variable(variable_name)
-        except KeyError as e:
-            log.warning('variable <{}> doesn\'t exist'.format(e))
-        else:
-            if variable.get() != value:
-                variable.set(value)
-            log.debug('{} - var value: {}, ui var value: {}'.format(
-                variable_name, getattr(self, attribute), variable.get()))
-
     def load_data(self, data_dict):
         for attribute in self.__dict__:
-            if hasattr(self.attribute, 'dan_id'):
-                self.attribute.load_data(data_dict)
+            if hasattr(self.__dict__[attribute], 'dan_id'):
+                self.__dict__[attribute].load_data(data_dict)
 
 
 class Pipe(StationObject):
@@ -195,7 +260,7 @@ class Pipe(StationObject):
         self.length = 0
         self.diameter = 0
         self.roughness = 0
-        self.resistance = Resistance()
+        self.resistance = 0
         self.parallels = 1
 
 
@@ -204,95 +269,38 @@ class Pump(StationObject):
 
     def __init__(self, app):
         super().__init__(app)
-        self.tree = self.builder.get_object('Treeview_Pump')
-        self.cycle_time = 0
-        self.contour = 0
-        self.characteristic = {}
-        self.suction_level = 0
-        self.pump_flow_coords = []
-        self.pump_lift_coords = []
-        self.efficiency_from = Flow(
-            0, self.builder.tkvariables.__getitem__('pump_flow_unit').get())
-        self.efficiency_to = Flow(
-            0, self.builder.tkvariables.__getitem__('pump_flow_unit').get())
-        self.set_flow_unit(
-            self.builder.tkvariables.__getitem__('pump_flow_unit').get())
-
-    def add_point(self, flow, lift):
-        log.debug('Add point method started')
-        log.debug('types: flow: {}, lift: {}'.format(type(flow), type(lift)))
-        flow = round(float(flow), 3)
-        lift = round(float(lift), 3)
-        log.debug('types: flow: {}, lift: {}'.format(type(flow), type(lift)))
-        unit = self.builder.tkvariables.__getitem__('pump_flow_unit').get()
-        itemid = self.tree.insert('', tk.END, text='Punkt',
-                                  values=('1', flow, lift))
-        self.characteristic[itemid] = (Flow(flow, unit), lift)
-        self.sort_points()
-        log.debug('char points: {}'.format(self.characteristic))
-
-    def load_characteristic_coords(self):
-        if len(self.pump_flow_coords) == len(self.pump_lift_coords) != 0:
-            for coord in range(len(self.pump_flow_coords)):
-                self.add_point(self.pump_flow_coords[coord],
-                               self.pump_lift_coords[coord])
-
-    def sort_points(self):
-        log.info('sort_points started')
-        id_numbers = [(self.tree.set(i, 'Column_q'), i)
-                      for i in self.tree.get_children('')]
-        log.debug('id numbers raised: {}'.format(id_numbers))
-        id_numbers.sort(key=lambda t: float(t[0]))
-        for index, (val, i) in enumerate(id_numbers):
-            self.tree.move(i, '', index)
-            self.tree.set(i, 'Column_nr', value=str(index + 1))
-        log.info('sort_points ended')
-
-    def delete_point(self, selected_id):
-        log.info('delete_point started')
-        log.debug('point to delete: {}'.format(
-            self.characteristic[selected_id]))
-        del self.characteristic[selected_id]
-        self.tree.delete(selected_id)
-        log.debug('actual dict: {}'.format(self.characteristic))
-        self.sort_points()
-        log.info('delete_points ended')
+        self.cycle_time = None
+        self.contour = None
+        self.suction_level = None
+        self.efficiency_from = None
+        self.efficiency_to = None
+        self.characteristic = None
 
     def set_flow_unit(self, unit):
         log.info('set_flow_unit started')
         unit_bracket = unit_bracket_dict[unit]
-        efficiency_from_label = self.builder.tkvariables.__getitem__(
+        efficiency_from_label = self.ui_vars.__getitem__(
             'pump_efficiency_from_txt')
-        efficiency_to_label = self.builder.tkvariables.__getitem__(
+        efficiency_to_label = self.ui_vars.__getitem__(
             'pump_efficiency_to_txt')
-        add_point_label = self.builder.tkvariables.__getitem__(
+        add_point_label = self.ui_vars.__getitem__(
             'add_point_flow_text')
         efficiency_from_label.set('Od {}'.format(unit_bracket))
         efficiency_to_label.set('Do {}'.format(unit_bracket))
         add_point_label.set('Przepływ Q {}'.format(unit_bracket))
         log.info('self.efficiency_from type: {}'.format(
             type(self.efficiency_from)))
-        self.efficiency_from.convert(unit)
-        self.builder.tkvariables.__getitem__('pump_efficiency_from').set(
-            self.efficiency_from.value)
-        self.efficiency_to.convert(unit)
-        self.builder.tkvariables.__getitem__('pump_efficiency_to').set(
-            self.efficiency_to.value)
-        for key in self.characteristic:
-            self.characteristic[key][0].convert(unit)
-            self.tree.set(key, 'Column_q', self.characteristic[key][0])
+        self.characteristic.set_unit(unit)
 
 
 class Well(StationObject):
     """class for well"""
 
-    default = config.default
-
     def __init__(self, app):
         super().__init__(app)
-        self.reserve_pumps = 'safe'
-        self.shape = self.builder.tkvariables.__getitem__('shape')
-        self.set_shape(self.default['shape'])
+        self.reserve_pumps = None
+        self.shape = None
+        # self.set_shape(self.default['shape'])
         self.diameter = 0
         self.length = 0
         self.width = 0
@@ -304,12 +312,11 @@ class Well(StationObject):
         self.difference_in_start = 0
         self.ord_highest_point = 0
         self.ord_upper_level = 0
-        self.inflow_max = Flow(0, 'liters')
-        self.inflow_min = Flow(0, 'liters')
-        # self.bind_traces_manual(self.app)
+        self.inflow_max = None
+        self.inflow_min = None
 
     def set_shape(self, shape):
-        self.builder.tkvariables.__getitem__('shape').set(shape)
+        self.ui_vars.__getitem__('shape').set(shape)
         log.debug('started setting shape')
         log.debug('new shape: {}'.format(shape))
         diameter = self.builder.get_object('Entry_Well_diameter')
@@ -324,12 +331,3 @@ class Well(StationObject):
             length.configure(state='normal')
             width.configure(state='normal')
         log.debug('changed shape to {}'.format(shape))
-
-    def bind_traces_manual(self, app):
-        variable = 'inflow_max'
-        log.debug('variable: {}'.format(variable))
-        variable_object = self.builder.get_variable(variable)
-        variable_object.trace(
-            'w', lambda *_,
-            var=variable: app.set_var_value(var, self.inflow_max)
-        )

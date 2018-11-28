@@ -1,601 +1,177 @@
-2018.11.26 21:00:52-DEBUG: started setting shape
-2018.11.26 21:00:52-DEBUG: new shape: round
-2018.11.26 21:00:52-DEBUG: changed shape to round
-2018.11.26 21:00:52-DEBUG: variable: shape
-2018.11.26 21:00:52-DEBUG: variable: well_diameter
-2018.11.26 21:00:52-DEBUG: variable: well_length
-2018.11.26 21:00:52-DEBUG: variable: well_width
-2018.11.26 21:00:52-DEBUG: variable: minimal_sewage_level
-2018.11.26 21:00:52-DEBUG: variable: ordinate_terrain
-2018.11.26 21:00:52-DEBUG: variable: ordinate_inlet
-2018.11.26 21:00:52-DEBUG: variable: ordinate_outlet
-2018.11.26 21:00:52-DEBUG: variable: ordinate_bottom
-2018.11.26 21:00:52-DEBUG: variable: ordinate_highest_point
-2018.11.26 21:00:52-DEBUG: variable: ordinate_final_table
-2018.11.26 21:00:52-DEBUG: variable: difference_in_start
-2018.11.26 21:00:52-DEBUG: variable: inflow_max
-2018.11.26 21:00:52-DEBUG: variable: inflow_min
-2018.11.26 21:00:52-INFO: changing unit of station inflow
-2018.11.26 21:00:52-INFO: ui max value: 0.0
-2018.11.26 21:00:52-INFO: engine max value: 0
-2018.11.26 21:00:52-INFO: ooold value: 0.0
-2018.11.26 21:00:52-INFO: new unit: liters
-2018.11.26 21:00:52-INFO: conversion func starts
-2018.11.26 21:00:52-INFO: old value: 0
-2018.11.26 21:00:52-INFO: no need to conversion
-2018.11.26 21:00:52-INFO: conversion func starts
-2018.11.26 21:00:52-INFO: old value: 0
-2018.11.26 21:00:52-INFO: no need to conversion
-2018.11.26 21:00:52-INFO: app set_var_value starts for inflow_max
-2018.11.26 21:00:52-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:52-INFO: the value: 0.0
-2018.11.26 21:00:52-INFO: setting inflow_max value to: 0.0
-2018.11.26 21:00:52-DEBUG: inflow_max - var value: 0.0, ui var value: 0.0
-2018.11.26 21:00:52-INFO: app set_var_value starts for inflow_min
-2018.11.26 21:00:52-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:52-INFO: the value: 0.0
-2018.11.26 21:00:52-INFO: setting inflow_min value to: 0.0
-2018.11.26 21:00:52-DEBUG: inflow_min - var value: 0.0, ui var value: 0.0
-2018.11.26 21:00:52-INFO: set_flow_unit started
-2018.11.26 21:00:52-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.26 21:00:52-INFO: conversion func starts
-2018.11.26 21:00:52-INFO: old value: 0
-2018.11.26 21:00:52-INFO: no need to conversion
-2018.11.26 21:00:52-INFO: conversion func starts
-2018.11.26 21:00:52-INFO: old value: 0
-2018.11.26 21:00:52-INFO: no need to conversion
-2018.11.26 21:00:52-DEBUG: variable: work_cycle
-2018.11.26 21:00:52-DEBUG: variable: pump_contour
-2018.11.26 21:00:52-DEBUG: variable: pump_efficiency_from
-2018.11.26 21:00:52-DEBUG: variable: pump_efficiency_to
-2018.11.26 21:00:52-DEBUG: variable: length_discharge_pipe
-2018.11.26 21:00:52-DEBUG: variable: diameter_discharge_pipe
-2018.11.26 21:00:52-DEBUG: variable: roughness_discharge_pipe
-2018.11.26 21:00:52-DEBUG: variable: resistance_discharge_pipe
-2018.11.26 21:00:52-DEBUG: variable: number_of_collectors
-2018.11.26 21:00:52-DEBUG: variable: length_collector
-2018.11.26 21:00:52-DEBUG: variable: roughness_collector
-2018.11.26 21:00:52-DEBUG: variable: resistance_collector
-2018.11.26 21:00:52-DEBUG: variable: diameter_collector
-2018.11.26 21:00:52-INFO: changed mode: checking
-2018.11.26 21:00:56-INFO: 
+2018.11.28 22:55:22-INFO: conversion func starts
+2018.11.28 22:55:22-INFO: old value: 0.0
+2018.11.28 22:55:22-INFO: no need to conversion
+2018.11.28 22:55:22-INFO: conversion func starts
+2018.11.28 22:55:22-INFO: old value: 0.0
+2018.11.28 22:55:22-INFO: no need to conversion
+2018.11.28 22:55:22-INFO: set_flow_unit started
+2018.11.28 22:55:22-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.28 22:55:22-DEBUG: trying to convert:  to floats list
+2018.11.28 22:55:22-DEBUG: trying to convert:  to floats list
+2018.11.28 22:55:22-INFO: changed mode: checking
+2018.11.28 22:55:26-INFO: 
 data_load started
 
-2018.11.26 21:00:56-INFO: opening file: <_io.TextIOWrapper name='E:/# PROGRAMOWANIE/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
+2018.11.28 22:55:26-INFO: opening file: <_io.TextIOWrapper name='E:/# PROGRAMOWANIE/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-2018.11.26 21:00:56-INFO: 
+2018.11.28 22:55:26-INFO: 
 dan_load started
 
-2018.11.26 21:00:56-INFO: plik danych generowany wersj¹ 1.0 aplikacji
-2018.11.26 21:00:56-INFO: opening file: <_io.TextIOWrapper name='E:/# PROGRAMOWANIE/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
+2018.11.28 22:55:26-INFO: plik danych generowany wersj¹ 1.0 aplikacji
+2018.11.28 22:55:26-INFO: opening file: <_io.TextIOWrapper name='E:/# PROGRAMOWANIE/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-2018.11.26 21:00:56-DEBUG: id: 1, stored value: 1
-2018.11.26 21:00:56-DEBUG: input data: ['1'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: checking, <class 'str'>
-2018.11.26 21:00:56-DEBUG: dan_id: 1) checking <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 2, stored value: 0
-2018.11.26 21:00:56-DEBUG: input data: ['0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: rectangle, <class 'str'>
-2018.11.26 21:00:56-DEBUG: dan_id: 2) rectangle <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 3, stored value: 0
-2018.11.26 21:00:56-DEBUG: input data: ['0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: linear, <class 'str'>
-2018.11.26 21:00:56-DEBUG: dan_id: 3) linear <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 4, stored value: 2
-2018.11.26 21:00:56-DEBUG: input data: ['2'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: optimal, <class 'str'>
-2018.11.26 21:00:56-DEBUG: dan_id: 4) optimal <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 5, stored value: 1.20
-2018.11.26 21:00:56-DEBUG: input data: ['1.20'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 1.2, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 5) 1.2 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 6, stored value: 6.00
-2018.11.26 21:00:56-DEBUG: input data: ['6.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 6.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 6) 6.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 7, stored value: 2.40
-2018.11.26 21:00:56-DEBUG: input data: ['2.40'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 2.4, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 7) 2.4 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 9, stored value: .30
-2018.11.26 21:00:56-DEBUG: input data: ['.30'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 0.3, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 9) 0.3 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 10, stored value: 50.00
-2018.11.26 21:00:56-DEBUG: input data: ['50.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 50.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 10) 50.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 11, stored value: 47.00
-2018.11.26 21:00:56-DEBUG: input data: ['47.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 47.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 11) 47.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 12, stored value: 45.00
-2018.11.26 21:00:56-DEBUG: input data: ['45.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 45.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 12) 45.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 13, stored value: 42.00
-2018.11.26 21:00:56-DEBUG: input data: ['42.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 42.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 13) 42.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 15, stored value: 52.00
-2018.11.26 21:00:56-DEBUG: input data: ['52.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 52.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 15) 52.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 16, stored value: 50.00
-2018.11.26 21:00:56-DEBUG: input data: ['50.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 50.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 16) 50.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 28, stored value: 7.0
-2018.11.26 21:00:56-DEBUG: input data: ['7.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 7.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 28) 7.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 29, stored value: 150.0
-2018.11.26 21:00:56-DEBUG: input data: ['150.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 150.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 29) 150.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 30, stored value: 1.00
-2018.11.26 21:00:56-DEBUG: input data: ['1.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 1.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 30) 1.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 31, stored value: 1
-2018.11.26 21:00:56-DEBUG: input data: ['1'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 31)  <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 32, stored value: 2.20
-2018.11.26 21:00:56-DEBUG: input data: ['2.20'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 2.20, <class 'str'>
-2018.11.26 21:00:56-DEBUG: dan_id: 32) 2.20 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 33, stored value: 2.0
-2018.11.26 21:00:56-DEBUG: input data: ['2.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 2.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 33) 2.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 34, stored value: 3.5
-2018.11.26 21:00:56-DEBUG: input data: ['3.5'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 3.5, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 34) 3.5 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 35, stored value: 8.0
-2018.11.26 21:00:56-DEBUG: input data: ['8.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 8.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 35) 8.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 36, stored value: 5
-2018.11.26 21:00:56-DEBUG: input data: ['5'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 36)  <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 37, stored value: 6.0
-2018.11.26 21:00:56-DEBUG: input data: ['6.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [6.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 37) [6.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 37, stored value: 5.0
-2018.11.26 21:00:56-DEBUG: input data: [6.0, '5.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [6.0, 5.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 37) [6.0, 5.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 37, stored value: 4.0
-2018.11.26 21:00:56-DEBUG: input data: [6.0, 5.0, '4.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [6.0, 5.0, 4.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 37) [6.0, 5.0, 4.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 37, stored value: 3.0
-2018.11.26 21:00:56-DEBUG: input data: [6.0, 5.0, 4.0, '3.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [6.0, 5.0, 4.0, 3.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 37) [6.0, 5.0, 4.0, 3.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 37, stored value: 2.0
-2018.11.26 21:00:56-DEBUG: input data: [6.0, 5.0, 4.0, 3.0, '2.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [6.0, 5.0, 4.0, 3.0, 2.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 37) [6.0, 5.0, 4.0, 3.0, 2.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 38, stored value: 8.0
-2018.11.26 21:00:56-DEBUG: input data: ['8.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [8.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 38) [8.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 38, stored value: 9.0
-2018.11.26 21:00:56-DEBUG: input data: [8.0, '9.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [8.0, 9.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 38) [8.0, 9.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 38, stored value: 10.0
-2018.11.26 21:00:56-DEBUG: input data: [8.0, 9.0, '10.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [8.0, 9.0, 10.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 38) [8.0, 9.0, 10.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 38, stored value: 11.0
-2018.11.26 21:00:56-DEBUG: input data: [8.0, 9.0, 10.0, '11.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [8.0, 9.0, 10.0, 11.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 38) [8.0, 9.0, 10.0, 11.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 38, stored value: 12.0
-2018.11.26 21:00:56-DEBUG: input data: [8.0, 9.0, 10.0, 11.0, '12.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: [8.0, 9.0, 10.0, 11.0, 12.0], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 38) [8.0, 9.0, 10.0, 11.0, 12.0] <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 39, stored value: 2.0
-2018.11.26 21:00:56-DEBUG: input data: ['2.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 2.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 39) 2.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 40, stored value: 4.0
-2018.11.26 21:00:56-DEBUG: input data: ['4.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 4.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 40) 4.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 41, stored value: 2
-2018.11.26 21:00:56-DEBUG: input data: ['2'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 2, <class 'int'>
-2018.11.26 21:00:56-DEBUG: dan_id: 41) 2 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 42, stored value: 136.0
-2018.11.26 21:00:56-DEBUG: input data: ['136.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 136.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 42) 136.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 43, stored value: 150.0
-2018.11.26 21:00:56-DEBUG: input data: ['150.0'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 150.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 43) 150.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 44, stored value: 1.00
-2018.11.26 21:00:56-DEBUG: input data: ['1.00'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 1.0, <class 'float'>
-2018.11.26 21:00:56-DEBUG: dan_id: 44) 1.0 <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 45, stored value: 1
-2018.11.26 21:00:56-DEBUG: input data: ['1'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: dan_id: 45)  <-readed_value
-2018.11.26 21:00:56-DEBUG: id: 46, stored value: 1.50
-2018.11.26 21:00:56-DEBUG: input data: ['1.50'], <class 'list'>
-2018.11.26 21:00:56-DEBUG: output data: 1.50, <class 'str'>
-2018.11.26 21:00:56-DEBUG: dan_id: 46) 1.50 <-readed_value
-2018.11.26 21:00:56-INFO: {'1': 'checking', '2': 'rectangle', '3': 'linear', '4': 'optimal', '5': 1.2, '6': 6.0, '7': 2.4, '9': 0.3, '10': 50.0, '11': 47.0, '12': 45.0, '13': 42.0, '15': 52.0, '16': 50.0, '28': 7.0, '29': 150.0, '30': 1.0, '31': '', '32': '2.20', '33': 2.0, '34': 3.5, '35': 8.0, '36': '', '37': [6.0, 5.0, 4.0, 3.0, 2.0], '38': [8.0, 9.0, 10.0, 11.0, 12.0], '39': 2.0, '40': 4.0, '41': 2, '42': 136.0, '43': 150.0, '44': 1.0, '45': '', '46': '1.50'}
-2018.11.26 21:00:56-INFO: dan load ended
-2018.11.26 21:00:56-INFO: load data started
-2018.11.26 21:00:56-INFO: changed mode: checking
-2018.11.26 21:00:56-INFO: app set_var_value starts for shape
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: rectangle
-2018.11.26 21:00:56-INFO: setting shape value to: rectangle
-2018.11.26 21:00:56-DEBUG: shape - var value: rectangle, ui var value: rectangle
-2018.11.26 21:00:56-INFO: app set_var_value starts for shape
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: rectangle
-2018.11.26 21:00:56-INFO: setting shape value to: rectangle
-2018.11.26 21:00:56-DEBUG: shape - var value: rectangle, ui var value: rectangle
-2018.11.26 21:00:56-DEBUG: started setting shape
-2018.11.26 21:00:56-DEBUG: new shape: rectangle
-2018.11.26 21:00:56-DEBUG: changed shape to rectangle
-2018.11.26 21:00:56-INFO: setting shape value to: rectangle
-2018.11.26 21:00:56-DEBUG: shape - var value: rectangle, ui var value: rectangle
-2018.11.26 21:00:56-INFO: setting well_length value to: 6.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for well_length
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 6.0
-2018.11.26 21:00:56-INFO: setting well_length value to: 6.0
-2018.11.26 21:00:56-DEBUG: well_length - var value: 6.0, ui var value: 6.0
-2018.11.26 21:00:56-DEBUG: well_length - var value: 6.0, ui var value: 6.0
-2018.11.26 21:00:56-INFO: setting well_width value to: 2.4
-2018.11.26 21:00:56-INFO: app set_var_value starts for well_width
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 2.4
-2018.11.26 21:00:56-INFO: setting well_width value to: 2.4
-2018.11.26 21:00:56-DEBUG: well_width - var value: 2.4, ui var value: 2.4
-2018.11.26 21:00:56-DEBUG: well_width - var value: 2.4, ui var value: 2.4
-2018.11.26 21:00:56-INFO: setting minimal_sewage_level value to: 0.3
-2018.11.26 21:00:56-INFO: app set_var_value starts for minimal_sewage_level
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 0.3
-2018.11.26 21:00:56-INFO: setting minimal_sewage_level value to: 0.3
-2018.11.26 21:00:56-DEBUG: minimal_sewage_level - var value: 0.3, ui var value: 0.3
-2018.11.26 21:00:56-DEBUG: minimal_sewage_level - var value: 0.3, ui var value: 0.3
-2018.11.26 21:00:56-INFO: setting ordinate_terrain value to: 50.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for ordinate_terrain
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 50.0
-2018.11.26 21:00:56-INFO: setting ordinate_terrain value to: 50.0
-2018.11.26 21:00:56-DEBUG: ordinate_terrain - var value: 50.0, ui var value: 50.0
-2018.11.26 21:00:56-DEBUG: ordinate_terrain - var value: 50.0, ui var value: 50.0
-2018.11.26 21:00:56-INFO: setting ordinate_inlet value to: 45.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for ordinate_inlet
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 45.0
-2018.11.26 21:00:56-INFO: setting ordinate_inlet value to: 45.0
-2018.11.26 21:00:56-DEBUG: ordinate_inlet - var value: 45.0, ui var value: 45.0
-2018.11.26 21:00:56-DEBUG: ordinate_inlet - var value: 45.0, ui var value: 45.0
-2018.11.26 21:00:56-INFO: setting ordinate_outlet value to: 47.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for ordinate_outlet
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 47.0
-2018.11.26 21:00:56-INFO: setting ordinate_outlet value to: 47.0
-2018.11.26 21:00:56-DEBUG: ordinate_outlet - var value: 47.0, ui var value: 47.0
-2018.11.26 21:00:56-DEBUG: ordinate_outlet - var value: 47.0, ui var value: 47.0
-2018.11.26 21:00:56-INFO: setting ordinate_bottom value to: 42.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for ordinate_bottom
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 42.0
-2018.11.26 21:00:56-INFO: setting ordinate_bottom value to: 42.0
-2018.11.26 21:00:56-DEBUG: ordinate_bottom - var value: 42.0, ui var value: 42.0
-2018.11.26 21:00:56-DEBUG: ordinate_bottom - var value: 42.0, ui var value: 42.0
-2018.11.26 21:00:56-INFO: setting ordinate_highest_point value to: 52.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for ordinate_highest_point
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 52.0
-2018.11.26 21:00:56-INFO: setting ordinate_highest_point value to: 52.0
-2018.11.26 21:00:56-DEBUG: ordinate_highest_point - var value: 52.0, ui var value: 52.0
-2018.11.26 21:00:56-DEBUG: ordinate_highest_point - var value: 52.0, ui var value: 52.0
-2018.11.26 21:00:56-INFO: setting ordinate_final_table value to: 50.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for ordinate_final_table
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 50.0
-2018.11.26 21:00:56-INFO: setting ordinate_final_table value to: 50.0
-2018.11.26 21:00:56-DEBUG: ordinate_final_table - var value: 50.0, ui var value: 50.0
-2018.11.26 21:00:56-DEBUG: ordinate_final_table - var value: 50.0, ui var value: 50.0
-2018.11.26 21:00:56-INFO: setting inflow_max value to: 3.5
-2018.11.26 21:00:56-INFO: app set_var_value starts for inflow_max
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 3.5
-2018.11.26 21:00:56-INFO: setting inflow_max value to: 3.5
-2018.11.26 21:00:56-DEBUG: inflow_max - var value: 3.5, ui var value: 3.5
-2018.11.26 21:00:56-DEBUG: inflow_max - var value: 3.5, ui var value: 3.5
-2018.11.26 21:00:56-INFO: setting inflow_min value to: 2.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for inflow_min
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 2.0
-2018.11.26 21:00:56-INFO: setting inflow_min value to: 2.0
-2018.11.26 21:00:56-DEBUG: inflow_min - var value: 2.0, ui var value: 2.0
-2018.11.26 21:00:56-DEBUG: inflow_min - var value: 2.0, ui var value: 2.0
-2018.11.26 21:00:56-INFO: setting work_cycle value to: 8.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for work_cycle
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 8.0
-2018.11.26 21:00:56-INFO: setting work_cycle value to: 8.0
-2018.11.26 21:00:56-DEBUG: work_cycle - var value: 8.0, ui var value: 8.0
-2018.11.26 21:00:56-DEBUG: work_cycle - var value: 8.0, ui var value: 8.0
-2018.11.26 21:00:56-INFO: setting pump_contour value to: 1.2
-2018.11.26 21:00:56-INFO: app set_var_value starts for pump_contour
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 1.2
-2018.11.26 21:00:56-INFO: setting pump_contour value to: 1.2
-2018.11.26 21:00:56-DEBUG: pump_contour - var value: 1.2, ui var value: 1.2
-2018.11.26 21:00:56-DEBUG: pump_contour - var value: 1.2, ui var value: 1.2
-2018.11.26 21:00:56-INFO: setting pump_flow_coords value to: [6.0, 5.0, 4.0, 3.0, 2.0]
-2018.11.26 21:00:56-WARNING: variable <'pump_flow_coords'> doesn't exist
-2018.11.26 21:00:56-INFO: setting pump_lift_coords value to: [8.0, 9.0, 10.0, 11.0, 12.0]
-2018.11.26 21:00:56-WARNING: variable <'pump_lift_coords'> doesn't exist
-2018.11.26 21:00:56-INFO: setting pump_efficiency_from value to: 2.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for pump_efficiency_from
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 2.0
-2018.11.26 21:00:56-INFO: setting pump_efficiency_from value to: 2.0
-2018.11.26 21:00:56-DEBUG: pump_efficiency_from - var value: 2.0, ui var value: 2.0
-2018.11.26 21:00:56-DEBUG: pump_efficiency_from - var value: 2.0, ui var value: 2.0
-2018.11.26 21:00:56-INFO: setting pump_efficiency_to value to: 4.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for pump_efficiency_to
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 4.0
-2018.11.26 21:00:56-INFO: setting pump_efficiency_to value to: 4.0
-2018.11.26 21:00:56-DEBUG: pump_efficiency_to - var value: 4.0, ui var value: 4.0
-2018.11.26 21:00:56-DEBUG: pump_efficiency_to - var value: 4.0, ui var value: 4.0
-2018.11.26 21:00:56-DEBUG: Add point method started
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-INFO: sort_points started
-2018.11.26 21:00:56-DEBUG: id numbers raised: [('6.0', 'I001')]
-2018.11.26 21:00:56-INFO: sort_points ended
-2018.11.26 21:00:56-DEBUG: char points: {'I001': (6.0, 8.0)}
-2018.11.26 21:00:56-DEBUG: Add point method started
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-INFO: sort_points started
-2018.11.26 21:00:56-DEBUG: id numbers raised: [('6.0', 'I001'), ('5.0', 'I002')]
-2018.11.26 21:00:56-INFO: sort_points ended
-2018.11.26 21:00:56-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0)}
-2018.11.26 21:00:56-DEBUG: Add point method started
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-INFO: sort_points started
-2018.11.26 21:00:56-DEBUG: id numbers raised: [('5.0', 'I002'), ('6.0', 'I001'), ('4.0', 'I003')]
-2018.11.26 21:00:56-INFO: sort_points ended
-2018.11.26 21:00:56-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0)}
-2018.11.26 21:00:56-DEBUG: Add point method started
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-INFO: sort_points started
-2018.11.26 21:00:56-DEBUG: id numbers raised: [('4.0', 'I003'), ('5.0', 'I002'), ('6.0', 'I001'), ('3.0', 'I004')]
-2018.11.26 21:00:56-INFO: sort_points ended
-2018.11.26 21:00:56-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0), 'I004': (3.0, 11.0)}
-2018.11.26 21:00:56-DEBUG: Add point method started
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.26 21:00:56-INFO: sort_points started
-2018.11.26 21:00:56-DEBUG: id numbers raised: [('3.0', 'I004'), ('4.0', 'I003'), ('5.0', 'I002'), ('6.0', 'I001'), ('2.0', 'I005')]
-2018.11.26 21:00:56-INFO: sort_points ended
-2018.11.26 21:00:56-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0), 'I004': (3.0, 11.0), 'I005': (2.0, 12.0)}
-2018.11.26 21:00:56-INFO: setting length_discharge_pipe value to: 7.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for length_discharge_pipe
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 7.0
-2018.11.26 21:00:56-INFO: setting length_discharge_pipe value to: 7.0
-2018.11.26 21:00:56-DEBUG: length_discharge_pipe - var value: 7.0, ui var value: 7.0
-2018.11.26 21:00:56-DEBUG: length_discharge_pipe - var value: 7.0, ui var value: 7.0
-2018.11.26 21:00:56-INFO: setting diameter_discharge_pipe value to: 150.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for diameter_discharge_pipe
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 150.0
-2018.11.26 21:00:56-INFO: setting diameter_discharge_pipe value to: 150.0
-2018.11.26 21:00:56-DEBUG: diameter_discharge_pipe - var value: 150.0, ui var value: 150.0
-2018.11.26 21:00:56-DEBUG: diameter_discharge_pipe - var value: 150.0, ui var value: 150.0
-2018.11.26 21:00:56-INFO: setting roughness_discharge_pipe value to: 1.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for roughness_discharge_pipe
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 1.0
-2018.11.26 21:00:56-INFO: setting roughness_discharge_pipe value to: 1.0
-2018.11.26 21:00:56-DEBUG: roughness_discharge_pipe - var value: 1.0, ui var value: 1.0
-2018.11.26 21:00:56-DEBUG: roughness_discharge_pipe - var value: 1.0, ui var value: 1.0
-2018.11.26 21:00:56-INFO: setting resistance_discharge_pipe value to: 2.20
-2018.11.26 21:00:56-INFO: app set_var_value starts for resistance_discharge_pipe
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 2.20
-2018.11.26 21:00:56-INFO: setting resistance_discharge_pipe value to: 2.20
-2018.11.26 21:00:56-DEBUG: resistance_discharge_pipe - var value: 2.20, ui var value: 2.20
-2018.11.26 21:00:56-DEBUG: resistance_discharge_pipe - var value: 2.20, ui var value: 2.20
-2018.11.26 21:00:56-INFO: setting number_of_collectors value to: 2
-2018.11.26 21:00:56-INFO: app set_var_value starts for number_of_collectors
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 2
-2018.11.26 21:00:56-INFO: setting number_of_collectors value to: 2
-2018.11.26 21:00:56-DEBUG: number_of_collectors - var value: 2, ui var value: 2
-2018.11.26 21:00:56-DEBUG: number_of_collectors - var value: 2, ui var value: 2
-2018.11.26 21:00:56-INFO: setting length_collector value to: 136.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for length_collector
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 136.0
-2018.11.26 21:00:56-INFO: setting length_collector value to: 136.0
-2018.11.26 21:00:56-DEBUG: length_collector - var value: 136.0, ui var value: 136.0
-2018.11.26 21:00:56-DEBUG: length_collector - var value: 136.0, ui var value: 136.0
-2018.11.26 21:00:56-INFO: setting roughness_collector value to: 1.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for roughness_collector
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 1.0
-2018.11.26 21:00:56-INFO: setting roughness_collector value to: 1.0
-2018.11.26 21:00:56-DEBUG: roughness_collector - var value: 1.0, ui var value: 1.0
-2018.11.26 21:00:56-DEBUG: roughness_collector - var value: 1.0, ui var value: 1.0
-2018.11.26 21:00:56-INFO: setting resistance_collector value to: 1.50
-2018.11.26 21:00:56-INFO: app set_var_value starts for resistance_collector
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 1.50
-2018.11.26 21:00:56-INFO: setting resistance_collector value to: 1.50
-2018.11.26 21:00:56-DEBUG: resistance_collector - var value: 1.50, ui var value: 1.50
-2018.11.26 21:00:56-DEBUG: resistance_collector - var value: 1.50, ui var value: 1.50
-2018.11.26 21:00:56-INFO: setting diameter_collector value to: 150.0
-2018.11.26 21:00:56-INFO: app set_var_value starts for diameter_collector
-2018.11.26 21:00:56-INFO: variable_name type: <class 'str'>
-2018.11.26 21:00:56-INFO: the value: 150.0
-2018.11.26 21:00:56-INFO: setting diameter_collector value to: 150.0
-2018.11.26 21:00:56-DEBUG: diameter_collector - var value: 150.0, ui var value: 150.0
-2018.11.26 21:00:56-DEBUG: diameter_collector - var value: 150.0, ui var value: 150.0
-2018.11.26 21:01:00-DEBUG: shape - ui: rectangle, engine: rectangle
-2018.11.26 21:01:00-DEBUG: well_diameter - ui: 0.0, engine: 0
-2018.11.26 21:01:00-DEBUG: well_length - ui: 6.0, engine: 6.0
-2018.11.26 21:01:00-DEBUG: well_width - ui: 2.4, engine: 2.4
-2018.11.26 21:01:00-DEBUG: minimal_sewage_level - ui: 0.3, engine: 0.3
-2018.11.26 21:01:00-DEBUG: ordinate_terrain - ui: 50.0, engine: 50.0
-2018.11.26 21:01:00-DEBUG: ordinate_inlet - ui: 45.0, engine: 45.0
-2018.11.26 21:01:00-DEBUG: ordinate_outlet - ui: 47.0, engine: 47.0
-2018.11.26 21:01:00-DEBUG: ordinate_bottom - ui: 42.0, engine: 42.0
-2018.11.26 21:01:00-DEBUG: ordinate_highest_point - ui: 52.0, engine: 52.0
-2018.11.26 21:01:00-DEBUG: ordinate_final_table - ui: 50.0, engine: 50.0
-2018.11.26 21:01:00-DEBUG: difference_in_start - ui: 0.0, engine: 0
-2018.11.26 21:01:00-DEBUG: inflow_max - ui: 3.5, engine: 3.5
-2018.11.26 21:01:00-DEBUG: inflow_min - ui: 2.0, engine: 2.0
-2018.11.26 21:01:00-DEBUG: length_discharge_pipe - ui: 7.0, engine: 7.0
-2018.11.26 21:01:00-DEBUG: diameter_discharge_pipe - ui: 150.0, engine: 150.0
-2018.11.26 21:01:00-DEBUG: roughness_discharge_pipe - ui: 1.0, engine: 1.0
-2018.11.26 21:01:00-DEBUG: resistance_discharge_pipe - ui: 2.20, engine: 2.20
-2018.11.26 21:01:00-DEBUG: work_cycle - ui: 8.0, engine: 8.0
-2018.11.26 21:01:00-DEBUG: pump_contour - ui: 1.2, engine: 1.2
-2018.11.26 21:01:00-ERROR: KeyError: 'pump_flow_coords', key: pump_flow_coords - not in builder
-2018.11.26 21:01:00-DEBUG: pump_flow_coords - ui: 1.2, engine: [6.0, 5.0, 4.0, 3.0, 2.0]
-2018.11.26 21:01:00-ERROR: KeyError: 'pump_lift_coords', key: pump_lift_coords - not in builder
-2018.11.26 21:01:00-DEBUG: pump_lift_coords - ui: 1.2, engine: [8.0, 9.0, 10.0, 11.0, 12.0]
-2018.11.26 21:01:00-DEBUG: pump_efficiency_from - ui: 2.0, engine: 2.0
-2018.11.26 21:01:00-DEBUG: pump_efficiency_to - ui: 4.0, engine: 4.0
-2018.11.26 21:01:00-DEBUG: inflow engine value: 3.5
-2018.11.26 21:01:00-DEBUG: diam engine value: 0
-2018.11.26 21:01:00-DEBUG: res engine value: [2.2]
-2018.11.26 21:01:00-DEBUG: types: diam: <class 'int'>, res: <class 'list'>
-2018.11.26 21:01:36-INFO: app set_var_value starts for shape
-2018.11.26 21:01:36-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:36-INFO: the value: round
-2018.11.26 21:01:36-INFO: setting shape value to: round
-2018.11.26 21:01:36-DEBUG: shape - var value: round, ui var value: round
-2018.11.26 21:01:36-INFO: app set_var_value starts for shape
-2018.11.26 21:01:36-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:36-INFO: the value: round
-2018.11.26 21:01:36-INFO: setting shape value to: round
-2018.11.26 21:01:36-DEBUG: shape - var value: round, ui var value: round
-2018.11.26 21:01:36-DEBUG: started setting shape
-2018.11.26 21:01:36-DEBUG: new shape: round
-2018.11.26 21:01:36-DEBUG: changed shape to round
-2018.11.26 21:01:37-INFO: app set_var_value starts for shape
-2018.11.26 21:01:37-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:37-INFO: the value: rectangle
-2018.11.26 21:01:37-INFO: setting shape value to: rectangle
-2018.11.26 21:01:37-DEBUG: shape - var value: rectangle, ui var value: rectangle
-2018.11.26 21:01:37-INFO: app set_var_value starts for shape
-2018.11.26 21:01:37-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:37-INFO: the value: rectangle
-2018.11.26 21:01:37-INFO: setting shape value to: rectangle
-2018.11.26 21:01:37-DEBUG: shape - var value: rectangle, ui var value: rectangle
-2018.11.26 21:01:37-DEBUG: started setting shape
-2018.11.26 21:01:37-DEBUG: new shape: rectangle
-2018.11.26 21:01:37-DEBUG: changed shape to rectangle
-2018.11.26 21:01:44-INFO: app set_var_value starts for resistance_discharge_pipe
-2018.11.26 21:01:44-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:44-INFO: the value: 2.20,
-2018.11.26 21:01:44-INFO: setting resistance_discharge_pipe value to: 2.20,
-2018.11.26 21:01:44-INFO: app set_var_value starts for resistance_discharge_pipe
-2018.11.26 21:01:44-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:44-INFO: the value: 2.20, 
-2018.11.26 21:01:44-INFO: setting resistance_discharge_pipe value to: 2.20, 
-2018.11.26 21:01:45-INFO: app set_var_value starts for resistance_discharge_pipe
-2018.11.26 21:01:45-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:45-INFO: the value: 2.20, 2
-2018.11.26 21:01:45-INFO: setting resistance_discharge_pipe value to: 2.20, 2
-2018.11.26 21:01:45-DEBUG: resistance_discharge_pipe - var value: 2.20, 2, ui var value: 2.20, 2
-2018.11.26 21:01:46-INFO: app set_var_value starts for resistance_discharge_pipe
-2018.11.26 21:01:46-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:46-INFO: the value: 2.20, 25
-2018.11.26 21:01:46-INFO: setting resistance_discharge_pipe value to: 2.20, 25
-2018.11.26 21:01:46-DEBUG: resistance_discharge_pipe - var value: 2.20, 25, ui var value: 2.20, 25
-2018.11.26 21:01:48-INFO: app set_var_value starts for resistance_discharge_pipe
-2018.11.26 21:01:48-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:48-INFO: the value: 2.20, 25.
-2018.11.26 21:01:48-INFO: setting resistance_discharge_pipe value to: 2.20, 25.
-2018.11.26 21:01:48-DEBUG: resistance_discharge_pipe - var value: 2.20, 25., ui var value: 2.20, 25.
-2018.11.26 21:01:48-INFO: app set_var_value starts for resistance_discharge_pipe
-2018.11.26 21:01:48-INFO: variable_name type: <class 'str'>
-2018.11.26 21:01:48-INFO: the value: 2.20, 25.5
-2018.11.26 21:01:48-INFO: setting resistance_discharge_pipe value to: 2.20, 25.5
-2018.11.26 21:01:48-DEBUG: resistance_discharge_pipe - var value: 2.20, 25.5, ui var value: 2.20, 25.5
-2018.11.26 21:01:52-DEBUG: shape - ui: rectangle, engine: rectangle
-2018.11.26 21:01:52-DEBUG: well_diameter - ui: 0.0, engine: 0
-2018.11.26 21:01:52-DEBUG: well_length - ui: 6.0, engine: 6.0
-2018.11.26 21:01:52-DEBUG: well_width - ui: 2.4, engine: 2.4
-2018.11.26 21:01:52-DEBUG: minimal_sewage_level - ui: 0.3, engine: 0.3
-2018.11.26 21:01:52-DEBUG: ordinate_terrain - ui: 50.0, engine: 50.0
-2018.11.26 21:01:52-DEBUG: ordinate_inlet - ui: 45.0, engine: 45.0
-2018.11.26 21:01:52-DEBUG: ordinate_outlet - ui: 47.0, engine: 47.0
-2018.11.26 21:01:52-DEBUG: ordinate_bottom - ui: 42.0, engine: 42.0
-2018.11.26 21:01:52-DEBUG: ordinate_highest_point - ui: 52.0, engine: 52.0
-2018.11.26 21:01:52-DEBUG: ordinate_final_table - ui: 50.0, engine: 50.0
-2018.11.26 21:01:52-DEBUG: difference_in_start - ui: 0.0, engine: 0
-2018.11.26 21:01:52-DEBUG: inflow_max - ui: 3.5, engine: 3.5
-2018.11.26 21:01:52-DEBUG: inflow_min - ui: 2.0, engine: 2.0
-2018.11.26 21:01:52-DEBUG: length_discharge_pipe - ui: 7.0, engine: 7.0
-2018.11.26 21:01:52-DEBUG: diameter_discharge_pipe - ui: 150.0, engine: 150.0
-2018.11.26 21:01:52-DEBUG: roughness_discharge_pipe - ui: 1.0, engine: 1.0
-2018.11.26 21:01:52-DEBUG: resistance_discharge_pipe - ui: 2.20, 25.5, engine: 2.20, 25.5
-2018.11.26 21:01:52-DEBUG: work_cycle - ui: 8.0, engine: 8.0
-2018.11.26 21:01:52-DEBUG: pump_contour - ui: 1.2, engine: 1.2
-2018.11.26 21:01:52-ERROR: KeyError: 'pump_flow_coords', key: pump_flow_coords - not in builder
-2018.11.26 21:01:52-DEBUG: pump_flow_coords - ui: 1.2, engine: [6.0, 5.0, 4.0, 3.0, 2.0]
-2018.11.26 21:01:52-ERROR: KeyError: 'pump_lift_coords', key: pump_lift_coords - not in builder
-2018.11.26 21:01:52-DEBUG: pump_lift_coords - ui: 1.2, engine: [8.0, 9.0, 10.0, 11.0, 12.0]
-2018.11.26 21:01:52-DEBUG: pump_efficiency_from - ui: 2.0, engine: 2.0
-2018.11.26 21:01:52-DEBUG: pump_efficiency_to - ui: 4.0, engine: 4.0
-2018.11.26 21:01:52-DEBUG: inflow engine value: 3.5
-2018.11.26 21:01:52-DEBUG: diam engine value: 0
-2018.11.26 21:01:52-DEBUG: res engine value: [2.2, 25.5]
-2018.11.26 21:01:52-DEBUG: types: diam: <class 'int'>, res: <class 'list'>
-2018.11.26 21:04:20-INFO: app set_var_value starts for shape
-2018.11.26 21:04:20-INFO: variable_name type: <class 'str'>
-2018.11.26 21:04:20-INFO: the value: round
-2018.11.26 21:04:20-INFO: setting shape value to: round
-2018.11.26 21:04:20-DEBUG: shape - var value: round, ui var value: round
-2018.11.26 21:04:20-INFO: app set_var_value starts for shape
-2018.11.26 21:04:20-INFO: variable_name type: <class 'str'>
-2018.11.26 21:04:20-INFO: the value: round
-2018.11.26 21:04:20-INFO: setting shape value to: round
-2018.11.26 21:04:20-DEBUG: shape - var value: round, ui var value: round
-2018.11.26 21:04:20-DEBUG: started setting shape
-2018.11.26 21:04:20-DEBUG: new shape: round
-2018.11.26 21:04:20-DEBUG: changed shape to round
-2018.11.26 21:04:21-INFO: app set_var_value starts for shape
-2018.11.26 21:04:21-INFO: variable_name type: <class 'str'>
-2018.11.26 21:04:21-INFO: the value: rectangle
-2018.11.26 21:04:21-INFO: setting shape value to: rectangle
-2018.11.26 21:04:21-DEBUG: shape - var value: rectangle, ui var value: rectangle
-2018.11.26 21:04:21-INFO: app set_var_value starts for shape
-2018.11.26 21:04:21-INFO: variable_name type: <class 'str'>
-2018.11.26 21:04:21-INFO: the value: rectangle
-2018.11.26 21:04:21-INFO: setting shape value to: rectangle
-2018.11.26 21:04:21-DEBUG: shape - var value: rectangle, ui var value: rectangle
-2018.11.26 21:04:21-DEBUG: started setting shape
-2018.11.26 21:04:21-DEBUG: new shape: rectangle
-2018.11.26 21:04:21-DEBUG: changed shape to rectangle
-2018.11.26 21:05:38-INFO: changed mode: minimalisation
+2018.11.28 22:55:26-DEBUG: id: 1, stored value: 1
+2018.11.28 22:55:26-DEBUG: dan_id: 1, value: ['1']
+2018.11.28 22:55:26-DEBUG: id: 2, stored value: 0
+2018.11.28 22:55:26-DEBUG: dan_id: 2, value: ['0']
+2018.11.28 22:55:26-DEBUG: id: 3, stored value: 0
+2018.11.28 22:55:26-DEBUG: dan_id: 3, value: ['0']
+2018.11.28 22:55:26-DEBUG: id: 4, stored value: 2
+2018.11.28 22:55:26-DEBUG: dan_id: 4, value: ['2']
+2018.11.28 22:55:26-DEBUG: id: 5, stored value: 1.20
+2018.11.28 22:55:26-DEBUG: dan_id: 5, value: ['1.20']
+2018.11.28 22:55:26-DEBUG: id: 6, stored value: 6.00
+2018.11.28 22:55:26-DEBUG: dan_id: 6, value: ['6.00']
+2018.11.28 22:55:26-DEBUG: id: 7, stored value: 2.40
+2018.11.28 22:55:26-DEBUG: dan_id: 7, value: ['2.40']
+2018.11.28 22:55:26-DEBUG: id: 9, stored value: .30
+2018.11.28 22:55:26-DEBUG: dan_id: 9, value: ['.30']
+2018.11.28 22:55:26-DEBUG: id: 10, stored value: 50.00
+2018.11.28 22:55:26-DEBUG: dan_id: 10, value: ['50.00']
+2018.11.28 22:55:26-DEBUG: id: 11, stored value: 47.00
+2018.11.28 22:55:26-DEBUG: dan_id: 11, value: ['47.00']
+2018.11.28 22:55:26-DEBUG: id: 12, stored value: 45.00
+2018.11.28 22:55:26-DEBUG: dan_id: 12, value: ['45.00']
+2018.11.28 22:55:26-DEBUG: id: 13, stored value: 42.00
+2018.11.28 22:55:26-DEBUG: dan_id: 13, value: ['42.00']
+2018.11.28 22:55:26-DEBUG: id: 15, stored value: 52.00
+2018.11.28 22:55:26-DEBUG: dan_id: 15, value: ['52.00']
+2018.11.28 22:55:26-DEBUG: id: 16, stored value: 50.00
+2018.11.28 22:55:26-DEBUG: dan_id: 16, value: ['50.00']
+2018.11.28 22:55:26-DEBUG: id: 28, stored value: 7.0
+2018.11.28 22:55:26-DEBUG: dan_id: 28, value: ['7.0']
+2018.11.28 22:55:26-DEBUG: id: 29, stored value: 150.0
+2018.11.28 22:55:26-DEBUG: dan_id: 29, value: ['150.0']
+2018.11.28 22:55:26-DEBUG: id: 30, stored value: 1.00
+2018.11.28 22:55:26-DEBUG: dan_id: 30, value: ['1.00']
+2018.11.28 22:55:26-DEBUG: id: 31, stored value: 1
+2018.11.28 22:55:26-DEBUG: dan_id: 31, value: ['1']
+2018.11.28 22:55:26-DEBUG: id: 32, stored value: 2.20
+2018.11.28 22:55:26-DEBUG: dan_id: 32, value: ['2.20']
+2018.11.28 22:55:26-DEBUG: id: 33, stored value: 2.0
+2018.11.28 22:55:26-DEBUG: dan_id: 33, value: ['2.0']
+2018.11.28 22:55:26-DEBUG: id: 34, stored value: 3.5
+2018.11.28 22:55:26-DEBUG: dan_id: 34, value: ['3.5']
+2018.11.28 22:55:26-DEBUG: id: 35, stored value: 8.0
+2018.11.28 22:55:26-DEBUG: dan_id: 35, value: ['8.0']
+2018.11.28 22:55:26-DEBUG: id: 36, stored value: 5
+2018.11.28 22:55:26-DEBUG: dan_id: 36, value: ['5']
+2018.11.28 22:55:26-DEBUG: id: 37, stored value: 6.0
+2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0']
+2018.11.28 22:55:26-DEBUG: id: 37, stored value: 5.0
+2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0', '5.0']
+2018.11.28 22:55:26-DEBUG: id: 37, stored value: 4.0
+2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0']
+2018.11.28 22:55:26-DEBUG: id: 37, stored value: 3.0
+2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0', '3.0']
+2018.11.28 22:55:26-DEBUG: id: 37, stored value: 2.0
+2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0', '3.0', '2.0']
+2018.11.28 22:55:26-DEBUG: id: 38, stored value: 8.0
+2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0']
+2018.11.28 22:55:26-DEBUG: id: 38, stored value: 9.0
+2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0', '9.0']
+2018.11.28 22:55:26-DEBUG: id: 38, stored value: 10.0
+2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0']
+2018.11.28 22:55:26-DEBUG: id: 38, stored value: 11.0
+2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0', '11.0']
+2018.11.28 22:55:26-DEBUG: id: 38, stored value: 12.0
+2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0', '11.0', '12.0']
+2018.11.28 22:55:26-DEBUG: id: 39, stored value: 2.0
+2018.11.28 22:55:26-DEBUG: dan_id: 39, value: ['2.0']
+2018.11.28 22:55:26-DEBUG: id: 40, stored value: 4.0
+2018.11.28 22:55:26-DEBUG: dan_id: 40, value: ['4.0']
+2018.11.28 22:55:26-DEBUG: id: 41, stored value: 2
+2018.11.28 22:55:26-DEBUG: dan_id: 41, value: ['2']
+2018.11.28 22:55:26-DEBUG: id: 42, stored value: 136.0
+2018.11.28 22:55:26-DEBUG: dan_id: 42, value: ['136.0']
+2018.11.28 22:55:26-DEBUG: id: 43, stored value: 150.0
+2018.11.28 22:55:26-DEBUG: dan_id: 43, value: ['150.0']
+2018.11.28 22:55:26-DEBUG: id: 44, stored value: 1.00
+2018.11.28 22:55:26-DEBUG: dan_id: 44, value: ['1.00']
+2018.11.28 22:55:26-DEBUG: id: 45, stored value: 1
+2018.11.28 22:55:26-DEBUG: dan_id: 45, value: ['1']
+2018.11.28 22:55:26-DEBUG: id: 46, stored value: 1.50
+2018.11.28 22:55:26-DEBUG: dan_id: 46, value: ['1.50']
+2018.11.28 22:55:26-DEBUG: dictionary in progress: {'1': ['1'], '2': ['0'], '3': ['0'], '4': ['2'], '5': ['1.20'], '6': ['6.00'], '7': ['2.40'], '9': ['.30'], '10': ['50.00'], '11': ['47.00'], '12': ['45.00'], '13': ['42.00'], '15': ['52.00'], '16': ['50.00'], '28': ['7.0'], '29': ['150.0'], '30': ['1.00'], '31': ['1'], '32': ['2.20'], '33': ['2.0'], '34': ['3.5'], '35': ['8.0'], '36': ['5'], '37': ['6.0', '5.0', '4.0', '3.0', '2.0'], '38': ['8.0', '9.0', '10.0', '11.0', '12.0'], '39': ['2.0'], '40': ['4.0'], '41': ['2'], '42': ['136.0'], '43': ['150.0'], '44': ['1.00'], '45': ['1'], '46': ['1.50']}
+2018.11.28 22:55:26-DEBUG: dictionary at finish: {'1': 1.0, '2': 0.0, '3': 0.0, '4': 2.0, '5': 1.2, '6': 6.0, '7': 2.4, '9': 0.3, '10': 50.0, '11': 47.0, '12': 45.0, '13': 42.0, '15': 52.0, '16': 50.0, '28': 7.0, '29': 150.0, '30': 1.0, '31': 1.0, '32': 2.2, '33': 2.0, '34': 3.5, '35': 8.0, '36': 5.0, '37': [6.0, 5.0, 4.0, 3.0, 2.0], '38': [8.0, 9.0, 10.0, 11.0, 12.0], '39': 2.0, '40': 4.0, '41': 2.0, '42': 136.0, '43': 150.0, '44': 1.0, '45': 1.0, '46': 1.5}
+2018.11.28 22:55:26-DEBUG: started setting shape
+2018.11.28 22:55:26-DEBUG: new shape: rectangle
+2018.11.28 22:55:26-DEBUG: changed shape to rectangle
+2018.11.28 22:55:26-INFO: conversion func starts
+2018.11.28 22:55:26-INFO: old value: 0.0
+2018.11.28 22:55:26-INFO: no need to conversion
+2018.11.28 22:55:26-INFO: conversion func starts
+2018.11.28 22:55:26-INFO: old value: 0.0
+2018.11.28 22:55:26-INFO: no need to conversion
+2018.11.28 22:55:26-INFO: conversion func starts
+2018.11.28 22:55:26-INFO: old value: 3.5
+2018.11.28 22:55:26-INFO: no need to conversion
+2018.11.28 22:55:26-INFO: conversion func starts
+2018.11.28 22:55:26-INFO: old value: 0.0
+2018.11.28 22:55:26-INFO: no need to conversion
+2018.11.28 22:55:26-INFO: conversion func starts
+2018.11.28 22:55:26-INFO: old value: 0.0
+2018.11.28 22:55:26-INFO: no need to conversion
+2018.11.28 22:55:26-INFO: conversion func starts
+2018.11.28 22:55:26-INFO: old value: 0.0
+2018.11.28 22:55:26-INFO: no need to conversion
+2018.11.28 22:55:26-INFO: conversion func starts
+2018.11.28 22:55:26-INFO: old value: 0.0
+2018.11.28 22:55:26-INFO: no need to conversion
+2018.11.28 22:55:26-INFO: conversion func starts
+2018.11.28 22:55:26-INFO: old value: 2.0
+2018.11.28 22:55:26-INFO: no need to conversion
+2018.11.28 22:55:26-DEBUG: Add point method started
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-INFO: sort_points started
+2018.11.28 22:55:26-DEBUG: id numbers raised: [('6.0', 'I001')]
+2018.11.28 22:55:26-INFO: sort_points ended
+2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0)}
+2018.11.28 22:55:26-DEBUG: Add point method started
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-INFO: sort_points started
+2018.11.28 22:55:26-DEBUG: id numbers raised: [('6.0', 'I001'), ('5.0', 'I002')]
+2018.11.28 22:55:26-INFO: sort_points ended
+2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0)}
+2018.11.28 22:55:26-DEBUG: Add point method started
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-INFO: sort_points started
+2018.11.28 22:55:26-DEBUG: id numbers raised: [('5.0', 'I002'), ('6.0', 'I001'), ('4.0', 'I003')]
+2018.11.28 22:55:26-INFO: sort_points ended
+2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0)}
+2018.11.28 22:55:26-DEBUG: Add point method started
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-INFO: sort_points started
+2018.11.28 22:55:26-DEBUG: id numbers raised: [('4.0', 'I003'), ('5.0', 'I002'), ('6.0', 'I001'), ('3.0', 'I004')]
+2018.11.28 22:55:26-INFO: sort_points ended
+2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0), 'I004': (3.0, 11.0)}
+2018.11.28 22:55:26-DEBUG: Add point method started
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.28 22:55:26-INFO: sort_points started
+2018.11.28 22:55:26-DEBUG: id numbers raised: [('3.0', 'I004'), ('4.0', 'I003'), ('5.0', 'I002'), ('6.0', 'I001'), ('2.0', 'I005')]
+2018.11.28 22:55:26-INFO: sort_points ended
+2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0), 'I004': (3.0, 11.0), 'I005': (2.0, 12.0)}
+2018.11.28 22:55:26-DEBUG: trying to convert: 2.2 to floats list
+2018.11.28 22:55:40-DEBUG: started setting shape
+2018.11.28 22:55:40-DEBUG: new shape: round
+2018.11.28 22:55:40-DEBUG: changed shape to round
+2018.11.28 22:55:41-DEBUG: started setting shape
+2018.11.28 22:55:41-DEBUG: new shape: rectangle
+2018.11.28 22:55:41-DEBUG: changed shape to rectangle
