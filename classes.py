@@ -38,6 +38,11 @@ class Numeric(Variable):
         self.value = value
         self.set_trace('value')
 
+    def __repr__(self):
+        output = 'Numeric({}, {}, {}, {});{}'.format(
+            self.app, self.value, self.dan_id, self.is_int, self.ui_var.get())
+        return output
+
     def __setattr__(self, attr, value):
         if attr != 'value':
             self.__dict__[attr] = value
@@ -60,6 +65,12 @@ class Logic(Variable):
         self.value = value
         self.set_trace('value')
 
+    def __repr__(self):
+        output = 'Logic({}, {}, {}, {});{}'.format(
+            self.app, self.value, self.dan_id, self.dictionary,
+            self.ui_var.get())
+        return output
+
     def __setattr__(self, attr, value):
         self.__dict__[attr] = value
         if attr == 'value' and self.ui_var.get() != self.value:
@@ -80,6 +91,11 @@ class Resistance(Variable):
         super().__init__(app, ui_variable, dan_id)
         self.string = string
         self.set_trace('string')
+
+    def __repr__(self):
+        output = 'Resistance({}, str:{}, val:{}, {});{}'.format(
+            self.app, self.string, self.values, self.dan_id, self.ui_var.get())
+        return output
 
     def __setattr__(self, attr, value):
         if attr != 'string':
@@ -122,6 +138,11 @@ class Flow(Variable):
         if ui_variable in self.tkvars:
             self.set_trace('value')
         self.unit_var.trace('w', lambda *_: self.convert(self.unit_var.get()))
+
+    def __repr__(self):
+        output = 'Flow({}, {}, {}, {});{}'.format(
+            self.app, self.value, self.dan_id, self.unit, self.ui_var.get())
+        return output
 
     def __setattr__(self, attr, value):
         if attr != 'value':
@@ -168,13 +189,22 @@ class PumpCharFlow(Flow):
 
 class PumpCharacteristic(Variable):
 
-    def __init__(self, app, treename, dan_id):
+    def __init__(self, app, treename, dan_id, figure, canvas):
         self.coords = {}
         self.dan_id = dan_id
+        self.figure = figure
+        self.canvas = canvas
         self.tree = app.builder.get_object(treename)
         self.tkvars = app.builder.tkvariables
+        self.plot = self.figure.add_subplot(111)
+
+    def __repr__(self):
+        output = 'PumpCharacteristic({}, vals:{})'.format(
+            self.dan_id, self.coords)
+        return output
 
     def load_data(self, data_dict):
+        self.clear_characteristic()
         input_flow_vals = data_dict[self.dan_id[0]]
         input_lift_vals = data_dict[self.dan_id[1]]
         if len(input_flow_vals) == len(input_lift_vals) != 0:
@@ -196,6 +226,21 @@ class PumpCharacteristic(Variable):
         self.sort_points()
         log.debug('char points: {}'.format(self.coords))
 
+    def draw_figure(self):
+        pairs = {}
+        flow_coords = []
+        lift_coords = []
+        self.plot.clear()
+        for point in self.coords:
+            pairs[str(self.coords[point][0].value)] = self.coords[point][1]
+            flow_coords.append(self.coords[point][0].value)
+        log.debug(pairs)
+        flow_coords.sort()
+        for value in flow_coords:
+            lift_coords.append(pairs[str(value)])
+        self.plot.plot(flow_coords, lift_coords, drawstyle='steps-pre')
+        self.canvas.draw()
+
     def sort_points(self):
         log.info('sort_points started')
         id_numbers = [(self.tree.set(i, 'Column_q'), i)
@@ -206,6 +251,7 @@ class PumpCharacteristic(Variable):
             self.tree.move(i, '', index)
             self.tree.set(i, 'Column_nr', value=str(index + 1))
         log.info('sort_points ended')
+        self.draw_figure()
 
     def delete_point(self, selected_id):
         log.info('delete_point started')
@@ -216,10 +262,18 @@ class PumpCharacteristic(Variable):
         self.sort_points()
         log.info('delete_points ended')
 
+    def clear_characteristic(self):
+        id_list = []
+        for id_ in self.coords:
+            id_list.append(id_)
+        for id_ in id_list:
+            self.delete_point(id_)
+
     def set_unit(self, unit):
         for key in self.coords:
             self.coords[key][0].convert(unit)
             self.tree.set(key, 'Column_q', self.coords[key][0])
+        self.draw_figure()
 
 
 ################################################################

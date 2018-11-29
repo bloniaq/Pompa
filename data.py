@@ -29,7 +29,7 @@ def well_vars(ins, app):
     ins.inflow_max = c.Flow(app, 0.0, 'inflow_max', '34', 'inflow_unit')
 
 
-def pump_vars(ins, app):
+def pump_vars(ins, app, figure, canvas):
     ins.contour = c.Numeric(app, 0.0, 'pump_contour', '5')
     ins.cycle_time = c.Numeric(app, 0.0, 'work_cycle', '35')
     ins.efficiency_from = c.Flow(app, 0.0, 'pump_efficiency_from', '39',
@@ -37,7 +37,7 @@ def pump_vars(ins, app):
     ins.efficiency_to = c.Flow(app, 0.0, 'pump_efficiency_to', '40',
                                'pump_flow_unit')
     ins.characteristic = c.PumpCharacteristic(app, 'Treeview_Pump',
-                                              ['37', '38'])
+                                              ['37', '38'], figure, canvas)
 
 
 def discharge_pipe_vars(ins, app):

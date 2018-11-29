@@ -2978,7 +2978,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="But_Calculate">
-            <property name="command">print_values</property>
+            <property name="command"></property>
             <property name="text" translatable="yes">Przelicz</property>
             <layout>
               <property name="column">4</property>
@@ -3081,7 +3081,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="Button_Info">
-            <property name="command">info</property>
+            <property name="command">print_values</property>
             <property name="text" translatable="yes">O programie</property>
             <layout>
               <property name="column">3</property>
@@ -3104,7 +3104,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="Button_Zapisz">
-            <property name="command">data_save</property>
+            <property name="command">on_plot_clicked</property>
             <property name="text" translatable="yes">Zapisz Dane</property>
             <layout>
               <property name="column">2</property>

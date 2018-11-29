@@ -12,6 +12,12 @@ import classes
 import config
 import data
 
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+# from matplotlib.backends.backend_tkagg import NavigationToolbar2TkAgg
+# Implement the default Matplotlib key bindings.
+from matplotlib.backend_bases import key_press_handler
+from matplotlib.figure import Figure
+
 variables_list = []
 path = ""
 
@@ -62,6 +68,12 @@ class Application():
         self.filepath = self.builder.get_object('filepath')
         self.ui_vars = self.builder.tkvariables
 
+        fcontainer = self.builder.get_object('Frame_Chart')
+
+        self.figure = fig = Figure(figsize=(4, 5.1), dpi=100)
+        self.canvas = canvas = FigureCanvasTkAgg(fig, master=fcontainer)
+        canvas.get_tk_widget().grid(row=0, column=0)
+
         # 4: Setting callbacks
         self.builder.connect_callbacks(self)
 
@@ -70,6 +82,11 @@ class Application():
         self.create_objects()
         self.set_mode(self.default['mode'])
 
+    def on_plot_clicked(self):
+        a = self.figure.add_subplot(111)
+        a.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
+        self.canvas.draw()
+
     def run(self):
         self.mainwindow.mainloop()
 
@@ -77,7 +94,7 @@ class Application():
         self.well = classes.Well(self)
         data.well_vars(self.well, self)
         self.pump = classes.Pump(self)
-        data.pump_vars(self.pump, self)
+        data.pump_vars(self.pump, self, self.figure, self.canvas)
         self.pump.set_flow_unit(
             self.ui_vars.__getitem__('pump_flow_unit').get())
         self.discharge_pipe = classes.Pipe(self)
@@ -176,43 +193,14 @@ class Application():
             self.pump.characteristic.delete_point(deleted_id)
 
     def print_values(self):
-        for key in self.well.variables:
-            log.debug('{} - ui: {}, engine: {}'.format(
-                key, self.ui_vars.__getitem__(key).get(),
-                getattr(self.well, self.well.variables[key][0])))
-        for key in self.discharge_pipe.variables:
-            try:
-                log.debug('{} - ui: {}, engine: {}'.format(
-                    key, self.builder.tkvariables.__getitem__(key).get(),
-                    getattr(self.discharge_pipe,
-                            self.discharge_pipe.variables[key][0])))
-            except TypeError as e:
-                log.error('TypeError: {}, attribute: {}, type: {}'.format(
-                    e, self.discharge_pipe.variables[key][0], type(
-                        self.discharge_pipe.variables[key][0])))
-        for key in self.pump.variables:
-            try:
-                ui_item = self.builder.tkvariables.__getitem__(key).get()
-            except KeyError as e:
-                log.error('KeyError: {}, key: {} - not in builder'.format(
-                    e, key))
-            try:
-                log.debug('{} - ui: {}, engine: {}'.format(
-                    key, ui_item,
-                    getattr(self.pump,
-                            self.pump.variables[key][0])))
-            except TypeError as e:
-                log.error('TypeError: {}, attribute: {}, type: {}'.format(
-                    e, self.pump.variables[key][0], type(
-                        self.pump.variables[key][0])))
-
-        log.debug('inflow engine value: {}'.format(self.well.inflow_max.value))
-        log.debug('diam engine value: {}'.format(self.well.diameter))
-        log.debug('res engine value: {}'.format(
-            self.discharge_pipe.resistance.values))
-        log.debug('types: diam: {}, res: {}'.format(
-            type(self.well.diameter), type(
-                self.discharge_pipe.resistance.values)))
+        objects = [self.well, self.pump, self.discharge_pipe, self.collector]
+        for object_ in objects:
+            log.debug(object_)
+            for attr in object_.__dict__:
+                log.debug(attr)
+                if hasattr(object_.__dict__[attr], 'dan_id'):
+                    log.debug('key: {}, val: {}'.format(
+                        attr, object_.__dict__[attr]))
 
 
 if __name__ == '__main__':

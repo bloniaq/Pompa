@@ -1,177 +1,177 @@
-2018.11.28 22:55:22-INFO: conversion func starts
-2018.11.28 22:55:22-INFO: old value: 0.0
-2018.11.28 22:55:22-INFO: no need to conversion
-2018.11.28 22:55:22-INFO: conversion func starts
-2018.11.28 22:55:22-INFO: old value: 0.0
-2018.11.28 22:55:22-INFO: no need to conversion
-2018.11.28 22:55:22-INFO: set_flow_unit started
-2018.11.28 22:55:22-INFO: self.efficiency_from type: <class 'classes.Flow'>
-2018.11.28 22:55:22-DEBUG: trying to convert:  to floats list
-2018.11.28 22:55:22-DEBUG: trying to convert:  to floats list
-2018.11.28 22:55:22-INFO: changed mode: checking
-2018.11.28 22:55:26-INFO: 
+2018.11.29 15:39:15-INFO: conversion func starts
+2018.11.29 15:39:15-INFO: old value: 0.0
+2018.11.29 15:39:15-INFO: no need to conversion
+2018.11.29 15:39:15-INFO: conversion func starts
+2018.11.29 15:39:15-INFO: old value: 0.0
+2018.11.29 15:39:15-INFO: no need to conversion
+2018.11.29 15:39:15-INFO: set_flow_unit started
+2018.11.29 15:39:15-INFO: self.efficiency_from type: <class 'classes.Flow'>
+2018.11.29 15:39:15-DEBUG: {}
+2018.11.29 15:39:15-DEBUG: trying to convert:  to floats list
+2018.11.29 15:39:15-DEBUG: trying to convert:  to floats list
+2018.11.29 15:39:15-INFO: changed mode: checking
+2018.11.29 15:39:21-INFO: 
 data_load started
 
-2018.11.28 22:55:26-INFO: opening file: <_io.TextIOWrapper name='E:/# PROGRAMOWANIE/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
+2018.11.29 15:39:21-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-2018.11.28 22:55:26-INFO: 
+2018.11.29 15:39:21-INFO: 
 dan_load started
 
-2018.11.28 22:55:26-INFO: plik danych generowany wersj¹ 1.0 aplikacji
-2018.11.28 22:55:26-INFO: opening file: <_io.TextIOWrapper name='E:/# PROGRAMOWANIE/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
+2018.11.29 15:39:21-INFO: plik danych generowany wersj¹ 1.0 aplikacji
+2018.11.29 15:39:21-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Pompa/InOut Examples/2_STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-2018.11.28 22:55:26-DEBUG: id: 1, stored value: 1
-2018.11.28 22:55:26-DEBUG: dan_id: 1, value: ['1']
-2018.11.28 22:55:26-DEBUG: id: 2, stored value: 0
-2018.11.28 22:55:26-DEBUG: dan_id: 2, value: ['0']
-2018.11.28 22:55:26-DEBUG: id: 3, stored value: 0
-2018.11.28 22:55:26-DEBUG: dan_id: 3, value: ['0']
-2018.11.28 22:55:26-DEBUG: id: 4, stored value: 2
-2018.11.28 22:55:26-DEBUG: dan_id: 4, value: ['2']
-2018.11.28 22:55:26-DEBUG: id: 5, stored value: 1.20
-2018.11.28 22:55:26-DEBUG: dan_id: 5, value: ['1.20']
-2018.11.28 22:55:26-DEBUG: id: 6, stored value: 6.00
-2018.11.28 22:55:26-DEBUG: dan_id: 6, value: ['6.00']
-2018.11.28 22:55:26-DEBUG: id: 7, stored value: 2.40
-2018.11.28 22:55:26-DEBUG: dan_id: 7, value: ['2.40']
-2018.11.28 22:55:26-DEBUG: id: 9, stored value: .30
-2018.11.28 22:55:26-DEBUG: dan_id: 9, value: ['.30']
-2018.11.28 22:55:26-DEBUG: id: 10, stored value: 50.00
-2018.11.28 22:55:26-DEBUG: dan_id: 10, value: ['50.00']
-2018.11.28 22:55:26-DEBUG: id: 11, stored value: 47.00
-2018.11.28 22:55:26-DEBUG: dan_id: 11, value: ['47.00']
-2018.11.28 22:55:26-DEBUG: id: 12, stored value: 45.00
-2018.11.28 22:55:26-DEBUG: dan_id: 12, value: ['45.00']
-2018.11.28 22:55:26-DEBUG: id: 13, stored value: 42.00
-2018.11.28 22:55:26-DEBUG: dan_id: 13, value: ['42.00']
-2018.11.28 22:55:26-DEBUG: id: 15, stored value: 52.00
-2018.11.28 22:55:26-DEBUG: dan_id: 15, value: ['52.00']
-2018.11.28 22:55:26-DEBUG: id: 16, stored value: 50.00
-2018.11.28 22:55:26-DEBUG: dan_id: 16, value: ['50.00']
-2018.11.28 22:55:26-DEBUG: id: 28, stored value: 7.0
-2018.11.28 22:55:26-DEBUG: dan_id: 28, value: ['7.0']
-2018.11.28 22:55:26-DEBUG: id: 29, stored value: 150.0
-2018.11.28 22:55:26-DEBUG: dan_id: 29, value: ['150.0']
-2018.11.28 22:55:26-DEBUG: id: 30, stored value: 1.00
-2018.11.28 22:55:26-DEBUG: dan_id: 30, value: ['1.00']
-2018.11.28 22:55:26-DEBUG: id: 31, stored value: 1
-2018.11.28 22:55:26-DEBUG: dan_id: 31, value: ['1']
-2018.11.28 22:55:26-DEBUG: id: 32, stored value: 2.20
-2018.11.28 22:55:26-DEBUG: dan_id: 32, value: ['2.20']
-2018.11.28 22:55:26-DEBUG: id: 33, stored value: 2.0
-2018.11.28 22:55:26-DEBUG: dan_id: 33, value: ['2.0']
-2018.11.28 22:55:26-DEBUG: id: 34, stored value: 3.5
-2018.11.28 22:55:26-DEBUG: dan_id: 34, value: ['3.5']
-2018.11.28 22:55:26-DEBUG: id: 35, stored value: 8.0
-2018.11.28 22:55:26-DEBUG: dan_id: 35, value: ['8.0']
-2018.11.28 22:55:26-DEBUG: id: 36, stored value: 5
-2018.11.28 22:55:26-DEBUG: dan_id: 36, value: ['5']
-2018.11.28 22:55:26-DEBUG: id: 37, stored value: 6.0
-2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0']
-2018.11.28 22:55:26-DEBUG: id: 37, stored value: 5.0
-2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0', '5.0']
-2018.11.28 22:55:26-DEBUG: id: 37, stored value: 4.0
-2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0']
-2018.11.28 22:55:26-DEBUG: id: 37, stored value: 3.0
-2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0', '3.0']
-2018.11.28 22:55:26-DEBUG: id: 37, stored value: 2.0
-2018.11.28 22:55:26-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0', '3.0', '2.0']
-2018.11.28 22:55:26-DEBUG: id: 38, stored value: 8.0
-2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0']
-2018.11.28 22:55:26-DEBUG: id: 38, stored value: 9.0
-2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0', '9.0']
-2018.11.28 22:55:26-DEBUG: id: 38, stored value: 10.0
-2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0']
-2018.11.28 22:55:26-DEBUG: id: 38, stored value: 11.0
-2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0', '11.0']
-2018.11.28 22:55:26-DEBUG: id: 38, stored value: 12.0
-2018.11.28 22:55:26-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0', '11.0', '12.0']
-2018.11.28 22:55:26-DEBUG: id: 39, stored value: 2.0
-2018.11.28 22:55:26-DEBUG: dan_id: 39, value: ['2.0']
-2018.11.28 22:55:26-DEBUG: id: 40, stored value: 4.0
-2018.11.28 22:55:26-DEBUG: dan_id: 40, value: ['4.0']
-2018.11.28 22:55:26-DEBUG: id: 41, stored value: 2
-2018.11.28 22:55:26-DEBUG: dan_id: 41, value: ['2']
-2018.11.28 22:55:26-DEBUG: id: 42, stored value: 136.0
-2018.11.28 22:55:26-DEBUG: dan_id: 42, value: ['136.0']
-2018.11.28 22:55:26-DEBUG: id: 43, stored value: 150.0
-2018.11.28 22:55:26-DEBUG: dan_id: 43, value: ['150.0']
-2018.11.28 22:55:26-DEBUG: id: 44, stored value: 1.00
-2018.11.28 22:55:26-DEBUG: dan_id: 44, value: ['1.00']
-2018.11.28 22:55:26-DEBUG: id: 45, stored value: 1
-2018.11.28 22:55:26-DEBUG: dan_id: 45, value: ['1']
-2018.11.28 22:55:26-DEBUG: id: 46, stored value: 1.50
-2018.11.28 22:55:26-DEBUG: dan_id: 46, value: ['1.50']
-2018.11.28 22:55:26-DEBUG: dictionary in progress: {'1': ['1'], '2': ['0'], '3': ['0'], '4': ['2'], '5': ['1.20'], '6': ['6.00'], '7': ['2.40'], '9': ['.30'], '10': ['50.00'], '11': ['47.00'], '12': ['45.00'], '13': ['42.00'], '15': ['52.00'], '16': ['50.00'], '28': ['7.0'], '29': ['150.0'], '30': ['1.00'], '31': ['1'], '32': ['2.20'], '33': ['2.0'], '34': ['3.5'], '35': ['8.0'], '36': ['5'], '37': ['6.0', '5.0', '4.0', '3.0', '2.0'], '38': ['8.0', '9.0', '10.0', '11.0', '12.0'], '39': ['2.0'], '40': ['4.0'], '41': ['2'], '42': ['136.0'], '43': ['150.0'], '44': ['1.00'], '45': ['1'], '46': ['1.50']}
-2018.11.28 22:55:26-DEBUG: dictionary at finish: {'1': 1.0, '2': 0.0, '3': 0.0, '4': 2.0, '5': 1.2, '6': 6.0, '7': 2.4, '9': 0.3, '10': 50.0, '11': 47.0, '12': 45.0, '13': 42.0, '15': 52.0, '16': 50.0, '28': 7.0, '29': 150.0, '30': 1.0, '31': 1.0, '32': 2.2, '33': 2.0, '34': 3.5, '35': 8.0, '36': 5.0, '37': [6.0, 5.0, 4.0, 3.0, 2.0], '38': [8.0, 9.0, 10.0, 11.0, 12.0], '39': 2.0, '40': 4.0, '41': 2.0, '42': 136.0, '43': 150.0, '44': 1.0, '45': 1.0, '46': 1.5}
-2018.11.28 22:55:26-DEBUG: started setting shape
-2018.11.28 22:55:26-DEBUG: new shape: rectangle
-2018.11.28 22:55:26-DEBUG: changed shape to rectangle
-2018.11.28 22:55:26-INFO: conversion func starts
-2018.11.28 22:55:26-INFO: old value: 0.0
-2018.11.28 22:55:26-INFO: no need to conversion
-2018.11.28 22:55:26-INFO: conversion func starts
-2018.11.28 22:55:26-INFO: old value: 0.0
-2018.11.28 22:55:26-INFO: no need to conversion
-2018.11.28 22:55:26-INFO: conversion func starts
-2018.11.28 22:55:26-INFO: old value: 3.5
-2018.11.28 22:55:26-INFO: no need to conversion
-2018.11.28 22:55:26-INFO: conversion func starts
-2018.11.28 22:55:26-INFO: old value: 0.0
-2018.11.28 22:55:26-INFO: no need to conversion
-2018.11.28 22:55:26-INFO: conversion func starts
-2018.11.28 22:55:26-INFO: old value: 0.0
-2018.11.28 22:55:26-INFO: no need to conversion
-2018.11.28 22:55:26-INFO: conversion func starts
-2018.11.28 22:55:26-INFO: old value: 0.0
-2018.11.28 22:55:26-INFO: no need to conversion
-2018.11.28 22:55:26-INFO: conversion func starts
-2018.11.28 22:55:26-INFO: old value: 0.0
-2018.11.28 22:55:26-INFO: no need to conversion
-2018.11.28 22:55:26-INFO: conversion func starts
-2018.11.28 22:55:26-INFO: old value: 2.0
-2018.11.28 22:55:26-INFO: no need to conversion
-2018.11.28 22:55:26-DEBUG: Add point method started
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-INFO: sort_points started
-2018.11.28 22:55:26-DEBUG: id numbers raised: [('6.0', 'I001')]
-2018.11.28 22:55:26-INFO: sort_points ended
-2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0)}
-2018.11.28 22:55:26-DEBUG: Add point method started
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-INFO: sort_points started
-2018.11.28 22:55:26-DEBUG: id numbers raised: [('6.0', 'I001'), ('5.0', 'I002')]
-2018.11.28 22:55:26-INFO: sort_points ended
-2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0)}
-2018.11.28 22:55:26-DEBUG: Add point method started
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-INFO: sort_points started
-2018.11.28 22:55:26-DEBUG: id numbers raised: [('5.0', 'I002'), ('6.0', 'I001'), ('4.0', 'I003')]
-2018.11.28 22:55:26-INFO: sort_points ended
-2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0)}
-2018.11.28 22:55:26-DEBUG: Add point method started
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-INFO: sort_points started
-2018.11.28 22:55:26-DEBUG: id numbers raised: [('4.0', 'I003'), ('5.0', 'I002'), ('6.0', 'I001'), ('3.0', 'I004')]
-2018.11.28 22:55:26-INFO: sort_points ended
-2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0), 'I004': (3.0, 11.0)}
-2018.11.28 22:55:26-DEBUG: Add point method started
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-2018.11.28 22:55:26-INFO: sort_points started
-2018.11.28 22:55:26-DEBUG: id numbers raised: [('3.0', 'I004'), ('4.0', 'I003'), ('5.0', 'I002'), ('6.0', 'I001'), ('2.0', 'I005')]
-2018.11.28 22:55:26-INFO: sort_points ended
-2018.11.28 22:55:26-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0), 'I004': (3.0, 11.0), 'I005': (2.0, 12.0)}
-2018.11.28 22:55:26-DEBUG: trying to convert: 2.2 to floats list
-2018.11.28 22:55:40-DEBUG: started setting shape
-2018.11.28 22:55:40-DEBUG: new shape: round
-2018.11.28 22:55:40-DEBUG: changed shape to round
-2018.11.28 22:55:41-DEBUG: started setting shape
-2018.11.28 22:55:41-DEBUG: new shape: rectangle
-2018.11.28 22:55:41-DEBUG: changed shape to rectangle
+2018.11.29 15:39:21-DEBUG: id: 1, stored value: 1
+2018.11.29 15:39:21-DEBUG: dan_id: 1, value: ['1']
+2018.11.29 15:39:21-DEBUG: id: 2, stored value: 0
+2018.11.29 15:39:21-DEBUG: dan_id: 2, value: ['0']
+2018.11.29 15:39:21-DEBUG: id: 3, stored value: 0
+2018.11.29 15:39:21-DEBUG: dan_id: 3, value: ['0']
+2018.11.29 15:39:21-DEBUG: id: 4, stored value: 2
+2018.11.29 15:39:21-DEBUG: dan_id: 4, value: ['2']
+2018.11.29 15:39:21-DEBUG: id: 5, stored value: 1.20
+2018.11.29 15:39:21-DEBUG: dan_id: 5, value: ['1.20']
+2018.11.29 15:39:21-DEBUG: id: 6, stored value: 6.00
+2018.11.29 15:39:21-DEBUG: dan_id: 6, value: ['6.00']
+2018.11.29 15:39:21-DEBUG: id: 7, stored value: 2.40
+2018.11.29 15:39:21-DEBUG: dan_id: 7, value: ['2.40']
+2018.11.29 15:39:21-DEBUG: id: 9, stored value: .30
+2018.11.29 15:39:21-DEBUG: dan_id: 9, value: ['.30']
+2018.11.29 15:39:21-DEBUG: id: 10, stored value: 50.00
+2018.11.29 15:39:21-DEBUG: dan_id: 10, value: ['50.00']
+2018.11.29 15:39:21-DEBUG: id: 11, stored value: 47.00
+2018.11.29 15:39:21-DEBUG: dan_id: 11, value: ['47.00']
+2018.11.29 15:39:21-DEBUG: id: 12, stored value: 45.00
+2018.11.29 15:39:21-DEBUG: dan_id: 12, value: ['45.00']
+2018.11.29 15:39:21-DEBUG: id: 13, stored value: 42.00
+2018.11.29 15:39:21-DEBUG: dan_id: 13, value: ['42.00']
+2018.11.29 15:39:21-DEBUG: id: 15, stored value: 52.00
+2018.11.29 15:39:21-DEBUG: dan_id: 15, value: ['52.00']
+2018.11.29 15:39:21-DEBUG: id: 16, stored value: 50.00
+2018.11.29 15:39:21-DEBUG: dan_id: 16, value: ['50.00']
+2018.11.29 15:39:21-DEBUG: id: 28, stored value: 7.0
+2018.11.29 15:39:21-DEBUG: dan_id: 28, value: ['7.0']
+2018.11.29 15:39:21-DEBUG: id: 29, stored value: 150.0
+2018.11.29 15:39:21-DEBUG: dan_id: 29, value: ['150.0']
+2018.11.29 15:39:21-DEBUG: id: 30, stored value: 1.00
+2018.11.29 15:39:21-DEBUG: dan_id: 30, value: ['1.00']
+2018.11.29 15:39:21-DEBUG: id: 31, stored value: 1
+2018.11.29 15:39:21-DEBUG: dan_id: 31, value: ['1']
+2018.11.29 15:39:21-DEBUG: id: 32, stored value: 2.20
+2018.11.29 15:39:21-DEBUG: dan_id: 32, value: ['2.20']
+2018.11.29 15:39:21-DEBUG: id: 33, stored value: 2.0
+2018.11.29 15:39:21-DEBUG: dan_id: 33, value: ['2.0']
+2018.11.29 15:39:21-DEBUG: id: 34, stored value: 3.5
+2018.11.29 15:39:21-DEBUG: dan_id: 34, value: ['3.5']
+2018.11.29 15:39:21-DEBUG: id: 35, stored value: 8.0
+2018.11.29 15:39:21-DEBUG: dan_id: 35, value: ['8.0']
+2018.11.29 15:39:21-DEBUG: id: 36, stored value: 5
+2018.11.29 15:39:21-DEBUG: dan_id: 36, value: ['5']
+2018.11.29 15:39:21-DEBUG: id: 37, stored value: 6.0
+2018.11.29 15:39:21-DEBUG: dan_id: 37, value: ['6.0']
+2018.11.29 15:39:21-DEBUG: id: 37, stored value: 5.0
+2018.11.29 15:39:21-DEBUG: dan_id: 37, value: ['6.0', '5.0']
+2018.11.29 15:39:21-DEBUG: id: 37, stored value: 4.0
+2018.11.29 15:39:21-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0']
+2018.11.29 15:39:21-DEBUG: id: 37, stored value: 3.0
+2018.11.29 15:39:21-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0', '3.0']
+2018.11.29 15:39:21-DEBUG: id: 37, stored value: 2.0
+2018.11.29 15:39:21-DEBUG: dan_id: 37, value: ['6.0', '5.0', '4.0', '3.0', '2.0']
+2018.11.29 15:39:21-DEBUG: id: 38, stored value: 8.0
+2018.11.29 15:39:21-DEBUG: dan_id: 38, value: ['8.0']
+2018.11.29 15:39:21-DEBUG: id: 38, stored value: 9.0
+2018.11.29 15:39:21-DEBUG: dan_id: 38, value: ['8.0', '9.0']
+2018.11.29 15:39:21-DEBUG: id: 38, stored value: 10.0
+2018.11.29 15:39:21-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0']
+2018.11.29 15:39:21-DEBUG: id: 38, stored value: 11.0
+2018.11.29 15:39:21-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0', '11.0']
+2018.11.29 15:39:21-DEBUG: id: 38, stored value: 12.0
+2018.11.29 15:39:21-DEBUG: dan_id: 38, value: ['8.0', '9.0', '10.0', '11.0', '12.0']
+2018.11.29 15:39:21-DEBUG: id: 39, stored value: 2.0
+2018.11.29 15:39:21-DEBUG: dan_id: 39, value: ['2.0']
+2018.11.29 15:39:21-DEBUG: id: 40, stored value: 4.0
+2018.11.29 15:39:21-DEBUG: dan_id: 40, value: ['4.0']
+2018.11.29 15:39:21-DEBUG: id: 41, stored value: 2
+2018.11.29 15:39:21-DEBUG: dan_id: 41, value: ['2']
+2018.11.29 15:39:21-DEBUG: id: 42, stored value: 136.0
+2018.11.29 15:39:21-DEBUG: dan_id: 42, value: ['136.0']
+2018.11.29 15:39:21-DEBUG: id: 43, stored value: 150.0
+2018.11.29 15:39:21-DEBUG: dan_id: 43, value: ['150.0']
+2018.11.29 15:39:21-DEBUG: id: 44, stored value: 1.00
+2018.11.29 15:39:21-DEBUG: dan_id: 44, value: ['1.00']
+2018.11.29 15:39:21-DEBUG: id: 45, stored value: 1
+2018.11.29 15:39:21-DEBUG: dan_id: 45, value: ['1']
+2018.11.29 15:39:21-DEBUG: id: 46, stored value: 1.50
+2018.11.29 15:39:21-DEBUG: dan_id: 46, value: ['1.50']
+2018.11.29 15:39:21-DEBUG: dictionary in progress: {'1': ['1'], '2': ['0'], '3': ['0'], '4': ['2'], '5': ['1.20'], '6': ['6.00'], '7': ['2.40'], '9': ['.30'], '10': ['50.00'], '11': ['47.00'], '12': ['45.00'], '13': ['42.00'], '15': ['52.00'], '16': ['50.00'], '28': ['7.0'], '29': ['150.0'], '30': ['1.00'], '31': ['1'], '32': ['2.20'], '33': ['2.0'], '34': ['3.5'], '35': ['8.0'], '36': ['5'], '37': ['6.0', '5.0', '4.0', '3.0', '2.0'], '38': ['8.0', '9.0', '10.0', '11.0', '12.0'], '39': ['2.0'], '40': ['4.0'], '41': ['2'], '42': ['136.0'], '43': ['150.0'], '44': ['1.00'], '45': ['1'], '46': ['1.50']}
+2018.11.29 15:39:21-DEBUG: dictionary at finish: {'1': 1.0, '2': 0.0, '3': 0.0, '4': 2.0, '5': 1.2, '6': 6.0, '7': 2.4, '9': 0.3, '10': 50.0, '11': 47.0, '12': 45.0, '13': 42.0, '15': 52.0, '16': 50.0, '28': 7.0, '29': 150.0, '30': 1.0, '31': 1.0, '32': 2.2, '33': 2.0, '34': 3.5, '35': 8.0, '36': 5.0, '37': [6.0, 5.0, 4.0, 3.0, 2.0], '38': [8.0, 9.0, 10.0, 11.0, 12.0], '39': 2.0, '40': 4.0, '41': 2.0, '42': 136.0, '43': 150.0, '44': 1.0, '45': 1.0, '46': 1.5}
+2018.11.29 15:39:21-DEBUG: started setting shape
+2018.11.29 15:39:21-DEBUG: new shape: rectangle
+2018.11.29 15:39:21-DEBUG: changed shape to rectangle
+2018.11.29 15:39:21-INFO: conversion func starts
+2018.11.29 15:39:21-INFO: old value: 0.0
+2018.11.29 15:39:21-INFO: no need to conversion
+2018.11.29 15:39:21-INFO: conversion func starts
+2018.11.29 15:39:21-INFO: old value: 0.0
+2018.11.29 15:39:21-INFO: no need to conversion
+2018.11.29 15:39:21-INFO: conversion func starts
+2018.11.29 15:39:21-INFO: old value: 3.5
+2018.11.29 15:39:21-INFO: no need to conversion
+2018.11.29 15:39:21-INFO: conversion func starts
+2018.11.29 15:39:21-INFO: old value: 0.0
+2018.11.29 15:39:21-INFO: no need to conversion
+2018.11.29 15:39:21-INFO: conversion func starts
+2018.11.29 15:39:21-INFO: old value: 0.0
+2018.11.29 15:39:21-INFO: no need to conversion
+2018.11.29 15:39:21-INFO: conversion func starts
+2018.11.29 15:39:21-INFO: old value: 0.0
+2018.11.29 15:39:21-INFO: no need to conversion
+2018.11.29 15:39:21-INFO: conversion func starts
+2018.11.29 15:39:21-INFO: old value: 0.0
+2018.11.29 15:39:21-INFO: no need to conversion
+2018.11.29 15:39:21-INFO: conversion func starts
+2018.11.29 15:39:21-INFO: old value: 2.0
+2018.11.29 15:39:21-INFO: no need to conversion
+2018.11.29 15:39:21-DEBUG: Add point method started
+2018.11.29 15:39:21-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:21-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:21-INFO: sort_points started
+2018.11.29 15:39:21-DEBUG: id numbers raised: [('6.0', 'I001')]
+2018.11.29 15:39:21-INFO: sort_points ended
+2018.11.29 15:39:21-DEBUG: {'6.0': 8.0}
+2018.11.29 15:39:22-DEBUG: char points: {'I001': (6.0, 8.0)}
+2018.11.29 15:39:22-DEBUG: Add point method started
+2018.11.29 15:39:22-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:22-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:22-INFO: sort_points started
+2018.11.29 15:39:22-DEBUG: id numbers raised: [('6.0', 'I001'), ('5.0', 'I002')]
+2018.11.29 15:39:22-INFO: sort_points ended
+2018.11.29 15:39:22-DEBUG: {'6.0': 8.0, '5.0': 9.0}
+2018.11.29 15:39:22-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0)}
+2018.11.29 15:39:22-DEBUG: Add point method started
+2018.11.29 15:39:22-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:22-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:22-INFO: sort_points started
+2018.11.29 15:39:22-DEBUG: id numbers raised: [('5.0', 'I002'), ('6.0', 'I001'), ('4.0', 'I003')]
+2018.11.29 15:39:22-INFO: sort_points ended
+2018.11.29 15:39:22-DEBUG: {'6.0': 8.0, '5.0': 9.0, '4.0': 10.0}
+2018.11.29 15:39:22-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0)}
+2018.11.29 15:39:22-DEBUG: Add point method started
+2018.11.29 15:39:22-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:22-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:22-INFO: sort_points started
+2018.11.29 15:39:22-DEBUG: id numbers raised: [('4.0', 'I003'), ('5.0', 'I002'), ('6.0', 'I001'), ('3.0', 'I004')]
+2018.11.29 15:39:22-INFO: sort_points ended
+2018.11.29 15:39:22-DEBUG: {'6.0': 8.0, '5.0': 9.0, '4.0': 10.0, '3.0': 11.0}
+2018.11.29 15:39:22-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0), 'I004': (3.0, 11.0)}
+2018.11.29 15:39:22-DEBUG: Add point method started
+2018.11.29 15:39:22-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:22-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+2018.11.29 15:39:22-INFO: sort_points started
+2018.11.29 15:39:22-DEBUG: id numbers raised: [('3.0', 'I004'), ('4.0', 'I003'), ('5.0', 'I002'), ('6.0', 'I001'), ('2.0', 'I005')]
+2018.11.29 15:39:22-INFO: sort_points ended
+2018.11.29 15:39:22-DEBUG: {'6.0': 8.0, '5.0': 9.0, '4.0': 10.0, '3.0': 11.0, '2.0': 12.0}
+2018.11.29 15:39:22-DEBUG: char points: {'I001': (6.0, 8.0), 'I002': (5.0, 9.0), 'I003': (4.0, 10.0), 'I004': (3.0, 11.0), 'I005': (2.0, 12.0)}
+2018.11.29 15:39:22-DEBUG: trying to convert: 2.2 to floats list
