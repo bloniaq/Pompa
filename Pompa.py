@@ -53,7 +53,7 @@ log.addHandler(fh)
 class Application():
 
     dan_mode = {'0': 'minimalisation', '1': 'checking', '2': 'optimalisation'}
-    default = config.default
+    default = data.default
 
     def __init__(self):
 

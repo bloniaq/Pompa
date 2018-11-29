@@ -1,10 +1,11 @@
 import logging
 import tkinter as tk  # for python 3
 
-import config
+import maths
+import hydraulics
 
 log = logging.getLogger('Pompa/main.classes')
-unit_bracket_dict = config.unit_bracket_dict
+unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
 
 
 class Variable():
@@ -173,6 +174,12 @@ class Flow(Variable):
             self.unit_var.set('meters')
             super().load_data(data_dict)
 
+    def get_meters(self):
+        if self.unit == 'meters':
+            return self.value
+        else:
+            return self.value * 3.6
+
 
 class PumpCharFlow(Flow):
 
@@ -191,6 +198,7 @@ class PumpCharacteristic(Variable):
 
     def __init__(self, app, treename, dan_id, figure, canvas):
         self.coords = {}
+        self.app = app
         self.dan_id = dan_id
         self.figure = figure
         self.canvas = canvas
@@ -205,6 +213,7 @@ class PumpCharacteristic(Variable):
 
     def load_data(self, data_dict):
         self.clear_characteristic()
+        self.plot.clear()
         input_flow_vals = data_dict[self.dan_id[0]]
         input_lift_vals = data_dict[self.dan_id[1]]
         if len(input_flow_vals) == len(input_lift_vals) != 0:
@@ -238,7 +247,12 @@ class PumpCharacteristic(Variable):
         flow_coords.sort()
         for value in flow_coords:
             lift_coords.append(pairs[str(value)])
-        self.plot.plot(flow_coords, lift_coords, drawstyle='steps-pre')
+        pipe_loss = [hydraulics.pipe_loss(self.app, f) for f in flow_coords]
+        flow_approx, lift_approx = maths.fit_coords(flow_coords, lift_coords)
+        flow_approx2, pipe_loss_approx = maths.fit_coords(
+            flow_coords, pipe_loss)
+        self.plot.plot(flow_approx, lift_approx(flow_approx), 'b-',
+                       flow_approx, pipe_loss_approx(flow_approx), 'g-')
         self.canvas.draw()
 
     def sort_points(self):
@@ -273,7 +287,8 @@ class PumpCharacteristic(Variable):
         for key in self.coords:
             self.coords[key][0].convert(unit)
             self.tree.set(key, 'Column_q', self.coords[key][0])
-        self.draw_figure()
+        if len(self.coords) > 0:
+            self.draw_figure()
 
 
 ################################################################
@@ -316,6 +331,24 @@ class Pipe(StationObject):
         self.roughness = 0
         self.resistance = 0
         self.parallels = 1
+        self.l_res_coef = 0
+
+    def line_loss(self, flow):
+        result = (self.l_res_coef * self.length.value *
+                  (self.speed(flow) ** 2)) / (self.diameter.value * 2 * 9.81)
+        return result
+
+    def local_loss(self, flow):
+        res = ((self.speed(flow) ** 2) / (2 * 9.81)) * sum(
+            self.resistance.values)
+        return res
+
+    def speed(self, flow):
+        res = (4 * flow) / (3.14 * self.diameter.value)
+        return res
+
+    def sum_loss(self, flow):
+        return self.line_loss(flow) + self.local_loss(flow)
 
 
 class Pump(StationObject):
@@ -385,3 +418,8 @@ class Well(StationObject):
             length.configure(state='normal')
             width.configure(state='normal')
         log.debug('changed shape to {}'.format(shape))
+
+    def height_to_pump(self):
+        ord_sewage_level = self.ord_inlet.value - 1.2
+        result = self.ord_upper_level.value - ord_sewage_level
+        return result

@@ -8,6 +8,9 @@ dan_shape = {'0': 'rectangle', '1': 'round'}
 dan_configuration = {'0': 'linear', '1': 'optimal'}
 dan_reserve = {'1': 'minimal', '2': 'optimal', '3': 'safe'}
 
+default = {'mode': 'checking',
+           'shape': 'round'}
+
 
 def well_vars(ins, app):
     ins.shape = c.Logic(app, 'rectangle', 'shape', '2', dan_shape,
@@ -45,6 +48,7 @@ def discharge_pipe_vars(ins, app):
     ins.diameter = c.Numeric(app, 0.0, 'diameter_discharge_pipe', '29')
     ins.roughness = c.Numeric(app, 0.0, 'roughness_discharge_pipe', '30')
     ins.resistance = c.Resistance(app, '', 'resistance_discharge_pipe', '32')
+    ins.l_res_coef = 0.6
 
 
 def collector_vars(ins, app):
@@ -53,3 +57,4 @@ def collector_vars(ins, app):
     ins.diameter = c.Numeric(app, 0.0, 'diameter_collector', '43')
     ins.roughness = c.Numeric(app, 0.0, 'roughness_collector', '44')
     ins.resistance = c.Resistance(app, '', 'resistance_collector', '47')
+    ins.l_res_coef = 0.5
