@@ -114,9 +114,9 @@ class Application():
             if first_line[0] == '1' and first_line[1] == ')':
                 data_dictionary = self.dan_data_dictionary(path)
         self.well.load_data(data_dictionary)
-        self.pump.load_data(data_dictionary)
         self.discharge_pipe.load_data(data_dictionary)
         self.collector.load_data(data_dictionary)
+        self.pump.load_data(data_dictionary)
 
     def dan_data_dictionary(self, path):
         log.info('\ndan_load started\n')
@@ -185,6 +185,7 @@ class Application():
         lift_value = lift_entry.get()
         lift_entry.delete(0, 'end')
         self.pump.characteristic.add_point(flow_value, lift_value)
+        self.pump.characteristic.sort_points()
 
     def pump_delete_point(self):
         log.info('pump_delete_button started')

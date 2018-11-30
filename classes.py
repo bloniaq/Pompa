@@ -219,6 +219,7 @@ class PumpCharacteristic(Variable):
         if len(input_flow_vals) == len(input_lift_vals) != 0:
             for pair in range(len(input_flow_vals)):
                 self.add_point(input_flow_vals[pair], input_lift_vals[pair])
+        self.sort_points()
 
     def add_point(self, flow, lift):
         """CLEAN THIS AFTER MAKING SURE OF TYPES WHICH WILL WORKS"""
@@ -232,14 +233,12 @@ class PumpCharacteristic(Variable):
         itemid = self.tree.insert('', tk.END, text='Punkt',
                                   values=('1', flow, lift))
         self.coords[itemid] = (PumpCharFlow(flow, unit), lift)
-        self.sort_points()
         log.debug('char points: {}'.format(self.coords))
 
-    def draw_figure(self):
+    def draw_pump_char(self):
         pairs = {}
         flow_coords = []
         lift_coords = []
-        self.plot.clear()
         for point in self.coords:
             pairs[str(self.coords[point][0].value)] = self.coords[point][1]
             flow_coords.append(self.coords[point][0].value)
@@ -247,12 +246,21 @@ class PumpCharacteristic(Variable):
         flow_coords.sort()
         for value in flow_coords:
             lift_coords.append(pairs[str(value)])
-        pipe_loss = [hydraulics.pipe_loss(self.app, f) for f in flow_coords]
+        return flow_coords, lift_coords
+
+    def draw_figure(self):
+        self.plot.clear()
+        flow_coords, lift_coords = self.draw_pump_char()
         flow_approx, lift_approx = maths.fit_coords(flow_coords, lift_coords)
-        flow_approx2, pipe_loss_approx = maths.fit_coords(
-            flow_coords, pipe_loss)
-        self.plot.plot(flow_approx, lift_approx(flow_approx), 'b-',
-                       flow_approx, pipe_loss_approx(flow_approx), 'g-')
+        if hydraulics.are_pipes_defined(self.app):
+            pipe_loss = [hydraulics.pipe_loss(
+                self.app, f) for f in flow_coords]
+            flow_approx2, pipe_loss_approx = maths.fit_coords(
+                flow_coords, pipe_loss)
+            self.plot.plot(flow_approx, lift_approx(flow_approx), 'b-',
+                           flow_approx, pipe_loss_approx(flow_approx), 'g-')
+        else:
+            self.plot.plot(flow_approx, lift_approx(flow_approx), 'b-')
         self.canvas.draw()
 
     def sort_points(self):
