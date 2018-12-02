@@ -1,308 +1,15 @@
 import logging
-import tkinter as tk  # for python 3
 
 import maths
-import hydraulics
 
-log = logging.getLogger('Pompa/main.classes')
+log = logging.getLogger('Pompa.classes')
 unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
 
 
-class Variable():
-
-    def __init__(self, app, ui_variable, dan_id):
-        self.app = app
-        self.builder = app.builder
-        self.tkvars = app.builder.tkvariables
-        self.dan_id = dan_id
-        if ui_variable in self.tkvars:
-            self.ui_var = self.tkvars.__getitem__(ui_variable)
-        else:
-            log.debug('No ui_variable named {}'.format(ui_variable))
-
-    def set_trace(self, attr):
-        self.ui_var.trace(
-            'w', lambda *_: setattr(self, attr, self.ui_var.get())
-        )
-
-    def load_data(self, data_dict):
-        if self.dan_id in data_dict:
-            self.value = data_dict[self.dan_id]
-
-
-class Numeric(Variable):
-    """keeps rational numbers or integers and connect them with ui variables"""
-
-    def __init__(self, app, value, ui_variable, dan_id, is_int=False):
-        self.is_int = is_int
-        super().__init__(app, ui_variable, dan_id)
-        self.value = value
-        self.set_trace('value')
-
-    def __repr__(self):
-        output = 'Numeric({}, {}, {}, {});{}'.format(
-            self.app, self.value, self.dan_id, self.is_int, self.ui_var.get())
-        return output
-
-    def __setattr__(self, attr, value):
-        if attr != 'value':
-            self.__dict__[attr] = value
-        else:
-            if not self.is_int:
-                self.__dict__['value'] = float(value)
-            else:
-                self.__dict__['value'] = value
-            if self.ui_var.get() != self.value:
-                self.ui_var.set(self.value)
-
-
-class Logic(Variable):
-    """keeps logic variables and connect them with ui variables"""
-
-    def __init__(self, app, value, ui_variable, dan_id, dictionary, function):
-        super().__init__(app, ui_variable, dan_id)
-        self.function = function
-        self.dictionary = dictionary
-        self.value = value
-        self.set_trace('value')
-
-    def __repr__(self):
-        output = 'Logic({}, {}, {}, {});{}'.format(
-            self.app, self.value, self.dan_id, self.dictionary,
-            self.ui_var.get())
-        return output
-
-    def __setattr__(self, attr, value):
-        self.__dict__[attr] = value
-        if attr == 'value' and self.ui_var.get() != self.value:
-            if isinstance(value, int) or isinstance(value, float):
-                value = str(int(value))
-                self.__dict__['value'] = self.dictionary[value]
-            else:
-                self.__dict__['value'] = value
-            self.ui_var.set(self.value)
-            if self.function is not None:
-                self.function()
-
-
-class Resistance(Variable):
-    """class for local resistance in pipes"""
-
-    def __init__(self, app, string, ui_variable, dan_id):
-        super().__init__(app, ui_variable, dan_id)
-        self.string = string
-        self.set_trace('string')
-
-    def __repr__(self):
-        output = 'Resistance({}, str:{}, val:{}, {});{}'.format(
-            self.app, self.string, self.values, self.dan_id, self.ui_var.get())
-        return output
-
-    def __setattr__(self, attr, value):
-        if attr != 'string':
-            self.__dict__[attr] = value
-        elif isinstance(value, float):
-            self.__dict__['string'] = str(value)
-            self.__dict__['values'] = [value]
-        elif isinstance(value, str):
-            self.__dict__['string'] = value
-            log.debug('trying to convert: {} to floats list'.format(value))
-            if value != '':
-                self.__dict__['values'] = [float(s) for s in value.split(',')]
-            else:
-                self.__dict__['values'] = []
-        elif isinstance(value, list):
-            self.__dict__['values'] = value
-            string = str(value[0])
-            if len(value) > 1:
-                for element in range(1, len(value)):
-                    string += ', {}'.format(str(element))
-            self.__dict__['string'] = string
-        if attr == 'string' and self.string != self.ui_var.get():
-            self.ui_var.set(self.string)
-
-    def load_data(self, data_dict):
-        if self.dan_id in data_dict:
-            self.string = data_dict[self.dan_id]
-
-
-class Flow(Variable):
-    """class for flow"""
-
-    def __init__(self, app, value, ui_variable, dan_id, unit_ui_var,
-                 unit='meters'):
-        super().__init__(app, ui_variable, dan_id)
-        self.unit_var = self.tkvars.__getitem__(unit_ui_var)
-        self.value = value
-        self.unit = unit
-        self.unit_var.set(unit)
-        if ui_variable in self.tkvars:
-            self.set_trace('value')
-        self.unit_var.trace('w', lambda *_: self.convert(self.unit_var.get()))
-
-    def __repr__(self):
-        output = 'Flow({}, {}, {}, {});{}'.format(
-            self.app, self.value, self.dan_id, self.unit, self.ui_var.get())
-        return output
-
-    def __setattr__(self, attr, value):
-        if attr != 'value':
-            self.__dict__[attr] = value
-        else:
-            self.__dict__['value'] = float(value)
-            if self.__dict__['value'] != self.ui_var.get():
-                self.ui_var.set(self.value)
-
-    def convert(self, new_unit):
-        log.info('conversion func starts')
-        log.info('old value: {}'.format(self.value))
-        if new_unit == self.unit:
-            log.info('no need to conversion')
-            return
-        elif new_unit == 'meters':
-            self.unit = new_unit
-            log.debug('{} * 3.6 = {}'.format(self.value, self.value * 3.6))
-            self.value = round(self.value * 3.6, 3)
-        elif new_unit == 'liters':
-            self.unit = new_unit
-            log.debug('{} / 3.6 = {}'.format(self.value, self.value / 3.6))
-            self.value = round(self.value / 3.6, 3)
-        log.info('new value: {}'.format(self.value))
-
-    def load_data(self, data_dict):
-        if self.dan_id in data_dict:
-            self.unit_var.set('meters')
-            super().load_data(data_dict)
-
-    def get_meters(self):
-        if self.unit == 'meters':
-            return self.value
-        else:
-            return self.value * 3.6
-
-
-class PumpCharFlow(Flow):
-
-    def __init__(self, value, unit):
-        self.value = value
-        self.unit = unit
-
-    def __repr__(self):
-        return str(self.value)
-
-    def __setattr__(self, attr, value):
-        self.__dict__[attr] = value
-
-
-class PumpCharacteristic(Variable):
-
-    def __init__(self, app, treename, dan_id, figure, canvas):
-        self.coords = {}
-        self.app = app
-        self.dan_id = dan_id
-        self.figure = figure
-        self.canvas = canvas
-        self.tree = app.builder.get_object(treename)
-        self.tkvars = app.builder.tkvariables
-        self.plot = self.figure.add_subplot(111)
-
-    def __repr__(self):
-        output = 'PumpCharacteristic({}, vals:{})'.format(
-            self.dan_id, self.coords)
-        return output
-
-    def load_data(self, data_dict):
-        self.clear_characteristic()
-        self.plot.clear()
-        input_flow_vals = data_dict[self.dan_id[0]]
-        input_lift_vals = data_dict[self.dan_id[1]]
-        if len(input_flow_vals) == len(input_lift_vals) != 0:
-            for pair in range(len(input_flow_vals)):
-                self.add_point(input_flow_vals[pair], input_lift_vals[pair])
-        self.sort_points()
-
-    def add_point(self, flow, lift):
-        """CLEAN THIS AFTER MAKING SURE OF TYPES WHICH WILL WORKS"""
-
-        log.debug('Add point method started')
-        log.debug('types: flow: {}, lift: {}'.format(type(flow), type(lift)))
-        flow = round(float(flow), 3)
-        lift = round(float(lift), 3)
-        log.debug('types: flow: {}, lift: {}'.format(type(flow), type(lift)))
-        unit = self.tkvars.__getitem__('pump_flow_unit').get()
-        itemid = self.tree.insert('', tk.END, text='Punkt',
-                                  values=('1', flow, lift))
-        self.coords[itemid] = (PumpCharFlow(flow, unit), lift)
-        log.debug('char points: {}'.format(self.coords))
-
-    def draw_pump_char(self):
-        pairs = {}
-        flow_coords = []
-        lift_coords = []
-        for point in self.coords:
-            pairs[str(self.coords[point][0].value)] = self.coords[point][1]
-            flow_coords.append(self.coords[point][0].value)
-        log.debug(pairs)
-        flow_coords.sort()
-        for value in flow_coords:
-            lift_coords.append(pairs[str(value)])
-        return flow_coords, lift_coords
-
-    def draw_figure(self):
-        self.plot.clear()
-        flow_coords, lift_coords = self.draw_pump_char()
-        flow_approx, lift_approx = maths.fit_coords(flow_coords, lift_coords)
-        if hydraulics.are_pipes_defined(self.app):
-            pipe_loss = [hydraulics.pipe_loss(
-                self.app, f) for f in flow_coords]
-            flow_approx2, pipe_loss_approx = maths.fit_coords(
-                flow_coords, pipe_loss)
-            self.plot.plot(flow_approx, lift_approx(flow_approx), 'b-',
-                           flow_approx, pipe_loss_approx(flow_approx), 'g-')
-        else:
-            self.plot.plot(flow_approx, lift_approx(flow_approx), 'b-')
-        self.canvas.draw()
-
-    def sort_points(self):
-        log.info('sort_points started')
-        id_numbers = [(self.tree.set(i, 'Column_q'), i)
-                      for i in self.tree.get_children('')]
-        log.debug('id numbers raised: {}'.format(id_numbers))
-        id_numbers.sort(key=lambda t: float(t[0]))
-        for index, (val, i) in enumerate(id_numbers):
-            self.tree.move(i, '', index)
-            self.tree.set(i, 'Column_nr', value=str(index + 1))
-        log.info('sort_points ended')
-        self.draw_figure()
-
-    def delete_point(self, selected_id):
-        log.info('delete_point started')
-        log.debug('point to delete: {}'.format(self.coords[selected_id]))
-        del self.coords[selected_id]
-        self.tree.delete(selected_id)
-        log.debug('actual dict: {}'.format(self.coords))
-        self.sort_points()
-        log.info('delete_points ended')
-
-    def clear_characteristic(self):
-        id_list = []
-        for id_ in self.coords:
-            id_list.append(id_)
-        for id_ in id_list:
-            self.delete_point(id_)
-
-    def set_unit(self, unit):
-        for key in self.coords:
-            self.coords[key][0].convert(unit)
-            self.tree.set(key, 'Column_q', self.coords[key][0])
-        if len(self.coords) > 0:
-            self.draw_figure()
-
-
-################################################################
-
-
 class StationObject():
+
+    kinematic_viscosity = 1.0068  # [mm²/s] dla 20°C
+    std_grav = 9.81
 
     def __init__(self, app):
         self.app = app
@@ -339,24 +46,91 @@ class Pipe(StationObject):
         self.roughness = 0
         self.resistance = 0
         self.parallels = 1
-        self.l_res_coef = 0
 
-    def line_loss(self, flow):
-        result = (self.l_res_coef * self.length.value *
-                  (self.speed(flow) ** 2)) / (self.diameter.value * 2 * 9.81)
-        return result
+    def get_re(self, flow, unit):
+        diameter = self.diameter.value
+        speed = 1000 * self.speed(flow, unit)
+        re = (diameter * speed) / self.kinematic_viscosity
+        log.info('Reynolds number is {}'.format(re))
+        return re
 
-    def local_loss(self, flow):
-        res = ((self.speed(flow) ** 2) / (2 * 9.81)) * sum(
+    def get_epsilon(self):
+        diameter = self.diameter.value
+        epsilon = self.roughness.value / diameter
+        return epsilon
+
+    def get_lambda(self, flow, unit):
+        diameter = self.diameter.value * 0.001
+        epsilon = self.get_epsilon()
+        log.info('Epsilon is {}'.format(epsilon))
+        lambda_ = (-2 * maths.log10(self.roughness.value / (
+            3.71 * diameter))) ** -2
+        re = self.get_re(flow, unit)
+        log.info('Re is {}'.format(re))
+        log.info('Lambda is {}'.format(lambda_))
+        try:
+            alt_lambda = (-2 * maths.log10((6.1 / (re ** 0.915)) + (
+                0.268 * epsilon))) ** -2
+        except ZeroDivisionError as e:
+            log.error(e)
+            alt_lambda = 0
+        log.info('Alternative Lambda is {}'.format(alt_lambda))
+        return alt_lambda
+
+    def line_loss(self, flow, unit):
+        log.debug('Starting counting line loss\n')
+        diameter = self.diameter.value * 0.001
+        std_grav = 9.81
+        lambda_coef = self.get_lambda(flow, unit)
+        speed = self.speed(flow, unit)
+        log.info('for diameter {} [m²], lambda {} [-], speed {} [m/s]'.format(
+            diameter, lambda_coef, speed))
+        hydraulic_gradient = (lambda_coef * (speed ** 2)) / (
+            diameter * 2 * std_grav)
+        log.info('hydraulic gradient is {} [-]\n'.format(hydraulic_gradient))
+        line_loss = self.length.value * hydraulic_gradient
+        log.info('line loss is {} [m]\n'.format(line_loss))
+        return line_loss
+
+    def local_loss(self, flow, unit):
+        local_loss = ((self.speed(flow, unit) ** 2) / (2 * 9.81)) * sum(
             self.resistance.values)
-        return res
+        log.info('local loss is {} [m]'.format(local_loss))
+        log.info('Epsilon is {}, Re is {}'.format(
+            self.get_epsilon(), self.get_re(flow, unit)))
+        return local_loss
 
-    def speed(self, flow):
-        res = (4 * flow) / (3.14 * self.diameter.value)
-        return res
+    def speed(self, flow, unit):
+        log.debug('input flow: {} {}'.format(flow, unit_bracket_dict[unit]))
+        if unit == 'liters':
+            flow *= .001
+        elif unit == 'meters':
+            flow /= 3600
+        radius = (0.001 * self.diameter.value) / 2
+        cross_sec = 3.14 * (radius ** 2)
+        speed = flow / cross_sec
+        log.info(
+            'for flow {} [m3/s], radius {} [m], cross section {} [m2]'.format(
+                flow, radius, cross_sec))
+        log.info('speed is {} [m/s]'.format(speed))
+        return speed
 
-    def sum_loss(self, flow):
-        return self.line_loss(flow) + self.local_loss(flow)
+    def sum_loss(self, flow, unit):
+        return self.line_loss(flow, unit) + self.local_loss(flow, unit)
+
+    def pipe_char_ready(self):
+        flag = True
+        checklist = [self.length, self.diameter, self.roughness]
+        for parameter in checklist:
+            if parameter.value == 0:
+                flag = False
+        return flag
+
+    def get_y_coords(self, flows, unit):
+        log.debug('Getting pipe y coordinates')
+        result = [self.sum_loss(flow, unit) for flow in flows]
+        log.debug('Pipe loss coords: {}'.format(result))
+        return result
 
 
 class Pump(StationObject):
@@ -386,6 +160,22 @@ class Pump(StationObject):
         log.info('self.efficiency_from type: {}'.format(
             type(self.efficiency_from)))
         self.characteristic.set_unit(unit)
+
+    def get_x_linspace(self):
+        return maths.get_x_axis(self.characteristic.get_pump_char_func()[0],
+                                self.efficiency_from.value,
+                                self.efficiency_to.value)
+
+    def pump_char_ready(self):
+        flag = False
+        if len(self.characteristic.coords) > 2:
+            flag = True
+        return flag
+
+    def draw_pump_plot(self, x_lin):
+        flows, lifts = self.characteristic.get_pump_char_func()
+        y = maths.fit_coords(flows, lifts, 3)
+        return x_lin, y(x_lin), 'b-'
 
 
 class Well(StationObject):

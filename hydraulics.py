@@ -1,22 +1,15 @@
 import logging
+import maths
 
-log = logging.getLogger('Pompa/main.hydraulics')
+log = logging.getLogger('Pompa.hydraulics')
 
 
-def are_pipes_defined(app):
+def pipes_ready(app):
     flag = True
-    checklist = [app.discharge_pipe.length,
-                 app.discharge_pipe.diameter,
-                 app.discharge_pipe.roughness,
-                 app.collector.length,
-                 app.collector.diameter,
-                 app.collector.roughness
-                 ]
-    for element in checklist:
-        if element.value == 0:
-            flag = False
-            log.debug('this parameter is undefined: {}'.format(element))
-    log.debug('is pipes defined: {}'.format(flag))
+    if not app.discharge_pipe.pipe_char_ready():
+        flag = False
+    if not app.collector.pipe_char_ready():
+        flag = False
     return flag
 
 
@@ -25,3 +18,16 @@ def pipe_loss(app, flow):
         app.collector.sum_loss(flow)
     log.info('pipes loss: {}'.format(result))
     return result
+
+
+def draw_pipes_plot(app, x_lin, unit):
+    log.debug('Starting draw_pipes_plot')
+    flows, _ = app.pump.characteristic.get_pump_char_func()
+    geom_loss = app.well.height_to_pump()
+    discharge_y = app.discharge_pipe.get_y_coords(flows, unit)
+    collector_y = app.collector.get_y_coords(flows, unit)
+    pipes_char = []
+    for i in range(len(flows)):
+        pipes_char.append(geom_loss + discharge_y[i] + collector_y[i])
+    y = maths.fit_coords(flows, pipes_char, 1)
+    return x_lin, y(x_lin), 'g-'

@@ -7,16 +7,16 @@ except:
 '''
 import pygubu
 import logging
+import numpy as np
 
 import classes
-import config
+import hydraulics
+import maths
 import data
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-# from matplotlib.backends.backend_tkagg import NavigationToolbar2TkAgg
-# Implement the default Matplotlib key bindings.
-from matplotlib.backend_bases import key_press_handler
 from matplotlib.figure import Figure
+from matplotlib.ticker import MultipleLocator
 
 variables_list = []
 path = ""
@@ -28,18 +28,21 @@ log = logging.getLogger()
 log.handlers = []
 
 # setting new logger
-log = logging.getLogger('Pompa/main')
+log = logging.getLogger('Pompa')
 log.setLevel(logging.DEBUG)
 
 # create console and file handler
 ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
-fh = logging.FileHandler('logfile.log', 'w')
+fh = logging.FileHandler('logfile.log', 'w', 'utf-8')
 fh.setLevel(logging.DEBUG)
 
 # create formatter
-formatter = logging.Formatter('%(asctime)s-%(levelname)s: %(message)s',
-                              datefmt='%Y.%m.%d %H:%M:%S')
+formatter = logging.Formatter(
+    '%(asctime)s-%(name)s-%(levelname)s: %(message)s',
+    datefmt='%H:%M:%S')
+
+#    datefmt='%Y.%m.%d %H:%M:%S')
 
 # add formatter to ch and fh
 ch.setFormatter(formatter)
@@ -70,7 +73,8 @@ class Application():
 
         fcontainer = self.builder.get_object('Frame_Chart')
 
-        self.figure = fig = Figure(figsize=(4, 5.1), dpi=100)
+        self.figure = fig = Figure(figsize=(4.2, 5.1), dpi=100)
+        self.plot = self.figure.add_subplot(111)
         self.canvas = canvas = FigureCanvasTkAgg(fig, master=fcontainer)
         canvas.get_tk_widget().grid(row=0, column=0)
 
@@ -81,11 +85,6 @@ class Application():
 
         self.create_objects()
         self.set_mode(self.default['mode'])
-
-    def on_plot_clicked(self):
-        a = self.figure.add_subplot(111)
-        a.plot([1, 2, 3, 4, 5, 6, 7, 8], [5, 6, 1, 3, 8, 9, 3, 5])
-        self.canvas.draw()
 
     def run(self):
         self.mainwindow.mainloop()
@@ -117,6 +116,7 @@ class Application():
         self.discharge_pipe.load_data(data_dictionary)
         self.collector.load_data(data_dictionary)
         self.pump.load_data(data_dictionary)
+        self.draw_figure()
 
     def dan_data_dictionary(self, path):
         log.info('\ndan_load started\n')
@@ -175,6 +175,8 @@ class Application():
         log.info('set_pump_flow_unit started')
         current_setting = self.ui_vars.__getitem__('pump_flow_unit').get()
         self.pump.set_flow_unit(current_setting)
+        log.debug('going to draw figure')
+        self.draw_figure()
 
     def pump_get_coords(self):
         log.info('get_coords started')
@@ -186,12 +188,14 @@ class Application():
         lift_entry.delete(0, 'end')
         self.pump.characteristic.add_point(flow_value, lift_value)
         self.pump.characteristic.sort_points()
+        self.draw_figure()
 
     def pump_delete_point(self):
         log.info('pump_delete_button started')
         deleted_id = self.pump.characteristic.tree.focus()
         if deleted_id != '':
             self.pump.characteristic.delete_point(deleted_id)
+        self.draw_figure()
 
     def print_values(self):
         objects = [self.well, self.pump, self.discharge_pipe, self.collector]
@@ -202,6 +206,77 @@ class Application():
                 if hasattr(object_.__dict__[attr], 'dan_id'):
                     log.debug('key: {}, val: {}'.format(
                         attr, object_.__dict__[attr]))
+
+    def draw_figure(self, *args):
+        log.debug('Starting draw_figure')
+        self.plot.clear()
+        self.canvas.draw()
+        unit = self.ui_vars.__getitem__('pump_flow_unit').get()
+        x = maths.get_x_axis(self.well.inflow_min,
+                             self.well.inflow_max,
+                             self.pump.efficiency_from,
+                             self.pump.efficiency_to,
+                             unit)
+        if self.pump.pump_char_ready():
+            x, y_pump, l_pump = self.pump.draw_pump_plot(x)
+            self.plot.plot(x, y_pump, l_pump, label='char. pompy')
+        if hydraulics.pipes_ready(self):
+            log.debug('Trying to drawing pipes plot')
+            x, y_pipe, l_pipe = hydraulics.draw_pipes_plot(self, x, unit)
+            log.debug('x: {}, y: {}, look: {}'.format(x, y_pipe, l_pipe))
+            self.plot.plot(
+                x, y_pipe, l_pipe, label='char. przewodów')
+        if self.pump.pump_char_ready() and hydraulics.pipes_ready(self):
+            try:
+                intersection_f = maths.work_point(y_pump, y_pipe)
+                self.plot.plot(x[intersection_f], y_pump[intersection_f], 'ro',
+                               label='punkt pracy')
+                str_work_p = str(round(x[intersection_f][0], 2))
+            except IndexError as e:
+                log.error('ERROR: {}'.format(e))
+        else:
+            str_work_p = ''
+        str_unit = classes.unit_bracket_dict[self.ui_vars.__getitem__(
+            'pump_flow_unit').get()]
+        self.plot.set_xlabel(
+            'Przepływ Q {}'.format(str_unit))
+        self.plot.set_ylabel('Ciśnienie [m. sł. c.]')
+        try:
+            if len(x[intersection_f]) == 1:
+                self.plot.set_title('Punkt pracy pompy: {} {}'.format(
+                    str_work_p, str_unit))
+            elif len(x[intersection_f]) > 1:
+                list_points = [np.around(val, 2)
+                               for val in x[intersection_f]]
+                self.plot.set_title('Punkty pracy pompy: {} {}'.format(
+                    list_points, str_unit))
+        except UnboundLocalError:
+            self.plot.set_title('Punkt pracy pompy: {} {}'.format(
+                str_work_p, str_unit), fontsize='small')
+        self.plot.xaxis.set_minor_locator(MultipleLocator(2))
+        self.plot.yaxis.set_minor_locator(MultipleLocator(1))
+        self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
+        self.plot.grid(True, 'major', linestyle='--')
+        try:
+            eff_from_x = self.pump.efficiency_from.value
+            eff_from_y = maths.interp(eff_from_x, x, y_pump)
+            eff_to_x = self.pump.efficiency_to.value
+            eff_to_y = maths.interp(eff_to_x, x, y_pump)
+            work_p_x = x[intersection_f]
+            log.info('work_p_x: {}'.format(work_p_x))
+            work_p_y = [maths.interp(i, x, y_pump) for i in work_p_x]
+            self.plot.plot([eff_from_x, eff_from_x], [-100, eff_from_y], 'r--')
+            self.plot.plot([eff_to_x, eff_to_x], [-100, eff_to_y], 'r--',
+                           label='maks. wydajność pompy')
+            for i in range(len(work_p_x)):
+                self.plot.plot([work_p_x[i], work_p_x[i]],
+                               [-100, work_p_y[i]], color='black',
+                               linewidth=.8)
+        except UnboundLocalError as e:
+            log.error('ERROR: {}'.format(e))
+        self.plot.set_ylim(ymin=0)
+        self.plot.legend(fontsize='small')
+        self.canvas.draw()
 
 
 if __name__ == '__main__':
