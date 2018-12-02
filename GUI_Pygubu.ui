@@ -93,7 +93,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
           </object>
         </child>
         <child>
-          <object class="ttk.Notebook" id="Notebook_Dane">
+          <object class="ttk.Notebook" id="Notebook_Data">
             <property name="height">700</property>
             <property name="width">800</property>
             <layout>
@@ -106,12 +106,12 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               <property name="sticky">s</property>
             </layout>
             <child>
-              <object class="ttk.Notebook.Tab" id="Tab_Geometria">
+              <object class="ttk.Notebook.Tab" id="Tab_Geometry">
                 <property name="padding">5</property>
                 <property name="text" translatable="yes">Dane geometryczne</property>
                 <property name="underline">0</property>
                 <child>
-                  <object class="ttk.Frame" id="Frame_Geometria">
+                  <object class="ttk.Frame" id="Frame_Geometry">
                     <property name="height">200</property>
                     <property name="padding">40</property>
                     <property name="relief">groove</property>
@@ -178,7 +178,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </columns>
                     </layout>
                     <child>
-                      <object class="ttk.Label" id="Label_Ksztalt">
+                      <object class="ttk.Label" id="Label_Shape">
                         <property name="text" translatable="yes">Kształt pompowni:</property>
                         <layout>
                           <property name="column">0</property>
@@ -189,11 +189,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Radiobutton" id="Radio_Ksztalt_kolo">
-                        <property name="command">change_shape</property>
+                      <object class="tk.Radiobutton" id="Radio_Shape_round">
+                        <property name="command">ui_set_shape</property>
                         <property name="text" translatable="yes">Przekrój kołowy</property>
-                        <property name="value">kolo</property>
-                        <property name="variable">string:ksztalt</property>
+                        <property name="value">round</property>
+                        <property name="variable">string:shape</property>
                         <layout>
                           <property name="column">1</property>
                           <property name="propagate">True</property>
@@ -202,11 +202,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Radiobutton" id="Radio_Ksztalt_prostok">
-                        <property name="command">change_shape</property>
+                      <object class="tk.Radiobutton" id="Radio_Shape_rectangle">
+                        <property name="command">ui_set_shape</property>
                         <property name="text" translatable="yes">Przekrój prostokątny</property>
-                        <property name="value">prostokat</property>
-                        <property name="variable">string:ksztalt</property>
+                        <property name="value">rectangle</property>
+                        <property name="variable">string:shape</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="columnspan">2</property>
@@ -216,7 +216,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Wymiary">
+                      <object class="ttk.Label" id="Label_Dimensions">
                         <property name="text" translatable="yes">Wymiary charakterystyczne [m]:</property>
                         <layout>
                           <property name="column">0</property>
@@ -229,7 +229,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Srednica_pompowni">
+                      <object class="ttk.Label" id="Label_Well_diameter">
                         <property name="text" translatable="yes">Średnica wewnętrzna    </property>
                         <layout>
                           <property name="column">1</property>
@@ -240,10 +240,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Srednica_pompowni">
+                      <object class="ttk.Entry" id="Entry_Well_diameter">
                         <property name="exportselection">true</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:srednica_pompowni</property>
+                        <property name="textvariable">double:well_diameter</property>
                         <property name="width">5</property>
                         <layout>
                           <property name="column">2</property>
@@ -253,7 +253,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Dlugosc_pompowni">
+                      <object class="ttk.Label" id="Label_Well_length">
                         <property name="text" translatable="yes">Długość    </property>
                         <layout>
                           <property name="column">1</property>
@@ -264,10 +264,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Dlugosc_pompowni">
+                      <object class="ttk.Entry" id="Entry_Well_length">
                         <property name="justify">right</property>
                         <property name="state">disabled</property>
-                        <property name="textvariable">double:dlugosc_pompowni</property>
+                        <property name="textvariable">double:well_length</property>
                         <property name="width">5</property>
                         <layout>
                           <property name="column">2</property>
@@ -277,7 +277,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Szerokosc_pompowni">
+                      <object class="ttk.Label" id="Label_Well_width">
                         <property name="text" translatable="yes">Szerokość     </property>
                         <layout>
                           <property name="column">3</property>
@@ -287,10 +287,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Szerokosc_pompowni">
+                      <object class="ttk.Entry" id="Entry_Well_width">
                         <property name="justify">right</property>
                         <property name="state">disabled</property>
-                        <property name="textvariable">double:szer_pompowni</property>
+                        <property name="textvariable">double:well_width</property>
                         <property name="width">5</property>
                         <layout>
                           <property name="column">4</property>
@@ -300,7 +300,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Uklad_pomp">
+                      <object class="ttk.Label" id="Label_Pump_configuration">
                         <property name="text" translatable="yes">Układ ustawienia pomp:</property>
                         <layout>
                           <property name="column">0</property>
@@ -311,10 +311,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Radiobutton" id="Radio_Uklad_jedno">
+                      <object class="tk.Radiobutton" id="Radio_Configuration_singlerow">
                         <property name="text" translatable="yes">Układ jednorzędowy</property>
-                        <property name="value">jednorzedowy</property>
-                        <property name="variable">string:uklad_pompowni</property>
+                        <property name="value">singlerow</property>
+                        <property name="variable">string:pump_configuration</property>
                         <layout>
                           <property name="column">1</property>
                           <property name="propagate">True</property>
@@ -324,10 +324,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Radiobutton" id="Radio_Uklad_optymalny">
+                      <object class="tk.Radiobutton" id="Radio_Configuration_optimal">
                         <property name="text" translatable="yes">Układ optymalny</property>
-                        <property name="value">optymalny</property>
-                        <property name="variable">string:uklad_pompowni</property>
+                        <property name="value">optimal</property>
+                        <property name="variable">string:pump_configuration</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="columnspan">2</property>
@@ -338,7 +338,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Wariant_rezerwa">
+                      <object class="ttk.Label" id="Label_Reserve_pumps">
                         <property name="text" translatable="yes">Wariant liczby pomp rezerwowych:</property>
                         <layout>
                           <property name="column">0</property>
@@ -354,10 +354,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_minimal">
+                      <object class="tk.Radiobutton" id="Radio_Reserve_minimal">
                         <property name="text" translatable="yes">Ekonomiczny</property>
-                        <property name="value">minimalna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
+                        <property name="value">minimal</property>
+                        <property name="variable">string:reserve_pumps</property>
                         <layout>
                           <property name="column">1</property>
                           <property name="propagate">True</property>
@@ -367,10 +367,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_optymal">
+                      <object class="tk.Radiobutton" id="Radio_Reserve_optimal">
                         <property name="text" translatable="yes">Optymalny</property>
-                        <property name="value">optymalna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
+                        <property name="value">optimal</property>
+                        <property name="variable">string:reserve_pumps</property>
                         <layout>
                           <property name="column">2</property>
                           <property name="columnspan">2</property>
@@ -381,10 +381,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Radiobutton" id="Radio_Wariant_bezpiecz">
+                      <object class="tk.Radiobutton" id="Radio_Reserve_safe">
                         <property name="text" translatable="yes">Bezpieczny</property>
-                        <property name="value">bezpieczna</property>
-                        <property name="variable">string:liczba_pomp_rez</property>
+                        <property name="value">safe</property>
+                        <property name="variable">string:reserve_pumps</property>
                         <layout>
                           <property name="column">4</property>
                           <property name="propagate">True</property>
@@ -398,12 +398,12 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </object>
             </child>
             <child>
-              <object class="ttk.Notebook.Tab" id="Tab_Hydraulika">
+              <object class="ttk.Notebook.Tab" id="Tab_Hydraulics">
                 <property name="padding">5</property>
                 <property name="text" translatable="yes">Charakterystyka przewodów</property>
                 <property name="underline">0</property>
                 <child>
-                  <object class="ttk.Frame" id="Frame_Hydraulika">
+                  <object class="ttk.Frame" id="Frame_Hydraulics">
                     <property name="height">200</property>
                     <property name="padding">25</property>
                     <property name="relief">groove</property>
@@ -482,7 +482,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </columns>
                     </layout>
                     <child>
-                      <object class="ttk.Label" id="Label_Minimalna_wys">
+                      <object class="ttk.Label" id="Label_Minimal_height">
                         <property name="text" translatable="yes">Minimalna wysokość ścieków w pompowni liczona od dna [m]</property>
                         <property name="wraplength">350</property>
                         <bind add="" handler="walidacja" sequence="&lt;Enter&gt;" />
@@ -495,7 +495,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Rzedna_terenu">
+                      <object class="ttk.Label" id="Label_Ordinate_terrain">
                         <property name="text" translatable="yes">Rzędna terenu [m]</property>
                         <layout>
                           <property name="column">0</property>
@@ -506,7 +506,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Rzedna_wylotu">
+                      <object class="ttk.Label" id="Label_Ordinate_outlet">
                         <property name="text" translatable="yes">Rzędna wylotu ścieków [m]</property>
                         <layout>
                           <property name="column">0</property>
@@ -517,7 +517,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Rzedna_doplywu">
+                      <object class="ttk.Label" id="Label_Ordinate_inlet">
                         <property name="text" translatable="yes">Rzędna dopływu ścieków do pompowni [m]</property>
                         <layout>
                           <property name="column">0</property>
@@ -528,7 +528,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Rzedna_dna">
+                      <object class="ttk.Label" id="Label_Ordinate_bottom">
                         <property name="text" translatable="yes">Rzędna dna pompowni [m]</property>
                         <layout>
                           <property name="column">0</property>
@@ -539,7 +539,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Rzedna_najw_punkt">
+                      <object class="ttk.Label" id="Label_Ordinate_highest_point">
                         <property name="text" translatable="yes">Rzędna najwyższego punktu na trasie przewodu tłocznego [m]</property>
                         <property name="wraplength">350</property>
                         <layout>
@@ -551,7 +551,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Rzedna_zwierciadla">
+                      <object class="ttk.Label" id="Label_Ordinate_final_table">
                         <property name="text" translatable="yes">Rzędna zwierciadła w zbiorniku górnym [m]</property>
                         <layout>
                           <property name="column">0</property>
@@ -562,7 +562,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Dl_przewodu_tl">
+                      <object class="ttk.Label" id="Label_Length_discharge_pipe">
                         <property name="text" translatable="yes">Długość przewodu tłocznego w pompowni [m]</property>
                         <layout>
                           <property name="column">0</property>
@@ -573,7 +573,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Sred_przewodu_tl">
+                      <object class="ttk.Label" id="Label_Diameter_discharge_pipe">
                         <property name="text" translatable="yes">Średnica przewodu tłocznego w pompowni [mm]</property>
                         <layout>
                           <property name="column">0</property>
@@ -584,7 +584,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Chrop_przewodu_tl">
+                      <object class="ttk.Label" id="Label_Roughness_discharge_pipe">
                         <property name="text" translatable="yes">Chropowatość przewodu tłocznego w pompowni [mm]</property>
                         <layout>
                           <property name="column">0</property>
@@ -595,7 +595,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Opory_przewodu_tl">
+                      <object class="ttk.Label" id="Label_Resistance_discharge_pipe">
                         <property name="text" translatable="yes">Wartości współczynników oporów miejscowych na przewodzie tłocznym w pompowni</property>
                         <property name="wraplength">350</property>
                         <layout>
@@ -607,7 +607,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Liczba_kolektorow">
+                      <object class="ttk.Label" id="Label_Number_of_collectors">
                         <property name="text" translatable="yes">Liczba kolektorów tłocznych</property>
                         <layout>
                           <property name="column">0</property>
@@ -618,7 +618,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Dl_kolektora">
+                      <object class="ttk.Label" id="Label_Length_collector">
                         <property name="text" translatable="yes">Długość kolektora tłocznego [m]</property>
                         <layout>
                           <property name="column">0</property>
@@ -629,7 +629,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Sred_kolektora">
+                      <object class="ttk.Label" id="Label_Diameter_collector">
                         <property name="text" translatable="yes">Średnica kolektora tłocznego [mm]</property>
                         <layout>
                           <property name="column">0</property>
@@ -640,7 +640,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Chrop_kolektora">
+                      <object class="ttk.Label" id="Label_Roughness_collector">
                         <property name="text" translatable="yes">Chropowatość kolektora tłocznego [mm]</property>
                         <layout>
                           <property name="column">0</property>
@@ -651,7 +651,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Opory_kolektora">
+                      <object class="ttk.Label" id="Label_Resistance_collector">
                         <property name="text" translatable="yes">Wartości współczynników oporów miejscowych na kolektorze tłocznym</property>
                         <property name="wraplength">350</property>
                         <layout>
@@ -663,7 +663,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Doplyw_min">
+                      <object class="ttk.Label" id="Label_Inflow_min">
                         <property name="text" translatable="yes">Min.</property>
                         <layout>
                           <property name="column">1</property>
@@ -673,7 +673,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Doplyw_max">
+                      <object class="ttk.Label" id="Label_Inflow_max">
                         <property name="text" translatable="yes">Max.</property>
                         <layout>
                           <property name="column">3</property>
@@ -683,10 +683,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Minimalna_wys">
+                      <object class="ttk.Entry" id="Entry_Minimal_height">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:minimalna_wys</property>
+                        <property name="textvariable">double:minimal_sewage_level</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -697,10 +697,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_terenu">
+                      <object class="ttk.Entry" id="Entry_Ordinate_terrain">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_terenu</property>
+                        <property name="textvariable">double:ordinate_terrain</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -711,10 +711,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_wylotu">
+                      <object class="ttk.Entry" id="Entry_Ordinate_outlet">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_wylotu</property>
+                        <property name="textvariable">double:ordinate_outlet</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -725,10 +725,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_doplywu">
+                      <object class="ttk.Entry" id="Entry_Ordinate_inlet">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_doplywu</property>
+                        <property name="textvariable">double:ordinate_inlet</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -739,10 +739,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_dna">
+                      <object class="ttk.Entry" id="Entry_Ordinate_bottom">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_dna</property>
+                        <property name="textvariable">double:ordinate_bottom</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -753,9 +753,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_najwpunkt">
+                      <object class="ttk.Entry" id="Entry_Ordinate_highest_point">
                         <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_najwpunkt</property>
+                        <property name="textvariable">double:ordinate_highest_point</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -766,10 +766,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Rzedna_zwgorne">
+                      <object class="ttk.Entry" id="Entry_Ordinate_final_table">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:rzedna_zwgorne</property>
+                        <property name="textvariable">double:ordinate_final_table</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -780,10 +780,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Dl_przewodu_tl">
+                      <object class="ttk.Entry" id="Entry_Length_discharge_pipe">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:dl_przewodu_tl</property>
+                        <property name="textvariable">double:length_discharge_pipe</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -794,10 +794,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Sred_przewodu_tl">
+                      <object class="ttk.Entry" id="Entry_Diameter_discharge_pipe">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:sred_przewodu_tl</property>
+                        <property name="textvariable">double:diameter_discharge_pipe</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -808,10 +808,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Chrop_przewodu_tl">
+                      <object class="ttk.Entry" id="Entry_Roughness_discharge_pipe">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:chrop_przewodu_tl</property>
+                        <property name="textvariable">double:roughness_discharge_pipe</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -822,10 +822,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Opory_przewodu_tl">
+                      <object class="ttk.Entry" id="Entry_Resistance_discharge_pipe">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">string:opory_przewodu_tl</property>
+                        <property name="textvariable">string:resistance_discharge_pipe</property>
                         <property name="width">24</property>
                         <layout>
                           <property name="column">2</property>
@@ -837,10 +837,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Doplyw_min">
+                      <object class="ttk.Entry" id="Entry_Inflow_min">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:doplyw_min</property>
+                        <property name="textvariable">double:inflow_min</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -851,10 +851,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Doplyw_max">
+                      <object class="ttk.Entry" id="Entry_Inflow_max">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:doplyw_max</property>
+                        <property name="textvariable">double:inflow_max</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">4</property>
@@ -865,10 +865,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Liczba_kol">
+                      <object class="ttk.Entry" id="Entry_Number_of_collectors">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">int:liczba_kol</property>
+                        <property name="textvariable">int:number_of_collectors</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -879,10 +879,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Dl_kolektora">
+                      <object class="ttk.Entry" id="Entry_Length_collector">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:dl_kolektora</property>
+                        <property name="textvariable">double:length_collector</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -893,10 +893,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Sred_kolektora">
+                      <object class="ttk.Entry" id="Entry_Diameter_collector">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:sr_kolektora</property>
+                        <property name="textvariable">double:diameter_collector</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -907,10 +907,10 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Chrop_kolektora">
+                      <object class="ttk.Entry" id="Entry_Roughness_collector">
                         <property name="exportselection">false</property>
                         <property name="justify">right</property>
-                        <property name="textvariable">double:chrop_kolektora</property>
+                        <property name="textvariable">double:roughness_collector</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -921,9 +921,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Opory_kolektora">
+                      <object class="ttk.Entry" id="Entry_Resistance_collector">
                         <property name="justify">right</property>
-                        <property name="textvariable">string:opory_kolektora</property>
+                        <property name="textvariable">string:resistance_collector</property>
                         <property name="width">24</property>
                         <layout>
                           <property name="column">2</property>
@@ -935,7 +935,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Label" id="Label_Roznica_wlot_start">
+                      <object class="ttk.Label" id="Label_Difference_in_start">
                         <property name="text" translatable="yes">Różnica między rzędną wlotu, a rzędna włączenia pompy [m]</property>
                         <property name="wraplength">350</property>
                         <layout>
@@ -947,9 +947,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Entry" id="Entry_Roznica_wlot_start">
+                      <object class="ttk.Entry" id="Entry_Difference_in_start">
                         <property name="justify">right</property>
-                        <property name="textvariable">double:roznica_wlot_start</property>
+                        <property name="textvariable">double:difference_in_start</property>
                         <property name="width">7</property>
                         <layout>
                           <property name="column">2</property>
@@ -960,7 +960,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Frame" id="Frame_Doplyw">
+                      <object class="ttk.Frame" id="Frame_Inflow">
                         <property name="height">200</property>
                         <property name="width">200</property>
                         <layout>
@@ -980,7 +980,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </columns>
                         </layout>
                         <child>
-                          <object class="ttk.Label" id="Label_Doplyw">
+                          <object class="ttk.Label" id="Label_Inflow">
                             <property name="text" translatable="yes">Dopływ ścieków</property>
                             <property name="textvariable">string:label_doplyw</property>
                             <layout>
@@ -992,7 +992,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="ttk.Label" id="Label_Doplyw_jednostka">
+                          <object class="ttk.Label" id="Label_Inflow_unit">
                             <property name="text" translatable="yes">jednostka:</property>
                             <layout>
                               <property name="column">1</property>
@@ -1002,11 +1002,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="tk.Radiobutton" id="Radiobutton_Doplyw_metry">
-                            <property name="command">control_inflow_unit</property>
+                          <object class="tk.Radiobutton" id="Radiobutton_Inflow_unit_meters">
+                            <property name="command">set_inflow_unit</property>
                             <property name="text" translatable="yes">[m³/h]</property>
-                            <property name="value">2</property>
-                            <property name="variable">int:doplyw_jednostka</property>
+                            <property name="value">meters</property>
+                            <property name="variable">string:inflow_unit</property>
                             <layout>
                               <property name="column">2</property>
                               <property name="propagate">True</property>
@@ -1015,13 +1015,13 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="tk.Radiobutton" id="Radiobutton_Doplyw_litry">
-                            <property name="command">control_inflow_unit</property>
+                          <object class="tk.Radiobutton" id="Radiobutton_Inflow_unit_liters">
+                            <property name="command">set_inflow_unit</property>
                             <property name="compound">top</property>
                             <property name="font">TkDefaultFont</property>
                             <property name="text" translatable="yes">[l/s]</property>
-                            <property name="value">1</property>
-                            <property name="variable">int:doplyw_jednostka</property>
+                            <property name="value">liters</property>
+                            <property name="variable">string:inflow_unit</property>
                             <layout>
                               <property name="column">3</property>
                               <property name="propagate">True</property>
@@ -1060,7 +1060,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </columns>
                     </layout>
                     <child>
-                      <object class="ttk.Frame" id="Frame_Dane_pompy">
+                      <object class="ttk.Frame" id="Frame_Pump_data">
                         <property name="height">200</property>
                         <property name="padding">10</property>
                         <property name="relief">groove</property>
@@ -1076,7 +1076,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </rows>
                         </layout>
                         <child>
-                          <object class="ttk.Label" id="Label_Obrys_pompy">
+                          <object class="ttk.Label" id="Label_Pump_contour">
                             <property name="text" translatable="yes">Średnica koła niezbędna do zainstalowania jednej pompy [m]</property>
                             <property name="wraplength">250</property>
                             <layout>
@@ -1087,9 +1087,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="ttk.Entry" id="Entry_Obrys_pompy">
+                          <object class="ttk.Entry" id="Entry_Pump_contour">
                             <property name="justify">right</property>
-                            <property name="textvariable">double:obrys_pompy</property>
+                            <property name="textvariable">double:pump_contour</property>
                             <property name="validate">focus</property>
                             <property name="width">7</property>
                             <layout>
@@ -1100,8 +1100,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="tk.Label" id="Label_Czas_cyklu">
-                            <property name="text" translatable="yes">Czas cyklu pracy pompy [min]</property>
+                          <object class="tk.Label" id="Label_Work_cycle">
+                            <property name="text" translatable="yes">Cykl pracy pompy [min]</property>
                             <layout>
                               <property name="column">0</property>
                               <property name="propagate">True</property>
@@ -1110,9 +1110,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="tk.Entry" id="Entry_Czas_cyklu">
+                          <object class="tk.Entry" id="Entry_Work_cycle">
                             <property name="justify">right</property>
-                            <property name="textvariable">double:czas_cyklu</property>
+                            <property name="textvariable">double:work_cycle</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1122,7 +1122,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                           </object>
                         </child>
                         <child>
-                          <object class="ttk.Labelframe" id="Labelframe_Punkty_char">
+                          <object class="ttk.Labelframe" id="Labelframe_Char_points">
                             <property name="height">200</property>
                             <property name="padding">10</property>
                             <property name="text" translatable="yes">Punkty charakterystyki pompy</property>
@@ -1164,7 +1164,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </columns>
                             </layout>
                             <child>
-                              <object class="tk.Label" id="Label_Jedn_char_pompy">
+                              <object class="tk.Label" id="Label_Pump_char_unit">
                                 <property name="text" translatable="yes">Jednostka przepływu:</property>
                                 <layout>
                                   <property name="column">0</property>
@@ -1174,13 +1174,13 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_m3">
+                              <object class="tk.Radiobutton" id="Radiobutton_Pump_char_unit_meters">
                                 <property name="anchor">w</property>
-                                <property name="command">control_pump_flow_unit</property>
+                                <property name="command">set_pump_flow_unit</property>
                                 <property name="height">0</property>
                                 <property name="text" translatable="yes">[m³/h]</property>
-                                <property name="value">2</property>
-                                <property name="variable">int:char_pompy_jednostka</property>
+                                <property name="value">meters</property>
+                                <property name="variable">string:pump_flow_unit</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -1189,11 +1189,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Radiobutton" id="Radiobutton_Jedn_char_pompy_l">
-                                <property name="command">control_pump_flow_unit</property>
+                              <object class="tk.Radiobutton" id="Radiobutton_Pump_char_unit_liters">
+                                <property name="command">set_pump_flow_unit</property>
                                 <property name="text" translatable="yes">[l/s]</property>
-                                <property name="value">1</property>
-                                <property name="variable">int:char_pompy_jednostka</property>
+                                <property name="value">liters</property>
+                                <property name="variable">string:pump_flow_unit</property>
                                 <layout>
                                   <property name="column">2</property>
                                   <property name="propagate">True</property>
@@ -1202,7 +1202,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Label" id="Label_Wydajnosc_pompy">
+                              <object class="tk.Label" id="Label_Pump_efficiency">
                                 <property name="text" translatable="yes">Zakres maksymalnej wydajności pompy</property>
                                 <layout>
                                   <property name="column">0</property>
@@ -1214,9 +1214,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Label" id="Label_Wydajnosc_od">
+                              <object class="tk.Label" id="Label_Pump_efficiency_from">
                                 <property name="text" translatable="yes">Od [l/s]</property>
-                                <property name="textvariable">string:wydajnosc_od_text</property>
+                                <property name="textvariable">string:pump_efficiency_from_txt</property>
                                 <layout>
                                   <property name="column">0</property>
                                   <property name="columnspan">2</property>
@@ -1226,9 +1226,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Entry" id="Entry_Wydajnosc_od">
+                              <object class="tk.Entry" id="Entry_Pump_efficiency_from">
                                 <property name="justify">right</property>
-                                <property name="textvariable">double:wydajnosc_od</property>
+                                <property name="textvariable">double:pump_efficiency_from</property>
                                 <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
@@ -1238,9 +1238,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Label" id="Label_Wydajnosc_do">
+                              <object class="tk.Label" id="Label_Pump_efficiency_to">
                                 <property name="text" translatable="yes">Do [l/s]</property>
-                                <property name="textvariable">string:wydajnosc_do_text</property>
+                                <property name="textvariable">string:pump_efficiency_to_txt</property>
                                 <layout>
                                   <property name="column">0</property>
                                   <property name="columnspan">2</property>
@@ -1250,9 +1250,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="tk.Entry" id="Entry_Wydajnosc_do">
+                              <object class="tk.Entry" id="Entry_Pump_efficiency_to">
                                 <property name="justify">right</property>
-                                <property name="textvariable">double:wydajnosc_do</property>
+                                <property name="textvariable">double:pump_efficiency_to</property>
                                 <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
@@ -1324,7 +1324,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             </child>
                             <child>
                               <object class="ttk.Button" id="Button_Usun">
-                                <property name="command">pump_delete_button</property>
+                                <property name="command">pump_delete_point</property>
                                 <property name="text" translatable="yes">Usuń wybrany punkt</property>
                                 <property name="width">34</property>
                                 <layout>
@@ -1338,7 +1338,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               </object>
                             </child>
                             <child>
-                              <object class="ttk.Labelframe" id="Labelframe_Dodaj">
+                              <object class="ttk.Labelframe" id="Labelframe_Add_char_point">
                                 <property name="height">10</property>
                                 <property name="padding">10</property>
                                 <property name="relief">groove</property>
@@ -1370,9 +1370,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </columns>
                                 </layout>
                                 <child>
-                                  <object class="ttk.Label" id="Label_Wsp_q">
+                                  <object class="ttk.Label" id="Label_Add_char_point_flow">
                                     <property name="text" translatable="yes">Przepływ Q [l/s]</property>
-                                    <property name="textvariable">string:wsp_q_text</property>
+                                    <property name="textvariable">string:add_point_flow_text</property>
                                     <layout>
                                       <property name="column">0</property>
                                       <property name="propagate">True</property>
@@ -1381,8 +1381,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="ttk.Entry" id="Entry_Wsp_q">
-                                    <property name="textvariable">double:wsp_q</property>
+                                  <object class="ttk.Entry" id="Entry_Add_char_point_flow">
+                                    <property name="textvariable">double:add_char_point_flow</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -1392,7 +1392,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="ttk.Label" id="Label_Wsp_h">
+                                  <object class="ttk.Label" id="Label_Add_char_point_lift">
                                     <property name="text" translatable="yes">Wys. podnoszenia [m]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -1402,8 +1402,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="ttk.Entry" id="Entry_Wsp_h">
-                                    <property name="textvariable">double:wsp_h</property>
+                                  <object class="ttk.Entry" id="Entry_Add_char_point_lift">
+                                    <property name="textvariable">double:add_char_point_lift</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -1433,7 +1433,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </object>
                     </child>
                     <child>
-                      <object class="ttk.Frame" id="Frame_Wykres">
+                      <object class="ttk.Frame" id="Frame_Chart">
                         <property name="height">100</property>
                         <property name="padding">20</property>
                         <property name="relief">groove</property>
@@ -1463,12 +1463,12 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </object>
             </child>
             <child>
-              <object class="ttk.Notebook.Tab" id="Tab_Materialy">
+              <object class="ttk.Notebook.Tab" id="Tab_Materials">
                 <property name="padding">5</property>
                 <property name="state">normal</property>
                 <property name="text" translatable="yes">Dane materiałowe</property>
                 <child>
-                  <object class="ttk.Frame" id="Frame_Materialy">
+                  <object class="ttk.Frame" id="Frame_Materials">
                     <property name="height">200</property>
                     <property name="padding">40</property>
                     <property name="relief">groove</property>
@@ -2938,7 +2938,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
           </object>
         </child>
         <child>
-          <object class="ttk.Labelframe" id="Frame_Wskazowki">
+          <object class="ttk.Labelframe" id="Frame_Advices">
             <property name="height">400</property>
             <property name="relief">groove</property>
             <property name="text" translatable="yes">Wskazówki</property>
@@ -2961,7 +2961,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </columns>
             </layout>
             <child>
-              <object class="ttk.Label" id="Label_Wskaz">
+              <object class="ttk.Label" id="Label_Advice">
                 <property name="padding">10</property>
                 <property name="text" translatable="yes">Najedź na opis parametru aby otrzymać więcej informacji</property>
                 <property name="textvariable">string:advice_text</property>
@@ -2977,8 +2977,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
           </object>
         </child>
         <child>
-          <object class="ttk.Button" id="But_Przelicz">
-            <property name="command">calculate</property>
+          <object class="ttk.Button" id="But_Calculate">
+            <property name="command"></property>
             <property name="text" translatable="yes">Przelicz</property>
             <layout>
               <property name="column">4</property>
@@ -2990,7 +2990,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
           </object>
         </child>
         <child>
-          <object class="ttk.Labelframe" id="Frame_Tryb">
+          <object class="ttk.Labelframe" id="Frame_Mode">
             <property name="height">200</property>
             <property name="relief">groove</property>
             <property name="text" translatable="yes">Tryb pracy</property>
@@ -3022,11 +3022,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </columns>
             </layout>
             <child>
-              <object class="tk.Radiobutton" id="Radio_Tryb_sprawdzenie">
-                <property name="command">change_mode</property>
+              <object class="tk.Radiobutton" id="Radio_Mode_checking">
+                <property name="command">ui_set_mode</property>
                 <property name="text" translatable="yes">     Sprawdzenie istniejącej pompowni</property>
-                <property name="value">sprawdzenie</property>
-                <property name="variable">string:tryb_pracy</property>
+                <property name="value">checking</property>
+                <property name="variable">string:mode</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">10</property>
@@ -3037,11 +3037,11 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </object>
             </child>
             <child>
-              <object class="tk.Radiobutton" id="Radio_Tryb_minimalizacja">
-                <property name="command">change_mode</property>
+              <object class="tk.Radiobutton" id="Radio_Mode_minimalisation">
+                <property name="command">ui_set_mode</property>
                 <property name="text" translatable="yes">     Minimalizacja nakładów inwestycyjnych</property>
-                <property name="value">minimalizacja</property>
-                <property name="variable">string:tryb_pracy</property>
+                <property name="value">minimalisation</property>
+                <property name="variable">string:mode</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">10</property>
@@ -3052,12 +3052,12 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
               </object>
             </child>
             <child>
-              <object class="tk.Radiobutton" id="Radio_Tryb_optymalizacja">
-                <property name="command">change_mode</property>
+              <object class="tk.Radiobutton" id="Radio_Mode_optimalisation">
+                <property name="command">ui_set_mode</property>
                 <property name="text" translatable="yes">     Optymalizacja nakładów inwestycyjnych
      i kosztów eksploatacyjnych</property>
-                <property name="value">optymalizacja</property>
-                <property name="variable">string:tryb_pracy</property>
+                <property name="value">optimalisation</property>
+                <property name="variable">string:mode</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="padx">10</property>
@@ -3081,7 +3081,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="Button_Info">
-            <property name="command">info</property>
+            <property name="command">print_values</property>
             <property name="text" translatable="yes">O programie</property>
             <layout>
               <property name="column">3</property>
@@ -3092,8 +3092,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
           </object>
         </child>
         <child>
-          <object class="ttk.Button" id="Button_Wczytaj">
-            <property name="command">data_load</property>
+          <object class="ttk.Button" id="Button_Load">
+            <property name="command">load_data</property>
             <property name="text" translatable="yes">Wczytaj Dane</property>
             <layout>
               <property name="column">1</property>
@@ -3104,7 +3104,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="Button_Zapisz">
-            <property name="command">zapisz_dane</property>
+            <property name="command">on_plot_clicked</property>
             <property name="text" translatable="yes">Zapisz Dane</property>
             <layout>
               <property name="column">2</property>
