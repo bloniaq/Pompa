@@ -16,10 +16,31 @@ class Variable():
         else:
             log.debug('No ui_variable named {}'.format(ui_variable))
 
+    '''
     def set_trace(self, attr):
         self.ui_var.trace(
             'w', lambda *_: setattr(self, attr, self.ui_var.get())
         )
+    '''
+
+    def set_trace(self, attr):
+        self.ui_var.trace(
+            'w', lambda *_: self.alt_setattr(attr)
+        )
+
+    def alt_setattr(self, attr):
+        try:
+            ui_content = self.ui_var.get()
+        except tk.TclError as e:
+            log.error('Tkinter error {}'.format(e))
+            pass
+        else:
+            setattr(self, attr, ui_content)
+        if self.chart_req:
+            try:
+                self.app.draw_figure()
+            except (AttributeError, TypeError) as e:
+                log.error('Error {}'.format(e))
 
     def load_data(self, data_dict):
         if self.dan_id in data_dict:
@@ -29,10 +50,8 @@ class Variable():
 class Numeric(Variable):
     """keeps rational numbers or integers and connect them with ui variables"""
 
-    def __init__(self, app, value, ui_variable, dan_id, is_int=False,
-                 chart_req=False):
+    def __init__(self, app, value, ui_variable, dan_id, chart_req):
         self.chart_req = chart_req
-        self.is_int = is_int
         super().__init__(app, ui_variable, dan_id)
         self.value = value
         self.set_trace('value')
@@ -42,20 +61,43 @@ class Numeric(Variable):
         '''
 
     def __repr__(self):
-        output = 'Numeric({}, {}, {}, {});{}'.format(
-            self.app, self.value, self.dan_id, self.is_int, self.ui_var.get())
+        try:
+            output = 'Numeric({}, {}, {});{}'.format(
+                self.app, self.value, self.dan_id, self.ui_var.get())
+        except tk.TclError as e:
+            output = 'Numeric({}, {}, {});ERROR:{}'.format(
+                self.app, self.value, self.dan_id, e)
         return output
+
+
+class P_Int(Numeric):
+    def __init__(self, app, value, ui_variable, dan_id, chart_req=False):
+        super().__init__(app, value, ui_variable, dan_id, chart_req)
 
     def __setattr__(self, attr, value):
         if attr != 'value':
             self.__dict__[attr] = value
         else:
-            if not self.is_int:
-                self.__dict__['value'] = float(value)
-                self.ui_var.set(self.value)
-            else:
-                self.__dict__['value'] = value
-                self.ui_var.set(self.value)
+            self.__dict__['value'] = value
+            self.ui_var.set(self.value)
+            if self.chart_req:
+                try:
+                    self.app.draw_figure()
+                except (AttributeError, TypeError) as e:
+                    log.error('Error {}'.format(e))
+
+
+class P_Float(Numeric):
+    def __init__(self, app, value, ui_variable, dan_id, chart_req=False):
+        super().__init__(app, value, ui_variable, dan_id, chart_req)
+
+    def __setattr__(self, attr, value):
+        if attr != 'value':
+            self.__dict__[attr] = value
+        else:
+            self.__dict__['value'] = float(value)
+            if self.__dict__['value'] != float(self.ui_var.get()):
+                self.ui_var.set(value)
             if self.chart_req:
                 try:
                     self.app.draw_figure()
@@ -66,9 +108,11 @@ class Numeric(Variable):
 class Logic(Variable):
     """keeps logic variables and connect them with ui variables"""
 
-    def __init__(self, app, value, ui_variable, dan_id, dictionary, function):
+    def __init__(self, app, value, ui_variable, dan_id, dictionary, function,
+                 chart_req=False):
         super().__init__(app, ui_variable, dan_id)
         self.function = function
+        self.chart_req = chart_req
         self.dictionary = dictionary
         self.value = value
         self.set_trace('value')
@@ -95,8 +139,9 @@ class Logic(Variable):
 class Resistance(Variable):
     """class for local resistance in pipes"""
 
-    def __init__(self, app, string, ui_variable, dan_id):
+    def __init__(self, app, string, ui_variable, dan_id, chart_req=True):
         super().__init__(app, ui_variable, dan_id)
+        self.chart_req = chart_req
         self.string = string
         self.set_trace('string')
 

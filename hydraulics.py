@@ -5,11 +5,14 @@ log = logging.getLogger('Pompa.hydraulics')
 
 
 def pipes_ready(app):
+    log.debug('Are pipes ready?')
     flag = True
     if not app.discharge_pipe.pipe_char_ready():
         flag = False
+    log.debug(flag)
     if not app.collector.pipe_char_ready():
         flag = False
+    log.debug(flag)
     return flag
 
 

@@ -122,6 +122,7 @@ class Pipe(StationObject):
         flag = True
         checklist = [self.length, self.diameter, self.roughness]
         for parameter in checklist:
+            log.debug('{} = {}'.format(parameter, parameter.value))
             if parameter.value == 0:
                 flag = False
         return flag

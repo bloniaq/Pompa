@@ -233,7 +233,8 @@ class Application():
                                label='punkt pracy')
                 str_work_p = str(round(x[intersection_f][0], 2))
             except IndexError as e:
-                log.error('ERROR: {}'.format(e))
+                log.error('ERROR1: {}'.format(e))
+                pass
         else:
             str_work_p = ''
         str_unit = classes.unit_bracket_dict[self.ui_vars.__getitem__(
@@ -253,7 +254,11 @@ class Application():
         except UnboundLocalError:
             self.plot.set_title('Punkt pracy pompy: {} {}'.format(
                 str_work_p, str_unit), fontsize='small')
-        self.plot.xaxis.set_minor_locator(MultipleLocator(2))
+            pass
+        if unit == 'meters':
+            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        elif unit == 'liters':
+            self.plot.xaxis.set_minor_locator(MultipleLocator(2))
         self.plot.yaxis.set_minor_locator(MultipleLocator(1))
         self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
         self.plot.grid(True, 'major', linestyle='--')
@@ -262,18 +267,20 @@ class Application():
             eff_from_y = maths.interp(eff_from_x, x, y_pump)
             eff_to_x = self.pump.efficiency_to.value
             eff_to_y = maths.interp(eff_to_x, x, y_pump)
-            work_p_x = x[intersection_f]
-            log.info('work_p_x: {}'.format(work_p_x))
-            work_p_y = [maths.interp(i, x, y_pump) for i in work_p_x]
             self.plot.plot([eff_from_x, eff_from_x], [-100, eff_from_y], 'r--')
             self.plot.plot([eff_to_x, eff_to_x], [-100, eff_to_y], 'r--',
                            label='maks. wydajność pompy')
+            work_p_x = x[intersection_f]
+            log.info('work_p_x: {}'.format(work_p_x))
+            work_p_y = [maths.interp(i, x, y_pump) for i in work_p_x]
             for i in range(len(work_p_x)):
                 self.plot.plot([work_p_x[i], work_p_x[i]],
                                [-100, work_p_y[i]], color='black',
                                linewidth=.8)
         except UnboundLocalError as e:
-            log.error('ERROR: {}'.format(e))
+            log.error('Unbound ERROR2: {}'.format(e))
+            pass
+        self.plot.set_xlim(xmin=x[0], xmax=x[-1])
         self.plot.set_ylim(ymin=0)
         self.plot.legend(fontsize='small')
         self.canvas.draw()
