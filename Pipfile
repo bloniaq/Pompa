@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 appdirs = "==1.4.3"
 pygubu = "==0.9.8.2"
+matplotlib = "*"
 
 [dev-packages]
 
