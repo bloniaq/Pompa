@@ -178,6 +178,10 @@ class Pump(StationObject):
         y = maths.fit_coords(flows, lifts, 3)
         return x_lin, y(x_lin), 'b-'
 
+    def generate_pump_char_string(self):
+        # patter: 'Q=  {} [l/s]    H=  {} [m]\n'.format()
+        pass
+
 
 class Well(StationObject):
     """class for well"""
@@ -222,3 +226,24 @@ class Well(StationObject):
         ord_sewage_level = self.ord_inlet.value - 1.2
         result = self.ord_upper_level.value - ord_sewage_level
         return result
+
+    def reserve_pumps_number(self):
+        pass
+
+    def minimal_diameter(self):
+        pass
+
+    def cross_sectional_area(self):
+        pass
+
+    def velocity_whole(self):
+        pass
+
+    def velocity_useful(self):
+        pass
+
+    def velocity_reserve(self):
+        pass
+
+    def velocity_dead(self):
+        pass
