@@ -10,7 +10,6 @@ import logging
 import numpy as np
 
 import classes
-import hydraulics
 import maths
 import data
 
@@ -92,13 +91,13 @@ class Application():
     def create_objects(self):
         self.well = classes.Well(self)
         data.well_vars(self.well, self)
-        self.pump = classes.Pump(self)
-        data.pump_vars(self.pump, self, self.figure, self.canvas)
+        self.pump = self.well.pump = classes.Pump(self)
+        data.pump_vars(self.pump, self)
         self.pump.set_flow_unit(
             self.ui_vars.__getitem__('pump_flow_unit').get())
-        self.discharge_pipe = classes.Pipe(self)
+        self.discharge_pipe = self.well.discharge_pipe = classes.Pipe(self)
         data.discharge_pipe_vars(self.discharge_pipe, self)
-        self.collector = classes.Pipe(self)
+        self.collector = self.well.collector = classes.Pipe(self)
         data.collector_vars(self.collector, self)
 
     def load_data(self):
@@ -212,21 +211,17 @@ class Application():
         self.plot.clear()
         self.canvas.draw()
         unit = self.ui_vars.__getitem__('pump_flow_unit').get()
-        x = maths.get_x_axis(self.well.inflow_min,
-                             self.well.inflow_max,
-                             self.pump.efficiency_from,
-                             self.pump.efficiency_to,
-                             unit)
+        x = self.well.get_x_axis(unit)
         if self.pump.pump_char_ready():
             x, y_pump, l_pump = self.pump.draw_pump_plot(x)
             self.plot.plot(x, y_pump, l_pump, label='char. pompy')
-        if hydraulics.pipes_ready(self):
+        if self.well.pipes_ready():
             log.debug('Trying to drawing pipes plot')
-            x, y_pipe, l_pipe = hydraulics.draw_pipes_plot(self, x, unit)
+            x, y_pipe, l_pipe = self.well.draw_pipes_plot(x, unit)
             log.debug('x: {}, y: {}, look: {}'.format(x, y_pipe, l_pipe))
             self.plot.plot(
                 x, y_pipe, l_pipe, label='char. przewodów')
-        if self.pump.pump_char_ready() and hydraulics.pipes_ready(self):
+        if self.pump.pump_char_ready() and self.well.pipes_ready():
             try:
                 intersection_f = maths.work_point(y_pump, y_pipe)
                 self.plot.plot(x[intersection_f], y_pump[intersection_f], 'ro',
@@ -280,8 +275,8 @@ class Application():
         except UnboundLocalError as e:
             log.error('Unbound ERROR2: {}'.format(e))
             pass
-        self.plot.set_xlim(xmin=x[0], xmax=x[-1])
-        self.plot.set_ylim(ymin=0)
+        self.plot.set_xlim(left=x[0], right=x[-1])
+        self.plot.set_ylim(bottom=0)
         self.plot.legend(fontsize='small')
         self.canvas.draw()
 

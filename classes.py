@@ -1,4 +1,5 @@
 import logging
+import numpy as np
 
 import maths
 
@@ -25,14 +26,17 @@ class StationObject():
 
     def __getattr__(self, attr):
         if '.' not in attr:
-            return self.__dict__[attr]
+            log.debug('Has no <.> in attr')
+            return super().__getattr__(attr)
         else:
             attr_name, rest = attr.split('.', 1)
             return getattr(getattr(self, attr_name), rest)
 
     def load_data(self, data_dict):
         for attribute in self.__dict__:
+            log.debug('loading {} for obj {}'.format(attribute, self))
             if hasattr(self.__dict__[attribute], 'dan_id'):
+                log.debug('{} has dan_id'.format(attribute))
                 self.__dict__[attribute].load_data(data_dict)
 
 
@@ -63,13 +67,13 @@ class Pipe(StationObject):
         diameter = self.diameter.value * 0.001
         epsilon = self.get_epsilon()
         log.info('Epsilon is {}'.format(epsilon))
-        lambda_ = (-2 * maths.log10(self.roughness.value / (
+        lambda_ = (-2 * np.log10(self.roughness.value / (
             3.71 * diameter))) ** -2
         re = self.get_re(flow, unit)
         log.info('Re is {}'.format(re))
         log.info('Lambda is {}'.format(lambda_))
         try:
-            alt_lambda = (-2 * maths.log10((6.1 / (re ** 0.915)) + (
+            alt_lambda = (-2 * np.log10((6.1 / (re ** 0.915)) + (
                 0.268 * epsilon))) ** -2
         except ZeroDivisionError as e:
             log.error(e)
@@ -162,11 +166,6 @@ class Pump(StationObject):
             type(self.efficiency_from)))
         self.characteristic.set_unit(unit)
 
-    def get_x_linspace(self):
-        return maths.get_x_axis(self.characteristic.get_pump_char_func()[0],
-                                self.efficiency_from.value,
-                                self.efficiency_to.value)
-
     def pump_char_ready(self):
         flag = False
         if len(self.characteristic.coords) > 2:
@@ -188,6 +187,11 @@ class Well(StationObject):
 
     def __init__(self, app):
         super().__init__(app)
+
+        self.pump = None
+        self.discharge_pipe = None
+        self.collector = None
+
         self.reserve_pumps = None
         self.shape = None
         # self.set_shape(self.default['shape'])
@@ -227,7 +231,11 @@ class Well(StationObject):
         result = self.ord_upper_level.value - ord_sewage_level
         return result
 
-    def reserve_pumps_number(self, work_pumps):
+    def number_of_pumps(self):
+        return 4
+
+    def reserve_pumps_number(self):
+        work_pumps = self.number_of_pumps()
         if self.reserve_pumps == 'minimal':
             n_of_res_pumps = 1
         elif self.reserve_pumps == 'optimal':
@@ -270,3 +278,57 @@ class Well(StationObject):
         height = 1
         velocity = height * self.cross_sectional_area()
         return velocity
+
+    ##########################
+    #   FIGURE FUNCTIONS
+    ##########################
+
+    def get_x_axis(self, unit):
+        if unit == 'meters':
+            inflow_val_min = self.inflow_min.value_meters
+            inflow_val_max = self.inflow_max.value_meters
+            eff_from = self.pump.efficiency_from.value_meters
+            eff_to = self.pump.efficiency_to.value_meters
+        elif unit == 'liters':
+            inflow_val_min = self.inflow_min.value_liters
+            inflow_val_max = self.inflow_max.value_liters
+            eff_from = self.pump.efficiency_from.value_liters
+            eff_to = self.pump.efficiency_to.value_liters
+        x_min = min(inflow_val_min - 3, eff_from - 3)
+        if x_min < 0:
+            x_min = 0
+        x_max = max(inflow_val_max + 3, eff_to + 3)
+        return np.linspace(x_min, 1.5 * x_max, 200)
+
+    def pipes_ready(self):
+        log.debug('Are pipes ready?')
+        flag = True
+        if not self.discharge_pipe.pipe_char_ready():
+            flag = False
+        log.debug(flag)
+        if not self.collector.pipe_char_ready():
+            flag = False
+        log.debug(flag)
+        return flag
+
+    '''
+    # CHYBA DO WYRZUCENIA
+    def pipe_loss(self):
+        flow = 1
+        loss = self.height_to_pump() + self.discharge_pipe.sum_loss(flow) + \
+            self.collector.sum_loss(flow)
+        log.info('pipes loss: {}'.format(loss))
+        return loss
+    '''
+
+    def draw_pipes_plot(self, x_lin, unit):
+        log.debug('Starting draw_pipes_plot')
+        flows, _ = self.pump.characteristic.get_pump_char_func()
+        geom_loss = self.height_to_pump()
+        discharge_y = self.discharge_pipe.get_y_coords(flows, unit)
+        collector_y = self.collector.get_y_coords(flows, unit)
+        pipes_char = []
+        for i in range(len(flows)):
+            pipes_char.append(geom_loss + discharge_y[i] + collector_y[i])
+        y = maths.fit_coords(flows, pipes_char, 1)
+        return x_lin, y(x_lin), 'g-'

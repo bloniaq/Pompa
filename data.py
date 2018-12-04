@@ -35,7 +35,7 @@ def well_vars(ins, app):
                             chart_req=True)
 
 
-def pump_vars(ins, app, figure, canvas):
+def pump_vars(ins, app):
     ins.contour = v.P_Float(app, 0.0, 'pump_contour', '5')
     ins.cycle_time = v.P_Float(app, 0.0, 'work_cycle', '35')
     ins.efficiency_from = v.Flow(app, 0.0, 'pump_efficiency_from', '39',
