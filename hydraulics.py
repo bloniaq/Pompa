@@ -34,3 +34,7 @@ def draw_pipes_plot(app, x_lin, unit):
         pipes_char.append(geom_loss + discharge_y[i] + collector_y[i])
     y = maths.fit_coords(flows, pipes_char, 1)
     return x_lin, y(x_lin), 'g-'
+
+
+def number_of_pumps(app):
+    return 4

@@ -1,21 +1,29 @@
+import hydraulics
+
+
 def generate_checking_report(app):
     pump = app.pump
     well = app.well
     dpipe = app.discharge_pipe
     coll = app.collector
 
+    n_of_work_pumps = hydraulics.number_of_pumps(app)
+    n_of_res_pumps = well.reserve_pumps_number(hydraulics.pump_number(app))
+
     report = {}
 
     report['1'] = 'POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA\n\n'
     report['2'] = 'Liniowe ustawienie pomp w pompowni'  # słownik
-    report['3'] = 'Liczba pomp rezerwowych..............n= {} szt.'.format(
-        well.reserve_pumps_number())
+    report['3'] = 'Liczba dobranych pomp roboczych .....n= {} szt.'.format(
+        n_of_work_pumps)
+    report['3'] = 'Liczba pomp rezerwowych.............nr= {} szt.'.format(
+        n_of_res_pumps)
     report['4'] = 'Srednica kola opisujacego pompe.....Dn= {} [m]'.format(
         pump.contour.value)
     report['5'] = 'Srednica pompowni...................DN= {} [m]'.format(
         well.diameter.value)
     report['6'] = 'Minimalna srednica pompowni......DNmin= {} [m]'.format(
-        well.minimal_diameter())
+        well.minimal_diameter(n_of_work_pumps + n_of_res_pumps))
     report['7'] = 'Pole poziomego przekroju pompowni....F= {} [m2]'.format(
         well.cross_sectional_area())
     report['8'] = 'Ilosc przewodow tlocznych (kolektor)... {} szt.'.format(
@@ -72,6 +80,8 @@ def generate_checking_report(app):
         well.velocity_reserve() / well.velocity_whole())
     report['40'] = 'Vm/Vc = {}%\n'.format(
         well.velocity_dead() / well.velocity_whole())
+    report['41'] = hydraulics.pump_set_parameters()
+    '''
     report['41'] = 'PARAMETRY POMPY NR: {}\n'.format()
     report['42'] = 'Rzeczywisty czas cyklu pompy.........T= {} [s]'.format()
     report['43'] = 'Rzeczywisty czas postoju pompy......Tp= {} [s]'.format()
@@ -95,5 +105,6 @@ def generate_checking_report(app):
     report['61'] = '-doplyw najniekorzystniejszy....Qdop=   {} [l/s]'.format()
     report['62'] = 'Zakres pracy pomp /maksymalna sprawnosc/'
     report['63'] = 'Q1= {} [l/s]    Q2= {} [l/s]'.format()
+    '''
 
     return report

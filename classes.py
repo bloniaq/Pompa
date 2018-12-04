@@ -227,23 +227,46 @@ class Well(StationObject):
         result = self.ord_upper_level.value - ord_sewage_level
         return result
 
-    def reserve_pumps_number(self):
-        pass
+    def reserve_pumps_number(self, work_pumps):
+        if self.reserve_pumps == 'minimal':
+            n_of_res_pumps = 1
+        elif self.reserve_pumps == 'optimal':
+            if work_pumps % 2 == 0:
+                n_of_res_pumps = int(work_pumps / 2)
+            else:
+                n_of_res_pumps = int(work_pumps / 2) + 1
+        elif self.reserve_pumps == 'safe':
+            n_of_res_pumps = work_pumps
+        return n_of_res_pumps
 
     def minimal_diameter(self):
         pass
 
     def cross_sectional_area(self):
-        pass
+        if self.shape == 'rectangle':
+            area = self.length * self.width
+        elif self.shape == 'round':
+            area = 3.14 * ((self.diameter / 2) ** 2)
+        return area
 
     def velocity_whole(self):
-        pass
+        height = self.ord_terrain = self.ord_bottom
+        velocity = height * self.cross_sectional_area()
+        return velocity
+
+    # USTALIć WYSOKOŚCI CHARAKTERYSTYCZNE W POMPOWNI
 
     def velocity_useful(self):
-        pass
+        height = 1
+        velocity = height * self.cross_sectional_area()
+        return velocity
 
     def velocity_reserve(self):
-        pass
+        height = 1
+        velocity = height * self.cross_sectional_area()
+        return velocity
 
     def velocity_dead(self):
-        pass
+        height = 1
+        velocity = height * self.cross_sectional_area()
+        return velocity
