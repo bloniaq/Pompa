@@ -248,7 +248,10 @@ class Well(StationObject):
         return n_of_res_pumps
 
     def minimal_diameter(self):
-        pass
+        n = self.number_of_pumps() + self.reserve_pumps_number()
+        d = self.pump.contour
+        minimal_d = d + 2 * (d / (2 * (np.sin(3.14 / n))))
+        return minimal_d
 
     def cross_sectional_area(self):
         if self.shape == 'rectangle':
@@ -278,6 +281,11 @@ class Well(StationObject):
         height = 1
         velocity = height * self.cross_sectional_area()
         return velocity
+
+    def pump_set_parameters(self, n_of_work_pumps):
+        for i in range(n_of_work_pumps):
+            self.pump.get_work_params()
+        
 
     ##########################
     #   FIGURE FUNCTIONS

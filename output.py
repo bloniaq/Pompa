@@ -1,14 +1,13 @@
 import hydraulics
 
 
-def generate_checking_report(app):
-    pump = app.pump
-    well = app.well
-    dpipe = app.discharge_pipe
-    coll = app.collector
+def generate_checking_report(well):
+    pump = well.pump
+    dpipe = well.discharge_pipe
+    coll = well.collector
 
-    n_of_work_pumps = hydraulics.number_of_pumps(app)
-    n_of_res_pumps = well.reserve_pumps_number(hydraulics.pump_number(app))
+    n_of_work_pumps = well.number_of_pumps()
+    n_of_res_pumps = well.reserve_pumps_number()
 
     report = {}
 
@@ -23,7 +22,7 @@ def generate_checking_report(app):
     report['5'] = 'Srednica pompowni...................DN= {} [m]'.format(
         well.diameter.value)
     report['6'] = 'Minimalna srednica pompowni......DNmin= {} [m]'.format(
-        well.minimal_diameter(n_of_work_pumps + n_of_res_pumps))
+        well.minimal_diameter())
     report['7'] = 'Pole poziomego przekroju pompowni....F= {} [m2]'.format(
         well.cross_sectional_area())
     report['8'] = 'Ilosc przewodow tlocznych (kolektor)... {} szt.'.format(
@@ -80,7 +79,7 @@ def generate_checking_report(app):
         well.velocity_reserve() / well.velocity_whole())
     report['40'] = 'Vm/Vc = {}%\n'.format(
         well.velocity_dead() / well.velocity_whole())
-    report['41'] = hydraulics.pump_set_parameters()
+    report['41'] = well.pump_set_parameters(n_of_work_pumps)
     '''
     report['41'] = 'PARAMETRY POMPY NR: {}\n'.format()
     report['42'] = 'Rzeczywisty czas cyklu pompy.........T= {} [s]'.format()
