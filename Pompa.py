@@ -9,9 +9,11 @@ import pygubu
 import logging
 import numpy as np
 
-import classes
+import components
+import station
 import maths
 import data
+import output
 
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
@@ -88,16 +90,25 @@ class Application():
     def run(self):
         self.mainwindow.mainloop()
 
+    def calculate(self):
+        if self.mode == 'checking':
+            self.well.calculate()
+            output = output.generate_checking_report(self.well)
+        self.generate_report(output)
+
+    def generate_report(self, output):
+        pass
+
     def create_objects(self):
-        self.well = classes.Well(self)
+        self.well = components.Well(self)
         data.well_vars(self.well, self)
-        self.pump = self.well.pump = classes.PumpType(self)
+        self.pump = self.well.pump_type = components.PumpType(self)
         data.pump_vars(self.pump, self)
         self.pump.set_flow_unit(
             self.ui_vars.__getitem__('pump_flow_unit').get())
-        self.discharge_pipe = self.well.discharge_pipe = classes.Pipe(self)
+        self.discharge_pipe = self.well.discharge_pipe = components.Pipe(self)
         data.discharge_pipe_vars(self.discharge_pipe, self)
-        self.collector = self.well.collector = classes.Pipe(self)
+        self.collector = self.well.collector = components.Pipe(self)
         data.collector_vars(self.collector, self)
 
     def load_data(self):
@@ -151,8 +162,8 @@ class Application():
         self.well.set_shape(shape)
 
     def ui_set_mode(self):
-        mode = self.ui_vars.__getitem__('mode').get()
-        self.set_mode(mode)
+        self.mode = self.ui_vars.__getitem__('mode').get()
+        self.set_mode(self.mode)
 
     def set_mode(self, mode):
         ''' changes application mode
@@ -232,7 +243,7 @@ class Application():
                 pass
         else:
             str_work_p = ''
-        str_unit = classes.unit_bracket_dict[self.ui_vars.__getitem__(
+        str_unit = components.unit_bracket_dict[self.ui_vars.__getitem__(
             'pump_flow_unit').get()]
         self.plot.set_xlabel(
             'Przepływ Q {}'.format(str_unit))

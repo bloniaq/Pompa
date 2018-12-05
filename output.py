@@ -1,13 +1,10 @@
-import hydraulics
-
-
 def generate_checking_report(well):
-    pump = well.pump
+    pump = well.pump_type
     dpipe = well.discharge_pipe
     coll = well.collector
 
-    n_of_work_pumps = well.number_of_pumps()
-    n_of_res_pumps = well.reserve_pumps_number()
+    n_of_work_pumps = well.number_of_pumps
+    n_of_res_pumps = well.number_of_res_pumps
 
     report = {}
 

@@ -3,7 +3,7 @@ import numpy as np
 
 import maths
 
-log = logging.getLogger('Pompa.classes')
+log = logging.getLogger('Pompa.components')
 unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
 
 
