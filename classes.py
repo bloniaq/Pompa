@@ -138,7 +138,7 @@ class Pipe(StationObject):
         return result
 
 
-class Pump(StationObject):
+class PumpType(StationObject):
     """class for pumps"""
 
     def __init__(self, app):
@@ -182,6 +182,15 @@ class Pump(StationObject):
         pass
 
 
+class Pump():
+
+    def __init__(self, well):
+        self.well = well
+        self.pump_type = well.pump
+
+    def get_work_parameters(self, pump_number):
+
+
 class Well(StationObject):
     """class for well"""
 
@@ -194,6 +203,7 @@ class Well(StationObject):
 
         self.reserve_pumps = None
         self.shape = None
+        self.config = None
         # self.set_shape(self.default['shape'])
         self.diameter = 0
         self.length = 0
@@ -250,7 +260,30 @@ class Well(StationObject):
     def minimal_diameter(self):
         n = self.number_of_pumps() + self.reserve_pumps_number()
         d = self.pump.contour
-        minimal_d = d + 2 * (d / (2 * (np.sin(3.14 / n))))
+        if self.shape == 'round':
+            if self.config == 'optimal':
+                geom_minimal_d = d + 2 * (d / (2 * (np.sin(3.14 / n))))
+            elif self.config == 'singlerow':
+                geom_minimal_d = n * d
+        elif self.shape == 'rectangle':
+            if self.config == 'optimal':
+                short_side = min(self.length, self.width)
+                if short_side == self.length:
+                    self.length, self.width = self.width, self.length
+                rows = short_side // d
+                if n % rows == 0:
+                    pumps_in_row = n / rows
+                else:
+                    pumps_in_row = (n // rows) + 1
+                min_len = pumps_in_row * d
+                min_wid = rows * d
+            elif self.config == 'singlerow':
+                min_len = n * d
+                min_wid = d
+            geom_minimal_d = 2 * ((min_len * min_wid / 3.14) ** (1 / 2))
+        h = 
+        hydr_minimal_d = min_velocity / h
+        minimal_d = max(geom_minimal_d, hydr_minimal_d)
         return minimal_d
 
     def cross_sectional_area(self):
@@ -267,7 +300,7 @@ class Well(StationObject):
 
     # USTALIć WYSOKOŚCI CHARAKTERYSTYCZNE W POMPOWNI
 
-    def velocity_useful(self):
+    def velocity_useful(self, pump_number):
         height = 1
         velocity = height * self.cross_sectional_area()
         return velocity
@@ -278,14 +311,12 @@ class Well(StationObject):
         return velocity
 
     def velocity_dead(self):
-        height = 1
-        velocity = height * self.cross_sectional_area()
+        velocity = self.minimal_sewage_level * self.cross_sectional_area()
         return velocity
 
-    def pump_set_parameters(self, n_of_work_pumps):
+    def pump_set_report(self, n_of_work_pumps):
         for i in range(n_of_work_pumps):
             self.pump.get_work_params()
-        
 
     ##########################
     #   FIGURE FUNCTIONS

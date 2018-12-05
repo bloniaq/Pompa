@@ -79,7 +79,7 @@ def generate_checking_report(well):
         well.velocity_reserve() / well.velocity_whole())
     report['40'] = 'Vm/Vc = {}%\n'.format(
         well.velocity_dead() / well.velocity_whole())
-    report['41'] = well.pump_set_parameters(n_of_work_pumps)
+    report['41'] = well.pump_set_report(n_of_work_pumps)
     '''
     report['41'] = 'PARAMETRY POMPY NR: {}\n'.format()
     report['42'] = 'Rzeczywisty czas cyklu pompy.........T= {} [s]'.format()

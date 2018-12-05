@@ -5,7 +5,7 @@ log = logging.getLogger('Pompa.data')
 
 dan_mode = {'0': 'minimalisation', '1': 'checking', '2': 'optimalisation'}
 dan_shape = {'0': 'rectangle', '1': 'round'}
-dan_configuration = {'0': 'linear', '1': 'optimal'}
+dan_configuration = {'0': 'singlerow', '1': 'optimal'}
 dan_reserve = {'1': 'minimal', '2': 'optimal', '3': 'safe'}
 
 default = {'mode': 'checking',
@@ -15,6 +15,8 @@ default = {'mode': 'checking',
 def well_vars(ins, app):
     ins.shape = v.Logic(app, 'rectangle', 'shape', '2', dan_shape,
                         app.ui_set_shape)
+    ins.config = v.Logic(app, 'singlerow', 'pump_configuration', '3',
+                         dan_configuration, None)
     ins.reserve_pumps = v.Logic(app, 'optimal', 'reserve_pumps', '4',
                                 dan_reserve, None)
     ins.length = v.P_Float(app, 0.0, 'well_length', '6')

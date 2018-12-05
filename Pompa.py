@@ -91,7 +91,7 @@ class Application():
     def create_objects(self):
         self.well = classes.Well(self)
         data.well_vars(self.well, self)
-        self.pump = self.well.pump = classes.Pump(self)
+        self.pump = self.well.pump = classes.PumpType(self)
         data.pump_vars(self.pump, self)
         self.pump.set_flow_unit(
             self.ui_vars.__getitem__('pump_flow_unit').get())
