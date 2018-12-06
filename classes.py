@@ -256,23 +256,9 @@ class Well(StationObject):
         self.diameter = 0
         self.length = 0
         self.width = 0
-        self.minimal_sewage_level = 0
-        self.ord_terrain = 0
-        self.ord_inlet = 0
-        self.ord_outlet = 0
-        self.ord_bottom = 0
-        self.difference_in_start = 0
-        self.ord_highest_point = 0
-        self.ord_upper_level = 0
-        self.inflow_max = None
-        self.inflow_min = None
 
         self.pumpset = None
         self.number_of_pumps = 0
-
-    ##########################
-    #   INITIAL FUNCTIONS
-    ##########################
 
     def set_shape(self, shape):
         self.ui_vars.__getitem__('shape').set(shape)
@@ -290,11 +276,6 @@ class Well(StationObject):
             length.configure(state='normal')
             width.configure(state='normal')
         log.debug('changed shape to {}'.format(shape))
-
-    def height_to_pump(self):
-        ord_sewage_level = self.ord_inlet.value - 1.2
-        result = self.ord_upper_level.value - ord_sewage_level
-        return result
 
     ##########################
     #   CALCULATION FUNCTIONS

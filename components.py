@@ -1,7 +1,10 @@
+# libraries
 import logging
 import numpy as np
 
+# modules
 import maths
+import variables
 
 log = logging.getLogger('Pompa.components')
 unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
@@ -166,6 +169,12 @@ class PumpType(StationObject):
             type(self.efficiency_from)))
         self.characteristic.set_unit(unit)
 
+    def max_pump_efficiency(self):
+        max_eff_val = (self.efficiency_to.value_liters -
+                       self.efficiency_from.value_liters) / 2
+        max_eff = variables.VFlow(max_eff_val, 'liters')
+        return max_eff
+
     def pump_char_ready(self):
         flag = False
         if len(self.characteristic.coords) > 2:
@@ -204,11 +213,22 @@ class PumpSet():
             ordinate = ord_start + i * self.one_pump_h
             self.start_ord_list.append(ordinate)
 
-    def get_start_parameters(self, pump_number):
-        pass
-
-    def get_final_parameters(self, number_of_pumps):
-        pass
+    def get_parameters(self, n_of_starting_pump):
+        r = ''
+        if n_of_starting_pump <= self.n_of_pumps:
+            r += 'Parametry poczatkowe pracy zespolu pomp\n'
+            r += 'w chwili wlaczenia pompy nr{}\n\n'.format(n_of_starting_pump)
+        else:
+            r += 'Parametry końcowe pracy zespolu pomp\n\n'
+        r += '-wys. lc. u wylotu pompy...........Hlc= {} [m]\n'.format()
+        r += '-geometryczna wys. podnoszenia.......H= {} [m]\n'.format()
+        r += '-wydatek.............................Q= {} [l/s]\n'.format()
+        r += '-predkosc w kolektorze tlocznym......v= {} [m/s]\n'.format()
+        r += '-predkosc w przewodach w pompowni....v= {} [m/s]\n'.format()
+        if n_of_starting_pump <= self.n_of_pumps:
+            r += ('-zapas wysokosci cisnienia..........dh= '
+                  '{} [m sł.wody]\n\n'.format())
+        return r
 
 
 class Pump():
@@ -256,23 +276,6 @@ class Well(StationObject):
         self.diameter = 0
         self.length = 0
         self.width = 0
-        self.minimal_sewage_level = 0
-        self.ord_terrain = 0
-        self.ord_inlet = 0
-        self.ord_outlet = 0
-        self.ord_bottom = 0
-        self.difference_in_start = 0
-        self.ord_highest_point = 0
-        self.ord_upper_level = 0
-        self.inflow_max = None
-        self.inflow_min = None
-
-        self.pumpset = None
-        self.number_of_pumps = 0
-
-    ##########################
-    #   INITIAL FUNCTIONS
-    ##########################
 
     def set_shape(self, shape):
         self.ui_vars.__getitem__('shape').set(shape)
@@ -290,41 +293,6 @@ class Well(StationObject):
             length.configure(state='normal')
             width.configure(state='normal')
         log.debug('changed shape to {}'.format(shape))
-
-    def height_to_pump(self):
-        ord_sewage_level = self.ord_inlet.value - 1.2
-        result = self.ord_upper_level.value - ord_sewage_level
-        return result
-
-    ##########################
-    #   CALCULATION FUNCTIONS
-    ##########################
-
-    def number_of_pumps(self):
-        """Sets number of work pumps, based on min and max inflow, and pump
-        efficiency"""
-        max_pump_eff = (self.pump_type.efficiency_to.value_liters -
-                        self.pump_type.efficiency_from.value_liters) / 2
-        if max_pump_eff < self.inflow_min.value_liters:
-            # WYŚWIETL BŁĄD PRZERWIJ LICZENIE
-            return 0
-        number_of_pumps = (1.25 * self.inflow_max.value_liters) / max_pump_eff
-        self.number_of_pumps = number_of_pumps
-        self.pumpset = PumpSet(self)
-        return number_of_pumps
-
-    def reserve_pumps_number(self):
-        if self.reserve_pumps == 'minimal':
-            n_of_res_pumps = 1
-        elif self.reserve_pumps == 'optimal':
-            if self.number_of_pumps % 2 == 0:
-                n_of_res_pumps = int(self.number_of_pumps / 2)
-            else:
-                n_of_res_pumps = int(self.number_of_pumps / 2) + 1
-        elif self.reserve_pumps == 'safe':
-            n_of_res_pumps = self.number_of_pumps
-        self.number_of_res_pumps = n_of_res_pumps
-        return n_of_res_pumps
 
     def minimal_diameter(self):
         n = self.number_of_pumps() + self.reserve_pumps_number()
@@ -362,68 +330,3 @@ class Well(StationObject):
         elif self.shape == 'round':
             area = 3.14 * ((self.diameter / 2) ** 2)
         return area
-
-    def velocity_whole(self):
-        height = self.ord_terrain = self.ord_bottom
-        velocity = height * self.cross_sectional_area()
-        return velocity
-
-    # USTALIć WYSOKOŚCI CHARAKTERYSTYCZNE W POMPOWNI
-
-    def velocity_useful(self, pump_number):
-        height = 1
-        velocity = height * self.cross_sectional_area()
-        return velocity
-
-    def velocity_reserve(self):
-        height = 1
-        velocity = height * self.cross_sectional_area()
-        return velocity
-
-    def velocity_dead(self):
-        velocity = self.minimal_sewage_level * self.cross_sectional_area()
-        return velocity
-
-    ##########################
-    #   FIGURE FUNCTIONS
-    ##########################
-
-    def get_x_axis(self, unit):
-        if unit == 'meters':
-            inflow_val_min = self.inflow_min.value_meters
-            inflow_val_max = self.inflow_max.value_meters
-            eff_from = self.pump_type.efficiency_from.value_meters
-            eff_to = self.pump_type.efficiency_to.value_meters
-        elif unit == 'liters':
-            inflow_val_min = self.inflow_min.value_liters
-            inflow_val_max = self.inflow_max.value_liters
-            eff_from = self.pump_type.efficiency_from.value_liters
-            eff_to = self.pump_type.efficiency_to.value_liters
-        x_min = min(inflow_val_min - 3, eff_from - 3)
-        if x_min < 0:
-            x_min = 0
-        x_max = max(inflow_val_max + 3, eff_to + 3)
-        return np.linspace(x_min, 1.5 * x_max, 200)
-
-    def pipes_ready(self):
-        log.debug('Are pipes ready?')
-        flag = True
-        if not self.discharge_pipe.pipe_char_ready():
-            flag = False
-        log.debug(flag)
-        if not self.collector.pipe_char_ready():
-            flag = False
-        log.debug(flag)
-        return flag
-
-    def draw_pipes_plot(self, x_lin, unit):
-        log.debug('Starting draw_pipes_plot')
-        flows, _ = self.pump_type.characteristic.get_pump_char_func()
-        geom_loss = self.height_to_pump()
-        discharge_y = self.discharge_pipe.get_y_coords(flows, unit)
-        collector_y = self.collector.get_y_coords(flows, unit)
-        pipes_char = []
-        for i in range(len(flows)):
-            pipes_char.append(geom_loss + discharge_y[i] + collector_y[i])
-        y = maths.fit_coords(flows, pipes_char, 1)
-        return x_lin, y(x_lin), 'g-'

@@ -1,7 +1,17 @@
 import logging
 import numpy as np
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.figure import Figure
+from matplotlib.ticker import MultipleLocator
 
 log = logging.getLogger('Pompa.maths')
+
+
+def init_figures(fcontainer):
+    fig = Figure(figsize=(4.2, 5.1), dpi=100)
+    plot = fig.add_subplot(111)
+    canvas = FigureCanvasTkAgg(fig, master=fcontainer)
+    return fig, plot, canvas
 
 
 def fit_coords(xcoords, ycoords, degree):

@@ -78,12 +78,7 @@ def generate_checking_report(well):
         well.velocity_dead() / well.velocity_whole())
     report['41'] = well.pump_set_report(n_of_work_pumps)
     '''
-    report['41'] = 'PARAMETRY POMPY NR: {}\n'.format()
-    report['42'] = 'Rzeczywisty czas cyklu pompy.........T= {} [s]'.format()
-    report['43'] = 'Rzeczywisty czas postoju pompy......Tp= {} [s]'.format()
-    report['44'] = 'Rzeczywisty czas pracy pompy........Tr= {} [s]'.format()
-    report['45'] = 'Obj. uzyt. wyzn. przez pompe........Vu= {} [m3]'.format()
-    report['46'] = 'Rzedna wlaczenia pompy................  {} [m]\n'.format()
+    
     report['47'] = 'Parametry poczatkowe pracy zespolu pomp'
     report['48'] = 'w chwili wlaczenia pompy nr{}\n'.format()
     report['49'] = '-wys. lc. u wylotu pompy...........Hlc= {} [m]'.format()

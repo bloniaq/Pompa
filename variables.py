@@ -58,10 +58,6 @@ class Numeric(Variable):
         super().__init__(app, ui_variable, dan_id)
         self.value = value
         self.set_trace('value')
-        '''
-        if chart_req:
-            self.ui_var.trace('w', app.draw_figure)
-        '''
 
     def __repr__(self):
         try:
@@ -250,12 +246,6 @@ class Flow(Variable):
             self.unit_var.set('liters')
             super().load_data(data_dict)
 
-    def get_meters(self):
-        if self.unit == 'meters':
-            return self.value
-        else:
-            return self.value * 3.6
-
 
 class PumpCharFlow(Flow):
 
@@ -272,6 +262,16 @@ class PumpCharFlow(Flow):
 
     def __setattr__(self, attr, value):
         self.__dict__[attr] = value
+
+
+class VFlow(PumpCharFlow):
+
+    def __init__(self, value, unit):
+        self.value = value
+        self.unit = unit
+        self.value_meters = 0
+        self.value_liters = 0
+        self.get_both_vals(value, unit)
 
 
 class PumpCharacteristic(Variable):

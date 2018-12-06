@@ -1,10 +1,4 @@
 import tkinter as tk  # for python 3
-'''
-try:
-    import tkinter as tk  # for python 3
-except:
-    import Tkinter as tk  # for python
-'''
 import pygubu
 import logging
 import numpy as np
@@ -15,8 +9,6 @@ import maths
 import data
 import output
 
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
-from matplotlib.figure import Figure
 from matplotlib.ticker import MultipleLocator
 
 variables_list = []
@@ -24,32 +16,24 @@ path = ""
 
 # LOGGING CONFIGURATION
 
-# clearing root logger handlers
 log = logging.getLogger()
 log.handlers = []
 
-# setting new logger
 log = logging.getLogger('Pompa')
 log.setLevel(logging.DEBUG)
 
-# create console and file handler
 ch = logging.StreamHandler()
 ch.setLevel(logging.DEBUG)
 fh = logging.FileHandler('logfile.log', 'w', 'utf-8')
 fh.setLevel(logging.DEBUG)
 
-# create formatter
 formatter = logging.Formatter(
     '%(asctime)s-%(name)s-%(levelname)s: %(message)s',
     datefmt='%H:%M:%S')
 
-#    datefmt='%Y.%m.%d %H:%M:%S')
-
-# add formatter to ch and fh
 ch.setFormatter(formatter)
 fh.setFormatter(formatter)
 
-# add ch to logger
 log.addHandler(ch)
 log.addHandler(fh)
 
@@ -72,44 +56,43 @@ class Application():
         self.filepath = self.builder.get_object('filepath')
         self.ui_vars = self.builder.tkvariables
 
-        fcontainer = self.builder.get_object('Frame_Chart')
-
-        self.figure = fig = Figure(figsize=(4.2, 5.1), dpi=100)
-        self.plot = self.figure.add_subplot(111)
-        self.canvas = canvas = FigureCanvasTkAgg(fig, master=fcontainer)
-        canvas.get_tk_widget().grid(row=0, column=0)
-
         # 4: Setting callbacks
         self.builder.connect_callbacks(self)
 
         # 5: creating objects
-
-        self.create_objects()
+        self.init_objects()
         self.set_mode(self.default['mode'])
+
+        # 6: Initialize Figure objects
+        fcontainer = self.builder.get_object('Frame_Chart')
+        self.figure, self.plot, self.canvas = maths.init_figures(fcontainer)
+        self.canvas.get_tk_widget().grid(row=0, column=0)
+
+    def init_objects(self):
+        self.station = station.Station(self)
+        data.station_vars(self)
+        self.well = self.station.well = components.Well(self)
+        data.well_vars(self)
+        self.pump_type = self.station.pump_type = components.PumpType(self)
+        data.pump_vars(self)
+        self.pump_type.set_flow_unit(
+            self.ui_vars.__getitem__('pump_flow_unit').get())
+        self.d_pipe = self.station.d_pipe = components.Pipe(self)
+        data.discharge_pipe_vars(self)
+        self.collector = self.station.collector = components.Pipe(self)
+        data.collector_vars(self)
 
     def run(self):
         self.mainwindow.mainloop()
 
     def calculate(self):
         if self.mode == 'checking':
-            self.well.calculate()
-            output = output.generate_checking_report(self.well)
-        self.generate_report(output)
+            self.station.calculate()
+            out_data = output.generate_checking_report(self.well)
+        self.generate_report(out_data)
 
     def generate_report(self, output):
         pass
-
-    def create_objects(self):
-        self.well = components.Well(self)
-        data.well_vars(self.well, self)
-        self.pump = self.well.pump_type = components.PumpType(self)
-        data.pump_vars(self.pump, self)
-        self.pump.set_flow_unit(
-            self.ui_vars.__getitem__('pump_flow_unit').get())
-        self.discharge_pipe = self.well.discharge_pipe = components.Pipe(self)
-        data.discharge_pipe_vars(self.discharge_pipe, self)
-        self.collector = self.well.collector = components.Pipe(self)
-        data.collector_vars(self.collector, self)
 
     def load_data(self):
         log.info('\ndata_load started\n')
@@ -121,41 +104,13 @@ class Application():
             first_line = file.readline()
             # rozpoznanie wersji zapisu
             if first_line[0] == '1' and first_line[1] == ')':
-                data_dictionary = self.dan_data_dictionary(path)
+                data_dictionary = data.get_data_dict_from_dan_file(path)
+        self.station.load_data(data_dictionary)
         self.well.load_data(data_dictionary)
-        self.discharge_pipe.load_data(data_dictionary)
+        self.d_pipe.load_data(data_dictionary)
         self.collector.load_data(data_dictionary)
-        self.pump.load_data(data_dictionary)
+        self.pump_type.load_data(data_dictionary)
         self.draw_figure()
-
-    def dan_data_dictionary(self, path):
-        log.info('\ndan_load started\n')
-        log.info('plik danych generowany wersją 1.0 aplikacji')
-        data_dictionary = {}
-        with open(path, 'r+') as file:
-            log.info('opening file: {0}\n\n'.format(str(file)))
-            for line in file:
-                id_line, line_datas = line.split(')')
-                line_datas_list = line_datas.split()
-                stored_value = line_datas_list[0]
-                log.debug('id: {}, stored value: {}'.format(
-                    id_line, stored_value))
-                if id_line not in data_dictionary:
-                    data_dictionary[id_line] = []
-                data_dictionary[id_line].append(stored_value)
-                log.debug('dan_id: {}, value: {}'.format(
-                    id_line, data_dictionary[id_line]))
-            log.debug('dictionary in progress: {}'.format(data_dictionary))
-            for id_ in data_dictionary:
-                if len(data_dictionary[id_]) == 1:
-                    data_dictionary[id_] = data_dictionary[id_][0]
-                    data_dictionary[id_] = float(data_dictionary[id_])
-                    # expand for exceptions, make floats
-                else:
-                    data_dictionary[id_] = [float(s)
-                                            for s in data_dictionary[id_]]
-            log.debug('dictionary at finish: {}'.format(data_dictionary))
-            return data_dictionary
 
     def ui_set_shape(self):
         shape = self.ui_vars.__getitem__('shape').get()
@@ -184,7 +139,7 @@ class Application():
     def set_pump_flow_unit(self):
         log.info('set_pump_flow_unit started')
         current_setting = self.ui_vars.__getitem__('pump_flow_unit').get()
-        self.pump.set_flow_unit(current_setting)
+        self.pump_type.set_flow_unit(current_setting)
         log.debug('going to draw figure')
         self.draw_figure()
 
@@ -196,19 +151,19 @@ class Application():
         lift_entry = self.builder.get_object('Entry_Add_char_point_lift')
         lift_value = lift_entry.get()
         lift_entry.delete(0, 'end')
-        self.pump.characteristic.add_point(flow_value, lift_value)
-        self.pump.characteristic.sort_points()
+        self.pump_type.characteristic.add_point(flow_value, lift_value)
+        self.pump_type.characteristic.sort_points()
         self.draw_figure()
 
     def pump_delete_point(self):
         log.info('pump_delete_button started')
-        deleted_id = self.pump.characteristic.tree.focus()
+        deleted_id = self.pump_type.characteristic.tree.focus()
         if deleted_id != '':
-            self.pump.characteristic.delete_point(deleted_id)
+            self.pump_type.characteristic.delete_point(deleted_id)
         self.draw_figure()
 
     def print_values(self):
-        objects = [self.well, self.pump, self.discharge_pipe, self.collector]
+        objects = [self.well, self.pump_type, self.d_pipe, self.collector]
         for object_ in objects:
             log.debug(object_)
             for attr in object_.__dict__:
@@ -222,17 +177,17 @@ class Application():
         self.plot.clear()
         self.canvas.draw()
         unit = self.ui_vars.__getitem__('pump_flow_unit').get()
-        x = self.well.get_x_axis(unit)
-        if self.pump.pump_char_ready():
-            x, y_pump, l_pump = self.pump.draw_pump_plot(x)
+        x = self.station.get_x_axis(unit)
+        if self.pump_type.pump_char_ready():
+            x, y_pump, l_pump = self.pump_type.draw_pump_plot(x)
             self.plot.plot(x, y_pump, l_pump, label='char. pompy')
-        if self.well.pipes_ready():
+        if self.station.pipes_ready():
             log.debug('Trying to drawing pipes plot')
-            x, y_pipe, l_pipe = self.well.draw_pipes_plot(x, unit)
+            x, y_pipe, l_pipe = self.station.draw_pipes_plot(x, unit)
             log.debug('x: {}, y: {}, look: {}'.format(x, y_pipe, l_pipe))
             self.plot.plot(
                 x, y_pipe, l_pipe, label='char. przewodów')
-        if self.pump.pump_char_ready() and self.well.pipes_ready():
+        if self.pump_type.pump_char_ready() and self.station.pipes_ready():
             try:
                 intersection_f = maths.work_point(y_pump, y_pipe)
                 self.plot.plot(x[intersection_f], y_pump[intersection_f], 'ro',
@@ -269,9 +224,9 @@ class Application():
         self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
         self.plot.grid(True, 'major', linestyle='--')
         try:
-            eff_from_x = self.pump.efficiency_from.value
+            eff_from_x = self.pump_type.efficiency_from.value
             eff_from_y = maths.interp(eff_from_x, x, y_pump)
-            eff_to_x = self.pump.efficiency_to.value
+            eff_to_x = self.pump_type.efficiency_to.value
             eff_to_y = maths.interp(eff_to_x, x, y_pump)
             self.plot.plot([eff_from_x, eff_from_x], [-100, eff_from_y], 'r--')
             self.plot.plot([eff_to_x, eff_to_x], [-100, eff_to_y], 'r--',
