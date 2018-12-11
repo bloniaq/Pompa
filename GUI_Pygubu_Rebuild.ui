@@ -424,7 +424,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="exportselection">true</property>
                                 <property name="justify">right</property>
                                 <property name="textvariable">double:well_diameter</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -448,7 +448,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="justify">right</property>
                                 <property name="state">disabled</property>
                                 <property name="textvariable">double:well_length</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -472,7 +472,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="justify">right</property>
                                 <property name="state">disabled</property>
                                 <property name="textvariable">double:well_width</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -596,7 +596,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="exportselection">false</property>
                                 <property name="justify">right</property>
                                 <property name="textvariable">double:ordinate_terrain</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -610,7 +610,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="exportselection">false</property>
                                 <property name="justify">right</property>
                                 <property name="textvariable">double:ordinate_outlet</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -624,7 +624,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="exportselection">false</property>
                                 <property name="justify">right</property>
                                 <property name="textvariable">double:ordinate_inlet</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -638,7 +638,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="exportselection">false</property>
                                 <property name="justify">right</property>
                                 <property name="textvariable">double:ordinate_bottom</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -651,7 +651,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               <object class="ttk.Entry" id="Entry_Ordinate_highest_point">
                                 <property name="justify">right</property>
                                 <property name="textvariable">double:ordinate_highest_point</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -665,7 +665,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                 <property name="exportselection">false</property>
                                 <property name="justify">right</property>
                                 <property name="textvariable">double:ordinate_final_table</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -690,7 +690,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               <object class="ttk.Entry" id="Entry_Difference_in_start">
                                 <property name="justify">right</property>
                                 <property name="textvariable">double:difference_in_start</property>
-                                <property name="width">5</property>
+                                <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
                                   <property name="propagate">True</property>
@@ -3310,12 +3310,19 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                     </layout>
                     <child>
                       <object class="tk.Text" id="Text_Report">
-                        <property name="height">37</property>
-                        <property name="text" translatable="yes">Text_2</property>
-                        <property name="width">40</property>
+                        <property name="blockcursor">true</property>
+                        <property name="font">{Lucida Console} 8 {}</property>
+                        <property name="height">54</property>
+                        <property name="insertunfocussed">hollow</property>
+                        <property name="maxundo">0</property>
+                        <property name="relief">groove</property>
+                        <property name="selectborderwidth">0</property>
+                        <property name="state">normal</property>
+                        <property name="text" translatable="yes">Raport</property>
+                        <property name="width">56</property>
                         <layout>
                           <property name="column">0</property>
-                          <property name="propagate">False</property>
+                          <property name="propagate">True</property>
                           <property name="row">0</property>
                           <property name="sticky">nw</property>
                         </layout>
@@ -3325,7 +3332,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       <object class="ttk.Frame" id="Frame_Report_Figure">
                         <property name="height">600</property>
                         <property name="relief">groove</property>
-                        <property name="width">550</property>
+                        <property name="width">500</property>
                         <layout>
                           <property name="column">1</property>
                           <property name="propagate">True</property>
@@ -3381,6 +3388,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
         </child>
         <child>
           <object class="ttk.Button" id="But_Calculate">
+            <property name="command">calculate</property>
             <property name="text" translatable="yes">Przelicz</property>
             <layout>
               <property name="column">4</property>

@@ -1,55 +1,2052 @@
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-INFO: conversion func starts
-15:36:58-Pompa.variables-INFO: old value: 0.0
-15:36:58-Pompa.variables-INFO: no need to conversion
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-INFO: conversion func starts
-15:36:58-Pompa.variables-INFO: old value: 0.0
-15:36:58-Pompa.variables-INFO: no need to conversion
-15:36:58-Pompa.components-INFO: set_flow_unit started
-15:36:58-Pompa.components-INFO: self.efficiency_from type: <class 'variables.Flow'>
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-DEBUG: trying to convert:  to floats list
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
-15:36:58-Pompa.variables-DEBUG: trying to convert:  to floats list
-15:36:58-Pompa-INFO: changed mode: checking
-15:37:04-Pompa-INFO: changed mode: minimalisation
-15:37:05-Pompa-INFO: changed mode: optimalisation
-15:38:24-Pompa-INFO: 
+20:51:50-Pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
+20:51:50-Pompa-INFO: changed mode: checking
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-INFO: conversion func starts
+20:51:50-Pompa.variables-INFO: old value: 0.0
+20:51:50-Pompa.variables-INFO: no need to conversion
+20:51:50-Pompa.components-DEBUG: started setting shape
+20:51:50-Pompa.components-DEBUG: new shape: rectangle
+20:51:50-Pompa.components-DEBUG: changed shape to rectangle
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-INFO: conversion func starts
+20:51:50-Pompa.variables-INFO: old value: 0.0
+20:51:50-Pompa.variables-INFO: no need to conversion
+20:51:50-Pompa.components-INFO: set_flow_unit started
+20:51:50-Pompa.components-INFO: self.efficiency_from type: <class 'variables.Flow'>
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-DEBUG: trying to convert:  to floats list
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-ERROR: Error 'Application' object has no attribute 'rep_plot'
+20:51:50-Pompa.variables-DEBUG: trying to convert:  to floats list
+20:52:03-Pompa-INFO: 
 data_load started
 
-15:38:33-Pompa-INFO: 
-data_load started
-
-15:38:33-Pompa-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Pompa/STAND.DAN' mode='r+' encoding='cp1250'>
+20:52:03-Pompa-DEBUG: path: E:/# PROGRAMOWANIE/Pompa/InOut Examples/0_STAND.DAN
+20:52:03-Pompa-INFO: opening file: <_io.TextIOWrapper name='E:/# PROGRAMOWANIE/Pompa/InOut Examples/0_STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-15:40:03-Pompa-INFO: 
-data_load started
+20:52:03-Pompa.data-INFO: 
+dan_load started
 
-15:40:03-Pompa-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Pompa/STAND.DAN' mode='r+' encoding='cp1250'>
-
-
-15:40:27-Pompa-INFO: 
-data_load started
-
-15:40:27-Pompa-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Pompa/InOut Examples/0_STAND.DAN' mode='r+' encoding='cp1250'>
+20:52:03-Pompa.data-INFO: plik danych generowany wersją 1.0 aplikacji
+20:52:03-Pompa.data-INFO: opening file: <_io.TextIOWrapper name='E:/# PROGRAMOWANIE/Pompa/InOut Examples/0_STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-15:42:41-Pompa.components-DEBUG: started setting shape
-15:42:41-Pompa.components-DEBUG: new shape: round
-15:42:41-Pompa.components-DEBUG: changed shape to round
-15:42:45-Pompa.components-DEBUG: started setting shape
-15:42:45-Pompa.components-DEBUG: new shape: rectangle
-15:42:45-Pompa.components-DEBUG: changed shape to rectangle
-15:42:47-Pompa.components-DEBUG: started setting shape
-15:42:47-Pompa.components-DEBUG: new shape: round
-15:42:47-Pompa.components-DEBUG: changed shape to round
+20:52:03-Pompa.data-DEBUG: id: 1, stored value: 0
+20:52:03-Pompa.data-DEBUG: dan_id: 1, value: ['0']
+20:52:03-Pompa.data-DEBUG: id: 2, stored value: 1
+20:52:03-Pompa.data-DEBUG: dan_id: 2, value: ['1']
+20:52:03-Pompa.data-DEBUG: id: 3, stored value: 0
+20:52:03-Pompa.data-DEBUG: dan_id: 3, value: ['0']
+20:52:03-Pompa.data-DEBUG: id: 4, stored value: 1
+20:52:03-Pompa.data-DEBUG: dan_id: 4, value: ['1']
+20:52:03-Pompa.data-DEBUG: id: 5, stored value: .95
+20:52:03-Pompa.data-DEBUG: dan_id: 5, value: ['.95']
+20:52:03-Pompa.data-DEBUG: id: 9, stored value: .30
+20:52:03-Pompa.data-DEBUG: dan_id: 9, value: ['.30']
+20:52:03-Pompa.data-DEBUG: id: 10, stored value: 145.00
+20:52:03-Pompa.data-DEBUG: dan_id: 10, value: ['145.00']
+20:52:03-Pompa.data-DEBUG: id: 11, stored value: 143.80
+20:52:03-Pompa.data-DEBUG: dan_id: 11, value: ['143.80']
+20:52:03-Pompa.data-DEBUG: id: 12, stored value: 140.00
+20:52:03-Pompa.data-DEBUG: dan_id: 12, value: ['140.00']
+20:52:03-Pompa.data-DEBUG: id: 13, stored value: 138.38
+20:52:03-Pompa.data-DEBUG: dan_id: 13, value: ['138.38']
+20:52:03-Pompa.data-DEBUG: id: 14, stored value: .00
+20:52:03-Pompa.data-DEBUG: dan_id: 14, value: ['.00']
+20:52:03-Pompa.data-DEBUG: id: 15, stored value: 148.00
+20:52:03-Pompa.data-DEBUG: dan_id: 15, value: ['148.00']
+20:52:03-Pompa.data-DEBUG: id: 16, stored value: 148.00
+20:52:03-Pompa.data-DEBUG: dan_id: 16, value: ['148.00']
+20:52:03-Pompa.data-DEBUG: id: 17, stored value: 2.60
+20:52:03-Pompa.data-DEBUG: dan_id: 17, value: ['2.60']
+20:52:03-Pompa.data-DEBUG: id: 18, stored value: 1.20
+20:52:03-Pompa.data-DEBUG: dan_id: 18, value: ['1.20']
+20:52:03-Pompa.data-DEBUG: id: 19, stored value: 1
+20:52:03-Pompa.data-DEBUG: dan_id: 19, value: ['1']
+20:52:03-Pompa.data-DEBUG: id: 20, stored value: 50
+20:52:03-Pompa.data-DEBUG: dan_id: 20, value: ['50']
+20:52:03-Pompa.data-DEBUG: id: 21, stored value: 0
+20:52:03-Pompa.data-DEBUG: dan_id: 21, value: ['0']
+20:52:03-Pompa.data-DEBUG: id: 28, stored value: 7
+20:52:03-Pompa.data-DEBUG: dan_id: 28, value: ['7']
+20:52:03-Pompa.data-DEBUG: id: 29, stored value: 150.0
+20:52:03-Pompa.data-DEBUG: dan_id: 29, value: ['150.0']
+20:52:03-Pompa.data-DEBUG: id: 30, stored value: .08
+20:52:03-Pompa.data-DEBUG: dan_id: 30, value: ['.08']
+20:52:03-Pompa.data-DEBUG: id: 31, stored value: 1
+20:52:03-Pompa.data-DEBUG: dan_id: 31, value: ['1']
+20:52:03-Pompa.data-DEBUG: id: 32, stored value: .46
+20:52:03-Pompa.data-DEBUG: dan_id: 32, value: ['.46']
+20:52:03-Pompa.data-DEBUG: id: 33, stored value: 11.0
+20:52:03-Pompa.data-DEBUG: dan_id: 33, value: ['11.0']
+20:52:03-Pompa.data-DEBUG: id: 34, stored value: 22.0
+20:52:03-Pompa.data-DEBUG: dan_id: 34, value: ['22.0']
+20:52:03-Pompa.data-DEBUG: id: 35, stored value: 8.0
+20:52:03-Pompa.data-DEBUG: dan_id: 35, value: ['8.0']
+20:52:03-Pompa.data-DEBUG: id: 36, stored value: 11
+20:52:03-Pompa.data-DEBUG: dan_id: 36, value: ['11']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 69.4
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 38.9
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 36.1
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 33.3
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1', '33.3']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 30.6
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1', '33.3', '30.6']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 27.8
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1', '33.3', '30.6', '27.8']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 25.0
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1', '33.3', '30.6', '27.8', '25.0']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 22.2
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1', '33.3', '30.6', '27.8', '25.0', '22.2']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 19.4
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1', '33.3', '30.6', '27.8', '25.0', '22.2', '19.4']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: 16.7
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1', '33.3', '30.6', '27.8', '25.0', '22.2', '19.4', '16.7']
+20:52:03-Pompa.data-DEBUG: id: 37, stored value: .0
+20:52:03-Pompa.data-DEBUG: dan_id: 37, value: ['69.4', '38.9', '36.1', '33.3', '30.6', '27.8', '25.0', '22.2', '19.4', '16.7', '.0']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: .0
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 12.0
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 13.0
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 13.8
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0', '13.8']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 14.6
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0', '13.8', '14.6']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 15.3
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0', '13.8', '14.6', '15.3']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 16.0
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0', '13.8', '14.6', '15.3', '16.0']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 16.8
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0', '13.8', '14.6', '15.3', '16.0', '16.8']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 17.5
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0', '13.8', '14.6', '15.3', '16.0', '16.8', '17.5']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 18.0
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0', '13.8', '14.6', '15.3', '16.0', '16.8', '17.5', '18.0']
+20:52:03-Pompa.data-DEBUG: id: 38, stored value: 21.3
+20:52:03-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '12.0', '13.0', '13.8', '14.6', '15.3', '16.0', '16.8', '17.5', '18.0', '21.3']
+20:52:03-Pompa.data-DEBUG: id: 39, stored value: 23.5
+20:52:03-Pompa.data-DEBUG: dan_id: 39, value: ['23.5']
+20:52:03-Pompa.data-DEBUG: id: 40, stored value: 37.0
+20:52:03-Pompa.data-DEBUG: dan_id: 40, value: ['37.0']
+20:52:03-Pompa.data-DEBUG: id: 41, stored value: 1
+20:52:03-Pompa.data-DEBUG: dan_id: 41, value: ['1']
+20:52:03-Pompa.data-DEBUG: id: 42, stored value: 732.0
+20:52:03-Pompa.data-DEBUG: dan_id: 42, value: ['732.0']
+20:52:03-Pompa.data-DEBUG: id: 43, stored value: 200.0
+20:52:03-Pompa.data-DEBUG: dan_id: 43, value: ['200.0']
+20:52:03-Pompa.data-DEBUG: id: 44, stored value: .05
+20:52:03-Pompa.data-DEBUG: dan_id: 44, value: ['.05']
+20:52:03-Pompa.data-DEBUG: id: 45, stored value: 1
+20:52:03-Pompa.data-DEBUG: dan_id: 45, value: ['1']
+20:52:03-Pompa.data-DEBUG: id: 46, stored value: .00
+20:52:03-Pompa.data-DEBUG: dan_id: 46, value: ['.00']
+20:52:03-Pompa.data-DEBUG: dictionary in progress: {'1': ['0'], '2': ['1'], '3': ['0'], '4': ['1'], '5': ['.95'], '9': ['.30'], '10': ['145.00'], '11': ['143.80'], '12': ['140.00'], '13': ['138.38'], '14': ['.00'], '15': ['148.00'], '16': ['148.00'], '17': ['2.60'], '18': ['1.20'], '19': ['1'], '20': ['50'], '21': ['0'], '28': ['7'], '29': ['150.0'], '30': ['.08'], '31': ['1'], '32': ['.46'], '33': ['11.0'], '34': ['22.0'], '35': ['8.0'], '36': ['11'], '37': ['69.4', '38.9', '36.1', '33.3', '30.6', '27.8', '25.0', '22.2', '19.4', '16.7', '.0'], '38': ['.0', '12.0', '13.0', '13.8', '14.6', '15.3', '16.0', '16.8', '17.5', '18.0', '21.3'], '39': ['23.5'], '40': ['37.0'], '41': ['1'], '42': ['732.0'], '43': ['200.0'], '44': ['.05'], '45': ['1'], '46': ['.00']}
+20:52:03-Pompa.data-DEBUG: dictionary at finish: {'1': 0.0, '2': 1.0, '3': 0.0, '4': 1.0, '5': 0.95, '9': 0.3, '10': 145.0, '11': 143.8, '12': 140.0, '13': 138.38, '14': 0.0, '15': 148.0, '16': 148.0, '17': 2.6, '18': 1.2, '19': 1.0, '20': 50.0, '21': 0.0, '28': 7.0, '29': 150.0, '30': 0.08, '31': 1.0, '32': 0.46, '33': 11.0, '34': 22.0, '35': 8.0, '36': 11.0, '37': [69.4, 38.9, 36.1, 33.3, 30.6, 27.8, 25.0, 22.2, 19.4, 16.7, 0.0], '38': [0.0, 12.0, 13.0, 13.8, 14.6, 15.3, 16.0, 16.8, 17.5, 18.0, 21.3], '39': 23.5, '40': 37.0, '41': 1.0, '42': 732.0, '43': 200.0, '44': 0.05, '45': 1.0, '46': 0.0}
+20:52:03-Pompa.components-DEBUG: loading app for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading builder for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading ui_vars for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading well for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: Has no <.> in attr
+20:52:03-Pompa.components-DEBUG: loading d_pipe for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: Has no <.> in attr
+20:52:03-Pompa.components-DEBUG: loading coll for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading pump_type for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: Has no <.> in attr
+20:52:03-Pompa.components-DEBUG: loading pump_set for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading pumps for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading minimal_sewage_level for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: minimal_sewage_level has dan_id
+20:52:03-Pompa.components-DEBUG: loading ord_terrain for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: ord_terrain has dan_id
+20:52:03-Pompa.components-DEBUG: loading ord_inlet for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: ord_inlet has dan_id
+20:52:03-Pompa.components-DEBUG: loading ord_outlet for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: ord_outlet has dan_id
+20:52:03-Pompa.components-DEBUG: loading ord_bottom for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: ord_bottom has dan_id
+20:52:03-Pompa.components-DEBUG: loading difference_in_start for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: difference_in_start has dan_id
+20:52:03-Pompa.components-DEBUG: loading ord_highest_point for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: ord_highest_point has dan_id
+20:52:03-Pompa.components-DEBUG: loading ord_upper_level for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: ord_upper_level has dan_id
+20:52:03-Pompa.components-DEBUG: loading inflow_max for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: inflow_max has dan_id
+20:52:03-Pompa.variables-INFO: conversion func starts
+20:52:03-Pompa.variables-INFO: old value: 0.0
+20:52:03-Pompa.variables-DEBUG: 0.0 / 3.6 = 0.0
+20:52:03-Pompa.variables-INFO: new value: 0.0
+20:52:03-Pompa.variables-INFO: conversion func starts
+20:52:03-Pompa.variables-INFO: old value: 0.0
+20:52:03-Pompa.variables-DEBUG: 0.0 / 3.6 = 0.0
+20:52:03-Pompa.variables-INFO: new value: 0.0
+20:52:03-Pompa.components-DEBUG: loading inflow_min for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: inflow_min has dan_id
+20:52:03-Pompa.variables-INFO: conversion func starts
+20:52:03-Pompa.variables-INFO: old value: 22.0
+20:52:03-Pompa.variables-INFO: no need to conversion
+20:52:03-Pompa.variables-INFO: conversion func starts
+20:52:03-Pompa.variables-INFO: old value: 0.0
+20:52:03-Pompa.variables-INFO: no need to conversion
+20:52:03-Pompa.components-DEBUG: loading number_of_pumps for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading number_of_res_pumps for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading height_start for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading height_stop for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading ord_sw_on for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading ord_sw_off for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading comp_flow for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: loading reserve_pumps for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: reserve_pumps has dan_id
+20:52:03-Pompa.components-DEBUG: loading collector for obj <station.Station object at 0x000001A98FE3CD68>
+20:52:03-Pompa.components-DEBUG: Has no <.> in attr
+20:52:03-Pompa.components-DEBUG: loading app for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: loading builder for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: loading ui_vars for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: loading pump_type for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: loading discharge_pipe for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: loading collector for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: loading reserve_pumps for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: loading shape for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: shape has dan_id
+20:52:03-Pompa.components-DEBUG: started setting shape
+20:52:03-Pompa.components-DEBUG: new shape: round
+20:52:03-Pompa.components-DEBUG: changed shape to round
+20:52:03-Pompa.components-DEBUG: loading config for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: config has dan_id
+20:52:03-Pompa.components-DEBUG: loading diameter for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: diameter has dan_id
+20:52:03-Pompa.components-DEBUG: loading length for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: length has dan_id
+20:52:03-Pompa.components-DEBUG: loading width for obj <components.Well object at 0x000001A98FD76470>
+20:52:03-Pompa.components-DEBUG: width has dan_id
+20:52:03-Pompa.components-DEBUG: loading app for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: loading builder for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: loading ui_vars for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: loading length for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: length has dan_id
+20:52:03-Pompa.components-DEBUG: loading diameter for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: diameter has dan_id
+20:52:03-Pompa.components-DEBUG: loading roughness for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: roughness has dan_id
+20:52:03-Pompa.components-DEBUG: loading resistance for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: resistance has dan_id
+20:52:03-Pompa.variables-DEBUG: trying to convert: 0.46 to floats list
+20:52:03-Pompa.components-DEBUG: loading parallels for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: loading l_res_coef for obj <components.Pipe object at 0x000001A98FD768D0>
+20:52:03-Pompa.components-DEBUG: loading app for obj <components.Pipe object at 0x000001A98FD76B70>
+20:52:03-Pompa.components-DEBUG: loading builder for obj <components.Pipe object at 0x000001A98FD76B70>
+20:52:03-Pompa.components-DEBUG: loading ui_vars for obj <components.Pipe object at 0x000001A98FD76B70>
+20:52:03-Pompa.components-DEBUG: loading length for obj <components.Pipe object at 0x000001A98FD76B70>
+20:52:03-Pompa.components-DEBUG: length has dan_id
+20:52:03-Pompa.components-DEBUG: loading diameter for obj <components.Pipe object at 0x000001A98FD76B70>
+20:52:03-Pompa.components-DEBUG: diameter has dan_id
+20:52:03-Pompa.components-DEBUG: loading roughness for obj <components.Pipe object at 0x000001A98FD76B70>
+20:52:03-Pompa.components-DEBUG: roughness has dan_id
+20:52:03-Pompa.components-DEBUG: loading resistance for obj <components.Pipe object at 0x000001A98FD76B70>
+20:52:03-Pompa.components-DEBUG: resistance has dan_id
+20:52:03-Pompa.components-DEBUG: loading parallels for obj <components.Pipe object at 0x000001A98FD76B70>
+20:52:03-Pompa.components-DEBUG: parallels has dan_id
+20:52:03-Pompa.components-DEBUG: loading app for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: loading builder for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: loading ui_vars for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: loading cycle_time for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: cycle_time has dan_id
+20:52:03-Pompa.components-DEBUG: loading contour for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: contour has dan_id
+20:52:03-Pompa.components-DEBUG: loading suction_level for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: loading efficiency_from for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: efficiency_from has dan_id
+20:52:03-Pompa.variables-INFO: conversion func starts
+20:52:03-Pompa.variables-INFO: old value: 0.0
+20:52:03-Pompa.variables-DEBUG: 0.0 / 3.6 = 0.0
+20:52:03-Pompa.variables-INFO: new value: 0.0
+20:52:03-Pompa.variables-INFO: conversion func starts
+20:52:03-Pompa.variables-INFO: old value: 0.0
+20:52:03-Pompa.variables-DEBUG: 0.0 / 3.6 = 0.0
+20:52:03-Pompa.variables-INFO: new value: 0.0
+20:52:03-Pompa.components-DEBUG: loading efficiency_to for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: efficiency_to has dan_id
+20:52:03-Pompa.variables-INFO: conversion func starts
+20:52:03-Pompa.variables-INFO: old value: 0.0
+20:52:03-Pompa.variables-INFO: no need to conversion
+20:52:03-Pompa.variables-INFO: conversion func starts
+20:52:03-Pompa.variables-INFO: old value: 23.5
+20:52:03-Pompa.variables-INFO: no need to conversion
+20:52:03-Pompa.components-DEBUG: loading characteristic for obj <components.PumpType object at 0x000001A98FD766A0>
+20:52:03-Pompa.components-DEBUG: characteristic has dan_id
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8), 'I009': (19.4, 17.5)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8), 'I009': (19.4, 17.5), 'I00A': (16.7, 18.0)}
+20:52:03-Pompa.variables-DEBUG: Add point method started
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+20:52:03-Pompa.variables-DEBUG: char points: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8), 'I009': (19.4, 17.5), 'I00A': (16.7, 18.0), 'I00B': (0.0, 21.3)}
+20:52:03-Pompa.variables-INFO: sort_points started
+20:52:03-Pompa.variables-DEBUG: id numbers raised: [('69.4', 'I001'), ('38.9', 'I002'), ('36.1', 'I003'), ('33.3', 'I004'), ('30.6', 'I005'), ('27.8', 'I006'), ('25.0', 'I007'), ('22.2', 'I008'), ('19.4', 'I009'), ('16.7', 'I00A'), ('0.0', 'I00B')]
+20:52:03-Pompa.variables-INFO: sort_points ended
+20:52:06-Pompa.variables-ERROR: Tkinter error expected floating-point number but got ""
+20:52:08-Pompa.station-DEBUG: Calculating number of pumps
+20:52:08-Pompa.components-DEBUG: max eff liters: 30.25, meters: 108.9
+20:52:08-Pompa.station-DEBUG: minimal inflow value_liters 11.0
+20:52:08-Pompa.station-DEBUG: Result: 1
+20:52:08-Pompa.components-DEBUG: round
+20:52:08-Pompa.components-DEBUG: diameter value: 2.0
+20:52:08-Pompa.components-DEBUG: cross section area is 3.14
+20:52:08-Pompa.station-DEBUG: v for h: 6.6200000000000045 is 20.786800000000014
+20:52:08-Pompa.components-DEBUG: round
+20:52:08-Pompa.components-DEBUG: diameter value: 2.0
+20:52:08-Pompa.components-DEBUG: cross section area is 3.14
+20:52:08-Pompa.station-DEBUG: v for h: -1.2199999999999989 is -3.8307999999999964
+20:52:08-Pompa.components-DEBUG: round
+20:52:08-Pompa.components-DEBUG: diameter value: 2.0
+20:52:08-Pompa.components-DEBUG: cross section area is 3.14
+20:52:08-Pompa.station-DEBUG: v for h: 0.3 is 0.942
+20:52:08-Pompa.components-DEBUG: round
+20:52:08-Pompa.components-DEBUG: diameter value: 2.0
+20:52:08-Pompa.components-DEBUG: cross section area is 3.14
+20:52:08-Pompa.station-DEBUG: v for h: 0 is 0.0
+20:52:08-Pompa.components-DEBUG: round
+20:52:08-Pompa.components-DEBUG: diameter value: 2.0
+20:52:08-Pompa.components-DEBUG: cross section area is 3.14
+20:52:08-Pompa.output-DEBUG: line 1: POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA
+
+
+20:52:08-Pompa.output-DEBUG: line 2: Liniowe ustawienie pomp w pompowni
+20:52:08-Pompa.output-DEBUG: line 3: Liczba dobranych pomp roboczych .....n= 1 szt.
+20:52:08-Pompa.output-DEBUG: line 4: Liczba pomp rezerwowych.............nr= 1 szt.
+20:52:08-Pompa.output-DEBUG: line 5: Srednica kola opisujacego pompe.....Dn= 0.95 [m]
+20:52:08-Pompa.output-DEBUG: line 6: Srednica pompowni...................DN= 2.0 [m]
+20:52:08-Pompa.output-DEBUG: line 7: Minimalna srednica pompowni......DNmin= 9.97 [m]
+20:52:08-Pompa.output-DEBUG: line 8: Pole poziomego przekroju pompowni....F= 3.14 [m2]
+20:52:08-Pompa.output-DEBUG: line 9: Ilosc przewodow tlocznych (kolektor)... 1 szt.
+20:52:08-Pompa.output-DEBUG: line 10: Dlugosc kolektora tlocznego..........L= 732.0 [m]
+20:52:08-Pompa.output-DEBUG: line 11: Dlugosc przewodu w pompowni..........L= 7.0 [m]
+20:52:08-Pompa.output-DEBUG: line 12: Srednica kolektora tlocznego........Dn= 200.0 [mm]
+20:52:08-Pompa.output-DEBUG: line 13: Srednica przewodu w pompowni........Dn= 150.0 [mm]
+20:52:08-Pompa.output-DEBUG: line 14: Chropowatosc kolektora tlocznego.....k= 0.05 [mm]
+20:52:08-Pompa.output-DEBUG: line 15: Chropowatosc przewodu w pompowni.....k= 0.08 [mm]
+20:52:08-Pompa.output-DEBUG: line 16: Doplyw do pomowni....Qmin= 11.0   Qmax= 22.0  [l/s]
+20:52:08-Pompa.output-DEBUG: line 17: Rzedna terenu.........................  145.0 [m]
+20:52:08-Pompa.output-DEBUG: line 18: Rzedna doplywu sciekow................  140.0 [m]
+20:52:08-Pompa.output-DEBUG: line 19: Rzedna wylotu sciekow /przejscie
+20:52:08-Pompa.output-DEBUG: line 21: osi rury przez sciane pompowni/.......  143.8 [m]
+20:52:08-Pompa.output-DEBUG: line 22: Rzedna najwyzszego pkt. na trasie.....  148.0 [m]
+20:52:08-Pompa.output-DEBUG: line 23: Rzedna zwierciadla w zbiorniku górnym.  148.0 [m]
+20:52:08-Pompa.output-DEBUG: line 24: Min. wysokosc sciekow w  pompowni.....  0.3 [m]
+20:52:08-Pompa.output-DEBUG: line 25: Suma wsp. oporow miejsc. kolektora....  0 [-]
+20:52:08-Pompa.output-DEBUG: line 26: Suma wsp. oporow miejsc. w pompowni...  0.46 [-]
+
+20:52:08-Pompa.output-DEBUG: line 27: CHARAKTERYSTYKA ZASTOSOWANYCH POMP
+
+20:52:08-Pompa.output-DEBUG: line 30: None
+20:52:08-Pompa.output-DEBUG: line 31: Rzedna dna pompowni...................  138.38 [m]
+20:52:08-Pompa.output-DEBUG: line 32: Rzedna wylaczenia sie pomp............  138.68 [m]
+20:52:08-Pompa.output-DEBUG: line 33: Objetosc calkowita pompowni.........Vc= 20.79 [m3]
+20:52:08-Pompa.output-DEBUG: line 34: Objetosc uzyteczna pompowni.........Vu= -3.83 [m3]
+20:52:08-Pompa.output-DEBUG: line 35: Objetosc rezerwowa pompowni.........Vr= 0.0 [m3]
+20:52:08-Pompa.output-DEBUG: line 36: Objetosc martwa pompowni............Vm= 0.94 [m3]
+
+20:52:08-Pompa.output-DEBUG: line 37: Vu/Vc = 0%
+20:52:08-Pompa.output-DEBUG: line 38: Vr/Vu = *****  %
+20:52:08-Pompa.output-DEBUG: line 39: Vr/Vc = 0%
+20:52:08-Pompa.output-DEBUG: line 40: Vm/Vc = 0%
+
+20:52:08-Pompa.output-DEBUG: line 41: Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr1
+
+-wys. lc. u wylotu pompy...........Hlc= x [m]
+-geometryczna wys. podnoszenia.......H= x [m]
+-wydatek.............................Q= x [l/s]
+-predkosc w kolektorze tlocznym......v= x [m/s]
+-predkosc w przewodach w pompowni....v= x [m/s]
+-zapas wysokosci cisnienia..........dh= x [m sł.wody]
+
+
+20:52:08-Pompa-DEBUG: out_data: POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA
+
+
+Liniowe ustawienie pomp w pompowni
+Liczba dobranych pomp roboczych .....n= 1 szt.
+Liczba pomp rezerwowych.............nr= 1 szt.
+Srednica kola opisujacego pompe.....Dn= 0.95 [m]
+Srednica pompowni...................DN= 2.0 [m]
+Minimalna srednica pompowni......DNmin= 9.97 [m]
+Pole poziomego przekroju pompowni....F= 3.14 [m2]
+Ilosc przewodow tlocznych (kolektor)... 1 szt.
+Dlugosc kolektora tlocznego..........L= 732.0 [m]
+Dlugosc przewodu w pompowni..........L= 7.0 [m]
+Srednica kolektora tlocznego........Dn= 200.0 [mm]
+Srednica przewodu w pompowni........Dn= 150.0 [mm]
+Chropowatosc kolektora tlocznego.....k= 0.05 [mm]
+Chropowatosc przewodu w pompowni.....k= 0.08 [mm]
+Doplyw do pomowni....Qmin= 11.0   Qmax= 22.0  [l/s]
+Rzedna terenu.........................  145.0 [m]
+Rzedna doplywu sciekow................  140.0 [m]
+Rzedna wylotu sciekow /przejscie
+osi rury przez sciane pompowni/.......  143.8 [m]
+Rzedna najwyzszego pkt. na trasie.....  148.0 [m]
+Rzedna zwierciadla w zbiorniku górnym.  148.0 [m]
+Min. wysokosc sciekow w  pompowni.....  0.3 [m]
+Suma wsp. oporow miejsc. kolektora....  0 [-]
+Suma wsp. oporow miejsc. w pompowni...  0.46 [-]
+
+CHARAKTERYSTYKA ZASTOSOWANYCH POMP
+
+Rzedna dna pompowni...................  138.38 [m]
+Rzedna wylaczenia sie pomp............  138.68 [m]
+Objetosc calkowita pompowni.........Vc= 20.79 [m3]
+Objetosc uzyteczna pompowni.........Vu= -3.83 [m3]
+Objetosc rezerwowa pompowni.........Vr= 0.0 [m3]
+Objetosc martwa pompowni............Vm= 0.94 [m3]
+
+Vu/Vc = 0%
+Vr/Vu = *****  %
+Vr/Vc = 0%
+Vm/Vc = 0%
+
+Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr1
+
+-wys. lc. u wylotu pompy...........Hlc= x [m]
+-geometryczna wys. podnoszenia.......H= x [m]
+-wydatek.............................Q= x [l/s]
+-predkosc w kolektorze tlocznym......v= x [m/s]
+-predkosc w przewodach w pompowni....v= x [m/s]
+-zapas wysokosci cisnienia..........dh= x [m sł.wody]
+
+
+
+20:52:08-Pompa.maths-DEBUG: Starting draw_figure
+20:52:08-Pompa.variables-DEBUG: Getting pump characteristic func
+20:52:08-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8), 'I009': (19.4, 17.5), 'I00A': (16.7, 18.0), 'I00B': (0.0, 21.3)}
+20:52:08-Pompa.variables-DEBUG: {'69.4': 0.0, '38.9': 12.0, '36.1': 13.0, '33.3': 13.8, '30.6': 14.6, '27.8': 15.3, '25.0': 16.0, '22.2': 16.8, '19.4': 17.5, '16.7': 18.0, '0.0': 21.3}
+20:52:08-Pompa.variables-DEBUG: flows: [0.0, 16.7, 19.4, 22.2, 25.0, 27.8, 30.6, 33.3, 36.1, 38.9, 69.4], lifts: [21.3, 18.0, 17.5, 16.8, 16.0, 15.3, 14.6, 13.8, 13.0, 12.0, 0.0]
+20:52:08-Pompa.maths-DEBUG: x: [0.0, 16.7, 19.4, 22.2, 25.0, 27.8, 30.6, 33.3, 36.1, 38.9, 69.4], y:[21.3, 18.0, 17.5, 16.8, 16.0, 15.3, 14.6, 13.8, 13.0, 12.0, 0.0]
+20:52:08-Pompa.maths-DEBUG: arr x: [ 0.  16.7 19.4 22.2 25.  27.8 30.6 33.3 36.1 38.9 69.4], arr y:[21.3 18.  17.5 16.8 16.  15.3 14.6 13.8 13.  12.   0. ]
+20:52:08-Pompa.maths-DEBUG: arr x: [ 0.  16.7 19.4 22.2 25.  27.8 30.6 33.3 36.1 38.9 69.4], fit y:            3            2
+-6.312e-06 x - 0.001602 x - 0.1653 x + 21.3
+20:52:08-Pompa.station-DEBUG: Are pipes ready?
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 7.0, 28);7.0 = 7.0
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 150.0, 29);150.0 = 150.0
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 0.08, 30);0.08 = 0.08
+20:52:08-Pompa.station-DEBUG: True
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 732.0, 42);732.0 = 732.0
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 200.0, 43);200.0 = 200.0
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 0.05, 44);0.05 = 0.05
+20:52:08-Pompa.station-DEBUG: True
+20:52:08-Pompa.maths-DEBUG: Trying to drawing pipes plot
+20:52:08-Pompa.station-DEBUG: Starting draw_pipes_plot
+20:52:08-Pompa.variables-DEBUG: Getting pump characteristic func
+20:52:08-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8), 'I009': (19.4, 17.5), 'I00A': (16.7, 18.0), 'I00B': (0.0, 21.3)}
+20:52:08-Pompa.variables-DEBUG: {'69.4': 0.0, '38.9': 12.0, '36.1': 13.0, '33.3': 13.8, '30.6': 14.6, '27.8': 15.3, '25.0': 16.0, '22.2': 16.8, '19.4': 17.5, '16.7': 18.0, '0.0': 21.3}
+20:52:08-Pompa.variables-DEBUG: flows: [0.0, 16.7, 19.4, 22.2, 25.0, 27.8, 30.6, 33.3, 36.1, 38.9, 69.4], lifts: [21.3, 18.0, 17.5, 16.8, 16.0, 15.3, 14.6, 13.8, 13.0, 12.0, 0.0]
+20:52:08-Pompa.station-DEBUG: Got geometric loss
+20:52:08-Pompa.components-DEBUG: Getting pipe y coordinates
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.0 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 0.0
+20:52:08-Pompa.components-INFO: Re is 0.0
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-ERROR: float division by zero
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0
+20:52:08-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.0 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0 [-], speed 0.0 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.0 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.0 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.0 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.0 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 0.0
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 0.0
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.9455060155697097 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 140867.9999358924
+20:52:08-Pompa.components-INFO: Re is 140867.9999358924
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.019479740547366214
+20:52:08-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.9455060155697097 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.019479740547366214 [-], speed 0.9455060155697097 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.0059172715319177885 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.04142090072342452 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.9455060155697097 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.020959813849139336 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.9455060155697097 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 140867.9999358924
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 140867.9999358924
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 19.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0194 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.0983722576079264 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 163643.0657937912
+20:52:08-Pompa.components-INFO: Re is 163643.0657937912
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.01920001489676761
+20:52:08-Pompa.components-DEBUG: input flow: 19.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0194 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.0983722576079264 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.01920001489676761 [-], speed 1.0983722576079264 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.007870646620594947 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.05509452634416463 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 19.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0194 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.0983722576079264 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.028285114347097715 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 19.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0194 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.0983722576079264 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 163643.0657937912
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 163643.0657937912
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.256900212314225 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 187261.65260938992
+20:52:08-Pompa.components-INFO: Re is 187261.65260938992
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.0189712405147045
+20:52:08-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.256900212314225 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.0189712405147045 [-], speed 1.256900212314225 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.010183734471325617 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.07128614129927932 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.256900212314225 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.03703910020943681 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.256900212314225 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 187261.65260938992
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 187261.65260938992
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.4154281670205238 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 210880.23942498866
+20:52:08-Pompa.components-INFO: Re is 210880.23942498866
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.018786469554824336
+20:52:08-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.4154281670205238 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.018786469554824336 [-], speed 1.4154281670205238 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.012788823055257673 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.0895217613868037 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.4154281670205238 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.046971507245552324 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.4154281670205238 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 210880.23942498866
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 210880.23942498866
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.5739561217268223 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 234498.8262405874
+20:52:08-Pompa.components-INFO: Re is 234498.8262405874
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.0186338449587436
+20:52:08-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.5739561217268223 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.0186338449587436 [-], speed 1.5739561217268223 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.015685467155340353 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.10979827008738247 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.5739561217268223 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.05808233545544426 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.5739561217268223 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 234498.8262405874
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 234498.8262405874
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.732484076433121 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 258117.4130561861
+20:52:08-Pompa.components-INFO: Re is 258117.4130561861
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.018505472257885257
+20:52:08-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.732484076433121 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.018505472257885257 [-], speed 1.732484076433121 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.018873324796864016 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.1321132735780481 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.732484076433121 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.07037158483911261 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.732484076433121 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 258117.4130561861
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 258117.4130561861
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.8853503184713372 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 280892.47891408484
+20:52:08-Pompa.components-INFO: Re is 280892.47891408484
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.01839951646599588
+20:52:08-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.8853503184713372 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.01839951646599588 [-], speed 1.8853503184713372 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.022222876114865335 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.15556013280405734 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.8853503184713372 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.08333797547123278 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.8853503184713372 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 280892.47891408484
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 280892.47891408484
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.043878273177636 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 304511.06572968356
+20:52:08-Pompa.components-INFO: Re is 304511.06572968356
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.018304302922592778
+20:52:08-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.043878273177636 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.018304302922592778 [-], speed 2.043878273177636 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.02598202440806633 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.18187417085646432 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.043878273177636 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.09794198073196196 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.043878273177636 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 304511.06572968356
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 304511.06572968356
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.2024062278839347 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 328129.6525452823
+20:52:08-Pompa.components-INFO: Re is 328129.6525452823
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.01822114704606463
+20:52:08-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.2024062278839347 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.01822114704606463 [-], speed 2.2024062278839347 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.030031726749372923 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.21022208724561045 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.2024062278839347 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.11372440716646755 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.2024062278839347 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 328129.6525452823
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 328129.6525452823
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+20:52:08-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 3.9292285916489735 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 585403.5446437685
+20:52:08-Pompa.components-INFO: Re is 585403.5446437685
+20:52:08-Pompa.components-INFO: Lambda is 0.3523131736584557
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.01771550833318886
+20:52:08-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 3.9292285916489735 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.01771550833318886 [-], speed 3.9292285916489735 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.09293470991961733 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.6505429694373213 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 3.9292285916489735 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.36197070181950136 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+20:52:08-Pompa.components-INFO: speed is 3.9292285916489735 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 585403.5446437685
+20:52:08-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 585403.5446437685
+20:52:08-Pompa.components-DEBUG: Pipe loss coords: [0.0, 0.062380714572563854, 0.08337964069126234, 0.10832524150871613, 0.13649326863235603, 0.16788060554282672, 0.20248485841716074, 0.23889810827529012, 0.27981615158842627, 0.323946494412078, 1.0125136712568226]
+20:52:08-Pompa.station-DEBUG: Got discharge_pipe ys
+20:52:08-Pompa.components-DEBUG: Getting pipe y coordinates
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.0 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 0.0
+20:52:08-Pompa.components-INFO: Re is 0.0
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-ERROR: float division by zero
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0
+20:52:08-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.0 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0 [-], speed 0.0 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.0 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.0 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.0 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.0 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 0.0
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 0.0
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.5318471337579617 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 105650.99995191928
+20:52:08-Pompa.components-INFO: Re is 105650.99995191928
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.0187146039088616
+20:52:08-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.5318471337579617 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.0187146039088616 [-], speed 0.5318471337579617 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.0013490414295770747 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 0.9874983264504187 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.5318471337579617 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.5318471337579617 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 105650.99995191928
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 105650.99995191928
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 19.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0194 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.6178343949044586 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 122732.2993453434
+20:52:08-Pompa.components-INFO: Re is 122732.2993453434
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.018305167259915812
+20:52:08-Pompa.components-DEBUG: input flow: 19.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0194 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.6178343949044586 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.018305167259915812 [-], speed 0.6178343949044586 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.0017806922416884726 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 1.3034667209159618 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 19.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0194 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.6178343949044586 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 19.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0194 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.6178343949044586 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 122732.2993453434
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 122732.2993453434
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.7070063694267515 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 140446.23945704245
+20:52:08-Pompa.components-INFO: Re is 140446.23945704245
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.017963079826482622
+20:52:08-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.7070063694267515 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.017963079826482622 [-], speed 0.7070063694267515 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.0022882235655069375 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 1.6749796499510783 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.7070063694267515 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.7070063694267515 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 140446.23945704245
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 140446.23945704245
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.7961783439490445 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 158160.1795687415
+20:52:08-Pompa.components-INFO: Re is 158160.1795687415
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.01768140914833209
+20:52:08-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.7961783439490445 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.01768140914833209 [-], speed 0.7961783439490445 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.002856331414390239 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 2.090834595333655 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.7961783439490445 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.7961783439490445 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 158160.1795687415
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 158160.1795687415
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.8853503184713375 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 175874.11968044052
+20:52:08-Pompa.components-INFO: Re is 175874.11968044052
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.017444705778816457
+20:52:08-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.8853503184713375 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.017444705778816457 [-], speed 0.8853503184713375 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.0034846963947990093 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 2.5507977609928747 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.8853503184713375 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.8853503184713375 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 175874.11968044052
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 175874.11968044052
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.9745222929936305 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 193588.05979213954
+20:52:08-Pompa.components-INFO: Re is 193588.05979213954
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.017242513321320308
+20:52:08-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.9745222929936305 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.017242513321320308 [-], speed 0.9745222929936305 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.004173064797532969 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 3.0546834317941336 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.9745222929936305 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 0.9745222929936305 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 193588.05979213954
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 193588.05979213954
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.060509554140127 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 210669.35918556358
+20:52:08-Pompa.components-INFO: Re is 210669.35918556358
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.017073317948936174
+20:52:08-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.060509554140127 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.017073317948936174 [-], speed 1.060509554140127 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.004893483183921581 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 3.582029690630597 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.060509554140127 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.060509554140127 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 210669.35918556358
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 210669.35918556358
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.1496815286624202 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 228383.29929726268
+20:52:08-Pompa.components-INFO: Re is 228383.29929726268
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.016919365150601055
+20:52:08-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.1496815286624202 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.016919365150601055 [-], speed 1.1496815286624202 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.00569915111165731 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 4.17177861373315 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.1496815286624202 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.1496815286624202 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 228383.29929726268
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 228383.29929726268
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.2388535031847132 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 246097.23940896173
+20:52:08-Pompa.components-INFO: Re is 246097.23940896173
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.016783334136299614
+20:52:08-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.2388535031847132 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.016783334136299614 [-], speed 1.2388535031847132 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.006564311002000692 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 4.805075653464506 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.2388535031847132 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 1.2388535031847132 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 246097.23940896173
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 246097.23940896173
+20:52:08-Pompa.components-DEBUG: Starting counting line loss
+
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025
+20:52:08-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.2101910828025475 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 439052.6584828263
+20:52:08-Pompa.components-INFO: Re is 439052.6584828263
+20:52:08-Pompa.components-INFO: Lambda is 0.18218156656627085
+20:52:08-Pompa.components-INFO: Alternative Lambda is 0.0159190060998097
+20:52:08-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.2101910828025475 [m/s]
+20:52:08-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.0159190060998097 [-], speed 2.2101910828025475 [m/s]
+20:52:08-Pompa.components-INFO: hydraulic gradient is 0.019817396341184623 [-]
+
+20:52:08-Pompa.components-INFO: line loss is 14.506334121747145 [m]
+
+20:52:08-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.2101910828025475 [m/s]
+20:52:08-Pompa.components-INFO: local loss is 0.0 [m]
+20:52:08-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+20:52:08-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+20:52:08-Pompa.components-INFO: speed is 2.2101910828025475 [m/s]
+20:52:08-Pompa.components-INFO: Reynolds number is 439052.6584828263
+20:52:08-Pompa.components-INFO: Epsilon is 0.00025, Re is 439052.6584828263
+20:52:08-Pompa.components-DEBUG: Pipe loss coords: [0.0, 0.9874983264504187, 1.3034667209159618, 1.6749796499510783, 2.090834595333655, 2.5507977609928747, 3.0546834317941336, 3.582029690630597, 4.17177861373315, 4.805075653464506, 14.506334121747145]
+20:52:08-Pompa.station-DEBUG: Got collector ys
+20:52:08-Pompa.maths-DEBUG: x: [0.0, 16.7, 19.4, 22.2, 25.0, 27.8, 30.6, 33.3, 36.1, 38.9, 69.4], y:[9.319999999999993, 10.369879041022976, 10.706846361607218, 11.103304891459787, 11.547327863966004, 12.038678366535695, 12.577168290211288, 13.14092779890588, 13.77159476532157, 14.449022147876578, 24.83884779300396]
+20:52:08-Pompa.maths-DEBUG: arr x: [ 0.  16.7 19.4 22.2 25.  27.8 30.6 33.3 36.1 38.9 69.4], arr y:[ 9.32       10.36987904 10.70684636 11.10330489 11.54732786 12.03867837
+ 12.57716829 13.1409278  13.77159477 14.44902215 24.83884779]
+20:52:08-Pompa.maths-DEBUG: arr x: [ 0.  16.7 19.4 22.2 25.  27.8 30.6 33.3 36.1 38.9 69.4], fit y: 
+0.2302 x + 6.395
+20:52:08-Pompa.maths-DEBUG: x: [ 8.          8.26130653  8.52261307  8.7839196   9.04522613  9.30653266
+  9.5678392   9.82914573 10.09045226 10.35175879 10.61306533 10.87437186
+ 11.13567839 11.39698492 11.65829146 11.91959799 12.18090452 12.44221106
+ 12.70351759 12.96482412 13.22613065 13.48743719 13.74874372 14.01005025
+ 14.27135678 14.53266332 14.79396985 15.05527638 15.31658291 15.57788945
+ 15.83919598 16.10050251 16.36180905 16.62311558 16.88442211 17.14572864
+ 17.40703518 17.66834171 17.92964824 18.19095477 18.45226131 18.71356784
+ 18.97487437 19.2361809  19.49748744 19.75879397 20.0201005  20.28140704
+ 20.54271357 20.8040201  21.06532663 21.32663317 21.5879397  21.84924623
+ 22.11055276 22.3718593  22.63316583 22.89447236 23.15577889 23.41708543
+ 23.67839196 23.93969849 24.20100503 24.46231156 24.72361809 24.98492462
+ 25.24623116 25.50753769 25.76884422 26.03015075 26.29145729 26.55276382
+ 26.81407035 27.07537688 27.33668342 27.59798995 27.85929648 28.12060302
+ 28.38190955 28.64321608 28.90452261 29.16582915 29.42713568 29.68844221
+ 29.94974874 30.21105528 30.47236181 30.73366834 30.99497487 31.25628141
+ 31.51758794 31.77889447 32.04020101 32.30150754 32.56281407 32.8241206
+ 33.08542714 33.34673367 33.6080402  33.86934673 34.13065327 34.3919598
+ 34.65326633 34.91457286 35.1758794  35.43718593 35.69849246 35.95979899
+ 36.22110553 36.48241206 36.74371859 37.00502513 37.26633166 37.52763819
+ 37.78894472 38.05025126 38.31155779 38.57286432 38.83417085 39.09547739
+ 39.35678392 39.61809045 39.87939698 40.14070352 40.40201005 40.66331658
+ 40.92462312 41.18592965 41.44723618 41.70854271 41.96984925 42.23115578
+ 42.49246231 42.75376884 43.01507538 43.27638191 43.53768844 43.79899497
+ 44.06030151 44.32160804 44.58291457 44.84422111 45.10552764 45.36683417
+ 45.6281407  45.88944724 46.15075377 46.4120603  46.67336683 46.93467337
+ 47.1959799  47.45728643 47.71859296 47.9798995  48.24120603 48.50251256
+ 48.7638191  49.02512563 49.28643216 49.54773869 49.80904523 50.07035176
+ 50.33165829 50.59296482 50.85427136 51.11557789 51.37688442 51.63819095
+ 51.89949749 52.16080402 52.42211055 52.68341709 52.94472362 53.20603015
+ 53.46733668 53.72864322 53.98994975 54.25125628 54.51256281 54.77386935
+ 55.03517588 55.29648241 55.55778894 55.81909548 56.08040201 56.34170854
+ 56.60301508 56.86432161 57.12562814 57.38693467 57.64824121 57.90954774
+ 58.17085427 58.4321608  58.69346734 58.95477387 59.2160804  59.47738693
+ 59.73869347 60.        ], y: [ 8.23646348  8.29660971  8.35675595  8.41690218  8.47704842  8.53719465
+  8.59734089  8.65748713  8.71763336  8.7777796   8.83792583  8.89807207
+  8.9582183   9.01836454  9.07851078  9.13865701  9.19880325  9.25894948
+  9.31909572  9.37924196  9.43938819  9.49953443  9.55968066  9.6198269
+  9.67997313  9.74011937  9.80026561  9.86041184  9.92055808  9.98070431
+ 10.04085055 10.10099678 10.16114302 10.22128926 10.28143549 10.34158173
+ 10.40172796 10.4618742  10.52202043 10.58216667 10.64231291 10.70245914
+ 10.76260538 10.82275161 10.88289785 10.94304409 11.00319032 11.06333656
+ 11.12348279 11.18362903 11.24377526 11.3039215  11.36406774 11.42421397
+ 11.48436021 11.54450644 11.60465268 11.66479891 11.72494515 11.78509139
+ 11.84523762 11.90538386 11.96553009 12.02567633 12.08582256 12.1459688
+ 12.20611504 12.26626127 12.32640751 12.38655374 12.44669998 12.50684622
+ 12.56699245 12.62713869 12.68728492 12.74743116 12.80757739 12.86772363
+ 12.92786987 12.9880161  13.04816234 13.10830857 13.16845481 13.22860104
+ 13.28874728 13.34889352 13.40903975 13.46918599 13.52933222 13.58947846
+ 13.6496247  13.70977093 13.76991717 13.8300634  13.89020964 13.95035587
+ 14.01050211 14.07064835 14.13079458 14.19094082 14.25108705 14.31123329
+ 14.37137952 14.43152576 14.491672   14.55181823 14.61196447 14.6721107
+ 14.73225694 14.79240317 14.85254941 14.91269565 14.97284188 15.03298812
+ 15.09313435 15.15328059 15.21342683 15.27357306 15.3337193  15.39386553
+ 15.45401177 15.514158   15.57430424 15.63445048 15.69459671 15.75474295
+ 15.81488918 15.87503542 15.93518165 15.99532789 16.05547413 16.11562036
+ 16.1757666  16.23591283 16.29605907 16.35620531 16.41635154 16.47649778
+ 16.53664401 16.59679025 16.65693648 16.71708272 16.77722896 16.83737519
+ 16.89752143 16.95766766 17.0178139  17.07796013 17.13810637 17.19825261
+ 17.25839884 17.31854508 17.37869131 17.43883755 17.49898378 17.55913002
+ 17.61927626 17.67942249 17.73956873 17.79971496 17.8598612  17.92000744
+ 17.98015367 18.04029991 18.10044614 18.16059238 18.22073861 18.28088485
+ 18.34103109 18.40117732 18.46132356 18.52146979 18.58161603 18.64176226
+ 18.7019085  18.76205474 18.82220097 18.88234721 18.94249344 19.00263968
+ 19.06278592 19.12293215 19.18307839 19.24322462 19.30337086 19.36351709
+ 19.42366333 19.48380957 19.5439558  19.60410204 19.66424827 19.72439451
+ 19.78454074 19.84468698 19.90483322 19.96497945 20.02512569 20.08527192
+ 20.14541816 20.20556439], look: g-
+20:52:08-Pompa.station-DEBUG: Are pipes ready?
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 7.0, 28);7.0 = 7.0
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 150.0, 29);150.0 = 150.0
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 0.08, 30);0.08 = 0.08
+20:52:08-Pompa.station-DEBUG: True
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 732.0, 42);732.0 = 732.0
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 200.0, 43);200.0 = 200.0
+20:52:08-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 0.05, 44);0.05 = 0.05
+20:52:08-Pompa.station-DEBUG: True
+20:52:08-Pompa.maths-INFO: work_p_x: [32.56281407]
+20:53:00-Pompa.components-DEBUG: started setting shape
+20:53:00-Pompa.components-DEBUG: new shape: rectangle
+20:53:00-Pompa.components-DEBUG: changed shape to rectangle
+20:53:01-Pompa.station-DEBUG: Calculating number of pumps
+20:53:01-Pompa.components-DEBUG: max eff liters: 30.25, meters: 108.9
+20:53:01-Pompa.station-DEBUG: minimal inflow value_liters 11.0
+20:53:01-Pompa.station-DEBUG: Result: 1
+20:53:01-Pompa.components-DEBUG: rectangle
+20:54:32-Pompa-INFO: changed mode: optimalisation
+20:54:35-Pompa-DEBUG: mode: optimalisation
+20:54:44-Pompa.variables-INFO: conversion func starts
+20:54:44-Pompa.variables-INFO: old value: 22.0
+20:54:44-Pompa.variables-DEBUG: 22.0 * 3.6 = 79.2
+20:54:44-Pompa.variables-INFO: new value: 79.2
+20:54:44-Pompa.variables-INFO: conversion func starts
+20:54:44-Pompa.variables-INFO: old value: 11.0
+20:54:44-Pompa.variables-DEBUG: 11.0 * 3.6 = 39.6
+20:54:44-Pompa.variables-INFO: new value: 39.6
+20:54:45-Pompa.variables-INFO: conversion func starts
+20:54:45-Pompa.variables-INFO: old value: 79.2
+20:54:45-Pompa.variables-DEBUG: 79.2 / 3.6 = 22.0
+20:54:45-Pompa.variables-INFO: new value: 22.0
+20:54:45-Pompa.variables-INFO: conversion func starts
+20:54:45-Pompa.variables-INFO: old value: 39.6
+20:54:45-Pompa.variables-DEBUG: 39.6 / 3.6 = 11.0
+20:54:45-Pompa.variables-INFO: new value: 11.0
+22:50:17-Pompa.variables-INFO: conversion func starts
+22:50:17-Pompa.variables-INFO: old value: 22.0
+22:50:17-Pompa.variables-DEBUG: 22.0 * 3.6 = 79.2
+22:50:17-Pompa.variables-INFO: new value: 79.2
+22:50:17-Pompa.variables-INFO: conversion func starts
+22:50:17-Pompa.variables-INFO: old value: 11.0
+22:50:17-Pompa.variables-DEBUG: 11.0 * 3.6 = 39.6
+22:50:17-Pompa.variables-INFO: new value: 39.6
+22:50:18-Pompa.variables-INFO: conversion func starts
+22:50:18-Pompa.variables-INFO: old value: 79.2
+22:50:18-Pompa.variables-DEBUG: 79.2 / 3.6 = 22.0
+22:50:18-Pompa.variables-INFO: new value: 22.0
+22:50:18-Pompa.variables-INFO: conversion func starts
+22:50:18-Pompa.variables-INFO: old value: 39.6
+22:50:18-Pompa.variables-DEBUG: 39.6 / 3.6 = 11.0
+22:50:18-Pompa.variables-INFO: new value: 11.0
+22:50:20-Pompa.variables-INFO: conversion func starts
+22:50:20-Pompa.variables-INFO: old value: 22.0
+22:50:20-Pompa.variables-DEBUG: 22.0 * 3.6 = 79.2
+22:50:20-Pompa.variables-INFO: new value: 79.2
+22:50:20-Pompa.variables-INFO: conversion func starts
+22:50:20-Pompa.variables-INFO: old value: 11.0
+22:50:20-Pompa.variables-DEBUG: 11.0 * 3.6 = 39.6
+22:50:20-Pompa.variables-INFO: new value: 39.6
+22:50:21-Pompa.variables-INFO: conversion func starts
+22:50:21-Pompa.variables-INFO: old value: 79.2
+22:50:21-Pompa.variables-DEBUG: 79.2 / 3.6 = 22.0
+22:50:21-Pompa.variables-INFO: new value: 22.0
+22:50:21-Pompa.variables-INFO: conversion func starts
+22:50:21-Pompa.variables-INFO: old value: 39.6
+22:50:21-Pompa.variables-DEBUG: 39.6 / 3.6 = 11.0
+22:50:21-Pompa.variables-INFO: new value: 11.0
+22:51:45-Pompa.variables-ERROR: Tkinter error expected floating-point number but got ""
+22:51:46-Pompa.variables-ERROR: Tkinter error expected floating-point number but got ""
+22:51:47-Pompa-DEBUG: mode: optimalisation
+22:51:48-Pompa-DEBUG: mode: optimalisation
+22:51:52-Pompa-INFO: changed mode: checking
+22:51:52-Pompa.station-DEBUG: Calculating number of pumps
+22:51:52-Pompa.components-DEBUG: max eff liters: 30.25, meters: 108.9
+22:51:52-Pompa.station-DEBUG: minimal inflow value_liters 11.0
+22:51:52-Pompa.station-DEBUG: Result: 1
+22:51:52-Pompa.components-DEBUG: rectangle
+22:52:00-Pompa.station-DEBUG: Calculating number of pumps
+22:52:00-Pompa.components-DEBUG: max eff liters: 30.25, meters: 108.9
+22:52:00-Pompa.station-DEBUG: minimal inflow value_liters 11.0
+22:52:00-Pompa.station-DEBUG: Result: 1
+22:52:00-Pompa.components-DEBUG: rectangle
+23:14:19-Pompa-INFO: pump_delete_button started
+23:14:19-Pompa.variables-INFO: delete_point started
+23:14:19-Pompa.variables-DEBUG: point to delete: (19.4, 17.5)
+23:14:19-Pompa.variables-DEBUG: actual dict: {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8), 'I00A': (16.7, 18.0), 'I00B': (0.0, 21.3)}
+23:14:19-Pompa.variables-INFO: sort_points started
+23:14:19-Pompa.variables-DEBUG: id numbers raised: [('0.0', 'I00B'), ('16.7', 'I00A'), ('22.2', 'I008'), ('25.0', 'I007'), ('27.8', 'I006'), ('30.6', 'I005'), ('33.3', 'I004'), ('36.1', 'I003'), ('38.9', 'I002'), ('69.4', 'I001')]
+23:14:19-Pompa.variables-INFO: sort_points ended
+23:14:19-Pompa.variables-INFO: delete_points ended
+23:14:34-Pompa.station-DEBUG: Calculating number of pumps
+23:14:34-Pompa.components-DEBUG: max eff liters: 30.25, meters: 108.9
+23:14:34-Pompa.station-DEBUG: minimal inflow value_liters 11.0
+23:14:34-Pompa.station-DEBUG: Result: 1
+23:14:34-Pompa.components-DEBUG: rectangle
+23:14:38-Pompa.components-DEBUG: started setting shape
+23:14:38-Pompa.components-DEBUG: new shape: round
+23:14:38-Pompa.components-DEBUG: changed shape to round
+23:14:40-Pompa.station-DEBUG: Calculating number of pumps
+23:14:40-Pompa.components-DEBUG: max eff liters: 30.25, meters: 108.9
+23:14:40-Pompa.station-DEBUG: minimal inflow value_liters 11.0
+23:14:40-Pompa.station-DEBUG: Result: 1
+23:14:40-Pompa.components-DEBUG: round
+23:14:40-Pompa.components-DEBUG: diameter value: 2.0
+23:14:40-Pompa.components-DEBUG: cross section area is 3.14
+23:14:40-Pompa.station-DEBUG: v for h: 6.6200000000000045 is 20.786800000000014
+23:14:40-Pompa.components-DEBUG: round
+23:14:40-Pompa.components-DEBUG: diameter value: 2.0
+23:14:40-Pompa.components-DEBUG: cross section area is 3.14
+23:14:40-Pompa.station-DEBUG: v for h: -1.2199999999999989 is -3.8307999999999964
+23:14:40-Pompa.components-DEBUG: round
+23:14:40-Pompa.components-DEBUG: diameter value: 2.0
+23:14:40-Pompa.components-DEBUG: cross section area is 3.14
+23:14:40-Pompa.station-DEBUG: v for h: 0.3 is 0.942
+23:14:40-Pompa.components-DEBUG: round
+23:14:40-Pompa.components-DEBUG: diameter value: 2.0
+23:14:40-Pompa.components-DEBUG: cross section area is 3.14
+23:14:40-Pompa.station-DEBUG: v for h: 0 is 0.0
+23:14:40-Pompa.components-DEBUG: round
+23:14:40-Pompa.components-DEBUG: diameter value: 2.0
+23:14:40-Pompa.components-DEBUG: cross section area is 3.14
+23:14:40-Pompa.output-DEBUG: line 1: POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA
+
+
+23:14:40-Pompa.output-DEBUG: line 2: Liniowe ustawienie pomp w pompowni
+23:14:40-Pompa.output-DEBUG: line 3: Liczba dobranych pomp roboczych .....n= 1 szt.
+23:14:40-Pompa.output-DEBUG: line 4: Liczba pomp rezerwowych.............nr= 1 szt.
+23:14:40-Pompa.output-DEBUG: line 5: Srednica kola opisujacego pompe.....Dn= 0.95 [m]
+23:14:40-Pompa.output-DEBUG: line 6: Srednica pompowni...................DN= 2.0 [m]
+23:14:40-Pompa.output-DEBUG: line 7: Minimalna srednica pompowni......DNmin= 9.97 [m]
+23:14:40-Pompa.output-DEBUG: line 8: Pole poziomego przekroju pompowni....F= 3.14 [m2]
+23:14:40-Pompa.output-DEBUG: line 9: Ilosc przewodow tlocznych (kolektor)... 1 szt.
+23:14:40-Pompa.output-DEBUG: line 10: Dlugosc kolektora tlocznego..........L= 732.0 [m]
+23:14:40-Pompa.output-DEBUG: line 11: Dlugosc przewodu w pompowni..........L= 7.0 [m]
+23:14:40-Pompa.output-DEBUG: line 12: Srednica kolektora tlocznego........Dn= 200.0 [mm]
+23:14:40-Pompa.output-DEBUG: line 13: Srednica przewodu w pompowni........Dn= 150.0 [mm]
+23:14:40-Pompa.output-DEBUG: line 14: Chropowatosc kolektora tlocznego.....k= 0.05 [mm]
+23:14:40-Pompa.output-DEBUG: line 15: Chropowatosc przewodu w pompowni.....k= 0.08 [mm]
+23:14:40-Pompa.output-DEBUG: line 16: Doplyw do pomowni....Qmin= 11.0   Qmax= 22.0  [l/s]
+23:14:40-Pompa.output-DEBUG: line 17: Rzedna terenu.........................  145.0 [m]
+23:14:40-Pompa.output-DEBUG: line 18: Rzedna doplywu sciekow................  140.0 [m]
+23:14:40-Pompa.output-DEBUG: line 19: Rzedna wylotu sciekow /przejscie
+23:14:40-Pompa.output-DEBUG: line 21: osi rury przez sciane pompowni/.......  143.8 [m]
+23:14:40-Pompa.output-DEBUG: line 22: Rzedna najwyzszego pkt. na trasie.....  148.0 [m]
+23:14:40-Pompa.output-DEBUG: line 23: Rzedna zwierciadla w zbiorniku górnym.  148.0 [m]
+23:14:40-Pompa.output-DEBUG: line 24: Min. wysokosc sciekow w  pompowni.....  0.3 [m]
+23:14:40-Pompa.output-DEBUG: line 25: Suma wsp. oporow miejsc. kolektora....  0 [-]
+23:14:40-Pompa.output-DEBUG: line 26: Suma wsp. oporow miejsc. w pompowni...  0.46 [-]
+
+23:14:40-Pompa.output-DEBUG: line 27: CHARAKTERYSTYKA ZASTOSOWANYCH POMP
+
+23:14:40-Pompa.output-DEBUG: line 30: None
+23:14:40-Pompa.output-DEBUG: line 31: Rzedna dna pompowni...................  138.38 [m]
+23:14:40-Pompa.output-DEBUG: line 32: Rzedna wylaczenia sie pomp............  138.68 [m]
+23:14:40-Pompa.output-DEBUG: line 33: Objetosc calkowita pompowni.........Vc= 20.79 [m3]
+23:14:40-Pompa.output-DEBUG: line 34: Objetosc uzyteczna pompowni.........Vu= -3.83 [m3]
+23:14:40-Pompa.output-DEBUG: line 35: Objetosc rezerwowa pompowni.........Vr= 0.0 [m3]
+23:14:40-Pompa.output-DEBUG: line 36: Objetosc martwa pompowni............Vm= 0.94 [m3]
+
+23:14:40-Pompa.output-DEBUG: line 37: Vu/Vc = 0%
+23:14:40-Pompa.output-DEBUG: line 38: Vr/Vu = *****  %
+23:14:40-Pompa.output-DEBUG: line 39: Vr/Vc = 0%
+23:14:40-Pompa.output-DEBUG: line 40: Vm/Vc = 0%
+
+23:14:40-Pompa.output-DEBUG: line 41: Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr1
+
+-wys. lc. u wylotu pompy...........Hlc= x [m]
+-geometryczna wys. podnoszenia.......H= x [m]
+-wydatek.............................Q= x [l/s]
+-predkosc w kolektorze tlocznym......v= x [m/s]
+-predkosc w przewodach w pompowni....v= x [m/s]
+-zapas wysokosci cisnienia..........dh= x [m sł.wody]
+
+
+23:14:40-Pompa-DEBUG: out_data: POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA
+
+
+Liniowe ustawienie pomp w pompowni
+Liczba dobranych pomp roboczych .....n= 1 szt.
+Liczba pomp rezerwowych.............nr= 1 szt.
+Srednica kola opisujacego pompe.....Dn= 0.95 [m]
+Srednica pompowni...................DN= 2.0 [m]
+Minimalna srednica pompowni......DNmin= 9.97 [m]
+Pole poziomego przekroju pompowni....F= 3.14 [m2]
+Ilosc przewodow tlocznych (kolektor)... 1 szt.
+Dlugosc kolektora tlocznego..........L= 732.0 [m]
+Dlugosc przewodu w pompowni..........L= 7.0 [m]
+Srednica kolektora tlocznego........Dn= 200.0 [mm]
+Srednica przewodu w pompowni........Dn= 150.0 [mm]
+Chropowatosc kolektora tlocznego.....k= 0.05 [mm]
+Chropowatosc przewodu w pompowni.....k= 0.08 [mm]
+Doplyw do pomowni....Qmin= 11.0   Qmax= 22.0  [l/s]
+Rzedna terenu.........................  145.0 [m]
+Rzedna doplywu sciekow................  140.0 [m]
+Rzedna wylotu sciekow /przejscie
+osi rury przez sciane pompowni/.......  143.8 [m]
+Rzedna najwyzszego pkt. na trasie.....  148.0 [m]
+Rzedna zwierciadla w zbiorniku górnym.  148.0 [m]
+Min. wysokosc sciekow w  pompowni.....  0.3 [m]
+Suma wsp. oporow miejsc. kolektora....  0 [-]
+Suma wsp. oporow miejsc. w pompowni...  0.46 [-]
+
+CHARAKTERYSTYKA ZASTOSOWANYCH POMP
+
+Rzedna dna pompowni...................  138.38 [m]
+Rzedna wylaczenia sie pomp............  138.68 [m]
+Objetosc calkowita pompowni.........Vc= 20.79 [m3]
+Objetosc uzyteczna pompowni.........Vu= -3.83 [m3]
+Objetosc rezerwowa pompowni.........Vr= 0.0 [m3]
+Objetosc martwa pompowni............Vm= 0.94 [m3]
+
+Vu/Vc = 0%
+Vr/Vu = *****  %
+Vr/Vc = 0%
+Vm/Vc = 0%
+
+Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr1
+
+-wys. lc. u wylotu pompy...........Hlc= x [m]
+-geometryczna wys. podnoszenia.......H= x [m]
+-wydatek.............................Q= x [l/s]
+-predkosc w kolektorze tlocznym......v= x [m/s]
+-predkosc w przewodach w pompowni....v= x [m/s]
+-zapas wysokosci cisnienia..........dh= x [m sł.wody]
+
+
+
+23:14:40-Pompa.maths-DEBUG: Starting draw_figure
+23:14:40-Pompa.variables-DEBUG: Getting pump characteristic func
+23:14:40-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8), 'I00A': (16.7, 18.0), 'I00B': (0.0, 21.3)}
+23:14:40-Pompa.variables-DEBUG: {'69.4': 0.0, '38.9': 12.0, '36.1': 13.0, '33.3': 13.8, '30.6': 14.6, '27.8': 15.3, '25.0': 16.0, '22.2': 16.8, '16.7': 18.0, '0.0': 21.3}
+23:14:40-Pompa.variables-DEBUG: flows: [0.0, 16.7, 22.2, 25.0, 27.8, 30.6, 33.3, 36.1, 38.9, 69.4], lifts: [21.3, 18.0, 16.8, 16.0, 15.3, 14.6, 13.8, 13.0, 12.0, 0.0]
+23:14:40-Pompa.maths-DEBUG: x: [0.0, 16.7, 22.2, 25.0, 27.8, 30.6, 33.3, 36.1, 38.9, 69.4], y:[21.3, 18.0, 16.8, 16.0, 15.3, 14.6, 13.8, 13.0, 12.0, 0.0]
+23:14:40-Pompa.maths-DEBUG: arr x: [ 0.  16.7 22.2 25.  27.8 30.6 33.3 36.1 38.9 69.4], arr y:[21.3 18.  16.8 16.  15.3 14.6 13.8 13.  12.   0. ]
+23:14:40-Pompa.maths-DEBUG: arr x: [ 0.  16.7 22.2 25.  27.8 30.6 33.3 36.1 38.9 69.4], fit y:            3            2
+-7.745e-06 x - 0.001455 x - 0.1686 x + 21.29
+23:14:40-Pompa.station-DEBUG: Are pipes ready?
+23:14:40-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 7.0, 28);7.0 = 7.0
+23:14:40-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 150.0, 29);150.0 = 150.0
+23:14:40-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 0.08, 30);0.08 = 0.08
+23:14:40-Pompa.station-DEBUG: True
+23:14:40-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 732.0, 42);732.0 = 732.0
+23:14:40-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 200.0, 43);200.0 = 200.0
+23:14:40-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 0.05, 44);0.05 = 0.05
+23:14:40-Pompa.station-DEBUG: True
+23:14:40-Pompa.maths-DEBUG: Trying to drawing pipes plot
+23:14:40-Pompa.station-DEBUG: Starting draw_pipes_plot
+23:14:40-Pompa.variables-DEBUG: Getting pump characteristic func
+23:14:40-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (69.4, 0.0), 'I002': (38.9, 12.0), 'I003': (36.1, 13.0), 'I004': (33.3, 13.8), 'I005': (30.6, 14.6), 'I006': (27.8, 15.3), 'I007': (25.0, 16.0), 'I008': (22.2, 16.8), 'I00A': (16.7, 18.0), 'I00B': (0.0, 21.3)}
+23:14:40-Pompa.variables-DEBUG: {'69.4': 0.0, '38.9': 12.0, '36.1': 13.0, '33.3': 13.8, '30.6': 14.6, '27.8': 15.3, '25.0': 16.0, '22.2': 16.8, '16.7': 18.0, '0.0': 21.3}
+23:14:40-Pompa.variables-DEBUG: flows: [0.0, 16.7, 22.2, 25.0, 27.8, 30.6, 33.3, 36.1, 38.9, 69.4], lifts: [21.3, 18.0, 16.8, 16.0, 15.3, 14.6, 13.8, 13.0, 12.0, 0.0]
+23:14:40-Pompa.station-DEBUG: Got geometric loss
+23:14:40-Pompa.components-DEBUG: Getting pipe y coordinates
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.0 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 0.0
+23:14:40-Pompa.components-INFO: Re is 0.0
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-ERROR: float division by zero
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0
+23:14:40-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.0 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0 [-], speed 0.0 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.0 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.0 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.0 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.0 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 0.0
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 0.0
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.9455060155697097 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 140867.9999358924
+23:14:40-Pompa.components-INFO: Re is 140867.9999358924
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.019479740547366214
+23:14:40-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.9455060155697097 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.019479740547366214 [-], speed 0.9455060155697097 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.0059172715319177885 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.04142090072342452 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.9455060155697097 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.020959813849139336 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.9455060155697097 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 140867.9999358924
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 140867.9999358924
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.256900212314225 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 187261.65260938992
+23:14:40-Pompa.components-INFO: Re is 187261.65260938992
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.0189712405147045
+23:14:40-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.256900212314225 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.0189712405147045 [-], speed 1.256900212314225 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.010183734471325617 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.07128614129927932 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.256900212314225 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.03703910020943681 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.256900212314225 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 187261.65260938992
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 187261.65260938992
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.4154281670205238 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 210880.23942498866
+23:14:40-Pompa.components-INFO: Re is 210880.23942498866
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.018786469554824336
+23:14:40-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.4154281670205238 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.018786469554824336 [-], speed 1.4154281670205238 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.012788823055257673 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.0895217613868037 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.4154281670205238 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.046971507245552324 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.4154281670205238 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 210880.23942498866
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 210880.23942498866
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.5739561217268223 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 234498.8262405874
+23:14:40-Pompa.components-INFO: Re is 234498.8262405874
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.0186338449587436
+23:14:40-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.5739561217268223 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.0186338449587436 [-], speed 1.5739561217268223 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.015685467155340353 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.10979827008738247 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.5739561217268223 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.05808233545544426 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.5739561217268223 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 234498.8262405874
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 234498.8262405874
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.732484076433121 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 258117.4130561861
+23:14:40-Pompa.components-INFO: Re is 258117.4130561861
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.018505472257885257
+23:14:40-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.732484076433121 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.018505472257885257 [-], speed 1.732484076433121 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.018873324796864016 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.1321132735780481 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.732484076433121 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.07037158483911261 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.732484076433121 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 258117.4130561861
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 258117.4130561861
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.8853503184713372 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 280892.47891408484
+23:14:40-Pompa.components-INFO: Re is 280892.47891408484
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.01839951646599588
+23:14:40-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.8853503184713372 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.01839951646599588 [-], speed 1.8853503184713372 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.022222876114865335 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.15556013280405734 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.8853503184713372 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.08333797547123278 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 1.8853503184713372 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 280892.47891408484
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 280892.47891408484
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 2.043878273177636 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 304511.06572968356
+23:14:40-Pompa.components-INFO: Re is 304511.06572968356
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.018304302922592778
+23:14:40-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 2.043878273177636 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.018304302922592778 [-], speed 2.043878273177636 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.02598202440806633 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.18187417085646432 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 2.043878273177636 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.09794198073196196 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 2.043878273177636 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 304511.06572968356
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 304511.06572968356
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 2.2024062278839347 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 328129.6525452823
+23:14:40-Pompa.components-INFO: Re is 328129.6525452823
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.01822114704606463
+23:14:40-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 2.2024062278839347 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.01822114704606463 [-], speed 2.2024062278839347 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.030031726749372923 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.21022208724561045 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 2.2024062278839347 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.11372440716646755 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 2.2024062278839347 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 328129.6525452823
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 328129.6525452823
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334
+23:14:40-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 3.9292285916489735 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 585403.5446437685
+23:14:40-Pompa.components-INFO: Re is 585403.5446437685
+23:14:40-Pompa.components-INFO: Lambda is 0.3523131736584557
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0.01771550833318886
+23:14:40-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 3.9292285916489735 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.15 [m²], lambda 0.01771550833318886 [-], speed 3.9292285916489735 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.09293470991961733 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.6505429694373213 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 3.9292285916489735 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.36197070181950136 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+23:14:40-Pompa.components-INFO: speed is 3.9292285916489735 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 585403.5446437685
+23:14:40-Pompa.components-INFO: Epsilon is 0.0005333333333333334, Re is 585403.5446437685
+23:14:40-Pompa.components-DEBUG: Pipe loss coords: [0.0, 0.062380714572563854, 0.10832524150871613, 0.13649326863235603, 0.16788060554282672, 0.20248485841716074, 0.23889810827529012, 0.27981615158842627, 0.323946494412078, 1.0125136712568226]
+23:14:40-Pompa.station-DEBUG: Got discharge_pipe ys
+23:14:40-Pompa.components-DEBUG: Getting pipe y coordinates
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.00025
+23:14:40-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.0 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 0.0
+23:14:40-Pompa.components-INFO: Re is 0.0
+23:14:40-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:40-Pompa.components-ERROR: float division by zero
+23:14:40-Pompa.components-INFO: Alternative Lambda is 0
+23:14:40-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.0 [m/s]
+23:14:40-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0 [-], speed 0.0 [m/s]
+23:14:40-Pompa.components-INFO: hydraulic gradient is 0.0 [-]
+
+23:14:40-Pompa.components-INFO: line loss is 0.0 [m]
+
+23:14:40-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.0 [m/s]
+23:14:40-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:40-Pompa.components-DEBUG: input flow: 0.0 [l/s]
+23:14:40-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:40-Pompa.components-INFO: speed is 0.0 [m/s]
+23:14:40-Pompa.components-INFO: Reynolds number is 0.0
+23:14:40-Pompa.components-INFO: Epsilon is 0.00025, Re is 0.0
+23:14:40-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:40-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.5318471337579617 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 105650.99995191928
+23:14:41-Pompa.components-INFO: Re is 105650.99995191928
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.0187146039088616
+23:14:41-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.5318471337579617 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.0187146039088616 [-], speed 0.5318471337579617 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.0013490414295770747 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 0.9874983264504187 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.5318471337579617 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 16.7 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0167 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.5318471337579617 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 105650.99995191928
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 105650.99995191928
+23:14:41-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.7070063694267515 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 140446.23945704245
+23:14:41-Pompa.components-INFO: Re is 140446.23945704245
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.017963079826482622
+23:14:41-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.7070063694267515 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.017963079826482622 [-], speed 0.7070063694267515 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.0022882235655069375 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 1.6749796499510783 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.7070063694267515 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 22.2 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0222 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.7070063694267515 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 140446.23945704245
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 140446.23945704245
+23:14:41-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.7961783439490445 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 158160.1795687415
+23:14:41-Pompa.components-INFO: Re is 158160.1795687415
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.01768140914833209
+23:14:41-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.7961783439490445 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.01768140914833209 [-], speed 0.7961783439490445 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.002856331414390239 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 2.090834595333655 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.7961783439490445 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 25.0 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.7961783439490445 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 158160.1795687415
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 158160.1795687415
+23:14:41-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.8853503184713375 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 175874.11968044052
+23:14:41-Pompa.components-INFO: Re is 175874.11968044052
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.017444705778816457
+23:14:41-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.8853503184713375 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.017444705778816457 [-], speed 0.8853503184713375 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.0034846963947990093 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 2.5507977609928747 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.8853503184713375 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 27.8 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.027800000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.8853503184713375 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 175874.11968044052
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 175874.11968044052
+23:14:41-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.9745222929936305 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 193588.05979213954
+23:14:41-Pompa.components-INFO: Re is 193588.05979213954
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.017242513321320308
+23:14:41-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.9745222929936305 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.017242513321320308 [-], speed 0.9745222929936305 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.004173064797532969 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 3.0546834317941336 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.9745222929936305 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 30.6 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.030600000000000002 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 0.9745222929936305 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 193588.05979213954
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 193588.05979213954
+23:14:41-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.060509554140127 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 210669.35918556358
+23:14:41-Pompa.components-INFO: Re is 210669.35918556358
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.017073317948936174
+23:14:41-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.060509554140127 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.017073317948936174 [-], speed 1.060509554140127 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.004893483183921581 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 3.582029690630597 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.060509554140127 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 33.3 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.033299999999999996 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.060509554140127 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 210669.35918556358
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 210669.35918556358
+23:14:41-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.1496815286624202 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 228383.29929726268
+23:14:41-Pompa.components-INFO: Re is 228383.29929726268
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.016919365150601055
+23:14:41-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.1496815286624202 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.016919365150601055 [-], speed 1.1496815286624202 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.00569915111165731 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 4.17177861373315 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.1496815286624202 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 36.1 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0361 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.1496815286624202 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 228383.29929726268
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 228383.29929726268
+23:14:41-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.2388535031847132 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 246097.23940896173
+23:14:41-Pompa.components-INFO: Re is 246097.23940896173
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.016783334136299614
+23:14:41-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.2388535031847132 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.016783334136299614 [-], speed 1.2388535031847132 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.006564311002000692 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 4.805075653464506 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.2388535031847132 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 38.9 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0389 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 1.2388535031847132 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 246097.23940896173
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 246097.23940896173
+23:14:41-Pompa.components-DEBUG: Starting counting line loss
+
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025
+23:14:41-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 2.2101910828025475 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 439052.6584828263
+23:14:41-Pompa.components-INFO: Re is 439052.6584828263
+23:14:41-Pompa.components-INFO: Lambda is 0.18218156656627085
+23:14:41-Pompa.components-INFO: Alternative Lambda is 0.0159190060998097
+23:14:41-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 2.2101910828025475 [m/s]
+23:14:41-Pompa.components-INFO: for diameter 0.2 [m²], lambda 0.0159190060998097 [-], speed 2.2101910828025475 [m/s]
+23:14:41-Pompa.components-INFO: hydraulic gradient is 0.019817396341184623 [-]
+
+23:14:41-Pompa.components-INFO: line loss is 14.506334121747145 [m]
+
+23:14:41-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 2.2101910828025475 [m/s]
+23:14:41-Pompa.components-INFO: local loss is 0.0 [m]
+23:14:41-Pompa.components-DEBUG: input flow: 69.4 [l/s]
+23:14:41-Pompa.components-INFO: for flow 0.0694 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+23:14:41-Pompa.components-INFO: speed is 2.2101910828025475 [m/s]
+23:14:41-Pompa.components-INFO: Reynolds number is 439052.6584828263
+23:14:41-Pompa.components-INFO: Epsilon is 0.00025, Re is 439052.6584828263
+23:14:41-Pompa.components-DEBUG: Pipe loss coords: [0.0, 0.9874983264504187, 1.6749796499510783, 2.090834595333655, 2.5507977609928747, 3.0546834317941336, 3.582029690630597, 4.17177861373315, 4.805075653464506, 14.506334121747145]
+23:14:41-Pompa.station-DEBUG: Got collector ys
+23:14:41-Pompa.maths-DEBUG: x: [0.0, 16.7, 22.2, 25.0, 27.8, 30.6, 33.3, 36.1, 38.9, 69.4], y:[9.319999999999993, 10.369879041022976, 11.103304891459787, 11.547327863966004, 12.038678366535695, 12.577168290211288, 13.14092779890588, 13.77159476532157, 14.449022147876578, 24.83884779300396]
+23:14:41-Pompa.maths-DEBUG: arr x: [ 0.  16.7 22.2 25.  27.8 30.6 33.3 36.1 38.9 69.4], arr y:[ 9.32       10.36987904 11.10330489 11.54732786 12.03867837 12.57716829
+ 13.1409278  13.77159477 14.44902215 24.83884779]
+23:14:41-Pompa.maths-DEBUG: arr x: [ 0.  16.7 22.2 25.  27.8 30.6 33.3 36.1 38.9 69.4], fit y: 
+0.2296 x + 6.428
+23:14:41-Pompa.maths-DEBUG: x: [ 8.          8.26130653  8.52261307  8.7839196   9.04522613  9.30653266
+  9.5678392   9.82914573 10.09045226 10.35175879 10.61306533 10.87437186
+ 11.13567839 11.39698492 11.65829146 11.91959799 12.18090452 12.44221106
+ 12.70351759 12.96482412 13.22613065 13.48743719 13.74874372 14.01005025
+ 14.27135678 14.53266332 14.79396985 15.05527638 15.31658291 15.57788945
+ 15.83919598 16.10050251 16.36180905 16.62311558 16.88442211 17.14572864
+ 17.40703518 17.66834171 17.92964824 18.19095477 18.45226131 18.71356784
+ 18.97487437 19.2361809  19.49748744 19.75879397 20.0201005  20.28140704
+ 20.54271357 20.8040201  21.06532663 21.32663317 21.5879397  21.84924623
+ 22.11055276 22.3718593  22.63316583 22.89447236 23.15577889 23.41708543
+ 23.67839196 23.93969849 24.20100503 24.46231156 24.72361809 24.98492462
+ 25.24623116 25.50753769 25.76884422 26.03015075 26.29145729 26.55276382
+ 26.81407035 27.07537688 27.33668342 27.59798995 27.85929648 28.12060302
+ 28.38190955 28.64321608 28.90452261 29.16582915 29.42713568 29.68844221
+ 29.94974874 30.21105528 30.47236181 30.73366834 30.99497487 31.25628141
+ 31.51758794 31.77889447 32.04020101 32.30150754 32.56281407 32.8241206
+ 33.08542714 33.34673367 33.6080402  33.86934673 34.13065327 34.3919598
+ 34.65326633 34.91457286 35.1758794  35.43718593 35.69849246 35.95979899
+ 36.22110553 36.48241206 36.74371859 37.00502513 37.26633166 37.52763819
+ 37.78894472 38.05025126 38.31155779 38.57286432 38.83417085 39.09547739
+ 39.35678392 39.61809045 39.87939698 40.14070352 40.40201005 40.66331658
+ 40.92462312 41.18592965 41.44723618 41.70854271 41.96984925 42.23115578
+ 42.49246231 42.75376884 43.01507538 43.27638191 43.53768844 43.79899497
+ 44.06030151 44.32160804 44.58291457 44.84422111 45.10552764 45.36683417
+ 45.6281407  45.88944724 46.15075377 46.4120603  46.67336683 46.93467337
+ 47.1959799  47.45728643 47.71859296 47.9798995  48.24120603 48.50251256
+ 48.7638191  49.02512563 49.28643216 49.54773869 49.80904523 50.07035176
+ 50.33165829 50.59296482 50.85427136 51.11557789 51.37688442 51.63819095
+ 51.89949749 52.16080402 52.42211055 52.68341709 52.94472362 53.20603015
+ 53.46733668 53.72864322 53.98994975 54.25125628 54.51256281 54.77386935
+ 55.03517588 55.29648241 55.55778894 55.81909548 56.08040201 56.34170854
+ 56.60301508 56.86432161 57.12562814 57.38693467 57.64824121 57.90954774
+ 58.17085427 58.4321608  58.69346734 58.95477387 59.2160804  59.47738693
+ 59.73869347 60.        ], y: [ 8.26440456  8.32440138  8.3843982   8.44439501  8.50439183  8.56438865
+  8.62438547  8.68438228  8.7443791   8.80437592  8.86437274  8.92436956
+  8.98436637  9.04436319  9.10436001  9.16435683  9.22435364  9.28435046
+  9.34434728  9.4043441   9.46434091  9.52433773  9.58433455  9.64433137
+  9.70432819  9.764325    9.82432182  9.88431864  9.94431546 10.00431227
+ 10.06430909 10.12430591 10.18430273 10.24429954 10.30429636 10.36429318
+ 10.42429    10.48428682 10.54428363 10.60428045 10.66427727 10.72427409
+ 10.7842709  10.84426772 10.90426454 10.96426136 11.02425817 11.08425499
+ 11.14425181 11.20424863 11.26424544 11.32424226 11.38423908 11.4442359
+ 11.50423272 11.56422953 11.62422635 11.68422317 11.74421999 11.8042168
+ 11.86421362 11.92421044 11.98420726 12.04420407 12.10420089 12.16419771
+ 12.22419453 12.28419135 12.34418816 12.40418498 12.4641818  12.52417862
+ 12.58417543 12.64417225 12.70416907 12.76416589 12.8241627  12.88415952
+ 12.94415634 13.00415316 13.06414998 13.12414679 13.18414361 13.24414043
+ 13.30413725 13.36413406 13.42413088 13.4841277  13.54412452 13.60412133
+ 13.66411815 13.72411497 13.78411179 13.84410861 13.90410542 13.96410224
+ 14.02409906 14.08409588 14.14409269 14.20408951 14.26408633 14.32408315
+ 14.38407996 14.44407678 14.5040736  14.56407042 14.62406724 14.68406405
+ 14.74406087 14.80405769 14.86405451 14.92405132 14.98404814 15.04404496
+ 15.10404178 15.16403859 15.22403541 15.28403223 15.34402905 15.40402587
+ 15.46402268 15.5240195  15.58401632 15.64401314 15.70400995 15.76400677
+ 15.82400359 15.88400041 15.94399722 16.00399404 16.06399086 16.12398768
+ 16.1839845  16.24398131 16.30397813 16.36397495 16.42397177 16.48396858
+ 16.5439654  16.60396222 16.66395904 16.72395585 16.78395267 16.84394949
+ 16.90394631 16.96394313 17.02393994 17.08393676 17.14393358 17.2039304
+ 17.26392721 17.32392403 17.38392085 17.44391767 17.50391448 17.5639113
+ 17.62390812 17.68390494 17.74390176 17.80389857 17.86389539 17.92389221
+ 17.98388903 18.04388584 18.10388266 18.16387948 18.2238763  18.28387311
+ 18.34386993 18.40386675 18.46386357 18.52386038 18.5838572  18.64385402
+ 18.70385084 18.76384766 18.82384447 18.88384129 18.94383811 19.00383493
+ 19.06383174 19.12382856 19.18382538 19.2438222  19.30381901 19.36381583
+ 19.42381265 19.48380947 19.54380629 19.6038031  19.66379992 19.72379674
+ 19.78379356 19.84379037 19.90378719 19.96378401 20.02378083 20.08377764
+ 20.14377446 20.20377128], look: g-
+23:14:41-Pompa.station-DEBUG: Are pipes ready?
+23:14:41-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 7.0, 28);7.0 = 7.0
+23:14:41-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 150.0, 29);150.0 = 150.0
+23:14:41-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 0.08, 30);0.08 = 0.08
+23:14:41-Pompa.station-DEBUG: True
+23:14:41-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 732.0, 42);732.0 = 732.0
+23:14:41-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 200.0, 43);200.0 = 200.0
+23:14:41-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000001A98E43DF60>, 0.05, 44);0.05 = 0.05
+23:14:41-Pompa.station-DEBUG: True
+23:14:41-Pompa.maths-INFO: work_p_x: [32.56281407]

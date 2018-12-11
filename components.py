@@ -140,6 +140,9 @@ class Pipe(StationObject):
         log.debug('Pipe loss coords: {}'.format(result))
         return result
 
+    def pipe_char_draw(self, parallel_pipes):
+        pass
+
 
 class PumpType(StationObject):
     """class for pumps"""
@@ -170,9 +173,12 @@ class PumpType(StationObject):
         self.characteristic.set_unit(unit)
 
     def max_pump_efficiency(self):
-        max_eff_val = (self.efficiency_to.value_liters -
-                       self.efficiency_from.value_liters) / 2
+        max_eff_val = self.efficiency_from.value_liters + \
+            ((self.efficiency_to.value_liters -
+                self.efficiency_from.value_liters) / 2)
         max_eff = variables.VFlow(max_eff_val, 'liters')
+        log.debug('max eff liters: {}, meters: {}'.format(
+            max_eff.value_liters, max_eff.value_meters))
         return max_eff
 
     def pump_char_ready(self):
@@ -193,20 +199,21 @@ class PumpType(StationObject):
 
 class PumpSet():
 
-    def __init__(self, well):
-        self.well = well
-        self.n_of_pumps = well.number_of_pumps
+    def __init__(self, station):
+        self.station = station
+        self.well = station.well
+        self.n_of_pumps = self.station.number_of_pumps
         self.set_start_ordinates()
         self.pumps = []
         for i in range(self.n_of_pumps):
-            pump = Pump(well, i + 1, self.start_ord_list[i])
+            pump = Pump(self.station, self, i + 1, self.start_ord_list[i])
             self.pumps.append(pump)
 
     def set_start_ordinates(self):
         self.start_ord_list = []
-        self.ord_stop = self.well.ord_bottom.value + \
-            self.well.minimal_sewage_level.value
-        ord_start = some_value  # UZUPEŁNIC
+        self.ord_stop = self.station.ord_bottom.value + \
+            self.station.minimal_sewage_level.value
+        ord_start = self.station.ord_sw_on  # UZUPEŁNIC
         height = ord_start - self.ord_stop
         self.one_pump_h = round(height / self.n_of_pumps, 2)
         for i in range(self.n_of_pumps):
@@ -220,25 +227,26 @@ class PumpSet():
             r += 'w chwili wlaczenia pompy nr{}\n\n'.format(n_of_starting_pump)
         else:
             r += 'Parametry końcowe pracy zespolu pomp\n\n'
-        r += '-wys. lc. u wylotu pompy...........Hlc= {} [m]\n'.format()
-        r += '-geometryczna wys. podnoszenia.......H= {} [m]\n'.format()
-        r += '-wydatek.............................Q= {} [l/s]\n'.format()
-        r += '-predkosc w kolektorze tlocznym......v= {} [m/s]\n'.format()
-        r += '-predkosc w przewodach w pompowni....v= {} [m/s]\n'.format()
+        r += '-wys. lc. u wylotu pompy...........Hlc= {} [m]\n'.format('x')
+        r += '-geometryczna wys. podnoszenia.......H= {} [m]\n'.format('x')
+        r += '-wydatek.............................Q= {} [l/s]\n'.format('x')
+        r += '-predkosc w kolektorze tlocznym......v= {} [m/s]\n'.format('x')
+        r += '-predkosc w przewodach w pompowni....v= {} [m/s]\n'.format('x')
         if n_of_starting_pump <= self.n_of_pumps:
             r += ('-zapas wysokosci cisnienia..........dh= '
-                  '{} [m sł.wody]\n\n'.format())
+                  '{} [m sł.wody]\n\n'.format('x'))
         return r
 
 
 class Pump():
 
-    def __init__(self, well, number, ord_start):
-        self.well = well
+    def __init__(self, station, pumpset, number, ord_start):
+        self.station = station
+        self.well = station.well
         self.number = number
         self.ord_start = ord_start
-        self.height_u = well.pumpset.one_pump_h
-        self.pump_type = well.pump_type
+        self.height_u = pumpset.one_pump_h
+        self.pump_type = station.pump_type
         self.real_work_time = 0
         self.real_inactivity_time = 0
         self.real_cycle_time = 0
@@ -294,19 +302,22 @@ class Well(StationObject):
             width.configure(state='normal')
         log.debug('changed shape to {}'.format(shape))
 
-    def minimal_diameter(self):
-        n = self.number_of_pumps() + self.reserve_pumps_number()
-        d = self.pump_type.contour
-        if self.shape == 'round':
-            if self.config == 'optimal':
+    def minimal_diameter(self, n_work_pumps, n_reserve_pumps, station):
+        d = station.pump_type.contour.value
+        min_cycle_time = station.pump_type.cycle_time.value
+        comp_flow = station.comp_flow
+        n = n_work_pumps + n_reserve_pumps
+        if self.shape.value == 'round':
+            if self.config.value == 'optimal':
                 geom_minimal_d = d + 2 * (d / (2 * (np.sin(3.14 / n))))
-            elif self.config == 'singlerow':
+            elif self.config.value == 'singlerow':
                 geom_minimal_d = n * d
-        elif self.shape == 'rectangle':
-            if self.config == 'optimal':
-                short_side = min(self.length, self.width)
-                if short_side == self.length:
-                    self.length, self.width = self.width, self.length
+        elif self.shape.value == 'rectangle':
+            if self.config.value == 'optimal':
+                length, width = self.length.value, self.width.value
+                short_side = min(length, width)
+                if short_side == length:
+                    length, width = width, length
                 rows = short_side // d
                 if n % rows == 0:
                     pumps_in_row = n / rows
@@ -314,19 +325,25 @@ class Well(StationObject):
                     pumps_in_row = (n // rows) + 1
                 min_len = pumps_in_row * d
                 min_wid = rows * d
-            elif self.config == 'singlerow':
+            elif self.config.value == 'singlerow':
                 min_len = n * d
                 min_wid = d
             geom_minimal_d = 2 * ((min_len * min_wid / 3.14) ** (1 / 2))
-        h = 0
-        min_velocity = self.min_cycle_time * self.comp_flow / 4
+        h = station.h_whole
+        min_velocity = min_cycle_time * comp_flow / 4
         hydr_minimal_d = min_velocity / h
         minimal_d = max(geom_minimal_d, hydr_minimal_d)
         return minimal_d
 
     def cross_sectional_area(self):
-        if self.shape == 'rectangle':
-            area = self.length * self.width
-        elif self.shape == 'round':
-            area = 3.14 * ((self.diameter / 2) ** 2)
+        if self.shape.value == 'rectangle':
+            log.debug('rectangle')
+            area = self.length.value * self.width.value
+            log.debug('len: {}, wid: {}'.format(
+                self.length.value, self.width.value))
+        elif self.shape.value == 'round':
+            log.debug('round')
+            log.debug('diameter value: {}'.format(self.diameter.value))
+            area = 3.14 * ((self.diameter.value / 2) ** 2)
+        log.debug('cross section area is {}'.format(area))
         return area

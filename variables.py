@@ -132,7 +132,10 @@ class Logic(Variable):
                 self.__dict__['value'] = value
             self.ui_var.set(self.value)
             if self.function is not None:
-                self.function()
+                try:
+                    self.function()
+                except AttributeError as e:
+                    log.error('AttributeError: {}'.format(e))
 
 
 class Resistance(Variable):

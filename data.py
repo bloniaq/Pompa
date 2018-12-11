@@ -82,7 +82,7 @@ def collector_vars(app):
     ins.resistance = v.Resistance(app, '', 'resistance_collector', '47')
 
 
-def get_data_dict_from_dan_file(self, path):
+def get_data_dict_from_dan_file(path):
     log.info('\ndan_load started\n')
     log.info('plik danych generowany wersją 1.0 aplikacji')
     data_dictionary = {}

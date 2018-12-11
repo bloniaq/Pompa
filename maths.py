@@ -35,11 +35,17 @@ def interp(wanted_x, x_arr, y_arr):
     return np.interp(wanted_x, x_arr, y_arr)
 
 
+def draw_plot(x_samples, y_samples, style, unit):
+
+    return x, y(x), style
+
+
 def draw_report_figure(builder, plot, canvas, station):
-    log.debug('Starting draw_figure')
+    log.debug('Starting draw report figure')
     plot.clear()
     canvas.draw()
-    unit = builder.ui_vars.__getitem__('pump_flow_unit').get()
+    ui_vars = builder.tkvariables
+    unit = ui_vars.__getitem__('pump_flow_unit').get()
     x = station.get_x_axis(unit)
     if station.pump_type.pump_char_ready():
         x, y_pump, l_pump = station.pump_type.draw_pump_plot(x)
@@ -61,7 +67,7 @@ def draw_report_figure(builder, plot, canvas, station):
             pass
     else:
         str_work_p = ''
-    str_unit = unit_bracket_dict[builder.ui_vars.__getitem__(
+    str_unit = unit_bracket_dict[ui_vars.__getitem__(
         'pump_flow_unit').get()]
     plot.set_xlabel(
         'Przepływ Q {}'.format(str_unit))
@@ -108,3 +114,24 @@ def draw_report_figure(builder, plot, canvas, station):
     plot.set_ylim(bottom=0)
     plot.legend(fontsize='small')
     canvas.draw()
+
+
+def draw_pipe_figure(builder, plot, canvas, station):
+    log.debug('Starting draw report figure')
+    plot.clear()
+    canvas.draw()
+    ui_vars = builder.tkvariables
+    unit = ui_vars.__getitem__('inflow_unit').get()
+    x = station.get_x_axis(unit)
+    if station.d_pipe.pipe_char_ready():
+        pass
+    if station.collector.pipe_char_ready():
+        pass
+
+
+def draw_pump_figure():
+    pass
+
+
+def draw_schema():
+    pass

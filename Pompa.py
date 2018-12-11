@@ -4,6 +4,7 @@ import logging
 import numpy as np
 
 import components
+import variables
 import station
 import maths
 import data
@@ -61,7 +62,6 @@ class Application():
 
         # 5: creating objects
         self.init_objects()
-        self.set_mode(self.default['mode'])
 
         # 6: Initialize Figure objects
         pump_figure_cont = self.builder.get_object('Frame_Pump_Figure')
@@ -69,23 +69,27 @@ class Application():
         station_figure_cont = self.builder.get_object('Frame_Station_Figure')
         report_figure_cont = self.builder.get_object('Frame_Report_Figure')
         self.pump_figure, self.pump_plot, self.pump_canvas = maths.init_figure(
-            pump_figure_cont, 4.2, 5.1)
+            pump_figure_cont, 5.1, 4.6)
         self.pipe_figure, self.pipe_plot, self.pipe_canvas = maths.init_figure(
-            pipe_figure_cont, 4.2, 5.1)
+            pipe_figure_cont, 8.4, 3.8)
         self.stat_figure, self.stat_plot, self.stat_canvas = maths.init_figure(
-            station_figure_cont, 4.2, 5.1)
+            station_figure_cont, 4.5, 4.7)
         self.rep_figure, self.rep_plot, self.rep_canvas = maths.init_figure(
-            report_figure_cont, 4.2, 5.1)
+            report_figure_cont, 4.65, 6.0)
         self.pump_canvas.get_tk_widget().grid(row=0, column=0)
         self.pipe_canvas.get_tk_widget().grid(row=0, column=0)
         self.stat_canvas.get_tk_widget().grid(row=0, column=0)
         self.rep_canvas.get_tk_widget().grid(row=0, column=0)
 
     def init_objects(self):
+        self.mode = variables.Logic(self, 'checking', 'mode', '1',
+                                    data.dan_mode, self.ui_set_mode)
+        self.ui_set_mode()
         self.station = station.Station(self)
         data.station_vars(self)
         self.well = self.station.well = components.Well(self)
         data.well_vars(self)
+        self.ui_set_shape()
         self.pump_type = self.station.pump_type = components.PumpType(self)
         data.pump_vars(self)
         self.pump_type.set_flow_unit(
@@ -99,10 +103,14 @@ class Application():
         self.mainwindow.mainloop()
 
     def calculate(self):
-        if self.mode == 'checking':
+        if self.mode.value == 'checking':
             self.station.calculate()
-            out_data = output.generate_checking_report(self.well)
-        self.generate_report(out_data)
+            out_data = output.generate_checking_report(self.station)
+        else:
+            log.debug('mode: {}'.format(self.mode.value))
+        log.debug('out_data: {}'.format(out_data))
+        self.draw_report_figure()
+        self.show_report(out_data)
 
     def generate_report(self, output):
         pass
@@ -111,6 +119,7 @@ class Application():
         log.info('\ndata_load started\n')
         global path
         path = self.filepath.cget('path')
+        log.debug('path: {}'.format(path))
         with open(path, 'r+') as file:
             log.info('opening file: {0}\n\n'.format(str(file)))
             # rozpoznaj plik
@@ -123,20 +132,20 @@ class Application():
         self.d_pipe.load_data(data_dictionary)
         self.collector.load_data(data_dictionary)
         self.pump_type.load_data(data_dictionary)
-        self.draw_report_figure()
+        self.draw_auxillary_figures()
 
     def ui_set_shape(self):
         shape = self.ui_vars.__getitem__('shape').get()
         self.well.set_shape(shape)
 
     def ui_set_mode(self):
-        self.mode = self.ui_vars.__getitem__('mode').get()
-        self.set_mode(self.mode)
+        new_mode = self.ui_vars.__getitem__('mode').get()
+        self.set_mode(new_mode)
 
     def set_mode(self, mode):
         ''' changes application mode
         '''
-        self.ui_vars.__getitem__('mode').set(mode)
+        self.mode.value = mode
         nbook = self.builder.get_object('Notebook_Data')
         if mode == 'checking':
             nbook.tab(3, state='disabled')
@@ -154,7 +163,7 @@ class Application():
         current_setting = self.ui_vars.__getitem__('pump_flow_unit').get()
         self.pump_type.set_flow_unit(current_setting)
         log.debug('going to draw figure')
-        self.draw_report_figure()
+        self.draw_pump_figure()
 
     def pump_get_coords(self):
         log.info('get_coords started')
@@ -166,14 +175,14 @@ class Application():
         lift_entry.delete(0, 'end')
         self.pump_type.characteristic.add_point(flow_value, lift_value)
         self.pump_type.characteristic.sort_points()
-        self.draw_report_figure()
+        self.draw_pump_figure()
 
     def pump_delete_point(self):
         log.info('pump_delete_button started')
         deleted_id = self.pump_type.characteristic.tree.focus()
         if deleted_id != '':
             self.pump_type.characteristic.delete_point(deleted_id)
-        self.draw_report_figure()
+        self.draw_pump_figure()
 
     def print_values(self):
         objects = [self.well, self.pump_type, self.d_pipe, self.collector]
@@ -188,6 +197,25 @@ class Application():
     def draw_report_figure(self):
         maths.draw_report_figure(self.builder, self.rep_plot, self.rep_canvas,
                                  self.station)
+
+    def draw_pipe_figure(self):
+        maths.draw_pipe_figure()
+
+    def draw_pump_figure(self):
+        maths.draw_pump_figure()
+
+    def draw_schema():
+        maths.draw_schema()
+
+    def draw_auxillary_figures(self):
+        self.draw_pipe_figure()
+        self.draw_pump_figure()
+        self.draw_schema()
+
+    def show_report(self, report):
+        text_container = self.builder.get_object('Text_Report')
+        text_container.delete('1.0', tk.END)
+        text_container.insert('1.0', report)
 
 
 if __name__ == '__main__':
