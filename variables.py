@@ -39,7 +39,7 @@ class Variable():
             setattr(self, attr, ui_content)
         if self.chart_req and not self.load_flag:
             try:
-                self.app.draw_figure()
+                self.app.draw_report_figure()
             except (AttributeError, TypeError) as e:
                 log.error('Error {}'.format(e))
 
@@ -81,7 +81,7 @@ class P_Int(Numeric):
             self.ui_var.set(self.value)
             if self.chart_req and not self.load_flag:
                 try:
-                    self.app.draw_figure()
+                    self.app.draw_report_figure()
                 except (AttributeError, TypeError) as e:
                     log.error('Error {}'.format(e))
 
@@ -99,7 +99,7 @@ class P_Float(Numeric):
                 self.ui_var.set(value)
             if self.chart_req and not self.load_flag:
                 try:
-                    self.app.draw_figure()
+                    self.app.draw_report_figure()
                 except (AttributeError, TypeError) as e:
                     log.error('Error {}'.format(e))
 
@@ -211,7 +211,7 @@ class Flow(Variable):
                 self.ui_var.set(self.value)
             if self.chart_req and not self.load_flag:
                 try:
-                    self.app.draw_figure()
+                    self.app.draw_report_figure()
                 except (AttributeError, TypeError) as e:
                     log.error('Error {}'.format(e))
 
