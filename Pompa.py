@@ -1,7 +1,7 @@
 import tkinter as tk  # for python 3
 import pygubu
 import logging
-import numpy as np
+# import numpy as np
 
 import components
 import variables
@@ -9,8 +9,6 @@ import station
 import maths
 import data
 import output
-
-from matplotlib.ticker import MultipleLocator
 
 variables_list = []
 path = ""
@@ -165,6 +163,9 @@ class Application():
         log.debug('going to draw figure')
         self.draw_pump_figure()
 
+    def set_inflow_unit(self):
+        self.draw_pipe_figure()
+
     def pump_get_coords(self):
         log.info('get_coords started')
         flow_entry = self.builder.get_object('Entry_Add_char_point_flow')
@@ -199,13 +200,16 @@ class Application():
                                  self.station)
 
     def draw_pipe_figure(self):
-        maths.draw_pipe_figure()
+        maths.draw_pipe_figure(self.builder, self.pipe_plot, self.pipe_canvas,
+                               self.station)
 
     def draw_pump_figure(self):
-        maths.draw_pump_figure()
+        maths.draw_pump_figure(self.builder, self.pump_plot, self.pump_canvas,
+                               self.station)
 
-    def draw_schema():
-        maths.draw_schema()
+    def draw_schema(self):
+        maths.draw_schema(self.builder, self.stat_plot, self.stat_canvas,
+                          self.station)
 
     def draw_auxillary_figures(self):
         self.draw_pipe_figure()

@@ -58,7 +58,7 @@ class Pipe(StationObject):
         diameter = self.diameter.value
         speed = 1000 * self.speed(flow, unit)
         re = (diameter * speed) / self.kinematic_viscosity
-        log.info('Reynolds number is {}'.format(re))
+        # log.info('Reynolds number is {}'.format(re))
         return re
 
     def get_epsilon(self):
@@ -73,15 +73,15 @@ class Pipe(StationObject):
         lambda_ = (-2 * np.log10(self.roughness.value / (
             3.71 * diameter))) ** -2
         re = self.get_re(flow, unit)
-        log.info('Re is {}'.format(re))
-        log.info('Lambda is {}'.format(lambda_))
+        # log.info('Re is {}'.format(re))
+        # log.info('Lambda is {}'.format(lambda_))
         try:
             alt_lambda = (-2 * np.log10((6.1 / (re ** 0.915)) + (
                 0.268 * epsilon))) ** -2
         except ZeroDivisionError as e:
             log.error(e)
             alt_lambda = 0
-        log.info('Alternative Lambda is {}'.format(alt_lambda))
+        # log.info('Alternative Lambda is {}'.format(alt_lambda))
         return alt_lambda
 
     def line_loss(self, flow, unit):
@@ -90,25 +90,25 @@ class Pipe(StationObject):
         std_grav = 9.81
         lambda_coef = self.get_lambda(flow, unit)
         speed = self.speed(flow, unit)
-        log.info('for diameter {} [m²], lambda {} [-], speed {} [m/s]'.format(
-            diameter, lambda_coef, speed))
+        # log.info('for diameter {} [m²], lambda {} [-], speed {} [m/s]'.format(
+        #     diameter, lambda_coef, speed))
         hydraulic_gradient = (lambda_coef * (speed ** 2)) / (
             diameter * 2 * std_grav)
-        log.info('hydraulic gradient is {} [-]\n'.format(hydraulic_gradient))
+        # log.info('hydraulic gradient is {} [-]\n'.format(hydraulic_gradient))
         line_loss = self.length.value * hydraulic_gradient
-        log.info('line loss is {} [m]\n'.format(line_loss))
+        # log.info('line loss is {} [m]\n'.format(line_loss))
         return line_loss
 
     def local_loss(self, flow, unit):
         local_loss = ((self.speed(flow, unit) ** 2) / (2 * 9.81)) * sum(
             self.resistance.values)
-        log.info('local loss is {} [m]'.format(local_loss))
-        log.info('Epsilon is {}, Re is {}'.format(
-            self.get_epsilon(), self.get_re(flow, unit)))
+        # log.info('local loss is {} [m]'.format(local_loss))
+        # log.info('Epsilon is {}, Re is {}'.format(
+        #     self.get_epsilon(), self.get_re(flow, unit)))
         return local_loss
 
     def speed(self, flow, unit):
-        log.debug('input flow: {} {}'.format(flow, unit_bracket_dict[unit]))
+        # log.debug('input flow: {} {}'.format(flow, unit_bracket_dict[unit]))
         if unit == 'liters':
             flow *= .001
         elif unit == 'meters':
@@ -119,7 +119,7 @@ class Pipe(StationObject):
         log.info(
             'for flow {} [m3/s], radius {} [m], cross section {} [m2]'.format(
                 flow, radius, cross_sec))
-        log.info('speed is {} [m/s]'.format(speed))
+        # log.info('speed is {} [m/s]'.format(speed))
         return speed
 
     def sum_loss(self, flow, unit):
@@ -140,8 +140,25 @@ class Pipe(StationObject):
         log.debug('Pipe loss coords: {}'.format(result))
         return result
 
-    def pipe_char_draw(self, parallel_pipes):
-        pass
+    def get_pipe_char_vals(self, station, unit):
+        log.debug('Starting getting pipe vals')
+        flows, _ = station.pump_type.characteristic.get_pump_char_func(unit)
+        geom_loss = station.height_to_pump(
+            station.ord_bottom.value + station.minimal_sewage_level.value)
+        log.debug('Got geometric loss {}'.format(geom_loss))
+        y_coords = self.get_y_coords(flows, unit)
+        log.debug('Got ys')
+        pipes_char = []
+        for i in range(len(flows)):
+            sum_l = geom_loss + y_coords[i]
+            log.debug('####################\n\n')
+            log.debug('flow: {}, geom loss: {}, , pipe: {}, sum: {}'.format(
+                flows[i], geom_loss, y_coords[i], sum_l))
+            log.debug('\n####################\n\n')
+            pipes_char.append(sum_l)
+        y = maths.fit_coords(flows, pipes_char, 2)
+        log.debug('Finding ys finished')
+        return y
 
 
 class PumpType(StationObject):
@@ -187,14 +204,21 @@ class PumpType(StationObject):
             flag = True
         return flag
 
-    def draw_pump_plot(self, x_lin):
-        flows, lifts = self.characteristic.get_pump_char_func()
+    def draw_pump_plot(self):
+        unit = self.characteristic.unit_var.get()
+        flows, lifts = self.characteristic.get_pump_char_func(unit)
         y = maths.fit_coords(flows, lifts, 3)
-        return x_lin, y(x_lin), 'b-'
+        return y
 
     def generate_pump_char_string(self):
         # patter: 'Q=  {} [l/s]    H=  {} [m]\n'.format()
-        pass
+        char_raport = ''
+        for point in self.characteristic.coords:
+            q = self.characteristic.coords[point][0].value_liters
+            h = self.characteristic.coords[point][1]
+            char_raport += 'Q=  {} [l/s]    H=  {} [m]\n'.format(q, h)
+        char_raport += '\n'
+        return char_raport
 
 
 class PumpSet():
@@ -203,6 +227,7 @@ class PumpSet():
         self.station = station
         self.well = station.well
         self.n_of_pumps = self.station.number_of_pumps
+        self.characteristic = station.pump_type.characteristic
         self.set_start_ordinates()
         self.pumps = []
         for i in range(self.n_of_pumps):
@@ -236,6 +261,15 @@ class PumpSet():
             r += ('-zapas wysokosci cisnienia..........dh= '
                   '{} [m sł.wody]\n\n'.format('x'))
         return r
+
+    def get_pumpset_vals(self):
+        log.debug('Starting draw_pipes_plot')
+        unit = 'liters'
+        flows, lifts = self.characteristic.get_pump_char_func(unit)
+        n = self.n_of_pumps
+        set_flows = [i * n for i in flows]
+        y = maths.fit_coords(set_flows, lifts, 3)
+        return y
 
 
 class Pump():

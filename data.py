@@ -89,7 +89,10 @@ def get_data_dict_from_dan_file(path):
     with open(path, 'r+') as file:
         log.info('opening file: {0}\n\n'.format(str(file)))
         for line in file:
-            id_line, line_datas = line.split(')')
+            try:
+                id_line, line_datas = line.split(')')
+            except ValueError as e:
+                log.error('ValueError {}'.format(e))
             line_datas_list = line_datas.split()
             stored_value = line_datas_list[0]
             log.debug('id: {}, stored value: {}'.format(

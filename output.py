@@ -64,25 +64,26 @@ def generate_checking_report(station):
         sum(dpipe.resistance.values))
     report['27'] = 'CHARAKTERYSTYKA ZASTOSOWANYCH POMP\n'
     report['30'] = pump.generate_pump_char_string()
-    report['31'] = 'Rzedna dna pompowni...................  {} [m]'.format(
+    report['31'] = 'Rzedna dna pompowni...................  {}\t[m]'.format(
         station.ord_bottom.value)
-    report['32'] = 'Rzedna wylaczenia sie pomp............  {} [m]'.format(
+    report['32'] = 'Rzedna wylaczenia sie pomp............  {}\t[m]'.format(
         station.ord_bottom.value + 0.3)
-    report['33'] = 'Objetosc calkowita pompowni.........Vc= {} [m3]'.format(
+    report['33'] = 'Objetosc calkowita pompowni.........Vc= {}\t[m3]'.format(
         round(station.v_whole, 2))
-    report['34'] = 'Objetosc uzyteczna pompowni.........Vu= {} [m3]'.format(
+    report['34'] = 'Objetosc uzyteczna pompowni.........Vu= {}\t[m3]'.format(
         round(station.v_useful, 2))
-    report['35'] = 'Objetosc rezerwowa pompowni.........Vr= {} [m3]'.format(
+    report['35'] = 'Objetosc rezerwowa pompowni.........Vr= {}\t[m3]'.format(
         round(station.v_reserve, 2))
-    report['36'] = 'Objetosc martwa pompowni............Vm= {} [m3]\n'.format(
+    report['36'] = 'Objetosc martwa pompowni............Vm= {}\t[m3]\n'.format(
         round(station.v_dead, 2))
     report['37'] = 'Vu/Vc = {}%'.format(
-        round(station.v_useful / station.v_whole), 2)
-    report['38'] = 'Vr/Vu = *****  %'
+        round(100 * (station.v_useful / station.v_whole)), 2)
+    report['38'] = 'Vr/Vu = {}%'.format(
+        round(100 * (station.v_reserve / station.v_useful)), 2)
     report['39'] = 'Vr/Vc = {}%'.format(
-        round(station.v_reserve / station.v_whole), 2)
+        round(100 * (station.v_reserve / station.v_whole)), 2)
     report['40'] = 'Vm/Vc = {}%\n'.format(
-        round(station.v_dead / station.v_whole), 2)
+        round(100 * (station.v_dead / station.v_whole)), 2)
     report['41'] = pumpset.get_parameters(n_of_work_pumps)
     '''
     report['47'] = 'Parametry poczatkowe pracy zespolu pomp'

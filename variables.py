@@ -82,6 +82,7 @@ class P_Int(Numeric):
             if self.chart_req and not self.load_flag:
                 try:
                     self.app.draw_report_figure()
+                    self.app.draw_auxillary_figures()
                 except (AttributeError, TypeError) as e:
                     log.error('Error {}'.format(e))
 
@@ -100,6 +101,7 @@ class P_Float(Numeric):
             if self.chart_req and not self.load_flag:
                 try:
                     self.app.draw_report_figure()
+                    self.app.draw_auxillary_figures()
                 except (AttributeError, TypeError) as e:
                     log.error('Error {}'.format(e))
 
@@ -174,6 +176,10 @@ class Resistance(Variable):
             self.__dict__['string'] = string
         if attr == 'string' and self.string != self.ui_var.get():
             self.ui_var.set(self.string)
+        try:
+            self.app.draw_pipe_figure()
+        except (AttributeError, TypeError) as e:
+            log.error('Error {}'.format(e))
 
     def load_data(self, data_dict):
         self.load_flag = True
@@ -215,6 +221,7 @@ class Flow(Variable):
             if self.chart_req and not self.load_flag:
                 try:
                     self.app.draw_report_figure()
+                    self.app.draw_auxillary_figures()
                 except (AttributeError, TypeError) as e:
                     log.error('Error {}'.format(e))
 
@@ -317,11 +324,13 @@ class PumpCharacteristic(Variable):
         self.coords[itemid] = (PumpCharFlow(flow, unit, self.unit_var), lift)
         log.debug('char points: {}'.format(self.coords))
 
-    def get_pump_char_func(self):
+    def get_pump_char_func(self, unit):
         log.debug('Getting pump characteristic func')
         pairs = {}
         flow_coords = []
         lift_coords = []
+        present_unit = self.unit_var.get()
+        self.set_unit(unit)
         log.debug('Starting iterating over cooridnates, {}'.format(
             self.coords))
         for point in self.coords:
@@ -332,6 +341,7 @@ class PumpCharacteristic(Variable):
         for value in flow_coords:
             lift_coords.append(pairs[str(value)])
         log.debug('flows: {}, lifts: {}'.format(flow_coords, lift_coords))
+        self.set_unit(present_unit)
         return flow_coords, lift_coords
 
     def sort_points(self):

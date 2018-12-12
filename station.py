@@ -53,9 +53,9 @@ class Station(components.StationObject):
         self.height_start = self.height_to_pump(self.ord_sw_off)
         self.height_stop = self.height_to_pump(self.ord_sw_on)
         self.qp = self.get_calculative_flow()
-        self.h_useful = self.ord_sw_off - self.ord_sw_on  # FILL UP
+        self.h_useful = self.ord_sw_on - self.ord_sw_off  # FILL UP
         self.h_whole = self.ord_terrain.value - self.ord_bottom.value
-        self.h_reserve = 0  # FILL UP
+        self.h_reserve = self.ord_terrain.value - self.ord_sw_on
         self.v_whole = self.velocity(self.h_whole)
         self.v_useful = self.velocity(self.h_useful)
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
@@ -96,7 +96,7 @@ class Station(components.StationObject):
         self.number_of_res_pumps = n_of_res_pumps
         return n_of_res_pumps
 
-    def get_x_axis(self, unit):
+    def get_x_axis(self, unit, n=1):
         if unit == 'meters':
             inflow_val_min = self.inflow_min.value_meters
             inflow_val_max = self.inflow_max.value_meters
@@ -110,8 +110,9 @@ class Station(components.StationObject):
         x_min = min(inflow_val_min - 3, eff_from - 3)
         if x_min < 0:
             x_min = 0
-        x_max = max(inflow_val_max + 3, eff_to + 3)
-        return np.linspace(x_min, 1.5 * x_max, 200)
+        x_max = max(1.5 * (inflow_val_max + 3), 1.5 * (eff_to + 3),
+                    n * (inflow_val_max + 3))
+        return np.linspace(x_min, x_max, 200)
 
     def pipes_ready(self):
         log.debug('Are pipes ready?')
@@ -124,9 +125,9 @@ class Station(components.StationObject):
         log.debug(flag)
         return flag
 
-    def draw_pipes_plot(self, x_lin, unit):
+    def get_all_pipes_char_vals(self, unit):
         log.debug('Starting draw_pipes_plot')
-        flows, _ = self.pump_type.characteristic.get_pump_char_func()
+        flows, _ = self.pump_type.characteristic.get_pump_char_func(unit)
         geom_loss = self.height_to_pump(
             self.ord_bottom.value + self.minimal_sewage_level.value)
         log.debug('Got geometric loss')
@@ -136,9 +137,41 @@ class Station(components.StationObject):
         log.debug('Got collector ys')
         pipes_char = []
         for i in range(len(flows)):
-            pipes_char.append(geom_loss + discharge_y[i] + collector_y[i])
-        y = maths.fit_coords(flows, pipes_char, 1)
-        return x_lin, y(x_lin), 'g-'
+            sum_l = geom_loss + discharge_y[i] + collector_y[i]
+            pipes_char.append(sum_l)
+        y = maths.fit_coords(flows, pipes_char, 2)
+        return y
+
+    def get_geom_loss_vector(self):
+        log.debug('Starting draw_pipes_plot')
+        flows, _ = self.pump_type.characteristic.get_pump_char_func('liters')
+        loss_char = []
+        geom_loss = self.height_to_pump(
+            self.ord_bottom.value + self.minimal_sewage_level.value)
+        for i in range(len(flows)):
+            loss_char.append(geom_loss)
+        y = maths.fit_coords(flows, loss_char, 1)
+        return y
+
+    def geom_loss_ready(self):
+        log.debug('Are pipes ready?')
+        flag = True
+        checklist = [self.ord_bottom, self.minimal_sewage_level]
+        for parameter in checklist:
+            if parameter is None:
+                flag = False
+                return flag
+        for parameter in checklist:
+            log.debug('{} = {}'.format(parameter, parameter.value))
+            if parameter.value == 0:
+                flag = False
+        return flag
+
+    def pump_set_ready(self):
+        flag = True
+        if self.pump_set is None:
+            flag = False
+        return flag
 
     def velocity(self, height):
         velocity = self.well.cross_sectional_area() * height
