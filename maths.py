@@ -115,11 +115,16 @@ def draw_report_figure(builder, plot, canvas, station):
     except UnboundLocalError as e:
         log.error('Unbound ERROR2: {}'.format(e))
         pass
-    y_lim = min(y_all_pipes(x[-1]) + 5, 1.2 * y_set(x[0]))
-    bottom_lim = max(0, 0)
+    if n == 1:
+        half_height = (y_all_pipes(0) - y_pump(x[-1])) / 2
+        y_top_lim = min(y_all_pipes(x[-1]) + 5, 1.2 * y_pump(x[0]))
+    elif n > 1:
+        y_top_lim = min(y_all_pipes(x[-1]) + 5, 1.2 * y_set(x[0]))
+        half_height = (y_all_pipes(0) - y_set(x[-1])) / 2
+    y_bot_lim = max(0, half_height)
     log.debug('x[-1] = {}'.format(x[-1]))
     plot.set_xlim(left=x[0], right=x[-1])
-    plot.set_ylim(bottom=bottom_lim, top=y_lim)
+    plot.set_ylim(bottom=y_bot_lim, top=y_top_lim)
     plot.legend(fontsize='small')
     canvas.draw()
 

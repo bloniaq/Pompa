@@ -171,6 +171,8 @@ class Station(components.StationObject):
         flag = True
         if self.pump_set is None:
             flag = False
+        if self.number_of_pumps == 1:
+            flag = False
         return flag
 
     def velocity(self, height):

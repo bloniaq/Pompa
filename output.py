@@ -43,7 +43,7 @@ def generate_checking_report(station):
         coll.roughness.value)
     report['15'] = 'Chropowatosc przewodu w pompowni.....k= {} [mm]'.format(
         dpipe.roughness.value)
-    report['16'] = 'Doplyw do pomowni....Qmin= {}   Qmax= {}  [l/s]'.format(
+    report['16'] = 'Doplyw do pomowni....Qmin= {}   Qmax= {} [l/s]'.format(
         station.inflow_min.value_liters, station.inflow_max.value_liters)
     report['17'] = 'Rzedna terenu.........................  {} [m]'.format(
         station.ord_terrain.value)
