@@ -343,7 +343,7 @@
 			"file": "Pompa.py",
 			"settings":
 			{
-				"buffer_size": 7899,
+				"buffer_size": 7908,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -352,7 +352,7 @@
 			"file": "logfile.log",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 125271,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -379,7 +379,7 @@
 			"file": "station.py",
 			"settings":
 			{
-				"buffer_size": 6791,
+				"buffer_size": 7186,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -397,7 +397,7 @@
 			"file": "components.py",
 			"settings":
 			{
-				"buffer_size": 14469,
+				"buffer_size": 14251,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -597,7 +597,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -606,15 +606,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7899,
+						"buffer_size": 7908,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7520,
-								7542
+								3411,
+								3411
 							]
 						],
 						"settings":
@@ -660,10 +660,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1629.0,
+						"translation.y": 1683.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -672,7 +672,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 125271,
 						"regions":
 						{
 						},
@@ -692,7 +692,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
@@ -746,7 +746,7 @@
 						"translation.y": 241.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -762,8 +762,8 @@
 						"selection":
 						[
 							[
-								1998,
-								1998
+								5818,
+								5818
 							]
 						],
 						"settings":
@@ -793,7 +793,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 828.0,
+						"translation.y": 1260.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
@@ -802,7 +802,7 @@
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -811,15 +811,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6791,
+						"buffer_size": 7186,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6366,
-								6366
+								3076,
+								3076
 							]
 						],
 						"settings":
@@ -837,6 +837,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -845,10 +849,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1098.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -876,10 +880,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 13761.0,
+						"translation.y": 1017.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -888,15 +892,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14469,
+						"buffer_size": 14251,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2204,
-								2204
+								13773,
+								13773
 							]
 						],
 						"settings":
@@ -938,6 +942,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -946,10 +954,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6129.0,
+						"translation.y": 6144.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -995,7 +1003,7 @@
 						"translation.y": 5580.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -1037,7 +1045,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				}
 			]

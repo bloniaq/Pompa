@@ -46,20 +46,20 @@ class Station(components.StationObject):
 
     def calculate_checking(self):
         """calculates parameters of working pump station"""
+        self.v_useful = self.check_get_useful_velo()
+        self.h_useful = self.v_useful / self.well.cross_sectional_area()
+        self.number_of_pumps = self.calc_number_of_pumps()
+        self.number_of_res_pumps = self.reserve_pumps_number()
         self.ord_sw_on = self.ord_inlet.value - 0.1
         self.ord_sw_off = self.ord_bottom.value +\
             self.minimal_sewage_level.value
         self.ord_sw_alarm = self.ord_inlet.value
-        self.number_of_pumps = self.calc_number_of_pumps()
-        self.number_of_res_pumps = self.reserve_pumps_number()
         self.height_start = self.height_to_pump(self.ord_sw_off)
         self.height_stop = self.height_to_pump(self.ord_sw_on)
         self.qp = self.get_calculative_flow()
-        self.h_useful = self.ord_sw_on - self.ord_sw_off  # FILL UP
         self.h_whole = self.ord_terrain.value - self.ord_bottom.value
         self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
         self.v_whole = self.velocity(self.h_whole)
-        self.v_useful = self.velocity(self.h_useful)
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
         self.v_reserve = self.velocity(self.h_reserve)
         self.comp_flow = self.get_calculative_flow()
@@ -99,6 +99,11 @@ class Station(components.StationObject):
             n_of_res_pumps = self.number_of_pumps
         self.number_of_res_pumps = n_of_res_pumps
         return n_of_res_pumps
+
+    def check_get_useful_velo(self):
+        useful_velo = ((((self.pump_type.cycle_time) * 60) * self.qp) / 4000)
+        log.info('useful velo is {}m3'.format(useful_velo))
+        return useful_velo
 
     def get_x_axis(self, unit, n=1):
         if unit == 'meters':
@@ -185,4 +190,4 @@ class Station(components.StationObject):
         return velocity
 
     def get_calculative_flow(self):
-        return self.inflow_max.value * 1.5
+        return self.inflow_max.value_liters * 1.4

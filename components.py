@@ -228,6 +228,8 @@ class PumpSet():
         self.well = station.well
         self.n_of_pumps = self.station.number_of_pumps
         self.characteristic = station.pump_type.characteristic
+        self.cycle_time = station.pump_type.cycle_time
+        self.qp = station.qp
         self.set_start_ordinates()
         self.pumps = []
         for i in range(self.n_of_pumps):
