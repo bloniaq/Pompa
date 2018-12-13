@@ -102,7 +102,7 @@ class Application():
 
     def calculate(self):
         if self.mode.value == 'checking':
-            self.station.calculate()
+            self.station.calculate_checking()
             out_data = output.generate_checking_report(self.station)
         else:
             log.debug('mode: {}'.format(self.mode.value))

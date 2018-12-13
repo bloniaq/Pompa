@@ -338,35 +338,28 @@ class Well(StationObject):
 
     def minimal_diameter(self, n_work_pumps, n_reserve_pumps, station):
         d = station.pump_type.contour.value
-        min_cycle_time = station.pump_type.cycle_time.value
-        comp_flow = station.comp_flow
         n = n_work_pumps + n_reserve_pumps
         if self.shape.value == 'round':
             if self.config.value == 'optimal':
-                geom_minimal_d = d + 2 * (d / (2 * (np.sin(3.14 / n))))
+                minimal_d = d + 0.6 + 2 * \
+                    ((d + 0.6) / (2 * (np.sin(3.14 / n))))
             elif self.config.value == 'singlerow':
-                geom_minimal_d = n * d
+                minimal_d = (n * d) + 0.6
         elif self.shape.value == 'rectangle':
             if self.config.value == 'optimal':
                 length, width = self.length.value, self.width.value
                 short_side = min(length, width)
-                if short_side == length:
-                    length, width = width, length
-                rows = short_side // d
+                rows = short_side // (d + 0.6)
                 if n % rows == 0:
                     pumps_in_row = n / rows
                 else:
                     pumps_in_row = (n // rows) + 1
-                min_len = pumps_in_row * d
-                min_wid = rows * d
+                min_len = pumps_in_row * (d + 0.6)
+                min_wid = rows * (d + 0.6)
             elif self.config.value == 'singlerow':
-                min_len = n * d
-                min_wid = d
-            geom_minimal_d = 2 * ((min_len * min_wid / 3.14) ** (1 / 2))
-        h = station.h_whole
-        min_velocity = min_cycle_time * comp_flow / 4
-        hydr_minimal_d = min_velocity / h
-        minimal_d = max(geom_minimal_d, hydr_minimal_d)
+                min_len = n * (d + 0.6)
+                min_wid = d + 0.6
+            minimal_d = 2 * ((min_len * min_wid / 3.14) ** (1 / 2))
         return minimal_d
 
     def cross_sectional_area(self):
