@@ -143,17 +143,14 @@ class Pipe(StationObject):
     def get_pipe_char_vals(self, station, unit):
         log.debug('Starting getting pipe vals')
         flows, _ = station.pump_type.characteristic.get_pump_char_func(unit)
-        geom_loss = station.height_to_pump(
-            station.ord_bottom.value + station.minimal_sewage_level.value)
-        log.debug('Got geometric loss {}'.format(geom_loss))
         y_coords = self.get_y_coords(flows, unit)
         log.debug('Got ys')
         pipes_char = []
         for i in range(len(flows)):
-            sum_l = geom_loss + y_coords[i]
+            sum_l = y_coords[i]
             log.debug('####################\n\n')
-            log.debug('flow: {}, geom loss: {}, , pipe: {}, sum: {}'.format(
-                flows[i], geom_loss, y_coords[i], sum_l))
+            log.debug('flow: {}, pipe: {}, sum: {}'.format(
+                flows[i], y_coords[i], sum_l))
             log.debug('\n####################\n\n')
             pipes_char.append(sum_l)
         y = maths.fit_coords(flows, pipes_char, 2)

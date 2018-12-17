@@ -4,236 +4,216 @@
 		"selected_items":
 		[
 			[
-				"string",
-				"string_report"
+				"try",
+				"try\tTry/Except/Else/Finally"
 			],
 			[
-				"vale",
+				"pump",
+				"pump_set\tstatement"
+			],
+			[
+				"char",
+				"char_raport\tstatement"
+			],
+			[
+				"geom",
+				"geom_loss\tstatement"
+			],
+			[
+				"set",
+				"set_unit"
+			],
+			[
+				"unit",
+				"unit_var\tstatement"
+			],
+			[
+				"inflo",
+				"inflow_min\tstatement"
+			],
+			[
+				"n_o",
+				"n_of_starting_pump\tparam"
+			],
+			[
+				"h",
+				"h_useful"
+			],
+			[
+				"vlu",
 				"value_liters"
 			],
 			[
-				"va",
-				"value_meters\tstatement"
-			],
-			[
 				"max",
-				"max_eff\tstatement"
+				"max_eff_val\tstatement"
 			],
 			[
-				"val",
-				"value_liters\tstatement"
-			],
-			[
-				"for",
-				"format\tfunction"
-			],
-			[
-				"len",
-				"length"
-			],
-			[
-				"com",
-				"comp_flow\tstatement"
+				"ord",
+				"ord_sw_off\tstatement"
 			],
 			[
 				"number",
 				"number_of_pumps\tstatement"
 			],
 			[
-				"ui",
-				"ui_set_mode\tfunction"
+				"Stat",
+				"StationObject\tclass"
 			],
 			[
-				"draw",
-				"draw_pipe_figure\tfunction"
+				"data",
+				"data_dictionary\tstatement"
 			],
 			[
-				"drawp",
-				"draw_pump_figure\tfunction"
+				"s",
+				"station\tstatement"
 			],
 			[
-				"pumpset",
-				"pumpset"
+				"sta",
+				"station_vars\tfunction"
 			],
 			[
-				"start",
-				"set_start_ordinates\tfunction"
+				"f",
+				"fcontainer\tstatement"
 			],
 			[
-				"ord",
-				"ord_start\tstatement"
+				"mini",
+				"minimal_sewage_level\tstatement"
 			],
 			[
-				"minimal_",
-				"minimal_sewage_level"
+				"hydr",
+				"hydr_minimal_d"
 			],
 			[
-				"min",
-				"minimal"
+				"sin",
+				"singlerow"
 			],
 			[
-				"inf",
-				"inflow_min\tstatement"
+				"minim",
+				"minimal_wid\tstatement"
 			],
 			[
-				"value_",
-				"value_liters"
+				"row",
+				"row_length\tstatement"
 			],
 			[
-				"in",
-				"inflow_max\tstatement"
+				"cross",
+				"cross_sectional_area"
 			],
 			[
-				"efficiency_",
-				"efficiency_from"
+				"len",
+				"length\tstatement"
 			],
 			[
-				"ef",
-				"efficiency_from"
+				"w",
+				"work_pumps\tparam"
 			],
 			[
-				"pump",
-				"pump_type\tstatement"
+				"n",
+				"n_of_res_pumps\tstatement"
 			],
 			[
-				"num",
-				"number_of_pumps\tstatement"
-			],
-			[
-				"nub",
-				"number_of_pumps\tstatement"
-			],
-			[
-				"Pump",
-				"PumpSet\tclass"
-			],
-			[
-				"minima",
-				"minimal_d\tstatement"
-			],
-			[
-				"attr",
-				"attribute\tstatement"
-			],
-			[
-				"x",
-				"x_min\tstatement"
-			],
-			[
-				"inte",
-				"intersection_f\tstatement"
-			],
-			[
-				"eff",
-				"eff_from_y\tstatement"
-			],
-			[
-				"al",
-				"alt_lambda\tstatement"
-			],
-			[
-				"get",
-				"get_re"
-			],
-			[
-				"lamba",
-				"lambda_\tstatement"
-			],
-			[
-				"lif",
-				"lift_coords\tstatement"
-			],
-			[
-				"cha",
-				"chart_req"
-			],
-			[
-				"unit",
-				"unit_var"
-			],
-			[
-				"dic",
-				"discharge_pipe"
-			],
-			[
-				"c",
-				"collector"
-			],
-			[
-				"char",
-				"chart_req\tparam"
-			],
-			[
-				"v",
-				"value_meters\tstatement"
+				"res",
+				"reserve_pumps"
 			],
 			[
 				"value",
 				"value_liters"
 			],
 			[
-				"pip",
-				"pipe_loss_approx\tstatement"
-			],
-			[
-				"flow",
-				"flow_coords\tstatement"
-			],
-			[
-				"pipe",
-				"pipe_loss"
-			],
-			[
-				"loca",
-				"local_resistance"
-			],
-			[
-				"l",
-				"l_resistance\tstatement"
-			],
-			[
-				"re",
-				"return\tkeyword"
-			],
-			[
-				"P",
-				"PumpCharacteristic\tclass"
-			],
-			[
 				"load",
-				"loading_lift_values\tstatement"
+				"load_flag\tstatement"
 			],
 			[
-				"loa",
-				"loading_flow_values\tstatement"
+				"id",
+				"id_list\tstatement"
 			],
 			[
-				"var",
-				"variable_name"
+				"delete",
+				"delete_point\tfunction"
+			],
+			[
+				"lif",
+				"lift_coords\tstatement"
+			],
+			[
+				"draw",
+				"draw_figure"
+			],
+			[
+				"ob",
+				"object_\tstatement"
+			],
+			[
+				"dan",
+				"dan_id"
 			],
 			[
 				"di",
 				"discharge_pipe\tstatement"
 			],
 			[
-				"un",
-				"unpacked_values\tstatement"
+				"is",
+				"is_int\tstatement"
 			],
 			[
-				"variab",
+				"ui",
+				"ui_var\tstatement"
+			],
+			[
+				"dic",
+				"dictionary\tparam"
+			],
+			[
+				"val",
+				"value"
+			],
+			[
+				"tk",
+				"tkvariables"
+			],
+			[
+				"in",
+				"input_data\tparam"
+			],
+			[
+				"input",
+				"input_data\tparam"
+			],
+			[
+				"da",
+				"dan_shape\tstatement"
+			],
+			[
+				"sto",
+				"stored_value\tstatement"
+			],
+			[
+				"for",
+				"format\tfunction"
+			],
+			[
+				"dict",
+				"dictionary\tstatement"
+			],
+			[
+				"new",
+				"new_unit\tparam"
+			],
+			[
+				"vari",
 				"variable_name\tparam"
 			],
 			[
-				"varia",
-				"variables"
+				"well",
+				"well_diameter"
 			],
 			[
-				"bind",
-				"bind_ui_variables"
+				"va",
+				"value\tparam"
 			],
 			[
-				"set",
-				"set_shape\tfunction"
+				"var",
+				"variable\tparam"
 			],
 			[
 				"clear",
@@ -256,8 +236,8 @@
 				"lift_val\tparam"
 			],
 			[
-				"f",
-				"format\tfunction"
+				"flow",
+				"flow_unit\tparam"
 			],
 			[
 				"filt",
@@ -266,6 +246,10 @@
 			[
 				"release",
 				"releases_unf\tstatement"
+			],
+			[
+				"re",
+				"rel_artists_\tstatement"
 			],
 			[
 				"rel",
@@ -332,6 +316,10 @@
 				"alist"
 			],
 			[
+				"l",
+				"logging"
+			],
+			[
 				"E",
 				"SyntaxError"
 			]
@@ -349,19 +337,10 @@
 			}
 		},
 		{
-			"file": "logfile.log",
-			"settings":
-			{
-				"buffer_size": 125271,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "maths.py",
 			"settings":
 			{
-				"buffer_size": 8407,
+				"buffer_size": 8614,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -372,6 +351,24 @@
 			{
 				"buffer_size": 5818,
 				"encoding": "UTF-8",
+				"line_ending": "Windows",
+				"name": "report = {}"
+			}
+		},
+		{
+			"file": "logfile.log",
+			"settings":
+			{
+				"buffer_size": 69506,
+				"encoding": "Western (Windows 1252)",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "InOut Examples/1_STAND_1.DAN",
+			"settings":
+			{
+				"buffer_size": 396,
 				"line_ending": "Windows"
 			}
 		},
@@ -379,16 +376,7 @@
 			"file": "station.py",
 			"settings":
 			{
-				"buffer_size": 7186,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "GUI_Pygubu_Rebuild.ui",
-			"settings":
-			{
-				"buffer_size": 202202,
+				"buffer_size": 7064,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -397,7 +385,7 @@
 			"file": "components.py",
 			"settings":
 			{
-				"buffer_size": 14251,
+				"buffer_size": 14031,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -462,41 +450,31 @@
 	},
 	"expanded_folders":
 	[
-		"/E/# PROGRAMOWANIE/Pompa",
-		"/E/# PROGRAMOWANIE/Pompa/InOut Examples"
+		"/C/WORKZONE/!Kuba/Pompa",
+		"/C/WORKZONE/!Kuba/Pompa/InOut Examples"
 	],
 	"file_history":
 	[
-		"/E/# PROGRAMOWANIE/Pompa/InOut Examples/0_STAND.DAN",
-		"/E/# PROGRAMOWANIE/Pompa/InOut Examples/2pumps_",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/Projekt 3/Mój Projekt/POMPA1.WYN",
-		"/E/# PROGRAMOWANIE/Pompa/archive/oldPompa kopia.py",
-		"/E/# PROGRAMOWANIE/Pompa/GUI_Pygubu.ui",
-		"/E/# PROGRAMOWANIE/Pompa/hydraulics.py",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/POMPA/POMPOWNI/OPTYM.DAN",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/POMPA/POMPOWNI/STAND.DAN",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/POMPA/POMPOWNI/POMPA2.WYN",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/POMPA/POMPOWNI/POMPA3.WYN",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/POMPA/POMPOWNI/POMPA4.WYN",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/POMPA/POMPOWNI/POMPA5.WYN",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/POMPA/POMPOWNI/POMPA1.WYN",
-		"/E/# PROGRAMOWANIE/Pompa/data.py",
-		"/E/# STUDIA/# Archiwum/Kanalizacje/Projekt 3/Mój Projekt/STAND.DAN",
-		"/E/# PROGRAMOWANIE/Pompa/classes.py",
-		"/E/# PROGRAMOWANIE/Pompa/config.py",
-		"/E/# PROGRAMOWANIE/Pompa/Pompa.py",
-		"/E/# PROGRAMOWANIE/Pompa/.gitignore",
-		"/E/# PROGRAMOWANIE/Pompa/gitignore",
-		"/E/# PROGRAMOWANIE/Pompa/variables.csv",
-		"/E/# PROGRAMOWANIE/Pompa/oldPompa.py",
-		"/E/# PROGRAMOWANIE/Pompa/archive.py",
+		"/C/WORKZONE/!Kuba/Pompa/GUI_Pygubu_Rebuild.ui",
+		"/C/WORKZONE/!Kuba/Pompa/GUI_Pygubu.ui",
+		"/C/Users/HP/Desktop/armatura i przewody do proj — skrót.lnk",
+		"/C/WORKZONE/!Kuba/Pompa/config.py",
+		"/C/WORKZONE/!Kuba/Pompa/classes.py",
+		"/C/WORKZONE/!Kuba/Pompa/InOut Examples/2_STAND.DAN",
+		"/C/WORKZONE/!Kuba/Pompa/archive/oldPompa kopia.py",
+		"/C/WORKZONE/!Kuba/Pompa/.gitignore",
+		"/C/WORKZONE/!Private/Pompa/archive.py",
+		"/C/WORKZONE/!Private/Pompa/variables.csv",
+		"/C/WORKZONE/!Private/Pompa/models.py",
 		"/E/# PROGRAMOWANIE/Pompa/SublSet.sublime-project",
+		"/E/# PROGRAMOWANIE/Pompa/GUI_Pygubu.ui",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/DBbuilder.py",
 		"/E/# PROGRAMOWANIE/Pompa/models.py",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/config.py",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/logs/log-2018.11.05-07.01.log",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/dbase.py",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/discogs_con.py",
+		"/E/# PROGRAMOWANIE/Pompa/Pompa.py",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/logs/log-2018.10.31-18.18.log",
 		"/C/Users/blons/;",
 		"/E/# PROGRAMOWANIE/MusicLibraryManager/logs/log-2018.10.30-18.50.log",
@@ -532,7 +510,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 24.0
 	},
 	"find_in_files":
 	{
@@ -546,37 +524,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"    \n",
-			"ceil",
-			"floor",
-			"ui_vars",
-			"classes",
-			"self.pump",
-			"well.pump",
-			"self.pump",
-			"y_pump",
-			"maths",
-			"pipe_loss",
-			"hydrauli",
-			"Numeric",
-			"chart_req",
-			"tkvariables",
-			"config",
-			"inflow",
-			"self",
-			"/ ",
-			"przepł",
-			"level",
-			"entry_add_char",
-			"variables",
-			"\n    ",
-			"textvariable",
-			"]\n",
-			"textvariable",
-			"current_shape",
+			"draw_pump_plot",
+			"get_pump_char_func",
+			"draw_figure",
+			"draw_",
+			"self.figure",
+			"draw",
+			"])\n",
 			"mode",
-			"dane",
-			"ksztalt",
+			"classes",
+			"Entry_Wsp_q",
+			"button",
+			"mode",
 			"Master: art",
 			"5101860",
 			"Alphabeat Volume 152"
@@ -613,8 +572,8 @@
 						"selection":
 						[
 							[
-								3411,
-								3411
+								0,
+								0
 							]
 						],
 						"settings":
@@ -652,6 +611,30 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -660,19 +643,147 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1683.0,
+						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "maths.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8614,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5855,
+								5855
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1934.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "output.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"auto_name": "report = {}",
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 754.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "logfile.log",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 125271,
+						"buffer_size": 69506,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								66249,
+								66249
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 18150.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "InOut Examples/1_STAND_1.DAN",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 396,
 						"regions":
 						{
 						},
@@ -689,137 +800,33 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 15.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "maths.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8407,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4575,
-								4575
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 241.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "output.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5818,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5818,
-								5818
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1260.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "station.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7186,
+						"buffer_size": 7064,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3076,
-								3076
+								5231,
+								5231
 							]
 						],
 						"settings":
@@ -841,49 +848,20 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1098.0,
+						"translation.y": 1514.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "GUI_Pygubu_Rebuild.ui",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 202202,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								41603,
-								41614
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1017.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -892,15 +870,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 14251,
+						"buffer_size": 14031,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								13773,
-								13773
+								5592,
+								5592
 							]
 						],
 						"settings":
@@ -918,34 +896,6 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -954,10 +904,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 6144.0,
+						"translation.y": 82.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
@@ -973,8 +923,8 @@
 						"selection":
 						[
 							[
-								7638,
-								7638
+								0,
+								0
 							]
 						],
 						"settings":
@@ -984,6 +934,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -1000,10 +954,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5580.0,
+						"translation.y": 765.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1019,8 +973,8 @@
 						"selection":
 						[
 							[
-								1424,
-								1424
+								3756,
+								3756
 							]
 						],
 						"settings":
@@ -1034,18 +988,30 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
 							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.x": 9.0,
+						"translation.y": 930.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -1053,11 +1019,11 @@
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 24.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 36.0
 	},
 	"layout":
 	{
@@ -1079,7 +1045,7 @@
 		"cols":
 		[
 			0.0,
-			0.5,
+			0.462340166367,
 			1.0
 		],
 		"rows":
@@ -1101,7 +1067,7 @@
 	"project": "SublSet.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 44.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1143,7 +1109,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 153.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

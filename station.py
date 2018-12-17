@@ -137,8 +137,6 @@ class Station(components.StationObject):
     def get_all_pipes_char_vals(self, unit):
         log.debug('Starting draw_pipes_plot')
         flows, _ = self.pump_type.characteristic.get_pump_char_func(unit)
-        geom_loss = self.height_to_pump(
-            self.ord_bottom.value + self.minimal_sewage_level.value)
         log.debug('Got geometric loss')
         discharge_y = self.d_pipe.get_y_coords(flows, unit)
         log.debug('Got discharge_pipe ys')
@@ -146,7 +144,7 @@ class Station(components.StationObject):
         log.debug('Got collector ys')
         pipes_char = []
         for i in range(len(flows)):
-            sum_l = geom_loss + discharge_y[i] + collector_y[i]
+            sum_l = discharge_y[i] + collector_y[i]
             pipes_char.append(sum_l)
         y = maths.fit_coords(flows, pipes_char, 2)
         return y
