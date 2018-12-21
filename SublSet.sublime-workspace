@@ -394,7 +394,7 @@
 			"file": "variables.py",
 			"settings":
 			{
-				"buffer_size": 13248,
+				"buffer_size": 13279,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -556,7 +556,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -697,10 +697,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1934.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -771,10 +771,10 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 18150.0,
+						"translation.y": 18780.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -916,15 +916,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13248,
+						"buffer_size": 13279,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1118,
+								1118
 							]
 						],
 						"settings":
@@ -946,6 +946,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -954,7 +958,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 765.0,
+						"translation.y": 1394.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,

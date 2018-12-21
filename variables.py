@@ -14,7 +14,8 @@ class Variable():
         if ui_variable in self.tkvars:
             self.ui_var = self.tkvars.__getitem__(ui_variable)
         else:
-            log.debug('No ui_variable named {}'.format(ui_variable))
+            log.error('No ui_variable named {}'.format(ui_variable))
+            self.ui_var = None
         self.load_flag = False
 
     '''
