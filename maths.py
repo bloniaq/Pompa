@@ -149,6 +149,8 @@ def draw_pipe_figure(builder, plot, canvas, station):
     canvas.draw()
     ui_vars = builder.tkvariables
     unit = ui_vars.__getitem__('inflow_unit').get()
+    geom_loss_val = station.height_to_pump(
+        station.ord_bottom.value + station.minimal_sewage_level.value)
     # x = station.get_x_axis(unit)
     if unit == 'liters':
         last_x = station.inflow_max.value_liters * 1.5
@@ -166,30 +168,30 @@ def draw_pipe_figure(builder, plot, canvas, station):
         y_d_pipe = station.d_pipe.get_pipe_char_vals(station, unit)
         l_d_pipe = 'y-'
         log.debug('x: {}, y: {}, look: {}'.format(x, y_d_pipe, l_d_pipe))
-        plot.plot(
-            x, y_d_pipe(x), l_d_pipe, label='charakterystyka przew. tł.')
+        plot.plot(x, y_d_pipe(x) + geom_loss_val, l_d_pipe,
+                  label='charakterystyka przewodu wewn.')
     if station.collector.pipe_char_ready():
         log.debug('Drawing collector plot')
         log.debug('\nCOLLECTOR\n\n')
         y_coll = station.collector.get_pipe_char_vals(station, unit)
         l_coll = 'r-'
         log.debug('x: {}, y: {}, look: {}'.format(x, y_coll, l_coll))
-        plot.plot(
-            x, y_coll(x), l_coll, label='charakterystyka kolektora')
+        plot.plot(x, y_coll(x) + geom_loss_val, l_coll,
+                  label='charakterystyka przewodu zewn.')
     if station.pipes_ready():
         log.debug('Trying to drawing pipes plot')
         y_all_pipes = station.get_all_pipes_char_vals(unit)
         l_all_pipes = 'g-'
         log.debug('x: {}, y: {}, look: {}'.format(x, y_all_pipes, l_all_pipes))
         plot.plot(
-            x, y_all_pipes(x), l_all_pipes,
+            x, y_d_pipe(x) + y_coll(x) + geom_loss_val, l_all_pipes,
             label='charakterystyka zespołu przewodów')
     str_unit = unit_bracket_dict[ui_vars.__getitem__('inflow_unit').get()]
     plot.set_xlabel('Przepływ Q {}'.format(str_unit))
     plot.set_ylabel('Ciśnienie [m. sł. c.]')
     set_plot_grids(plot, unit)
     plot.set_xlim(left=0, right=x[-1])
-    # plot.set_ylim(bottom=0)
+    # plot.set_ylim(bottom=geom_loss_val - 2)
     plot.legend(fontsize='small')
     canvas.draw()
 

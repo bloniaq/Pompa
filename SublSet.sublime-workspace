@@ -4,14 +4,20 @@
 		"selected_items":
 		[
 			[
+<<<<<<< HEAD
 				"pum",
 				"pump_counter\tstatement"
+=======
+				"try",
+				"try\tTry/Except/Else/Finally"
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 			],
 			[
 				"pump",
 				"pump_set\tstatement"
 			],
 			[
+<<<<<<< HEAD
 				"start",
 				"start_ords\tstatement"
 			],
@@ -78,6 +84,26 @@
 			[
 				"min",
 				"min_cycle_time"
+=======
+				"char",
+				"char_raport\tstatement"
+			],
+			[
+				"geom",
+				"geom_loss\tstatement"
+			],
+			[
+				"set",
+				"set_unit"
+			],
+			[
+				"unit",
+				"unit_var\tstatement"
+			],
+			[
+				"inflo",
+				"inflow_min\tstatement"
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 			],
 			[
 				"n_o",
@@ -138,10 +164,6 @@
 			[
 				"row",
 				"row_length\tstatement"
-			],
-			[
-				"geom",
-				"geom_minimal_d\tstatement"
 			],
 			[
 				"cross",
@@ -212,6 +234,13 @@
 				"dictionary\tparam"
 			],
 			[
+<<<<<<< HEAD
+=======
+				"val",
+				"value"
+			],
+			[
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 				"tk",
 				"tkvariables"
 			],
@@ -367,7 +396,11 @@
 			"file": "Pompa.py",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 7945,
+=======
+				"buffer_size": 7908,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -376,7 +409,11 @@
 			"file": "maths.py",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 8740,
+=======
+				"buffer_size": 8614,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -385,7 +422,11 @@
 			"file": "output.py",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 5879,
+=======
+				"buffer_size": 5818,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "report = {}"
@@ -395,7 +436,11 @@
 			"file": "logfile.log",
 			"settings":
 			{
+<<<<<<< HEAD
 				"buffer_size": 396806,
+=======
+				"buffer_size": 69506,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 				"encoding": "Western (Windows 1252)",
 				"line_ending": "Windows"
 			}
@@ -410,10 +455,27 @@
 			}
 		},
 		{
+			"file": "station.py",
+			"settings":
+			{
+<<<<<<< HEAD
+				"buffer_size": 21512,
+=======
+				"buffer_size": 7064,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "components.py",
 			"settings":
 			{
-				"buffer_size": 21512,
+<<<<<<< HEAD
+				"buffer_size": 13640,
+=======
+				"buffer_size": 14031,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -422,16 +484,11 @@
 			"file": "variables.py",
 			"settings":
 			{
-				"buffer_size": 13640,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "GUI_Pygubu_Rebuild.ui",
-			"settings":
-			{
+<<<<<<< HEAD
 				"buffer_size": 202202,
+=======
+				"buffer_size": 13279,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -504,8 +561,12 @@
 	],
 	"file_history":
 	[
+<<<<<<< HEAD
 		"/C/Users/Kuba/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
 		"/C/Kuba/Pompa/InOut Examples/1_STAND_1.DAN",
+=======
+		"/C/WORKZONE/!Kuba/Pompa/GUI_Pygubu_Rebuild.ui",
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 		"/C/WORKZONE/!Kuba/Pompa/GUI_Pygubu.ui",
 		"/C/Users/HP/Desktop/armatura i przewody do proj — skrót.lnk",
 		"/C/WORKZONE/!Kuba/Pompa/config.py",
@@ -560,7 +621,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 24.0
 	},
 	"find_in_files":
 	{
@@ -574,12 +635,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+<<<<<<< HEAD
 			"H_on=",
 			"pump nr",
 			"CALCULATING PARAMS COMPLETED",
 			"linspa",
 			"fit_coords",
 			"##############################",
+=======
+			"draw_pump_plot",
+			"get_pump_char_func",
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 			"draw_figure",
 			"draw_",
 			"self.figure",
@@ -610,7 +676,11 @@
 	"groups":
 	[
 		{
+<<<<<<< HEAD
 			"selected": 3,
+=======
+			"selected": 1,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 			"sheets":
 			[
 				{
@@ -619,15 +689,24 @@
 					"semi_transient": false,
 					"settings":
 					{
+<<<<<<< HEAD
 						"buffer_size": 7945,
+=======
+						"buffer_size": 7908,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								3448,
 								3448
+=======
+								0,
+								0
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 							]
 						],
 						"settings":
@@ -697,10 +776,17 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 1222.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
+=======
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 					"type": "text"
 				},
 				{
@@ -709,15 +795,24 @@
 					"semi_transient": false,
 					"settings":
 					{
+<<<<<<< HEAD
 						"buffer_size": 8740,
+=======
+						"buffer_size": 8614,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								5710,
 								5716
+=======
+								5855,
+								5855
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 							]
 						],
 						"settings":
@@ -735,6 +830,13 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+<<<<<<< HEAD
+=======
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 								},
 								{
 									"characters": ".",
@@ -747,10 +849,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 2358.0,
+=======
+						"translation.y": 0.0,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -759,15 +865,24 @@
 					"semi_transient": false,
 					"settings":
 					{
+<<<<<<< HEAD
 						"buffer_size": 5879,
+=======
+						"buffer_size": 5818,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								5648,
 								5648
+=======
+								0,
+								0
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 							]
 						],
 						"settings":
@@ -777,10 +892,6 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -798,10 +909,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 972.0,
+=======
+						"translation.y": 754.0,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -810,15 +925,24 @@
 					"semi_transient": false,
 					"settings":
 					{
+<<<<<<< HEAD
 						"buffer_size": 396806,
+=======
+						"buffer_size": 69506,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								148689,
 								148694
+=======
+								66249,
+								66249
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 							]
 						],
 						"settings":
@@ -827,10 +951,17 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 49914.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+=======
+						"translation.y": 18780.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 					"type": "text"
 				}
 			]
@@ -841,7 +972,11 @@
 			[
 				{
 					"buffer": 4,
+<<<<<<< HEAD
 					"file": "station.py",
+=======
+					"file": "InOut Examples/1_STAND_1.DAN",
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 					"semi_transient": false,
 					"settings":
 					{
@@ -899,19 +1034,32 @@
 				},
 				{
 					"buffer": 5,
+<<<<<<< HEAD
 					"file": "components.py",
 					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 21512,
+=======
+					"file": "station.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7064,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								8015,
 								8015
+=======
+								5231,
+								5231
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 							]
 						],
 						"settings":
@@ -937,6 +1085,7 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+<<<<<<< HEAD
 								},
 								{
 									"characters": ".",
@@ -957,15 +1106,19 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+=======
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 								}
 							],
 							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 2943.0,
+=======
+						"translation.y": 1514.0,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -973,19 +1126,32 @@
 				},
 				{
 					"buffer": 6,
+<<<<<<< HEAD
 					"file": "variables.py",
 					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 13640,
+=======
+					"file": "components.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14031,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								12244,
 								12244
+=======
+								5592,
+								5592
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 							]
 						],
 						"settings":
@@ -1019,7 +1185,11 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 5576.0,
+=======
+						"translation.y": 82.0,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1027,30 +1197,70 @@
 				},
 				{
 					"buffer": 7,
+<<<<<<< HEAD
 					"file": "GUI_Pygubu_Rebuild.ui",
 					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 202202,
+=======
+					"file": "variables.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13279,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								0,
 								0
+=======
+								1118,
+								1118
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 							]
 						],
 						"settings":
 						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
 							"git_gutter_is_enabled": true,
-							"syntax": "Packages/XML/XML.sublime-syntax",
-							"tab_size": 2,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 576.0,
+=======
+						"translation.y": 1394.0,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 						"zoom_level": 1.0
 					},
 					"stack_index": 7,
@@ -1069,8 +1279,13 @@
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								1599,
 								1602
+=======
+								3756,
+								3756
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 							]
 						],
 						"settings":
@@ -1092,6 +1307,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -1099,11 +1318,19 @@
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
+<<<<<<< HEAD
 						"translation.x": 0.0,
 						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 8,
+=======
+						"translation.x": 9.0,
+						"translation.y": 930.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 					"type": "text"
 				}
 			]
@@ -1137,7 +1364,11 @@
 		"cols":
 		[
 			0.0,
+<<<<<<< HEAD
 			0.479361951209,
+=======
+			0.462340166367,
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 			1.0
 		],
 		"rows":

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 15:05:07-Pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
 15:05:07-Pompa-INFO: changed mode: checking
 15:05:07-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
@@ -475,6 +476,611 @@ DISCHARGE PIPE
 0.0006271 x + 0.000275 x + 9.7
 15:05:10-Pompa.components-DEBUG: Finding ys finished
 15:05:10-Pompa.maths-DEBUG: x: [ 0.          0.10552764  0.21105528  0.31658291  0.42211055  0.52763819
+=======
+16:48:40-Pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
+16:48:40-Pompa-INFO: changed mode: checking
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-INFO: conversion func starts
+16:48:40-Pompa.variables-INFO: old value: 0.0
+16:48:40-Pompa.variables-INFO: no need to conversion
+16:48:40-Pompa.components-DEBUG: started setting shape
+16:48:40-Pompa.components-DEBUG: new shape: rectangle
+16:48:40-Pompa.components-DEBUG: changed shape to rectangle
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-INFO: conversion func starts
+16:48:40-Pompa.variables-INFO: old value: 0.0
+16:48:40-Pompa.variables-INFO: no need to conversion
+16:48:40-Pompa.components-INFO: set_flow_unit started
+16:48:40-Pompa.components-INFO: self.efficiency_from type: <class 'variables.Flow'>
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-DEBUG: trying to convert:  to floats list
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:40-Pompa.variables-DEBUG: trying to convert:  to floats list
+16:48:40-Pompa.variables-ERROR: Error 'Application' object has no attribute 'pipe_plot'
+16:48:43-Pompa-INFO: 
+data_load started
+
+16:48:43-Pompa-DEBUG: path: C:/WORKZONE/!Kuba/Test/Check 1 pompa/STAND.DAN
+16:48:43-Pompa-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Test/Check 1 pompa/STAND.DAN' mode='r+' encoding='cp1250'>
+
+
+16:48:43-Pompa.data-INFO: 
+dan_load started
+
+16:48:43-Pompa.data-INFO: plik danych generowany wersją 1.0 aplikacji
+16:48:43-Pompa.data-INFO: opening file: <_io.TextIOWrapper name='C:/WORKZONE/!Kuba/Test/Check 1 pompa/STAND.DAN' mode='r+' encoding='cp1250'>
+
+
+16:48:43-Pompa.data-DEBUG: id: 1, stored value: 1
+16:48:43-Pompa.data-DEBUG: dan_id: 1, value: ['1']
+16:48:43-Pompa.data-DEBUG: id: 2, stored value: 1
+16:48:43-Pompa.data-DEBUG: dan_id: 2, value: ['1']
+16:48:43-Pompa.data-DEBUG: id: 3, stored value: 0
+16:48:43-Pompa.data-DEBUG: dan_id: 3, value: ['0']
+16:48:43-Pompa.data-DEBUG: id: 4, stored value: 1
+16:48:43-Pompa.data-DEBUG: dan_id: 4, value: ['1']
+16:48:43-Pompa.data-DEBUG: id: 5, stored value: .40
+16:48:43-Pompa.data-DEBUG: dan_id: 5, value: ['.40']
+16:48:43-Pompa.data-DEBUG: id: 8, stored value: 2.50
+16:48:43-Pompa.data-DEBUG: dan_id: 8, value: ['2.50']
+16:48:43-Pompa.data-DEBUG: id: 9, stored value: .30
+16:48:43-Pompa.data-DEBUG: dan_id: 9, value: ['.30']
+16:48:43-Pompa.data-DEBUG: id: 10, stored value: 100.00
+16:48:43-Pompa.data-DEBUG: dan_id: 10, value: ['100.00']
+16:48:43-Pompa.data-DEBUG: id: 11, stored value: 98.50
+16:48:43-Pompa.data-DEBUG: dan_id: 11, value: ['98.50']
+16:48:43-Pompa.data-DEBUG: id: 12, stored value: 97.00
+16:48:43-Pompa.data-DEBUG: dan_id: 12, value: ['97.00']
+16:48:43-Pompa.data-DEBUG: id: 13, stored value: 95.00
+16:48:43-Pompa.data-DEBUG: dan_id: 13, value: ['95.00']
+16:48:43-Pompa.data-DEBUG: id: 15, stored value: 105.00
+16:48:43-Pompa.data-DEBUG: dan_id: 15, value: ['105.00']
+16:48:43-Pompa.data-DEBUG: id: 16, stored value: 105.00
+16:48:43-Pompa.data-DEBUG: dan_id: 16, value: ['105.00']
+16:48:43-Pompa.data-DEBUG: id: 28, stored value: 6.0
+16:48:43-Pompa.data-DEBUG: dan_id: 28, value: ['6.0']
+16:48:43-Pompa.data-DEBUG: id: 29, stored value: 150.0
+16:48:43-Pompa.data-DEBUG: dan_id: 29, value: ['150.0']
+16:48:43-Pompa.data-DEBUG: id: 30, stored value: .05
+16:48:43-Pompa.data-DEBUG: dan_id: 30, value: ['.05']
+16:48:43-Pompa.data-DEBUG: id: 31, stored value: 1
+16:48:43-Pompa.data-DEBUG: dan_id: 31, value: ['1']
+16:48:43-Pompa.data-DEBUG: id: 32, stored value: 3.20
+16:48:43-Pompa.data-DEBUG: dan_id: 32, value: ['3.20']
+16:48:43-Pompa.data-DEBUG: id: 33, stored value: 10.0
+16:48:43-Pompa.data-DEBUG: dan_id: 33, value: ['10.0']
+16:48:43-Pompa.data-DEBUG: id: 34, stored value: 14.0
+16:48:43-Pompa.data-DEBUG: dan_id: 34, value: ['14.0']
+16:48:43-Pompa.data-DEBUG: id: 35, stored value: 6.0
+16:48:43-Pompa.data-DEBUG: dan_id: 35, value: ['6.0']
+16:48:43-Pompa.data-DEBUG: id: 36, stored value: 7
+16:48:43-Pompa.data-DEBUG: dan_id: 36, value: ['7']
+16:48:43-Pompa.data-DEBUG: id: 37, stored value: 30.0
+16:48:43-Pompa.data-DEBUG: dan_id: 37, value: ['30.0']
+16:48:43-Pompa.data-DEBUG: id: 37, stored value: 25.0
+16:48:43-Pompa.data-DEBUG: dan_id: 37, value: ['30.0', '25.0']
+16:48:43-Pompa.data-DEBUG: id: 37, stored value: 20.0
+16:48:43-Pompa.data-DEBUG: dan_id: 37, value: ['30.0', '25.0', '20.0']
+16:48:43-Pompa.data-DEBUG: id: 37, stored value: 15.0
+16:48:43-Pompa.data-DEBUG: dan_id: 37, value: ['30.0', '25.0', '20.0', '15.0']
+16:48:43-Pompa.data-DEBUG: id: 37, stored value: 10.0
+16:48:43-Pompa.data-DEBUG: dan_id: 37, value: ['30.0', '25.0', '20.0', '15.0', '10.0']
+16:48:43-Pompa.data-DEBUG: id: 37, stored value: 5.0
+16:48:43-Pompa.data-DEBUG: dan_id: 37, value: ['30.0', '25.0', '20.0', '15.0', '10.0', '5.0']
+16:48:43-Pompa.data-DEBUG: id: 37, stored value: .0
+16:48:43-Pompa.data-DEBUG: dan_id: 37, value: ['30.0', '25.0', '20.0', '15.0', '10.0', '5.0', '.0']
+16:48:43-Pompa.data-DEBUG: id: 38, stored value: .0
+16:48:43-Pompa.data-DEBUG: dan_id: 38, value: ['.0']
+16:48:43-Pompa.data-DEBUG: id: 38, stored value: 6.0
+16:48:43-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '6.0']
+16:48:43-Pompa.data-DEBUG: id: 38, stored value: 8.0
+16:48:43-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '6.0', '8.0']
+16:48:43-Pompa.data-DEBUG: id: 38, stored value: 10.0
+16:48:43-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '6.0', '8.0', '10.0']
+16:48:43-Pompa.data-DEBUG: id: 38, stored value: 11.0
+16:48:43-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '6.0', '8.0', '10.0', '11.0']
+16:48:43-Pompa.data-DEBUG: id: 38, stored value: 12.0
+16:48:43-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '6.0', '8.0', '10.0', '11.0', '12.0']
+16:48:43-Pompa.data-DEBUG: id: 38, stored value: 14.0
+16:48:43-Pompa.data-DEBUG: dan_id: 38, value: ['.0', '6.0', '8.0', '10.0', '11.0', '12.0', '14.0']
+16:48:43-Pompa.data-DEBUG: id: 39, stored value: 12.0
+16:48:43-Pompa.data-DEBUG: dan_id: 39, value: ['12.0']
+16:48:43-Pompa.data-DEBUG: id: 40, stored value: 17.0
+16:48:43-Pompa.data-DEBUG: dan_id: 40, value: ['17.0']
+16:48:43-Pompa.data-DEBUG: id: 41, stored value: 1
+16:48:43-Pompa.data-DEBUG: dan_id: 41, value: ['1']
+16:48:43-Pompa.data-DEBUG: id: 42, stored value: 500.0
+16:48:43-Pompa.data-DEBUG: dan_id: 42, value: ['500.0']
+16:48:43-Pompa.data-DEBUG: id: 43, stored value: 200.0
+16:48:43-Pompa.data-DEBUG: dan_id: 43, value: ['200.0']
+16:48:43-Pompa.data-DEBUG: id: 44, stored value: .10
+16:48:43-Pompa.data-DEBUG: dan_id: 44, value: ['.10']
+16:48:43-Pompa.data-DEBUG: id: 45, stored value: 0
+16:48:43-Pompa.data-DEBUG: dan_id: 45, value: ['0']
+16:48:43-Pompa.data-ERROR: ValueError not enough values to unpack (expected 2, got 1)
+16:48:43-Pompa.data-DEBUG: id: 45, stored value: 0
+16:48:43-Pompa.data-DEBUG: dan_id: 45, value: ['0', '0']
+16:48:43-Pompa.data-DEBUG: dictionary in progress: {'1': ['1'], '2': ['1'], '3': ['0'], '4': ['1'], '5': ['.40'], '8': ['2.50'], '9': ['.30'], '10': ['100.00'], '11': ['98.50'], '12': ['97.00'], '13': ['95.00'], '15': ['105.00'], '16': ['105.00'], '28': ['6.0'], '29': ['150.0'], '30': ['.05'], '31': ['1'], '32': ['3.20'], '33': ['10.0'], '34': ['14.0'], '35': ['6.0'], '36': ['7'], '37': ['30.0', '25.0', '20.0', '15.0', '10.0', '5.0', '.0'], '38': ['.0', '6.0', '8.0', '10.0', '11.0', '12.0', '14.0'], '39': ['12.0'], '40': ['17.0'], '41': ['1'], '42': ['500.0'], '43': ['200.0'], '44': ['.10'], '45': ['0', '0']}
+16:48:43-Pompa.data-DEBUG: dictionary at finish: {'1': 1.0, '2': 1.0, '3': 0.0, '4': 1.0, '5': 0.4, '8': 2.5, '9': 0.3, '10': 100.0, '11': 98.5, '12': 97.0, '13': 95.0, '15': 105.0, '16': 105.0, '28': 6.0, '29': 150.0, '30': 0.05, '31': 1.0, '32': 3.2, '33': 10.0, '34': 14.0, '35': 6.0, '36': 7.0, '37': [30.0, 25.0, 20.0, 15.0, 10.0, 5.0, 0.0], '38': [0.0, 6.0, 8.0, 10.0, 11.0, 12.0, 14.0], '39': 12.0, '40': 17.0, '41': 1.0, '42': 500.0, '43': 200.0, '44': 0.1, '45': [0.0, 0.0]}
+16:48:43-Pompa.components-DEBUG: loading app for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading builder for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading ui_vars for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading well for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: Has no <.> in attr
+16:48:43-Pompa.components-DEBUG: loading d_pipe for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: Has no <.> in attr
+16:48:43-Pompa.components-DEBUG: loading coll for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading pump_type for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: Has no <.> in attr
+16:48:43-Pompa.components-DEBUG: loading pump_set for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading pumps for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading minimal_sewage_level for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: minimal_sewage_level has dan_id
+16:48:43-Pompa.components-DEBUG: loading ord_terrain for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: ord_terrain has dan_id
+16:48:43-Pompa.components-DEBUG: loading ord_inlet for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: ord_inlet has dan_id
+16:48:43-Pompa.components-DEBUG: loading ord_outlet for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: ord_outlet has dan_id
+16:48:43-Pompa.components-DEBUG: loading ord_bottom for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: ord_bottom has dan_id
+16:48:43-Pompa.components-DEBUG: loading difference_in_start for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: difference_in_start has dan_id
+16:48:43-Pompa.components-DEBUG: loading ord_highest_point for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: ord_highest_point has dan_id
+16:48:43-Pompa.components-DEBUG: loading ord_upper_level for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: ord_upper_level has dan_id
+16:48:43-Pompa.components-DEBUG: loading inflow_max for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: inflow_max has dan_id
+16:48:43-Pompa.variables-INFO: conversion func starts
+16:48:43-Pompa.variables-INFO: old value: 0.0
+16:48:43-Pompa.variables-DEBUG: 0.0 / 3.6 = 0.0
+16:48:43-Pompa.variables-INFO: new value: 0.0
+16:48:43-Pompa.variables-INFO: conversion func starts
+16:48:43-Pompa.variables-INFO: old value: 0.0
+16:48:43-Pompa.variables-DEBUG: 0.0 / 3.6 = 0.0
+16:48:43-Pompa.variables-INFO: new value: 0.0
+16:48:43-Pompa.components-DEBUG: loading inflow_min for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: inflow_min has dan_id
+16:48:43-Pompa.variables-INFO: conversion func starts
+16:48:43-Pompa.variables-INFO: old value: 14.0
+16:48:43-Pompa.variables-INFO: no need to conversion
+16:48:43-Pompa.variables-INFO: conversion func starts
+16:48:43-Pompa.variables-INFO: old value: 0.0
+16:48:43-Pompa.variables-INFO: no need to conversion
+16:48:43-Pompa.components-DEBUG: loading number_of_pumps for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading number_of_res_pumps for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading height_start for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading height_stop for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading ord_sw_on for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading ord_sw_off for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading ord_sw_alarm for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading comp_flow for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: loading reserve_pumps for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: reserve_pumps has dan_id
+16:48:43-Pompa.components-DEBUG: loading collector for obj <station.Station object at 0x09ED0F50>
+16:48:43-Pompa.components-DEBUG: Has no <.> in attr
+16:48:43-Pompa.components-DEBUG: loading app for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: loading builder for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: loading ui_vars for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: loading pump_type for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: loading discharge_pipe for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: loading collector for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: loading reserve_pumps for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: loading shape for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: shape has dan_id
+16:48:43-Pompa.components-DEBUG: started setting shape
+16:48:43-Pompa.components-DEBUG: new shape: round
+16:48:43-Pompa.components-DEBUG: changed shape to round
+16:48:43-Pompa.components-DEBUG: loading config for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: config has dan_id
+16:48:43-Pompa.components-DEBUG: loading diameter for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: diameter has dan_id
+16:48:43-Pompa.components-DEBUG: loading length for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: length has dan_id
+16:48:43-Pompa.components-DEBUG: loading width for obj <components.Well object at 0x08F61590>
+16:48:43-Pompa.components-DEBUG: width has dan_id
+16:48:43-Pompa.components-DEBUG: loading app for obj <components.Pipe object at 0x08F61AF0>
+16:48:43-Pompa.components-DEBUG: loading builder for obj <components.Pipe object at 0x08F61AF0>
+16:48:43-Pompa.components-DEBUG: loading ui_vars for obj <components.Pipe object at 0x08F61AF0>
+16:48:43-Pompa.components-DEBUG: loading length for obj <components.Pipe object at 0x08F61AF0>
+16:48:43-Pompa.components-DEBUG: length has dan_id
+16:48:43-Pompa.components-DEBUG: loading diameter for obj <components.Pipe object at 0x08F61AF0>
+16:48:43-Pompa.components-DEBUG: diameter has dan_id
+16:48:43-Pompa.components-DEBUG: loading roughness for obj <components.Pipe object at 0x08F61AF0>
+16:48:43-Pompa.components-DEBUG: roughness has dan_id
+16:48:43-Pompa.components-DEBUG: loading resistance for obj <components.Pipe object at 0x08F61AF0>
+16:48:43-Pompa.components-DEBUG: resistance has dan_id
+16:48:43-Pompa.maths-DEBUG: Starting draw report figure
+16:48:43-Pompa.station-DEBUG: Are pipes ready?
+16:48:43-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 95.0, 13);95.0 = 95.0
+16:48:43-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.3, 9);0.3 = 0.3
+16:48:43-Pompa.station-DEBUG: Starting draw_pipes_plot
+16:48:43-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:43-Pompa.variables-DEBUG: Starting iterating over cooridnates, {}
+16:48:43-Pompa.variables-DEBUG: {}
+16:48:43-Pompa.variables-DEBUG: flows: [], lifts: []
+16:48:43-Pompa.maths-DEBUG: x: [], y:[]
+16:48:43-Pompa.maths-DEBUG: arr x: [], arr y:[]
+16:48:43-Pompa.variables-ERROR: Error expected non-empty vector for x
+16:48:43-Pompa.variables-DEBUG: trying to convert: 3.2 to floats list
+16:48:43-Pompa.maths-DEBUG: Starting draw report figure
+16:48:43-Pompa.station-DEBUG: Are pipes ready?
+16:48:43-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 95.0, 13);95.0 = 95.0
+16:48:43-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.3, 9);0.3 = 0.3
+16:48:43-Pompa.station-DEBUG: Starting draw_pipes_plot
+16:48:43-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:43-Pompa.variables-DEBUG: Starting iterating over cooridnates, {}
+16:48:43-Pompa.variables-DEBUG: {}
+16:48:43-Pompa.variables-DEBUG: flows: [], lifts: []
+16:48:43-Pompa.maths-DEBUG: x: [], y:[]
+16:48:43-Pompa.maths-DEBUG: arr x: [], arr y:[]
+16:48:43-Pompa.variables-ERROR: Error expected non-empty vector for x
+16:48:43-Pompa.maths-DEBUG: Starting draw report figure
+16:48:43-Pompa.station-DEBUG: Are pipes ready?
+16:48:43-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 95.0, 13);95.0 = 95.0
+16:48:43-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.3, 9);0.3 = 0.3
+16:48:43-Pompa.station-DEBUG: Starting draw_pipes_plot
+16:48:43-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:43-Pompa.variables-DEBUG: Starting iterating over cooridnates, {}
+16:48:43-Pompa.variables-DEBUG: {}
+16:48:43-Pompa.variables-DEBUG: flows: [], lifts: []
+16:48:43-Pompa.maths-DEBUG: x: [], y:[]
+16:48:43-Pompa.maths-DEBUG: arr x: [], arr y:[]
+16:48:43-Pompa.variables-ERROR: Error expected non-empty vector for x
+16:48:43-Pompa.maths-DEBUG: Starting draw report figure
+16:48:44-Pompa.station-DEBUG: Are pipes ready?
+16:48:44-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 95.0, 13);95.0 = 95.0
+16:48:44-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.3, 9);0.3 = 0.3
+16:48:44-Pompa.station-DEBUG: Starting draw_pipes_plot
+16:48:44-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:44-Pompa.variables-DEBUG: Starting iterating over cooridnates, {}
+16:48:44-Pompa.variables-DEBUG: {}
+16:48:44-Pompa.variables-DEBUG: flows: [], lifts: []
+16:48:44-Pompa.maths-DEBUG: x: [], y:[]
+16:48:44-Pompa.maths-DEBUG: arr x: [], arr y:[]
+16:48:44-Pompa.variables-ERROR: Error expected non-empty vector for x
+16:48:44-Pompa.components-DEBUG: loading parallels for obj <components.Pipe object at 0x08F61AF0>
+16:48:44-Pompa.components-DEBUG: loading l_res_coef for obj <components.Pipe object at 0x08F61AF0>
+16:48:44-Pompa.components-DEBUG: loading app for obj <components.Pipe object at 0x08F61D10>
+16:48:44-Pompa.components-DEBUG: loading builder for obj <components.Pipe object at 0x08F61D10>
+16:48:44-Pompa.components-DEBUG: loading ui_vars for obj <components.Pipe object at 0x08F61D10>
+16:48:44-Pompa.components-DEBUG: loading length for obj <components.Pipe object at 0x08F61D10>
+16:48:44-Pompa.components-DEBUG: length has dan_id
+16:48:44-Pompa.components-DEBUG: loading diameter for obj <components.Pipe object at 0x08F61D10>
+16:48:44-Pompa.components-DEBUG: diameter has dan_id
+16:48:44-Pompa.components-DEBUG: loading roughness for obj <components.Pipe object at 0x08F61D10>
+16:48:44-Pompa.components-DEBUG: roughness has dan_id
+16:48:44-Pompa.components-DEBUG: loading resistance for obj <components.Pipe object at 0x08F61D10>
+16:48:44-Pompa.components-DEBUG: resistance has dan_id
+16:48:44-Pompa.maths-DEBUG: Starting draw report figure
+16:48:44-Pompa.station-DEBUG: Are pipes ready?
+16:48:44-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 95.0, 13);95.0 = 95.0
+16:48:44-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.3, 9);0.3 = 0.3
+16:48:44-Pompa.station-DEBUG: Starting draw_pipes_plot
+16:48:44-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:44-Pompa.variables-DEBUG: Starting iterating over cooridnates, {}
+16:48:44-Pompa.variables-DEBUG: {}
+16:48:44-Pompa.variables-DEBUG: flows: [], lifts: []
+16:48:44-Pompa.maths-DEBUG: x: [], y:[]
+16:48:44-Pompa.maths-DEBUG: arr x: [], arr y:[]
+16:48:44-Pompa.variables-ERROR: Error expected non-empty vector for x
+16:48:44-Pompa.maths-DEBUG: Starting draw report figure
+16:48:44-Pompa.station-DEBUG: Are pipes ready?
+16:48:44-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 95.0, 13);95.0 = 95.0
+16:48:44-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.3, 9);0.3 = 0.3
+16:48:44-Pompa.station-DEBUG: Starting draw_pipes_plot
+16:48:44-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:44-Pompa.variables-DEBUG: Starting iterating over cooridnates, {}
+16:48:44-Pompa.variables-DEBUG: {}
+16:48:44-Pompa.variables-DEBUG: flows: [], lifts: []
+16:48:44-Pompa.maths-DEBUG: x: [], y:[]
+16:48:44-Pompa.maths-DEBUG: arr x: [], arr y:[]
+16:48:44-Pompa.variables-ERROR: Error expected non-empty vector for x
+16:48:44-Pompa.components-DEBUG: loading parallels for obj <components.Pipe object at 0x08F61D10>
+16:48:44-Pompa.components-DEBUG: parallels has dan_id
+16:48:44-Pompa.components-DEBUG: loading app for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: loading builder for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: loading ui_vars for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: loading cycle_time for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: cycle_time has dan_id
+16:48:44-Pompa.components-DEBUG: loading contour for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: contour has dan_id
+16:48:44-Pompa.components-DEBUG: loading suction_level for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: loading efficiency_from for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: efficiency_from has dan_id
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-DEBUG: 0.0 / 3.6 = 0.0
+16:48:44-Pompa.variables-INFO: new value: 0.0
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-DEBUG: 0.0 / 3.6 = 0.0
+16:48:44-Pompa.variables-INFO: new value: 0.0
+16:48:44-Pompa.components-DEBUG: loading efficiency_to for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: efficiency_to has dan_id
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 12.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.components-DEBUG: loading characteristic for obj <components.PumpType object at 0x08F61830>
+16:48:44-Pompa.components-DEBUG: characteristic has dan_id
+16:48:44-Pompa.variables-DEBUG: Add point method started
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: char points: {'I001': (30.0, 0.0)}
+16:48:44-Pompa.variables-DEBUG: Add point method started
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: char points: {'I001': (30.0, 0.0), 'I002': (25.0, 6.0)}
+16:48:44-Pompa.variables-DEBUG: Add point method started
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: char points: {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0)}
+16:48:44-Pompa.variables-DEBUG: Add point method started
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: char points: {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0)}
+16:48:44-Pompa.variables-DEBUG: Add point method started
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: char points: {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0), 'I005': (10.0, 11.0)}
+16:48:44-Pompa.variables-DEBUG: Add point method started
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: char points: {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0), 'I005': (10.0, 11.0), 'I006': (5.0, 12.0)}
+16:48:44-Pompa.variables-DEBUG: Add point method started
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+16:48:44-Pompa.variables-DEBUG: char points: {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0), 'I005': (10.0, 11.0), 'I006': (5.0, 12.0), 'I007': (0.0, 14.0)}
+16:48:44-Pompa.variables-INFO: sort_points started
+16:48:44-Pompa.variables-DEBUG: id numbers raised: [('30.0', 'I001'), ('25.0', 'I002'), ('20.0', 'I003'), ('15.0', 'I004'), ('10.0', 'I005'), ('5.0', 'I006'), ('0.0', 'I007')]
+16:48:44-Pompa.variables-INFO: sort_points ended
+16:48:44-Pompa.maths-DEBUG: Starting draw report figure
+16:48:44-Pompa.station-DEBUG: Are pipes ready?
+16:48:44-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 95.0, 13);95.0 = 95.0
+16:48:44-Pompa.station-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.3, 9);0.3 = 0.3
+16:48:44-Pompa.station-DEBUG: Starting draw_pipes_plot
+16:48:44-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0), 'I005': (10.0, 11.0), 'I006': (5.0, 12.0), 'I007': (0.0, 14.0)}
+16:48:44-Pompa.variables-DEBUG: {'30.0': 0.0, '25.0': 6.0, '20.0': 8.0, '15.0': 10.0, '10.0': 11.0, '5.0': 12.0, '0.0': 14.0}
+16:48:44-Pompa.variables-DEBUG: flows: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], lifts: [14.0, 12.0, 11.0, 10.0, 8.0, 6.0, 0.0]
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.maths-DEBUG: x: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], y:[9.700000000000003, 9.700000000000003, 9.700000000000003, 9.700000000000003, 9.700000000000003, 9.700000000000003, 9.700000000000003]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], arr y:[9.7 9.7 9.7 9.7 9.7 9.7 9.7]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], fit y: 
+-2.235e-16 x + 9.7
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 6.0, 28);6.0 = 6.0
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 150.0, 29);150.0 = 150.0
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.05, 30);0.05 = 0.05
+16:48:44-Pompa.maths-DEBUG: Drawing discharge pipe plot
+16:48:44-Pompa.maths-DEBUG: 
+DISCHARGE PIPE
+
+
+16:48:44-Pompa.components-DEBUG: Starting getting pipe vals
+16:48:44-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0), 'I005': (10.0, 11.0), 'I006': (5.0, 12.0), 'I007': (0.0, 14.0)}
+16:48:44-Pompa.variables-DEBUG: {'30.0': 0.0, '25.0': 6.0, '20.0': 8.0, '15.0': 10.0, '10.0': 11.0, '5.0': 12.0, '0.0': 14.0}
+16:48:44-Pompa.variables-DEBUG: flows: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], lifts: [14.0, 12.0, 11.0, 10.0, 8.0, 6.0, 0.0]
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.components-DEBUG: Getting pipe y coordinates
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-ERROR: float division by zero
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Pipe loss coords: [0.0, 0.016710399388997793, 0.0652131188384323, 0.14511736253342977, 0.2563135062270649, 0.39874995948150843, 0.5723975252986875]
+16:48:44-Pompa.components-DEBUG: Got ys
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 5.0, pipe: 0.016710399388997793, sum: 0.016710399388997793
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 10.0, pipe: 0.0652131188384323, sum: 0.0652131188384323
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 15.0, pipe: 0.14511736253342977, sum: 0.14511736253342977
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 20.0, pipe: 0.2563135062270649, sum: 0.2563135062270649
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 25.0, pipe: 0.39874995948150843, sum: 0.39874995948150843
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 30.0, pipe: 0.5723975252986875, sum: 0.5723975252986875
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.maths-DEBUG: x: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], y:[0.0, 0.016710399388997793, 0.0652131188384323, 0.14511736253342977, 0.2563135062270649, 0.39874995948150843, 0.5723975252986875]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], arr y:[0.         0.0167104  0.06521312 0.14511736 0.25631351 0.39874996
+ 0.57239753]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], fit y:           2
+0.0006271 x + 0.000275 x - 0.0001504
+16:48:44-Pompa.components-DEBUG: Finding ys finished
+16:48:44-Pompa.maths-DEBUG: x: [ 0.          0.10552764  0.21105528  0.31658291  0.42211055  0.52763819
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
   0.63316583  0.73869347  0.84422111  0.94974874  1.05527638  1.16080402
   1.26633166  1.3718593   1.47738693  1.58291457  1.68844221  1.79396985
   1.89949749  2.00502513  2.11055276  2.2160804   2.32160804  2.42713568
@@ -508,6 +1114,7 @@ DISCHARGE PIPE
  19.6281407  19.73366834 19.83919598 19.94472362 20.05025126 20.15577889
  20.26130653 20.36683417 20.47236181 20.57788945 20.68341709 20.78894472
  20.89447236 21.        ], y:            2
+<<<<<<< HEAD
 0.0006271 x + 0.000275 x + 9.7, look: y-
 15:05:10-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000000001385AF98>, 500.0, 42);500.0 = 500.0
 15:05:10-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000000001385AF98>, 200.0, 43);200.0 = 200.0
@@ -593,8 +1200,81 @@ COLLECTOR
 
 
 15:05:10-Pompa.components-DEBUG: ####################
+=======
+0.0006271 x + 0.000275 x - 0.0001504, look: y-
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 500.0, 42);500.0 = 500.0
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 200.0, 43);200.0 = 200.0
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.1, 44);0.1 = 0.1
+16:48:44-Pompa.maths-DEBUG: Drawing collector plot
+16:48:44-Pompa.maths-DEBUG: 
+COLLECTOR
 
 
+16:48:44-Pompa.components-DEBUG: Starting getting pipe vals
+16:48:44-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0), 'I005': (10.0, 11.0), 'I006': (5.0, 12.0), 'I007': (0.0, 14.0)}
+16:48:44-Pompa.variables-DEBUG: {'30.0': 0.0, '25.0': 6.0, '20.0': 8.0, '15.0': 10.0, '10.0': 11.0, '5.0': 12.0, '0.0': 14.0}
+16:48:44-Pompa.variables-DEBUG: flows: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], lifts: [14.0, 12.0, 11.0, 10.0, 8.0, 6.0, 0.0]
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.components-DEBUG: Getting pipe y coordinates
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-ERROR: float division by zero
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+<<<<<<< HEAD
 15:05:10-Pompa.components-DEBUG: flow: 15.0, geom loss: 9.700000000000003, , pipe: 0.5877935296993552, sum: 10.287793529699359
 15:05:10-Pompa.components-DEBUG: 
 ####################
@@ -622,8 +1302,21 @@ COLLECTOR
 15:05:10-Pompa.components-DEBUG: flow: 0.0, geom loss: 9.700000000000003, , pipe: 0.0, sum: 9.700000000000003
 15:05:10-Pompa.components-DEBUG: 
 ####################
+=======
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
 
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
 
+<<<<<<< HEAD
 15:05:10-Pompa.maths-DEBUG: x: [30.0, 25.0, 20.0, 15.0, 10.0, 5.0, 0.0], y:[11.88362232517007, 11.242190204724883, 10.710067523596827, 10.287793529699359, 9.976334003102043, 9.777787653604996, 9.700000000000003]
 15:05:10-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], arr y:[ 9.7         9.77778765  9.976334   10.28779353 10.71006752 11.2421902
  11.88362233]
@@ -631,6 +1324,89 @@ COLLECTOR
 0.002242 x + 0.0057 x + 9.697
 15:05:10-Pompa.components-DEBUG: Finding ys finished
 15:05:10-Pompa.maths-DEBUG: x: [ 0.          0.10552764  0.21105528  0.31658291  0.42211055  0.52763819
+=======
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Pipe loss coords: [0.0, 0.07778765360499222, 0.2763340031020396, 0.5877935296993552, 1.010067523596823, 1.542190204724881, 2.183622325170067]
+16:48:44-Pompa.components-DEBUG: Got ys
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 5.0, pipe: 0.07778765360499222, sum: 0.07778765360499222
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 10.0, pipe: 0.2763340031020396, sum: 0.2763340031020396
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 15.0, pipe: 0.5877935296993552, sum: 0.5877935296993552
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 20.0, pipe: 1.010067523596823, sum: 1.010067523596823
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 25.0, pipe: 1.542190204724881, sum: 1.542190204724881
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.components-DEBUG: ####################
+
+
+16:48:44-Pompa.components-DEBUG: flow: 30.0, pipe: 2.183622325170067, sum: 2.183622325170067
+16:48:44-Pompa.components-DEBUG: 
+####################
+
+
+16:48:44-Pompa.maths-DEBUG: x: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], y:[0.0, 0.07778765360499222, 0.2763340031020396, 0.5877935296993552, 1.010067523596823, 1.542190204724881, 2.183622325170067]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], arr y:[0.         0.07778765 0.276334   0.58779353 1.01006752 1.5421902
+ 2.18362233]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], fit y:          2
+0.002242 x + 0.0057 x - 0.002958
+16:48:44-Pompa.components-DEBUG: Finding ys finished
+16:48:44-Pompa.maths-DEBUG: x: [ 0.          0.10552764  0.21105528  0.31658291  0.42211055  0.52763819
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
   0.63316583  0.73869347  0.84422111  0.94974874  1.05527638  1.16080402
   1.26633166  1.3718593   1.47738693  1.58291457  1.68844221  1.79396985
   1.89949749  2.00502513  2.11055276  2.2160804   2.32160804  2.42713568
@@ -664,6 +1440,7 @@ COLLECTOR
  19.6281407  19.73366834 19.83919598 19.94472362 20.05025126 20.15577889
  20.26130653 20.36683417 20.47236181 20.57788945 20.68341709 20.78894472
  20.89447236 21.        ], y:           2
+<<<<<<< HEAD
 0.002242 x + 0.0057 x + 9.697, look: r-
 15:05:10-Pompa.station-DEBUG: Are pipes ready?
 15:05:10-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x000000001385AF98>, 6.0, 28);6.0 = 6.0
@@ -778,6 +1555,165 @@ COLLECTOR
 15:05:10-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], fit y:          2
 0.002869 x + 0.005975 x + 9.697
 15:05:10-Pompa.maths-DEBUG: x: [ 0.          0.10552764  0.21105528  0.31658291  0.42211055  0.52763819
+=======
+0.002242 x + 0.0057 x - 0.002958, look: r-
+16:48:44-Pompa.station-DEBUG: Are pipes ready?
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 6.0, 28);6.0 = 6.0
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 150.0, 29);150.0 = 150.0
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.05, 30);0.05 = 0.05
+16:48:44-Pompa.station-DEBUG: True
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 500.0, 42);500.0 = 500.0
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 200.0, 43);200.0 = 200.0
+16:48:44-Pompa.components-DEBUG: Numeric(<__main__.Application object at 0x08D05570>, 0.1, 44);0.1 = 0.1
+16:48:44-Pompa.station-DEBUG: True
+16:48:44-Pompa.maths-DEBUG: Trying to drawing pipes plot
+16:48:44-Pompa.station-DEBUG: Starting draw_pipes_plot
+16:48:44-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0), 'I005': (10.0, 11.0), 'I006': (5.0, 12.0), 'I007': (0.0, 14.0)}
+16:48:44-Pompa.variables-DEBUG: {'30.0': 0.0, '25.0': 6.0, '20.0': 8.0, '15.0': 10.0, '10.0': 11.0, '5.0': 12.0, '0.0': 14.0}
+16:48:44-Pompa.variables-DEBUG: flows: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], lifts: [14.0, 12.0, 11.0, 10.0, 8.0, 6.0, 0.0]
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.station-DEBUG: Got geometric loss
+16:48:44-Pompa.components-DEBUG: Getting pipe y coordinates
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-ERROR: float division by zero
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0003333333333333334
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.075 [m], cross section 0.0176625 [m2]
+16:48:44-Pompa.components-DEBUG: Pipe loss coords: [0.0, 0.016710399388997793, 0.0652131188384323, 0.14511736253342977, 0.2563135062270649, 0.39874995948150843, 0.5723975252986875]
+16:48:44-Pompa.station-DEBUG: Got discharge_pipe ys
+16:48:44-Pompa.components-DEBUG: Getting pipe y coordinates
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-ERROR: float division by zero
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.0 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.005 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.01 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.015 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.02 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.025 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Starting counting line loss
+
+16:48:44-Pompa.components-INFO: Epsilon is 0.0005
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-INFO: for flow 0.03 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+16:48:44-Pompa.components-DEBUG: Pipe loss coords: [0.0, 0.07778765360499222, 0.2763340031020396, 0.5877935296993552, 1.010067523596823, 1.542190204724881, 2.183622325170067]
+16:48:44-Pompa.station-DEBUG: Got collector ys
+16:48:44-Pompa.maths-DEBUG: x: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], y:[0.0, 0.09449805299399001, 0.3415471219404719, 0.7329108922327849, 1.266381029823888, 1.9409401642063895, 2.7560198504687543]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], arr y:[0.         0.09449805 0.34154712 0.73291089 1.26638103 1.94094016
+ 2.75601985]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], fit y:          2
+0.002869 x + 0.005975 x - 0.003108
+16:48:44-Pompa.maths-DEBUG: x: [ 0.          0.10552764  0.21105528  0.31658291  0.42211055  0.52763819
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
   0.63316583  0.73869347  0.84422111  0.94974874  1.05527638  1.16080402
   1.26633166  1.3718593   1.47738693  1.58291457  1.68844221  1.79396985
   1.89949749  2.00502513  2.11055276  2.2160804   2.32160804  2.42713568
@@ -811,6 +1747,7 @@ COLLECTOR
  19.6281407  19.73366834 19.83919598 19.94472362 20.05025126 20.15577889
  20.26130653 20.36683417 20.47236181 20.57788945 20.68341709 20.78894472
  20.89447236 21.        ], y:           2
+<<<<<<< HEAD
 0.002869 x + 0.005975 x + 9.697, look: g-
 15:05:10-Pompa.maths-DEBUG: Starting draw report figure
 15:05:10-Pompa.variables-DEBUG: Getting pump characteristic func
@@ -4939,3 +5876,57 @@ Q1= 12.0 [l/s]    Q2= 17.0 [l/s]
 15:05:14-Pompa.components-INFO: Epsilon is 0.0005
 15:05:14-Pompa.components-INFO: for flow 0.009622163764929371 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
 15:05:14-Pompa.components-INFO: for flow 0.009622163764929371 [m3/s], radius 0.1 [m], cross section 0.031400000000000004 [m2]
+=======
+0.002869 x + 0.005975 x - 0.003108, look: g-
+16:48:44-Pompa.maths-DEBUG: Starting draw report figure
+16:48:44-Pompa.variables-DEBUG: Getting pump characteristic func
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (30.0, 0.0), 'I002': (25.0, 6.0), 'I003': (20.0, 8.0), 'I004': (15.0, 10.0), 'I005': (10.0, 11.0), 'I006': (5.0, 12.0), 'I007': (0.0, 14.0)}
+16:48:44-Pompa.variables-DEBUG: {'30.0': 0.0, '25.0': 6.0, '20.0': 8.0, '15.0': 10.0, '10.0': 11.0, '5.0': 12.0, '0.0': 14.0}
+16:48:44-Pompa.variables-DEBUG: flows: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], lifts: [14.0, 12.0, 11.0, 10.0, 8.0, 6.0, 0.0]
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 30.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 25.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 20.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 15.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 10.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 5.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.variables-INFO: conversion func starts
+16:48:44-Pompa.variables-INFO: old value: 0.0
+16:48:44-Pompa.variables-INFO: no need to conversion
+16:48:44-Pompa.maths-DEBUG: x: [0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0], y:[14.0, 12.0, 11.0, 10.0, 8.0, 6.0, 0.0]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], arr y:[14. 12. 11. 10.  8.  6.  0.]
+16:48:44-Pompa.maths-DEBUG: arr x: [ 0.  5. 10. 15. 20. 25. 30.], fit y:           3           2
+-0.001111 x + 0.03714 x - 0.577 x + 14.05
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf

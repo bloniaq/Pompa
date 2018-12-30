@@ -41,8 +41,10 @@ class Station(components.StationObject):
         self.height_stop = None
         self.ord_sw_on = None
         self.ord_sw_off = None
+        self.ord_sw_alarm = None
         self.comp_flow = None
 
+<<<<<<< HEAD
     def calc_checking(self):
         # get working pump numbers
         self.number_of_pumps = self.calc_number_of_pumps()
@@ -59,20 +61,24 @@ class Station(components.StationObject):
 
     '''
     def calculate(self):
+=======
+    def calculate_checking(self):
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
         """calculates parameters of working pump station"""
-        self.ord_sw_on = self.ord_inlet.value - 0.1  # FILL UP
-        self.ord_sw_off = self.ord_bottom.value +\
-            self.minimal_sewage_level.value
+        self.v_useful = self.check_get_useful_velo()
+        self.h_useful = self.v_useful / self.well.cross_sectional_area()
         self.number_of_pumps = self.calc_number_of_pumps()
         self.number_of_res_pumps = self.reserve_pumps_number()
+        self.ord_sw_on = self.ord_inlet.value - 0.1
+        self.ord_sw_off = self.ord_bottom.value +\
+            self.minimal_sewage_level.value
+        self.ord_sw_alarm = self.ord_inlet.value
         self.height_start = self.height_to_pump(self.ord_sw_off)
         self.height_stop = self.height_to_pump(self.ord_sw_on)
         self.qp = self.get_calculative_flow()
-        self.h_useful = self.ord_sw_on - self.ord_sw_off  # FILL UP
         self.h_whole = self.ord_terrain.value - self.ord_bottom.value
-        self.h_reserve = self.ord_terrain.value - self.ord_sw_on
+        self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
         self.v_whole = self.velocity(self.h_whole)
-        self.v_useful = self.velocity(self.h_useful)
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
         self.v_reserve = self.velocity(self.h_reserve)
         self.comp_flow = self.get_calculative_flow()
@@ -84,19 +90,29 @@ class Station(components.StationObject):
 
     def calc_number_of_pumps(self):
         """Sets number of work pumps, based on min and max inflow, and pump
+<<<<<<< HEAD
         efficiency
 
         TO MAKE TEST THIS FUNCTION!
         """
         log.debug('Calculating number of pumps')
+=======
+        efficiency"""
+
+        log.debug('calc_number_of_pumps START')
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
         max_pump_eff = self.pump_type.max_pump_efficiency()
         log.debug('minimal inflow value_liters {}'.format(
             self.inflow_min.value_liters))
         if max_pump_eff.value_liters < self.inflow_min.value_liters:
+<<<<<<< HEAD
             log.error('Too low pump efficiency !!!')
             ##############################
             # EXCEPTION TO RAISE !!!
             ##############################
+=======
+            log.error('Pump has too less efficiency to this station')
+>>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
             return 0
         number_of_pumps = int(np.ceil((1.1 * self.inflow_max.value_liters) /
                                       max_pump_eff.value_liters))
@@ -105,6 +121,7 @@ class Station(components.StationObject):
         return number_of_pumps
 
     def reserve_pumps_number(self):
+        """Sets number of reserve pumps, based on user choose"""
         if self.reserve_pumps.value == 'minimal':
             n_of_res_pumps = 1
         elif self.reserve_pumps.value == 'optimal':
@@ -116,6 +133,11 @@ class Station(components.StationObject):
             n_of_res_pumps = self.number_of_pumps
         self.number_of_res_pumps = n_of_res_pumps
         return n_of_res_pumps
+
+    def check_get_useful_velo(self):
+        useful_velo = ((((self.pump_type.cycle_time) * 60) * self.qp) / 4000)
+        log.info('useful velo is {}m3'.format(useful_velo))
+        return useful_velo
 
     def get_x_axis(self, unit, n=1):
         if unit == 'meters':
@@ -149,8 +171,6 @@ class Station(components.StationObject):
     def get_all_pipes_char_vals(self, unit):
         log.debug('Starting draw_pipes_plot')
         flows, _ = self.pump_type.characteristic.get_pump_char_func(unit)
-        geom_loss = self.height_to_pump(
-            self.ord_bottom.value + self.minimal_sewage_level.value)
         log.debug('Got geometric loss')
         discharge_y = self.d_pipe.get_y_coords(flows, unit)
         log.debug('Got discharge_pipe ys')
@@ -158,7 +178,7 @@ class Station(components.StationObject):
         log.debug('Got collector ys')
         pipes_char = []
         for i in range(len(flows)):
-            sum_l = geom_loss + discharge_y[i] + collector_y[i]
+            sum_l = discharge_y[i] + collector_y[i]
             pipes_char.append(sum_l)
         y = maths.fit_coords(flows, pipes_char, 2)
         return y
@@ -202,4 +222,4 @@ class Station(components.StationObject):
         return velocity
 
     def get_calculative_flow(self):
-        return self.inflow_max.value * 1.5
+        return self.inflow_max.value_liters * 1.4
