@@ -122,7 +122,7 @@ class Pipe(StationObject):
         # log.info('speed is {} [m/s]'.format(speed))
         return speed
 
-    def sum_loss(self, flow, unit):
+    def sum_loss(self, flow, unit='liters'):
         return self.line_loss(flow, unit) + self.local_loss(flow, unit)
 
     def pipe_char_ready(self):
@@ -220,20 +220,62 @@ class PumpType(StationObject):
         char_raport += '\n'
         return char_raport
 
+    def get_Q_for_H(self, number):
+        flows, lifts = self.characteristic.get_pump_char_func('liters')
+        set_flows = []
+        for flow in flows:
+            set_flows.append(flow * number)
+        log.debug('lifts: {}, flows(in set): {}'.format(lifts, set_flows))
+        Qs = maths.fit_coords(lifts, set_flows, 3)
+        log.debug('coords fitted (Qs) : {}'.format(Qs))
+        lifts.sort()
+        Hs = np.linspace(lifts[0], lifts[-1], 200)
+        # log.debug('linspace of H (Hs) : {}'.format(Hs))
+        return Hs, Qs
+
+    def get_Q(self, H, Hs, Qs):
+        '''
+        flows, lifts = self.characteristic.get_pump_char_func('liters')
+        set_flows = []
+        for flow in flows:
+            set_flows.append(flow * number)
+        log.debug('lifts: {}, flows(in set): {}'.format(lifts, set_flows))
+        Qs = maths.fit_coords(lifts, set_flows, 3)
+        log.debug('coords fitted (Qs) : {}'.format(Qs))
+        lifts.sort()
+        Hs = np.linspace(lifts[0], lifts[-1], 200)
+        # log.debug('linspace of H (Hs) : {}'.format(Hs))
+        '''
+        Q = maths.interp(H, Hs, Qs(Hs))
+        # log.debug('linspace of Q (Qs) : {}'.format(Qs(Hs)))
+        log.debug('Q for {}m is {}'.format(H, Q))
+        return Q
+
 
 class PumpSet():
 
     def __init__(self, station):
         self.station = station
-        self.well = station.well
+        # self.well = station.well
         self.n_of_pumps = self.station.number_of_pumps
         self.characteristic = station.pump_type.characteristic
-        self.set_start_ordinates()
+        # self.set_start_ordinates()
         self.pumps = []
-        for i in range(self.n_of_pumps):
-            pump = Pump(self.station, self, i + 1, self.start_ord_list[i])
+        self.start_ords = []
+        pump_counter = 0
+        while pump_counter < self.n_of_pumps:
+            log.debug('starting building pump number {}'.format(
+                pump_counter + 1))
+            pump = Pump(self.station, self, pump_counter + 1)
+            self.start_ords.append(pump.get_start_ordinate())
+            log.debug('PUMP {} of {} ADDED'.format(
+                pump_counter + 1, self.n_of_pumps))
             self.pumps.append(pump)
+            log.debug('starts ords: {}'.format(self.start_ords))
+            pump_counter += 1
+        log.debug('PUMPS IN SET: {}'.format(self.pumps))
 
+    '''
     def set_start_ordinates(self):
         self.start_ord_list = []
         self.ord_stop = self.station.ord_bottom.value + \
@@ -261,6 +303,7 @@ class PumpSet():
             r += ('-zapas wysokosci cisnienia..........dh= '
                   '{} [m sł.wody]\n\n'.format('x'))
         return r
+    '''
 
     def get_pumpset_vals(self):
         log.debug('Starting draw_pipes_plot')
@@ -274,30 +317,144 @@ class PumpSet():
 
 class Pump():
 
-    def __init__(self, station, pumpset, number, ord_start):
+    def __init__(self, station, pump_set, number):
         self.station = station
         self.well = station.well
-        self.number = number
-        self.ord_start = ord_start
-        self.height_u = pumpset.one_pump_h
+        self.pump_set = pump_set
         self.pump_type = station.pump_type
-        self.real_work_time = 0
-        self.real_inactivity_time = 0
-        self.real_cycle_time = 0
+        self.time_to_beat = self.pump_type.cycle_time.value * 60
+        self.number = number
+        self.ord_start = None
+        self.ord_full_stop = self.station.ord_sw_off
+        self.ord_pump_lowest = None
+        self.real_t_work = 0
+        self.real_t_stop = 0
+        self.real_T = 0
+        self.velo_useful = 0
+        self.calc_params()
+        log.debug('CALCULATING PARAMS COMPLETED')
+        self.report = self.get_work_parameters()
+        log.debug(self.report)
+
+    def get_ord_to_iterate(self):
+        if self.number == 1:
+            return self.station.ord_sw_off
+        elif self.number > 1:
+            print(type(self.pump_set))
+            log.debug('trying to get start ordinate index {}'.format(
+                self.number - 1))
+            return self.pump_set.start_ords[self.number - 2]
+        else:
+            log.error('Pump number < 1')
+            ##############
+            # RAISE EXCEPTION ?
+            ##############
+            return None
+
+    def get_start_ordinate(self):
+        return self.ord_start
+
+    def calc_params(self):
+        self.ord_start = self.get_ord_to_iterate()
+        self.ord_pump_lowest = self.get_ord_to_iterate()
+        self.Q_off, self.H_off = self.get_real_Q_H(self.ord_full_stop)
+        step = 0
+        while self.real_T < self.time_to_beat:
+            step += 1
+            self.ord_start += 0.01
+            self.velo_useful = self.update_velo_useful()
+            self.Q_on, self.H_on = self.get_real_Q_H(self.ord_start)
+            self.Q_av = (self.Q_off + self.Q_on) / 2
+            self.Q_in = self.get_Q_in()
+            self.real_t_stop = self.velo_useful / self.Q_in
+            self.real_t_work = self.velo_useful / (self.Q_av - self.Q_in)
+            self.real_T = self.real_t_stop + self.real_t_work
+            log.info('pump nr {}'.format(self.number))
+            log.info('step{}, minT: {}, calcT: {}'.format(
+                step, self.time_to_beat, self.real_T))
+            log.info('stop time: {}s, run time: {}s'.format(
+                self.real_t_stop, self.real_t_work))
+            log.info('checking ord to start: {}, all stop at: {}'.format(
+                self.ord_start, self.ord_pump_lowest))
+            log.info('Velocity useful = {}'.format(self.velo_useful))
+            log.info('got Q_off={}, H_off={}, H_geom={}'.format(
+                self.Q_off, self.H_off,
+                self.station.ord_upper_level.value - self.ord_full_stop))
+            log.info('got Q_on={}, H_on={}, Hgeom={}'.format(
+                self.Q_on, self.H_on,
+                self.station.ord_upper_level.value - self.ord_start))
+            log.info('Worst case: {}, Inflow: {}'.format(self.Q_av, self.Q_in))
+            log.info('')
+
+    def update_velo_useful(self):
+        return 1000 * self.well.cross_sectional_area() * (
+            self.ord_start - self.ord_pump_lowest)
+
+    def get_Q_in(self):
+        return max((self.Q_av / 2), self.station.inflow_min.value_liters)
+
+    def get_real_Q_H(self, ordinate):
+        DIFF = 3
+        H = self.station.ord_upper_level.value - ordinate
+        step = 0
+        difference = 5
+        Hs, Qs = self.pump_type.get_Q_for_H(self.number)
+        while difference > DIFF:
+            step += 1
+            Q1 = self.pump_type.get_Q(H, Hs, Qs)
+            H = self.station.collector.sum_loss(
+                Q1) + self.station.d_pipe.sum_loss(Q1) + H
+            Q2 = self.pump_type.get_Q(H, Hs, Qs)
+            difference = abs(Q2 - Q1)
+            log.debug('finding Q loop')
+            log.debug('step{}: Q1: {}, Q2: {}, diff: {}'.format(
+                step, Q1, Q2, difference))
+        return Q2, H
 
     def get_work_parameters(self):
         report = ''
         report += 'PARAMETR POMPY NR: {}\n\n'.format(self.number)
         report += 'Rzeczywisty czas cyklu pompy.........T= {} [s]\n'.format(
-            self.real_cycle_time)
+            self.real_T)
         report += 'Rzeczywisty czas postoju pompy......Tp= {} [s]\n'.format(
-            self.real_inactivity_time)
+            self.real_t_stop)
         report += 'Rzeczywisty czas pracy pompy........Tr= {} [s]\n'.format(
-            self.real_work_time)
+            self.real_t_work)
         report += 'Obj. uzyt. wyzn. przez pompe........Vu= {} [m3]\n'.format(
-            self.height_u * self.well.cross_sectional_area())
+            self.velo_useful)
         report += 'Rzedna wlaczenia pompy................  {} [m]\n\n'.format(
             self.ord_start)
+        report += 'Parametry poczatkowe pracy zespolu pomp\n'
+        report += 'w chwili wlaczenia pompy nr {}\n\n'.format(self.number)
+        report += '-wys. lc. u wylotu pompy.........Hlc={} [m]\n'.format(
+            self.H_on)
+        report += '-geometryczna wys. podnoszenia.....H= {} [m]\n'.format(
+            self.station.ord_upper_level.value - self.ord_start)
+        report += '-wydatek...........................Q= {} [l/s]\n'.format(
+            self.Q_on)
+        report += '-predkosc w kolektorze tlocznym....v= {} [m/s]\n'.format(
+            self.station.collector.speed(self.Q_on, 'liters'))
+        report += '-predkosc w przewodach w pompowni..v= {} [m/s]\n'.format(
+            self.station.d_pipe.speed(self.Q_on, 'liters'))
+        report += '-zapas wysokosci cisnienia.....dh= {} [m sl.wody]\n\n'.format(
+            '?')
+        report += 'Parametry koncowe pracy zespolu pomp\n\n'
+        report += '-wys. lc. u wylotu pompy.........Hlc= {} [m]\n'.format(
+            self.H_off)
+        report += '-geometryczna wys. podnoszenia.....H= {} [m]\n'.format(
+            self.station.ord_upper_level.value - self.ord_full_stop)
+        report += '-wydatek...........................Q= {} [l/s]\n'.format(
+            self.Q_off)
+        report += '-predkosc w kolektorze tlocznym....v= {} [m/s]\n'.format(
+            self.station.collector.speed(self.Q_off, 'liters'))
+        report += '-predkosc w przewodach w pompowni..v= {} [m/s]\n'.format(
+            self.station.d_pipe.speed(self.Q_off, 'liters'))
+        report += '-doplyw najniekorzystniejszy....Qdop= {} [l/s]\n'.format(
+            self.Q_av)
+        report += 'Zakres pracy pomp /maksymalna sprawnosc/\n'
+        report += 'Q1= {} [l/s]    Q2= {} [l/s]\n'.format(
+            self.pump_type.efficiency_from.value_liters * self.number,
+            self.pump_type.efficiency_to.value_liters * self.number)
         return report
 
 

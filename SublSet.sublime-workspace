@@ -4,12 +4,84 @@
 		"selected_items":
 		[
 			[
-				"n_o",
-				"n_of_starting_pump\tparam"
+				"pum",
+				"pump_counter\tstatement"
 			],
 			[
 				"pump",
-				"pump_number\tparam"
+				"pump_set\tstatement"
+			],
+			[
+				"start",
+				"start_ords\tstatement"
+			],
+			[
+				"getQ",
+				"get_Q_for_H"
+			],
+			[
+				"lift",
+				"lift_coords\tstatement"
+			],
+			[
+				"y",
+				"ycoords\tparam"
+			],
+			[
+				"set",
+				"set_flows\tstatement"
+			],
+			[
+				"re",
+				"real_t_work\tstatement"
+			],
+			[
+				"ord",
+				"ord_pump_lowest\tstatement"
+			],
+			[
+				"n_",
+				"n_of_work_pumps\tstatement"
+			],
+			[
+				"col",
+				"collector"
+			],
+			[
+				"Q",
+				"Q_geom\tstatement"
+			],
+			[
+				"dis",
+				"discharge_pipe"
+			],
+			[
+				"sum",
+				"sum_loss"
+			],
+			[
+				"val",
+				"value_liters"
+			],
+			[
+				"get_re",
+				"get_real_Q"
+			],
+			[
+				"rea",
+				"real_t_stop\tstatement"
+			],
+			[
+				"t",
+				"real_t_work\tstatement"
+			],
+			[
+				"min",
+				"min_cycle_time"
+			],
+			[
+				"n_o",
+				"n_of_starting_pump\tparam"
 			],
 			[
 				"h",
@@ -22,10 +94,6 @@
 			[
 				"max",
 				"max_eff_val\tstatement"
-			],
-			[
-				"ord",
-				"ord_sw_off\tstatement"
 			],
 			[
 				"number",
@@ -144,14 +212,6 @@
 				"dictionary\tparam"
 			],
 			[
-				"set",
-				"setattr\tfunction"
-			],
-			[
-				"val",
-				"value"
-			],
-			[
 				"tk",
 				"tkvariables"
 			],
@@ -216,10 +276,6 @@
 				"lift_unit\tparam"
 			],
 			[
-				"lift",
-				"lift_val\tparam"
-			],
-			[
 				"flow",
 				"flow_unit\tparam"
 			],
@@ -230,10 +286,6 @@
 			[
 				"release",
 				"releases_unf\tstatement"
-			],
-			[
-				"re",
-				"rel_artists_\tstatement"
 			],
 			[
 				"rel",
@@ -315,7 +367,7 @@
 			"file": "Pompa.py",
 			"settings":
 			{
-				"buffer_size": 6758,
+				"buffer_size": 7945,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -324,7 +376,7 @@
 			"file": "maths.py",
 			"settings":
 			{
-				"buffer_size": 4174,
+				"buffer_size": 8740,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -333,35 +385,27 @@
 			"file": "output.py",
 			"settings":
 			{
-				"buffer_size": 5273,
+				"buffer_size": 5879,
 				"encoding": "UTF-8",
 				"line_ending": "Windows",
 				"name": "report = {}"
 			}
 		},
 		{
-			"file": "station.py",
-			"settings":
-			{
-				"buffer_size": 4958,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "logfile.log",
 			"settings":
 			{
-				"buffer_size": 2325,
+				"buffer_size": 396806,
 				"encoding": "Western (Windows 1252)",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "InOut Examples/1_STAND_1.DAN",
+			"file": "station.py",
 			"settings":
 			{
-				"buffer_size": 396,
+				"buffer_size": 7448,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -369,7 +413,7 @@
 			"file": "components.py",
 			"settings":
 			{
-				"buffer_size": 11980,
+				"buffer_size": 21512,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -378,7 +422,7 @@
 			"file": "variables.py",
 			"settings":
 			{
-				"buffer_size": 12842,
+				"buffer_size": 13640,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -387,7 +431,7 @@
 			"file": "GUI_Pygubu_Rebuild.ui",
 			"settings":
 			{
-				"buffer_size": 201656,
+				"buffer_size": 202202,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -396,7 +440,7 @@
 			"file": "data.py",
 			"settings":
 			{
-				"buffer_size": 4822,
+				"buffer_size": 4926,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -409,10 +453,22 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 137.0,
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"pack",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: rem",
+				"Package Control: Remove Package"
+			],
 			[
 				"install",
 				"Package Control: Install Package"
@@ -422,13 +478,14 @@
 				"Package Control: Remove Package"
 			]
 		],
-		"width": 0.0
+		"width": 444.0
 	},
 	"console":
 	{
-		"height": 157.0,
+		"height": 348.0,
 		"history":
 		[
+			"import socket; socket.socket(socket.AF_INET, socket.SOCK_STREAM).connect((\"localhost\", 50080))",
 			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
 		]
 	},
@@ -443,11 +500,12 @@
 	},
 	"expanded_folders":
 	[
-		"/C/WORKZONE/!Kuba/Pompa",
-		"/C/WORKZONE/!Kuba/Pompa/InOut Examples"
+		"/C/Kuba/Pompa"
 	],
 	"file_history":
 	[
+		"/C/Users/Kuba/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/C/Kuba/Pompa/InOut Examples/1_STAND_1.DAN",
 		"/C/WORKZONE/!Kuba/Pompa/GUI_Pygubu.ui",
 		"/C/Users/HP/Desktop/armatura i przewody do proj — skrót.lnk",
 		"/C/WORKZONE/!Kuba/Pompa/config.py",
@@ -516,6 +574,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"H_on=",
+			"pump nr",
+			"CALCULATING PARAMS COMPLETED",
+			"linspa",
+			"fit_coords",
+			"##############################",
 			"draw_figure",
 			"draw_",
 			"self.figure",
@@ -546,7 +610,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -555,15 +619,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6758,
+						"buffer_size": 7945,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2811,
-								2811
+								3448,
+								3448
 							]
 						],
 						"settings":
@@ -621,6 +685,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -629,10 +697,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1109.0,
+						"translation.y": 1222.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -641,15 +709,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4174,
+						"buffer_size": 8740,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1638,
-								1638
+								5710,
+								5716
 							]
 						],
 						"settings":
@@ -659,6 +727,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -675,10 +747,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 434.0,
+						"translation.y": 2358.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
@@ -687,15 +759,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5273,
+						"buffer_size": 5879,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4525,
-								4594
+								5648,
+								5648
 							]
 						],
 						"settings":
@@ -705,6 +777,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								},
 								{
 									"characters": ".",
@@ -717,78 +793,32 @@
 							],
 							"auto_name": "report = {}",
 							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 900.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "station.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4958,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4872,
-								4872
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1320.0,
+						"translation.y": 972.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 6,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "logfile.log",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2325,
+						"buffer_size": 396806,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								148689,
+								148694
 							]
 						],
 						"settings":
@@ -797,104 +827,33 @@
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 16.0,
+						"translation.y": 49914.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "InOut Examples/1_STAND_1.DAN",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 396,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 15.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
 		},
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 6,
-					"file": "components.py",
+					"buffer": 4,
+					"file": "station.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11980,
+						"buffer_size": 7448,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								494,
-								494
-							]
-						],
-						"settings":
-						{
-							"auto_complete_triggers":
-							[
-								{
-									"characters": ".",
-									"selector": "source.python - string - comment - constant.numeric"
-								},
-								{
-									"characters": ".",
-									"selector": "source.python - string - constant.numeric"
-								}
-							],
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "variables.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 12842,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1318,
-								1318
+								3410,
+								3410
 							]
 						],
 						"settings":
@@ -912,6 +871,18 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -920,27 +891,155 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 171.0,
+						"translation.y": 1008.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "GUI_Pygubu_Rebuild.ui",
+					"buffer": 5,
+					"file": "components.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 201656,
+						"buffer_size": 21512,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								79650,
-								79650
+								8015,
+								8015
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2943.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "variables.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13640,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								12244,
+								12244
+							]
+						],
+						"settings":
+						{
+							"auto_complete_triggers":
+							[
+								{
+									"characters": ".",
+									"selector": "source.python - string - comment - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
+								}
+							],
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 5576.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "GUI_Pygubu_Rebuild.ui",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 202202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
@@ -951,27 +1050,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 21621.0,
+						"translation.y": 576.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 8,
 					"file": "data.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4822,
+						"buffer_size": 4926,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3795,
-								3795
+								1599,
+								1602
 							]
 						],
 						"settings":
@@ -1001,10 +1100,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 795.0,
+						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 8,
 					"type": "text"
 				}
 			]
@@ -1012,7 +1111,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -1038,7 +1137,7 @@
 		"cols":
 		[
 			0.0,
-			0.422768855567,
+			0.479361951209,
 			1.0
 		],
 		"rows":
@@ -1060,7 +1159,7 @@
 	"project": "SublSet.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1094,7 +1193,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},

@@ -43,6 +43,21 @@ class Station(components.StationObject):
         self.ord_sw_off = None
         self.comp_flow = None
 
+    def calc_checking(self):
+        # get working pump numbers
+        self.number_of_pumps = self.calc_number_of_pumps()
+        # get reserve pump numbers
+        self.number_of_res_pumps = self.reserve_pumps_number()
+        # get ordinate off
+        self.ord_sw_off = self.ord_bottom.value +\
+            self.minimal_sewage_level.value
+        # Setting up Pump Set
+        self.pump_set = components.PumpSet(self)
+        # for pump
+        log.debug('CALC CHECKING FINISHED')
+        pass
+
+    '''
     def calculate(self):
         """calculates parameters of working pump station"""
         self.ord_sw_on = self.ord_inlet.value - 0.1  # FILL UP
@@ -61,6 +76,7 @@ class Station(components.StationObject):
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
         self.v_reserve = self.velocity(self.h_reserve)
         self.comp_flow = self.get_calculative_flow()
+    '''
 
     def height_to_pump(self, lower_ord):
         height = self.ord_upper_level.value - lower_ord
@@ -68,19 +84,24 @@ class Station(components.StationObject):
 
     def calc_number_of_pumps(self):
         """Sets number of work pumps, based on min and max inflow, and pump
-        efficiency"""
+        efficiency
+
+        TO MAKE TEST THIS FUNCTION!
+        """
         log.debug('Calculating number of pumps')
         max_pump_eff = self.pump_type.max_pump_efficiency()
         log.debug('minimal inflow value_liters {}'.format(
             self.inflow_min.value_liters))
         if max_pump_eff.value_liters < self.inflow_min.value_liters:
-            log.error('BŁĄD')
+            log.error('Too low pump efficiency !!!')
+            ##############################
+            # EXCEPTION TO RAISE !!!
+            ##############################
             return 0
-        number_of_pumps = int(np.ceil((1.25 * self.inflow_max.value_liters) /
+        number_of_pumps = int(np.ceil((1.1 * self.inflow_max.value_liters) /
                                       max_pump_eff.value_liters))
         log.debug('Result: {}'.format(number_of_pumps))
         self.number_of_pumps = number_of_pumps
-        self.pump_set = components.PumpSet(self)
         return number_of_pumps
 
     def reserve_pumps_number(self):

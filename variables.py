@@ -232,20 +232,20 @@ class Flow(Variable):
 
     def convert(self, new_unit):
         self.load_flag = True
-        log.info('conversion func starts')
-        log.info('old value: {}'.format(self.value))
+        # log.info('conversion func starts')
+        # log.info('old value: {}'.format(self.value))
         if new_unit == self.unit:
-            log.info('no need to conversion')
+            # log.info('no need to conversion')
             return
         elif new_unit == 'meters':
             self.unit = new_unit
-            log.debug('{} * 3.6 = {}'.format(self.value, self.value * 3.6))
+            # log.debug('{} * 3.6 = {}'.format(self.value, self.value * 3.6))
             self.value = self.value_meters
         elif new_unit == 'liters':
             self.unit = new_unit
-            log.debug('{} / 3.6 = {}'.format(self.value, self.value / 3.6))
+            # log.debug('{} / 3.6 = {}'.format(self.value, self.value / 3.6))
             self.value = self.value_liters
-        log.info('new value: {}'.format(self.value))
+        # log.info('new value: {}'.format(self.value))
         self.load_flag = False
 
     def load_data(self, data_dict):
@@ -323,13 +323,17 @@ class PumpCharacteristic(Variable):
 
     def get_pump_char_func(self, unit):
         log.debug('Getting pump characteristic func')
-        pairs = {}
+        # pairs = {}
         flow_coords = []
         lift_coords = []
         present_unit = self.unit_var.get()
-        self.set_unit(unit)
+        if present_unit != unit:
+            self.set_unit(unit)
         log.debug('Starting iterating over cooridnates, {}'.format(
             self.coords))
+        ###########
+        # DELETE SORTING, TO LEFT TWO LISTS ONLY
+        '''
         for point in self.coords:
             pairs[str(self.coords[point][0].value)] = self.coords[point][1]
             flow_coords.append(self.coords[point][0].value)
@@ -337,8 +341,16 @@ class PumpCharacteristic(Variable):
         flow_coords.sort()
         for value in flow_coords:
             lift_coords.append(pairs[str(value)])
+        '''
+        # END OF DELETION
+        # ADDED:
+        for point in self.coords:
+            flow_coords.append(self.coords[point][0].value)
+            lift_coords.append(self.coords[point][1])
+        ###########
         log.debug('flows: {}, lifts: {}'.format(flow_coords, lift_coords))
-        self.set_unit(present_unit)
+        if present_unit != unit:
+            self.set_unit(present_unit)
         return flow_coords, lift_coords
 
     def sort_points(self):

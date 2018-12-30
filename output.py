@@ -84,7 +84,6 @@ def generate_checking_report(station):
         round(100 * (station.v_reserve / station.v_whole)), 2)
     report['40'] = 'Vm/Vc = {}%\n'.format(
         round(100 * (station.v_dead / station.v_whole)), 2)
-    report['41'] = pumpset.get_parameters(n_of_work_pumps)
     '''
     report['47'] = 'Parametry poczatkowe pracy zespolu pomp'
     report['48'] = 'w chwili wlaczenia pompy nr{}\n'.format()
@@ -104,6 +103,9 @@ def generate_checking_report(station):
     report['62'] = 'Zakres pracy pomp /maksymalna sprawnosc/'
     report['63'] = 'Q1= {} [l/s]    Q2= {} [l/s]'.format()
     '''
+    for pump in range(n_of_work_pumps):
+        line = str(41 + pump)
+        report[line] = pumpset.pumps[pump].report
     string_report = ''
     for i in report:
         log.debug('line {}: {}'.format(i, report[i]))
