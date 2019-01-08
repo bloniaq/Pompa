@@ -44,7 +44,6 @@ class Station(components.StationObject):
         self.ord_sw_alarm = None
         self.comp_flow = None
 
-<<<<<<< HEAD
     def calc_checking(self):
         # get working pump numbers
         self.number_of_pumps = self.calc_number_of_pumps()
@@ -90,29 +89,20 @@ class Station(components.StationObject):
 
     def calc_number_of_pumps(self):
         """Sets number of work pumps, based on min and max inflow, and pump
-<<<<<<< HEAD
         efficiency
 
         TO MAKE TEST THIS FUNCTION!
         """
-        log.debug('Calculating number of pumps')
-=======
-        efficiency"""
-
         log.debug('calc_number_of_pumps START')
->>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
         max_pump_eff = self.pump_type.max_pump_efficiency()
         log.debug('minimal inflow value_liters {}'.format(
             self.inflow_min.value_liters))
         if max_pump_eff.value_liters < self.inflow_min.value_liters:
-<<<<<<< HEAD
             log.error('Too low pump efficiency !!!')
             ##############################
             # EXCEPTION TO RAISE !!!
             ##############################
-=======
             log.error('Pump has too less efficiency to this station')
->>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
             return 0
         number_of_pumps = int(np.ceil((1.1 * self.inflow_max.value_liters) /
                                       max_pump_eff.value_liters))

@@ -256,13 +256,9 @@ class PumpSet():
         # self.well = station.well
         self.n_of_pumps = self.station.number_of_pumps
         self.characteristic = station.pump_type.characteristic
-<<<<<<< HEAD
-        # self.set_start_ordinates()
-=======
         self.cycle_time = station.pump_type.cycle_time
         self.qp = station.qp
         self.set_start_ordinates()
->>>>>>> 91e599add284f764b6373d33b35d15b0f77070cf
         self.pumps = []
         self.start_ords = []
         pump_counter = 0
@@ -278,7 +274,6 @@ class PumpSet():
             pump_counter += 1
         log.debug('PUMPS IN SET: {}'.format(self.pumps))
 
-    '''
     def set_start_ordinates(self):
         self.start_ord_list = []
         self.ord_stop = self.station.ord_bottom.value + \
@@ -289,7 +284,7 @@ class PumpSet():
         for i in range(self.n_of_pumps):
             ordinate = ord_start + i * self.one_pump_h
             self.start_ord_list.append(ordinate)
-
+    '''
     def get_parameters(self, n_of_starting_pump):
         r = ''
         if n_of_starting_pump <= self.n_of_pumps:
