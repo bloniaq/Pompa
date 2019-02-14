@@ -343,7 +343,7 @@
 			"file": "Pompa.py",
 			"settings":
 			{
-				"buffer_size": 7991,
+				"buffer_size": 10005,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -466,6 +466,8 @@
 	],
 	"file_history":
 	[
+		"/E/# DRIVE IMAGES/BT Audionews Share/Softube.FET.Compressor.VST.RTAS.v1.0.3-AiR/a-fc103.r00",
+		"/C/Program Files (x86)/Waves/SoundGrid for Venue/ag_log_merger.py",
 		"/E/# PROGRAMOWANIE/Pompa/InOut Examples/0_STAND.DAN",
 		"/E/# PROGRAMOWANIE/Pompa/InOut Examples/2pumps_",
 		"/E/# STUDIA/# Archiwum/Kanalizacje/Projekt 3/Mój Projekt/POMPA1.WYN",
@@ -605,15 +607,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7991,
+						"buffer_size": 10005,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								663,
-								663
+								10004,
+								10004
 							]
 						],
 						"settings":
@@ -651,6 +653,10 @@
 								{
 									"characters": ".",
 									"selector": "source.python - string - constant.numeric"
+								},
+								{
+									"characters": ".",
+									"selector": "source.python - string - constant.numeric"
 								}
 							],
 							"git_gutter_is_enabled": true,
@@ -659,10 +665,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2142.0,
+						"translation.y": 4262.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -851,7 +857,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -957,7 +963,7 @@
 						"translation.y": 1008.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1135,7 +1141,7 @@
 		],
 		"width": 0.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},

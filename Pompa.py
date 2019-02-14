@@ -62,10 +62,12 @@ class Application():
         self.init_objects()
 
         # 6: Initialize Figure objects
+        # containers:
         pump_figure_cont = self.builder.get_object('Frame_Pump_Figure')
         pipe_figure_cont = self.builder.get_object('Frame_Pipe_Figure')
         station_figure_cont = self.builder.get_object('Frame_Station_Figure')
         report_figure_cont = self.builder.get_object('Frame_Report_Figure')
+        # setting figures dimensions
         self.pump_figure, self.pump_plot, self.pump_canvas = maths.init_figure(
             pump_figure_cont, 5.1, 4.6)
         self.pipe_figure, self.pipe_plot, self.pipe_canvas = maths.init_figure(
@@ -74,57 +76,86 @@ class Application():
             station_figure_cont, 4.5, 4.7)
         self.rep_figure, self.rep_plot, self.rep_canvas = maths.init_figure(
             report_figure_cont, 4.65, 6.0)
+        # setting placement
         self.pump_canvas.get_tk_widget().grid(row=0, column=0)
         self.pipe_canvas.get_tk_widget().grid(row=0, column=0)
         self.stat_canvas.get_tk_widget().grid(row=0, column=0)
         self.rep_canvas.get_tk_widget().grid(row=0, column=0)
 
     def init_objects(self):
+        """ Returns nothing
+
+        Has to initialize some important objects.
+        """
+        # TODO Is it needed? |
+        # TODO               V
         self.mode = variables.Logic(self, 'checking', 'mode', '1',
                                     data.dan_mode, self.ui_set_mode)
         self.ui_set_mode()
+
         self.station = station.Station(self)
         data.station_vars(self)
+
         self.well = self.station.well = components.Well(self)
         data.well_vars(self)
         self.ui_set_shape()
+
         self.pump_type = self.station.pump_type = components.PumpType(self)
         data.pump_vars(self)
         self.pump_type.set_flow_unit(
             self.ui_vars.__getitem__('pump_flow_unit').get())
+
         self.d_pipe = self.station.d_pipe = components.Pipe(self)
         data.discharge_pipe_vars(self)
+
         self.collector = self.station.collector = components.Pipe(self)
         data.collector_vars(self)
 
     def run(self):
+        """ Makes infinite loop
+        """
         self.mainwindow.mainloop()
 
     def calculate(self):
+        """ Returns nothing
+
+        Started by the button. Runs proper calculations, based on users choice
+        of work mode. It ends drawing report figure, and generating and showing
+        report
+        """
         if self.mode.value == 'checking':
+            # TODO what it does?
             self.station.calc_checking()
             log.debug('INSIDE CALCULATE')
+            # TODO what IT does??
             self.station.calculate_checking()
+            # TODO Variable name out_data to change
             out_data = output.generate_checking_report(self.station)
         else:
+            # TODO What does this else?
             log.debug('mode: {}'.format(self.mode.value))
         log.debug('out_data: {}'.format(out_data))
         self.draw_report_figure()
         self.show_report(out_data)
 
     def generate_report(self, output):
+        """ TODO Is it needed?
+        """
         pass
 
     def load_data(self):
+        """ Returns nothing
+
+        Gets filename from widget, reckongizes save version, and loads data
+        """
         log.info('\ndata_load started\n')
         global path
         path = self.filepath.cget('path')
         log.debug('path: {}'.format(path))
         with open(path, 'r+') as file:
             log.info('opening file: {0}\n\n'.format(str(file)))
-            # rozpoznaj plik
             first_line = file.readline()
-            # rozpoznanie wersji zapisu
+            # Checking if 1.0 version
             if first_line[0] == '1' and first_line[1] == ')':
                 data_dictionary = data.get_data_dict_from_dan_file(path)
         self.station.load_data(data_dictionary)
@@ -132,19 +163,27 @@ class Application():
         self.d_pipe.load_data(data_dictionary)
         self.collector.load_data(data_dictionary)
         self.pump_type.load_data(data_dictionary)
+        # Updating Figures
         self.draw_auxillary_figures()
 
     def ui_set_shape(self):
+        """ Function changing shape setting, triggered by user interaction.
+        Gets present setting, and sets its in station object
+        """
         shape = self.ui_vars.__getitem__('shape').get()
         self.well.set_shape(shape)
 
     def ui_set_mode(self):
+        """ Changing mode of work. Triggered by user interaction. Gets present
+        settingf from a widget, and sets it in station object
+        """
         new_mode = self.ui_vars.__getitem__('mode').get()
         self.set_mode(new_mode)
 
     def set_mode(self, mode):
-        ''' changes application mode
-        '''
+        """ Function sets some widgets properities, according to present work
+        mode setting
+        """
         self.mode.value = mode
         nbook = self.builder.get_object('Notebook_Data')
         if mode == 'checking':
@@ -159,6 +198,9 @@ class Application():
         log.info('changed mode: {0}'.format(mode))
 
     def set_pump_flow_unit(self):
+        """ Function reacts on a pump flow unit setting, and runs a method of
+        pump type object, and updates the figure
+        """
         log.info('set_pump_flow_unit started')
         current_setting = self.ui_vars.__getitem__('pump_flow_unit').get()
         self.pump_type.set_flow_unit(current_setting)
@@ -166,9 +208,14 @@ class Application():
         self.draw_pump_figure()
 
     def set_inflow_unit(self):
+        """ Function updates proper figure
+        """
         self.draw_pipe_figure()
 
     def pump_get_coords(self):
+        """ Function run by using Add Point button. Starts by getting values
+        from widgets, and pass them to pump type method, then it updates figure
+        """
         log.info('get_coords started')
         flow_entry = self.builder.get_object('Entry_Add_char_point_flow')
         flow_value = flow_entry.get()
@@ -181,6 +228,9 @@ class Application():
         self.draw_pump_figure()
 
     def pump_delete_point(self):
+        """ Function run by using Delete Point button. Gets id of focused point
+        and pass it to pump type method, then updates figure
+        """
         log.info('pump_delete_button started')
         deleted_id = self.pump_type.characteristic.tree.focus()
         if deleted_id != '':
@@ -188,6 +238,8 @@ class Application():
         self.draw_pump_figure()
 
     def print_values(self):
+        """ Function show some attributes in case od debugging
+        """
         objects = [self.well, self.pump_type, self.d_pipe, self.collector]
         for object_ in objects:
             log.debug(object_)
@@ -198,27 +250,33 @@ class Application():
                         attr, object_.__dict__[attr]))
 
     def draw_report_figure(self):
+        # TODO is this function needed?
         maths.draw_report_figure(self.builder, self.rep_plot, self.rep_canvas,
                                  self.station)
 
     def draw_pipe_figure(self):
+        # TODO is this function needed?
         maths.draw_pipe_figure(self.builder, self.pipe_plot, self.pipe_canvas,
                                self.station)
 
     def draw_pump_figure(self):
+        # TODO is this function needed?
         maths.draw_pump_figure(self.builder, self.pump_plot, self.pump_canvas,
                                self.station)
 
     def draw_schema(self):
+        # TODO is this function needed?
         maths.draw_schema(self.builder, self.stat_plot, self.stat_canvas,
                           self.station)
 
     def draw_auxillary_figures(self):
+        # TODO is this function needed?
         self.draw_pipe_figure()
         self.draw_pump_figure()
         self.draw_schema()
 
     def show_report(self, report):
+        # TODO is this function needed?
         text_container = self.builder.get_object('Text_Report')
         text_container.delete('1.0', tk.END)
         text_container.insert('1.0', report)
