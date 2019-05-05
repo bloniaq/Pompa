@@ -59,9 +59,52 @@ class Application():
         self.builder.connect_callbacks(self)
 
         # 5: creating objects
-        self.init_objects()
+        self.create_objects()
 
         # 6: Initialize Figure objects
+        self.create_figures()
+
+    def create_objects(self):
+        """ Returns nothing
+
+        Has to initialize some important objects: station, well, pump, pipes.
+        """
+        # creating mode variable
+        self.mode = variables.Logic(self, 'checking', 'mode', '1',
+                                    data.dan_mode, self.ui_set_mode)
+        # adjusting window state to defeault chosen setting of mode
+        self.ui_set_mode()
+
+        # creating Station object and variables
+        self.station = station.Station(self)
+        data.station_vars(self)
+
+        # creating Well object and variables
+        self.well = self.station.well = components.Well(self)
+        data.well_vars(self)
+        # adjusting window state to chosen setting of shape
+        self.ui_set_shape()
+
+        # creating Pump Type object and variables
+        self.pump_type = self.station.pump_type = components.PumpType(self)
+        data.pump_vars(self)
+        # adjusting unit of flow
+        self.pump_type.set_flow_unit(
+            self.ui_vars.__getitem__('pump_flow_unit').get())
+
+        # creating inside pipe object and variables
+        self.d_pipe = self.station.d_pipe = components.Pipe(self)
+        data.discharge_pipe_vars(self)
+
+        # creating outside pipe object and variables
+        self.collector = self.station.collector = components.Pipe(self)
+        data.collector_vars(self)
+
+    def create_figures(self):
+        """ Returns nothing
+
+        Initialize objects for carrying figures
+        """
         # containers:
         pump_figure_cont = self.builder.get_object('Frame_Pump_Figure')
         pipe_figure_cont = self.builder.get_object('Frame_Pipe_Figure')
@@ -81,35 +124,6 @@ class Application():
         self.pipe_canvas.get_tk_widget().grid(row=0, column=0)
         self.stat_canvas.get_tk_widget().grid(row=0, column=0)
         self.rep_canvas.get_tk_widget().grid(row=0, column=0)
-
-    def init_objects(self):
-        """ Returns nothing
-
-        Has to initialize some important objects.
-        """
-        # TODO Is it needed? |
-        # TODO               V
-        self.mode = variables.Logic(self, 'checking', 'mode', '1',
-                                    data.dan_mode, self.ui_set_mode)
-        self.ui_set_mode()
-
-        self.station = station.Station(self)
-        data.station_vars(self)
-
-        self.well = self.station.well = components.Well(self)
-        data.well_vars(self)
-        self.ui_set_shape()
-
-        self.pump_type = self.station.pump_type = components.PumpType(self)
-        data.pump_vars(self)
-        self.pump_type.set_flow_unit(
-            self.ui_vars.__getitem__('pump_flow_unit').get())
-
-        self.d_pipe = self.station.d_pipe = components.Pipe(self)
-        data.discharge_pipe_vars(self)
-
-        self.collector = self.station.collector = components.Pipe(self)
-        data.collector_vars(self)
 
     def run(self):
         """ Makes infinite loop
@@ -175,7 +189,7 @@ class Application():
 
     def ui_set_mode(self):
         """ Changing mode of work. Triggered by user interaction. Gets present
-        settingf from a widget, and sets it in station object
+        setting from a widget, and sets it in station object
         """
         new_mode = self.ui_vars.__getitem__('mode').get()
         self.set_mode(new_mode)
