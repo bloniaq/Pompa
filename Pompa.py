@@ -132,10 +132,15 @@ class Application():
 
     def calculate(self):
         """ Returns nothing
+        """
 
-        Started by the button. Runs proper calculations, based on users choice
-        of work mode. It ends drawing report figure, and generating and showing
-        report
+        self.station.data_check(self.mode.value)
+        self.station.calculate(self.mode.value)
+        self.station.calculation_check(self.mode.value)
+        report = self.station.generate_report(self.mode.value)
+        self.draw_report_figure()
+        self.show_report(report)
+
         """
         if self.mode.value == 'checking':
             # TODO what it does?
@@ -151,11 +156,7 @@ class Application():
         log.debug('out_data: {}'.format(out_data))
         self.draw_report_figure()
         self.show_report(out_data)
-
-    def generate_report(self, output):
-        """ TODO Is it needed?
         """
-        pass
 
     def load_data(self):
         """ Returns nothing

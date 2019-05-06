@@ -44,6 +44,7 @@ class Station(components.StationObject):
         self.ord_sw_alarm = None
         self.comp_flow = None
 
+    '''
     def calc_checking(self):
         # get working pump numbers
         self.number_of_pumps = self.calc_number_of_pumps()
@@ -58,7 +59,7 @@ class Station(components.StationObject):
         log.debug('CALC CHECKING FINISHED')
         pass
 
-    '''
+    
     def calculate(self):
 =======
     def calculate_checking(self):
@@ -213,3 +214,15 @@ class Station(components.StationObject):
 
     def get_calculative_flow(self):
         return self.inflow_max.value_liters * 1.4
+
+    def data_check(self, mode):
+        """ Returns nothing
+
+        Checking if all data needed to calculate in chosen mode is filled,
+        and correct.
+        """
+
+        flag = 'correct'
+        # CHECKING PROCESSES
+        
+
