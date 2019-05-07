@@ -134,29 +134,19 @@ class Application():
         """ Returns nothing
         """
 
-        self.station.data_check(self.mode.value)
-        self.station.calculate(self.mode.value)
-        self.station.calculation_check(self.mode.value)
+        data_validation = self.station.data_check(self.mode.value)
+        if not data_validation:
+            # TODO:
+            # Message about incorectness
+            return
+        calc_validation = self.station.calculate(self.mode.value)
+        if not calc_validation:
+            # TODO:
+            # Message about incorectness
+            return
         report = self.station.generate_report(self.mode.value)
         self.draw_report_figure()
         self.show_report(report)
-
-        """
-        if self.mode.value == 'checking':
-            # TODO what it does?
-            self.station.calc_checking()
-            log.debug('INSIDE CALCULATE')
-            # TODO what IT does??
-            self.station.calculate_checking()
-            # TODO Variable name out_data to change
-            out_data = output.generate_checking_report(self.station)
-        else:
-            # TODO What does this else?
-            log.debug('mode: {}'.format(self.mode.value))
-        log.debug('out_data: {}'.format(out_data))
-        self.draw_report_figure()
-        self.show_report(out_data)
-        """
 
     def load_data(self):
         """ Returns nothing

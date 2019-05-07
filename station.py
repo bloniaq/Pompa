@@ -216,13 +216,31 @@ class Station(components.StationObject):
         return self.inflow_max.value_liters * 1.4
 
     def data_check(self, mode):
-        """ Returns nothing
+        """ Returns boolean of validation
 
         Checking if all data needed to calculate in chosen mode is filled,
         and correct.
         """
 
-        flag = 'correct'
-        # CHECKING PROCESSES
-        
+        validation_flag = True
+        # TODO:
+        # Validation procesess
+        return validation_flag
 
+    def calculate(self, mode):
+        """ Returns validation flag
+
+        Runs calculations and checks if results exists and if are correct.
+        """
+        validation_flag = True
+        # TODO:
+        # Calculations
+        return validation_flag
+
+    def generate_report(self, mode):
+        """ Returns report content in string
+        """
+        report = ""
+        # TODO:
+        # Report making processes
+        return report
