@@ -280,6 +280,16 @@ class Application():
         self.draw_pump_figure()
         self.draw_schema()
 
+    def update_calculations(self):
+        """ Returns nothing
+
+        Tries to update all values dependent on user-typed values
+        """
+
+        # TODO:
+        # Code
+        pass
+
     def show_report(self, report):
         # TODO is this function needed?
         text_container = self.builder.get_object('Text_Report')

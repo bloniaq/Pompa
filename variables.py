@@ -27,10 +27,15 @@ class Variable():
 
     def set_trace(self, attr):
         self.ui_var.trace(
-            'w', lambda *_: self.alt_setattr(attr)
+            'w', lambda *_: self.update_attribute(attr)
         )
 
-    def alt_setattr(self, attr):
+    def update_attribute(self, attr):
+        """ Returns nothing
+
+        Sets value of ui var to attribute value.
+        Refreshes charts if flag say so.
+        """
         try:
             ui_content = self.ui_var.get()
         except tk.TclError as e:
@@ -38,8 +43,10 @@ class Variable():
             pass
         else:
             setattr(self, attr, ui_content)
+
         if self.chart_req and not self.load_flag:
             try:
+                self.app.update_calculations()
                 self.app.draw_auxillary_figures()
             except (AttributeError, TypeError) as e:
                 log.error('Error {}'.format(e))
