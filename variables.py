@@ -44,7 +44,7 @@ class Variable():
         else:
             setattr(self, attr, ui_content)
 
-        if self.chart_req and not self.load_flag:
+        if self.fig_depend and not self.load_flag:
             try:
                 self.app.update_calculations()
                 self.app.draw_auxillary_figures()
@@ -61,8 +61,8 @@ class Variable():
 class Numeric(Variable):
     """keeps rational numbers or integers and connect them with ui variables"""
 
-    def __init__(self, app, value, ui_variable, dan_id, chart_req):
-        self.chart_req = chart_req
+    def __init__(self, app, value, ui_variable, dan_id, fig_depend):
+        self.fig_depend = fig_depend
         super().__init__(app, ui_variable, dan_id)
         self.value = value
         self.set_trace('value')
@@ -78,8 +78,8 @@ class Numeric(Variable):
 
 
 class P_Int(Numeric):
-    def __init__(self, app, value, ui_variable, dan_id, chart_req=False):
-        super().__init__(app, value, ui_variable, dan_id, chart_req)
+    def __init__(self, app, value, ui_variable, dan_id, fig_depend=False):
+        super().__init__(app, value, ui_variable, dan_id, fig_depend)
 
     def __setattr__(self, attr, value):
         if attr != 'value':
@@ -87,7 +87,7 @@ class P_Int(Numeric):
         else:
             self.__dict__['value'] = value
             self.ui_var.set(self.value)
-            if self.chart_req and not self.load_flag:
+            if self.fig_depend and not self.load_flag:
                 try:
                     self.app.draw_auxillary_figures()
                 except (AttributeError, TypeError) as e:
@@ -95,8 +95,8 @@ class P_Int(Numeric):
 
 
 class P_Float(Numeric):
-    def __init__(self, app, value, ui_variable, dan_id, chart_req=False):
-        super().__init__(app, value, ui_variable, dan_id, chart_req)
+    def __init__(self, app, value, ui_variable, dan_id, fig_depend=False):
+        super().__init__(app, value, ui_variable, dan_id, fig_depend)
 
     def __setattr__(self, attr, value):
         if attr != 'value':
@@ -105,7 +105,7 @@ class P_Float(Numeric):
             self.__dict__['value'] = float(value)
             if self.__dict__['value'] != float(self.ui_var.get()):
                 self.ui_var.set(value)
-            if self.chart_req and not self.load_flag:
+            if self.fig_depend and not self.load_flag:
                 try:
                     self.app.draw_auxillary_figures()
                 except (AttributeError, TypeError) as e:
@@ -116,10 +116,10 @@ class Logic(Variable):
     """keeps logic variables and connect them with ui variables"""
 
     def __init__(self, app, value, ui_variable, dan_id, dictionary, function,
-                 chart_req=False):
+                 fig_depend=False):
         super().__init__(app, ui_variable, dan_id)
         self.function = function
-        self.chart_req = chart_req
+        self.fig_depend = fig_depend
         self.dictionary = dictionary
         self.value = value
         self.set_trace('value')
@@ -149,9 +149,9 @@ class Logic(Variable):
 class Resistance(Variable):
     """class for local resistance in pipes"""
 
-    def __init__(self, app, string, ui_variable, dan_id, chart_req=True):
+    def __init__(self, app, string, ui_variable, dan_id, fig_depend=True):
         super().__init__(app, ui_variable, dan_id)
-        self.chart_req = chart_req
+        self.fig_depend = fig_depend
         self.string = string
         self.set_trace('string')
 
@@ -198,9 +198,9 @@ class Flow(Variable):
     """class for flow"""
 
     def __init__(self, app, value, ui_variable, dan_id, unit_ui_var,
-                 unit='meters', chart_req=False):
+                 unit='meters', fig_depend=False):
         super().__init__(app, ui_variable, dan_id)
-        self.chart_req = chart_req
+        self.fig_depend = fig_depend
         self.unit_var = self.tkvars.__getitem__(unit_ui_var)
         self.value = value
         self.unit = unit
@@ -224,7 +224,7 @@ class Flow(Variable):
             self.get_both_vals(value, self.unit_var.get())
             if self.__dict__['value'] != self.ui_var.get():
                 self.ui_var.set(self.value)
-            if self.chart_req and not self.load_flag:
+            if self.fig_depend and not self.load_flag:
                 try:
                     self.app.draw_auxillary_figures()
                 except (AttributeError, TypeError) as e:
