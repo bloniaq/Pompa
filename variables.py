@@ -47,6 +47,8 @@ class Variable():
         if self.fig_depend and not self.load_flag:
             try:
                 self.app.update_calculations()
+                # TODO:
+                # Distinct drawings base on fig_depend value
                 self.app.draw_auxillary_figures()
             except (AttributeError, TypeError) as e:
                 log.error('Error {}'.format(e))

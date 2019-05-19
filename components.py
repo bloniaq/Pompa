@@ -100,8 +100,11 @@ class Pipe(StationObject):
         return line_loss
 
     def local_loss(self, flow, unit):
-        local_loss = ((self.speed(flow, unit) ** 2) / (2 * 9.81)) * sum(
-            self.resistance.values)
+        # TODO:
+        # Tests
+        local_loss_factor = sum(self.resistance.values)
+        speed = self.speed(flow, unit)
+        local_loss = ((speed ** 2) / (2 * 9.81)) * local_loss_factor
         # log.info('local loss is {} [m]'.format(local_loss))
         # log.info('Epsilon is {}, Re is {}'.format(
         #     self.get_epsilon(), self.get_re(flow, unit)))
