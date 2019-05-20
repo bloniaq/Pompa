@@ -61,6 +61,9 @@ class Pipe(StationObject):
         # log.info('Reynolds number is {}'.format(re))
         return re
 
+    def get_area(self):
+        return 3.14 * ((self.diameter / 2) ** 2)
+
     def get_epsilon(self):
         diameter = self.diameter.value
         epsilon = self.roughness.value / diameter
@@ -412,6 +415,7 @@ class Pump():
                 step, Q1, Q2, difference))
         return Q2, H
 
+    """
     def get_work_parameters(self):
         report = ''
         report += 'PARAMETR POMPY NR: {}\n\n'.format(self.number)
@@ -457,6 +461,7 @@ class Pump():
             self.pump_type.efficiency_from.value_liters * self.number,
             self.pump_type.efficiency_to.value_liters * self.number)
         return report
+    """
 
 
 class Well(StationObject):

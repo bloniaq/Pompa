@@ -5,6 +5,7 @@ import numpy as np
 # modules
 import components
 import maths
+import output as o
 
 log = logging.getLogger('Pompa.station')
 
@@ -215,6 +216,35 @@ class Station(components.StationObject):
     def get_calculative_flow(self):
         return self.inflow_max.value_liters * 1.4
 
+    def get_work_parameters(self, flow, start_ord):
+        """ Returns tuple of work parameters:
+        (LC highness, geometric highness, flow, speed in collector,
+         speed in discharge)
+        """
+        start_ordi = self.ord_bottom.value + self.minimal_sewage_level.value
+        geom_H = self.ord_upper_level.value - start_ordi
+        # flow = flow.value_liters  # l/s
+        difference = 100
+        step = 0.05
+        pump_x = self.get_x_axis('liters')
+        flows, lifts = self.pump_type.characteristic.get_pump_char_func(
+            "liters")
+        pump_y = maths.fit_coords(flows, lifts, 3)
+        while True:
+            pipe_val = geom_H + self.discharge_pipe.sum_loss(
+                flow, "liters") + self.collector.sum_loss(flow, "liters")
+            pump_val = maths.interp(flow, pump_x, pump_y)
+            difference = pump_val - pipe_val
+            if difference < 0.1:
+                flow = flow + step
+            elif difference > 0.1:
+                flow = flow - step
+            else:
+                break
+        speed_coll = (flow * 0.001) / self.collector.get_area()
+        speed_dpipe = (flow * 0.001) / self.d_pipe.get_area()
+        return pump_val, geom_H, flow, speed_coll, speed_dpipe
+
     def data_check(self, mode):
         """ Returns boolean of validation
 
@@ -243,4 +273,6 @@ class Station(components.StationObject):
         report = ""
         # TODO:
         # Report making processes
+        if mode == 'checking':
+            report = o.generate_checking_report(self)
         return report

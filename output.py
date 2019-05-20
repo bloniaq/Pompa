@@ -12,6 +12,10 @@ def generate_checking_report(station):
     n_of_work_pumps = station.number_of_pumps
     n_of_res_pumps = station.number_of_res_pumps
 
+    start_flow = (
+        station.inflow_max.value_liters + station.inflow_min.value_liters) / 2
+    end_params = station.get_work_parameters(start_flow, station.ord_sw_off)
+
     report = {}
 
     report['1'] = 'POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA\n\n'
@@ -93,16 +97,22 @@ def generate_checking_report(station):
     report['52'] = '-predkosc w kolektorze tlocznym......v= {} [m/s]'.format()
     report['53'] = '-predkosc w przewodach w pompowni....v= {} [m/s]'.format()
     report['54'] = '-zapas wysokosci cisnienia..........dh= {} [m sł.wody]\n'.format()
+    '''
     report['55'] = 'Parametry koncowe pracy zespolu pomp\n'
-    report['56'] = '-wys. lc. u wylotu pompy...........Hlc= {} [m]'.format()
-    report['57'] = '-geometryczna wys. podnoszenia.......H= {} [m]'.format()
-    report['58'] = '-wydatek.............................Q= {} [l/s]'.format()
-    report['59'] = '-predkosc w kolektorze tlocznym......v= {} [m/s]'.format()
-    report['60'] = '-predkosc w przewodach w pompowni....v= {} [m/s]'.format()
-    report['61'] = '-doplyw najniekorzystniejszy....Qdop=   {} [l/s]'.format()
+    report['56'] = '-wys. lc. u wylotu pompy...........Hlc= {} [m]'.format(
+        end_params[0])
+    report['57'] = '-geometryczna wys. podnoszenia.......H= {} [m]'.format(
+        end_params[1])
+    report['58'] = '-wydatek.............................Q= {} [l/s]'.format(
+        end_params[2])
+    report['59'] = '-predkosc w kolektorze tlocznym......v= {} [m/s]'.format(
+        end_params[3])
+    report['60'] = '-predkosc w przewodach w pompowni....v= {} [m/s]'.format(
+        end_params[4])
+    report['61'] = '-doplyw najniekorzystniejszy....Qdop=   {} [l/s]'.format(2)
     report['62'] = 'Zakres pracy pomp /maksymalna sprawnosc/'
     report['63'] = 'Q1= {} [l/s]    Q2= {} [l/s]'.format()
-    '''
+    
     for pump in range(n_of_work_pumps):
         line = str(41 + pump)
         report[line] = pumpset.pumps[pump].report
