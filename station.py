@@ -127,7 +127,8 @@ class Station(components.StationObject):
         return n_of_res_pumps
 
     def check_get_useful_velo(self):
-        useful_velo = ((((self.pump_type.cycle_time) * 60) * self.qp) / 4000)
+        useful_velo = ((((
+            self.pump_type.cycle_time.value) * 60) * self.qp) / 4000)
         log.info('useful velo is {}m3'.format(useful_velo))
         return useful_velo
 
@@ -229,16 +230,25 @@ class Station(components.StationObject):
         pump_x = self.get_x_axis('liters')
         flows, lifts = self.pump_type.characteristic.get_pump_char_func(
             "liters")
-        pump_y = maths.fit_coords(flows, lifts, 3)
+        pump_y = maths.fit_coords(flows, lifts, 3)(pump_x)
+        log.debug("pump x: {} len {}, pump y: {} len {}".format(
+            pump_x, len(pump_x), pump_y, len(pump_y)))
+        log.debug('WE\'RE IN LOOP')
         while True:
-            pipe_val = geom_H + self.discharge_pipe.sum_loss(
+            log.debug('LOOP WHILE')
+            log.debug('Flow : {}'.format(flow))
+            pipe_val = geom_H + self.d_pipe.sum_loss(
                 flow, "liters") + self.collector.sum_loss(flow, "liters")
             pump_val = maths.interp(flow, pump_x, pump_y)
+            log.debug('pipe_val : {}'.format(pipe_val))
+            log.debug('pump_val : {}'.format(pump_val))
             difference = pump_val - pipe_val
-            if difference < 0.1:
-                flow = flow + step
-            elif difference > 0.1:
+            if difference < -0.1:
+                log.debug('difference < 0.1: {}'.format(difference))
                 flow = flow - step
+            elif difference > 0.1:
+                log.debug('difference > 0.1: {}'.format(difference))
+                flow = flow + step
             else:
                 break
         speed_coll = (flow * 0.001) / self.collector.get_area()
@@ -263,6 +273,29 @@ class Station(components.StationObject):
         Runs calculations and checks if results exists and if are correct.
         """
         validation_flag = True
+        n = self.calc_number_of_pumps()
+        if n <= 0:
+            validation_flag = False
+        n = self.reserve_pumps_number()
+        if n <= 0:
+            validation_flag = False
+        self.qp = self.get_calculative_flow()
+        self.v_useful = self.check_get_useful_velo()
+        self.h_useful = self.v_useful / self.well.cross_sectional_area()
+        self.number_of_pumps = self.calc_number_of_pumps()
+        self.number_of_res_pumps = self.reserve_pumps_number()
+        self.ord_sw_on = self.ord_inlet.value - 0.1
+        self.ord_sw_off = self.ord_bottom.value +\
+            self.minimal_sewage_level.value
+        self.ord_sw_alarm = self.ord_inlet.value
+        self.height_start = self.height_to_pump(self.ord_sw_off)
+        self.height_stop = self.height_to_pump(self.ord_sw_on)
+        self.h_whole = self.ord_terrain.value - self.ord_bottom.value
+        self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
+        self.v_whole = self.velocity(self.h_whole)
+        self.v_dead = self.velocity(self.minimal_sewage_level.value)
+        self.v_reserve = self.velocity(self.h_reserve)
+        self.comp_flow = self.get_calculative_flow()
         # TODO:
         # Calculations
         return validation_flag

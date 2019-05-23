@@ -9,8 +9,8 @@ def generate_checking_report(station):
     coll = station.collector
     pumpset = station.pump_set
 
-    n_of_work_pumps = station.number_of_pumps
-    n_of_res_pumps = station.number_of_res_pumps
+    n_of_work_pumps = station.calc_number_of_pumps()
+    n_of_res_pumps = station.reserve_pumps_number()
 
     start_flow = (
         station.inflow_max.value_liters + station.inflow_min.value_liters) / 2
@@ -111,11 +111,12 @@ def generate_checking_report(station):
         end_params[4])
     report['61'] = '-doplyw najniekorzystniejszy....Qdop=   {} [l/s]'.format(2)
     report['62'] = 'Zakres pracy pomp /maksymalna sprawnosc/'
-    report['63'] = 'Q1= {} [l/s]    Q2= {} [l/s]'.format()
-    
+    # report['63'] = 'Q1= {} [l/s]    Q2= {} [l/s]'.format()
+    '''
     for pump in range(n_of_work_pumps):
         line = str(41 + pump)
         report[line] = pumpset.pumps[pump].report
+    '''
     string_report = ''
     for i in report:
         log.debug('line {}: {}'.format(i, report[i]))

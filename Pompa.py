@@ -145,7 +145,7 @@ class Application():
             # Message about incorectness
             return
         report = self.station.generate_report(self.mode.value)
-        self.draw_report_figure()
+        # self.draw_report_figure()
         self.show_report(report)
 
     def load_data(self):

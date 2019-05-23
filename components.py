@@ -29,7 +29,7 @@ class StationObject():
 
     def __getattr__(self, attr):
         if '.' not in attr:
-            log.debug('Has no <.> in attr')
+            log.debug('{} Has no <.> in attr'.format(self))
             return super().__getattr__(attr)
         else:
             attr_name, rest = attr.split('.', 1)
@@ -62,7 +62,7 @@ class Pipe(StationObject):
         return re
 
     def get_area(self):
-        return 3.14 * ((self.diameter / 2) ** 2)
+        return 3.14 * ((self.diameter.value / 2) ** 2)
 
     def get_epsilon(self):
         diameter = self.diameter.value
