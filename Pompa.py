@@ -57,11 +57,12 @@ class Application():
 
         # 4: Setting callbacks
         self.builder.connect_callbacks(self)
-
+        log.debug('START')
         # 5: creating objects
         self.create_objects()
-
+        log.debug('STOP')
         # 6: Initialize Figure objects
+        variables.Variable.load_flag = False
         self.create_figures()
 
     def create_objects(self):
@@ -182,8 +183,7 @@ class Application():
         """ Changing mode of work. Triggered by user interaction. Gets present
         setting from a widget, and sets it in station object
         """
-        new_mode = self.ui_vars.__getitem__('mode').get()
-        self.set_mode(new_mode)
+        self.set_mode(self.ui_vars.__getitem__('mode').get())
 
     def set_mode(self, mode):
         """ Function sets some widgets properities, according to present work
@@ -274,11 +274,14 @@ class Application():
         maths.draw_schema(self.builder, self.stat_plot, self.stat_canvas,
                           self.station)
 
-    def draw_auxillary_figures(self):
+    def draw_auxillary_figures(self, dependency):
         # TODO is this function needed?
-        self.draw_pipe_figure()
-        self.draw_pump_figure()
-        self.draw_schema()
+
+        dependencies = {"pipe_char": self.draw_pipe_figure(),
+                        "pump_char": self.draw_pump_figure(),
+                        "schema": self.draw_schema()}
+
+        dependencies[dependency]
 
     def update_calculations(self):
         """ Returns nothing

@@ -9,6 +9,31 @@ log = logging.getLogger('Pompa.maths')
 unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
 
 
+class AppFigure():
+
+    """
+    TODO
+    Zamiast funkcji w Pompa.py inicjującej wykresy
+    napisac klase zbiorcza dla wykresow, dla ktorej ponizsze funkcje
+    przerobic na metody
+
+    PRZEMYŚLEC TE KLASE - NA RAZIE NIGDZIE NIE POWSTAJE JEJ INSTANCJA
+
+    """
+
+    def __init__(self, builder, container, dim_x, dim_y):
+        self.builder = builder
+        self.pump_figure_cont = self.builder.get_object('Frame_Pump_Figure')
+        self.pipe_figure_cont = self.builder.get_object('Frame_Pipe_Figure')
+        self.station_figure_cont = self.builder.get_object(
+            'Frame_Station_Figure')
+        self.report_figure_cont = self.builder.get_object(
+            'Frame_Report_Figure')
+        self.fig = Figure(figsize=(dim_x, dim_y), dpi=100)
+        self.plot = self.fig.add_subplot(111)
+        self.canvas = FigureCanvasTkAgg(fig, master=container)
+
+
 def init_figure(container, dim_x, dim_y):
     fig = Figure(figsize=(dim_x, dim_y), dpi=100)
     plot = fig.add_subplot(111)

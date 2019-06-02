@@ -6,6 +6,8 @@ log = logging.getLogger('Pompa.variables')
 
 class Variable():
 
+    load_flag = True
+
     def __init__(self, app, ui_variable, dan_id):
         self.app = app
         self.builder = app.builder
@@ -16,7 +18,6 @@ class Variable():
         else:
             log.error('No ui_variable named {}'.format(ui_variable))
             self.ui_var = None
-        self.load_flag = False
 
     '''
     def set_trace(self, attr):
@@ -47,11 +48,12 @@ class Variable():
         if self.fig_depend and not self.load_flag:
             try:
                 self.app.update_calculations()
-                # TODO:
-                # Distinct drawings base on fig_depend value
-                self.app.draw_auxillary_figures()
             except (AttributeError, TypeError) as e:
-                log.error('Error {}'.format(e))
+                log.error('Error in update_calculations: {}'.format(e))
+            try:
+                self.app.draw_auxillary_figures(self.fig_depend)
+            except (AttributeError, TypeError) as e:
+                log.error('Error in draw_auxillary_figures {}'.format(e))
 
     def load_data(self, data_dict):
         self.load_flag = True
@@ -91,9 +93,9 @@ class P_Int(Numeric):
             self.ui_var.set(self.value)
             if self.fig_depend and not self.load_flag:
                 try:
-                    self.app.draw_auxillary_figures()
+                    self.app.draw_auxillary_figures(self.fig_depend)
                 except (AttributeError, TypeError) as e:
-                    log.error('Error {}'.format(e))
+                    log.error('Error P_Int {}'.format(e))
 
 
 class P_Float(Numeric):
@@ -109,9 +111,9 @@ class P_Float(Numeric):
                 self.ui_var.set(value)
             if self.fig_depend and not self.load_flag:
                 try:
-                    self.app.draw_auxillary_figures()
+                    self.app.draw_auxillary_figures(self.fig_depend)
                 except (AttributeError, TypeError) as e:
-                    log.error('Error {}'.format(e))
+                    log.error('Error P_Float {} {}'.format(e, attr))
 
 
 class Logic(Variable):
@@ -184,10 +186,12 @@ class Resistance(Variable):
             self.__dict__['string'] = string
         if attr == 'string' and self.string != self.ui_var.get():
             self.ui_var.set(self.string)
-        try:
-            self.app.draw_pipe_figure()
-        except (AttributeError, TypeError) as e:
-            log.error('Error {}'.format(e))
+        if not self.load_flag:
+            try:
+                self.app.draw_pipe_figure()
+            except (AttributeError, TypeError) as e:
+                log.error('Error Resistance{}'.format(e))
+                log.error('attribute : {}'.format(attr))
 
     def load_data(self, data_dict):
         self.load_flag = True
@@ -228,9 +232,9 @@ class Flow(Variable):
                 self.ui_var.set(self.value)
             if self.fig_depend and not self.load_flag:
                 try:
-                    self.app.draw_auxillary_figures()
+                    self.app.draw_auxillary_figures(self.fig_depend)
                 except (AttributeError, TypeError) as e:
-                    log.error('Error {}'.format(e))
+                    log.error('Error Flow {}'.format(e))
 
     def get_both_vals(self, value, unit):
         if unit == 'meters':

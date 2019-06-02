@@ -21,16 +21,16 @@ def station_vars(app):
     ins.ord_terrain = v.P_Float(app, 0.0, 'ordinate_terrain', '10')
     ins.ord_outlet = v.P_Float(app, 0.0, 'ordinate_outlet', '11')
     ins.ord_inlet = v.P_Float(app, 0.0, 'ordinate_inlet', '12',
-                              fig_depend=True)
+                              fig_depend="schema")
     ins.ord_bottom = v.P_Float(app, 0.0, 'ordinate_bottom', '13')
     ins.difference_in_start = v.P_Float(app, 0.0, 'difference_in_start', '14')
     ins.ord_highest_point = v.P_Float(app, 0.0, 'ordinate_highest_point', '15')
     ins.ord_upper_level = v.P_Float(app, 0.0, 'ordinate_final_table', '16',
-                                    fig_depend=True)
+                                    fig_depend="schema")
     ins.inflow_min = v.Flow(app, 0.0, 'inflow_min', '33', 'inflow_unit',
-                            fig_depend=True)
+                            fig_depend="pump_char")
     ins.inflow_max = v.Flow(app, 0.0, 'inflow_max', '34', 'inflow_unit',
-                            fig_depend=True)
+                            fig_depend="pump_char")
 
 
 def well_vars(app):
