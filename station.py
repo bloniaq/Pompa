@@ -272,6 +272,11 @@ class Station(components.StationObject):
 
         Runs calculations and checks if results exists and if are correct.
         """
+
+        calculations = {'minimalisation': self.calc_minimalisation(),
+                        'checking': self.calc_checking(),
+                        'optimalisation': self.calc_optimalisation()}
+
         validation_flag = True
         n = self.calc_number_of_pumps()
         if n <= 0:
