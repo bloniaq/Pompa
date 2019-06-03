@@ -1,11 +1,11 @@
-18:29:04-Pompa-DEBUG: START
-18:29:04-Pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
-18:29:04-Pompa-INFO: changed mode: checking
-18:29:04-Pompa.components-DEBUG: started setting shape
-18:29:04-Pompa.components-DEBUG: new shape: rectangle
-18:29:04-Pompa.components-DEBUG: changed shape to rectangle
-18:29:04-Pompa.components-INFO: set_flow_unit started
-18:29:04-Pompa.components-INFO: self.efficiency_from type: <class 'variables.Flow'>
-18:29:04-Pompa.variables-DEBUG: trying to convert:  to floats list
-18:29:04-Pompa.variables-DEBUG: trying to convert:  to floats list
-18:29:04-Pompa-DEBUG: STOP
+21:36:39-Pompa-DEBUG: START
+21:36:39-Pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
+21:36:39-Pompa-INFO: changed mode: checking
+21:36:39-Pompa.components-DEBUG: started setting shape
+21:36:39-Pompa.components-DEBUG: new shape: rectangle
+21:36:39-Pompa.components-DEBUG: changed shape to rectangle
+21:36:39-Pompa.components-INFO: set_flow_unit started
+21:36:39-Pompa.components-INFO: self.efficiency_from type: <class 'variables.Flow'>
+21:36:39-Pompa.variables-DEBUG: trying to convert:  to floats list
+21:36:39-Pompa.variables-DEBUG: trying to convert:  to floats list
+21:36:39-Pompa-DEBUG: STOP

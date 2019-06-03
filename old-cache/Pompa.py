@@ -48,7 +48,7 @@ class Application():
         self.builder = pygubu.Builder()
 
         # 2: Load an ui file
-        self.builder.add_from_file('GUI_Pygubu_Rebuild.ui')
+        self.builder.add_from_file('view\\pompa_gui.ui')
 
         # 3: Create the widget using a master as parent
         self.mainwindow = self.builder.get_object('Toplevel_Main')
