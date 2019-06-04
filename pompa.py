@@ -10,6 +10,7 @@ import models.well as well
 import models.pump as pump
 import models.pipe as pipe
 import view.figures as figs
+import calculation as calc
 
 # LOGGING CONFIG
 
@@ -95,25 +96,25 @@ class Application():
 
         Initialize objects for carrying figures
         """
-        # containers:
-        pump_figure_cont = self.builder.get_object('Frame_Pump_Figure')
-        pipe_figure_cont = self.builder.get_object('Frame_Pipe_Figure')
-        station_figure_cont = self.builder.get_object('Frame_Station_Figure')
-        report_figure_cont = self.builder.get_object('Frame_Report_Figure')
+
         # setting figures dimensions
-        self.pump_figure, self.pump_plot, self.pump_canvas = figs.init_figure(
-            pump_figure_cont, 5.1, 4.6)
-        self.pipe_figure, self.pipe_plot, self.pipe_canvas = figs.init_figure(
-            pipe_figure_cont, 8.4, 3.8)
-        self.stat_figure, self.stat_plot, self.stat_canvas = figs.init_figure(
-            station_figure_cont, 4.5, 4.7)
-        self.rep_figure, self.rep_plot, self.rep_canvas = figs.init_figure(
-            report_figure_cont, 4.65, 6.0)
+        self.pump_fig = figs.PumpFig(self, self.builder.get_object(
+            'Frame_Pump_Figure'), 5.1, 4.6)
+
+        self.pipe_fig = figs.PipeFig(self, self.builder.get_object(
+            'Frame_Pipe_Figure'), 8.4, 3.8)
+
+        self.report_fig = figs.ReportFig(self, self.builder.get_object(
+            'Frame_Report_Figure'), 4.65, 6.0)
+
+        self.schema = figs.Schema(self, self.builder.get_object(
+            'Frame_Station_Figure'), 4.5, 4.7)
+
         # setting placement
-        self.pump_canvas.get_tk_widget().grid(row=0, column=0)
-        self.pipe_canvas.get_tk_widget().grid(row=0, column=0)
-        self.stat_canvas.get_tk_widget().grid(row=0, column=0)
-        self.rep_canvas.get_tk_widget().grid(row=0, column=0)
+        self.pump_fig.canvas.get_tk_widget().grid(row=0, column=0)
+        self.pipe_fig.canvas.get_tk_widget().grid(row=0, column=0)
+        self.schema.canvas.get_tk_widget().grid(row=0, column=0)
+        self.report_fig.canvas.get_tk_widget().grid(row=0, column=0)
 
     def ui_set_mode(self):
         """ Changing mode of work. Triggered by user interaction. Gets present
@@ -139,12 +140,117 @@ class Application():
             nbook.tab(4, state='normal')
         log.info('changed mode: {0}'.format(mode))
 
+    def load_data(self):
+        """ Returns nothing
+
+        Gets filename from widget, reckongizes save version, and loads data
+        """
+        log.info('\ndata_load started\n')
+        global path
+        path = self.filepath.cget('path')
+        log.debug('path: {}'.format(path))
+        with open(path, 'r+') as file:
+            log.info('opening file: {0}\n\n'.format(str(file)))
+            first_line = file.readline()
+            # Checking if 1.0 version
+            if first_line[0] == '1' and first_line[1] == ')':
+                data_dictionary = data.get_data_dict_from_dan_file(path)
+        self.station.load_data(data_dictionary)
+        self.well.load_data(data_dictionary)
+        self.d_pipe.load_data(data_dictionary)
+        self.collector.load_data(data_dictionary)
+        self.pump_type.load_data(data_dictionary)
+        # Updating Figures
+
+        # poprawić odświeżanie wykresów
+
+        self.draw_auxillary_figures()
+
     def ui_set_shape(self):
         """ Function changing shape setting, triggered by user interaction.
         Gets present setting, and sets its in station object
         """
         shape = self.ui_vars.__getitem__('shape').get()
         self.station.well.set_shape(shape)
+
+    def set_pump_flow_unit(self):
+        """ Function reacts on a pump flow unit setting, and runs a method of
+        pump type object, and updates the figure
+        """
+        log.info('set_pump_flow_unit started')
+        current_setting = self.ui_vars.__getitem__('pump_flow_unit').get()
+        self.pump_type.set_flow_unit(current_setting)
+        log.debug('going to draw figure')
+        self.draw_pump_figure()
+
+    def set_inflow_unit(self):
+        """ Function updates proper figure
+        """
+        self.draw_pipe_figure()
+
+    def pump_get_coords(self):
+        """ Function run by using Add Point button. Starts by getting values
+        from widgets, and pass them to pump type method, then it updates figure
+        """
+        log.info('get_coords started')
+        flow_entry = self.builder.get_object('Entry_Add_char_point_flow')
+        flow_value = flow_entry.get()
+        flow_entry.delete(0, 'end')
+        lift_entry = self.builder.get_object('Entry_Add_char_point_lift')
+        lift_value = lift_entry.get()
+        lift_entry.delete(0, 'end')
+        self.pump_type.characteristic.add_point(flow_value, lift_value)
+        self.pump_type.characteristic.sort_points()
+        self.draw_pump_figure()
+
+    def pump_delete_point(self):
+        """ Function run by using Delete Point button. Gets id of focused point
+        and pass it to pump type method, then updates figure
+        """
+        log.info('pump_delete_button started')
+        deleted_id = self.pump_type.characteristic.tree.focus()
+        if deleted_id != '':
+            self.pump_type.characteristic.delete_point(deleted_id)
+        self.draw_pump_figure()
+
+    def interp(self, wanted_x, x_arr, y_arr):
+        return calc.interp(wanted_x, x_arr, y_arr)
+
+    def work_point(pump, pipes):
+        return calc.work_point(pump, pipes)
+
+    def draw_report_figure(self):
+        # TODO is this function needed?
+        self.report_fig.update()
+
+    def draw_pipe_figure(self):
+        # TODO is this function needed?
+        self.pipe_fig.update()
+
+    def draw_pump_figure(self):
+        # TODO is this function needed?
+        self.pump_fig.update()
+
+    def draw_schema(self):
+        # TODO is this function needed?
+        self.schema.update()
+
+    def draw_auxillary_figures(self, dependency):
+        # TODO is this function needed?
+
+        dependencies = {"pipe_char": self.draw_pipe_figure(),
+                        "pump_char": self.draw_pump_figure(),
+                        "schema": self.draw_schema()}
+
+        dependencies[dependency]
+
+    def calculate(self):
+
+        # ma wskazywać na moduł calculation
+
+        # opracuj raport (ma wskazać robotę view/report.py)
+
+        pass
 
     def run(self):
         """ Makes infinite loop
