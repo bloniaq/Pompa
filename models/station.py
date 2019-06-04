@@ -29,3 +29,9 @@ class Station(models.StationObject):
         self.ord_upper_level = None
         self.inflow_max = None
         self.inflow_min = None
+
+        # parameters to calculate
+
+    def height_to_pump(self, lower_ord):
+        height = self.ord_upper_level.value - lower_ord
+        return height

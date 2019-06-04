@@ -13,18 +13,21 @@ class Pipe(models.StationObject):
 
     def __init__(self, app):
         super().__init__(app)
+
+        # input parameters
         self.length = 0
         self.diameter = 0
         self.roughness = 0
         self.resistance = 0
         self.parallels = 1
 
-    def get_re(self, flow, unit):
-        diameter = self.diameter.value
-        speed = 1000 * self.speed(flow, unit)
-        re = (diameter * speed) / self.kinematic_viscosity
-        # log.info('Reynolds number is {}'.format(re))
-        return re
+        # parameters to calculate
+        self.area = 0
+        self.epsilon = 0
+
+    def update(self):
+        self.area = self.get_area()
+        self.epsilon = self.get_epsilon()
 
     def get_area(self):
         return 3.14 * ((self.diameter.value / 2) ** 2)
@@ -33,6 +36,13 @@ class Pipe(models.StationObject):
         diameter = self.diameter.value
         epsilon = self.roughness.value / diameter
         return epsilon
+
+    def get_re(self, flow, unit):
+        diameter = self.diameter.value
+        speed = 1000 * self.speed(flow, unit)
+        re = (diameter * speed) / self.kinematic_viscosity
+        # log.info('Reynolds number is {}'.format(re))
+        return re
 
     def get_lambda(self, flow, unit):
         diameter = self.diameter.value * 0.001

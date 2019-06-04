@@ -5,7 +5,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from matplotlib.ticker import MultipleLocator
 
-log = logging.getLogger('Pompa.figs')
+log = logging.getLogger('pompa.figs')
 
 unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
 

@@ -14,38 +14,22 @@ class Well(models.StationObject):
     def __init__(self, app):
         super().__init__(app)
 
-        self.pump_type = None
-        self.discharge_pipe = None
-        self.collector = None
-
-        self.reserve_pumps = None
+        # input parameters
         self.shape = None
         self.config = None
-        # self.set_shape(self.default['shape'])
         self.diameter = 0
         self.length = 0
         self.width = 0
 
-    def set_shape(self, shape):
-        self.ui_vars.__getitem__('shape').set(shape)
-        log.debug('started setting shape')
-        log.debug('new shape: {}'.format(shape))
-        diameter = self.builder.get_object('Entry_Well_diameter')
-        length = self.builder.get_object('Entry_Well_length')
-        width = self.builder.get_object('Entry_Well_width')
-        if shape == 'round':
-            diameter.configure(state='normal')
-            length.configure(state='disabled')
-            width.configure(state='disabled')
-        elif shape == 'rectangle':
-            diameter.configure(state='disabled')
-            length.configure(state='normal')
-            width.configure(state='normal')
-        log.debug('changed shape to {}'.format(shape))
+        # parameters to calculate
+        self.area = 0
+        self.min_diameter = 0
 
-    def minimal_diameter(self, n_work_pumps, n_reserve_pumps, station):
-        d = station.pump_type.contour.value
-        n = n_work_pumps + n_reserve_pumps
+    def update(self):
+        self.area = self.cross_sectional_area
+
+    def minimal_diameter(self, n, station):
+        d = station.pump.contour.value
         if self.shape.value == 'round':
             if self.config.value == 'optimal':
                 minimal_d = d + 0.6 + 2 * \

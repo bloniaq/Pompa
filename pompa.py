@@ -10,6 +10,7 @@ import models.well as well
 import models.pump as pump
 import models.pipe as pipe
 import view.figures as figs
+import view.view as view
 import calculation as calc
 
 # LOGGING CONFIG
@@ -116,30 +117,6 @@ class Application():
         self.schema.canvas.get_tk_widget().grid(row=0, column=0)
         self.report_fig.canvas.get_tk_widget().grid(row=0, column=0)
 
-    def ui_set_mode(self):
-        """ Changing mode of work. Triggered by user interaction. Gets present
-        setting from a widget, and sets it in station object
-        """
-        self.set_mode(self.ui_vars.__getitem__('mode').get())
-
-    def set_mode(self, mode):
-        """ Function sets some widgets properities, according to present work
-        mode setting
-        """
-        self.mode.value = mode
-
-        nbook = self.builder.get_object('Notebook_Data')
-        if mode == 'checking':
-            nbook.tab(3, state='disabled')
-            nbook.tab(4, state='disabled')
-        elif mode == 'minimalisation':
-            nbook.tab(3, state='normal')
-            nbook.tab(4, state='disabled')
-        elif mode == 'optimalisation':
-            nbook.tab(3, state='normal')
-            nbook.tab(4, state='normal')
-        log.info('changed mode: {0}'.format(mode))
-
     def load_data(self):
         """ Returns nothing
 
@@ -166,12 +143,29 @@ class Application():
 
         self.draw_auxillary_figures("pipe_char", "pump_char")
 
+    def ui_set_mode(self):
+        """ Changing mode of work. Triggered by user interaction. Gets present
+        setting from a widget, and sets it in station object
+        """
+        self.set_mode(self.ui_vars.__getitem__('mode').get())
+
+    def set_mode(self, mode):
+        """ Function sets some widgets properities, according to present work
+        mode setting
+        """
+        self.mode.value = mode
+        view.set_mode(self.builder, mode)
+
     def ui_set_shape(self):
         """ Function changing shape setting, triggered by user interaction.
         Gets present setting, and sets its in station object
         """
         shape = self.ui_vars.__getitem__('shape').get()
-        self.station.well.set_shape(shape)
+        self.set_shape(shape)
+
+    def set_shape(self, shape):
+        self.station.well.shape = shape
+        view.set_shape(self.builder, self.ui_vars, shape)
 
     def set_pump_flow_unit(self):
         """ Function reacts on a pump flow unit setting, and runs a method of

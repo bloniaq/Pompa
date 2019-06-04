@@ -1,243 +1,244 @@
-10:25:17-pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
-10:25:17-pompa-INFO: changed mode: checking
-10:25:17-pompa.well-DEBUG: started setting shape
-10:25:17-pompa.well-DEBUG: new shape: rectangle
-10:25:17-pompa.well-DEBUG: changed shape to rectangle
-10:25:17-pompa.pump-INFO: set_flow_unit started
-10:25:17-pompa.pump-INFO: self.efficiency_from type: <class 'models.variables.Flow'>
-10:25:17-pompa.variables-DEBUG: trying to convert:  to floats list
-10:25:17-pompa.variables-DEBUG: trying to convert:  to floats list
-10:25:23-pompa-INFO: 
+15:08:31-pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
+15:08:31-pompa.view-INFO: changed mode: checking
+15:08:31-pompa.view-DEBUG: started setting shape
+15:08:31-pompa.view-DEBUG: new shape: rectangle
+15:08:31-pompa.view-DEBUG: changed shape to rectangle
+15:08:31-pompa.pump-INFO: set_flow_unit started
+15:08:31-pompa.pump-INFO: self.efficiency_from type: <class 'models.variables.Flow'>
+15:08:31-pompa.variables-DEBUG: trying to convert:  to floats list
+15:08:31-pompa.variables-DEBUG: trying to convert:  to floats list
+15:08:34-pompa-INFO: 
 data_load started
 
-10:25:23-pompa-DEBUG: path: C:/Kuba/Pompa/InOut Examples/STAND.DAN
-10:25:23-pompa-INFO: opening file: <_io.TextIOWrapper name='C:/Kuba/Pompa/InOut Examples/STAND.DAN' mode='r+' encoding='cp1250'>
+15:08:34-pompa-DEBUG: path: C:/Kuba/Pompa/InOut Examples/STAND.DAN
+15:08:34-pompa-INFO: opening file: <_io.TextIOWrapper name='C:/Kuba/Pompa/InOut Examples/STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-10:25:23-pompa.data-INFO: 
+15:08:34-pompa.data-INFO: 
 dan_load started
 
-10:25:23-pompa.data-INFO: plik danych generowany wersją 1.0 aplikacji
-10:25:23-pompa.data-INFO: opening file: <_io.TextIOWrapper name='C:/Kuba/Pompa/InOut Examples/STAND.DAN' mode='r+' encoding='cp1250'>
+15:08:34-pompa.data-INFO: plik danych generowany wersją 1.0 aplikacji
+15:08:34-pompa.data-INFO: opening file: <_io.TextIOWrapper name='C:/Kuba/Pompa/InOut Examples/STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-10:25:23-pompa.data-DEBUG: id: 1, stored value: 0
-10:25:23-pompa.data-DEBUG: dan_id: 1, value: ['0']
-10:25:23-pompa.data-DEBUG: id: 2, stored value: 1
-10:25:23-pompa.data-DEBUG: dan_id: 2, value: ['1']
-10:25:23-pompa.data-DEBUG: id: 3, stored value: 0
-10:25:23-pompa.data-DEBUG: dan_id: 3, value: ['0']
-10:25:23-pompa.data-DEBUG: id: 4, stored value: 1
-10:25:23-pompa.data-DEBUG: dan_id: 4, value: ['1']
-10:25:23-pompa.data-DEBUG: id: 5, stored value: .81
-10:25:23-pompa.data-DEBUG: dan_id: 5, value: ['.81']
-10:25:23-pompa.data-DEBUG: id: 9, stored value: .30
-10:25:23-pompa.data-DEBUG: dan_id: 9, value: ['.30']
-10:25:23-pompa.data-DEBUG: id: 10, stored value: 159.00
-10:25:23-pompa.data-DEBUG: dan_id: 10, value: ['159.00']
-10:25:23-pompa.data-DEBUG: id: 11, stored value: 157.40
-10:25:23-pompa.data-DEBUG: dan_id: 11, value: ['157.40']
-10:25:23-pompa.data-DEBUG: id: 12, stored value: 153.00
-10:25:23-pompa.data-DEBUG: dan_id: 12, value: ['153.00']
-10:25:23-pompa.data-DEBUG: id: 13, stored value: 151.50
-10:25:23-pompa.data-DEBUG: dan_id: 13, value: ['151.50']
-10:25:23-pompa.data-DEBUG: id: 14, stored value: .00
-10:25:23-pompa.data-DEBUG: dan_id: 14, value: ['.00']
-10:25:23-pompa.data-DEBUG: id: 15, stored value: 158.00
-10:25:23-pompa.data-DEBUG: dan_id: 15, value: ['158.00']
-10:25:23-pompa.data-DEBUG: id: 16, stored value: 158.00
-10:25:23-pompa.data-DEBUG: dan_id: 16, value: ['158.00']
-10:25:23-pompa.data-DEBUG: id: 17, stored value: 2.60
-10:25:23-pompa.data-DEBUG: dan_id: 17, value: ['2.60']
-10:25:23-pompa.data-DEBUG: id: 18, stored value: 1.20
-10:25:23-pompa.data-DEBUG: dan_id: 18, value: ['1.20']
-10:25:23-pompa.data-DEBUG: id: 19, stored value: 1
-10:25:23-pompa.data-DEBUG: dan_id: 19, value: ['1']
-10:25:23-pompa.data-DEBUG: id: 20, stored value: 40
-10:25:23-pompa.data-DEBUG: dan_id: 20, value: ['40']
-10:25:23-pompa.data-DEBUG: id: 21, stored value: 0
-10:25:23-pompa.data-DEBUG: dan_id: 21, value: ['0']
-10:25:23-pompa.data-DEBUG: id: 29, stored value: 125.0
-10:25:23-pompa.data-DEBUG: dan_id: 29, value: ['125.0']
-10:25:23-pompa.data-DEBUG: id: 30, stored value: .05
-10:25:23-pompa.data-DEBUG: dan_id: 30, value: ['.05']
-10:25:23-pompa.data-DEBUG: id: 31, stored value: 1
-10:25:23-pompa.data-DEBUG: dan_id: 31, value: ['1']
-10:25:23-pompa.data-DEBUG: id: 32, stored value: 3.18
-10:25:23-pompa.data-DEBUG: dan_id: 32, value: ['3.18']
-10:25:23-pompa.data-DEBUG: id: 33, stored value: .2
-10:25:23-pompa.data-DEBUG: dan_id: 33, value: ['.2']
-10:25:23-pompa.data-DEBUG: id: 34, stored value: 1.6
-10:25:23-pompa.data-DEBUG: dan_id: 34, value: ['1.6']
-10:25:23-pompa.data-DEBUG: id: 35, stored value: 6.0
-10:25:23-pompa.data-DEBUG: dan_id: 35, value: ['6.0']
-10:25:23-pompa.data-DEBUG: id: 36, stored value: 6
-10:25:23-pompa.data-DEBUG: dan_id: 36, value: ['6']
-10:25:23-pompa.data-DEBUG: id: 37, stored value: 47.0
-10:25:23-pompa.data-DEBUG: dan_id: 37, value: ['47.0']
-10:25:23-pompa.data-DEBUG: id: 37, stored value: 40.0
-10:25:23-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0']
-10:25:23-pompa.data-DEBUG: id: 37, stored value: 30.0
-10:25:23-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0']
-10:25:23-pompa.data-DEBUG: id: 37, stored value: 20.0
-10:25:23-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0']
-10:25:23-pompa.data-DEBUG: id: 37, stored value: 10.0
-10:25:23-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0', '10.0']
-10:25:23-pompa.data-DEBUG: id: 37, stored value: .0
-10:25:23-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0', '10.0', '.0']
-10:25:23-pompa.data-DEBUG: id: 38, stored value: .0
-10:25:23-pompa.data-DEBUG: dan_id: 38, value: ['.0']
-10:25:23-pompa.data-DEBUG: id: 38, stored value: 2.2
-10:25:23-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2']
-10:25:23-pompa.data-DEBUG: id: 38, stored value: 5.7
-10:25:23-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7']
-10:25:23-pompa.data-DEBUG: id: 38, stored value: 9.1
-10:25:23-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1']
-10:25:23-pompa.data-DEBUG: id: 38, stored value: 12.5
-10:25:23-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1', '12.5']
-10:25:23-pompa.data-DEBUG: id: 38, stored value: 14.7
-10:25:23-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1', '12.5', '14.7']
-10:25:23-pompa.data-DEBUG: id: 39, stored value: 11.0
-10:25:23-pompa.data-DEBUG: dan_id: 39, value: ['11.0']
-10:25:23-pompa.data-DEBUG: id: 40, stored value: 23.0
-10:25:23-pompa.data-DEBUG: dan_id: 40, value: ['23.0']
-10:25:23-pompa.data-DEBUG: id: 41, stored value: 1
-10:25:23-pompa.data-DEBUG: dan_id: 41, value: ['1']
-10:25:23-pompa.data-DEBUG: id: 42, stored value: 400.0
-10:25:23-pompa.data-DEBUG: dan_id: 42, value: ['400.0']
-10:25:23-pompa.data-DEBUG: id: 43, stored value: 160.0
-10:25:23-pompa.data-DEBUG: dan_id: 43, value: ['160.0']
-10:25:23-pompa.data-DEBUG: id: 44, stored value: .10
-10:25:23-pompa.data-DEBUG: dan_id: 44, value: ['.10']
-10:25:23-pompa.data-DEBUG: id: 45, stored value: 0
-10:25:23-pompa.data-DEBUG: dan_id: 45, value: ['0']
-10:25:23-pompa.data-DEBUG: dictionary in progress: {'1': ['0'], '2': ['1'], '3': ['0'], '4': ['1'], '5': ['.81'], '9': ['.30'], '10': ['159.00'], '11': ['157.40'], '12': ['153.00'], '13': ['151.50'], '14': ['.00'], '15': ['158.00'], '16': ['158.00'], '17': ['2.60'], '18': ['1.20'], '19': ['1'], '20': ['40'], '21': ['0'], '29': ['125.0'], '30': ['.05'], '31': ['1'], '32': ['3.18'], '33': ['.2'], '34': ['1.6'], '35': ['6.0'], '36': ['6'], '37': ['47.0', '40.0', '30.0', '20.0', '10.0', '.0'], '38': ['.0', '2.2', '5.7', '9.1', '12.5', '14.7'], '39': ['11.0'], '40': ['23.0'], '41': ['1'], '42': ['400.0'], '43': ['160.0'], '44': ['.10'], '45': ['0']}
-10:25:23-pompa.data-DEBUG: dictionary at finish: {'1': 0.0, '2': 1.0, '3': 0.0, '4': 1.0, '5': 0.81, '9': 0.3, '10': 159.0, '11': 157.4, '12': 153.0, '13': 151.5, '14': 0.0, '15': 158.0, '16': 158.0, '17': 2.6, '18': 1.2, '19': 1.0, '20': 40.0, '21': 0.0, '29': 125.0, '30': 0.05, '31': 1.0, '32': 3.18, '33': 0.2, '34': 1.6, '35': 6.0, '36': 6.0, '37': [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], '38': [0.0, 2.2, 5.7, 9.1, 12.5, 14.7], '39': 11.0, '40': 23.0, '41': 1.0, '42': 400.0, '43': 160.0, '44': 0.1, '45': 0.0}
-10:25:23-pompa.models-DEBUG: loading app for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: loading builder for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: loading ui_vars for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: loading well for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: <models.well.Well object at 0x08E5EF90> Has no <.> in attr
-10:25:23-pompa.models-DEBUG: loading ins_pipe for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: <models.pipe.Pipe object at 0x08E43510> Has no <.> in attr
-10:25:23-pompa.models-DEBUG: loading out_pipe for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: <models.pipe.Pipe object at 0x08E43730> Has no <.> in attr
-10:25:23-pompa.models-DEBUG: loading pump for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: <models.pump.PumpType object at 0x08E43250> Has no <.> in attr
-10:25:23-pompa.models-DEBUG: loading minimal_sewage_level for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: minimal_sewage_level has dan_id
-10:25:23-pompa.models-DEBUG: loading ord_terrain for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: ord_terrain has dan_id
-10:25:23-pompa.models-DEBUG: loading ord_inlet for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: ord_inlet has dan_id
-10:25:23-pompa.models-DEBUG: loading ord_outlet for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: ord_outlet has dan_id
-10:25:23-pompa.models-DEBUG: loading ord_bottom for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: ord_bottom has dan_id
-10:25:23-pompa.models-DEBUG: loading difference_in_start for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: difference_in_start has dan_id
-10:25:23-pompa.models-DEBUG: loading ord_highest_point for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: ord_highest_point has dan_id
-10:25:23-pompa.models-DEBUG: loading ord_upper_level for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: ord_upper_level has dan_id
-10:25:23-pompa.models-DEBUG: loading inflow_max for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: inflow_max has dan_id
-10:25:23-pompa.models-DEBUG: loading inflow_min for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: inflow_min has dan_id
-10:25:23-pompa.models-DEBUG: loading reserve_pumps for obj <models.station.Station object at 0x08E5E970>
-10:25:23-pompa.models-DEBUG: reserve_pumps has dan_id
-10:25:23-pompa.models-DEBUG: loading app for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: loading builder for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: loading ui_vars for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: loading pump_type for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: loading discharge_pipe for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: loading collector for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: loading reserve_pumps for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: loading shape for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: shape has dan_id
-10:25:23-pompa.well-DEBUG: started setting shape
-10:25:23-pompa.well-DEBUG: new shape: round
-10:25:23-pompa.well-DEBUG: changed shape to round
-10:25:23-pompa.models-DEBUG: loading config for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: config has dan_id
-10:25:23-pompa.models-DEBUG: loading diameter for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: diameter has dan_id
-10:25:23-pompa.models-DEBUG: loading length for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: length has dan_id
-10:25:23-pompa.models-DEBUG: loading width for obj <models.well.Well object at 0x08E5EF90>
-10:25:23-pompa.models-DEBUG: width has dan_id
-10:25:23-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: length has dan_id
-10:25:23-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: diameter has dan_id
-10:25:23-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: roughness has dan_id
-10:25:23-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: resistance has dan_id
-10:25:23-pompa.variables-DEBUG: trying to convert: 3.18 to floats list
-10:25:23-pompa.models-DEBUG: <models.station.Station object at 0x08E5E970> Has no <.> in attr
-10:25:23-pompa.variables-ERROR: Error Resistance'super' object has no attribute '__getattr__'
-10:25:23-pompa.variables-ERROR: attribute : load_flag
-10:25:23-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: loading l_res_coef for obj <models.pipe.Pipe object at 0x08E43510>
-10:25:23-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x08E43730>
-10:25:23-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x08E43730>
-10:25:23-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x08E43730>
-10:25:23-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x08E43730>
-10:25:23-pompa.models-DEBUG: length has dan_id
-10:25:23-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x08E43730>
-10:25:23-pompa.models-DEBUG: diameter has dan_id
-10:25:23-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x08E43730>
-10:25:23-pompa.models-DEBUG: roughness has dan_id
-10:25:23-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x08E43730>
-10:25:23-pompa.models-DEBUG: resistance has dan_id
-10:25:23-pompa.models-DEBUG: <models.station.Station object at 0x08E5E970> Has no <.> in attr
-10:25:23-pompa.variables-ERROR: Error Resistance'super' object has no attribute '__getattr__'
-10:25:23-pompa.variables-ERROR: attribute : load_flag
-10:25:23-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x08E43730>
-10:25:23-pompa.models-DEBUG: parallels has dan_id
-10:25:23-pompa.models-DEBUG: loading app for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: loading builder for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: loading ui_vars for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: loading cycle_time for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: cycle_time has dan_id
-10:25:23-pompa.models-DEBUG: loading contour for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: contour has dan_id
-10:25:23-pompa.models-DEBUG: loading suction_level for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: loading efficiency_from for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: efficiency_from has dan_id
-10:25:23-pompa.models-DEBUG: loading efficiency_to for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: efficiency_to has dan_id
-10:25:23-pompa.models-DEBUG: loading characteristic for obj <models.pump.PumpType object at 0x08E43250>
-10:25:23-pompa.models-DEBUG: characteristic has dan_id
-10:25:23-pompa.variables-DEBUG: Add point method started
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0)}
-10:25:23-pompa.variables-DEBUG: Add point method started
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2)}
-10:25:23-pompa.variables-DEBUG: Add point method started
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7)}
-10:25:23-pompa.variables-DEBUG: Add point method started
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1)}
-10:25:23-pompa.variables-DEBUG: Add point method started
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5)}
-10:25:23-pompa.variables-DEBUG: Add point method started
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-10:25:23-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
-10:25:23-pompa.variables-INFO: sort_points started
-10:25:23-pompa.variables-DEBUG: id numbers raised: [('47.0', 'I001'), ('40.0', 'I002'), ('30.0', 'I003'), ('20.0', 'I004'), ('10.0', 'I005'), ('0.0', 'I006')]
-10:25:23-pompa.variables-INFO: sort_points ended
-10:25:23-pompa.models-DEBUG: <models.station.Station object at 0x08E5E970> Has no <.> in attr
+15:08:34-pompa.data-DEBUG: id: 1, stored value: 0
+15:08:34-pompa.data-DEBUG: dan_id: 1, value: ['0']
+15:08:34-pompa.data-DEBUG: id: 2, stored value: 1
+15:08:34-pompa.data-DEBUG: dan_id: 2, value: ['1']
+15:08:34-pompa.data-DEBUG: id: 3, stored value: 0
+15:08:34-pompa.data-DEBUG: dan_id: 3, value: ['0']
+15:08:34-pompa.data-DEBUG: id: 4, stored value: 1
+15:08:34-pompa.data-DEBUG: dan_id: 4, value: ['1']
+15:08:34-pompa.data-DEBUG: id: 5, stored value: .81
+15:08:34-pompa.data-DEBUG: dan_id: 5, value: ['.81']
+15:08:34-pompa.data-DEBUG: id: 9, stored value: .30
+15:08:34-pompa.data-DEBUG: dan_id: 9, value: ['.30']
+15:08:34-pompa.data-DEBUG: id: 10, stored value: 159.00
+15:08:34-pompa.data-DEBUG: dan_id: 10, value: ['159.00']
+15:08:34-pompa.data-DEBUG: id: 11, stored value: 157.40
+15:08:34-pompa.data-DEBUG: dan_id: 11, value: ['157.40']
+15:08:34-pompa.data-DEBUG: id: 12, stored value: 153.00
+15:08:34-pompa.data-DEBUG: dan_id: 12, value: ['153.00']
+15:08:34-pompa.data-DEBUG: id: 13, stored value: 151.50
+15:08:34-pompa.data-DEBUG: dan_id: 13, value: ['151.50']
+15:08:34-pompa.data-DEBUG: id: 14, stored value: .00
+15:08:34-pompa.data-DEBUG: dan_id: 14, value: ['.00']
+15:08:34-pompa.data-DEBUG: id: 15, stored value: 158.00
+15:08:34-pompa.data-DEBUG: dan_id: 15, value: ['158.00']
+15:08:34-pompa.data-DEBUG: id: 16, stored value: 158.00
+15:08:34-pompa.data-DEBUG: dan_id: 16, value: ['158.00']
+15:08:34-pompa.data-DEBUG: id: 17, stored value: 2.60
+15:08:34-pompa.data-DEBUG: dan_id: 17, value: ['2.60']
+15:08:34-pompa.data-DEBUG: id: 18, stored value: 1.20
+15:08:34-pompa.data-DEBUG: dan_id: 18, value: ['1.20']
+15:08:34-pompa.data-DEBUG: id: 19, stored value: 1
+15:08:34-pompa.data-DEBUG: dan_id: 19, value: ['1']
+15:08:34-pompa.data-DEBUG: id: 20, stored value: 40
+15:08:34-pompa.data-DEBUG: dan_id: 20, value: ['40']
+15:08:34-pompa.data-DEBUG: id: 21, stored value: 0
+15:08:34-pompa.data-DEBUG: dan_id: 21, value: ['0']
+15:08:34-pompa.data-DEBUG: id: 29, stored value: 125.0
+15:08:34-pompa.data-DEBUG: dan_id: 29, value: ['125.0']
+15:08:34-pompa.data-DEBUG: id: 30, stored value: .05
+15:08:34-pompa.data-DEBUG: dan_id: 30, value: ['.05']
+15:08:34-pompa.data-DEBUG: id: 31, stored value: 1
+15:08:34-pompa.data-DEBUG: dan_id: 31, value: ['1']
+15:08:34-pompa.data-DEBUG: id: 32, stored value: 3.18
+15:08:34-pompa.data-DEBUG: dan_id: 32, value: ['3.18']
+15:08:34-pompa.data-DEBUG: id: 33, stored value: .2
+15:08:34-pompa.data-DEBUG: dan_id: 33, value: ['.2']
+15:08:34-pompa.data-DEBUG: id: 34, stored value: 1.6
+15:08:34-pompa.data-DEBUG: dan_id: 34, value: ['1.6']
+15:08:34-pompa.data-DEBUG: id: 35, stored value: 6.0
+15:08:34-pompa.data-DEBUG: dan_id: 35, value: ['6.0']
+15:08:34-pompa.data-DEBUG: id: 36, stored value: 6
+15:08:34-pompa.data-DEBUG: dan_id: 36, value: ['6']
+15:08:34-pompa.data-DEBUG: id: 37, stored value: 47.0
+15:08:34-pompa.data-DEBUG: dan_id: 37, value: ['47.0']
+15:08:34-pompa.data-DEBUG: id: 37, stored value: 40.0
+15:08:34-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0']
+15:08:34-pompa.data-DEBUG: id: 37, stored value: 30.0
+15:08:34-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0']
+15:08:34-pompa.data-DEBUG: id: 37, stored value: 20.0
+15:08:34-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0']
+15:08:34-pompa.data-DEBUG: id: 37, stored value: 10.0
+15:08:34-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0', '10.0']
+15:08:34-pompa.data-DEBUG: id: 37, stored value: .0
+15:08:34-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0', '10.0', '.0']
+15:08:34-pompa.data-DEBUG: id: 38, stored value: .0
+15:08:34-pompa.data-DEBUG: dan_id: 38, value: ['.0']
+15:08:34-pompa.data-DEBUG: id: 38, stored value: 2.2
+15:08:34-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2']
+15:08:34-pompa.data-DEBUG: id: 38, stored value: 5.7
+15:08:34-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7']
+15:08:34-pompa.data-DEBUG: id: 38, stored value: 9.1
+15:08:34-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1']
+15:08:34-pompa.data-DEBUG: id: 38, stored value: 12.5
+15:08:34-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1', '12.5']
+15:08:34-pompa.data-DEBUG: id: 38, stored value: 14.7
+15:08:34-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1', '12.5', '14.7']
+15:08:34-pompa.data-DEBUG: id: 39, stored value: 11.0
+15:08:34-pompa.data-DEBUG: dan_id: 39, value: ['11.0']
+15:08:34-pompa.data-DEBUG: id: 40, stored value: 23.0
+15:08:34-pompa.data-DEBUG: dan_id: 40, value: ['23.0']
+15:08:34-pompa.data-DEBUG: id: 41, stored value: 1
+15:08:34-pompa.data-DEBUG: dan_id: 41, value: ['1']
+15:08:34-pompa.data-DEBUG: id: 42, stored value: 400.0
+15:08:34-pompa.data-DEBUG: dan_id: 42, value: ['400.0']
+15:08:34-pompa.data-DEBUG: id: 43, stored value: 160.0
+15:08:34-pompa.data-DEBUG: dan_id: 43, value: ['160.0']
+15:08:34-pompa.data-DEBUG: id: 44, stored value: .10
+15:08:34-pompa.data-DEBUG: dan_id: 44, value: ['.10']
+15:08:34-pompa.data-DEBUG: id: 45, stored value: 0
+15:08:34-pompa.data-DEBUG: dan_id: 45, value: ['0']
+15:08:34-pompa.data-DEBUG: dictionary in progress: {'1': ['0'], '2': ['1'], '3': ['0'], '4': ['1'], '5': ['.81'], '9': ['.30'], '10': ['159.00'], '11': ['157.40'], '12': ['153.00'], '13': ['151.50'], '14': ['.00'], '15': ['158.00'], '16': ['158.00'], '17': ['2.60'], '18': ['1.20'], '19': ['1'], '20': ['40'], '21': ['0'], '29': ['125.0'], '30': ['.05'], '31': ['1'], '32': ['3.18'], '33': ['.2'], '34': ['1.6'], '35': ['6.0'], '36': ['6'], '37': ['47.0', '40.0', '30.0', '20.0', '10.0', '.0'], '38': ['.0', '2.2', '5.7', '9.1', '12.5', '14.7'], '39': ['11.0'], '40': ['23.0'], '41': ['1'], '42': ['400.0'], '43': ['160.0'], '44': ['.10'], '45': ['0']}
+15:08:34-pompa.data-DEBUG: dictionary at finish: {'1': 0.0, '2': 1.0, '3': 0.0, '4': 1.0, '5': 0.81, '9': 0.3, '10': 159.0, '11': 157.4, '12': 153.0, '13': 151.5, '14': 0.0, '15': 158.0, '16': 158.0, '17': 2.6, '18': 1.2, '19': 1.0, '20': 40.0, '21': 0.0, '29': 125.0, '30': 0.05, '31': 1.0, '32': 3.18, '33': 0.2, '34': 1.6, '35': 6.0, '36': 6.0, '37': [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], '38': [0.0, 2.2, 5.7, 9.1, 12.5, 14.7], '39': 11.0, '40': 23.0, '41': 1.0, '42': 400.0, '43': 160.0, '44': 0.1, '45': 0.0}
+15:08:34-pompa.models-DEBUG: loading app for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: loading builder for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: loading ui_vars for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: loading well for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: <models.well.Well object at 0x09EBF090> Has no <.> in attr
+15:08:34-pompa.models-DEBUG: loading ins_pipe for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: <models.pipe.Pipe object at 0x09EBF5F0> Has no <.> in attr
+15:08:34-pompa.models-DEBUG: loading out_pipe for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: <models.pipe.Pipe object at 0x09EBF810> Has no <.> in attr
+15:08:34-pompa.models-DEBUG: loading pump for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: <models.pump.PumpType object at 0x09EBF330> Has no <.> in attr
+15:08:34-pompa.models-DEBUG: loading minimal_sewage_level for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: minimal_sewage_level has dan_id
+15:08:34-pompa.models-DEBUG: loading ord_terrain for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: ord_terrain has dan_id
+15:08:34-pompa.models-DEBUG: loading ord_inlet for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: ord_inlet has dan_id
+15:08:34-pompa.models-DEBUG: loading ord_outlet for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: ord_outlet has dan_id
+15:08:34-pompa.models-DEBUG: loading ord_bottom for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: ord_bottom has dan_id
+15:08:34-pompa.models-DEBUG: loading difference_in_start for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: difference_in_start has dan_id
+15:08:34-pompa.models-DEBUG: loading ord_highest_point for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: ord_highest_point has dan_id
+15:08:34-pompa.models-DEBUG: loading ord_upper_level for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: ord_upper_level has dan_id
+15:08:34-pompa.models-DEBUG: loading inflow_max for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: inflow_max has dan_id
+15:08:34-pompa.models-DEBUG: loading inflow_min for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: inflow_min has dan_id
+15:08:34-pompa.models-DEBUG: loading reserve_pumps for obj <models.station.Station object at 0x08E5CA50>
+15:08:34-pompa.models-DEBUG: reserve_pumps has dan_id
+15:08:34-pompa.models-DEBUG: loading app for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: loading builder for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: loading ui_vars for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: loading shape for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: loading config for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: config has dan_id
+15:08:34-pompa.models-DEBUG: loading diameter for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: diameter has dan_id
+15:08:34-pompa.models-DEBUG: loading length for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: length has dan_id
+15:08:34-pompa.models-DEBUG: loading width for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: width has dan_id
+15:08:34-pompa.models-DEBUG: loading area for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: loading min_diameter for obj <models.well.Well object at 0x09EBF090>
+15:08:34-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: length has dan_id
+15:08:34-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: diameter has dan_id
+15:08:34-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: roughness has dan_id
+15:08:34-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: resistance has dan_id
+15:08:34-pompa.variables-DEBUG: trying to convert: 3.18 to floats list
+15:08:34-pompa.figs-DEBUG: Starting draw report figure
+15:08:34-pompa.models-DEBUG: <models.station.Station object at 0x08E5CA50> Has no <.> in attr
+15:08:34-pompa.variables-ERROR: Error Resistance'super' object has no attribute '__getattr__'
+15:08:34-pompa.variables-ERROR: attribute : load_flag
+15:08:34-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: loading l_res_coef for obj <models.pipe.Pipe object at 0x09EBF5F0>
+15:08:34-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: length has dan_id
+15:08:34-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: diameter has dan_id
+15:08:34-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: roughness has dan_id
+15:08:34-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: resistance has dan_id
+15:08:34-pompa.figs-DEBUG: Starting draw report figure
+15:08:34-pompa.models-DEBUG: <models.station.Station object at 0x08E5CA50> Has no <.> in attr
+15:08:34-pompa.variables-ERROR: Error Resistance'super' object has no attribute '__getattr__'
+15:08:34-pompa.variables-ERROR: attribute : load_flag
+15:08:34-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: parallels has dan_id
+15:08:34-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x09EBF810>
+15:08:34-pompa.models-DEBUG: loading app for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: loading builder for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: loading ui_vars for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: loading cycle_time for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: cycle_time has dan_id
+15:08:34-pompa.models-DEBUG: loading contour for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: contour has dan_id
+15:08:34-pompa.models-DEBUG: loading suction_level for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: loading efficiency_from for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: efficiency_from has dan_id
+15:08:34-pompa.models-DEBUG: loading efficiency_to for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: efficiency_to has dan_id
+15:08:34-pompa.models-DEBUG: loading characteristic for obj <models.pump.PumpType object at 0x09EBF330>
+15:08:34-pompa.models-DEBUG: characteristic has dan_id
+15:08:34-pompa.variables-DEBUG: Add point method started
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0)}
+15:08:34-pompa.variables-DEBUG: Add point method started
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2)}
+15:08:34-pompa.variables-DEBUG: Add point method started
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7)}
+15:08:34-pompa.variables-DEBUG: Add point method started
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1)}
+15:08:34-pompa.variables-DEBUG: Add point method started
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5)}
+15:08:34-pompa.variables-DEBUG: Add point method started
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+15:08:34-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+15:08:34-pompa.variables-INFO: sort_points started
+15:08:34-pompa.variables-DEBUG: id numbers raised: [('47.0', 'I001'), ('40.0', 'I002'), ('30.0', 'I003'), ('20.0', 'I004'), ('10.0', 'I005'), ('0.0', 'I006')]
+15:08:34-pompa.variables-INFO: sort_points ended
+15:08:34-pompa.figs-DEBUG: Starting draw report figure
+15:08:34-pompa.models-DEBUG: <models.station.Station object at 0x08E5CA50> Has no <.> in attr
