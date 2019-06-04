@@ -3,7 +3,7 @@ import logging
 import numpy as np
 
 # modules
-import models
+import models.models as models
 
 log = logging.getLogger('pompa.well')
 

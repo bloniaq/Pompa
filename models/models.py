@@ -3,8 +3,6 @@ import logging
 
 log = logging.getLogger('pompa.models')
 
-print('co do chuja')
-
 
 class StationObject():
 

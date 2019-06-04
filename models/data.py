@@ -34,7 +34,7 @@ def station_vars(app):
 
 
 def well_vars(app):
-    ins = app.well
+    ins = app.station.well
 
     ins.shape = v.Logic(app, 'rectangle', 'shape', '2', dan_shape,
                         app.ui_set_shape)
@@ -46,7 +46,7 @@ def well_vars(app):
 
 
 def pump_vars(app):
-    ins = app.pump_type
+    ins = app.station.pump
 
     ins.contour = v.P_Float(app, 0.0, 'pump_contour', '5')
     ins.cycle_time = v.P_Float(app, 0.0, 'work_cycle', '35')
@@ -59,7 +59,7 @@ def pump_vars(app):
 
 
 def ins_pipe_vars(app):
-    ins = app.d_pipe
+    ins = app.station.ins_pipe
 
     ins.length = v.P_Float(app, 0.0, 'length_discharge_pipe', '28',
                            fig_depend="pipe_char")
@@ -72,7 +72,7 @@ def ins_pipe_vars(app):
 
 
 def out_pipe_vars(app):
-    ins = app.collector
+    ins = app.station.out_pipe
 
     ins.parallels = v.P_Int(app, 0, 'number_of_collectors', '41')
     ins.length = v.P_Float(app, 0.0, 'length_collector', '42',

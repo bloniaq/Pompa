@@ -13,13 +13,6 @@ unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
 class AppFigure():
 
     """
-    TODO
-    Zamiast funkcji w Pompa.py inicjującej wykresy
-    napisac klase zbiorcza dla wykresow, dla ktorej ponizsze funkcje
-    przerobic na metody
-
-    PRZEMYŚLEC TE KLASE - NA RAZIE NIGDZIE NIE POWSTAJE JEJ INSTANCJA
-
     """
 
     def __init__(self, app, container, dim_x, dim_y):
@@ -238,4 +231,5 @@ class ReportFig(AppFigure):
 class Schema(AppFigure):
 
     def __init__(self, app, container, dim_x, dim_y):
-        pass
+
+        super().__init__(app, container, dim_x, dim_y)

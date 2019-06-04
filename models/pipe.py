@@ -3,7 +3,7 @@ import logging
 import numpy as np
 
 # modules
-import models
+import models.models as models
 
 log = logging.getLogger('pompa.pipe')
 
@@ -39,7 +39,7 @@ class Pipe(models.StationObject):
         epsilon = self.get_epsilon()
         log.info('Epsilon is {}'.format(epsilon))
         lambda_ = (-2 * np.log10(self.roughness.value / (
-            3.71 * diameter))) ** -2
+             3.71 * diameter))) ** -2
         re = self.get_re(flow, unit)
         # log.info('Re is {}'.format(re))
         # log.info('Lambda is {}'.format(lambda_))
@@ -122,6 +122,6 @@ class Pipe(models.StationObject):
                 flows[i], y_coords[i], sum_l))
             log.debug('\n####################\n\n')
             pipes_char.append(sum_l)
-        y = maths.fit_coords(flows, pipes_char, 2)
+        y = self.app.fit_coords(flows, pipes_char, 2)
         log.debug('Finding ys finished')
         return y

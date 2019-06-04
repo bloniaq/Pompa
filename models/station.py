@@ -2,12 +2,12 @@
 import logging
 
 # modules
-import stationobj
+import models.models as models
 
 log = logging.getLogger('pompa.station')
 
 
-class Station(stationobj.StationObject):
+class Station(models.StationObject):
 
     def __init__(self, app):
         super().__init__(app)

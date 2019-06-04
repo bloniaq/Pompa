@@ -156,15 +156,15 @@ class Application():
             if first_line[0] == '1' and first_line[1] == ')':
                 data_dictionary = data.get_data_dict_from_dan_file(path)
         self.station.load_data(data_dictionary)
-        self.well.load_data(data_dictionary)
-        self.d_pipe.load_data(data_dictionary)
-        self.collector.load_data(data_dictionary)
-        self.pump_type.load_data(data_dictionary)
+        self.station.well.load_data(data_dictionary)
+        self.station.ins_pipe.load_data(data_dictionary)
+        self.station.out_pipe.load_data(data_dictionary)
+        self.station.pump.load_data(data_dictionary)
         # Updating Figures
 
         # poprawić odświeżanie wykresów
 
-        self.draw_auxillary_figures()
+        self.draw_auxillary_figures("pipe_char", "pump_char")
 
     def ui_set_shape(self):
         """ Function changing shape setting, triggered by user interaction.
@@ -216,7 +216,10 @@ class Application():
     def interp(self, wanted_x, x_arr, y_arr):
         return calc.interp(wanted_x, x_arr, y_arr)
 
-    def work_point(pump, pipes):
+    def fit_coords(self, xcoords, ycoords, degree):
+        return calc.fit_coords(xcoords, ycoords, degree)
+
+    def work_point(self, pump, pipes):
         return calc.work_point(pump, pipes)
 
     def draw_report_figure(self):
@@ -235,14 +238,15 @@ class Application():
         # TODO is this function needed?
         self.schema.update()
 
-    def draw_auxillary_figures(self, dependency):
+    def draw_auxillary_figures(self, *figures):
         # TODO is this function needed?
 
         dependencies = {"pipe_char": self.draw_pipe_figure(),
                         "pump_char": self.draw_pump_figure(),
                         "schema": self.draw_schema()}
 
-        dependencies[dependency]
+        for figure in figures:
+            dependencies[figure]
 
     def calculate(self):
 
