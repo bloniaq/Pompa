@@ -49,7 +49,7 @@ class Pipe(models.StationObject):
         epsilon = self.get_epsilon()
         log.info('Epsilon is {}'.format(epsilon))
         lambda_ = (-2 * np.log10(self.roughness.value / (
-             3.71 * diameter))) ** -2
+            3.71 * diameter))) ** -2
         re = self.get_re(flow, unit)
         # log.info('Re is {}'.format(re))
         # log.info('Lambda is {}'.format(lambda_))

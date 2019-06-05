@@ -19,13 +19,6 @@ class Variable():
             log.error('No ui_variable named {}'.format(ui_variable))
             self.ui_var = None
 
-    '''
-    def set_trace(self, attr):
-        self.ui_var.trace(
-            'w', lambda *_: setattr(self, attr, self.ui_var.get())
-        )
-    '''
-
     def set_trace(self, attr):
         self.ui_var.trace(
             'w', lambda *_: self.update_attribute(attr)
@@ -345,23 +338,9 @@ class PumpCharacteristic(Variable):
             self.set_unit(unit)
         log.debug('Starting iterating over cooridnates, {}'.format(
             self.coords))
-        ###########
-        # DELETE SORTING, TO LEFT TWO LISTS ONLY
-        '''
-        for point in self.coords:
-            pairs[str(self.coords[point][0].value)] = self.coords[point][1]
-            flow_coords.append(self.coords[point][0].value)
-        log.debug(pairs)
-        flow_coords.sort()
-        for value in flow_coords:
-            lift_coords.append(pairs[str(value)])
-        '''
-        # END OF DELETION
-        # ADDED:
         for point in self.coords:
             flow_coords.append(self.coords[point][0].value)
             lift_coords.append(self.coords[point][1])
-        ###########
         log.debug('flows: {}, lifts: {}'.format(flow_coords, lift_coords))
         if present_unit != unit:
             self.set_unit(present_unit)

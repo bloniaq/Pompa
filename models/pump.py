@@ -99,3 +99,67 @@ class PumpType(models.StationObject):
         # log.debug('linspace of Q (Qs) : {}'.format(Qs(Hs)))
         log.debug('Q for {}m is {}'.format(H, Q))
         return Q
+
+
+class PumpSet(models.StationObject):
+
+    def __init__(self, station):
+        self.station = station
+        # self.well = station.well
+        self.n_of_pumps = self.station.number_of_pumps
+        self.characteristic = station.pump_type.characteristic
+        self.cycle_time = station.pump_type.cycle_time
+        self.qp = station.qp
+        self.set_start_ordinates()
+        self.pumps = []
+        self.start_ords = []
+        pump_counter = 0
+        while pump_counter < self.n_of_pumps:
+            log.debug('starting building pump number {}'.format(
+                pump_counter + 1))
+            pump = Pump(self.station, self, pump_counter + 1)
+            self.start_ords.append(pump.get_start_ordinate())
+            log.debug('PUMP {} of {} ADDED'.format(
+                pump_counter + 1, self.n_of_pumps))
+            self.pumps.append(pump)
+            log.debug('starts ords: {}'.format(self.start_ords))
+            pump_counter += 1
+        log.debug('PUMPS IN SET: {}'.format(self.pumps))
+
+    def set_start_ordinates(self):
+        self.start_ord_list = []
+        self.ord_stop = self.station.ord_bottom.value + \
+            self.station.minimal_sewage_level.value
+        ord_start = self.station.ord_sw_on  # UZUPEŁNIC
+        height = ord_start - self.ord_stop
+        self.one_pump_h = round(height / self.n_of_pumps, 2)
+        for i in range(self.n_of_pumps):
+            ordinate = ord_start + i * self.one_pump_h
+            self.start_ord_list.append(ordinate)
+    '''
+    def get_parameters(self, n_of_starting_pump):
+        r = ''
+        if n_of_starting_pump <= self.n_of_pumps:
+            r += 'Parametry poczatkowe pracy zespolu pomp\n'
+            r += 'w chwili wlaczenia pompy nr{}\n\n'.format(n_of_starting_pump)
+        else:
+            r += 'Parametry końcowe pracy zespolu pomp\n\n'
+        r += '-wys. lc. u wylotu pompy...........Hlc= {} [m]\n'.format('x')
+        r += '-geometryczna wys. podnoszenia.......H= {} [m]\n'.format('x')
+        r += '-wydatek.............................Q= {} [l/s]\n'.format('x')
+        r += '-predkosc w kolektorze tlocznym......v= {} [m/s]\n'.format('x')
+        r += '-predkosc w przewodach w pompowni....v= {} [m/s]\n'.format('x')
+        if n_of_starting_pump <= self.n_of_pumps:
+            r += ('-zapas wysokosci cisnienia..........dh= '
+                  '{} [m sł.wody]\n\n'.format('x'))
+        return r
+    '''
+
+    def get_pumpset_vals(self):
+        log.debug('Starting draw_pipes_plot')
+        unit = 'liters'
+        flows, lifts = self.characteristic.get_pump_char_func(unit)
+        n = self.n_of_pumps
+        set_flows = [i * n for i in flows]
+        y = maths.fit_coords(set_flows, lifts, 3)
+        return y
