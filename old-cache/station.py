@@ -85,10 +85,12 @@ class Station(components.StationObject):
         self.comp_flow = self.get_calculative_flow()
     '''
 
+    # station
     def height_to_pump(self, lower_ord):
         height = self.ord_upper_level.value - lower_ord
         return height
 
+    # station
     def calc_number_of_pumps(self):
         """Sets number of work pumps, based on min and max inflow, and pump
         efficiency
@@ -112,6 +114,7 @@ class Station(components.StationObject):
         self.number_of_pumps = number_of_pumps
         return number_of_pumps
 
+    # station
     def reserve_pumps_number(self):
         """Sets number of reserve pumps, based on user choose"""
         if self.reserve_pumps.value == 'minimal':
@@ -126,13 +129,17 @@ class Station(components.StationObject):
         self.number_of_res_pumps = n_of_res_pumps
         return n_of_res_pumps
 
+    # station
     def check_get_useful_velo(self):
         useful_velo = ((((
             self.pump_type.cycle_time.value) * 60) * self.qp) / 4000)
         log.info('useful velo is {}m3'.format(useful_velo))
         return useful_velo
 
+    # calculation
     def get_x_axis(self, unit, n=1):
+        """returns horizontal array of figures
+        """
         if unit == 'meters':
             inflow_val_min = self.inflow_min.value_meters
             inflow_val_max = self.inflow_max.value_meters
@@ -150,7 +157,10 @@ class Station(components.StationObject):
                     n * (inflow_val_max + 3))
         return np.linspace(x_min, x_max, 200)
 
+    # station
     def pipes_ready(self):
+        """returns if there both pipe has data to draw figures
+        """
         log.debug('Are pipes ready?')
         flag = True
         if not self.d_pipe.pipe_char_ready():
@@ -161,6 +171,7 @@ class Station(components.StationObject):
         log.debug(flag)
         return flag
 
+    # station
     def get_all_pipes_char_vals(self, unit):
         log.debug('Starting draw_pipes_plot')
         flows, _ = self.pump_type.characteristic.get_pump_char_func(unit)
