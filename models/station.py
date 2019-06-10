@@ -41,10 +41,10 @@ class Station(models.StationObject):
         """
         log.debug('Are pipes ready?')
         flag = True
-        if not self.d_pipe.pipe_char_ready():
+        if not self.ins_pipe.pipe_char_ready():
             flag = False
         log.debug(flag)
-        if not self.collector.pipe_char_ready():
+        if not self.out_pipe.pipe_char_ready():
             flag = False
         log.debug(flag)
         return flag

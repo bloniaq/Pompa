@@ -1,425 +1,1887 @@
-11:05:54-pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
-11:05:54-pompa.view-INFO: changed mode: checking
-11:05:54-pompa.view-DEBUG: started setting shape
-11:05:54-pompa.view-DEBUG: new shape: rectangle
-11:05:54-pompa.view-DEBUG: changed shape to rectangle
-11:05:54-pompa.pump-INFO: set_flow_unit started
-11:05:54-pompa.pump-INFO: self.efficiency_from type: <class 'models.variables.Flow'>
-11:05:54-pompa.variables-DEBUG: trying to convert:  to floats list
-11:05:54-pompa.variables-DEBUG: trying to convert:  to floats list
-11:06:00-pompa-INFO: 
+13:24:28-pompa.variables-ERROR: AttributeError: 'Application' object has no attribute 'mode'
+13:24:28-pompa.view-INFO: changed mode: checking
+13:24:28-pompa.view-DEBUG: started setting shape
+13:24:28-pompa.view-DEBUG: new shape: rectangle
+13:24:28-pompa.view-DEBUG: changed shape to rectangle
+13:24:28-pompa.pump-INFO: set_flow_unit started
+13:24:28-pompa.pump-INFO: self.efficiency_from type: <class 'models.variables.Flow'>
+13:24:28-pompa.variables-DEBUG: trying to convert:  to floats list
+13:24:28-pompa.variables-DEBUG: trying to convert:  to floats list
+13:24:33-pompa-INFO: 
 data_load started
 
-11:06:00-pompa-DEBUG: path: C:/Kuba/Pompa/InOut Examples/STAND.DAN
-11:06:00-pompa-INFO: opening file: <_io.TextIOWrapper name='C:/Kuba/Pompa/InOut Examples/STAND.DAN' mode='r+' encoding='cp1250'>
+13:24:33-pompa-DEBUG: path: C:/Kuba/Pompa/InOut Examples/STAND.DAN
+13:24:33-pompa-INFO: opening file: <_io.TextIOWrapper name='C:/Kuba/Pompa/InOut Examples/STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-11:06:00-pompa.data-INFO: 
+13:24:33-pompa.data-INFO: 
 dan_load started
 
-11:06:00-pompa.data-INFO: plik danych generowany wersją 1.0 aplikacji
-11:06:00-pompa.data-INFO: opening file: <_io.TextIOWrapper name='C:/Kuba/Pompa/InOut Examples/STAND.DAN' mode='r+' encoding='cp1250'>
+13:24:33-pompa.data-INFO: plik danych generowany wersją 1.0 aplikacji
+13:24:33-pompa.data-INFO: opening file: <_io.TextIOWrapper name='C:/Kuba/Pompa/InOut Examples/STAND.DAN' mode='r+' encoding='cp1250'>
 
 
-11:06:00-pompa.data-DEBUG: id: 1, stored value: 0
-11:06:00-pompa.data-DEBUG: dan_id: 1, value: ['0']
-11:06:00-pompa.data-DEBUG: id: 2, stored value: 1
-11:06:00-pompa.data-DEBUG: dan_id: 2, value: ['1']
-11:06:00-pompa.data-DEBUG: id: 3, stored value: 0
-11:06:00-pompa.data-DEBUG: dan_id: 3, value: ['0']
-11:06:00-pompa.data-DEBUG: id: 4, stored value: 1
-11:06:00-pompa.data-DEBUG: dan_id: 4, value: ['1']
-11:06:00-pompa.data-DEBUG: id: 5, stored value: .81
-11:06:00-pompa.data-DEBUG: dan_id: 5, value: ['.81']
-11:06:00-pompa.data-DEBUG: id: 9, stored value: .30
-11:06:00-pompa.data-DEBUG: dan_id: 9, value: ['.30']
-11:06:00-pompa.data-DEBUG: id: 10, stored value: 159.00
-11:06:00-pompa.data-DEBUG: dan_id: 10, value: ['159.00']
-11:06:00-pompa.data-DEBUG: id: 11, stored value: 157.40
-11:06:00-pompa.data-DEBUG: dan_id: 11, value: ['157.40']
-11:06:00-pompa.data-DEBUG: id: 12, stored value: 153.00
-11:06:00-pompa.data-DEBUG: dan_id: 12, value: ['153.00']
-11:06:00-pompa.data-DEBUG: id: 13, stored value: 151.50
-11:06:00-pompa.data-DEBUG: dan_id: 13, value: ['151.50']
-11:06:00-pompa.data-DEBUG: id: 14, stored value: .00
-11:06:00-pompa.data-DEBUG: dan_id: 14, value: ['.00']
-11:06:00-pompa.data-DEBUG: id: 15, stored value: 158.00
-11:06:00-pompa.data-DEBUG: dan_id: 15, value: ['158.00']
-11:06:00-pompa.data-DEBUG: id: 16, stored value: 158.00
-11:06:00-pompa.data-DEBUG: dan_id: 16, value: ['158.00']
-11:06:00-pompa.data-DEBUG: id: 17, stored value: 2.60
-11:06:00-pompa.data-DEBUG: dan_id: 17, value: ['2.60']
-11:06:00-pompa.data-DEBUG: id: 18, stored value: 1.20
-11:06:00-pompa.data-DEBUG: dan_id: 18, value: ['1.20']
-11:06:00-pompa.data-DEBUG: id: 19, stored value: 1
-11:06:00-pompa.data-DEBUG: dan_id: 19, value: ['1']
-11:06:00-pompa.data-DEBUG: id: 20, stored value: 40
-11:06:00-pompa.data-DEBUG: dan_id: 20, value: ['40']
-11:06:00-pompa.data-DEBUG: id: 21, stored value: 0
-11:06:00-pompa.data-DEBUG: dan_id: 21, value: ['0']
-11:06:00-pompa.data-DEBUG: id: 29, stored value: 125.0
-11:06:00-pompa.data-DEBUG: dan_id: 29, value: ['125.0']
-11:06:00-pompa.data-DEBUG: id: 30, stored value: .05
-11:06:00-pompa.data-DEBUG: dan_id: 30, value: ['.05']
-11:06:00-pompa.data-DEBUG: id: 31, stored value: 1
-11:06:00-pompa.data-DEBUG: dan_id: 31, value: ['1']
-11:06:00-pompa.data-DEBUG: id: 32, stored value: 3.18
-11:06:00-pompa.data-DEBUG: dan_id: 32, value: ['3.18']
-11:06:00-pompa.data-DEBUG: id: 33, stored value: .2
-11:06:00-pompa.data-DEBUG: dan_id: 33, value: ['.2']
-11:06:00-pompa.data-DEBUG: id: 34, stored value: 1.6
-11:06:00-pompa.data-DEBUG: dan_id: 34, value: ['1.6']
-11:06:00-pompa.data-DEBUG: id: 35, stored value: 6.0
-11:06:00-pompa.data-DEBUG: dan_id: 35, value: ['6.0']
-11:06:00-pompa.data-DEBUG: id: 36, stored value: 6
-11:06:00-pompa.data-DEBUG: dan_id: 36, value: ['6']
-11:06:00-pompa.data-DEBUG: id: 37, stored value: 47.0
-11:06:00-pompa.data-DEBUG: dan_id: 37, value: ['47.0']
-11:06:00-pompa.data-DEBUG: id: 37, stored value: 40.0
-11:06:00-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0']
-11:06:00-pompa.data-DEBUG: id: 37, stored value: 30.0
-11:06:00-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0']
-11:06:00-pompa.data-DEBUG: id: 37, stored value: 20.0
-11:06:00-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0']
-11:06:00-pompa.data-DEBUG: id: 37, stored value: 10.0
-11:06:00-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0', '10.0']
-11:06:00-pompa.data-DEBUG: id: 37, stored value: .0
-11:06:00-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0', '10.0', '.0']
-11:06:00-pompa.data-DEBUG: id: 38, stored value: .0
-11:06:00-pompa.data-DEBUG: dan_id: 38, value: ['.0']
-11:06:00-pompa.data-DEBUG: id: 38, stored value: 2.2
-11:06:00-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2']
-11:06:00-pompa.data-DEBUG: id: 38, stored value: 5.7
-11:06:00-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7']
-11:06:00-pompa.data-DEBUG: id: 38, stored value: 9.1
-11:06:00-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1']
-11:06:00-pompa.data-DEBUG: id: 38, stored value: 12.5
-11:06:00-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1', '12.5']
-11:06:00-pompa.data-DEBUG: id: 38, stored value: 14.7
-11:06:00-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1', '12.5', '14.7']
-11:06:00-pompa.data-DEBUG: id: 39, stored value: 11.0
-11:06:00-pompa.data-DEBUG: dan_id: 39, value: ['11.0']
-11:06:00-pompa.data-DEBUG: id: 40, stored value: 23.0
-11:06:00-pompa.data-DEBUG: dan_id: 40, value: ['23.0']
-11:06:00-pompa.data-DEBUG: id: 41, stored value: 1
-11:06:00-pompa.data-DEBUG: dan_id: 41, value: ['1']
-11:06:00-pompa.data-DEBUG: id: 42, stored value: 400.0
-11:06:00-pompa.data-DEBUG: dan_id: 42, value: ['400.0']
-11:06:00-pompa.data-DEBUG: id: 43, stored value: 160.0
-11:06:00-pompa.data-DEBUG: dan_id: 43, value: ['160.0']
-11:06:00-pompa.data-DEBUG: id: 44, stored value: .10
-11:06:00-pompa.data-DEBUG: dan_id: 44, value: ['.10']
-11:06:00-pompa.data-DEBUG: id: 45, stored value: 0
-11:06:00-pompa.data-DEBUG: dan_id: 45, value: ['0']
-11:06:00-pompa.data-DEBUG: dictionary in progress: {'1': ['0'], '2': ['1'], '3': ['0'], '4': ['1'], '5': ['.81'], '9': ['.30'], '10': ['159.00'], '11': ['157.40'], '12': ['153.00'], '13': ['151.50'], '14': ['.00'], '15': ['158.00'], '16': ['158.00'], '17': ['2.60'], '18': ['1.20'], '19': ['1'], '20': ['40'], '21': ['0'], '29': ['125.0'], '30': ['.05'], '31': ['1'], '32': ['3.18'], '33': ['.2'], '34': ['1.6'], '35': ['6.0'], '36': ['6'], '37': ['47.0', '40.0', '30.0', '20.0', '10.0', '.0'], '38': ['.0', '2.2', '5.7', '9.1', '12.5', '14.7'], '39': ['11.0'], '40': ['23.0'], '41': ['1'], '42': ['400.0'], '43': ['160.0'], '44': ['.10'], '45': ['0']}
-11:06:00-pompa.data-DEBUG: dictionary at finish: {'1': 0.0, '2': 1.0, '3': 0.0, '4': 1.0, '5': 0.81, '9': 0.3, '10': 159.0, '11': 157.4, '12': 153.0, '13': 151.5, '14': 0.0, '15': 158.0, '16': 158.0, '17': 2.6, '18': 1.2, '19': 1.0, '20': 40.0, '21': 0.0, '29': 125.0, '30': 0.05, '31': 1.0, '32': 3.18, '33': 0.2, '34': 1.6, '35': 6.0, '36': 6.0, '37': [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], '38': [0.0, 2.2, 5.7, 9.1, 12.5, 14.7], '39': 11.0, '40': 23.0, '41': 1.0, '42': 400.0, '43': 160.0, '44': 0.1, '45': 0.0}
-11:06:00-pompa.models-DEBUG: loading app for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: loading well for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: <models.well.Well object at 0x089012F0> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: dan_id
-11:06:00-pompa.models-INFO: object: <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: well has dan_id
-11:06:00-pompa.models-DEBUG: loading app for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading shape for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading config for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: config has dan_id
-11:06:00-pompa.models-DEBUG: loading diameter for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: diameter has dan_id
-11:06:00-pompa.models-DEBUG: loading length for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: length has dan_id
-11:06:00-pompa.models-DEBUG: loading width for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: width has dan_id
-11:06:00-pompa.models-DEBUG: loading area for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading min_diameter for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading ins_pipe for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: <models.pipe.Pipe object at 0x08901850> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: dan_id
-11:06:00-pompa.models-INFO: object: <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: ins_pipe has dan_id
-11:06:00-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: length has dan_id
-11:06:00-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: diameter has dan_id
-11:06:00-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: roughness has dan_id
-11:06:00-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: resistance has dan_id
-11:06:00-pompa.variables-DEBUG: trying to convert: 3.18 to floats list
-11:06:00-pompa.figs-DEBUG: Starting draw report figure
-11:06:00-pompa.station-DEBUG: Are pipes ready?
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 0.0, 13);0.0 = 0.0
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 0.0, 9);0.0 = 0.0
-11:06:00-pompa.models-DEBUG: <models.station.Station object at 0x08DC6CB0> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: d_pipe
-11:06:00-pompa.models-INFO: object: <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.variables-ERROR: Error Resistance'NoneType' object has no attribute 'pipe_char_ready'
-11:06:00-pompa.variables-ERROR: attribute : load_flag
-11:06:00-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading l_res_coef for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading out_pipe for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: <models.pipe.Pipe object at 0x08901A70> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: dan_id
-11:06:00-pompa.models-INFO: object: <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: out_pipe has dan_id
-11:06:00-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: length has dan_id
-11:06:00-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: diameter has dan_id
-11:06:00-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: roughness has dan_id
-11:06:00-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: resistance has dan_id
-11:06:00-pompa.figs-DEBUG: Starting draw report figure
-11:06:00-pompa.station-DEBUG: Are pipes ready?
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 0.0, 13);0.0 = 0.0
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 0.0, 9);0.0 = 0.0
-11:06:00-pompa.models-DEBUG: <models.station.Station object at 0x08DC6CB0> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: d_pipe
-11:06:00-pompa.models-INFO: object: <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.variables-ERROR: Error Resistance'NoneType' object has no attribute 'pipe_char_ready'
-11:06:00-pompa.variables-ERROR: attribute : load_flag
-11:06:00-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: parallels has dan_id
-11:06:00-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading pump for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: <models.pump.PumpType object at 0x08901590> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: dan_id
-11:06:00-pompa.models-INFO: object: <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: pump has dan_id
-11:06:00-pompa.models-DEBUG: loading app for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: loading cycle_time for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: cycle_time has dan_id
-11:06:00-pompa.models-DEBUG: loading contour for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: contour has dan_id
-11:06:00-pompa.models-DEBUG: loading suction_level for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: loading efficiency_from for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: efficiency_from has dan_id
-11:06:00-pompa.models-DEBUG: loading efficiency_to for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: efficiency_to has dan_id
-11:06:00-pompa.models-DEBUG: loading characteristic for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: characteristic has dan_id
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
-11:06:00-pompa.variables-INFO: sort_points started
-11:06:00-pompa.variables-DEBUG: id numbers raised: [('47.0', 'I001'), ('40.0', 'I002'), ('30.0', 'I003'), ('20.0', 'I004'), ('10.0', 'I005'), ('0.0', 'I006')]
-11:06:00-pompa.variables-INFO: sort_points ended
-11:06:00-pompa.models-DEBUG: loading minimal_sewage_level for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: minimal_sewage_level has dan_id
-11:06:00-pompa.models-DEBUG: loading ord_terrain for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: ord_terrain has dan_id
-11:06:00-pompa.models-DEBUG: loading ord_inlet for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: ord_inlet has dan_id
-11:06:00-pompa.models-DEBUG: loading ord_outlet for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: ord_outlet has dan_id
-11:06:00-pompa.models-DEBUG: loading ord_bottom for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: ord_bottom has dan_id
-11:06:00-pompa.models-DEBUG: loading difference_in_start for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: difference_in_start has dan_id
-11:06:00-pompa.models-DEBUG: loading ord_highest_point for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: ord_highest_point has dan_id
-11:06:00-pompa.models-DEBUG: loading ord_upper_level for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: ord_upper_level has dan_id
-11:06:00-pompa.models-DEBUG: loading inflow_max for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: inflow_max has dan_id
-11:06:00-pompa.models-DEBUG: loading inflow_min for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: inflow_min has dan_id
-11:06:00-pompa.models-DEBUG: loading reserve_pumps for obj <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.models-DEBUG: reserve_pumps has dan_id
-11:06:00-pompa.models-DEBUG: loading app for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading shape for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading config for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: config has dan_id
-11:06:00-pompa.models-DEBUG: loading diameter for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: diameter has dan_id
-11:06:00-pompa.models-DEBUG: loading length for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: length has dan_id
-11:06:00-pompa.models-DEBUG: loading width for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: width has dan_id
-11:06:00-pompa.models-DEBUG: loading area for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading min_diameter for obj <models.well.Well object at 0x089012F0>
-11:06:00-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: length has dan_id
-11:06:00-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: diameter has dan_id
-11:06:00-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: roughness has dan_id
-11:06:00-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: resistance has dan_id
-11:06:00-pompa.figs-DEBUG: Starting draw report figure
-11:06:00-pompa.station-DEBUG: Are pipes ready?
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 151.5, 13);151.5 = 151.5
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 0.3, 9);0.3 = 0.3
-11:06:00-pompa.models-DEBUG: <models.station.Station object at 0x08DC6CB0> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: get_geom_loss_vector
-11:06:00-pompa.models-INFO: object: <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.variables-ERROR: Error Resistance'NoneType' object is not callable
-11:06:00-pompa.variables-ERROR: attribute : load_flag
-11:06:00-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading l_res_coef for obj <models.pipe.Pipe object at 0x08901850>
-11:06:00-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: length has dan_id
-11:06:00-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: diameter has dan_id
-11:06:00-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: roughness has dan_id
-11:06:00-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: resistance has dan_id
-11:06:00-pompa.figs-DEBUG: Starting draw report figure
-11:06:00-pompa.station-DEBUG: Are pipes ready?
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 151.5, 13);151.5 = 151.5
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 0.3, 9);0.3 = 0.3
-11:06:00-pompa.models-DEBUG: <models.station.Station object at 0x08DC6CB0> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: get_geom_loss_vector
-11:06:00-pompa.models-INFO: object: <models.station.Station object at 0x08DC6CB0>
-11:06:00-pompa.variables-ERROR: Error Resistance'NoneType' object is not callable
-11:06:00-pompa.variables-ERROR: attribute : load_flag
-11:06:00-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: parallels has dan_id
-11:06:00-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x08901A70>
-11:06:00-pompa.models-DEBUG: loading app for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: loading builder for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: loading ui_vars for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: loading cycle_time for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: cycle_time has dan_id
-11:06:00-pompa.models-DEBUG: loading contour for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: contour has dan_id
-11:06:00-pompa.models-DEBUG: loading suction_level for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: loading efficiency_from for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: efficiency_from has dan_id
-11:06:00-pompa.models-DEBUG: loading efficiency_to for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: efficiency_to has dan_id
-11:06:00-pompa.models-DEBUG: loading characteristic for obj <models.pump.PumpType object at 0x08901590>
-11:06:00-pompa.models-DEBUG: characteristic has dan_id
-11:06:00-pompa.variables-INFO: delete_point started
-11:06:00-pompa.variables-DEBUG: point to delete: (47.0, 0.0)
-11:06:00-pompa.variables-DEBUG: actual dict: {'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
-11:06:00-pompa.variables-INFO: sort_points started
-11:06:00-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002')]
-11:06:00-pompa.variables-INFO: sort_points ended
-11:06:00-pompa.variables-INFO: delete_points ended
-11:06:00-pompa.variables-INFO: delete_point started
-11:06:00-pompa.variables-DEBUG: point to delete: (40.0, 2.2)
-11:06:00-pompa.variables-DEBUG: actual dict: {'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
-11:06:00-pompa.variables-INFO: sort_points started
-11:06:00-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003')]
-11:06:00-pompa.variables-INFO: sort_points ended
-11:06:00-pompa.variables-INFO: delete_points ended
-11:06:00-pompa.variables-INFO: delete_point started
-11:06:00-pompa.variables-DEBUG: point to delete: (30.0, 5.7)
-11:06:00-pompa.variables-DEBUG: actual dict: {'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
-11:06:00-pompa.variables-INFO: sort_points started
-11:06:00-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004')]
-11:06:00-pompa.variables-INFO: sort_points ended
-11:06:00-pompa.variables-INFO: delete_points ended
-11:06:00-pompa.variables-INFO: delete_point started
-11:06:00-pompa.variables-DEBUG: point to delete: (20.0, 9.1)
-11:06:00-pompa.variables-DEBUG: actual dict: {'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
-11:06:00-pompa.variables-INFO: sort_points started
-11:06:00-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006'), ('10.0', 'I005')]
-11:06:00-pompa.variables-INFO: sort_points ended
-11:06:00-pompa.variables-INFO: delete_points ended
-11:06:00-pompa.variables-INFO: delete_point started
-11:06:00-pompa.variables-DEBUG: point to delete: (10.0, 12.5)
-11:06:00-pompa.variables-DEBUG: actual dict: {'I006': (0.0, 14.7)}
-11:06:00-pompa.variables-INFO: sort_points started
-11:06:00-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006')]
-11:06:00-pompa.variables-INFO: sort_points ended
-11:06:00-pompa.variables-INFO: delete_points ended
-11:06:00-pompa.variables-INFO: delete_point started
-11:06:00-pompa.variables-DEBUG: point to delete: (0.0, 14.7)
-11:06:00-pompa.variables-DEBUG: actual dict: {}
-11:06:00-pompa.variables-INFO: sort_points started
-11:06:00-pompa.variables-DEBUG: id numbers raised: []
-11:06:00-pompa.variables-INFO: sort_points ended
-11:06:00-pompa.variables-INFO: delete_points ended
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5)}
-11:06:00-pompa.variables-DEBUG: Add point method started
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
-11:06:00-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
-11:06:00-pompa.variables-INFO: sort_points started
-11:06:00-pompa.variables-DEBUG: id numbers raised: [('47.0', 'I007'), ('40.0', 'I008'), ('30.0', 'I009'), ('20.0', 'I00A'), ('10.0', 'I00B'), ('0.0', 'I00C')]
-11:06:00-pompa.variables-INFO: sort_points ended
-11:06:00-pompa.figs-DEBUG: Starting draw report figure
-11:06:00-pompa.station-DEBUG: Are pipes ready?
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 151.5, 13);151.5 = 151.5
-11:06:00-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765D430>, 0.3, 9);0.3 = 0.3
-11:06:00-pompa.models-DEBUG: <models.station.Station object at 0x08DC6CB0> Has no <.> in attr
-11:06:00-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
-11:06:00-pompa.models-INFO: missing attribute: get_geom_loss_vector
-11:06:00-pompa.models-INFO: object: <models.station.Station object at 0x08DC6CB0>
+13:24:33-pompa.data-DEBUG: id: 1, stored value: 0
+13:24:33-pompa.data-DEBUG: dan_id: 1, value: ['0']
+13:24:33-pompa.data-DEBUG: id: 2, stored value: 1
+13:24:33-pompa.data-DEBUG: dan_id: 2, value: ['1']
+13:24:33-pompa.data-DEBUG: id: 3, stored value: 0
+13:24:33-pompa.data-DEBUG: dan_id: 3, value: ['0']
+13:24:33-pompa.data-DEBUG: id: 4, stored value: 1
+13:24:33-pompa.data-DEBUG: dan_id: 4, value: ['1']
+13:24:33-pompa.data-DEBUG: id: 5, stored value: .81
+13:24:33-pompa.data-DEBUG: dan_id: 5, value: ['.81']
+13:24:33-pompa.data-DEBUG: id: 9, stored value: .30
+13:24:33-pompa.data-DEBUG: dan_id: 9, value: ['.30']
+13:24:33-pompa.data-DEBUG: id: 10, stored value: 159.00
+13:24:33-pompa.data-DEBUG: dan_id: 10, value: ['159.00']
+13:24:33-pompa.data-DEBUG: id: 11, stored value: 157.40
+13:24:33-pompa.data-DEBUG: dan_id: 11, value: ['157.40']
+13:24:33-pompa.data-DEBUG: id: 12, stored value: 153.00
+13:24:33-pompa.data-DEBUG: dan_id: 12, value: ['153.00']
+13:24:33-pompa.data-DEBUG: id: 13, stored value: 151.50
+13:24:33-pompa.data-DEBUG: dan_id: 13, value: ['151.50']
+13:24:33-pompa.data-DEBUG: id: 14, stored value: .00
+13:24:33-pompa.data-DEBUG: dan_id: 14, value: ['.00']
+13:24:33-pompa.data-DEBUG: id: 15, stored value: 158.00
+13:24:33-pompa.data-DEBUG: dan_id: 15, value: ['158.00']
+13:24:33-pompa.data-DEBUG: id: 16, stored value: 158.00
+13:24:33-pompa.data-DEBUG: dan_id: 16, value: ['158.00']
+13:24:33-pompa.data-DEBUG: id: 17, stored value: 2.60
+13:24:33-pompa.data-DEBUG: dan_id: 17, value: ['2.60']
+13:24:33-pompa.data-DEBUG: id: 18, stored value: 1.20
+13:24:33-pompa.data-DEBUG: dan_id: 18, value: ['1.20']
+13:24:33-pompa.data-DEBUG: id: 19, stored value: 1
+13:24:33-pompa.data-DEBUG: dan_id: 19, value: ['1']
+13:24:33-pompa.data-DEBUG: id: 20, stored value: 40
+13:24:33-pompa.data-DEBUG: dan_id: 20, value: ['40']
+13:24:33-pompa.data-DEBUG: id: 21, stored value: 0
+13:24:33-pompa.data-DEBUG: dan_id: 21, value: ['0']
+13:24:33-pompa.data-DEBUG: id: 29, stored value: 125.0
+13:24:33-pompa.data-DEBUG: dan_id: 29, value: ['125.0']
+13:24:33-pompa.data-DEBUG: id: 30, stored value: .05
+13:24:33-pompa.data-DEBUG: dan_id: 30, value: ['.05']
+13:24:33-pompa.data-DEBUG: id: 31, stored value: 1
+13:24:33-pompa.data-DEBUG: dan_id: 31, value: ['1']
+13:24:33-pompa.data-DEBUG: id: 32, stored value: 3.18
+13:24:33-pompa.data-DEBUG: dan_id: 32, value: ['3.18']
+13:24:33-pompa.data-DEBUG: id: 33, stored value: .2
+13:24:33-pompa.data-DEBUG: dan_id: 33, value: ['.2']
+13:24:33-pompa.data-DEBUG: id: 34, stored value: 1.6
+13:24:33-pompa.data-DEBUG: dan_id: 34, value: ['1.6']
+13:24:33-pompa.data-DEBUG: id: 35, stored value: 6.0
+13:24:33-pompa.data-DEBUG: dan_id: 35, value: ['6.0']
+13:24:33-pompa.data-DEBUG: id: 36, stored value: 6
+13:24:33-pompa.data-DEBUG: dan_id: 36, value: ['6']
+13:24:33-pompa.data-DEBUG: id: 37, stored value: 47.0
+13:24:33-pompa.data-DEBUG: dan_id: 37, value: ['47.0']
+13:24:33-pompa.data-DEBUG: id: 37, stored value: 40.0
+13:24:33-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0']
+13:24:33-pompa.data-DEBUG: id: 37, stored value: 30.0
+13:24:33-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0']
+13:24:33-pompa.data-DEBUG: id: 37, stored value: 20.0
+13:24:33-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0']
+13:24:33-pompa.data-DEBUG: id: 37, stored value: 10.0
+13:24:33-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0', '10.0']
+13:24:33-pompa.data-DEBUG: id: 37, stored value: .0
+13:24:33-pompa.data-DEBUG: dan_id: 37, value: ['47.0', '40.0', '30.0', '20.0', '10.0', '.0']
+13:24:33-pompa.data-DEBUG: id: 38, stored value: .0
+13:24:33-pompa.data-DEBUG: dan_id: 38, value: ['.0']
+13:24:33-pompa.data-DEBUG: id: 38, stored value: 2.2
+13:24:33-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2']
+13:24:33-pompa.data-DEBUG: id: 38, stored value: 5.7
+13:24:33-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7']
+13:24:33-pompa.data-DEBUG: id: 38, stored value: 9.1
+13:24:33-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1']
+13:24:33-pompa.data-DEBUG: id: 38, stored value: 12.5
+13:24:33-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1', '12.5']
+13:24:33-pompa.data-DEBUG: id: 38, stored value: 14.7
+13:24:33-pompa.data-DEBUG: dan_id: 38, value: ['.0', '2.2', '5.7', '9.1', '12.5', '14.7']
+13:24:33-pompa.data-DEBUG: id: 39, stored value: 11.0
+13:24:33-pompa.data-DEBUG: dan_id: 39, value: ['11.0']
+13:24:33-pompa.data-DEBUG: id: 40, stored value: 23.0
+13:24:33-pompa.data-DEBUG: dan_id: 40, value: ['23.0']
+13:24:33-pompa.data-DEBUG: id: 41, stored value: 1
+13:24:33-pompa.data-DEBUG: dan_id: 41, value: ['1']
+13:24:33-pompa.data-DEBUG: id: 42, stored value: 400.0
+13:24:33-pompa.data-DEBUG: dan_id: 42, value: ['400.0']
+13:24:33-pompa.data-DEBUG: id: 43, stored value: 160.0
+13:24:33-pompa.data-DEBUG: dan_id: 43, value: ['160.0']
+13:24:33-pompa.data-DEBUG: id: 44, stored value: .10
+13:24:33-pompa.data-DEBUG: dan_id: 44, value: ['.10']
+13:24:33-pompa.data-DEBUG: id: 45, stored value: 0
+13:24:33-pompa.data-DEBUG: dan_id: 45, value: ['0']
+13:24:33-pompa.data-DEBUG: dictionary in progress: {'1': ['0'], '2': ['1'], '3': ['0'], '4': ['1'], '5': ['.81'], '9': ['.30'], '10': ['159.00'], '11': ['157.40'], '12': ['153.00'], '13': ['151.50'], '14': ['.00'], '15': ['158.00'], '16': ['158.00'], '17': ['2.60'], '18': ['1.20'], '19': ['1'], '20': ['40'], '21': ['0'], '29': ['125.0'], '30': ['.05'], '31': ['1'], '32': ['3.18'], '33': ['.2'], '34': ['1.6'], '35': ['6.0'], '36': ['6'], '37': ['47.0', '40.0', '30.0', '20.0', '10.0', '.0'], '38': ['.0', '2.2', '5.7', '9.1', '12.5', '14.7'], '39': ['11.0'], '40': ['23.0'], '41': ['1'], '42': ['400.0'], '43': ['160.0'], '44': ['.10'], '45': ['0']}
+13:24:33-pompa.data-DEBUG: dictionary at finish: {'1': 0.0, '2': 1.0, '3': 0.0, '4': 1.0, '5': 0.81, '9': 0.3, '10': 159.0, '11': 157.4, '12': 153.0, '13': 151.5, '14': 0.0, '15': 158.0, '16': 158.0, '17': 2.6, '18': 1.2, '19': 1.0, '20': 40.0, '21': 0.0, '29': 125.0, '30': 0.05, '31': 1.0, '32': 3.18, '33': 0.2, '34': 1.6, '35': 6.0, '36': 6.0, '37': [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], '38': [0.0, 2.2, 5.7, 9.1, 12.5, 14.7], '39': 11.0, '40': 23.0, '41': 1.0, '42': 400.0, '43': 160.0, '44': 0.1, '45': 0.0}
+13:24:33-pompa.models-DEBUG: loading app for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: loading builder for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: loading ui_vars for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: loading well for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: <models.well.Well object at 0x078F13B0> Has no <.> in attr
+13:24:33-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
+13:24:33-pompa.models-INFO: missing attribute: dan_id
+13:24:33-pompa.models-INFO: object: <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: well has dan_id
+13:24:33-pompa.models-DEBUG: loading app for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading builder for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading ui_vars for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading shape for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading config for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: config has dan_id
+13:24:33-pompa.models-DEBUG: loading diameter for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: diameter has dan_id
+13:24:33-pompa.models-DEBUG: loading length for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: length has dan_id
+13:24:33-pompa.models-DEBUG: loading width for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: width has dan_id
+13:24:33-pompa.models-DEBUG: loading area for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading min_diameter for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading ins_pipe for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: <models.pipe.Pipe object at 0x078F1910> Has no <.> in attr
+13:24:33-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
+13:24:33-pompa.models-INFO: missing attribute: dan_id
+13:24:33-pompa.models-INFO: object: <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: ins_pipe has dan_id
+13:24:33-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: length has dan_id
+13:24:33-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: diameter has dan_id
+13:24:33-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: roughness has dan_id
+13:24:33-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: resistance has dan_id
+13:24:33-pompa.variables-DEBUG: trying to convert: 3.18 to floats list
+13:24:33-pompa.figs-DEBUG: Starting draw report figure
+13:24:33-pompa.station-DEBUG: Are pipes ready?
+13:24:33-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 13);0.0 = 0.0
+13:24:33-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 9);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 42);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 43);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 44);0.0 = 0.0
+13:24:33-pompa.station-DEBUG: Are pipes ready?
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:33-pompa.station-DEBUG: False
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 42);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 43);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 44);0.0 = 0.0
+13:24:33-pompa.station-DEBUG: False
+13:24:33-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading l_res_coef for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading out_pipe for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: <models.pipe.Pipe object at 0x078F1B30> Has no <.> in attr
+13:24:33-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
+13:24:33-pompa.models-INFO: missing attribute: dan_id
+13:24:33-pompa.models-INFO: object: <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: out_pipe has dan_id
+13:24:33-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: length has dan_id
+13:24:33-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: diameter has dan_id
+13:24:33-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: roughness has dan_id
+13:24:33-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: resistance has dan_id
+13:24:33-pompa.figs-DEBUG: Starting draw report figure
+13:24:33-pompa.station-DEBUG: Are pipes ready?
+13:24:33-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 13);0.0 = 0.0
+13:24:33-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 9);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:33-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:33-pompa.figs-DEBUG: Drawing collector plot
+13:24:33-pompa.figs-DEBUG: 
+COLLECTOR
+
+
+13:24:33-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:33-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:33-pompa.variables-DEBUG: Starting iterating over cooridnates, {}
+13:24:33-pompa.variables-DEBUG: flows: [], lifts: []
+13:24:33-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:33-pompa.pipe-DEBUG: Pipe loss coords: []
+13:24:33-pompa.pipe-DEBUG: Got ys
+13:24:33-pompa.variables-ERROR: Error Resistanceexpected non-empty vector for x
+13:24:33-pompa.variables-ERROR: attribute : load_flag
+13:24:33-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: parallels has dan_id
+13:24:33-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:33-pompa.models-DEBUG: loading pump for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: <models.pump.PumpType object at 0x078F1650> Has no <.> in attr
+13:24:33-pompa.models-INFO: Error: 'super' object has no attribute '__getattr__'
+13:24:33-pompa.models-INFO: missing attribute: dan_id
+13:24:33-pompa.models-INFO: object: <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: pump has dan_id
+13:24:33-pompa.models-DEBUG: loading app for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: loading builder for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: loading ui_vars for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: loading cycle_time for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: cycle_time has dan_id
+13:24:33-pompa.models-DEBUG: loading contour for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: contour has dan_id
+13:24:33-pompa.models-DEBUG: loading suction_level for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: loading efficiency_from for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: efficiency_from has dan_id
+13:24:33-pompa.models-DEBUG: loading efficiency_to for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: efficiency_to has dan_id
+13:24:33-pompa.models-DEBUG: loading characteristic for obj <models.pump.PumpType object at 0x078F1650>
+13:24:33-pompa.models-DEBUG: characteristic has dan_id
+13:24:33-pompa.variables-DEBUG: Add point method started
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0)}
+13:24:33-pompa.variables-DEBUG: Add point method started
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2)}
+13:24:33-pompa.variables-DEBUG: Add point method started
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7)}
+13:24:33-pompa.variables-DEBUG: Add point method started
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1)}
+13:24:33-pompa.variables-DEBUG: Add point method started
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5)}
+13:24:33-pompa.variables-DEBUG: Add point method started
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:33-pompa.variables-DEBUG: char points: {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:33-pompa.variables-INFO: sort_points started
+13:24:33-pompa.variables-DEBUG: id numbers raised: [('47.0', 'I001'), ('40.0', 'I002'), ('30.0', 'I003'), ('20.0', 'I004'), ('10.0', 'I005'), ('0.0', 'I006')]
+13:24:33-pompa.variables-INFO: sort_points ended
+13:24:33-pompa.models-DEBUG: loading minimal_sewage_level for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: minimal_sewage_level has dan_id
+13:24:33-pompa.models-DEBUG: loading ord_terrain for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: ord_terrain has dan_id
+13:24:33-pompa.models-DEBUG: loading ord_inlet for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: ord_inlet has dan_id
+13:24:33-pompa.models-DEBUG: loading ord_outlet for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: ord_outlet has dan_id
+13:24:33-pompa.models-DEBUG: loading ord_bottom for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: ord_bottom has dan_id
+13:24:33-pompa.models-DEBUG: loading difference_in_start for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: difference_in_start has dan_id
+13:24:33-pompa.models-DEBUG: loading ord_highest_point for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: ord_highest_point has dan_id
+13:24:33-pompa.models-DEBUG: loading ord_upper_level for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: ord_upper_level has dan_id
+13:24:33-pompa.models-DEBUG: loading inflow_max for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: inflow_max has dan_id
+13:24:33-pompa.models-DEBUG: loading inflow_min for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: inflow_min has dan_id
+13:24:33-pompa.models-DEBUG: loading reserve_pumps for obj <models.station.Station object at 0x078E1D70>
+13:24:33-pompa.models-DEBUG: reserve_pumps has dan_id
+13:24:33-pompa.models-DEBUG: loading app for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading builder for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading ui_vars for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading shape for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading config for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: config has dan_id
+13:24:33-pompa.models-DEBUG: loading diameter for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: diameter has dan_id
+13:24:33-pompa.models-DEBUG: loading length for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: length has dan_id
+13:24:33-pompa.models-DEBUG: loading width for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: width has dan_id
+13:24:33-pompa.models-DEBUG: loading area for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading min_diameter for obj <models.well.Well object at 0x078F13B0>
+13:24:33-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: length has dan_id
+13:24:33-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: diameter has dan_id
+13:24:33-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: roughness has dan_id
+13:24:33-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:33-pompa.models-DEBUG: resistance has dan_id
+13:24:33-pompa.figs-DEBUG: Starting draw report figure
+13:24:34-pompa.station-DEBUG: Are pipes ready?
+13:24:34-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 151.5, 13);151.5 = 151.5
+13:24:34-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.3, 9);0.3 = 0.3
+13:24:34-pompa.figs-DEBUG: Starting draw_pipes_plot
+13:24:34-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:34-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:34-pompa.figs-DEBUG: Drawing collector plot
+13:24:34-pompa.figs-DEBUG: 
+COLLECTOR
+
+
+13:24:34-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:34-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:34-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:34-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-ERROR: float division by zero
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Pipe loss coords: [12.972811328268872, 9.475344131239428, 5.424076864001691, 2.4868499096063448, 0.6691560096670492, 0.0]
+13:24:34-pompa.pipe-DEBUG: Got ys
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 47.0, pipe: 12.972811328268872, sum: 12.972811328268872
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 40.0, pipe: 9.475344131239428, sum: 9.475344131239428
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 30.0, pipe: 5.424076864001691, sum: 5.424076864001691
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 20.0, pipe: 2.4868499096063448, sum: 2.4868499096063448
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 10.0, pipe: 0.6691560096670492, sum: 0.6691560096670492
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: Finding ys finished
+13:24:34-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.005614 x + 0.01237 x - 0.005661, look: r-
+13:24:34-pompa.station-DEBUG: Are pipes ready?
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:34-pompa.station-DEBUG: False
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:34-pompa.station-DEBUG: False
+13:24:34-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:34-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:34-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:34-pompa.models-DEBUG: loading l_res_coef for obj <models.pipe.Pipe object at 0x078F1910>
+13:24:34-pompa.models-DEBUG: loading app for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: loading builder for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: loading ui_vars for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: loading length for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: length has dan_id
+13:24:34-pompa.models-DEBUG: loading diameter for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: diameter has dan_id
+13:24:34-pompa.models-DEBUG: loading roughness for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: roughness has dan_id
+13:24:34-pompa.models-DEBUG: loading resistance for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: resistance has dan_id
+13:24:34-pompa.figs-DEBUG: Starting draw report figure
+13:24:34-pompa.station-DEBUG: Are pipes ready?
+13:24:34-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 151.5, 13);151.5 = 151.5
+13:24:34-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.3, 9);0.3 = 0.3
+13:24:34-pompa.figs-DEBUG: Starting draw_pipes_plot
+13:24:34-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:34-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:34-pompa.figs-DEBUG: Drawing collector plot
+13:24:34-pompa.figs-DEBUG: 
+COLLECTOR
+
+
+13:24:34-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:34-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:34-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I001': (47.0, 0.0), 'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:34-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-ERROR: float division by zero
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Pipe loss coords: [12.972811328268872, 9.475344131239428, 5.424076864001691, 2.4868499096063448, 0.6691560096670492, 0.0]
+13:24:34-pompa.pipe-DEBUG: Got ys
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 47.0, pipe: 12.972811328268872, sum: 12.972811328268872
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 40.0, pipe: 9.475344131239428, sum: 9.475344131239428
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 30.0, pipe: 5.424076864001691, sum: 5.424076864001691
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 20.0, pipe: 2.4868499096063448, sum: 2.4868499096063448
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 10.0, pipe: 0.6691560096670492, sum: 0.6691560096670492
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: Finding ys finished
+13:24:34-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.005614 x + 0.01237 x - 0.005661, look: r-
+13:24:34-pompa.station-DEBUG: Are pipes ready?
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:34-pompa.station-DEBUG: False
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:34-pompa.station-DEBUG: False
+13:24:34-pompa.models-DEBUG: loading parallels for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: parallels has dan_id
+13:24:34-pompa.models-DEBUG: loading area for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: loading epsilon for obj <models.pipe.Pipe object at 0x078F1B30>
+13:24:34-pompa.models-DEBUG: loading app for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: loading builder for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: loading ui_vars for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: loading cycle_time for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: cycle_time has dan_id
+13:24:34-pompa.models-DEBUG: loading contour for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: contour has dan_id
+13:24:34-pompa.models-DEBUG: loading suction_level for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: loading efficiency_from for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: efficiency_from has dan_id
+13:24:34-pompa.models-DEBUG: loading efficiency_to for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: efficiency_to has dan_id
+13:24:34-pompa.models-DEBUG: loading characteristic for obj <models.pump.PumpType object at 0x078F1650>
+13:24:34-pompa.models-DEBUG: characteristic has dan_id
+13:24:34-pompa.variables-INFO: delete_point started
+13:24:34-pompa.variables-DEBUG: point to delete: (47.0, 0.0)
+13:24:34-pompa.variables-DEBUG: actual dict: {'I002': (40.0, 2.2), 'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-INFO: sort_points started
+13:24:34-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003'), ('40.0', 'I002')]
+13:24:34-pompa.variables-INFO: sort_points ended
+13:24:34-pompa.variables-INFO: delete_points ended
+13:24:34-pompa.variables-INFO: delete_point started
+13:24:34-pompa.variables-DEBUG: point to delete: (40.0, 2.2)
+13:24:34-pompa.variables-DEBUG: actual dict: {'I003': (30.0, 5.7), 'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-INFO: sort_points started
+13:24:34-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004'), ('30.0', 'I003')]
+13:24:34-pompa.variables-INFO: sort_points ended
+13:24:34-pompa.variables-INFO: delete_points ended
+13:24:34-pompa.variables-INFO: delete_point started
+13:24:34-pompa.variables-DEBUG: point to delete: (30.0, 5.7)
+13:24:34-pompa.variables-DEBUG: actual dict: {'I004': (20.0, 9.1), 'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-INFO: sort_points started
+13:24:34-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006'), ('10.0', 'I005'), ('20.0', 'I004')]
+13:24:34-pompa.variables-INFO: sort_points ended
+13:24:34-pompa.variables-INFO: delete_points ended
+13:24:34-pompa.variables-INFO: delete_point started
+13:24:34-pompa.variables-DEBUG: point to delete: (20.0, 9.1)
+13:24:34-pompa.variables-DEBUG: actual dict: {'I005': (10.0, 12.5), 'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-INFO: sort_points started
+13:24:34-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006'), ('10.0', 'I005')]
+13:24:34-pompa.variables-INFO: sort_points ended
+13:24:34-pompa.variables-INFO: delete_points ended
+13:24:34-pompa.variables-INFO: delete_point started
+13:24:34-pompa.variables-DEBUG: point to delete: (10.0, 12.5)
+13:24:34-pompa.variables-DEBUG: actual dict: {'I006': (0.0, 14.7)}
+13:24:34-pompa.variables-INFO: sort_points started
+13:24:34-pompa.variables-DEBUG: id numbers raised: [('0.0', 'I006')]
+13:24:34-pompa.variables-INFO: sort_points ended
+13:24:34-pompa.variables-INFO: delete_points ended
+13:24:34-pompa.variables-INFO: delete_point started
+13:24:34-pompa.variables-DEBUG: point to delete: (0.0, 14.7)
+13:24:34-pompa.variables-DEBUG: actual dict: {}
+13:24:34-pompa.variables-INFO: sort_points started
+13:24:34-pompa.variables-DEBUG: id numbers raised: []
+13:24:34-pompa.variables-INFO: sort_points ended
+13:24:34-pompa.variables-INFO: delete_points ended
+13:24:34-pompa.variables-DEBUG: Add point method started
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0)}
+13:24:34-pompa.variables-DEBUG: Add point method started
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2)}
+13:24:34-pompa.variables-DEBUG: Add point method started
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7)}
+13:24:34-pompa.variables-DEBUG: Add point method started
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1)}
+13:24:34-pompa.variables-DEBUG: Add point method started
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5)}
+13:24:34-pompa.variables-DEBUG: Add point method started
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: types: flow: <class 'float'>, lift: <class 'float'>
+13:24:34-pompa.variables-DEBUG: char points: {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:34-pompa.variables-INFO: sort_points started
+13:24:34-pompa.variables-DEBUG: id numbers raised: [('47.0', 'I007'), ('40.0', 'I008'), ('30.0', 'I009'), ('20.0', 'I00A'), ('10.0', 'I00B'), ('0.0', 'I00C')]
+13:24:34-pompa.variables-INFO: sort_points ended
+13:24:34-pompa.figs-DEBUG: Starting draw report figure
+13:24:34-pompa.station-DEBUG: Are pipes ready?
+13:24:34-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 151.5, 13);151.5 = 151.5
+13:24:34-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.3, 9);0.3 = 0.3
+13:24:34-pompa.figs-DEBUG: Starting draw_pipes_plot
+13:24:34-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:34-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:34-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:34-pompa.figs-DEBUG: Drawing collector plot
+13:24:34-pompa.figs-DEBUG: 
+COLLECTOR
+
+
+13:24:34-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:34-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:34-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:34-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:34-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:34-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-ERROR: float division by zero
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:34-pompa.pipe-DEBUG: Pipe loss coords: [12.972811328268872, 9.475344131239428, 5.424076864001691, 2.4868499096063448, 0.6691560096670492, 0.0]
+13:24:34-pompa.pipe-DEBUG: Got ys
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 47.0, pipe: 12.972811328268872, sum: 12.972811328268872
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 40.0, pipe: 9.475344131239428, sum: 9.475344131239428
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 30.0, pipe: 5.424076864001691, sum: 5.424076864001691
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 20.0, pipe: 2.4868499096063448, sum: 2.4868499096063448
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 10.0, pipe: 0.6691560096670492, sum: 0.6691560096670492
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: ####################
+
+
+13:24:34-pompa.pipe-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+13:24:34-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:34-pompa.pipe-DEBUG: Finding ys finished
+13:24:34-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.005614 x + 0.01237 x - 0.005661, look: r-
+13:24:34-pompa.station-DEBUG: Are pipes ready?
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);0.0 = 0.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:34-pompa.station-DEBUG: False
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:34-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:34-pompa.station-DEBUG: False
+13:24:34-pompa.figs-DEBUG: Starting draw report figure
+13:24:34-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:34-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:34-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:34-pompa.figs-DEBUG: SCHEMAT
+13:24:37-pompa.variables-ERROR: Tkinter error expected floating-point number but got ""
+13:24:37-pompa.variables-ERROR: Error in update_calculations: 'Application' object has no attribute 'update_calculations'
+13:24:37-pompa.figs-DEBUG: Starting draw report figure
+13:24:37-pompa.station-DEBUG: Are pipes ready?
+13:24:37-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 151.5, 13);151.5 = 151.5
+13:24:37-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.3, 9);0.3 = 0.3
+13:24:37-pompa.figs-DEBUG: Starting draw_pipes_plot
+13:24:37-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:37-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:37-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);ERROR:expected floating-point number but got "" = 0.0
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:37-pompa.figs-DEBUG: Drawing collector plot
+13:24:37-pompa.figs-DEBUG: 
+COLLECTOR
+
+
+13:24:37-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:37-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:37-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:37-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:37-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:37-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:37-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:37-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:37-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:37-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:37-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:37-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:37-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:37-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:37-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:37-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:37-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:37-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-ERROR: float division by zero
+13:24:37-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:37-pompa.pipe-DEBUG: Pipe loss coords: [12.972811328268872, 9.475344131239428, 5.424076864001691, 2.4868499096063448, 0.6691560096670492, 0.0]
+13:24:37-pompa.pipe-DEBUG: Got ys
+13:24:37-pompa.pipe-DEBUG: ####################
+
+
+13:24:37-pompa.pipe-DEBUG: flow: 47.0, pipe: 12.972811328268872, sum: 12.972811328268872
+13:24:37-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:37-pompa.pipe-DEBUG: ####################
+
+
+13:24:37-pompa.pipe-DEBUG: flow: 40.0, pipe: 9.475344131239428, sum: 9.475344131239428
+13:24:37-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:37-pompa.pipe-DEBUG: ####################
+
+
+13:24:37-pompa.pipe-DEBUG: flow: 30.0, pipe: 5.424076864001691, sum: 5.424076864001691
+13:24:37-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:37-pompa.pipe-DEBUG: ####################
+
+
+13:24:37-pompa.pipe-DEBUG: flow: 20.0, pipe: 2.4868499096063448, sum: 2.4868499096063448
+13:24:37-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:37-pompa.pipe-DEBUG: ####################
+
+
+13:24:37-pompa.pipe-DEBUG: flow: 10.0, pipe: 0.6691560096670492, sum: 0.6691560096670492
+13:24:37-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:37-pompa.pipe-DEBUG: ####################
+
+
+13:24:37-pompa.pipe-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+13:24:37-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:37-pompa.pipe-DEBUG: Finding ys finished
+13:24:37-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.005614 x + 0.01237 x - 0.005661, look: r-
+13:24:37-pompa.station-DEBUG: Are pipes ready?
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.0, 28);ERROR:expected floating-point number but got "" = 0.0
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:37-pompa.station-DEBUG: False
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:37-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:37-pompa.station-DEBUG: False
+13:24:37-pompa.figs-DEBUG: Starting draw report figure
+13:24:37-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:37-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:37-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:37-pompa.figs-DEBUG: SCHEMAT
+13:24:37-pompa.figs-DEBUG: Starting draw report figure
+13:24:38-pompa.station-DEBUG: Are pipes ready?
+13:24:38-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 151.5, 13);151.5 = 151.5
+13:24:38-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.3, 9);0.3 = 0.3
+13:24:38-pompa.figs-DEBUG: Starting draw_pipes_plot
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 3.0, 28);3.0 = 3.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:38-pompa.figs-DEBUG: Drawing discharge pipe plot
+13:24:38-pompa.figs-DEBUG: 
+DISCHARGE PIPE
+
+
+13:24:38-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-ERROR: float division by zero
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Pipe loss coords: [2.6850987303465166, 1.9469360677474137, 1.0976296241851848, 0.48981500642613635, 0.12366125831323463, 0.0]
+13:24:38-pompa.pipe-DEBUG: Got ys
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 47.0, pipe: 2.6850987303465166, sum: 2.6850987303465166
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 40.0, pipe: 1.9469360677474137, sum: 1.9469360677474137
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 30.0, pipe: 1.0976296241851848, sum: 1.0976296241851848
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 20.0, pipe: 0.48981500642613635, sum: 0.48981500642613635
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 10.0, pipe: 0.12366125831323463, sum: 0.12366125831323463
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: Finding ys finished
+13:24:38-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.001209 x + 0.0003248 x - 0.0001646, look: y-
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:38-pompa.figs-DEBUG: Drawing collector plot
+13:24:38-pompa.figs-DEBUG: 
+COLLECTOR
+
+
+13:24:38-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-ERROR: float division by zero
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Pipe loss coords: [12.972811328268872, 9.475344131239428, 5.424076864001691, 2.4868499096063448, 0.6691560096670492, 0.0]
+13:24:38-pompa.pipe-DEBUG: Got ys
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 47.0, pipe: 12.972811328268872, sum: 12.972811328268872
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 40.0, pipe: 9.475344131239428, sum: 9.475344131239428
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 30.0, pipe: 5.424076864001691, sum: 5.424076864001691
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 20.0, pipe: 2.4868499096063448, sum: 2.4868499096063448
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 10.0, pipe: 0.6691560096670492, sum: 0.6691560096670492
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: Finding ys finished
+13:24:38-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.005614 x + 0.01237 x - 0.005661, look: r-
+13:24:38-pompa.station-DEBUG: Are pipes ready?
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 3.0, 28);3.0 = 3.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:38-pompa.station-DEBUG: True
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:38-pompa.station-DEBUG: True
+13:24:38-pompa.figs-DEBUG: Trying to drawing pipes plot
+13:24:38-pompa.figs-DEBUG: Starting draw_pipes_plot
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.figs-DEBUG: Got geometric loss
+13:24:38-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-ERROR: float division by zero
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Pipe loss coords: [2.6850987303465166, 1.9469360677474137, 1.0976296241851848, 0.48981500642613635, 0.12366125831323463, 0.0]
+13:24:38-pompa.figs-DEBUG: Got discharge_pipe ys
+13:24:38-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-ERROR: float division by zero
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Pipe loss coords: [12.972811328268872, 9.475344131239428, 5.424076864001691, 2.4868499096063448, 0.6691560096670492, 0.0]
+13:24:38-pompa.figs-DEBUG: Got collector ys
+13:24:38-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.006823 x + 0.01269 x - 0.005826, look: g-
+13:24:38-pompa.figs-DEBUG: Starting draw report figure
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.figs-DEBUG: SCHEMAT
+13:24:38-pompa.variables-ERROR: Error in update_calculations: 'Application' object has no attribute 'update_calculations'
+13:24:38-pompa.figs-DEBUG: Starting draw report figure
+13:24:38-pompa.station-DEBUG: Are pipes ready?
+13:24:38-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 151.5, 13);151.5 = 151.5
+13:24:38-pompa.station-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.3, 9);0.3 = 0.3
+13:24:38-pompa.figs-DEBUG: Starting draw_pipes_plot
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 3.0, 28);3.0 = 3.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:38-pompa.figs-DEBUG: Drawing discharge pipe plot
+13:24:38-pompa.figs-DEBUG: 
+DISCHARGE PIPE
+
+
+13:24:38-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-ERROR: float division by zero
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Pipe loss coords: [2.6850987303465166, 1.9469360677474137, 1.0976296241851848, 0.48981500642613635, 0.12366125831323463, 0.0]
+13:24:38-pompa.pipe-DEBUG: Got ys
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 47.0, pipe: 2.6850987303465166, sum: 2.6850987303465166
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 40.0, pipe: 1.9469360677474137, sum: 1.9469360677474137
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 30.0, pipe: 1.0976296241851848, sum: 1.0976296241851848
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 20.0, pipe: 0.48981500642613635, sum: 0.48981500642613635
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 10.0, pipe: 0.12366125831323463, sum: 0.12366125831323463
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: Finding ys finished
+13:24:38-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.001209 x + 0.0003248 x - 0.0001646, look: y-
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:38-pompa.figs-DEBUG: Drawing collector plot
+13:24:38-pompa.figs-DEBUG: 
+COLLECTOR
+
+
+13:24:38-pompa.pipe-DEBUG: Starting getting pipe vals
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-ERROR: float division by zero
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Pipe loss coords: [12.972811328268872, 9.475344131239428, 5.424076864001691, 2.4868499096063448, 0.6691560096670492, 0.0]
+13:24:38-pompa.pipe-DEBUG: Got ys
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 47.0, pipe: 12.972811328268872, sum: 12.972811328268872
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 40.0, pipe: 9.475344131239428, sum: 9.475344131239428
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 30.0, pipe: 5.424076864001691, sum: 5.424076864001691
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 20.0, pipe: 2.4868499096063448, sum: 2.4868499096063448
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 10.0, pipe: 0.6691560096670492, sum: 0.6691560096670492
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: ####################
+
+
+13:24:38-pompa.pipe-DEBUG: flow: 0.0, pipe: 0.0, sum: 0.0
+13:24:38-pompa.pipe-DEBUG: 
+####################
+
+
+13:24:38-pompa.pipe-DEBUG: Finding ys finished
+13:24:38-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.005614 x + 0.01237 x - 0.005661, look: r-
+13:24:38-pompa.station-DEBUG: Are pipes ready?
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 3.0, 28);3.0 = 3.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 125.0, 29);125.0 = 125.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.05, 30);0.05 = 0.05
+13:24:38-pompa.station-DEBUG: True
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 400.0, 42);400.0 = 400.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 160.0, 43);160.0 = 160.0
+13:24:38-pompa.pipe-DEBUG: Numeric(<__main__.Application object at 0x0765C4D0>, 0.1, 44);0.1 = 0.1
+13:24:38-pompa.station-DEBUG: True
+13:24:38-pompa.figs-DEBUG: Trying to drawing pipes plot
+13:24:38-pompa.figs-DEBUG: Starting draw_pipes_plot
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.figs-DEBUG: Got geometric loss
+13:24:38-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.0004
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-ERROR: float division by zero
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.0625 [m], cross section 0.012265625 [m2]
+13:24:38-pompa.pipe-DEBUG: Pipe loss coords: [2.6850987303465166, 1.9469360677474137, 1.0976296241851848, 0.48981500642613635, 0.12366125831323463, 0.0]
+13:24:38-pompa.figs-DEBUG: Got discharge_pipe ys
+13:24:38-pompa.pipe-DEBUG: Getting pipe y coordinates
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.047 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.04 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.03 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.02 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.01 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Starting counting line loss
+
+13:24:38-pompa.pipe-INFO: Epsilon is 0.000625
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-ERROR: float division by zero
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-INFO: for flow 0.0 [m3/s], radius 0.08 [m], cross section 0.020096000000000003 [m2]
+13:24:38-pompa.pipe-DEBUG: Pipe loss coords: [12.972811328268872, 9.475344131239428, 5.424076864001691, 2.4868499096063448, 0.6691560096670492, 0.0]
+13:24:38-pompa.figs-DEBUG: Got collector ys
+13:24:38-pompa.figs-DEBUG: x: [0.         0.0120603  0.0241206  0.0361809  0.04824121 0.06030151
+ 0.07236181 0.08442211 0.09648241 0.10854271 0.12060302 0.13266332
+ 0.14472362 0.15678392 0.16884422 0.18090452 0.19296482 0.20502513
+ 0.21708543 0.22914573 0.24120603 0.25326633 0.26532663 0.27738693
+ 0.28944724 0.30150754 0.31356784 0.32562814 0.33768844 0.34974874
+ 0.36180905 0.37386935 0.38592965 0.39798995 0.41005025 0.42211055
+ 0.43417085 0.44623116 0.45829146 0.47035176 0.48241206 0.49447236
+ 0.50653266 0.51859296 0.53065327 0.54271357 0.55477387 0.56683417
+ 0.57889447 0.59095477 0.60301508 0.61507538 0.62713568 0.63919598
+ 0.65125628 0.66331658 0.67537688 0.68743719 0.69949749 0.71155779
+ 0.72361809 0.73567839 0.74773869 0.75979899 0.7718593  0.7839196
+ 0.7959799  0.8080402  0.8201005  0.8321608  0.84422111 0.85628141
+ 0.86834171 0.88040201 0.89246231 0.90452261 0.91658291 0.92864322
+ 0.94070352 0.95276382 0.96482412 0.97688442 0.98894472 1.00100503
+ 1.01306533 1.02512563 1.03718593 1.04924623 1.06130653 1.07336683
+ 1.08542714 1.09748744 1.10954774 1.12160804 1.13366834 1.14572864
+ 1.15778894 1.16984925 1.18190955 1.19396985 1.20603015 1.21809045
+ 1.23015075 1.24221106 1.25427136 1.26633166 1.27839196 1.29045226
+ 1.30251256 1.31457286 1.32663317 1.33869347 1.35075377 1.36281407
+ 1.37487437 1.38693467 1.39899497 1.41105528 1.42311558 1.43517588
+ 1.44723618 1.45929648 1.47135678 1.48341709 1.49547739 1.50753769
+ 1.51959799 1.53165829 1.54371859 1.55577889 1.5678392  1.5798995
+ 1.5919598  1.6040201  1.6160804  1.6281407  1.64020101 1.65226131
+ 1.66432161 1.67638191 1.68844221 1.70050251 1.71256281 1.72462312
+ 1.73668342 1.74874372 1.76080402 1.77286432 1.78492462 1.79698492
+ 1.80904523 1.82110553 1.83316583 1.84522613 1.85728643 1.86934673
+ 1.88140704 1.89346734 1.90552764 1.91758794 1.92964824 1.94170854
+ 1.95376884 1.96582915 1.97788945 1.98994975 2.00201005 2.01407035
+ 2.02613065 2.03819095 2.05025126 2.06231156 2.07437186 2.08643216
+ 2.09849246 2.11055276 2.12261307 2.13467337 2.14673367 2.15879397
+ 2.17085427 2.18291457 2.19497487 2.20703518 2.21909548 2.23115578
+ 2.24321608 2.25527638 2.26733668 2.27939698 2.29145729 2.30351759
+ 2.31557789 2.32763819 2.33969849 2.35175879 2.3638191  2.3758794
+ 2.3879397  2.4       ], y:           2
+0.006823 x + 0.01269 x - 0.005826, look: g-
+13:24:38-pompa.figs-DEBUG: Starting draw report figure
+13:24:38-pompa.variables-DEBUG: Getting pump characteristic func
+13:24:38-pompa.variables-DEBUG: Starting iterating over cooridnates, {'I007': (47.0, 0.0), 'I008': (40.0, 2.2), 'I009': (30.0, 5.7), 'I00A': (20.0, 9.1), 'I00B': (10.0, 12.5), 'I00C': (0.0, 14.7)}
+13:24:38-pompa.variables-DEBUG: flows: [47.0, 40.0, 30.0, 20.0, 10.0, 0.0], lifts: [0.0, 2.2, 5.7, 9.1, 12.5, 14.7]
+13:24:38-pompa.figs-DEBUG: SCHEMAT

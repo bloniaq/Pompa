@@ -24,7 +24,7 @@ def fit_coords(xcoords, ycoords, degree):
     return fitted_y
 
 
-def sort_by_x(self, x_list, y_list):
+def sort_by_x(x_list, y_list):
         xcoords = []
         ycoords = []
         pairs = {}

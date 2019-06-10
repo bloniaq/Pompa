@@ -1,5 +1,4 @@
 import logging
-
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
@@ -23,7 +22,7 @@ class AppFigure():
         self.plot = self.fig.add_subplot(111)
         self.canvas = FigureCanvasTkAgg(self.fig, master=container)
 
-    def set_plot_grids(plot, unit):
+    def set_plot_grids(self, plot, unit):
         if unit == 'meters':
             plot.xaxis.set_minor_locator(MultipleLocator(5))
         elif unit == 'liters':
@@ -54,28 +53,30 @@ class AppFigure():
 
     def get_geom_loss_vector(self):
         log.debug('Starting draw_pipes_plot')
-        flows, _ = self.pump_type.characteristic.get_pump_char_func('liters')
+        flows, _ = self.station.pump.characteristic.get_pump_char_func(
+            'liters')
         loss_char = []
-        geom_loss = self.height_to_pump(
-            self.ord_bottom.value + self.minimal_sewage_level.value)
+        geom_loss = self.station.height_to_pump(
+            self.station.ord_bottom.value +
+            self.station.minimal_sewage_level.value)
         for i in range(len(flows)):
             loss_char.append(geom_loss)
-        y = self.fit_coords(flows, loss_char, 1)
+        y = self.app.fit_coords(flows, loss_char, 1)
         return y
 
     def get_all_pipes_char_vals(self, unit):
         log.debug('Starting draw_pipes_plot')
-        flows, _ = self.pump_type.characteristic.get_pump_char_func(unit)
+        flows, _ = self.station.pump.characteristic.get_pump_char_func(unit)
         log.debug('Got geometric loss')
-        discharge_y = self.d_pipe.get_y_coords(flows, unit)
+        discharge_y = self.station.ins_pipe.get_y_coords(flows, unit)
         log.debug('Got discharge_pipe ys')
-        collector_y = self.collector.get_y_coords(flows, unit)
+        collector_y = self.station.out_pipe.get_y_coords(flows, unit)
         log.debug('Got collector ys')
         pipes_char = []
         for i in range(len(flows)):
             sum_l = discharge_y[i] + collector_y[i]
             pipes_char.append(sum_l)
-        y = self.fit_coords(flows, pipes_char, 2)
+        y = self.app.fit_coords(flows, pipes_char, 2)
         return y
 
 
@@ -101,23 +102,23 @@ class PipeFig(AppFigure):
             last_x = self.station.inflow_max.value_meters * 1.5
         x = np.linspace(0, last_x, 200)
         if self.station.geom_loss_ready():
-            y_geom_loss = self.station.get_geom_loss_vector()
+            y_geom_loss = self.get_geom_loss_vector()
             l_geom_loss = 'm--'
             self.plot.plot(
                 x, y_geom_loss(x), l_geom_loss, label='geometr. wys. podn.')
-        if self.station.d_pipe.pipe_char_ready():
+        if self.station.ins_pipe.pipe_char_ready():
             log.debug('Drawing discharge pipe plot')
             log.debug('\nDISCHARGE PIPE\n\n')
-            y_d_pipe = self.station.d_pipe.get_pipe_char_vals(
+            y_d_pipe = self.station.ins_pipe.get_pipe_char_vals(
                 self.station, unit)
             l_d_pipe = 'y-'
             log.debug('x: {}, y: {}, look: {}'.format(x, y_d_pipe, l_d_pipe))
             self.plot.plot(x, y_d_pipe(x) + geom_loss_val, l_d_pipe,
                            label='charakterystyka przewodu wewn.')
-        if self.station.collector.pipe_char_ready():
+        if self.station.out_pipe.pipe_char_ready():
             log.debug('Drawing collector plot')
             log.debug('\nCOLLECTOR\n\n')
-            y_coll = self.station.collector.get_pipe_char_vals(
+            y_coll = self.station.out_pipe.get_pipe_char_vals(
                 self.station, unit)
             l_coll = 'r-'
             log.debug('x: {}, y: {}, look: {}'.format(x, y_coll, l_coll))
@@ -125,7 +126,7 @@ class PipeFig(AppFigure):
                            label='charakterystyka przewodu zewn.')
         if self.station.pipes_ready():
             log.debug('Trying to drawing pipes plot')
-            y_all_pipes = self.station.get_all_pipes_char_vals(unit)
+            y_all_pipes = self.get_all_pipes_char_vals(unit)
             l_all_pipes = 'g-'
             log.debug('x: {}, y: {}, look: {}'.format(
                 x, y_all_pipes, l_all_pipes))
@@ -155,18 +156,18 @@ class PumpFig(AppFigure):
         ui_vars = self.builder.tkvariables
         unit = ui_vars.__getitem__('pump_flow_unit').get()
         x = self.get_x_axis(unit)
-        if self.station.pump_type.pump_char_ready():
+        if self.station.pump.pump_char_ready():
             l_pump = 'b-'
-            y_pump = self.station.pump_type.draw_pump_plot()
+            y_pump = self.station.pump.draw_pump_plot()
             self.plot.plot(x, y_pump(x), l_pump, label='charakterystyka pompy')
         str_unit = unit_bracket_dict[ui_vars.__getitem__('inflow_unit').get()]
         self.plot.set_xlabel('Przepływ Q {}'.format(str_unit))
         self.plot.set_ylabel('Ciśnienie [m. sł. c.]')
         self.set_plot_grids(self.plot, unit)
         try:
-            eff_from_x = self.station.pump_type.efficiency_from.value
+            eff_from_x = self.station.pump.efficiency_from.value
             eff_from_y = self.app.interp(eff_from_x, x, y_pump(x))
-            eff_to_x = self.station.pump_type.efficiency_to.value
+            eff_to_x = self.station.pump.efficiency_to.value
             eff_to_y = self.app.interp(eff_to_x, x, y_pump(x))
             self.plot.plot([eff_from_x, eff_from_x], [0, eff_from_y], 'r--')
             self.plot.plot([eff_to_x, eff_to_x], [0, eff_to_y], 'r--',
@@ -194,9 +195,9 @@ class ReportFig(AppFigure):
         unit = ui_vars.__getitem__('pump_flow_unit').get()
         n = self.station.number_of_pumps
         x = self.get_x_axis(unit, n)
-        if self.station.pump_type.pump_char_ready():
+        if self.station.pump.pump_char_ready():
             l_pump = 'b-'
-            y_pump = self.station.pump_type.draw_pump_plot()
+            y_pump = self.station.pump.draw_pump_plot()
             self.plot.plot(x, y_pump(x), l_pump, label='char. jednej pompy')
         if self.station.pipes_ready():
             log.debug('Trying to drawing pipes plot')
@@ -211,7 +212,7 @@ class ReportFig(AppFigure):
             l_set = 'c-'
             self.plot.plot(
                 x, y_set(x), l_set, label='char. zespołu pompowego')
-        if self.station.pump_type.pump_char_ready() \
+        if self.station.pump.pump_char_ready() \
            and self.station.pipes_ready():
             try:
                 intersection_f = self.app.work_point(y_pump(x), y_all_pipes(x))
@@ -243,9 +244,9 @@ class ReportFig(AppFigure):
             pass
         self.set_plot_grids(self.plot, unit)
         try:
-            eff_from_x = self.station.pump_type.efficiency_from.value
+            eff_from_x = self.station.pump.efficiency_from.value
             eff_from_y = self.app.interp(eff_from_x, x, y_pump(x))
-            eff_to_x = self.station.pump_type.efficiency_to.value
+            eff_to_x = self.station.pump.efficiency_to.value
             eff_to_y = self.app.interp(eff_to_x, x, y_pump(x))
             self.plot.plot([eff_from_x, eff_from_x], [-100, eff_from_y], 'r--')
             self.plot.plot([eff_to_x, eff_to_x], [-100, eff_to_y], 'r--',
@@ -279,3 +280,7 @@ class Schema(AppFigure):
     def __init__(self, app, container, dim_x, dim_y):
 
         super().__init__(app, container, dim_x, dim_y)
+
+    def update(self):
+        log.debug("SCHEMAT")
+        pass
