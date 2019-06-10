@@ -24,7 +24,12 @@ class StationObject():
     def __getattr__(self, attr):
         if '.' not in attr:
             log.debug('{} Has no <.> in attr'.format(self))
-            return super().__getattr__(attr)
+            try:
+                return super().__getattr__(attr)
+            except AttributeError as e:
+                log.info("Error: {}".format(e))
+                log.info("missing attribute: {}".format(attr))
+                log.info("object: {}".format(self))
         else:
             attr_name, rest = attr.split('.', 1)
             return getattr(getattr(self, attr_name), rest)
