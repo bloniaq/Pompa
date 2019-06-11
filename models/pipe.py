@@ -29,6 +29,16 @@ class Pipe(models.StationObject):
         self.area = self.get_area()
         self.epsilon = self.get_epsilon()
 
+    def update_for_q(self, q):
+        """
+        Potrzebuje przeplywu q
+        Dla tego przeplywu oblicza parametry:
+
+        I je zwraca
+        """
+
+        return 
+
     def get_area(self):
         return 3.14 * ((self.diameter.value / 2) ** 2)
 
@@ -39,18 +49,18 @@ class Pipe(models.StationObject):
 
     def get_re(self, flow, unit):
         diameter = self.diameter.value
-        speed = 1000 * self.speed(flow, unit)
+        speed = 1000 * self.speed(flow)
         re = (diameter * speed) / self.kinematic_viscosity
         # log.info('Reynolds number is {}'.format(re))
         return re
 
-    def get_lambda(self, flow, unit):
+    def get_lambda(self, flow):
         diameter = self.diameter.value * 0.001
         epsilon = self.get_epsilon()
         log.info('Epsilon is {}'.format(epsilon))
         lambda_ = (-2 * np.log10(self.roughness.value / (
             3.71 * diameter))) ** -2
-        re = self.get_re(flow, unit)
+        re = self.get_re(flow)
         # log.info('Re is {}'.format(re))
         # log.info('Lambda is {}'.format(lambda_))
         try:
@@ -62,12 +72,12 @@ class Pipe(models.StationObject):
         # log.info('Alternative Lambda is {}'.format(alt_lambda))
         return alt_lambda
 
-    def line_loss(self, flow, unit):
+    def line_loss(self, flow):
         log.debug('Starting counting line loss\n')
         diameter = self.diameter.value * 0.001
         std_grav = 9.81
-        lambda_coef = self.get_lambda(flow, unit)
-        speed = self.speed(flow, unit)
+        lambda_coef = self.get_lambda(flow)
+        speed = self.speed(flow)
         hydraulic_gradient = (lambda_coef * (speed ** 2)) / (
             diameter * 2 * std_grav)
         # log.info('hydraulic gradient is {} [-]\n'.format(hydraulic_gradient))
@@ -75,34 +85,31 @@ class Pipe(models.StationObject):
         # log.info('line loss is {} [m]\n'.format(line_loss))
         return line_loss
 
-    def local_loss(self, flow, unit):
+    def local_loss(self, flow):
         # TODO:
         # Tests
         local_loss_factor = sum(self.resistance.values)
-        speed = self.speed(flow, unit)
+        speed = self.speed(flow)
         local_loss = ((speed ** 2) / (2 * 9.81)) * local_loss_factor
         # log.info('local loss is {} [m]'.format(local_loss))
         # log.info('Epsilon is {}, Re is {}'.format(
         #     self.get_epsilon(), self.get_re(flow, unit)))
         return local_loss
 
-    def speed(self, flow, unit):
+    def speed(self, flow):
         # log.debug('input flow: {} {}'.format(flow, unit_bracket_dict[unit]))
+        '''
         if unit == 'liters':
             flow *= .001
         elif unit == 'meters':
             flow /= 3600
-        radius = (0.001 * self.diameter.value) / 2
-        cross_sec = 3.14 * (radius ** 2)
-        speed = flow / cross_sec
-        log.info(
-            'for flow {} [m3/s], radius {} [m], cross section {} [m2]'.format(
-                flow, radius, cross_sec))
-        # log.info('speed is {} [m/s]'.format(speed))
+        '''
+        self.update()
+        speed = flow.v_m3ps / self.area
         return speed
 
-    def sum_loss(self, flow, unit='liters'):
-        return self.line_loss(flow, unit) + self.local_loss(flow, unit)
+    def sum_loss(self, flow):
+        return self.line_loss(flow) + self.local_loss(flow)
 
     def pipe_char_ready(self):
         flag = True
@@ -113,9 +120,9 @@ class Pipe(models.StationObject):
                 flag = False
         return flag
 
-    def get_y_coords(self, flows, unit):
+    def get_y_coords(self, flows):
         log.debug('Getting pipe y coordinates')
-        result = [self.sum_loss(flow, unit) for flow in flows]
+        result = [self.sum_loss(flow) for flow in flows]
         log.debug('Pipe loss coords: {}'.format(result))
         return result
 

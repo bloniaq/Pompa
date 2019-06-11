@@ -84,7 +84,7 @@ def check_get_useful_velo(station):
     log.info('useful velo is {}m3'.format(useful_velo))
     return useful_velo
 
-
+'''
 def get_work_parameters(station, flow, start_ord):
         """ Returns tuple of work parameters:
         (LC highness, geometric highness, flow, speed in collector,
@@ -106,7 +106,7 @@ def get_work_parameters(station, flow, start_ord):
             log.debug('LOOP WHILE')
             log.debug('Flow : {}'.format(flow))
             pipe_val = geom_H + self.d_pipe.sum_loss(
-                flow, "liters") + self.collector.sum_loss(flow, "liters")
+                flow) + self.collector.sum_loss(flow)
             pump_val = maths.interp(flow, pump_x, pump_y)
             log.debug('pipe_val : {}'.format(pipe_val))
             log.debug('pump_val : {}'.format(pump_val))
@@ -122,7 +122,7 @@ def get_work_parameters(station, flow, start_ord):
         speed_coll = (flow * 0.001) / self.collector.get_area()
         speed_dpipe = (flow * 0.001) / self.d_pipe.get_area()
         return pump_val, geom_H, flow, speed_coll, speed_dpipe
-
+'''
 
 def calculate(station, mode):
     """ Returns validation flag

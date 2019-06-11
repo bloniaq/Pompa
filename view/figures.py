@@ -34,16 +34,11 @@ class AppFigure():
     def get_x_axis(self, unit, n=1):
         """returns horizontal array of figures
         """
-        if unit == 'meters':
-            inflow_val_min = self.station.inflow_min.value_meters
-            inflow_val_max = self.station.inflow_max.value_meters
-            eff_from = self.station.pump.efficiency_from.value_meters
-            eff_to = self.station.pump.efficiency_to.value_meters
-        elif unit == 'liters':
-            inflow_val_min = self.station.inflow_min.value_liters
-            inflow_val_max = self.station.inflow_max.value_liters
-            eff_from = self.station.pump.efficiency_from.value_liters
-            eff_to = self.station.pump.efficiency_to.value_liters
+
+        inflow_val_min = self.station.inflow_min.unit(unit)
+        inflow_val_max = self.station.inflow_max.unit(unit)
+        eff_from = self.station.pump.efficiency_from.unit(unit)
+        eff_to = self.station.pump.efficiency_to.unit(unit)
         x_min = min(inflow_val_min - 3, eff_from - 3)
         if x_min < 0:
             x_min = 0
@@ -96,10 +91,7 @@ class PipeFig(AppFigure):
             self.station.ord_bottom.value +
             self.station.minimal_sewage_level.value)
         # x = station.get_x_axis(unit)
-        if unit == 'liters':
-            last_x = self.station.inflow_max.value_liters * 1.5
-        elif unit == 'meters':
-            last_x = self.station.inflow_max.value_meters * 1.5
+        last_x = self.station.inflow_max.unit(unit) * 1.5
         x = np.linspace(0, last_x, 200)
         if self.station.geom_loss_ready():
             y_geom_loss = self.get_geom_loss_vector()

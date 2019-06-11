@@ -136,24 +136,6 @@ class PumpSet(models.StationObject):
         for i in range(self.n_of_pumps):
             ordinate = ord_start + i * self.one_pump_h
             self.start_ord_list.append(ordinate)
-    '''
-    def get_parameters(self, n_of_starting_pump):
-        r = ''
-        if n_of_starting_pump <= self.n_of_pumps:
-            r += 'Parametry poczatkowe pracy zespolu pomp\n'
-            r += 'w chwili wlaczenia pompy nr{}\n\n'.format(n_of_starting_pump)
-        else:
-            r += 'Parametry końcowe pracy zespolu pomp\n\n'
-        r += '-wys. lc. u wylotu pompy...........Hlc= {} [m]\n'.format('x')
-        r += '-geometryczna wys. podnoszenia.......H= {} [m]\n'.format('x')
-        r += '-wydatek.............................Q= {} [l/s]\n'.format('x')
-        r += '-predkosc w kolektorze tlocznym......v= {} [m/s]\n'.format('x')
-        r += '-predkosc w przewodach w pompowni....v= {} [m/s]\n'.format('x')
-        if n_of_starting_pump <= self.n_of_pumps:
-            r += ('-zapas wysokosci cisnienia..........dh= '
-                  '{} [m sł.wody]\n\n'.format('x'))
-        return r
-    '''
 
     def get_pumpset_vals(self):
         log.debug('Starting draw_pipes_plot')

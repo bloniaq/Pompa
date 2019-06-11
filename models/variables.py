@@ -207,8 +207,9 @@ class Flow(Variable):
         if ui_variable in self.tkvars:
             self.set_trace('value')
         self.unit_var.trace('w', lambda *_: self.convert(self.unit_var.get()))
-        self.value_meters = 0
-        self.value_liters = 0
+        self.value_meters = self.v_m3ph = 0
+        self.value_liters = self.v_lps = 0
+        self.v_m3ps
 
     def __repr__(self):
         output = 'Flow({}, {}, {}, {});{}'.format(
@@ -220,7 +221,7 @@ class Flow(Variable):
             self.__dict__[attr] = value
         else:
             self.__dict__['value'] = round(float(value), 3)
-            self.get_both_vals(value, self.unit_var.get())
+            self.get_vals(value, self.unit_var.get())
             if self.__dict__['value'] != self.ui_var.get():
                 self.ui_var.set(self.value)
             if self.fig_depend and not self.load_flag:
@@ -229,13 +230,15 @@ class Flow(Variable):
                 except (AttributeError, TypeError) as e:
                     log.error('Error Flow {}'.format(e))
 
-    def get_both_vals(self, value, unit):
+    def get_vals(self, value, unit):
         if unit == 'meters':
-            self.value_meters = self.value
-            self.value_liters = round(self.value / 3.6, 3)
+            self.value_meters = self.v_m3ph = self.value
+            self.value_liters = self.v_lps = round(self.v_m3ph / 3.6, 3)
+            self.v_m3ps = round(self.v_m3ph / 3600, 3)
         elif unit == 'liters':
-            self.value_liters = self.value
-            self.value_meters = round(self.value * 3.6, 3)
+            self.value_liters = self.v_lps = self.value
+            self.value_meters = self.v_m3ph = round(self.v_lps * 3.6, 3)
+            self.v_m3ps = round(self.v_lps / 1000, 3)
 
     def convert(self, new_unit):
         self.load_flag = True
@@ -260,6 +263,14 @@ class Flow(Variable):
             self.unit_var.set('liters')
             super().load_data(data_dict)
 
+    def unit(self, unit):
+        if unit == 'meters':
+            return self.v_m3ph
+        elif unit == 'liters':
+            return self.v_lps
+        else:
+            raise AttributeError("{} has no unit <{}>".format(self, unit))
+
 
 class PumpCharFlow(Flow):
 
@@ -269,7 +280,7 @@ class PumpCharFlow(Flow):
         self.unit_var = ui_var
         self.value_meters = 0
         self.value_liters = 0
-        self.get_both_vals(value, self.unit_var.get())
+        self.get_vals(value, self.unit_var.get())
 
     def __repr__(self):
         return str(self.value)
@@ -285,7 +296,7 @@ class VFlow(PumpCharFlow):
         self.unit = unit
         self.value_meters = 0
         self.value_liters = 0
-        self.get_both_vals(value, unit)
+        self.get_vals(value, unit)
 
 
 class PumpCharacteristic(Variable):
@@ -333,17 +344,12 @@ class PumpCharacteristic(Variable):
         # pairs = {}
         flow_coords = []
         lift_coords = []
-        present_unit = self.unit_var.get()
-        if present_unit != unit:
-            self.set_unit(unit)
         log.debug('Starting iterating over cooridnates, {}'.format(
             self.coords))
         for point in self.coords:
-            flow_coords.append(self.coords[point][0].value)
+            flow_coords.append(self.coords[point][0].unit(unit))
             lift_coords.append(self.coords[point][1])
         log.debug('flows: {}, lifts: {}'.format(flow_coords, lift_coords))
-        if present_unit != unit:
-            self.set_unit(present_unit)
         return flow_coords, lift_coords
 
     def sort_points(self):
