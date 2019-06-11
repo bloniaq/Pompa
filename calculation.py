@@ -84,45 +84,47 @@ def check_get_useful_velo(station):
     log.info('useful velo is {}m3'.format(useful_velo))
     return useful_velo
 
-'''
+
 def get_work_parameters(station, flow, start_ord):
-        """ Returns tuple of work parameters:
-        (LC highness, geometric highness, flow, speed in collector,
-         speed in discharge)
-        """
-        start_ordi = station.ord_bottom.value + station.minimal_sewage_level.value
-        geom_H = station.ord_upper_level.value - start_ordi
-        # flow = flow.value_liters  # l/s
-        difference = 100
-        step = 0.05
-        pump_x = self.get_x_axis('liters')
-        flows, lifts = station.pump.characteristic.get_pump_char_func(
-            "liters")
-        pump_y = maths.fit_coords(flows, lifts, 3)(pump_x)
-        log.debug("pump x: {} len {}, pump y: {} len {}".format(
-            pump_x, len(pump_x), pump_y, len(pump_y)))
-        log.debug('WE\'RE IN LOOP')
-        while True:
-            log.debug('LOOP WHILE')
-            log.debug('Flow : {}'.format(flow))
-            pipe_val = geom_H + self.d_pipe.sum_loss(
-                flow) + self.collector.sum_loss(flow)
-            pump_val = maths.interp(flow, pump_x, pump_y)
-            log.debug('pipe_val : {}'.format(pipe_val))
-            log.debug('pump_val : {}'.format(pump_val))
-            difference = pump_val - pipe_val
-            if difference < -0.1:
-                log.debug('difference < 0.1: {}'.format(difference))
-                flow = flow - step
-            elif difference > 0.1:
-                log.debug('difference > 0.1: {}'.format(difference))
-                flow = flow + step
-            else:
-                break
-        speed_coll = (flow * 0.001) / self.collector.get_area()
-        speed_dpipe = (flow * 0.001) / self.d_pipe.get_area()
-        return pump_val, geom_H, flow, speed_coll, speed_dpipe
-'''
+    """ Returns tuple of work parameters:
+    (LC highness, geometric highness, flow, speed in collector,
+     speed in discharge)
+    """
+    station.ins_pipe.update()
+    station.out_pipe.update()
+    station.update()
+    geom_H = station.min_sew_ord - start_ord
+
+    difference = 100
+    step = 0.05
+    pump_x = self.get_x_axis('liters')
+    flows, lifts = station.pump.characteristic.get_pump_char_func(
+        "liters")
+    pump_y = maths.fit_coords(flows, lifts, 3)(pump_x)
+    log.debug("pump x: {} len {}, pump y: {} len {}".format(
+        pump_x, len(pump_x), pump_y, len(pump_y)))
+    log.debug('WE\'RE IN LOOP')
+    while True:
+        log.debug('LOOP WHILE')
+        log.debug('Flow : {}'.format(flow))
+        pipe_val = geom_H + self.d_pipe.sum_loss(
+            flow) + self.collector.sum_loss(flow)
+        pump_val = maths.interp(flow, pump_x, pump_y)
+        log.debug('pipe_val : {}'.format(pipe_val))
+        log.debug('pump_val : {}'.format(pump_val))
+        difference = pump_val - pipe_val
+        if difference < -0.1:
+            log.debug('difference < 0.1: {}'.format(difference))
+            flow = flow - step
+        elif difference > 0.1:
+            log.debug('difference > 0.1: {}'.format(difference))
+            flow = flow + step
+        else:
+            break
+    speed_coll = (flow * 0.001) / self.collector.get_area()
+    speed_dpipe = (flow * 0.001) / self.d_pipe.get_area()
+    return pump_val, geom_H, flow, speed_coll, speed_dpipe
+
 
 def calculate(station, mode):
     """ Returns validation flag

@@ -55,25 +55,24 @@ class PumpType(models.StationObject):
 
     def draw_pump_plot(self):
         unit = self.characteristic.unit_var.get()
-        flows, lifts = self.characteristic.get_pump_char_func(unit)
-        y = self.app.fit_coords(flows, lifts, 3)
+        flows, lifts = self.characteristic.get_pump_char_func()
+        flows_vals = [flow.ret_unit(unit) for flow in flows]
+        y = self.app.fit_coords(flows_vals, lifts, 3)
         return y
 
     def generate_pump_char_string(self):
         # patter: 'Q=  {} [l/s]    H=  {} [m]\n'.format()
         char_raport = ''
         for point in self.characteristic.coords:
-            q = self.characteristic.coords[point][0].value_liters
+            q = self.characteristic.coords[point][0].v_lps
             h = self.characteristic.coords[point][1]
             char_raport += 'Q=  {} [l/s]    H=  {} [m]\n'.format(q, h)
         char_raport += '\n'
         return char_raport
 
     def get_Q_for_H(self, number):
-        flows, lifts = self.characteristic.get_pump_char_func('liters')
-        set_flows = []
-        for flow in flows:
-            set_flows.append(flow * number)
+        flows, lifts = self.characteristic.get_pump_char_func()
+        set_flows = [flow.v_lps * number for flow in flows]
         log.debug('lifts: {}, flows(in set): {}'.format(lifts, set_flows))
         Qs = self.app.fit_coords(lifts, set_flows, 3)
         log.debug('coords fitted (Qs) : {}'.format(Qs))
@@ -139,9 +138,8 @@ class PumpSet(models.StationObject):
 
     def get_pumpset_vals(self):
         log.debug('Starting draw_pipes_plot')
-        unit = 'liters'
-        flows, lifts = self.characteristic.get_pump_char_func(unit)
+        flows, lifts = self.characteristic.get_pump_char_func()
         n = self.n_of_pumps
-        set_flows = [i * n for i in flows]
-        y = maths.fit_coords(set_flows, lifts, 3)
+        set_flows = [flow.v_lps * n for flow in flows]
+        y = self.app.fit_coords(set_flows, lifts, 3)
         return y

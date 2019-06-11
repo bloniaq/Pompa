@@ -30,11 +30,18 @@ class Station(models.StationObject):
         self.inflow_max = None
         self.inflow_min = None
 
-        # parameters to calculate
+        # parameters to update
+        self.min_sew_ord = None
+
+    def update(self):
+        self.min_sew_ord = self.minimal_sewage_level()
 
     def height_to_pump(self, lower_ord):
         height = self.ord_upper_level.value - lower_ord
         return height
+
+    def minimal_sewage_level(self):
+        return self.ord_bottom.value + self.minimal_sewage_level.value
 
     def pipes_ready(self):
         """returns if there both pipe has data to draw figures

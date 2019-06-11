@@ -43,10 +43,10 @@ class Variable():
                 self.app.update_calculations()
             except (AttributeError, TypeError) as e:
                 log.error('Error in update_calculations: {}'.format(e))
-            try:
-                self.app.draw_auxillary_figures(self.fig_depend)
-            except (AttributeError, TypeError) as e:
-                log.error('Error in draw_auxillary_figures {}'.format(e))
+            # try:
+            self.app.draw_auxillary_figures(self.fig_depend)
+            # except (AttributeError, TypeError) as e:
+            #     log.error('Error in draw_auxillary_figures {}'.format(e))
 
     def load_data(self, data_dict):
         self.load_flag = True
@@ -209,7 +209,7 @@ class Flow(Variable):
         self.unit_var.trace('w', lambda *_: self.convert(self.unit_var.get()))
         self.value_meters = self.v_m3ph = 0
         self.value_liters = self.v_lps = 0
-        self.v_m3ps
+        self.v_m3ps = 0
 
     def __repr__(self):
         output = 'Flow({}, {}, {}, {});{}'.format(
@@ -231,11 +231,11 @@ class Flow(Variable):
                     log.error('Error Flow {}'.format(e))
 
     def get_vals(self, value, unit):
-        if unit == 'meters':
+        if unit == 'meters' or unit == 'm3ph':
             self.value_meters = self.v_m3ph = self.value
             self.value_liters = self.v_lps = round(self.v_m3ph / 3.6, 3)
             self.v_m3ps = round(self.v_m3ph / 3600, 3)
-        elif unit == 'liters':
+        elif unit == 'liters' or unit == 'lps':
             self.value_liters = self.v_lps = self.value
             self.value_meters = self.v_m3ph = round(self.v_lps * 3.6, 3)
             self.v_m3ps = round(self.v_lps / 1000, 3)
@@ -263,7 +263,8 @@ class Flow(Variable):
             self.unit_var.set('liters')
             super().load_data(data_dict)
 
-    def unit(self, unit):
+    def ret_unit(self, unit):
+        log.debug('request for {} unit'.format(unit))
         if unit == 'meters':
             return self.v_m3ph
         elif unit == 'liters':
@@ -339,7 +340,7 @@ class PumpCharacteristic(Variable):
         self.coords[itemid] = (PumpCharFlow(flow, unit, self.unit_var), lift)
         log.debug('char points: {}'.format(self.coords))
 
-    def get_pump_char_func(self, unit):
+    def get_pump_char_func(self):
         log.debug('Getting pump characteristic func')
         # pairs = {}
         flow_coords = []
@@ -347,7 +348,7 @@ class PumpCharacteristic(Variable):
         log.debug('Starting iterating over cooridnates, {}'.format(
             self.coords))
         for point in self.coords:
-            flow_coords.append(self.coords[point][0].unit(unit))
+            flow_coords.append(self.coords[point][0])
             lift_coords.append(self.coords[point][1])
         log.debug('flows: {}, lifts: {}'.format(flow_coords, lift_coords))
         return flow_coords, lift_coords

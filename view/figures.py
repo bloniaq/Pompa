@@ -35,10 +35,10 @@ class AppFigure():
         """returns horizontal array of figures
         """
 
-        inflow_val_min = self.station.inflow_min.unit(unit)
-        inflow_val_max = self.station.inflow_max.unit(unit)
-        eff_from = self.station.pump.efficiency_from.unit(unit)
-        eff_to = self.station.pump.efficiency_to.unit(unit)
+        inflow_val_min = self.station.inflow_min.ret_unit(unit)
+        inflow_val_max = self.station.inflow_max.ret_unit(unit)
+        eff_from = self.station.pump.efficiency_from.ret_unit(unit)
+        eff_to = self.station.pump.efficiency_to.ret_unit(unit)
         x_min = min(inflow_val_min - 3, eff_from - 3)
         if x_min < 0:
             x_min = 0
@@ -48,30 +48,31 @@ class AppFigure():
 
     def get_geom_loss_vector(self):
         log.debug('Starting draw_pipes_plot')
-        flows, _ = self.station.pump.characteristic.get_pump_char_func(
-            'liters')
+        flows, _ = self.station.pump.characteristic.get_pump_char_func()
+        flows_vals = [flow.v_lps for flow in flows]
         loss_char = []
         geom_loss = self.station.height_to_pump(
             self.station.ord_bottom.value +
             self.station.minimal_sewage_level.value)
         for i in range(len(flows)):
             loss_char.append(geom_loss)
-        y = self.app.fit_coords(flows, loss_char, 1)
+        y = self.app.fit_coords(flows_vals, loss_char, 1)
         return y
 
     def get_all_pipes_char_vals(self, unit):
         log.debug('Starting draw_pipes_plot')
-        flows, _ = self.station.pump.characteristic.get_pump_char_func(unit)
+        flows, _ = self.station.pump.characteristic.get_pump_char_func()
+        flows_vals = [flow.ret_unit(unit) for flow in flows]
         log.debug('Got geometric loss')
-        discharge_y = self.station.ins_pipe.get_y_coords(flows, unit)
+        discharge_y = self.station.ins_pipe.get_y_coords(flows)
         log.debug('Got discharge_pipe ys')
-        collector_y = self.station.out_pipe.get_y_coords(flows, unit)
+        collector_y = self.station.out_pipe.get_y_coords(flows)
         log.debug('Got collector ys')
         pipes_char = []
         for i in range(len(flows)):
             sum_l = discharge_y[i] + collector_y[i]
             pipes_char.append(sum_l)
-        y = self.app.fit_coords(flows, pipes_char, 2)
+        y = self.app.fit_coords(flows_vals, pipes_char, 2)
         return y
 
 
@@ -91,7 +92,7 @@ class PipeFig(AppFigure):
             self.station.ord_bottom.value +
             self.station.minimal_sewage_level.value)
         # x = station.get_x_axis(unit)
-        last_x = self.station.inflow_max.unit(unit) * 1.5
+        last_x = self.station.inflow_max.ret_unit(unit) * 1.5
         x = np.linspace(0, last_x, 200)
         if self.station.geom_loss_ready():
             y_geom_loss = self.get_geom_loss_vector()

@@ -29,7 +29,7 @@ class Pipe(models.StationObject):
         self.area = self.get_area()
         self.epsilon = self.get_epsilon()
 
-    def update_for_q(self, q):
+    def params_for_q(self, q):
         """
         Potrzebuje przeplywu q
         Dla tego przeplywu oblicza parametry:
@@ -37,20 +37,20 @@ class Pipe(models.StationObject):
         I je zwraca
         """
 
-        return 
+        pass
 
     def get_area(self):
-        return 3.14 * ((self.diameter.value / 2) ** 2)
+        d = self.diameter.value / 1000
+        return 3.14 * ((d / 2) ** 2)
 
     def get_epsilon(self):
-        diameter = self.diameter.value
-        epsilon = self.roughness.value / diameter
+        epsilon = self.roughness.value / self.diameter.value
         return epsilon
 
-    def get_re(self, flow, unit):
+    def get_re(self, flow):
         diameter = self.diameter.value
-        speed = 1000 * self.speed(flow)
-        re = (diameter * speed) / self.kinematic_viscosity
+        speed = self.speed(flow)
+        re = (diameter * speed) / (self.kinematic_viscosity / 1000000)
         # log.info('Reynolds number is {}'.format(re))
         return re
 
@@ -97,13 +97,6 @@ class Pipe(models.StationObject):
         return local_loss
 
     def speed(self, flow):
-        # log.debug('input flow: {} {}'.format(flow, unit_bracket_dict[unit]))
-        '''
-        if unit == 'liters':
-            flow *= .001
-        elif unit == 'meters':
-            flow /= 3600
-        '''
         self.update()
         speed = flow.v_m3ps / self.area
         return speed
@@ -123,22 +116,22 @@ class Pipe(models.StationObject):
     def get_y_coords(self, flows):
         log.debug('Getting pipe y coordinates')
         result = [self.sum_loss(flow) for flow in flows]
-        log.debug('Pipe loss coords: {}'.format(result))
+        log.debug('Pipe {} loss coords: {}'.format(self, result))
         return result
 
     def get_pipe_char_vals(self, station, unit):
         log.debug('Starting getting pipe vals')
-        flows, _ = station.pump.characteristic.get_pump_char_func(unit)
-        y_coords = self.get_y_coords(flows, unit)
-        log.debug('Got ys')
+        flows, _ = station.pump.characteristic.get_pump_char_func()
+        flows_vals = [flow.ret_unit(unit) for flow in flows]
+        y_coords = self.get_y_coords(flows)
         pipes_char = []
         for i in range(len(flows)):
             sum_l = y_coords[i]
             log.debug('####################\n\n')
             log.debug('flow: {}, pipe: {}, sum: {}'.format(
-                flows[i], y_coords[i], sum_l))
+                flows_vals[i], y_coords[i], sum_l))
             log.debug('\n####################\n\n')
             pipes_char.append(sum_l)
-        y = self.app.fit_coords(flows, pipes_char, 2)
+        y = self.app.fit_coords(flows_vals, pipes_char, 2)
         log.debug('Finding ys finished')
         return y
