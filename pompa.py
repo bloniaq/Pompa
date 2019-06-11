@@ -11,6 +11,7 @@ import models.pump as pump
 import models.pipe as pipe
 import view.figures as figs
 import view.view as view
+import view.report as report
 import calculation as calc
 
 # LOGGING CONFIG
@@ -245,8 +246,9 @@ class Application():
     def calculate(self):
 
         # ma wskazywać na moduł calculation
-
-        # opracuj raport (ma wskazać robotę view/report.py)
+        validation = calc.calculate(self.station, self.mode)
+        if validation:
+            report_content = report.Report(self.station)
 
         pass
 

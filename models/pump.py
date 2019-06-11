@@ -22,6 +22,9 @@ class PumpType(models.StationObject):
         self.efficiency_to = None
         self.characteristic = None
 
+    def update(self):
+        self.best_eff = self.max_pump_efficiency()
+
     def set_flow_unit(self, unit):
         log.info('set_flow_unit started')
         unit_bracket = unit_bracket_dict[unit]

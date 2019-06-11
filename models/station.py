@@ -34,6 +34,10 @@ class Station(models.StationObject):
         self.min_sew_ord = None
 
     def update(self):
+        self.well.update()
+        self.pump.update()
+        self.ins_pipe.update()
+        self.out_pipe.update()
         self.min_sew_ord = self.minimal_sewage_level()
 
     def height_to_pump(self, lower_ord):

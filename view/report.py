@@ -135,3 +135,34 @@ def generate_checking_report(station):
             string_report += report[i]
             string_report += '\n'
     return string_report
+
+
+class Report():
+
+    def __init__(self, station):
+        self.station = station
+        self.content = {}
+        self.content['1'] = 'POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA\n\n'
+        self.content['2'] = self.write_conf(station.well.config)
+        self.content['3'] = 'Liczba dobranych pomp roboczych .....n= {} szt.'.format(station.n_of_work_pumps)
+        self.content['4'] = 'Liczba pomp rezerwowych.............nr= {} szt.'.format(station.n_of_res_pumps)
+
+        self.print()
+
+    def write_conf(self, config):
+        conf_dict = {'singlerow': 'Liniowe',
+                     'optimal': 'Optymalne'}
+        return '{} ustawienie pomp w pompowni'.format(conf_dict[config])
+
+    def convert_to_string(self):
+        string_report = ''
+        for i in self.content:
+            log.debug('line {}: {}'.format(i, self.content[i]))
+            if self.content[i] is not None:
+                string_report += self.content[i]
+                string_report += '\n'
+        return string_report
+
+    def print(self):
+        self.string = self.convert_to_string()
+        print(self.string)

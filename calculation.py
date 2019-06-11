@@ -131,18 +131,14 @@ def calculate(station, mode):
 
     Runs calculations and checks if results exists and if are correct.
     """
+    validation_falg = True
 
     calculations = {'minimalisation': calc_minimalisation(),
                     'checking': calc_checking(),
                     'optimalisation': calc_optimalisation()}
 
-    validation_flag = True
-    n = calc_number_of_pumps()
-    if n <= 0:
-        validation_flag = False
-    n = reserve_pumps_number()
-    if n <= 0:
-        validation_flag = False
+    station.update()
+
     station.qp = station.get_calculative_flow()
     station.v_useful = check_get_useful_velo()
     station.h_useful = station.v_useful / station.well.cross_sectional_area()
