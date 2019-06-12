@@ -38,13 +38,13 @@ class Station(models.StationObject):
         self.pump.update()
         self.ins_pipe.update()
         self.out_pipe.update()
-        self.min_sew_ord = self.minimal_sewage_level()
+        self.min_sew_ord = self.minimal_sewage_ord()
 
     def height_to_pump(self, lower_ord):
         height = self.ord_upper_level.value - lower_ord
         return height
 
-    def minimal_sewage_level(self):
+    def minimal_sewage_ord(self):
         return self.ord_bottom.value + self.minimal_sewage_level.value
 
     def pipes_ready(self):

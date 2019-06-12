@@ -165,7 +165,7 @@ class Application():
         self.set_shape(shape)
 
     def set_shape(self, shape):
-        self.station.well.shape = shape
+        self.station.well.shape.value = shape
         view.set_shape(self.builder, self.ui_vars, shape)
 
     def set_pump_flow_unit(self):

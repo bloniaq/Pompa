@@ -131,7 +131,7 @@ def calculate(station, mode):
 
     Runs calculations and checks if results exists and if are correct.
     """
-    validation_falg = True
+    validation_flag = True
 
     calculations = {'minimalisation': calc_minimalisation(),
                     'checking': calc_checking(),
@@ -140,21 +140,34 @@ def calculate(station, mode):
     station.update()
 
     station.qp = station.get_calculative_flow()
-    station.v_useful = check_get_useful_velo()
-    station.h_useful = station.v_useful / station.well.cross_sectional_area()
-    station.number_of_pumps = calc_number_of_pumps()
-    station.number_of_res_pumps = reserve_pumps_number()
-    station.ord_sw_on = station.ord_inlet.value - 0.1
-    station.ord_sw_off = station.ord_bottom.value +\
-        station.minimal_sewage_level.value
-    station.ord_sw_alarm = station.ord_inlet.value
-    station.height_start = station.height_to_pump(station.ord_sw_off)
-    station.height_stop = station.height_to_pump(station.ord_sw_on)
-    station.h_whole = station.ord_terrain.value - station.ord_bottom.value
-    station.h_reserve = station.ord_sw_alarm - station.ord_sw_on
-    station.v_whole = station.velocity(station.h_whole)
-    station.v_dead = station.velocity(station.minimal_sewage_level.value)
-    station.v_reserve = station.velocity(station.h_reserve)
+    # station.v_useful = check_get_useful_velo()
+    # station.h_useful = station.v_useful / station.well.cross_sectional_area()
+    # station.number_of_pumps = calc_number_of_pumps()
+    # station.number_of_res_pumps = reserve_pumps_number()
+    # station.ord_sw_on = station.ord_inlet.value - 0.1
+    # station.ord_sw_off = station.ord_bottom.value +\
+    #     station.minimal_sewage_level.value
+    # station.ord_sw_alarm = station.ord_inlet.value
+    # station.height_start = station.height_to_pump(station.ord_sw_off)
+    # station.height_stop = station.height_to_pump(station.ord_sw_on)
+    # station.h_whole = station.ord_terrain.value - station.ord_bottom.value
+    # station.h_reserve = station.ord_sw_alarm - station.ord_sw_on
+    # station.v_whole = station.velocity(station.h_whole)
+    # station.v_dead = station.velocity(station.minimal_sewage_level.value)
+    # station.v_reserve = station.velocity(station.h_reserve)
     # TODO:
     # Calculations
     return validation_flag
+
+
+def calc_minimalisation():
+
+    pass
+
+def calc_checking():
+
+    pass
+
+def calc_optimalisation():
+
+    pass

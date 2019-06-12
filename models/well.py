@@ -30,6 +30,8 @@ class Well(models.StationObject):
 
     def minimal_diameter(self, n, station):
         d = station.pump.contour.value
+        log.debug('shape: {}'.format(self.shape))
+        log.debug('shape type: {}'.format(type(self.shape)))
         if self.shape.value == 'round':
             if self.config.value == 'optimal':
                 minimal_d = d + 0.6 + 2 * \

@@ -4,6 +4,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.figure import Figure
 from matplotlib.ticker import MultipleLocator
 
+import calculation as calc
+
 log = logging.getLogger('pompa.figs')
 
 unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
@@ -56,7 +58,7 @@ class AppFigure():
             self.station.minimal_sewage_level.value)
         for i in range(len(flows)):
             loss_char.append(geom_loss)
-        y = self.app.fit_coords(flows_vals, loss_char, 1)
+        y = calc.fit_coords(flows_vals, loss_char, 1)
         return y
 
     def get_all_pipes_char_vals(self, unit):
@@ -72,7 +74,7 @@ class AppFigure():
         for i in range(len(flows)):
             sum_l = discharge_y[i] + collector_y[i]
             pipes_char.append(sum_l)
-        y = self.app.fit_coords(flows_vals, pipes_char, 2)
+        y = calc.fit_coords(flows_vals, pipes_char, 2)
         return y
 
 
