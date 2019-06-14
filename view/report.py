@@ -146,12 +146,12 @@ class Report():
         self.content = {}
         self.content['1'] = 'POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA\n\n'
         self.content['2'] = self.write_conf(station.well.config.value)
-        self.content['3'] = 'Liczba dobranych pomp roboczych .....n= {} szt.'.format("station.n_of_work_pumps")
+        self.content['3'] = 'Liczba dobranych pomp roboczych .....n= {} szt.'.format(station.n_of_pumps)
         self.content['4'] = 'Liczba pomp rezerwowych.............nr= {} szt.'.format("station.n_of_res_pumps")
         self.content['5'] = 'Srednica kola opisujacego pompe.....Dn= {} [m]'.format(station.pump.contour.value)
         self.content['6'] = 'Srednica pompowni...................DN= {} [m]'.format(station.well.diameter.value)
         self.content['7'] = 'Minimalna srednica pompowni......DNmin= {} [m]'.format(round(station.well.minimal_diameter(3, station), 2))
-        self.content['8'] = 'Pole poziomego przekroju pompowni....F= {} [m2]'.format(round(station.well.cross_sectional_area(), 2))
+        self.content['8'] = 'Pole poziomego przekroju pompowni....F= {} [m2]'.format(station.well.area)
         self.content['9'] = 'Ilosc przewodow tlocznych (kolektor)... {} szt.'.format(station.out_pipe.parallels.value)
         self.content['10'] = 'Dlugosc kolektora tlocznego..........L= {} [m]'.format(station.out_pipe.length.value)
         self.content['11'] = 'Dlugosc przewodu w pompowni..........L= {} [m]'.format(station.ins_pipe.length.value)

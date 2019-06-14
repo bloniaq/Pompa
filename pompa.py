@@ -246,7 +246,7 @@ class Application():
     def calculate(self):
 
         # ma wskazywać na moduł calculation
-        validation = self.station.calculate(self.mode)
+        validation = self.station.calculate(self.mode.value)
         if validation:
             report_content = report.Report(self.station)
 

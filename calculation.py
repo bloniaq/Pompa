@@ -31,17 +31,9 @@ def get_x_axis(station, unit, n=1):
 
 
 def fit_coords(xcoords, ycoords, degree):
-    log.error('x: {}, y:{}'.format(xcoords, ycoords))
+    log.debug('x: {}, y:{}'.format(xcoords, ycoords))
     x, y = sort_by_x(xcoords, ycoords)
-    log.error('arr x: {}, arr y:{}'.format(x, y))
-    for i in x:
-        log.error('type {}: {}'.format(i, type(i)))
-        i = i.value_liters
-        log.error('type {}: {}'.format(i, type(i)))
-    for j in y:
-        log.error('type {}: {}'.format(j, type(j)))
-    for k in x:
-        log.error('type {}: {}'.format(k, type(j)))
+    log.debug('arr x: {}, arr y:{}'.format(x, y))
     polyf = np.polyfit(x, y, degree)
     fitted_y = np.poly1d(polyf)
     log.debug('arr x: {}, fit y:{}'.format(x, fitted_y))
@@ -56,14 +48,9 @@ def sort_by_x(x_list, y_list):
         pairs[str(x_list[i])] = y_list[i]
         xcoords.append(x_list[i])
     log.error('x: {}, y:{}'.format(xcoords, ycoords))
-    for i in x_list:
-        log.error("{}, type: {}".format(i, type(i)))
-    for coord in range(len(xcoords)):
-        log.error("{} type of {} element: {}".format(coord, xcoords[coord],
-                                                     type(xcoords[coord])))
 
     xcoords.sort()
-    x_values = []
+    # x_values = []
     for value in xcoords:
         # x_values.append(value.value_liters)
         ycoords.append(pairs[str(value)])

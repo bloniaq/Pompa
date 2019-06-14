@@ -249,6 +249,9 @@ class Flow(Variable):
     def __ge__(self, other):
         return (self.value_liters >= other.value_liters)
 
+    def __float__(self):
+        return float(self.value)
+
     def get_vals(self, value, unit):
         if unit == 'meters' or unit == 'm3ph':
             self.value_meters = self.v_m3ph = self.value
@@ -293,7 +296,9 @@ class Flow(Variable):
 
 
 class CalcFlow(Flow):
-    """class to keep flow variables without representation in view"""
+    """class to keep flow variables without representation in view
+
+    Nothing should change its unit"""
 
     def __init__(self, value, unit='meters'):
         self.value_meters = self.v_m3ph = 0
@@ -309,6 +314,10 @@ class CalcFlow(Flow):
         else:
             self.__dict__['value'] = round(float(value), 3)
             self.get_vals(value, self.unit)
+
+    def __repr__(self):
+        output = 'CalcFlow({}, {})'.format(self.value, self.unit)
+        return output
 
 
 class PumpCharFlow(Flow):

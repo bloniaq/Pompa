@@ -26,7 +26,7 @@ class Well(models.StationObject):
         self.min_diameter = 0
 
     def update(self):
-        self.area = self.cross_sectional_area
+        self.area = round(self.cross_sectional_area(), 2)
 
     def minimal_diameter(self, n, station):
         d = station.pump.contour.value

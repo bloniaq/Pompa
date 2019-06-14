@@ -1,5 +1,6 @@
 # libraries
 import logging
+import math
 
 # modules
 import models.models as models
@@ -34,14 +35,16 @@ class Station(models.StationObject):
 
         # parameters to update
         self.min_sew_ord = None
+        self.area = None
+
+        # parameters to calculate
+        self.work_parameters
 
     def update(self):
         self.well.update()
         self.pump.update()
         self.ins_pipe.update()
         self.out_pipe.update()
-
-        pass
 
     def height_to_pump(self, lower_ord):
         height = self.ord_upper_level.value - lower_ord
@@ -103,15 +106,15 @@ class Station(models.StationObject):
 
         Runs calculations and checks if results exists and if are correct.
         """
+        self.update()
         validation_flag = True
 
         calculations = {'minimalisation': self.calc_minimalisation(),
                         'checking': self.calc_checking(),
                         'optimalisation': self.calc_optimalisation()}
 
-        self.update()
 
-        station.qp = station.get_calculative_flow()
+        # station.qp = station.get_calculative_flow()
 
         validation_flag = calculations[mode]
         # station.v_useful = check_get_useful_velo()
@@ -144,8 +147,16 @@ class Station(models.StationObject):
         self.ord_sw_off = self.minimal_sewage_ord()
         self.n_of_pumps = 1
 
-        enough = False
-        while not enough:
+        enough_pumps = False
+
+        COUNTER = 0
+        # tylko dla testów, do usunięcie
+
+        __parameters = {}
+
+        while not enough_pumps:
+            __parameters[str(self.n_of_pumps)] = {}
+
             log.debug('inflow max [lps]: {}'.format(self.inflow_max.v_lps))
             log.debug('inflow min [lps]: {}'.format(self.inflow_min.v_lps))
             log.debug('ord sw off [m]: {}'.format(self.ord_sw_off))
@@ -155,53 +166,125 @@ class Station(models.StationObject):
                 self.ord_sw_off,
                 self.n_of_pumps)
 
+            __parameters[str(self.n_of_pumps)]['stop'] = stop_params
+
+            enough_time = False
+            iter_height = 0.1
+
+            while not enough_time:
+                ord_to_check = self.ord_sw_off + iter_height
+
+                start_params = self.get_work_parameters(
+                    self.average_flow(self.inflow_max, self.inflow_min),
+                    ord_to_check, self.n_of_pumps)
+
+                pump_flow = start_params[2]
+                inflow = self.get_worst_case_inflow(pump_flow)
+                cycle_times = self.get_cycle_times(
+                    ord_to_check, self.ord_sw_off, pump_flow, inflow)
+
+                if cycle_times[0] > self.pump.cycle_time_s:
+                    enough_time = True
+                else:
+                    iter_height += 0.01
+
+            __parameters[str(self.n_of_pumps)]['start'] = start_params
+            __parameters[str(self.n_of_pumps)]['times'] = cycle_times
+            __parameters[str(self.n_of_pumps)]['ord_sw_on'] = ord_to_check
+
+            COUNTER += 1
+
             if stop_params[2].v_lps < self.inflow_max.v_lps:
-                enough = True
+                enough_pumps = True
+
+            elif COUNTER == 6:
+                enough_pumps = True
             else:
                 self.n_of_pumps += 1
 
+        self.work_parameters = __parameters
         return validation_flag
 
     def calc_optimalisation(self):
 
         pass
 
-    def get_work_parameters(self, flow_var, start_ord, pump_no):
+    def get_work_parameters(self, start_Qp, sewage_ord, pump_no):
         """ Returns tuple of work parameters:
         (LC highness, geometric highness, flow, speed in collector,
          speed in discharge)
         """
-        geom_H = self.ord_upper_level.value - start_ord
-        log.debug('geomH: {} - {} = {}'.format(
-            self.ord_upper_level.value, start_ord, geom_H))
-        flow = v.CalcFlow(flow_var.v_lps, unit="liters")
-        difference = 100
+        geometric_height = self.ord_upper_level.value - sewage_ord
+        log.debug('geometric_height: {} - {} = {}'.format(
+            self.ord_upper_level.value, sewage_ord, geometric_height))
+
+        iter_Qp = start_Qp
         step = 0.05
+
         pump_x = calc.get_x_axis(self, 'liters')
-        flows, lifts = self.pump.characteristic.get_pump_char_func()
-        flows_vals = [flow.v_lps for flow in flows]
-        pump_y = calc.fit_coords(flows_vals, lifts, 3)(pump_x)
+        p_flows, p_lifts = self.pump.characteristic.get_pump_char_func()
+        p_flows_vals = [flow.v_lps for flow in p_flows]
+        pump_y = calc.fit_coords(p_flows_vals, p_lifts, 3)(pump_x)
         log.debug("pump x: {} len {}, pump y: {} len {}".format(
             pump_x, len(pump_x), pump_y, len(pump_y)))
+
         log.debug('WE\'RE IN LOOP')
         while True:
             log.debug('LOOP WHILE')
-            log.debug('Flow : {}'.format(flow))
-            pipe_val = geom_H + self.ins_pipe.sum_loss(
-                flow) + self.out_pipe.sum_loss(flow)
-            pump_val = calc.interp(flow, pump_x, pump_y)
+            log.debug('Flow : {}'.format(iter_Qp))
+
+            pipe_val = geometric_height + self.ins_pipe.sum_loss(
+                iter_Qp) + self.out_pipe.sum_loss(iter_Qp)
+            pump_val = calc.interp(iter_Qp, pump_x, pump_y)
             log.debug('pipe_val : {}'.format(pipe_val))
             log.debug('pump_val : {}'.format(pump_val))
+
             difference = pump_val - pipe_val
+            step = self.adjust_step(difference, step)
+
             if difference < -0.1:
                 log.debug('difference < 0.1: {}'.format(difference))
-                flow = flow - step
+                iter_Qp.value -= step
+                log.debug('new iterQp: {}'.format(iter_Qp))
             elif difference > 0.1:
                 log.debug('difference > 0.1: {}'.format(difference))
-                flow = flow + step
+                iter_Qp.value += step
+                log.debug('new iterQp: {}'.format(iter_Qp))
             else:
                 break
-        speed_coll = (flow * 0.001) / self.out_pipe.get_area()
-        speed_dpipe = (flow * 0.001) / self.ins_pipe.get_area()
-        flow_var = v.CalcFlow(flow, unit="liters")
-        return pump_val, geom_H, flow_var, speed_coll, speed_dpipe
+        calc_Qp = iter_Qp
+        speed_coll = (calc_Qp.value * 0.001) / self.out_pipe.get_area()
+        speed_dpipe = (calc_Qp.value * 0.001) / self.ins_pipe.get_area()
+        # flow_var = v.CalcFlow(flow, unit="liters")
+        return pump_val, geometric_height, calc_Qp, speed_coll, speed_dpipe
+
+    def adjust_step(self, diff, old_step):
+        if 0.1 * diff <= old_step:
+            new_step = 0.05
+        else:
+            new_step = 0.5 * diff
+        return new_step
+
+    def get_cycle_times(self, ord1, ord2, pump_flow, inflow):
+        volume_active = round(math.fabs(ord1 - ord2) * self.well.area, 3)
+        pumping_time = round(volume_active / (
+            pump_flow.v_m3ps - inflow.v_m3ps), 1)
+        layover_time = round(volume_active / inflow.v_m3ps, 1)
+        cycle_time = layover_time + pumping_time
+
+        return cycle_time, pumping_time, layover_time
+
+    def get_worst_case_inflow(self, pump_flow):
+
+        half_pump_flow = pump_flow.v_lps / 2
+
+        if (half_pump_flow <= self.inflow_max.v_lps and
+                half_pump_flow >= self.inflow_min.v_lps):
+            result = half_pump_flow
+        elif half_pump_flow < self.inflow_min.v_lps:
+            result = self.inflow_min.v_lps
+        elif half_pump_flow > self.inflow_max.v_lps:
+            result = self.inflow_max.v_lps
+
+        worst_inflow = v.CalcFlow(result, "liters")
+        return worst_inflow

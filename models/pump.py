@@ -21,9 +21,11 @@ class PumpType(models.StationObject):
         self.efficiency_from = None
         self.efficiency_to = None
         self.characteristic = None
+        self.cycle_time_s = None
 
     def update(self):
         self.best_eff = self.max_pump_efficiency()
+        self.cycle_time_s = self.cycle_time.value * 60
 
     def set_flow_unit(self, unit):
         log.info('set_flow_unit started')
@@ -111,6 +113,7 @@ class PumpSet(models.StationObject):
         self.n_of_pumps = self.station.number_of_pumps
         self.characteristic = station.pump_type.characteristic
         self.cycle_time = station.pump_type.cycle_time
+
         self.qp = station.qp
         self.set_start_ordinates()
         self.pumps = []
