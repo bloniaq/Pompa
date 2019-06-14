@@ -170,8 +170,7 @@ class Report():
         self.content['25'] = 'Suma wsp. oporow miejsc. kolektora....  {} [-]'.format(sum(station.out_pipe.resistance.values))
         self.content['26'] = 'Suma wsp. oporow miejsc. w pompowni...  {} [-]\n'.format(sum(station.ins_pipe.resistance.values))
 
-
-        self.print()
+        self.print_rep()
 
     def write_conf(self, config):
         conf_dict = {'singlerow': 'Liniowe',
@@ -189,6 +188,6 @@ class Report():
                 string_report += '\n'
         return string_report
 
-    def print(self):
+    def print_rep(self):
         self.string = self.convert_to_string()
         print(self.string)

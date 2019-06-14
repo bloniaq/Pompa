@@ -200,7 +200,8 @@ class Flow(Variable):
                  unit='meters', fig_depend=False):
         super().__init__(app, ui_variable, dan_id)
         self.fig_depend = fig_depend
-        self.unit_var = self.tkvars.__getitem__(unit_ui_var)
+        if unit_ui_var in self.tkvars:
+            self.unit_var = self.tkvars.__getitem__(unit_ui_var)
         self.value = value
         self.unit = unit
         self.unit_var.set(unit)
@@ -229,6 +230,24 @@ class Flow(Variable):
                     self.app.draw_auxillary_figures(self.fig_depend)
                 except (AttributeError, TypeError) as e:
                     log.error('Error Flow {}'.format(e))
+
+    def __lt__(self, other):
+        return (self.value_liters < other.value_liters)
+
+    def __le__(self, other):
+        return (self.value_liters <= other.value_liters)
+
+    def __eq__(self, other):
+        return (self.value_liters == other.value_liters)
+
+    def __ne__(self, other):
+        return (self.value_liters != other.value_liters)
+
+    def __gt__(self, other):
+        return (self.value_liters > other.value_liters)
+
+    def __ge__(self, other):
+        return (self.value_liters >= other.value_liters)
 
     def get_vals(self, value, unit):
         if unit == 'meters' or unit == 'm3ph':
@@ -271,6 +290,25 @@ class Flow(Variable):
             return self.v_lps
         else:
             raise AttributeError("{} has no unit <{}>".format(self, unit))
+
+
+class CalcFlow(Flow):
+    """class to keep flow variables without representation in view"""
+
+    def __init__(self, value, unit='meters'):
+        self.value_meters = self.v_m3ph = 0
+        self.value_liters = self.v_lps = 0
+        self.fig_depend = None
+        self.v_m3ps = 0
+        self.unit = unit
+        self.value = value
+
+    def __setattr__(self, attr, value):
+        if attr != 'value':
+            self.__dict__[attr] = value
+        else:
+            self.__dict__['value'] = round(float(value), 3)
+            self.get_vals(value, self.unit)
 
 
 class PumpCharFlow(Flow):

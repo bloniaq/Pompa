@@ -14,10 +14,34 @@ def interp(wanted_x, x_arr, y_arr):
     return np.interp(wanted_x, x_arr, y_arr)
 
 
+def get_x_axis(station, unit, n=1):
+    """returns horizontal array of figures
+    """
+    log.debug("station: {}\ntype: {}".format(station, type(station)))
+    inflow_val_min = station.inflow_min.ret_unit(unit)
+    inflow_val_max = station.inflow_max.ret_unit(unit)
+    eff_from = station.pump.efficiency_from.ret_unit(unit)
+    eff_to = station.pump.efficiency_to.ret_unit(unit)
+    x_min = min(inflow_val_min - 3, eff_from - 3)
+    if x_min < 0:
+        x_min = 0
+    x_max = max(1.5 * (inflow_val_max + 3), 1.5 * (eff_to + 3),
+                n * (inflow_val_max + 3))
+    return np.linspace(x_min, x_max, 200)
+
+
 def fit_coords(xcoords, ycoords, degree):
-    log.debug('x: {}, y:{}'.format(xcoords, ycoords))
+    log.error('x: {}, y:{}'.format(xcoords, ycoords))
     x, y = sort_by_x(xcoords, ycoords)
-    log.debug('arr x: {}, arr y:{}'.format(x, y))
+    log.error('arr x: {}, arr y:{}'.format(x, y))
+    for i in x:
+        log.error('type {}: {}'.format(i, type(i)))
+        i = i.value_liters
+        log.error('type {}: {}'.format(i, type(i)))
+    for j in y:
+        log.error('type {}: {}'.format(j, type(j)))
+    for k in x:
+        log.error('type {}: {}'.format(k, type(j)))
     polyf = np.polyfit(x, y, degree)
     fitted_y = np.poly1d(polyf)
     log.debug('arr x: {}, fit y:{}'.format(x, fitted_y))
@@ -25,18 +49,27 @@ def fit_coords(xcoords, ycoords, degree):
 
 
 def sort_by_x(x_list, y_list):
-        xcoords = []
-        ycoords = []
-        pairs = {}
-        for i in range(len(x_list)):
-            pairs[str(x_list[i])] = y_list[i]
-            xcoords.append(x_list[i])
-        xcoords.sort()
-        for value in xcoords:
-            ycoords.append(pairs[str(value)])
-        x = np.array(xcoords)
-        y = np.array(ycoords)
-        return x, y
+    xcoords = []
+    ycoords = []
+    pairs = {}
+    for i in range(len(x_list)):
+        pairs[str(x_list[i])] = y_list[i]
+        xcoords.append(x_list[i])
+    log.error('x: {}, y:{}'.format(xcoords, ycoords))
+    for i in x_list:
+        log.error("{}, type: {}".format(i, type(i)))
+    for coord in range(len(xcoords)):
+        log.error("{} type of {} element: {}".format(coord, xcoords[coord],
+                                                     type(xcoords[coord])))
+
+    xcoords.sort()
+    x_values = []
+    for value in xcoords:
+        # x_values.append(value.value_liters)
+        ycoords.append(pairs[str(value)])
+    x = np.array(xcoords)
+    y = np.array(ycoords)
+    return x, y
 
 
 def calc_number_of_pumps(station):
@@ -83,91 +116,3 @@ def check_get_useful_velo(station):
         station.pump.cycle_time.value) * 60) * station.qp) / 4000)
     log.info('useful velo is {}m3'.format(useful_velo))
     return useful_velo
-
-
-def get_work_parameters(station, flow, start_ord):
-    """ Returns tuple of work parameters:
-    (LC highness, geometric highness, flow, speed in collector,
-     speed in discharge)
-    """
-    station.ins_pipe.update()
-    station.out_pipe.update()
-    station.update()
-    geom_H = station.min_sew_ord - start_ord
-
-    difference = 100
-    step = 0.05
-    pump_x = self.get_x_axis('liters')
-    flows, lifts = station.pump.characteristic.get_pump_char_func(
-        "liters")
-    pump_y = maths.fit_coords(flows, lifts, 3)(pump_x)
-    log.debug("pump x: {} len {}, pump y: {} len {}".format(
-        pump_x, len(pump_x), pump_y, len(pump_y)))
-    log.debug('WE\'RE IN LOOP')
-    while True:
-        log.debug('LOOP WHILE')
-        log.debug('Flow : {}'.format(flow))
-        pipe_val = geom_H + self.d_pipe.sum_loss(
-            flow) + self.collector.sum_loss(flow)
-        pump_val = maths.interp(flow, pump_x, pump_y)
-        log.debug('pipe_val : {}'.format(pipe_val))
-        log.debug('pump_val : {}'.format(pump_val))
-        difference = pump_val - pipe_val
-        if difference < -0.1:
-            log.debug('difference < 0.1: {}'.format(difference))
-            flow = flow - step
-        elif difference > 0.1:
-            log.debug('difference > 0.1: {}'.format(difference))
-            flow = flow + step
-        else:
-            break
-    speed_coll = (flow * 0.001) / self.collector.get_area()
-    speed_dpipe = (flow * 0.001) / self.d_pipe.get_area()
-    return pump_val, geom_H, flow, speed_coll, speed_dpipe
-
-
-def calculate(station, mode):
-    """ Returns validation flag
-
-    Runs calculations and checks if results exists and if are correct.
-    """
-    validation_flag = True
-
-    calculations = {'minimalisation': calc_minimalisation(),
-                    'checking': calc_checking(),
-                    'optimalisation': calc_optimalisation()}
-
-    station.update()
-
-    station.qp = station.get_calculative_flow()
-    # station.v_useful = check_get_useful_velo()
-    # station.h_useful = station.v_useful / station.well.cross_sectional_area()
-    # station.number_of_pumps = calc_number_of_pumps()
-    # station.number_of_res_pumps = reserve_pumps_number()
-    # station.ord_sw_on = station.ord_inlet.value - 0.1
-    # station.ord_sw_off = station.ord_bottom.value +\
-    #     station.minimal_sewage_level.value
-    # station.ord_sw_alarm = station.ord_inlet.value
-    # station.height_start = station.height_to_pump(station.ord_sw_off)
-    # station.height_stop = station.height_to_pump(station.ord_sw_on)
-    # station.h_whole = station.ord_terrain.value - station.ord_bottom.value
-    # station.h_reserve = station.ord_sw_alarm - station.ord_sw_on
-    # station.v_whole = station.velocity(station.h_whole)
-    # station.v_dead = station.velocity(station.minimal_sewage_level.value)
-    # station.v_reserve = station.velocity(station.h_reserve)
-    # TODO:
-    # Calculations
-    return validation_flag
-
-
-def calc_minimalisation():
-
-    pass
-
-def calc_checking():
-
-    pass
-
-def calc_optimalisation():
-
-    pass

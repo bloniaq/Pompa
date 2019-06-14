@@ -34,19 +34,7 @@ class AppFigure():
         plot.grid(True, 'major', linestyle='--')
 
     def get_x_axis(self, unit, n=1):
-        """returns horizontal array of figures
-        """
-
-        inflow_val_min = self.station.inflow_min.ret_unit(unit)
-        inflow_val_max = self.station.inflow_max.ret_unit(unit)
-        eff_from = self.station.pump.efficiency_from.ret_unit(unit)
-        eff_to = self.station.pump.efficiency_to.ret_unit(unit)
-        x_min = min(inflow_val_min - 3, eff_from - 3)
-        if x_min < 0:
-            x_min = 0
-        x_max = max(1.5 * (inflow_val_max + 3), 1.5 * (eff_to + 3),
-                    n * (inflow_val_max + 3))
-        return np.linspace(x_min, x_max, 200)
+        return calc.get_x_axis(self.station, unit, n=n)
 
     def get_geom_loss_vector(self):
         log.debug('Starting draw_pipes_plot')
