@@ -243,12 +243,19 @@ class Application():
         for figure in figures:
             dependencies[figure]
 
+    def show_report(self, report):
+        # TODO is this function needed?
+        text_container = self.builder.get_object('Text_Report')
+        text_container.delete('1.0', tk.END)
+        text_container.insert('1.0', report)
+
     def calculate(self):
 
         # ma wskazywać na moduł calculation
         validation = self.station.calculate(self.mode.value)
         if validation:
             report_content = report.Report(self.station)
+            self.show_report(report_content.convert_to_string())
 
         pass
 

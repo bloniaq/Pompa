@@ -94,7 +94,7 @@ class Station(models.StationObject):
         return flag
 
     def velocity(self, height):
-        velocity = self.well.cross_sectional_area() * height
+        velocity = self.well.area * height
         log.debug('v for h: {} is {}'.format(height, velocity))
         return velocity
 
@@ -117,7 +117,20 @@ class Station(models.StationObject):
         # station.qp = station.get_calculative_flow()
 
         validation_flag = calculations[mode]
-        # station.v_useful = check_get_useful_velo()
+
+        self.h_whole = self.ord_terrain.value - self.ord_bottom.value
+        self.v_whole = self.velocity(self.h_whole)
+        self.h_useful = self.work_parameters[str(
+            self.n_of_pumps)]['ord_sw_on'] - self.ord_sw_off
+        self.v_useful = self.velocity(self.h_useful)
+        # for key in self.work_parameters.keys():
+        #     self.v_useful += self.work_parameters[key]['vol_a']
+        self.ord_sw_on = self.work_parameters[str(
+            self.n_of_pumps)]['ord_sw_on']
+        self.ord_sw_alarm = self.ord_sw_on + 0.1
+        self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
+        self.v_reserve = self.velocity(self.h_reserve)
+        self.v_dead = self.velocity(self.minimal_sewage_level.value)
         # station.h_useful = station.v_useful / station.well.cross_sectional_area()
         # station.number_of_pumps = calc_number_of_pumps()
         # station.number_of_res_pumps = reserve_pumps_number()
@@ -127,13 +140,6 @@ class Station(models.StationObject):
         # station.ord_sw_alarm = station.ord_inlet.value
         # station.height_start = station.height_to_pump(station.ord_sw_off)
         # station.height_stop = station.height_to_pump(station.ord_sw_on)
-        # station.h_whole = station.ord_terrain.value - station.ord_bottom.value
-        # station.h_reserve = station.ord_sw_alarm - station.ord_sw_on
-        # station.v_whole = station.velocity(station.h_whole)
-        # station.v_dead = station.velocity(station.minimal_sewage_level.value)
-        # station.v_reserve = station.velocity(station.h_reserve)
-        # TODO:
-        # Calculations
 
         return validation_flag
 
@@ -180,8 +186,10 @@ class Station(models.StationObject):
 
                 pump_flow = start_params[2]
                 inflow = self.get_worst_case_inflow(pump_flow)
+                volume_active = round(math.fabs(
+                    ord_to_check - self.ord_sw_off) * self.well.area, 3)
                 cycle_times = self.get_cycle_times(
-                    ord_to_check, self.ord_sw_off, pump_flow, inflow)
+                    volume_active, pump_flow, inflow)
 
                 if cycle_times[0] > self.pump.cycle_time_s:
                     enough_time = True
@@ -190,7 +198,9 @@ class Station(models.StationObject):
 
             __parameters[str(self.n_of_pumps)]['start'] = start_params
             __parameters[str(self.n_of_pumps)]['times'] = cycle_times
+            __parameters[str(self.n_of_pumps)]['vol_a'] = volume_active
             __parameters[str(self.n_of_pumps)]['ord_sw_on'] = ord_to_check
+            __parameters[str(self.n_of_pumps)]['worst_infl'] = inflow
 
             COUNTER += 1
 
@@ -265,14 +275,13 @@ class Station(models.StationObject):
             new_step = 0.5 * diff
         return new_step
 
-    def get_cycle_times(self, ord1, ord2, pump_flow, inflow):
-        volume_active = round(math.fabs(ord1 - ord2) * self.well.area, 3)
+    def get_cycle_times(self, volume_active, pump_flow, inflow):
         pumping_time = round(volume_active / (
             pump_flow.v_m3ps - inflow.v_m3ps), 1)
         layover_time = round(volume_active / inflow.v_m3ps, 1)
         cycle_time = layover_time + pumping_time
 
-        return cycle_time, pumping_time, layover_time
+        return cycle_time, layover_time, pumping_time
 
     def get_worst_case_inflow(self, pump_flow):
 
