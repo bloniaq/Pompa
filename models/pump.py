@@ -75,9 +75,9 @@ class PumpType(models.StationObject):
         char_raport += '\n'
         return char_raport
 
-    def get_Q_for_H(self, number):
-        flows, lifts = self.characteristic.get_pump_char_func(1)
-        set_flows = [flow.v_lps * number for flow in flows]
+    def get_Q_for_H(self, pump_no):
+        flows, lifts = self.characteristic.get_pump_char_func(pump_no)
+        set_flows = [flow.v_lps * pump_no for flow in flows]
         log.debug('lifts: {}, flows(in set): {}'.format(lifts, set_flows))
         Qs = self.app.fit_coords(lifts, set_flows, 3)
         log.debug('coords fitted (Qs) : {}'.format(Qs))

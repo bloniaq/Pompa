@@ -257,7 +257,7 @@ class Station(models.StationObject):
             difference = pump_val - pipe_val
             log.debug('oldstep: {}'.format(step))
             log.debug('difference: {}'.format(difference))
-            step = self.adjust_step(difference, step)
+            step = self.adjust_step(difference, step, pump_no)
             log.debug('newstep: {}'.format(step))
 
             if difference < -0.2:
@@ -281,13 +281,25 @@ class Station(models.StationObject):
         return (pump_val, geometric_height, calc_Qp, speed_out_pipe,
                 speed_ins_pipe)
 
-    def adjust_step(self, diff, old_step):
+    def adjust_step(self, diff, old_step, pump_no):
+        '''
+        OLD VERSION
         log.info("0.1 * math.fabs(diff): {}".format(0.1 * math.fabs(diff)))
         if 0.1 * math.fabs(diff) <= old_step:
             new_step = 0.03
         else:
             new_step = 0.5 * math.fabs(diff)
         return new_step
+
+        średnia wartość deltaQ dla deltaH = 1
+        '''
+        flow_coords, lift_coords = self.pump.characteristic.get_pump_char_func(
+            pump_no)
+        log.debug('flow coords: {}, lift_coords: {}'.format(
+            flow_coords, lift_coords))
+        base_step = ((flow_coords[-1].v_lps - flow_coords[0].v_lps) /
+                     (lift_coords[0] - lift_coords[-1])) / 2
+        return round(base_step * diff, 2)
 
     def get_cycle_times(self, volume_active, pump_flow, inflow):
         pumping_time = round(volume_active / (

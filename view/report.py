@@ -132,7 +132,7 @@ class Report():
             report += '-predkosc w kolektorze tlocznym....v= ' +\
                 '{}\t[m/s]\n'.format("%0.2f" % prms['start'][3])
             report += '-predkosc w przewodach w pompowni..v= ' +\
-                '{}\t[m/s]\n'.format("%0.2f" % prms['start'][4])
+                '{}\t[m/s]\n\n'.format("%0.2f" % prms['start'][4])
             """
             USUNIĘTO PO ROZMOWIE Z DRem WAYSEM
             report += '-zapas wysokosci cisnienia.....dh=  {}
