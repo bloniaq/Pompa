@@ -147,7 +147,7 @@ class Report():
         self.content['1'] = 'POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA\n\n'
         self.content['2'] = self.write_conf(station.well.config.value)
         self.content['3'] = 'Liczba dobranych pomp roboczych .....n= {} szt.'.format(station.n_of_pumps)
-        self.content['4'] = 'Liczba pomp rezerwowych.............nr= {} szt.'.format("station.n_of_res_pumps")
+        self.content['4'] = 'Liczba pomp rezerwowych.............nr= {} szt.'.format(station.n_of_res_pumps)
         self.content['5'] = 'Srednica kola opisujacego pompe.....Dn= {} [m]'.format(station.pump.contour.value)
         self.content['6'] = 'Srednica pompowni...................DN= {} [m]'.format(station.well.diameter.value)
         self.content['7'] = 'Minimalna srednica pompowni......DNmin= {} [m]'.format("%0.2f" % station.well.minimal_diameter(3, station))
@@ -212,10 +212,10 @@ class Report():
             pump_no = pump + 1
             prms = self.station.work_parameters[str(pump_no)]
             report += 'PARAMETRY POMPY NR: {}\n\n'.format(pump_no)
-            report += 'Rzeczywisty czas cyklu pompy.......T= {}\t[s]\n'.format(prms['times'][0])
-            report += 'Rzeczywisty czas postoju pompy....Tp= {}\t[s]\n'.format(prms['times'][1])
-            report += 'Rzeczywisty czas pracy pompy......Tr= {}\t[s]\n'.format(prms['times'][2])
-            report += 'Obj. uzyt. wyzn. przez pompe......Vu= {}\t[m3]\n'.format(prms['vol_a'])
+            report += 'Rzeczywisty czas cyklu pompy.......T= {}\t[s]\n'.format("%0.1f" % prms['times'][0])
+            report += 'Rzeczywisty czas postoju pompy....Tp= {}\t[s]\n'.format("%0.1f" % prms['times'][1])
+            report += 'Rzeczywisty czas pracy pompy......Tr= {}\t[s]\n'.format("%0.1f" % prms['times'][2])
+            report += 'Obj. uzyt. wyzn. przez pompe......Vu= {}\t[m3]\n'.format("%0.2f" % prms['vol_a'])
             report += 'Rzedna wlaczenia pompy..............  {}\t[m]\n\n'.format("%0.2f" % prms['ord_sw_on'])
             report += 'Parametry poczatkowe pracy zespolu pomp\nw chwili wlaczenia pompy nr{}\n\n'.format(pump_no)
             report += '-wys. lc. u wylotu pompy.........Hlc= {}\t[m]\n'.format("%0.2f" % prms['start'][0])
@@ -235,6 +235,7 @@ class Report():
             report += 'Q1=  {} [l/s]    Q2=  {} [l/s]\n'.format(
                 (pump_no) * self.station.pump.efficiency_from.v_lps,
                 (pump_no) * self.station.pump.efficiency_to.v_lps)
+            report += '\n\n'
 
         report += '\n\n'
         return report

@@ -138,6 +138,8 @@ class Application():
         self.station.ins_pipe.load_data(data_dictionary)
         self.station.out_pipe.load_data(data_dictionary)
         self.station.pump.load_data(data_dictionary)
+
+        self.builder.get_object('Text_Report').delete('1.0', tk.END)
         # Updating Figures
 
         # poprawić odświeżanie wykresów

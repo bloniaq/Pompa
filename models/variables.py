@@ -323,8 +323,8 @@ class CalcFlow(Flow):
 class PumpCharFlow(Flow):
 
     def __init__(self, value, unit, ui_var):
-        self.value = value
         self.unit = unit
+        self.value = value
         self.unit_var = ui_var
         self.value_meters = 0
         self.value_liters = 0
@@ -335,13 +335,21 @@ class PumpCharFlow(Flow):
 
     def __setattr__(self, attr, value):
         self.__dict__[attr] = value
+        # if attr == 'value':
+        #     self.get_vals(value, self.unit)
+
+    def multi(self, pump_no):
+        if pump_no != 1:
+            return PumpCharFlow(self.value * pump_no, "liters", self.unit_var)
+        else:
+            return self
 
 
 class VFlow(PumpCharFlow):
 
     def __init__(self, value, unit):
-        self.value = value
         self.unit = unit
+        self.value = value
         self.value_meters = 0
         self.value_liters = 0
         self.get_vals(value, unit)
@@ -387,7 +395,7 @@ class PumpCharacteristic(Variable):
         self.coords[itemid] = (PumpCharFlow(flow, unit, self.unit_var), lift)
         log.debug('char points: {}'.format(self.coords))
 
-    def get_pump_char_func(self):
+    def get_pump_char_func(self, pump_no):
         log.debug('Getting pump characteristic func')
         # pairs = {}
         flow_coords = []
@@ -395,7 +403,7 @@ class PumpCharacteristic(Variable):
         log.debug('Starting iterating over cooridnates, {}'.format(
             self.coords))
         for point in self.coords:
-            flow_coords.append(self.coords[point][0])
+            flow_coords.append(self.coords[point][0].multi(pump_no))
             lift_coords.append(self.coords[point][1])
         log.debug('flows: {}, lifts: {}'.format(flow_coords, lift_coords))
         return flow_coords, lift_coords

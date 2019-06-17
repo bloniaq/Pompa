@@ -121,7 +121,7 @@ class Pipe(models.StationObject):
 
     def get_pipe_char_vals(self, station, unit):
         log.debug('Starting getting pipe vals')
-        flows, _ = station.pump.characteristic.get_pump_char_func()
+        flows, _ = station.pump.characteristic.get_pump_char_func(1)
         flows_vals = [flow.ret_unit(unit) for flow in flows]
         y_coords = self.get_y_coords(flows)
         pipes_char = []

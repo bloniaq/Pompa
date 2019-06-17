@@ -127,10 +127,11 @@ class Station(models.StationObject):
         #     self.v_useful += self.work_parameters[key]['vol_a']
         self.ord_sw_on = self.work_parameters[str(
             self.n_of_pumps)]['ord_sw_on']
-        self.ord_sw_alarm = self.ord_sw_on + 0.1
+        self.ord_sw_alarm = self.ord_inlet.value - 0.1
         self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
         self.v_reserve = self.velocity(self.h_reserve)
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
+        self.n_of_res_pumps = calc.reserve_pumps_number(self)
         # station.h_useful = station.v_useful / station.well.cross_sectional_area()
         # station.number_of_pumps = calc_number_of_pumps()
         # station.number_of_res_pumps = reserve_pumps_number()
@@ -175,24 +176,34 @@ class Station(models.StationObject):
             __parameters[str(self.n_of_pumps)]['stop'] = stop_params
 
             enough_time = False
-            iter_height = 0.1
+            if self.n_of_pumps == 1:
+                iter_height = 0.1
+            else:
+                last_pump_on = __parameters[str(
+                    self.n_of_pumps - 1)]['ord_sw_on']
+                iter_height = last_pump_on - self.ord_sw_off
+                log.error('iter_height : {}'.format(iter_height))
 
             while not enough_time:
                 ord_to_check = self.ord_sw_off + iter_height
+                log.error('ord_to_check : {}'.format(ord_to_check))
 
                 start_params = self.get_work_parameters(
                     self.average_flow(self.inflow_max, self.inflow_min),
                     ord_to_check, self.n_of_pumps)
 
-                pump_flow = start_params[2]
+                pump_flow = v.CalcFlow(stop_params[2].v_lps + (
+                    (start_params[2].v_lps - stop_params[2].v_lps) / 2),
+                    unit="liters")
                 inflow = self.get_worst_case_inflow(pump_flow)
-                volume_active = round(math.fabs(
-                    ord_to_check - self.ord_sw_off) * self.well.area, 3)
+                volume_active = math.fabs(
+                    ord_to_check - self.ord_sw_off) * self.well.area
                 cycle_times = self.get_cycle_times(
                     volume_active, pump_flow, inflow)
 
                 if cycle_times[0] > self.pump.cycle_time_s:
                     enough_time = True
+                    log.error('ENOUGH TIME ')
                 else:
                     iter_height += 0.01
 
@@ -204,7 +215,7 @@ class Station(models.StationObject):
 
             COUNTER += 1
 
-            if stop_params[2].v_lps < self.inflow_max.v_lps:
+            if stop_params[2].v_lps > self.inflow_max.v_lps:
                 enough_pumps = True
 
             elif COUNTER == 6:
@@ -232,7 +243,7 @@ class Station(models.StationObject):
         step = 0.05
 
         pump_x = calc.get_x_axis(self, 'liters')
-        p_flows, p_lifts = self.pump.characteristic.get_pump_char_func()
+        p_flows, p_lifts = self.pump.characteristic.get_pump_char_func(pump_no)
         p_flows_vals = [flow.v_lps for flow in p_flows]
         pump_y = calc.fit_coords(p_flows_vals, p_lifts, 3)(pump_x)
         log.debug("pump x: {} len {}, pump y: {} len {}".format(
@@ -250,17 +261,23 @@ class Station(models.StationObject):
             log.debug('pump_val : {}'.format(pump_val))
 
             difference = pump_val - pipe_val
+            log.debug('oldstep: {}'.format(step))
+            log.debug('difference: {}'.format(difference))
             step = self.adjust_step(difference, step)
+            log.debug('newstep: {}'.format(step))
 
-            if difference < -0.1:
+            if difference < -0.2:
                 log.debug('difference < 0.1: {}'.format(difference))
                 iter_Qp.value -= step
                 log.debug('new iterQp: {}'.format(iter_Qp))
-            elif difference > 0.1:
+            elif difference > 0.2:
                 log.debug('difference > 0.1: {}'.format(difference))
                 iter_Qp.value += step
                 log.debug('new iterQp: {}'.format(iter_Qp))
             else:
+                log.error(
+                    'FOUND PARAMETERS for sewage_ord {} for pump {}'.format(
+                        sewage_ord, pump_no))
                 break
         calc_Qp = iter_Qp
         speed_coll = (calc_Qp.value * 0.001) / self.out_pipe.get_area()
@@ -269,10 +286,11 @@ class Station(models.StationObject):
         return pump_val, geometric_height, calc_Qp, speed_coll, speed_dpipe
 
     def adjust_step(self, diff, old_step):
-        if 0.1 * diff <= old_step:
-            new_step = 0.05
+        log.info("0.1 * math.fabs(diff): {}".format(0.1 * math.fabs(diff)))
+        if 0.1 * math.fabs(diff) <= old_step:
+            new_step = 0.03
         else:
-            new_step = 0.5 * diff
+            new_step = 0.5 * math.fabs(diff)
         return new_step
 
     def get_cycle_times(self, volume_active, pump_flow, inflow):

@@ -60,7 +60,7 @@ class PumpType(models.StationObject):
 
     def draw_pump_plot(self):
         unit = self.characteristic.unit_var.get()
-        flows, lifts = self.characteristic.get_pump_char_func()
+        flows, lifts = self.characteristic.get_pump_char_func(1)
         flows_vals = [flow.ret_unit(unit) for flow in flows]
         y = self.app.fit_coords(flows_vals, lifts, 3)
         return y
@@ -76,7 +76,7 @@ class PumpType(models.StationObject):
         return char_raport
 
     def get_Q_for_H(self, number):
-        flows, lifts = self.characteristic.get_pump_char_func()
+        flows, lifts = self.characteristic.get_pump_char_func(1)
         set_flows = [flow.v_lps * number for flow in flows]
         log.debug('lifts: {}, flows(in set): {}'.format(lifts, set_flows))
         Qs = self.app.fit_coords(lifts, set_flows, 3)
@@ -144,7 +144,7 @@ class PumpSet(models.StationObject):
 
     def get_pumpset_vals(self):
         log.debug('Starting draw_pipes_plot')
-        flows, lifts = self.characteristic.get_pump_char_func()
+        flows, lifts = self.characteristic.get_pump_char_func(1)
         n = self.n_of_pumps
         set_flows = [flow.v_lps * n for flow in flows]
         y = self.app.fit_coords(set_flows, lifts, 3)

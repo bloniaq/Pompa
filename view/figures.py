@@ -38,7 +38,7 @@ class AppFigure():
 
     def get_geom_loss_vector(self):
         log.debug('Starting draw_pipes_plot')
-        flows, _ = self.station.pump.characteristic.get_pump_char_func()
+        flows, _ = self.station.pump.characteristic.get_pump_char_func(1)
         flows_vals = [flow.v_lps for flow in flows]
         loss_char = []
         geom_loss = self.station.height_to_pump(
@@ -51,7 +51,7 @@ class AppFigure():
 
     def get_all_pipes_char_vals(self, unit):
         log.debug('Starting draw_pipes_plot')
-        flows, _ = self.station.pump.characteristic.get_pump_char_func()
+        flows, _ = self.station.pump.characteristic.get_pump_char_func(1)
         flows_vals = [flow.ret_unit(unit) for flow in flows]
         log.debug('Got geometric loss')
         discharge_y = self.station.ins_pipe.get_y_coords(flows)
