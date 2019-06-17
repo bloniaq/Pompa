@@ -113,9 +113,6 @@ class Station(models.StationObject):
                         'checking': self.calc_checking(),
                         'optimalisation': self.calc_optimalisation()}
 
-
-        # station.qp = station.get_calculative_flow()
-
         validation_flag = calculations[mode]
 
         self.h_whole = self.ord_terrain.value - self.ord_bottom.value
@@ -123,24 +120,15 @@ class Station(models.StationObject):
         self.h_useful = self.work_parameters[str(
             self.n_of_pumps)]['ord_sw_on'] - self.ord_sw_off
         self.v_useful = self.velocity(self.h_useful)
-        # for key in self.work_parameters.keys():
-        #     self.v_useful += self.work_parameters[key]['vol_a']
+
         self.ord_sw_on = self.work_parameters[str(
             self.n_of_pumps)]['ord_sw_on']
-        self.ord_sw_alarm = self.ord_inlet.value - 0.1
+        self.ord_sw_alarm = self.ord_inlet.value
         self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
         self.v_reserve = self.velocity(self.h_reserve)
+
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
         self.n_of_res_pumps = calc.reserve_pumps_number(self)
-        # station.h_useful = station.v_useful / station.well.cross_sectional_area()
-        # station.number_of_pumps = calc_number_of_pumps()
-        # station.number_of_res_pumps = reserve_pumps_number()
-        # station.ord_sw_on = station.ord_inlet.value - 0.1
-        # station.ord_sw_off = station.ord_bottom.value +\
-        #     station.minimal_sewage_level.value
-        # station.ord_sw_alarm = station.ord_inlet.value
-        # station.height_start = station.height_to_pump(station.ord_sw_off)
-        # station.height_stop = station.height_to_pump(station.ord_sw_on)
 
         return validation_flag
 
