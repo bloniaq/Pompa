@@ -257,7 +257,7 @@ class Station(models.StationObject):
             difference = pump_val - pipe_val
             log.debug('oldstep: {}'.format(step))
             log.debug('difference: {}'.format(difference))
-            step = self.adjust_step(difference, step, pump_no)
+            step = self.adjust_q_step(difference, step, pump_no)
             log.debug('newstep: {}'.format(step))
 
             if difference < -0.2:
@@ -281,7 +281,7 @@ class Station(models.StationObject):
         return (pump_val, geometric_height, calc_Qp, speed_out_pipe,
                 speed_ins_pipe)
 
-    def adjust_step(self, diff, old_step, pump_no):
+    def adjust_q_step(self, diff, old_step, pump_no):
         '''
         OLD VERSION
         log.info("0.1 * math.fabs(diff): {}".format(0.1 * math.fabs(diff)))
