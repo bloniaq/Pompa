@@ -206,7 +206,7 @@ class Station(models.StationObject):
             if stop_params[2].v_lps > self.inflow_max.v_lps:
                 enough_pumps = True
 
-            elif COUNTER == 6:
+            elif COUNTER == 9:
                 enough_pumps = True
             else:
                 self.n_of_pumps += 1
@@ -221,14 +221,21 @@ class Station(models.StationObject):
     def get_work_parameters(self, start_Qp, sewage_ord, pump_no):
         """ Returns tuple of work parameters:
         (LC highness, geometric highness, flow, speed in collector,
-         speed in discharge)
+        speed in discharge)
+
+        Kolejne iteracje modyfikują parametr przepływu, dopóki nie zostanie
+        znaleziony taki, w którego funkcji odpowiednio blisko będą:
+        -wys. podnoszenia pompy
+        -poziom dynamicznych strat ciśnienia w przewodzie
         """
         geometric_height = self.ord_upper_level.value - sewage_ord
+
         log.debug('geometric_height: {} - {} = {}'.format(
             self.ord_upper_level.value, sewage_ord, geometric_height))
 
         iter_Qp = start_Qp
         step = 0.05
+        close_enough = False
 
         pump_x = calc.get_x_axis(self, 'liters')
         p_flows, p_lifts = self.pump.characteristic.get_pump_char_func(pump_no)
@@ -237,9 +244,8 @@ class Station(models.StationObject):
         log.debug("pump x: {} len {}, pump y: {} len {}".format(
             pump_x, len(pump_x), pump_y, len(pump_y)))
 
-        log.debug('WE\'RE IN LOOP')
-        while True:
-            log.debug('LOOP WHILE')
+        while not close_enough:
+            log.debug('LOOP WHILE - Calculating parameters')
             log.debug('Flow : {}'.format(iter_Qp))
 
             pipe_val = geometric_height + self.ins_pipe.sum_loss(
@@ -257,21 +263,23 @@ class Station(models.StationObject):
             if difference < -0.2:
                 log.debug('difference < 0.1: {}'.format(difference))
                 iter_Qp.value -= step
-                log.debug('new iterQp: {}'.format(iter_Qp))
+                log.debug('new iterQp: {}\n\n'.format(iter_Qp))
             elif difference > 0.2:
                 log.debug('difference > 0.1: {}'.format(difference))
                 iter_Qp.value += step
-                log.debug('new iterQp: {}'.format(iter_Qp))
+                log.debug('new iterQp: {}\n\n'.format(iter_Qp))
             else:
                 log.error(
-                    'FOUND PARAMETERS for sewage_ord {} for pump {}'.format(
+                    'FOUND PARAMS for sewage_ord {} for pump {}\n\n'.format(
                         sewage_ord, pump_no))
-                break
+                close_enough = True
+
         calc_Qp = iter_Qp
-        speed_coll = (calc_Qp.value * 0.001) / self.out_pipe.get_area()
-        speed_dpipe = (calc_Qp.value * 0.001) / self.ins_pipe.get_area()
-        # flow_var = v.CalcFlow(flow, unit="liters")
-        return pump_val, geometric_height, calc_Qp, speed_coll, speed_dpipe
+        speed_out_pipe = (calc_Qp.value * 0.001) / self.out_pipe.get_area()
+        speed_ins_pipe = (calc_Qp.value * 0.001) / self.ins_pipe.get_area()
+
+        return (pump_val, geometric_height, calc_Qp, speed_out_pipe,
+                speed_ins_pipe)
 
     def adjust_step(self, diff, old_step):
         log.info("0.1 * math.fabs(diff): {}".format(0.1 * math.fabs(diff)))

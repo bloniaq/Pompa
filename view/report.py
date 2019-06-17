@@ -83,7 +83,7 @@ class Report():
 
         self.content['41'] = self.pump_report()
 
-        self.print_rep()
+        # self.print_rep()
 
     def write_conf(self, config):
         conf_dict = {'singlerow': 'Liniowe',
