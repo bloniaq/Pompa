@@ -1,6 +1,6 @@
 # libraries
 import logging
-import math
+# import math
 
 # modules
 import models.models as models
@@ -185,12 +185,13 @@ class Station(models.StationObject):
                     unit="liters")
                 inflow = self.get_worst_case_inflow(pump_flow)
                 if self.n_of_pumps == 1:
-                    lower_va_ord = self.ord_bottom.value
+                    lower_va_ord = self.ord_sw_off
                 else:
                     lower_va_ord = __parameters[str(
                         self.n_of_pumps - 1)]['ord_sw_on']
-                volume_active = math.fabs(
-                    ord_to_check - lower_va_ord) * self.well.area
+                log.debug('lower_va_ord: {}'.format(lower_va_ord))
+                volume_active = self.velocity(ord_to_check - lower_va_ord)
+                log.debug('volume_active: {}'.format(volume_active))
                 cycle_times = self.get_cycle_times(
                     volume_active, pump_flow, inflow)
 
@@ -308,10 +309,13 @@ class Station(models.StationObject):
         return round(base_step * diff, 2)
 
     def adjust_h_step(self, iterated_v, qp, qdop):
-        sought_v = (self.pump.cycle_time.value * 360 * qdop.v_m3ps * (
-            qp.v_m3ps - qdop.v_m3ps)) / qp.v_m3ps
+        sought_v = (self.pump.cycle_time.value * 60 * qp.v_m3ps) / 4
         delta_v = sought_v - iterated_v
         h_step = round(0.6 * (delta_v / self.well.area), 2)
+        if h_step < 0.01:
+            h_step = 0.01
+        log.debug('adjusted h step to: {}, based on sought va {}'.format(
+            h_step, sought_v))
         return h_step
 
     def get_cycle_times(self, volume_active, pump_flow, inflow):

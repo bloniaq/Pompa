@@ -19,7 +19,7 @@ class Report():
         self.content['5'] = 'Srednica kola opisujacego pompe.....Dn= ' +\
             '{} [m]'.format(station.pump.contour.value)
         self.content['6'] = 'Srednica pompowni...................DN= ' +\
-            '{} [m]'.format(station.well.diameter.value)
+            '{} [m]'.format(station.well.diameter_fung)
         self.content['7'] = 'Minimalna srednica pompowni......DNmin= ' +\
             '{} [m]'.format("%0.2f" % station.well.minimal_diameter(
                 station.n_of_pumps + station.n_of_res_pumps, station))

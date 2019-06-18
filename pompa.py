@@ -124,6 +124,9 @@ class Application():
         Gets filename from widget, reckongizes save version, and loads data
         """
         log.info('\ndata_load started\n')
+
+        self.builder.get_object('Text_Report').delete('1.0', tk.END)
+
         global path
         path = self.filepath.cget('path')
         log.debug('path: {}'.format(path))
@@ -139,7 +142,6 @@ class Application():
         self.station.out_pipe.load_data(data_dictionary)
         self.station.pump.load_data(data_dictionary)
 
-        self.builder.get_object('Text_Report').delete('1.0', tk.END)
         # Updating Figures
 
         # poprawić odświeżanie wykresów

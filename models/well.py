@@ -24,6 +24,7 @@ class Well(models.StationObject):
         # parameters to calculate
         self.area = 0
         self.min_diameter = 0
+        self.diameter_fung = 0
 
     def update(self):
         self.area = round(self.cross_sectional_area(), 2)
@@ -61,9 +62,11 @@ class Well(models.StationObject):
             area = self.length.value * self.width.value
             log.debug('len: {}, wid: {}'.format(
                 self.length.value, self.width.value))
+            self.diameter_fung = round(2 * ((area / 3.14) ** 0.5), 2)
         elif self.shape.value == 'round':
             log.debug('round')
             log.debug('diameter value: {}'.format(self.diameter.value))
             area = 3.14 * ((self.diameter.value / 2) ** 2)
+            self.diameter_fung = self.diameter.value
         log.debug('cross section area is {}'.format(area))
         return area
