@@ -184,8 +184,13 @@ class Station(models.StationObject):
                     (start_params[2].v_lps - stop_params[2].v_lps) / 2),
                     unit="liters")
                 inflow = self.get_worst_case_inflow(pump_flow)
+                if self.n_of_pumps == 1:
+                    lower_va_ord = self.ord_bottom.value
+                else:
+                    lower_va_ord = __parameters[str(
+                        self.n_of_pumps - 1)]['ord_sw_on']
                 volume_active = math.fabs(
-                    ord_to_check - self.ord_sw_off) * self.well.area
+                    ord_to_check - lower_va_ord) * self.well.area
                 cycle_times = self.get_cycle_times(
                     volume_active, pump_flow, inflow)
 
@@ -303,10 +308,10 @@ class Station(models.StationObject):
         return round(base_step * diff, 2)
 
     def adjust_h_step(self, iterated_v, qp, qdop):
-        sought_v = (self.self.pump.cycle_time * qdop.v_m3ps * (
+        sought_v = (self.pump.cycle_time.value * 360 * qdop.v_m3ps * (
             qp.v_m3ps - qdop.v_m3ps)) / qp.v_m3ps
         delta_v = sought_v - iterated_v
-        h_step = round(0.6(delta_v / self.well.area), 2)
+        h_step = round(0.6 * (delta_v / self.well.area), 2)
         return h_step
 
     def get_cycle_times(self, volume_active, pump_flow, inflow):
