@@ -193,7 +193,8 @@ class Station(models.StationObject):
                     enough_time = True
                     log.error('ENOUGH TIME ')
                 else:
-                    iter_height += 0.01
+                    iter_height += self.adjust_h_step(
+                        volume_active, pump_flow, inflow)
 
             __parameters[str(self.n_of_pumps)]['start'] = start_params
             __parameters[str(self.n_of_pumps)]['times'] = cycle_times
@@ -300,6 +301,13 @@ class Station(models.StationObject):
         base_step = ((flow_coords[-1].v_lps - flow_coords[0].v_lps) /
                      (lift_coords[0] - lift_coords[-1])) / 2
         return round(base_step * diff, 2)
+
+    def adjust_h_step(self, iterated_v, qp, qdop):
+        sought_v = (self.self.pump.cycle_time * qdop.v_m3ps * (
+            qp.v_m3ps - qdop.v_m3ps)) / qp.v_m3ps
+        delta_v = sought_v - iterated_v
+        h_step = round(0.6(delta_v / self.well.area), 2)
+        return h_step
 
     def get_cycle_times(self, volume_active, pump_flow, inflow):
         pumping_time = round(volume_active / (

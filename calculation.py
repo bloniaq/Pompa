@@ -88,12 +88,12 @@ def reserve_pumps_number(station):
     if station.reserve_pumps.value == 'minimal':
         n_of_res_pumps = 1
     elif station.reserve_pumps.value == 'optimal':
-        if station.number_of_pumps % 2 == 0:
-            n_of_res_pumps = int(station.number_of_pumps / 2)
+        if station.n_of_pumps % 2 == 0:
+            n_of_res_pumps = int(station.n_of_pumps / 2)
         else:
-            n_of_res_pumps = int(station.number_of_pumps / 2) + 1
+            n_of_res_pumps = int(station.n_of_pumps / 2) + 1
     elif station.reserve_pumps.value == 'safe':
-        n_of_res_pumps = station.number_of_pumps
+        n_of_res_pumps = station.n_of_pumps
     station.number_of_res_pumps = n_of_res_pumps
     return n_of_res_pumps
 

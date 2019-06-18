@@ -39,8 +39,9 @@ class Report():
             '{} [mm]'.format(station.out_pipe.roughness.value)
         self.content['15'] = 'Chropowatosc przewodu w pompowni.....k= ' +\
             '{} [mm]'.format(station.ins_pipe.roughness.value)
-        self.content['16'] = 'Doplyw do pomowni....Qmin= {}   Qmax= {}' +\
-            ' [l/s]'.format(station.inflow_min.v_lps, station.inflow_max.v_lps)
+        self.content['16'] = 'Doplyw do pomowni....Qmin= ' +\
+            '{}   Qmax= {} [l/s]'.format(
+                station.inflow_min.v_lps, station.inflow_max.v_lps)
         self.content['17'] = 'Rzedna terenu.........................  ' +\
             '{} [m]'.format(station.ord_terrain.value)
         self.content['18'] = 'Rzedna doplywu sciekow................  ' +\
