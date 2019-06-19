@@ -38,7 +38,9 @@ class Station(models.StationObject):
         self.area = None
 
         # parameters to calculate
-        self.work_parameters
+        self.work_parameters = None
+        self.n_of_pumps = 0
+        self.n_of_res_pumps = 0
 
     def update(self):
         self.well.update()
@@ -126,6 +128,7 @@ class Station(models.StationObject):
 
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
         self.n_of_res_pumps = calc.reserve_pumps_number(self)
+        self.well.update_min_dimensions(self.well.shape, self.well.config)
 
         return validation_flag
 
