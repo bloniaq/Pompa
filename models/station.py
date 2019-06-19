@@ -98,9 +98,6 @@ class Station(models.StationObject):
         log.debug('v for h: {} is {}'.format(height, velocity))
         return velocity
 
-    def get_calculative_flow(self):
-        return self.inflow_max.value_liters * 1.4
-
     def calculate(self, mode):
         """ Returns validation flag
 
