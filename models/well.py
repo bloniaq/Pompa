@@ -1,6 +1,7 @@
 # libraries
 import logging
 import numpy as np
+import math
 
 # modules
 import models.models as models
@@ -43,40 +44,60 @@ class Well(models.StationObject):
             min_diam = (n_of_pumps * countour) + 0.6
         return min_diam
 
-    def minimal_rect_dims(self, n_of_pumps, countour, config):
+    def minimal_rect_dims(self, n_of_pumps, netto_contour, config):
         """ Returns minimal dimensions of rectangle-shaped well.
         Based on number of pumps and contour of single pump
         """
+        contour = netto_contour + 0.6
+
+        patterns = {'1': (lambda d: d),
+                    '2': (lambda d: (2 + (2 ** (0.5)) / (2 * d))),
+                    '3': (lambda d: (
+                        4 + (2 ** (0.5)) + (6 ** (0.5))) / (4 * d)),
+                    '4': (lambda d: 2 * d),
+                    '5': (lambda d: d / ((2 ** 0.5) - 1))}
+
+        def more_pumps(n_of_pumps, contour):
+            current_wid = self.width.value
+            if current_wid / contour <= 2.5:
+                # RAISE SOME EXCEPTION !!!
+                dim1 = 1.5 * contour
+                dim2 = n_of_pumps * ((contour / 2) * (3 ** 0.5))
+            elif current_wid / contour <= 3.5:
+                dim1 = 2.5 * contour
+                dim2 = math.ceil(n_of_pumps / 2) * contour * (3 ** 0.5)
+            elif current_wid / contour > 3.5:
+                dim1 = 3.5 * contour
+                dim2 = math.ceil(n_of_pumps / 3) * contour * (3 ** 0.5)
+            min_wid = min(dim1, dim2)
+            min_len = max(dim1, dim2)
+
+            return min_len, min_wid
+
         if config == 'optimal':
-            length, width = self.length.value, self.width.value
-            short_side = min(length, width)
-            rows = short_side // (countour + 0.6)
-            if n_of_pumps % rows == 0:
-                pumps_in_row = n_of_pumps / rows
+            if n_of_pumps > 5:
+                min_len, min_wid = more_pumps(n_of_pumps, contour)
             else:
-                pumps_in_row = (n_of_pumps // rows) + 1
-            min_len = pumps_in_row * (countour + 0.6)
-            min_wid = rows * (countour + 0.6)
+                min_len = min_wid = patterns[str(n_of_pumps)](contour)
+
         elif config == 'singlerow':
-            min_len = n_of_pumps * (countour + 0.6)
-            min_wid = countour + 0.6
+            min_len = n_of_pumps * contour
+            min_wid = contour
         return min_len, min_wid
 
-    def update_min_dimensions(self, shape, config):
+    def update_min_dimensions(self, shape, sum_pumps, pump_contour, config):
         """ Calculates values of proper min dimensions parameters.
         Checks shape and runs proper function which returns values.
         """
         validation_flag = True
         if shape == 'round':
             self.min_diameter = self.minimal_diameter(
-                self.station.n_of_pumps + self.station.n_of_res_pumps,
-                self.station.pump.countour, config)
+                sum_pumps, pump_contour, config)
             if not self.min_diameter:
                 validation_flag = False
         elif shape == 'rectangle':
             self.min_length, self.min_width = self.minimal_rect_dims(
-                self.station.n_of_pumps + self.station.n_of_res_pumps,
-                self.station.pump.countour, config)
+                sum_pumps, pump_contour, config)
             if not (self.min_length and self.min_width):
                 validation_flag = False
         return validation_flag

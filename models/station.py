@@ -128,7 +128,11 @@ class Station(models.StationObject):
 
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
         self.n_of_res_pumps = calc.reserve_pumps_number(self)
-        self.well.update_min_dimensions(self.well.shape, self.well.config)
+        self.well.update_min_dimensions(
+            self.well.shape.value,
+            self.n_of_pumps + self.n_of_res_pumps,
+            self.pump.contour.value,
+            self.well.config.value)
 
         return validation_flag
 
