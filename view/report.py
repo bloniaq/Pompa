@@ -4,8 +4,6 @@ log = logging.getLogger('pompa.report')
 
 class Report():
 
-    # UWAGA - Do uzupełnienia argument dla minimalnej średnicy pompowni
-
     def __init__(self, station):
         self.station = station
         self.content = {}
@@ -20,9 +18,7 @@ class Report():
             '{} [m]'.format(station.pump.contour.value)
         self.content['6'] = 'Srednica pompowni...................DN= ' +\
             '{} [m]'.format(station.well.diameter_fung)
-        self.content['7'] = 'Minimalna srednica pompowni......DNmin= ' +\
-            '{} [m]'.format("%0.2f" % station.well.minimal_diameter(
-                station.n_of_pumps + station.n_of_res_pumps, station))
+        self.content['7'] = self.write_min_dimensions(station.well.shape.value)
         self.content['8'] = 'Pole poziomego przekroju pompowni....F= ' +\
             '{} [m2]'.format(station.well.area)
         self.content['9'] = 'Ilosc przewodow tlocznych (kolektor)... ' +\
@@ -92,6 +88,25 @@ class Report():
         log.debug('config: {}'.format(config))
         log.debug('confdict[config]: {}'.format(conf_dict[config]))
         return '{} ustawienie pomp w pompowni'.format(conf_dict[config])
+
+    def write_min_dimensions(self, shape):
+        """ Prepares and returns report text about minimal dimensions of well.
+        First it checks shape of well, and then it produce content based on
+        proper parameters of well.
+        """
+        min_dimension_report = ''
+        if shape == 'round':
+            min_dimension_report += 'Minimalna średnica pompowni......DNmin= '
+            min_dimension_report += '{} [m]'.format(
+                "%0.2f" % self.station.well.min_diameter)
+        elif shape == 'rectangle':
+            min_dimension_report += 'Minimalna dlugość pompowni........Lmin= '
+            min_dimension_report += '{} [m]\n'.format(
+                "%0.2f" % self.station.well.min_length)
+            min_dimension_report += 'Minimalna szerokość pompowni......Bmin= '
+            min_dimension_report += '{} [m]'.format(
+                "%0.2f" % self.station.well.min_width)
+        return min_dimension_report
 
     def convert_to_string(self):
         string_report = ''
