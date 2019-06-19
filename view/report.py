@@ -16,8 +16,7 @@ class Report():
             '{} szt.'.format(station.n_of_res_pumps)
         self.content['5'] = 'Srednica kola opisujacego pompe.....Dn= ' +\
             '{} [m]'.format(station.pump.contour.value)
-        self.content['6'] = 'Srednica pompowni...................DN= ' +\
-            '{} [m]'.format(station.well.diameter_fung)
+        self.content['6'] = self.write_dimensions(station.well.shape.value)
         self.content['7'] = self.write_min_dimensions(station.well.shape.value)
         self.content['8'] = 'Pole poziomego przekroju pompowni....F= ' +\
             '{} [m2]'.format(station.well.area)
@@ -88,6 +87,25 @@ class Report():
         log.debug('config: {}'.format(config))
         log.debug('confdict[config]: {}'.format(conf_dict[config]))
         return '{} ustawienie pomp w pompowni'.format(conf_dict[config])
+
+    def write_dimensions(self, shape):
+        """ Prepares and returns report text about dimensions of well.
+        First it checks shape of well, and then it produce content based on
+        proper parameters of well.
+        """
+        dimension_report = ''
+        if shape == 'round':
+            dimension_report += 'Średnica pompowni...................DN= '
+            dimension_report += '{} [m]'.format(
+                "%0.2f" % self.station.well.diameter.value)
+        elif shape == 'rectangle':
+            dimension_report += 'Długość pompowni.....................L= '
+            dimension_report += '{} [m]\n'.format(
+                "%0.2f" % self.station.well.length.value)
+            dimension_report += 'Szerokość pompowni...................B= '
+            dimension_report += '{} [m]'.format(
+                "%0.2f" % self.station.well.width.value)
+        return dimension_report
 
     def write_min_dimensions(self, shape):
         """ Prepares and returns report text about minimal dimensions of well.

@@ -98,8 +98,7 @@ class Pipe(models.StationObject):
 
     def speed(self, flow):
         self.update()
-        speed = flow.v_m3ps / self.area
-        return speed
+        return flow.v_m3ps / self.area
 
     def sum_loss(self, flow):
         return self.line_loss(flow) + self.local_loss(flow)
