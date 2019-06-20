@@ -1,5 +1,0 @@
-name;value;data_type;is_correct;valid_list;dan_id;dan_dict;func_to_adjust;func_list;is_active;obj_to_advice;advice
-tryb_pracy;0;int;True;"['type(var) is string', ""var == 'minimalizacja' or var == 'optymalizacja' or var == 'spradzenie'""]";1;{'0': 'minimalizacja', '1': 'sprawdzenie', '2': 'optymalizacja'};nazwa funkcji adjust;['self.zmien_tryb()', 'lista', 'funkcji'];True;['Frame_Tryb'];treść wskazówki
-ksztalt;kolo;string;True;"[""var = 'kolo'"", ""var = 'prostokat'""]";2;{'0': 'prostokat', '1': 'kolo'};nazwa funkcji adjust;['lista', 'funkcji'];True;['lista', 'obiektów advice'];treść porady dla wyboru ksztaltu pompowni
-uklad_pompowni;optymalny;string;True;"[""var = 'jednorzedowy'"", ""var = 'optymalny'""]";3;{'0': 'jednorzedowy', '1': 'optymalny'};nazwa funkcji adjust;['lista', 'funkcji'];True;['lista', 'obiektów advice'];treść porady dla wyboru układu pompowni
-minimalna_wys;0.0;double;True;['type(var) is double'];9;{};nazwa funkcji adjust;['lista', 'funkcji'];True;['Label_Minimalna_wys'];treść wskazówki
