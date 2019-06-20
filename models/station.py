@@ -41,6 +41,7 @@ class Station(models.StationObject):
         self.work_parameters = None
         self.n_of_pumps = 0
         self.n_of_res_pumps = 0
+        self.statement = ''
 
     def update(self):
         self.well.update()
@@ -106,6 +107,7 @@ class Station(models.StationObject):
         Runs calculations and checks if results exists and if are correct.
         """
         self.update()
+        self.statement = ''
         validation_flag = True
 
         calculations = {'minimalisation': self.calc_minimalisation(),
@@ -124,11 +126,14 @@ class Station(models.StationObject):
             self.n_of_pumps)]['ord_sw_on']
         self.ord_sw_alarm = self.ord_inlet.value
         self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
+        if self.h_reserve < 0:
+            self.statement += '\nUWAGA! Rzędna włączenia pomp powyżej dna ' + \
+                'przewodu doprowadzającego ścieki do pompowni\n\n'
         self.v_reserve = self.velocity(self.h_reserve)
 
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
         self.n_of_res_pumps = calc.reserve_pumps_number(self)
-        self.well.update_min_dimensions(
+        self.statement += self.well.update_min_dimensions(
             self.well.shape.value,
             self.n_of_pumps + self.n_of_res_pumps,
             self.pump.contour.value,

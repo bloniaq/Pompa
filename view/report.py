@@ -8,40 +8,41 @@ class Report():
         self.station = station
         self.content = {}
         self.content['1'] = 'POMPA   POMPA   POMPA   POMPA   POMPA   ' +\
-            'POMPA   POMPA\n\n'
-        self.content['2'] = self.write_conf(station.well.config.value)
-        self.content['3'] = 'Liczba dobranych pomp roboczych .....n= ' +\
+            'POMPA   POMPA\n'
+        self.content['2'] = self.write_statement(station.statement)
+        self.content['3'] = self.write_conf(station.well.config.value)
+        self.content['4'] = 'Liczba dobranych pomp roboczych .....n= ' +\
             '{} szt.'.format(station.n_of_pumps)
-        self.content['4'] = 'Liczba pomp rezerwowych.............nr= ' +\
+        self.content['5'] = 'Liczba pomp rezerwowych.............nr= ' +\
             '{} szt.'.format(station.n_of_res_pumps)
-        self.content['5'] = 'Srednica kola opisujacego pompe.....Dn= ' +\
+        self.content['6'] = 'Srednica kola opisujacego pompe.....Dn= ' +\
             '{} [m]'.format(station.pump.contour.value)
-        self.content['6'] = self.write_dimensions(station.well.shape.value)
-        self.content['7'] = self.write_min_dimensions(station.well.shape.value)
-        self.content['8'] = 'Pole poziomego przekroju pompowni....F= ' +\
+        self.content['7'] = self.write_dimensions(station.well.shape.value)
+        self.content['8'] = self.write_min_dimensions(station.well.shape.value)
+        self.content['9'] = 'Pole poziomego przekroju pompowni....F= ' +\
             '{} [m2]'.format(station.well.area)
-        self.content['9'] = 'Ilosc przewodow tlocznych (kolektor)... ' +\
+        self.content['10'] = 'Ilosc przewodow tlocznych (kolektor)... ' +\
             '{} szt.'.format(station.out_pipe.parallels.value)
-        self.content['10'] = 'Dlugosc kolektora tlocznego..........L= ' +\
+        self.content['11'] = 'Dlugosc kolektora tlocznego..........L= ' +\
             '{} [m]'.format(station.out_pipe.length.value)
-        self.content['11'] = 'Dlugosc przewodu w pompowni..........L= ' +\
+        self.content['12'] = 'Dlugosc przewodu w pompowni..........L= ' +\
             '{} [m]'.format(station.ins_pipe.length.value)
-        self.content['12'] = 'Srednica kolektora tlocznego........Dn= ' +\
+        self.content['13'] = 'Srednica kolektora tlocznego........Dn= ' +\
             '{} [mm]'.format(station.out_pipe.diameter.value)
-        self.content['13'] = 'Srednica przewodu w pompowni........Dn= ' +\
+        self.content['14'] = 'Srednica przewodu w pompowni........Dn= ' +\
             '{} [mm]'.format(station.ins_pipe.diameter.value)
-        self.content['14'] = 'Chropowatosc kolektora tlocznego.....k= ' +\
+        self.content['15'] = 'Chropowatosc kolektora tlocznego.....k= ' +\
             '{} [mm]'.format(station.out_pipe.roughness.value)
-        self.content['15'] = 'Chropowatosc przewodu w pompowni.....k= ' +\
+        self.content['16'] = 'Chropowatosc przewodu w pompowni.....k= ' +\
             '{} [mm]'.format(station.ins_pipe.roughness.value)
-        self.content['16'] = 'Doplyw do pomowni....Qmin= ' +\
+        self.content['17'] = 'Doplyw do pomowni....Qmin= ' +\
             '{}   Qmax= {} [l/s]'.format(
                 station.inflow_min.v_lps, station.inflow_max.v_lps)
-        self.content['17'] = 'Rzedna terenu.........................  ' +\
+        self.content['18'] = 'Rzedna terenu.........................  ' +\
             '{} [m]'.format(station.ord_terrain.value)
-        self.content['18'] = 'Rzedna doplywu sciekow................  ' +\
+        self.content['19'] = 'Rzedna doplywu sciekow................  ' +\
             '{} [m]'.format(station.ord_inlet.value)
-        self.content['19'] = 'Rzedna wylotu sciekow /przejscie'
+        self.content['20'] = 'Rzedna wylotu sciekow /przejscie'
         self.content['21'] = 'osi rury przez sciane pompowni/.......  ' +\
             '{} [m]'.format(station.ord_outlet.value)
         self.content['22'] = 'Rzedna najwyzszego pkt. na trasie.....  ' +\
@@ -80,6 +81,12 @@ class Report():
         self.content['41'] = self.pump_report()
 
         # self.print_rep()
+
+    def write_statement(self, content):
+        if content == '':
+            return '\n'
+        else:
+            return '\n' + content + '\n'
 
     def write_conf(self, config):
         conf_dict = {'singlerow': 'Liniowe',

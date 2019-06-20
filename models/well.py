@@ -31,17 +31,39 @@ class Well(models.StationObject):
     def update(self):
         self.area = round(self.cross_sectional_area(), 2)
 
-    def minimal_diameter(self, n_of_pumps, countour, config):
+    def minimal_diameter(self, n_of_pumps, netto_contour, config):
         """ Returns minimal diameter of round-shaped well.
         Based on number of pumps and contour of single pump
         """
+        contour = netto_contour + 0.3
+
+        patterns = {'1': (lambda d: d),
+                    '2': (lambda d: 2 * d),
+                    '3': (lambda d: 2.16 * d),
+                    '4': (lambda d: 2.42 * d),
+                    '5': (lambda d: 2.70 * d),
+                    '6': (lambda d: 3 * d),
+                    '7': (lambda d: 3 * d),
+                    '8': (lambda d: 3.30 * d),
+                    '9': (lambda d: 3.61 * d),
+                    '10': (lambda d: 3.81 * d),
+                    '11': (lambda d: 3.92 * d),
+                    '12': (lambda d: 4.03 * d),
+                    '13': (lambda d: 4.24 * d),
+                    '14': (lambda d: 4.33 * d),
+                    '15': (lambda d: 4.52 * d),
+                    '16': (lambda d: 4.62 * d),
+                    '17': (lambda d: 4.79 * d),
+                    '18': (lambda d: 4.86 * d),
+                    '19': (lambda d: 4.86 * d),
+                    '20': (lambda d: 5.12 * d)}
+
         log.debug('shape: {}'.format(self.shape))
         log.debug('shape type: {}'.format(type(self.shape)))
         if config == 'optimal':
-            min_diam = countour + 0.6 + 2 * \
-                ((countour + 0.6) / (2 * (np.sin(3.14 / n_of_pumps))))
+            min_diam = patterns[str(n_of_pumps)](contour)
         elif config == 'singlerow':
-            min_diam = (n_of_pumps * countour) + 0.6
+            min_diam = n_of_pumps * contour
         return min_diam
 
     def minimal_rect_dims(self, n_of_pumps, netto_contour, config):
@@ -89,18 +111,27 @@ class Well(models.StationObject):
         """ Calculates values of proper min dimensions parameters.
         Checks shape and runs proper function which returns values.
         """
-        validation_flag = True
+        statement = ''
         if shape == 'round':
             self.min_diameter = self.minimal_diameter(
                 sum_pumps, pump_contour, config)
             if not self.min_diameter:
-                validation_flag = False
+                statement = '\nNie obliczono minimalnej średnicy'
+            if self.min_diameter > self.diameter.value:
+                statement = '\nUWAGA! Dobrano liczbę pomp przekraczającą ' + \
+                    'możliwości montażowe studni'
         elif shape == 'rectangle':
             self.min_length, self.min_width = self.minimal_rect_dims(
                 sum_pumps, pump_contour, config)
             if not (self.min_length and self.min_width):
-                validation_flag = False
-        return validation_flag
+                statement = '\nNie obliczono minimalnych wymiarów'
+            if (self.min_width > self.width.value or
+                    self.min_length > self.length.value):
+                statement = '\nUWAGA! Dobrano liczbę pomp przekraczającą ' + \
+                    'możliwości montażowe studni'
+        if statement != '':
+            statement += '\n\n'
+        return statement
 
     def cross_sectional_area(self):
         if self.shape.value == 'rectangle':
