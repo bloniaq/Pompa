@@ -218,7 +218,7 @@ class Station(models.StationObject):
 
             COUNTER += 1
 
-            if stop_params[2].v_lps > self.inflow_max.v_lps:
+            if stop_params[2].v_lps >= self.inflow_max.v_lps:
                 enough_pumps = True
 
             elif COUNTER == 9:
@@ -245,6 +245,7 @@ class Station(models.StationObject):
         """
         geometric_height = self.ord_upper_level.value - sewage_ord
 
+        log.debug('\n\n\nWORK PARAMETERES CALCULATING\n\n\n')
         log.debug('geometric_height: {} - {} = {}'.format(
             self.ord_upper_level.value, sewage_ord, geometric_height))
 
@@ -260,9 +261,14 @@ class Station(models.StationObject):
             pump_x, len(pump_x), pump_y, len(pump_y)))
 
         while not close_enough:
-            log.debug('LOOP WHILE - Calculating parameters')
+            log.debug('\n\n\nLOOP WHILE - Calculating parameters\n\n\n')
             log.debug('Flow : {}'.format(iter_Qp))
 
+            log.debug('geometric_height: {}'.format(geometric_height))
+            log.debug('ins_pipe sum_loss: {}'.format(self.ins_pipe.sum_loss(
+                iter_Qp)))
+            log.debug('out_pipe sum_loss: {}'.format(self.out_pipe.sum_loss(
+                iter_Qp)))
             pipe_val = geometric_height + self.ins_pipe.sum_loss(
                 iter_Qp) + self.out_pipe.sum_loss(iter_Qp)
             pump_val = calc.interp(iter_Qp, pump_x, pump_y)
@@ -277,7 +283,7 @@ class Station(models.StationObject):
 
             if difference < -0.2:
                 log.debug('difference < 0.1: {}'.format(difference))
-                iter_Qp.value -= step
+                iter_Qp.value += step
                 log.debug('new iterQp: {}\n\n'.format(iter_Qp))
             elif difference > 0.2:
                 log.debug('difference > 0.1: {}'.format(difference))
@@ -298,15 +304,6 @@ class Station(models.StationObject):
 
     def adjust_q_step(self, diff, old_step, pump_no):
         '''
-        OLD VERSION
-        log.info("0.1 * math.fabs(diff): {}".format(0.1 * math.fabs(diff)))
-        if 0.1 * math.fabs(diff) <= old_step:
-            new_step = 0.03
-        else:
-            new_step = 0.5 * math.fabs(diff)
-        return new_step
-
-        średnia wartość deltaQ dla deltaH = 1
         '''
         flow_coords, lift_coords = self.pump.characteristic.get_pump_char_func(
             pump_no)
@@ -314,6 +311,7 @@ class Station(models.StationObject):
             flow_coords, lift_coords))
         base_step = ((flow_coords[-1].v_lps - flow_coords[0].v_lps) /
                      (lift_coords[0] - lift_coords[-1])) / 2
+        log.debug('base_step: {}'.format(base_step))
         return round(base_step * diff, 2)
 
     def adjust_h_step(self, iterated_v, qp):

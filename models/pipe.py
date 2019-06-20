@@ -44,18 +44,26 @@ class Pipe(models.StationObject):
         return 3.14 * ((d / 2) ** 2)
 
     def get_epsilon(self):
-        epsilon = self.roughness.value / self.diameter.value
-        return epsilon
+        return self.roughness.value / self.diameter.value
 
-    def get_re(self, flow):
-        diameter = self.diameter.value
-        speed = self.speed(flow)
-        re = (diameter * speed) / (self.kinematic_viscosity / 1000000)
-        # log.info('Reynolds number is {}'.format(re))
-        return re
+    def get_re(self, diameter, speed):
+        """Returns value of Reynolds number. Unit is none [-]
+        Kinematic viscosity unit is mm2/s (water in 20 Celsius deegrees). Its
+        value is constant, and provided in models.py module.
+        Dividing it by 1000000 changes it unit to m2/s
+        Speed should be in m/s unit, and diameter in m unit.
+        """
+        log.debug('diameter: {}, speed: {}, ni: {}'.format(
+            diameter, speed, self.kinematic_viscosity / 1000000))
+        return (diameter * speed) / (self.kinematic_viscosity / 1000000)
 
-    def get_lambda(self, flow):
-        diameter = self.diameter.value * 0.001
+    def get_lambda(self, flow, re, epsilon):
+        """Returns numeric value of lambda coefficient of line loss.
+        Pattern used for calculation it depends on value of Reynolds number.
+        """
+
+        """
+        diameter_meters = self.diameter.value * 0.001
         epsilon = self.get_epsilon()
         log.info('Epsilon is {}'.format(epsilon))
         lambda_ = (-2 * np.log10(self.roughness.value / (
@@ -70,15 +78,46 @@ class Pipe(models.StationObject):
             log.error(e)
             alt_lambda = 0
         # log.info('Alternative Lambda is {}'.format(alt_lambda))
-        return alt_lambda
+        """
+        log.debug('re: {}'.format(re))
+        if re > 0:
+            lambda_gr = (-2 * np.log10((6.1 / (re ** 0.915)) + (
+                0.268 * epsilon))) ** -2
+        else:
+            lambda_gr = 0
+
+        def border_re(epsilon, lambda_):
+            return 200 / (epsilon * (lambda_ ** 0.5))
+
+        if re == 0:
+            lambda_ = 0
+        elif re <= 2320:
+            lambda_ = 64 / re
+        elif re < 4000:
+            """strefa gwałtownego wzrostu wsp. oporów liniowych.
+            Zmienny charakter ruchu, wartości nie są określone.
+            Mechanika Płynów Mitoska s. 146
+            """
+            lambda_ = 0
+        elif re < 100000:
+            lambda_ = 0.3164 / (re ** 0.25)
+        elif re < border_re(epsilon, lambda_gr):
+            lambda_ = lambda_gr
+        else:
+            lambda_ = (-2 * np.log10((self.roughness.value) / (
+                3.71 * self.diameter.value)))
+
+        return lambda_
 
     def line_loss(self, flow):
         log.debug('Starting counting line loss\n')
         diameter = self.diameter.value * 0.001
         std_grav = 9.81
-        lambda_coef = self.get_lambda(flow)
         speed = self.speed(flow)
-        hydraulic_gradient = (lambda_coef * (speed ** 2)) / (
+        re = self.get_re(diameter, speed)
+        epsilon = self.get_epsilon()
+        lambda_ = self.get_lambda(flow, re, epsilon)
+        hydraulic_gradient = (lambda_ * (speed ** 2)) / (
             diameter * 2 * std_grav)
         # log.info('hydraulic gradient is {} [-]\n'.format(hydraulic_gradient))
         line_loss = self.length.value * hydraulic_gradient
@@ -97,7 +136,10 @@ class Pipe(models.StationObject):
         return local_loss
 
     def speed(self, flow):
+        """Returns value of average speed inside pipe. Unit is m/s
+        """
         self.update()
+        log.debug('flow m3ps: {}, area: {}'.format(flow.v_m3ps, self.area))
         return flow.v_m3ps / self.area
 
     def sum_loss(self, flow):

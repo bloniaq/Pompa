@@ -178,7 +178,7 @@ class Application():
         """
         log.info('set_pump_flow_unit started')
         current_setting = self.ui_vars.__getitem__('pump_flow_unit').get()
-        self.pump_type.set_flow_unit(current_setting)
+        self.station.pump.set_flow_unit(current_setting)
         log.debug('going to draw figure')
         self.draw_pump_figure()
 

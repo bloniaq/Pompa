@@ -104,6 +104,17 @@ class PumpType(models.StationObject):
         log.debug('Q for {}m is {}'.format(H, Q))
         return Q
 
+    def is_flow_in_characteristic(self, flow):
+        flows, _ = self.characteristic.get_pump_char_func(1)
+        flow_vals = []
+        for f in flows:
+            flow_vals.append(f.v_lps)
+        flow_vals.sort()
+        if flow.v_lps < flow_vals[0] or flow.v_lps > flow_vals[-1]:
+            return False
+        else:
+            return True
+
 
 class PumpSet(models.StationObject):
 
@@ -149,3 +160,4 @@ class PumpSet(models.StationObject):
         set_flows = [flow.v_lps * n for flow in flows]
         y = self.app.fit_coords(set_flows, lifts, 3)
         return y
+
