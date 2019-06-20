@@ -136,7 +136,7 @@ class Station(models.StationObject):
 
     def calc_minimalisation(self):
 
-        pass
+        return True
 
     def calc_checking(self):
         validation_flag = True

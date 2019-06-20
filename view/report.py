@@ -4,7 +4,7 @@ log = logging.getLogger('pompa.report')
 
 class Report():
 
-    def __init__(self, station):
+    def __init__(self, station, mode):
         self.station = station
         self.content = {}
         self.content['1'] = 'POMPA   POMPA   POMPA   POMPA   POMPA   ' +\
@@ -21,64 +21,78 @@ class Report():
         self.content['8'] = self.write_min_dimensions(station.well.shape.value)
         self.content['9'] = 'Pole poziomego przekroju pompowni....F= ' +\
             '{} [m2]'.format(station.well.area)
-        self.content['10'] = 'Liczba równoległych przewodów zewn..... ' +\
+
+        if mode == 'minimalisation':
+            self.content['10'] = self.minimal_params_part1(1, 1)
+
+        self.content['11'] = 'Liczba równoległych przewodów zewn..... ' +\
             '{} szt.'.format(station.out_pipe.parallels.value)
-        self.content['11'] = 'Długość pojedynczego przewodu zewn...L= ' +\
+        self.content['12'] = 'Długość pojedynczego przewodu zewn...L= ' +\
             '{} [m]'.format(station.out_pipe.length.value)
-        self.content['12'] = 'Długość przewodu wewn. pompowni......L= ' +\
+        self.content['13'] = 'Długość przewodu wewn. pompowni......L= ' +\
             '{} [m]'.format(station.ins_pipe.length.value)
-        self.content['13'] = 'Średnica pojedynczego przewodu zewn.Dn= ' +\
+        self.content['14'] = 'Średnica pojedynczego przewodu zewn.Dn= ' +\
             '{} [mm]'.format(station.out_pipe.diameter.value)
-        self.content['14'] = 'Średnica przewodu wewn. pompowni....Dn= ' +\
+        self.content['15'] = 'Średnica przewodu wewn. pompowni....Dn= ' +\
             '{} [mm]'.format(station.ins_pipe.diameter.value)
-        self.content['15'] = 'Chropowatość przewodu zewn...........k= ' +\
+        self.content['16'] = 'Chropowatość przewodu zewn...........k= ' +\
             '{} [mm]'.format(station.out_pipe.roughness.value)
-        self.content['16'] = 'Chropowatość przewodu wewn. pompowni.k= ' +\
+        self.content['17'] = 'Chropowatość przewodu wewn. pompowni.k= ' +\
             '{} [mm]'.format(station.ins_pipe.roughness.value)
-        self.content['17'] = 'Dopływ do pompowni....Qmin= ' +\
+        self.content['18'] = 'Dopływ do pompowni....Qmin= ' +\
             '{}   Qmax= {} [l/s]'.format(
                 station.inflow_min.v_lps, station.inflow_max.v_lps)
-        self.content['18'] = 'Rzędna terenu.........................  ' +\
+        self.content['19'] = 'Rzędna terenu.........................  ' +\
             '{} [m]'.format(station.ord_terrain.value)
-        self.content['19'] = 'Rzędna dopływu ścieków................  ' +\
+
+        if mode == 'minimalisation':
+            # TU ZROBIC PRAWDZIWY WARUNEK - jeśli wybrano uwzgl. zwg
+            self.content['20'] = 'Rzędna zwierciadła wody gruntowej.....  ' +\
+                '{} [m]'.format('xxxx')
+
+        self.content['21'] = 'Rzędna dopływu ścieków................  ' +\
             '{} [m]'.format(station.ord_inlet.value)
-        self.content['20'] = 'Rzędna wylotu scieków /przejście'
-        self.content['21'] = 'osi rury przez ścianę pompowni/.......  ' +\
+        self.content['22'] = 'Rzędna wylotu scieków /przejście'
+        self.content['23'] = 'osi rury przez ścianę pompowni/.......  ' +\
             '{} [m]'.format(station.ord_outlet.value)
-        self.content['22'] = 'Rzędna najwyższego pkt. na trasie.....  ' +\
+        self.content['24'] = 'Rzędna najwyższego pkt. na trasie.....  ' +\
             '{} [m]'.format(station.ord_highest_point.value)
-        self.content['23'] = 'Rzędna zwierciadła w zbiorniku górnym.  ' +\
+        self.content['25'] = 'Rzędna zwierciadła w zbiorniku górnym.  ' +\
             '{} [m]'.format(station.ord_upper_level.value)
-        self.content['24'] = 'Min. wysokość ścieków w pompowni......  ' +\
+        self.content['26'] = 'Min. wysokość ścieków w pompowni......  ' +\
             '{} [m]'.format(station.minimal_sewage_level.value)
-        self.content['25'] = 'Suma wsp. oporów miejsc. przewodu zewn  ' +\
+        self.content['27'] = 'Suma wsp. oporów miejsc. przewodu zewn  ' +\
             '{} [-]'.format(sum(station.out_pipe.resistance.values))
-        self.content['26'] = 'Suma wsp. oporów miejsc. przewodu wewn  ' +\
-            '{} [-]\n'.format(sum(station.ins_pipe.resistance.values))
-        self.content['27'] = 'CHARAKTERYSTYKA ZASTOSOWANYCH POMP\n'
-        self.content['30'] = self.station.pump.generate_pump_char_string()
-        self.content['31'] = 'Rzędna dna pompowni...................  ' +\
+        self.content['28'] = 'Suma wsp. oporów miejsc. przewodu wewn  ' +\
+            '{} [-]'.format(sum(station.ins_pipe.resistance.values))
+
+        if mode == 'minimalisation':
+            self.content['29'] = self.minimal_params_part2(mode)
+
+        self.content['30'] = '\nCHARAKTERYSTYKA ZASTOSOWANYCH POMP\n'
+        self.content['31'] = self.station.pump.generate_pump_char_string()
+        self.content['32'] = 'Rzędna dna pompowni...................  ' +\
             '{}\t[m]'.format("%0.2f" % station.ord_bottom.value)
-        self.content['32'] = 'Rzędna wyłączenia się pomp............  ' +\
+        self.content['33'] = 'Rzędna wyłączenia się pomp............  ' +\
             '{}\t[m]'.format("%0.2f" % station.ord_sw_off)
-        self.content['33'] = 'Objętość całkowita pompowni.........Vc= ' +\
+        self.content['34'] = 'Objętość całkowita pompowni.........Vc= ' +\
             '{}\t[m3]'.format("%0.2f" % station.v_whole)
-        self.content['34'] = 'Objętość użyteczna pompowni.........Vu= ' +\
+        self.content['35'] = 'Objętość użyteczna pompowni.........Vu= ' +\
             '{}\t[m3]'.format("%0.2f" % station.v_useful)
-        self.content['35'] = 'Objętość rezerwowa pompowni.........Vr= ' +\
+        self.content['36'] = 'Objętość rezerwowa pompowni.........Vr= ' +\
             '{}\t[m3]'.format("%0.2f" % station.v_reserve)
-        self.content['36'] = 'Objętość martwa pompowni............Vm= ' +\
+        self.content['37'] = 'Objętość martwa pompowni............Vm= ' +\
             '{}\t[m3]\n'.format("%0.2f" % station.v_dead)
-        self.content['37'] = 'Vu/Vc = {}%'.format("%0.2f" % (100 * (
+        self.content['38'] = 'Vu/Vc = {}%'.format("%0.2f" % (100 * (
             station.v_useful / station.v_whole)))
-        self.content['38'] = 'Vr/Vu = {}%'.format("%0.2f" % (100 * (
+        self.content['39'] = 'Vr/Vu = {}%'.format("%0.2f" % (100 * (
             station.v_reserve / station.v_useful)))
-        self.content['39'] = 'Vr/Vc = {}%'.format("%0.2f" % (100 * (
+        self.content['40'] = 'Vr/Vc = {}%'.format("%0.2f" % (100 * (
             station.v_reserve / station.v_whole)))
-        self.content['40'] = 'Vm/Vc = {}%\n'.format("%0.2f" % (100 * (
+        self.content['41'] = 'Vm/Vc = {}%\n'.format("%0.2f" % (100 * (
             station.v_dead / station.v_whole)))
 
-        self.content['41'] = self.pump_report()
+        self.content['42'] = self.pump_report()
 
     def write_statement(self, content):
         if content == '':
@@ -140,9 +154,46 @@ class Report():
                 string_report += '\n'
         return string_report
 
-    def print_rep(self):
-        self.string = self.convert_to_string()
-        print(self.string)
+    def minimal_params_part1(self, inc_plain_walls, inc_grndwater):
+        report = ''
+        report += 'Jednostkowa średnia siła tarcia......T= {} [T/m2]\n'.format(
+            'xxxx')
+        if inc_plain_walls:
+            report += 'Wsp. zmniejszający j.s.s.t...........a= {} [%]\n'.format('xxxx')
+        if inc_grndwater:
+            report += 'Stos. obj. szkieletu gruntowego cz...m= {}\n'.format(
+                'xxxx')
+            report += 'Średni obj. ciężar gruntu suchego...Gg= {} [T/m3]\n'.format('xxxx')
+            report += 'Średni obj. ciężar gruntu suchego...Gg= {} [T/m3]\n'.format('xxxx')
+            report += 'Kąt tarcia wew. gruntu suchego......fs= {} [stop.]\n'.format('xxxx')
+            report += 'Kąt tarcia wew. gruntu mokrego......fm= {} [stop.]\n'.format('xxxx')
+            report += 'Średni wsp. tarcia gruntu...........mi= {}'.format(
+                'xxxx')
+        return report
+
+    def minimal_params_part2(self, mode):
+        report = ''
+        report += 'Objętość robót ziemnych przewodu zewn.  {} [m3]\n'.format(
+            'xxxx')
+        report += 'Objętość robót ziemnych pompowni......  {} [m3]\n'.format(
+            'xxxx')
+        report += 'Grubość ściany pompowni...............  {} [m]\n'.format(
+            'xxxx')
+        report += 'Objętość betonu (ściany pompowni).....  {} [m3]\n'.format(
+            'xxxx')
+        report += 'Srednia grubosc korka.................  {} [m]\n'.format(
+            'xxxx')
+        report += 'Objętość betonu (korek)...............  {} [m3]\n'.format(
+            'xxxx')
+        report += 'Całkowita siła tarcia (opuszczanie)...  {} [T]\n'.format(
+            'xxxx')
+        if mode == 'minimalisation':
+            # TU ZROBIC PRAWDZIWY WARUNEK - jeśli wybrano uwzgl. zwg
+            report += 'Wypór pompowni........................  {} [T]\n'.format('xxxx')
+        report += 'Ciężar pompowni razem z korkiem.......  {} [T]'.format(
+            'xxxx')
+
+        return report
 
     def pump_report(self):
         report = ''

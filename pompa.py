@@ -262,8 +262,10 @@ class Application():
 
         # ma wskazywać na moduł calculation
         validation = self.station.calculate(self.mode.value)
+        log.error('\n\nvalidation in pompa.calculate: {}\n\n'.format(
+            validation))
         if validation:
-            report_content = report.Report(self.station)
+            report_content = report.Report(self.station, self.mode.value)
             self.show_report(report_content.convert_to_string())
 
         pass
