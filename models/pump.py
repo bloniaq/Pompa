@@ -1,6 +1,6 @@
 # libraries
 import logging
-import numpy as np
+# import numpy as np
 
 # modules
 import models.models as models
@@ -66,7 +66,6 @@ class PumpType(models.StationObject):
         return y
 
     def generate_pump_char_string(self):
-        # patter: 'Q=  {} [l/s]    H=  {} [m]\n'.format()
         char_raport = ''
         for point in self.characteristic.coords:
             q = self.characteristic.coords[point][0].v_lps
@@ -75,6 +74,7 @@ class PumpType(models.StationObject):
         char_raport += '\n'
         return char_raport
 
+    '''
     def get_Q_for_H(self, pump_no):
         flows, lifts = self.characteristic.get_pump_char_func(pump_no)
         set_flows = [flow.v_lps * pump_no for flow in flows]
@@ -83,27 +83,15 @@ class PumpType(models.StationObject):
         log.debug('coords fitted (Qs) : {}'.format(Qs))
         lifts.sort()
         Hs = np.linspace(lifts[0], lifts[-1], 200)
-        # log.debug('linspace of H (Hs) : {}'.format(Hs))
         return Hs, Qs
-
+    '''
+    '''
     def get_Q(self, H, Hs, Qs):
-        '''
-        flows, lifts = self.characteristic.get_pump_char_func('liters')
-        set_flows = []
-        for flow in flows:
-            set_flows.append(flow * number)
-        log.debug('lifts: {}, flows(in set): {}'.format(lifts, set_flows))
-        Qs = maths.fit_coords(lifts, set_flows, 3)
-        log.debug('coords fitted (Qs) : {}'.format(Qs))
-        lifts.sort()
-        Hs = np.linspace(lifts[0], lifts[-1], 200)
-        # log.debug('linspace of H (Hs) : {}'.format(Hs))
-        '''
         Q = self.app.interp(H, Hs, Qs(Hs))
-        # log.debug('linspace of Q (Qs) : {}'.format(Qs(Hs)))
         log.debug('Q for {}m is {}'.format(H, Q))
         return Q
-
+    '''
+    '''
     def is_flow_in_characteristic(self, flow):
         flows, _ = self.characteristic.get_pump_char_func(1)
         flow_vals = []
@@ -114,50 +102,4 @@ class PumpType(models.StationObject):
             return False
         else:
             return True
-
-
-class PumpSet(models.StationObject):
-
-    def __init__(self, station):
-        self.station = station
-        # self.well = station.well
-        self.n_of_pumps = self.station.number_of_pumps
-        self.characteristic = station.pump_type.characteristic
-        self.cycle_time = station.pump_type.cycle_time
-
-        self.qp = station.qp
-        self.set_start_ordinates()
-        self.pumps = []
-        self.start_ords = []
-        pump_counter = 0
-        while pump_counter < self.n_of_pumps:
-            log.debug('starting building pump number {}'.format(
-                pump_counter + 1))
-            pump = Pump(self.station, self, pump_counter + 1)
-            self.start_ords.append(pump.get_start_ordinate())
-            log.debug('PUMP {} of {} ADDED'.format(
-                pump_counter + 1, self.n_of_pumps))
-            self.pumps.append(pump)
-            log.debug('starts ords: {}'.format(self.start_ords))
-            pump_counter += 1
-        log.debug('PUMPS IN SET: {}'.format(self.pumps))
-
-    def set_start_ordinates(self):
-        self.start_ord_list = []
-        self.ord_stop = self.station.ord_bottom.value + \
-            self.station.minimal_sewage_level.value
-        ord_start = self.station.ord_sw_on  # UZUPEŁNIC
-        height = ord_start - self.ord_stop
-        self.one_pump_h = round(height / self.n_of_pumps, 2)
-        for i in range(self.n_of_pumps):
-            ordinate = ord_start + i * self.one_pump_h
-            self.start_ord_list.append(ordinate)
-
-    def get_pumpset_vals(self):
-        log.debug('Starting draw_pipes_plot')
-        flows, lifts = self.characteristic.get_pump_char_func(1)
-        n = self.n_of_pumps
-        set_flows = [flow.v_lps * n for flow in flows]
-        y = self.app.fit_coords(set_flows, lifts, 3)
-        return y
-
+    '''

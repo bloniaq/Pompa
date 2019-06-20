@@ -29,16 +29,6 @@ class Pipe(models.StationObject):
         self.area = self.get_area()
         self.epsilon = self.get_epsilon()
 
-    def params_for_q(self, q):
-        """
-        Potrzebuje przeplywu q
-        Dla tego przeplywu oblicza parametry:
-
-        I je zwraca
-        """
-
-        pass
-
     def get_area(self):
         d = self.diameter.value / 1000
         return 3.14 * ((d / 2) ** 2)
@@ -60,24 +50,6 @@ class Pipe(models.StationObject):
     def get_lambda(self, flow, re, epsilon):
         """Returns numeric value of lambda coefficient of line loss.
         Pattern used for calculation it depends on value of Reynolds number.
-        """
-
-        """
-        diameter_meters = self.diameter.value * 0.001
-        epsilon = self.get_epsilon()
-        log.info('Epsilon is {}'.format(epsilon))
-        lambda_ = (-2 * np.log10(self.roughness.value / (
-            3.71 * diameter))) ** -2
-        re = self.get_re(flow)
-        # log.info('Re is {}'.format(re))
-        # log.info('Lambda is {}'.format(lambda_))
-        try:
-            alt_lambda = (-2 * np.log10((6.1 / (re ** 0.915)) + (
-                0.268 * epsilon))) ** -2
-        except ZeroDivisionError as e:
-            log.error(e)
-            alt_lambda = 0
-        # log.info('Alternative Lambda is {}'.format(alt_lambda))
         """
         log.debug('re: {}'.format(re))
         if re > 0:
@@ -119,20 +91,13 @@ class Pipe(models.StationObject):
         lambda_ = self.get_lambda(flow, re, epsilon)
         hydraulic_gradient = (lambda_ * (speed ** 2)) / (
             diameter * 2 * std_grav)
-        # log.info('hydraulic gradient is {} [-]\n'.format(hydraulic_gradient))
         line_loss = self.length.value * hydraulic_gradient
-        # log.info('line loss is {} [m]\n'.format(line_loss))
         return line_loss
 
     def local_loss(self, flow):
-        # TODO:
-        # Tests
         local_loss_factor = sum(self.resistance.values)
         speed = self.speed(flow)
         local_loss = ((speed ** 2) / (2 * 9.81)) * local_loss_factor
-        # log.info('local loss is {} [m]'.format(local_loss))
-        # log.info('Epsilon is {}, Re is {}'.format(
-        #     self.get_epsilon(), self.get_re(flow, unit)))
         return local_loss
 
     def speed(self, flow):

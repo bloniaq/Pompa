@@ -43,10 +43,7 @@ class Variable():
                 self.app.update_calculations()
             except (AttributeError, TypeError) as e:
                 log.error('Error in update_calculations: {}'.format(e))
-            # try:
             self.app.draw_auxillary_figures(self.fig_depend)
-            # except (AttributeError, TypeError) as e:
-            #     log.error('Error in draw_auxillary_figures {}'.format(e))
 
     def load_data(self, data_dict):
         self.load_flag = True
@@ -264,20 +261,15 @@ class Flow(Variable):
 
     def convert(self, new_unit):
         self.load_flag = True
-        # log.info('conversion func starts')
-        # log.info('old value: {}'.format(self.value))
         if new_unit == self.unit:
-            # log.info('no need to conversion')
+            self.load_flag = False
             return
         elif new_unit == 'meters':
             self.unit = new_unit
-            # log.debug('{} * 3.6 = {}'.format(self.value, self.value * 3.6))
             self.value = self.value_meters
         elif new_unit == 'liters':
             self.unit = new_unit
-            # log.debug('{} / 3.6 = {}'.format(self.value, self.value / 3.6))
             self.value = self.value_liters
-        # log.info('new value: {}'.format(self.value))
         self.load_flag = False
 
     def load_data(self, data_dict):

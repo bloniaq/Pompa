@@ -88,14 +88,6 @@ class Station(models.StationObject):
                 flag = False
         return flag
 
-    def pump_set_ready(self):
-        flag = True
-        if self.pump_set is None:
-            flag = False
-        if self.number_of_pumps == 1:
-            flag = False
-        return flag
-
     def velocity(self, height):
         velocity = self.well.area * height
         log.debug('v for h: {} is {}'.format(height, velocity))
@@ -132,7 +124,8 @@ class Station(models.StationObject):
         self.v_reserve = self.velocity(self.h_reserve)
 
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
-        self.n_of_res_pumps = calc.reserve_pumps_number(self)
+        self.n_of_res_pumps = self.reserve_pumps_number(
+            self.reserve_pumps.value, self.n_of_pumps)
         self.statement += self.well.update_min_dimensions(
             self.well.shape.value,
             self.n_of_pumps + self.n_of_res_pumps,
@@ -152,9 +145,6 @@ class Station(models.StationObject):
         self.n_of_pumps = 1
 
         enough_pumps = False
-
-        COUNTER = 0
-        # tylko dla testów, do usunięcie
 
         __parameters = {}
 
@@ -216,12 +206,7 @@ class Station(models.StationObject):
             __parameters[str(self.n_of_pumps)]['ord_sw_on'] = ord_to_check
             __parameters[str(self.n_of_pumps)]['worst_infl'] = inflow
 
-            COUNTER += 1
-
             if stop_params[2].v_lps >= self.inflow_max.v_lps:
-                enough_pumps = True
-
-            elif COUNTER == 9:
                 enough_pumps = True
             else:
                 self.n_of_pumps += 1
@@ -346,3 +331,16 @@ class Station(models.StationObject):
 
         worst_inflow = v.CalcFlow(result, "liters")
         return worst_inflow
+
+    def reserve_pumps_number(self, variant, work_pumps_no):
+        """Sets number of reserve pumps, based on user choose"""
+        if variant == 'minimal':
+            n_of_res_pumps = 1
+        elif variant == 'optimal':
+            if work_pumps_no % 2 == 0:
+                n_of_res_pumps = int(work_pumps_no / 2)
+            else:
+                n_of_res_pumps = int(work_pumps_no / 2) + 1
+        elif variant == 'safe':
+            n_of_res_pumps = work_pumps_no
+        return n_of_res_pumps

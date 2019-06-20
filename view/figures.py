@@ -163,7 +163,7 @@ class PumpFig(AppFigure):
         self.plot.legend(fontsize='small')
         self.canvas.draw()
 
-
+'''
 class ReportFig(AppFigure):
 
     def __init__(self, app, container, dim_x, dim_y):
@@ -256,8 +256,8 @@ class ReportFig(AppFigure):
         self.plot.set_ylim(bottom=y_bot_lim, top=y_top_lim)
         self.plot.legend(fontsize='small')
         self.canvas.draw()
-
-
+'''
+'''
 class Schema(AppFigure):
 
     def __init__(self, app, container, dim_x, dim_y):
@@ -267,3 +267,4 @@ class Schema(AppFigure):
     def update(self):
         log.debug("SCHEMAT")
         pass
+'''

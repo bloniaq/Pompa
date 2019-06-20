@@ -106,17 +106,21 @@ class Application():
         self.pipe_fig = figs.PipeFig(self, self.builder.get_object(
             'Frame_Pipe_Figure'), 8.4, 3.8)
 
+        '''
         self.report_fig = figs.ReportFig(self, self.builder.get_object(
             'Frame_Report_Figure'), 4.65, 6.0)
 
         self.schema = figs.Schema(self, self.builder.get_object(
             'Frame_Station_Figure'), 4.5, 4.7)
+        '''
 
         # setting placement
         self.pump_fig.canvas.get_tk_widget().grid(row=0, column=0)
         self.pipe_fig.canvas.get_tk_widget().grid(row=0, column=0)
-        self.schema.canvas.get_tk_widget().grid(row=0, column=0)
+        '''
         self.report_fig.canvas.get_tk_widget().grid(row=0, column=0)
+        self.schema.canvas.get_tk_widget().grid(row=0, column=0)
+        '''
 
     def load_data(self):
         """ Returns nothing
@@ -235,7 +239,8 @@ class Application():
 
     def draw_schema(self):
         # TODO is this function needed?
-        self.schema.update()
+        # self.schema.update()
+        pass
 
     def draw_auxillary_figures(self, *figures):
         # TODO is this function needed?

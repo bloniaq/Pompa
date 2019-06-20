@@ -1,6 +1,5 @@
 # libraries
 import logging
-import numpy as np
 import math
 
 # modules
