@@ -144,6 +144,7 @@ class Application():
             # Checking if 1.0 version
             if first_line[0] == '1' and first_line[1] == ')':
                 data_dictionary = data.get_data_dict_from_dan_file(path)
+        self.mode.load_data(data_dictionary)
         self.station.load_data(data_dictionary)
         self.station.well.load_data(data_dictionary)
         self.station.ins_pipe.load_data(data_dictionary)

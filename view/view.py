@@ -43,11 +43,14 @@ def set_wall_roughness(builder, wall_roughness):
     friction_reduct_entry = builder.get_object('Entry_Friction_reduction_coef')
     if wall_roughness == 'plain':
         friction_reduct_entry.configure(state='normal')
+        log.info('changed wall_roughness: {}'.format(wall_roughness))
         return True
     elif wall_roughness == 'rough':
         friction_reduct_entry.configure(state='disabled')
+        log.info('changed wall_roughness: {}'.format(wall_roughness))
         return True
     else:
+        log.error('Wrong wall_roughness value: {}'.format(wall_roughness))
         return False
 
 
