@@ -9,6 +9,7 @@ import models.station as station
 import models.well as well
 import models.pump as pump
 import models.pipe as pipe
+import models.ground as ground
 import view.figures as figs
 import view.view as view
 import view.report as report
@@ -93,6 +94,9 @@ class Application():
         self.station.out_pipe = pipe.Pipe(self)
         data.out_pipe_vars(self)
 
+        self.station.ground = ground.Ground(self)
+        data.ground(self)
+
     def init_figures(self):
         """ Returns nothing
 
@@ -145,6 +149,7 @@ class Application():
         self.station.ins_pipe.load_data(data_dictionary)
         self.station.out_pipe.load_data(data_dictionary)
         self.station.pump.load_data(data_dictionary)
+        self.station.ground.load_data(data_dictionary)
 
         # Updating Figures
 
