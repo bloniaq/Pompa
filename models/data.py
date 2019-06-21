@@ -87,7 +87,7 @@ def out_pipe_vars(app):
 def ground_vars(app):
     ins = app.station.ground
 
-    ins.concrete_density = v.P_Float(app, 0.0, 'uivariable', '17')
+    ins.concrete_density = v.P_Float(app, 0.0, 'concrete_density', '17')
 
 
 def get_data_dict_from_dan_file(path):

@@ -95,7 +95,7 @@ class Application():
         data.out_pipe_vars(self)
 
         self.station.ground = ground.Ground(self)
-        data.ground(self)
+        data.ground_vars(self)
 
     def init_figures(self):
         """ Returns nothing
@@ -180,6 +180,22 @@ class Application():
     def set_shape(self, shape):
         self.station.well.shape.value = shape
         view.set_shape(self.builder, self.ui_vars, shape)
+
+    def ui_groundwater_inclusion(self):
+        inclusion = self.ui_vars.__getitem__('include_groundwater').get()
+        self.groundwater_inclusion(inclusion)
+
+    def groundwater_inclusion(self, setting):
+        # self.station.ground.include_groundwater.value = setting
+        return view.set_groundwater_inclusion(self.builder, setting)
+
+    def ui_change_wall_roughness(self):
+        wall_roughness = self.ui_vars.__getitem__('wall_roughness').get()
+        self.change_wall_roughness(wall_roughness)
+
+    def change_wall_roughness(self, setting):
+        # self.station.ground.is_walls_plain.value = setting
+        return view.set_wall_roughness(self.builder, setting)
 
     def set_pump_flow_unit(self):
         """ Function reacts on a pump flow unit setting, and runs a method of

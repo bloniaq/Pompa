@@ -37,3 +37,30 @@ def set_mode(builder, mode):
             nbook.tab(3, state='normal')
             nbook.tab(4, state='normal')
         log.info('changed mode: {0}'.format(mode))
+
+
+def set_wall_roughness(builder, wall_roughness):
+    friction_reduct_entry = builder.get_object('Entry_Friction_reduction_coef')
+    if wall_roughness == 'plain':
+        friction_reduct_entry.configure(state='normal')
+        return True
+    elif wall_roughness == 'rough':
+        friction_reduct_entry.configure(state='disabled')
+        return True
+    else:
+        return False
+
+
+def set_groundwater_inclusion(builder, inclusion):
+    entries = [builder.get_object('Entry_Ord_groundwater'),
+               builder.get_object('Entry_Solid_particles_vol_ratio'),
+               builder.get_object('Entry_Solid_particles_density'),
+               builder.get_object('Entry_Ground_fric_angle_dry'),
+               builder.get_object('Entry_Ground_fric_angle_wet')]
+    if inclusion:
+        for e in entries:
+            e.configure(state='normal')
+    else:
+        for e in entries:
+            e.configure(state='disabled')
+    return True

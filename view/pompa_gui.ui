@@ -1869,247 +1869,392 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                       </columns>
                     </layout>
                     <child>
-                      <object class="tk.Label" id="Label_Ciezar_betonu">
-                        <property name="text" translatable="yes">Ciężar objętościowy betonu [T/m³]</property>
+                      <object class="ttk.Frame" id="Frame_General">
+                        <property name="height">700</property>
+                        <property name="padding">10</property>
+                        <property name="relief">groove</property>
+                        <property name="width">200</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
                           <property name="row">0</property>
-                          <property name="sticky">w</property>
+                          <rows>
+                            <row id="0">
+                              <property name="pad">50</property>
+                            </row>
+                            <row id="1">
+                              <property name="pad">50</property>
+                            </row>
+                          </rows>
+                          <columns>
+                            <column id="0">
+                              <property name="pad">20</property>
+                            </column>
+                            <column id="1">
+                              <property name="pad">20</property>
+                            </column>
+                          </columns>
                         </layout>
+                        <child>
+                          <object class="tk.Label" id="Label_Concrete_density">
+                            <property name="text" translatable="yes">Ciężar objętościowy betonu [T/m³]</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Concrete_density">
+                            <property name="justify">right</property>
+                            <property name="textvariable">double:concrete_density</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Label" id="Label_Ground_friction">
+                            <property name="justify">left</property>
+                            <property name="text" translatable="yes">Średnia jednostkowa siła tarcia gruntu [T/m²]</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">1</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Ground_friction">
+                            <property name="insertontime">0</property>
+                            <property name="justify">right</property>
+                            <property name="textvariable">double:ground_friction</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">1</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Entry" id="Entry_Ciezar_betonu">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:ciezar_betonu</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">0</property>
-                          <property name="sticky">e</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Label" id="Label_Sila_tarcia">
-                        <property name="justify">left</property>
-                        <property name="text" translatable="yes">Średnia jednostkowa siła tarcia gruntu [T/m²]</property>
+                      <object class="ttk.Labelframe" id="Labelframe_Plain">
+                        <property name="height">200</property>
+                        <property name="padding">10</property>
+                        <property name="relief">groove</property>
+                        <property name="text" translatable="yes">Wyprawa ścian pompowni</property>
+                        <property name="width">200</property>
                         <layout>
                           <property name="column">0</property>
                           <property name="propagate">True</property>
                           <property name="row">1</property>
                           <property name="sticky">w</property>
+                          <rows>
+                            <row id="0">
+                              <property name="pad">20</property>
+                            </row>
+                            <row id="1">
+                              <property name="pad">20</property>
+                            </row>
+                            <row id="2">
+                              <property name="pad">20</property>
+                            </row>
+                            <row id="3">
+                              <property name="pad">20</property>
+                            </row>
+                          </rows>
+                          <columns>
+                            <column id="0">
+                              <property name="pad">20</property>
+                            </column>
+                            <column id="1">
+                              <property name="pad">20</property>
+                            </column>
+                            <column id="2">
+                              <property name="pad">20</property>
+                            </column>
+                          </columns>
                         </layout>
+                        <child>
+                          <object class="tk.Label" id="Label_Plain_walls">
+                            <property name="text" translatable="yes">Gładka wyprawa ścian w pompowni </property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Radiobutton" id="Radiobutton_Plain_walls">
+                            <property name="command">ui_change_wall_roughness</property>
+                            <property name="text" translatable="yes">Tak</property>
+                            <property name="value">plain</property>
+                            <property name="variable">string:wall_roughness</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Radiobutton" id="Radiobutton_Rough_walls">
+                            <property name="command">ui_change_wall_roughness</property>
+                            <property name="text" translatable="yes">Nie</property>
+                            <property name="value">rough</property>
+                            <property name="variable">string:wall_roughness</property>
+                            <layout>
+                              <property name="column">2</property>
+                              <property name="propagate">True</property>
+                              <property name="row">1</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Label" id="Label_Friction_reduction_coef">
+                            <property name="text" translatable="yes">Współczynnik zmniejszajacy siłę tarcia [%]</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">2</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Friction_reduction_coef">
+                            <property name="insertofftime">0</property>
+                            <property name="insertwidth">0</property>
+                            <property name="justify">right</property>
+                            <property name="state">disabled</property>
+                            <property name="textvariable">double:friction_reduction_coef</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">2</property>
+                              <property name="propagate">True</property>
+                              <property name="row">2</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
                       </object>
                     </child>
                     <child>
-                      <object class="tk.Label" id="Label_Wyprawa_scian">
-                        <property name="text" translatable="yes">Gładka wyprawa ścian w pompowni </property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">2</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radiobutton_Wyprawa_scian_1">
-                        <property name="text" translatable="yes">Tak</property>
-                        <property name="value">gladka</property>
-                        <property name="variable">string:wyprawa_scian</property>
+                      <object class="ttk.Labelframe" id="Labelframe_Groundwater">
+                        <property name="height">200</property>
+                        <property name="padding">10</property>
+                        <property name="text" translatable="yes">Woda gruntowa</property>
+                        <property name="width">200</property>
                         <layout>
                           <property name="column">1</property>
                           <property name="propagate">True</property>
-                          <property name="row">2</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Radiobutton" id="Radiobutton_Wyprawa_scian_2">
-                        <property name="text" translatable="yes">Nie</property>
-                        <property name="value">szorstka</property>
-                        <property name="variable">string:wyprawa_scian</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">2</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Label" id="Label_Wspolczynnik_zm_tarcia">
-                        <property name="text" translatable="yes">Współczynnik zmniejszajacy siłę tarcia [%]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Entry" id="Entry_Wspolczynnik_zm_tarcia">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:wspolczynnik_zm_tarcia</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">3</property>
+                          <property name="row">0</property>
+                          <property name="rowspan">2</property>
                           <property name="sticky">e</property>
+                          <rows>
+                            <row id="0">
+                              <property name="pad">30</property>
+                            </row>
+                            <row id="1">
+                              <property name="pad">30</property>
+                            </row>
+                            <row id="2">
+                              <property name="pad">30</property>
+                            </row>
+                            <row id="3">
+                              <property name="pad">30</property>
+                            </row>
+                            <row id="4">
+                              <property name="pad">30</property>
+                            </row>
+                            <row id="5">
+                              <property name="pad">30</property>
+                            </row>
+                            <row id="6">
+                              <property name="pad">30</property>
+                            </row>
+                            <row id="7">
+                              <property name="pad">30</property>
+                            </row>
+                            <row id="8">
+                              <property name="pad">30</property>
+                            </row>
+                          </rows>
+                          <columns>
+                            <column id="0">
+                              <property name="pad">20</property>
+                            </column>
+                            <column id="1">
+                              <property name="pad">20</property>
+                            </column>
+                            <column id="2">
+                              <property name="pad">20</property>
+                            </column>
+                          </columns>
                         </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Label" id="Label_Woda_gruntowa">
-                        <property name="text" translatable="yes">Rzędna zwierciadła wody gruntowej [m]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Checkbutton" id="Checkbutton_Woda_gruntowa">
-                        <property name="command">uwzgledniaj_zwg</property>
-                        <property name="text" translatable="yes">Uwzględniaj</property>
-                        <property name="variable">boolean:count_zwg</property>
-                        <layout>
-                          <property name="column">2</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Entry" id="Entry_Woda_gruntowa">
-                        <property name="justify">right</property>
-                        <property name="state">disabled</property>
-                        <property name="textvariable">double:woda_gruntowa</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">4</property>
-                          <property name="sticky">e</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Label" id="Label_Stosunek_szkieletu">
-                        <property name="text" translatable="yes">Stosunek obj. szkieletu gruntowego cząstki gruntu do objętości tej cząstki [%]</property>
-                        <property name="wraplength">300</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">5</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Entry" id="Entry_Stosunek_szkieletu">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:stosunek_szkieletu</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">5</property>
-                          <property name="sticky">e</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Label" id="Label_Ciezar_gruntu_suchego">
-                        <property name="text" translatable="yes">Średni objętościowy ciężar gruntu suchego [T/m³]</property>
-                        <property name="wraplength">300</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">6</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Entry" id="Entry_Ciezar_gruntu_suchego">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:ciezar_gruntu_suchego</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">6</property>
-                          <property name="sticky">e</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Label" id="Label_Kat_tarcia_suchy">
-                        <property name="padx">0</property>
-                        <property name="text" translatable="yes">Kąt tarcia wewnętrznego gruntu suchego [°]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">7</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Entry" id="Entry_Kat_tarcia_suchy">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:kat_tarcia_suchy</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">7</property>
-                          <property name="sticky">e</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Label" id="Label_Kat_tarcia_mokry">
-                        <property name="text" translatable="yes">Kąt tarcia wewnętrznego gruntu mokrego [°]</property>
-                        <layout>
-                          <property name="column">0</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">w</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Entry" id="Entry_Kat_tarcia_mokry">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:kat_tarcia_mokry</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">8</property>
-                          <property name="sticky">e</property>
-                        </layout>
-                      </object>
-                    </child>
-                    <child>
-                      <object class="tk.Entry" id="Entry_Sila_tarcia">
-                        <property name="justify">right</property>
-                        <property name="textvariable">double:sila_tarcia</property>
-                        <property name="width">7</property>
-                        <layout>
-                          <property name="column">1</property>
-                          <property name="propagate">True</property>
-                          <property name="row">1</property>
-                          <property name="sticky">e</property>
-                        </layout>
+                        <child>
+                          <object class="tk.Label" id="Label_Groundwater">
+                            <property name="text" translatable="yes">Rzędna zwierciadła wody gruntowej [m]</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">1</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Checkbutton" id="Checkbutton_Include_groundwater">
+                            <property name="command">ui_groundwater_inclusion</property>
+                            <property name="height">0</property>
+                            <property name="padx">0</property>
+                            <property name="pady">1</property>
+                            <property name="takefocus">true</property>
+                            <property name="text" translatable="yes">Uwzględniaj zwierciadło wody gruntowej</property>
+                            <property name="variable">boolean:include_groundwater</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">0</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Ord_groundwater">
+                            <property name="insertofftime">100</property>
+                            <property name="insertwidth">0</property>
+                            <property name="justify">right</property>
+                            <property name="state">disabled</property>
+                            <property name="textvariable">double:ord_groundwater</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">1</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Label" id="Label_Solid_particles_vol_ratio">
+                            <property name="text" translatable="yes">Stosunek obj. szkieletu gruntowego cząstki gruntu do objętości tej cząstki [%]</property>
+                            <property name="wraplength">300</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">2</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Solid_particles_vol_ratio">
+                            <property name="justify">right</property>
+                            <property name="state">disabled</property>
+                            <property name="textvariable">double:solid_particles_vol_ratio</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">2</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Label" id="Label_Solid_particles_density">
+                            <property name="text" translatable="yes">Średni objętościowy ciężar gruntu suchego [T/m³]</property>
+                            <property name="wraplength">300</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">3</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Solid_particles_density">
+                            <property name="insertofftime">0</property>
+                            <property name="justify">right</property>
+                            <property name="state">disabled</property>
+                            <property name="textvariable">double:solid_particles_density</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">3</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Label" id="Label_Ground_fric_angle_dry">
+                            <property name="padx">0</property>
+                            <property name="text" translatable="yes">Kąt tarcia wewnętrznego gruntu suchego [°]</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">4</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Ground_fric_angle_dry">
+                            <property name="insertofftime">100</property>
+                            <property name="justify">right</property>
+                            <property name="state">disabled</property>
+                            <property name="takefocus">false</property>
+                            <property name="textvariable">double:ground_fric_angle_dry</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">4</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Label" id="Label_Ground_fric_angle_wet">
+                            <property name="text" translatable="yes">Kąt tarcia wewnętrznego gruntu mokrego [°]</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">5</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Ground_fric_angle_wet">
+                            <property name="insertontime">0</property>
+                            <property name="justify">right</property>
+                            <property name="state">disabled</property>
+                            <property name="textvariable">double:ground_fric_angle_wet</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">5</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
                       </object>
                     </child>
                   </object>

@@ -156,6 +156,8 @@ class Report():
 
     def minimal_params_part1(self, inc_plain_walls, inc_grndwater):
         report = ''
+        report += 'Ciężar objętościowy betonu..........Gb= {} [T/m3]\n'.format(
+            "%0.2f" % self.station.ground.concrete_density.value)
         report += 'Jednostkowa średnia siła tarcia......T= {} [T/m2]\n'.format(
             'xxxx')
         if inc_plain_walls:
