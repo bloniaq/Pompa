@@ -102,11 +102,13 @@ class Station(models.StationObject):
         self.statement = ''
         validation_flag = True
 
-        calculations = {'minimalisation': self.calc_minimalisation(),
-                        'checking': self.calc_checking(),
-                        'optimalisation': self.calc_optimalisation()}
+        calculations = {'minimalisation': self.calc_minimalisation,
+                        'checking': self.calc_checking,
+                        'optimalisation': self.calc_optimalisation}
+        log.debug('mode: {}'.format(mode))
+        log.debug('type dict val: {}'.format(type(calculations[mode])))
 
-        validation_flag = calculations[mode]
+        validation_flag = calculations[mode]()
 
         self.h_whole = self.ord_terrain.value - self.ord_bottom.value
         self.v_whole = self.velocity(self.h_whole)
@@ -136,9 +138,13 @@ class Station(models.StationObject):
 
     def calc_minimalisation(self):
 
+        log.error('CALC_MINIMALISATION')
+
         return True
 
     def calc_checking(self):
+
+        log.error('CALC_CHECKING')
         validation_flag = True
 
         self.ord_sw_off = self.minimal_sewage_ord()

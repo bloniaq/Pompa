@@ -281,8 +281,6 @@ class Application():
         text_container.insert('1.0', report)
 
     def calculate(self):
-
-        # ma wskazywać na moduł calculation
         validation = self.station.calculate(self.mode.value)
         log.error('\n\nvalidation in pompa.calculate: {}\n\n'.format(
             validation))
