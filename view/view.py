@@ -3,21 +3,26 @@ import logging
 log = logging.getLogger('pompa.view')
 
 
-def set_shape(builder, ui_vars, shape):
+def set_shape(builder, ui_vars, shape, mode):
         ui_vars.__getitem__('shape').set(shape)
         log.debug('started setting shape')
         log.debug('new shape: {}'.format(shape))
         diameter = builder.get_object('Entry_Well_diameter')
         length = builder.get_object('Entry_Well_length')
         width = builder.get_object('Entry_Well_width')
-        if shape == 'round':
-            diameter.configure(state='normal')
+        if mode == 'checking':
+            if shape == 'round':
+                diameter.configure(state='normal')
+                length.configure(state='disabled')
+                width.configure(state='disabled')
+            elif shape == 'rectangle':
+                diameter.configure(state='disabled')
+                length.configure(state='normal')
+                width.configure(state='normal')
+        else:
+            diameter.configure(state='disabled')
             length.configure(state='disabled')
             width.configure(state='disabled')
-        elif shape == 'rectangle':
-            diameter.configure(state='disabled')
-            length.configure(state='normal')
-            width.configure(state='normal')
         log.debug('changed shape to {}'.format(shape))
 
 

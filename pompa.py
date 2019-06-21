@@ -169,6 +169,10 @@ class Application():
         mode setting
         """
         self.mode.value = mode
+        try:
+            self.ui_set_shape()
+        except AttributeError:
+            pass
         view.set_mode(self.builder, mode)
 
     def ui_set_shape(self):
@@ -180,7 +184,7 @@ class Application():
 
     def set_shape(self, shape):
         self.station.well.shape.value = shape
-        view.set_shape(self.builder, self.ui_vars, shape)
+        view.set_shape(self.builder, self.ui_vars, shape, self.mode.value)
 
     def ui_groundwater_inclusion(self):
         inclusion = self.ui_vars.__getitem__('include_groundwater').get()
