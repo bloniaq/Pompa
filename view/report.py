@@ -23,7 +23,9 @@ class Report():
             '{} [m2]'.format(station.well.area)
 
         if mode == 'minimalisation':
-            self.content['10'] = self.minimal_params_part1(1, 1)
+            self.content['10'] = self.minimal_params_part1(
+                station.ground.is_walls_plain.value,
+                station.ground.include_groundwater.value)
 
         self.content['11'] = 'Liczba równoległych przewodów zewn..... ' +\
             '{} szt.'.format(station.out_pipe.parallels.value)
@@ -45,10 +47,9 @@ class Report():
         self.content['19'] = 'Rzędna terenu.........................  ' +\
             '{} [m]'.format(station.ord_terrain.value)
 
-        if mode == 'minimalisation':
-            # TU ZROBIC PRAWDZIWY WARUNEK - jeśli wybrano uwzgl. zwg
+        if station.ground.include_groundwater.value:
             self.content['20'] = 'Rzędna zwierciadła wody gruntowej.....  ' +\
-                '{} [m]'.format('xxxx')
+                '{} [m]'.format(station.ground.ord_groundwater.value)
 
         self.content['21'] = 'Rzędna dopływu ścieków................  ' +\
             '{} [m]'.format(station.ord_inlet.value)
@@ -158,42 +159,49 @@ class Report():
         report = ''
         report += 'Ciężar objętościowy betonu..........Gb= {} [T/m3]\n'.format(
             "%0.2f" % self.station.ground.concrete_density.value)
-        report += 'Jednostkowa średnia siła tarcia......T= {} [T/m2]\n'.format(
-            'xxxx')
-        if inc_plain_walls:
-            report += 'Wsp. zmniejszający j.s.s.t...........a= {} [%]\n'.format('xxxx')
+        report += 'Jednostkowa średnia siła tarcia......T= {} [T/m2]'.format(
+            "%0.2f" % self.station.ground.ground_friction.value)
+        if inc_plain_walls == 'plain':
+            report += '\nWsp. zmniejszający j.s.s.t...........a= '
+            report += '{} [%]'.format(
+                "%0.2f" % self.station.ground.friction_reduction_coef.value)
         if inc_grndwater:
-            report += 'Stos. obj. szkieletu gruntowego cz...m= {}\n'.format(
-                'xxxx')
-            report += 'Średni obj. ciężar gruntu suchego...Gg= {} [T/m3]\n'.format('xxxx')
-            report += 'Średni obj. ciężar gruntu suchego...Gg= {} [T/m3]\n'.format('xxxx')
-            report += 'Kąt tarcia wew. gruntu suchego......fs= {} [stop.]\n'.format('xxxx')
-            report += 'Kąt tarcia wew. gruntu mokrego......fm= {} [stop.]\n'.format('xxxx')
+            report += '\nStos. obj. szkieletu gruntowego cz...m= {}\n'.format(
+                "%0.2f" % self.station.ground.solid_particles_vol_ratio.value)
+            report += 'Średni obj. ciężar gruntu suchego...Gg= '
+            report += '{} [T/m3]\n'.format(
+                "%0.2f" % self.station.ground.solid_particles_density.value)
+            report += 'Kąt tarcia wew. gruntu suchego......fs= '
+            report += '{} [stop.]\n'.format(
+                "%0.2f" % self.station.ground.ground_fric_angle_dry.value)
+            report += 'Kąt tarcia wew. gruntu mokrego......fm= '
+            report += '{} [stop.]\n'.format(
+                "%0.2f" % self.station.ground.ground_fric_angle_wet.value)
             report += 'Średni wsp. tarcia gruntu...........mi= {}'.format(
-                'xxxx')
+                "%0.2f" % self.station.ground.wall_ground_fric_coef.value)
         return report
 
     def minimal_params_part2(self, mode):
         report = ''
         report += 'Objętość robót ziemnych przewodu zewn.  {} [m3]\n'.format(
-            'xxxx')
+            "%0.2f" % self.station.ground.ground_vol_pipes)
         report += 'Objętość robót ziemnych pompowni......  {} [m3]\n'.format(
-            'xxxx')
+            "%0.2f" % self.station.ground.ground_vol_well)
         report += 'Grubość ściany pompowni...............  {} [m]\n'.format(
-            'xxxx')
+            "%0.2f" % self.station.ground.wall_thickness)
         report += 'Objętość betonu (ściany pompowni).....  {} [m3]\n'.format(
-            'xxxx')
+            "%0.2f" % self.station.ground.wall_volume)
         report += 'Srednia grubosc korka.................  {} [m]\n'.format(
-            'xxxx')
+            "%0.2f" % self.station.ground.plug_thickness)
         report += 'Objętość betonu (korek)...............  {} [m3]\n'.format(
-            'xxxx')
+            "%0.2f" % self.station.ground.plug_volume)
         report += 'Całkowita siła tarcia (opuszczanie)...  {} [T]\n'.format(
-            'xxxx')
-        if mode == 'minimalisation':
-            # TU ZROBIC PRAWDZIWY WARUNEK - jeśli wybrano uwzgl. zwg
-            report += 'Wypór pompowni........................  {} [T]\n'.format('xxxx')
+            "%0.2f" % self.station.ground.lowering_friction)
+        if self.station.ground.include_groundwater.value:
+            report += 'Wypór pompowni........................  '
+            report += '{} [T]\n'.format("%0.2f" % self.station.ground.buoyancy)
         report += 'Ciężar pompowni razem z korkiem.......  {} [T]'.format(
-            'xxxx')
+            "%0.2f" % self.station.ground.well_weight)
 
         return report
 

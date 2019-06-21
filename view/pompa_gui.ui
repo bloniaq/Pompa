@@ -2121,7 +2121,6 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <property name="height">0</property>
                             <property name="padx">0</property>
                             <property name="pady">1</property>
-                            <property name="takefocus">true</property>
                             <property name="text" translatable="yes">Uwzględniaj zwierciadło wody gruntowej</property>
                             <property name="variable">boolean:include_groundwater</property>
                             <layout>
@@ -2251,6 +2250,32 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                               <property name="column">1</property>
                               <property name="propagate">True</property>
                               <property name="row">5</property>
+                              <property name="sticky">e</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Label" id="Label_Avg_fric_coef">
+                            <property name="text" translatable="yes">Średni współczynnik tarcia płaszcza studni o grunt [-]</property>
+                            <layout>
+                              <property name="column">0</property>
+                              <property name="propagate">True</property>
+                              <property name="row">6</property>
+                              <property name="sticky">w</property>
+                            </layout>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="tk.Entry" id="Entry_Avg_fric_coef">
+                            <property name="insertontime">0</property>
+                            <property name="justify">right</property>
+                            <property name="state">disabled</property>
+                            <property name="textvariable">double:avg_fric_coef</property>
+                            <property name="width">7</property>
+                            <layout>
+                              <property name="column">1</property>
+                              <property name="propagate">True</property>
+                              <property name="row">6</property>
                               <property name="sticky">e</property>
                             </layout>
                           </object>

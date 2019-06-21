@@ -29,15 +29,15 @@ class Ground(models.StationObject):
 
         # calculate parameters
 
-        self.ground_vol_pipes = None
-        self.ground_vol_well = None
-        self.wall_thickness = None
-        self.wall_volume = None
-        self.plug_thickness = None
-        self.plug_volume = None
-        self.lowering_friction = None
-        self.buoyancy = None
-        self.well_weight = None
+        self.ground_vol_pipes = 0
+        self.ground_vol_well = 0
+        self.wall_thickness = 0
+        self.wall_volume = 0
+        self.plug_thickness = 0
+        self.plug_volume = 0
+        self.lowering_friction = 0
+        self.buoyancy = 0
+        self.well_weight = 0
 
     def calculations():
 

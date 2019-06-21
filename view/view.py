@@ -59,7 +59,8 @@ def set_groundwater_inclusion(builder, inclusion):
                builder.get_object('Entry_Solid_particles_vol_ratio'),
                builder.get_object('Entry_Solid_particles_density'),
                builder.get_object('Entry_Ground_fric_angle_dry'),
-               builder.get_object('Entry_Ground_fric_angle_wet')]
+               builder.get_object('Entry_Ground_fric_angle_wet'),
+               builder.get_object('Entry_Avg_fric_coef')]
     if inclusion:
         for e in entries:
             e.configure(state='normal')

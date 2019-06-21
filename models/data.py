@@ -7,6 +7,8 @@ dan_mode = {'0': 'minimalisation', '1': 'checking', '2': 'optimalisation'}
 dan_shape = {'0': 'rectangle', '1': 'round'}
 dan_configuration = {'0': 'singlerow', '1': 'optimal'}
 dan_reserve = {'1': 'minimal', '2': 'optimal', '3': 'safe'}
+dan_walls = {'0': 'rough', '1': 'plain'}
+dan_gndwater = {'0': 0, '1': 1}
 
 default = {'mode': 'checking',
            'shape': 'round'}
@@ -88,6 +90,26 @@ def ground_vars(app):
     ins = app.station.ground
 
     ins.concrete_density = v.P_Float(app, 0.0, 'concrete_density', '17')
+    ins.ground_friction = v.P_Float(app, 0.0, 'ground_friction', '18')
+    ins.is_walls_plain = v.Logic(app, 'rough', 'wall_roughness', '19',
+                                 dan_walls, app.ui_change_wall_roughness)
+    ins.friction_reduction_coef = v.P_Float(app, 0.0,
+                                            'friction_reduction_coef', '20')
+    ins.include_groundwater = v.Logic(app, 0, 'include_groundwater', '21',
+                                      dan_gndwater,
+                                      app.ui_groundwater_inclusion)
+    ins.ord_groundwater = v.P_Float(app, 0.0, 'ord_groundwater', '22')
+    ins.solid_particles_vol_ratio = v.P_Float(app, 0.0,
+                                              'solid_particles_vol_ratio',
+                                              '23')
+    ins.solid_particles_density = v.P_Float(app, 0.0,
+                                            'solid_particles_density', '24')
+    ins.ground_fric_angle_dry = v.P_Float(app, 0.0, 'ground_fric_angle_dry',
+                                          '25')
+    ins.ground_fric_angle_wet = v.P_Float(app, 0.0, 'ground_fric_angle_wet',
+                                          '26')
+    # UWAGA, brak tego w GUI
+    ins.wall_ground_fric_coef = v.P_Float(app, 0.0, 'avg_fric_coef', '27')
 
 
 def get_data_dict_from_dan_file(path):
