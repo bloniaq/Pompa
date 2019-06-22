@@ -26,21 +26,25 @@ def set_shape(builder, ui_vars, shape, mode):
         log.debug('changed shape to {}'.format(shape))
 
 
-def set_mode(builder, mode):
+def set_mode(builder, ui_vars, mode):
         """ Function sets some widgets properities, according to present work
         mode setting
         """
 
         nbook = builder.get_object('Notebook_Data')
+        ord_bottom_label = ui_vars.__getitem__('ord_bottom_label')
         if mode == 'checking':
             nbook.tab(3, state='disabled')
             nbook.tab(4, state='disabled')
+            ord_bottom_label.set('Rzędna dna pompowni [m]')
         elif mode == 'minimalisation':
             nbook.tab(3, state='normal')
             nbook.tab(4, state='disabled')
+            ord_bottom_label.set('Rzędna dna pompowni (założenie) [m]')
         elif mode == 'optimalisation':
             nbook.tab(3, state='normal')
             nbook.tab(4, state='normal')
+            ord_bottom_label.set('Rzędna dna pompowni (założenie) [m]')
         log.info('changed mode: {0}'.format(mode))
 
 

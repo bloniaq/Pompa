@@ -173,7 +173,7 @@ class Application():
             self.ui_set_shape()
         except AttributeError:
             pass
-        view.set_mode(self.builder, mode)
+        view.set_mode(self.builder, self.ui_vars, mode)
 
     def ui_set_shape(self):
         """ Function changing shape setting, triggered by user interaction.

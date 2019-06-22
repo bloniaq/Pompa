@@ -560,6 +560,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                             <child>
                               <object class="ttk.Label" id="Label_Ordinate_bottom">
                                 <property name="text" translatable="yes">Rzędna dna pompowni [m]</property>
+                                <property name="textvariable">string:ord_bottom_label</property>
                                 <layout>
                                   <property name="column">0</property>
                                   <property name="propagate">True</property>

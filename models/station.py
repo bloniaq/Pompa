@@ -118,7 +118,8 @@ class Station(models.StationObject):
 
         self.ord_sw_on = self.work_parameters[str(
             self.n_of_pumps)]['ord_sw_on']
-        self.ord_sw_alarm = self.ord_inlet.value
+        self.ord_sw_alarm = self.ord_inlet.value - \
+            self.difference_in_start.value
         self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
         if self.h_reserve < 0:
             self.statement += '\nUWAGA! Rzędna włączenia pomp powyżej dna ' + \
