@@ -39,6 +39,73 @@ class Ground(models.StationObject):
         self.buoyancy = 0
         self.well_weight = 0
 
-    def calculations():
+    def parameters(self, out_pipe, well, well_h):
 
-        pass
+        self.ground_vol_pipes = self.ground_volume_pipes(
+            out_pipe.length.value, out_pipe.diameter.value,
+            out_pipe.parallels.value)
+        # self.ground_vol_well = self.ground_volume_well(well.)
+        self.wall_thickness = 0.25
+        self.plug_thickness = 1
+
+        enough_density = False
+
+        while not enough_density:
+            out_diameter = well.diameter.value + (2 * self.wall_thickness)
+            self.wall_volume = self.calc_wall_vol(
+                well.diameter.value, out_diameter, well_h)
+            self.plug_volume = self.cylinder_vol(
+                out_diameter, self.plug_thickness)
+            self.well_weight = self.calc_well_weight(
+                self.wall_volume, self.plug_volume)
+
+            self.lowering_friction = self.calc_friction_lowering(
+                self.lateral_surface(out_diameter,
+                                     well_h + self.plug_thickness))
+            if self.well_weight > self.lowering_friction:
+                enough_density = True
+            elif self.wall_thickness < 0.41:
+                self.wall_thickness += 0.01
+                continue
+            else:
+                self.plug_thickness += 0.1
+
+        self.ground_vol_well = self.cylinder_vol(
+            out_diameter, well_h + self.plug_thickness)
+        return True
+
+    def calc_well_weight(self, wall_vol, plug_vol):
+        concrete_vol = wall_vol + plug_vol
+        weight = 9.81 * self.concrete_density.value * concrete_vol
+        return weight
+
+    def calc_wall_vol(self, ins_d, out_d, well_h):
+        vol_ins = self.cylinder_vol(ins_d, well_h)
+        vol_out = self.cylinder_vol(out_d, well_h)
+        return vol_out - vol_ins
+
+    def lateral_surface(self, out_diameter, out_height):
+        lateral_surface = 3.14 * out_diameter * out_height
+        return lateral_surface
+
+    def calc_friction_lowering(self, area):
+        friction = self.ground_friction.value * area
+        return friction
+
+    def ground_volume_pipes(self, p_length, p_diameter, p_number):
+        excav_height = (p_diameter * 0.001) + 1
+        excav_length = p_length
+        if p_number == 1 and p_diameter <= 500:
+            excav_width = (p_diameter * 0.001) + 0.8
+        else:
+            excav_width = (p_diameter * 0.001) + 1.2
+        volume = excav_height * excav_width * excav_length
+        return volume
+
+    def ground_volume_well(self, excav_height, area):
+        volume = area * excav_height
+        return volume
+
+    def cylinder_vol(self, diameter, height):
+        volume = 3.14 * ((diameter / 2) ** 2) * height
+        return volume

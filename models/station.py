@@ -20,6 +20,7 @@ class Station(models.StationObject):
         self.ins_pipe = None
         self.out_pipe = None
         self.pump = None
+        self.ground = None
 
         # input parameters
         self.minimal_sewage_level = None
@@ -135,6 +136,10 @@ class Station(models.StationObject):
 
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
 
+        if mode == 'minimalisation':
+            well_height = self.ord_terrain.value - self.ord_bottom.value
+            self.ground.parameters(self.out_pipe, self.well, well_height)
+
         return validation_flag
 
     def calc_minimalisation(self):
@@ -151,10 +156,21 @@ class Station(models.StationObject):
             pumpset_params = self.pumpset_parameters(est_ord_sw_off, 'm')
             ord_sw_on_diff = expedient_ord_sw_on - pumpset_params[str(
                 self.n_of_pumps)]['ord_sw_on']
+
+            log.debug('number of pumps: {}'.format(self.n_of_pumps))
+            log.debug('est_ord_sw_off: {}'.format(est_ord_sw_off))
             log.debug('ORD_SW_OFF_DIFF: {}'.format(ord_sw_on_diff))
-            if ord_sw_on_diff > 0.005 or ord_sw_on_diff < -0.005:
-                est_ord_sw_off += ord_sw_on_diff
+            log.debug('expedient_ord_sw_on: {}'.format(expedient_ord_sw_on))
+            log.debug('actual ord sw on: {}'.format(pumpset_params[str(
+                self.n_of_pumps)]['ord_sw_on']))
+            log.debug('volume active: {}'.format(self.velocity(
+                pumpset_params[str(
+                    self.n_of_pumps)]['ord_sw_on'] - est_ord_sw_off)))
+
+            if ord_sw_on_diff > 0.01 or ord_sw_on_diff < -0.005:
+                est_ord_sw_off += 0.8 * ord_sw_on_diff
             else:
+                log.debug('FOUND ORDS')
                 self.work_parameters = pumpset_params
                 self.ord_sw_off = est_ord_sw_off
                 self.ord_bottom.value = self.ord_sw_off - \
