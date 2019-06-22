@@ -53,8 +53,8 @@ class Station(models.StationObject):
         height = self.ord_upper_level.value - lower_ord
         return height
 
-    def minimal_sewage_ord(self):
-        return self.ord_bottom.value + self.minimal_sewage_level.value
+    def minimal_sewage_ord(self, ord_bottom):
+        return ord_bottom + self.minimal_sewage_level.value
 
     def average_flow(self, flow1, flow2):
         average_value = (flow1.v_lps + flow2.v_lps) / 2
@@ -110,23 +110,6 @@ class Station(models.StationObject):
 
         validation_flag = calculations[mode]()
 
-        self.h_whole = self.ord_terrain.value - self.ord_bottom.value
-        self.v_whole = self.velocity(self.h_whole)
-        self.h_useful = self.work_parameters[str(
-            self.n_of_pumps)]['ord_sw_on'] - self.ord_sw_off
-        self.v_useful = self.velocity(self.h_useful)
-
-        self.ord_sw_on = self.work_parameters[str(
-            self.n_of_pumps)]['ord_sw_on']
-        self.ord_sw_alarm = self.ord_inlet.value - \
-            self.difference_in_start.value
-        self.h_reserve = self.ord_sw_alarm - self.ord_sw_on
-        if self.h_reserve < 0:
-            self.statement += '\nUWAGA! Rzędna włączenia pomp powyżej dna ' + \
-                'przewodu doprowadzającego ścieki do pompowni\n\n'
-        self.v_reserve = self.velocity(self.h_reserve)
-
-        self.v_dead = self.velocity(self.minimal_sewage_level.value)
         self.n_of_res_pumps = self.reserve_pumps_number(
             self.reserve_pumps.value, self.n_of_pumps)
         self.statement += self.well.update_min_dimensions(
@@ -135,54 +118,98 @@ class Station(models.StationObject):
             self.pump.contour.value,
             self.well.config.value)
 
+        self.h_whole = self.ord_terrain.value - self.ord_bottom.value
+        self.v_whole = self.velocity(self.h_whole)
+        self.h_useful = self.work_parameters[str(
+            self.n_of_pumps)]['ord_sw_on'] - self.ord_sw_off
+        self.v_useful = self.velocity(self.h_useful)
+
+        self.ord_sw_on = self.work_parameters[str(
+            self.n_of_pumps)]['ord_sw_on']
+        self.ord_sw_alarm = self.ord_inlet.value
+        self.h_reserve = round(self.ord_sw_alarm - self.ord_sw_on, 2)
+        if self.h_reserve < 0:
+            self.statement += '\nUWAGA! Rzędna włączenia pomp powyżej dna ' + \
+                'przewodu doprowadzającego ścieki do pompowni\n\n'
+        self.v_reserve = self.velocity(self.h_reserve)
+
+        self.v_dead = self.velocity(self.minimal_sewage_level.value)
+
         return validation_flag
 
     def calc_minimalisation(self):
 
         log.error('CALC_MINIMALISATION')
+        validation_flag = True
 
-        return True
+        enough_minimum = False
+        est_ord_sw_off = self.minimal_sewage_ord(self.ord_bottom.value)
+        expedient_ord_sw_on = round(
+            self.ord_inlet.value - self.difference_in_start.value, 2)
+
+        while not enough_minimum:
+            pumpset_params = self.pumpset_parameters(est_ord_sw_off, 'm')
+            ord_sw_on_diff = expedient_ord_sw_on - pumpset_params[str(
+                self.n_of_pumps)]['ord_sw_on']
+            log.debug('ORD_SW_OFF_DIFF: {}'.format(ord_sw_on_diff))
+            if ord_sw_on_diff > 0.005 or ord_sw_on_diff < -0.005:
+                est_ord_sw_off += ord_sw_on_diff
+            else:
+                self.work_parameters = pumpset_params
+                self.ord_sw_off = est_ord_sw_off
+                self.ord_bottom.value = self.ord_sw_off - \
+                    self.minimal_sewage_level.value
+                enough_minimum = True
+
+        return validation_flag
 
     def calc_checking(self):
 
         log.error('CALC_CHECKING')
         validation_flag = True
+        self.ord_sw_off = self.minimal_sewage_ord(self.ord_bottom.value)
 
-        self.ord_sw_off = self.minimal_sewage_ord()
-        self.n_of_pumps = 1
+        self.work_parameters = self.pumpset_parameters(self.ord_sw_off, 'c')
 
+        return validation_flag
+
+    def calc_optimalisation(self):
+
+        pass
+
+    def pumpset_parameters(self, ord_sw_off, mode='c'):
+        # self.ord_sw_off = self.minimal_sewage_ord()
+        self.n_of_pumps = pump_that_has_area_for = 1
         enough_pumps = False
+        parameters = {}
 
-        __parameters = {}
+        if mode == 'm':
+            self.set_min_dims_as_current(pump_that_has_area_for)
 
         while not enough_pumps:
-            __parameters[str(self.n_of_pumps)] = {}
+            parameters[str(self.n_of_pumps)] = {}
 
-            log.debug('inflow max [lps]: {}'.format(self.inflow_max.v_lps))
-            log.debug('inflow min [lps]: {}'.format(self.inflow_min.v_lps))
-            log.debug('ord sw off [m]: {}'.format(self.ord_sw_off))
-            log.debug('n of pumps: {}'.format(self.n_of_pumps))
-            stop_params = self.get_work_parameters(
+            stop_params = self.work_point(
                 self.average_flow(self.inflow_max, self.inflow_min),
-                self.ord_sw_off,
+                ord_sw_off,
                 self.n_of_pumps)
 
-            __parameters[str(self.n_of_pumps)]['stop'] = stop_params
+            parameters[str(self.n_of_pumps)]['stop'] = stop_params
 
             enough_time = False
+
             if self.n_of_pumps == 1:
                 iter_height = 0.1
             else:
-                last_pump_on = __parameters[str(
+                last_pump_on = parameters[str(
                     self.n_of_pumps - 1)]['ord_sw_on']
-                iter_height = last_pump_on - self.ord_sw_off
-                log.error('iter_height : {}'.format(iter_height))
+                iter_height = last_pump_on - ord_sw_off
 
             while not enough_time:
-                ord_to_check = self.ord_sw_off + iter_height
+                ord_to_check = ord_sw_off + iter_height
                 log.error('ord_to_check : {}'.format(ord_to_check))
 
-                start_params = self.get_work_parameters(
+                start_params = self.work_point(
                     self.average_flow(self.inflow_max, self.inflow_min),
                     ord_to_check, self.n_of_pumps)
 
@@ -191,9 +218,9 @@ class Station(models.StationObject):
                     unit="liters")
                 inflow = self.get_worst_case_inflow(pump_flow)
                 if self.n_of_pumps == 1:
-                    lower_va_ord = self.ord_sw_off
+                    lower_va_ord = ord_sw_off
                 else:
-                    lower_va_ord = __parameters[str(
+                    lower_va_ord = parameters[str(
                         self.n_of_pumps - 1)]['ord_sw_on']
                 log.debug('lower_va_ord: {}'.format(lower_va_ord))
                 volume_active = self.velocity(ord_to_check - lower_va_ord)
@@ -207,25 +234,24 @@ class Station(models.StationObject):
                 else:
                     iter_height += self.adjust_h_step(volume_active, pump_flow)
 
-            __parameters[str(self.n_of_pumps)]['start'] = start_params
-            __parameters[str(self.n_of_pumps)]['times'] = cycle_times
-            __parameters[str(self.n_of_pumps)]['vol_a'] = volume_active
-            __parameters[str(self.n_of_pumps)]['ord_sw_on'] = ord_to_check
-            __parameters[str(self.n_of_pumps)]['worst_infl'] = inflow
+            parameters[str(self.n_of_pumps)]['start'] = start_params
+            parameters[str(self.n_of_pumps)]['times'] = cycle_times
+            parameters[str(self.n_of_pumps)]['vol_a'] = volume_active
+            parameters[str(self.n_of_pumps)]['ord_sw_on'] = ord_to_check
+            parameters[str(self.n_of_pumps)]['worst_infl'] = inflow
 
             if stop_params[2].v_lps >= self.inflow_max.v_lps:
                 enough_pumps = True
             else:
                 self.n_of_pumps += 1
+                if mode == 'm' and pump_that_has_area_for < self.n_of_pumps:
+                    self.set_min_dims_as_current(self.n_of_pumps)
+                    pump_that_has_area_for = self.n_of_pumps
+                    self.n_of_pumps = 1
 
-        self.work_parameters = __parameters
-        return validation_flag
+        return parameters
 
-    def calc_optimalisation(self):
-
-        pass
-
-    def get_work_parameters(self, start_Qp, sewage_ord, pump_no):
+    def work_point(self, start_Qp, sewage_ord, pump_no):
         """ Returns tuple of work parameters:
         (LC highness, geometric highness, flow, speed in collector,
         speed in discharge)
@@ -323,6 +349,19 @@ class Station(models.StationObject):
         cycle_time = layover_time + pumping_time
 
         return cycle_time, layover_time, pumping_time
+
+    def set_min_dims_as_current(self, n_of_pumps):
+        self.n_of_res_pumps = self.reserve_pumps_number(
+            self.reserve_pumps.value, n_of_pumps)
+        self.well.update_min_dimensions(
+            self.well.shape.value,
+            n_of_pumps + self.n_of_res_pumps,
+            self.pump.contour.value,
+            self.well.config.value)
+        self.well.diameter.value = self.well.min_diameter
+        self.well.length.value = self.well.min_length
+        self.well.width.value = self.well.min_width
+        self.well.update()
 
     def get_worst_case_inflow(self, pump_flow):
 
