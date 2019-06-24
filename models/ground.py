@@ -5,7 +5,7 @@ import logging
 import models.models as models
 import models.variables as v
 
-log = logging.getLogger('pompa.station')
+log = logging.getLogger('pompa.ground')
 
 
 class Ground(models.StationObject):
@@ -51,6 +51,9 @@ class Ground(models.StationObject):
         enough_density = False
 
         while not enough_density:
+            log.debug('\n\nnext step')
+            log.debug('wall_thickness: {}'.format(self.wall_thickness))
+            log.debug('plug_thickness: {}'.format(self.plug_thickness))
             out_diameter = well.diameter.value + (2 * self.wall_thickness)
             self.wall_volume = self.calc_wall_vol(
                 well.diameter.value, out_diameter, well_h)
@@ -58,10 +61,12 @@ class Ground(models.StationObject):
                 out_diameter, self.plug_thickness)
             self.well_weight = self.calc_well_weight(
                 self.wall_volume, self.plug_volume)
+            log.debug('well_weight: {}'.format(self.well_weight))
 
             self.lowering_friction = self.calc_friction_lowering(
                 self.lateral_surface(out_diameter,
                                      well_h + self.plug_thickness))
+            log.debug('lowering_friction: {}'.format(self.lowering_friction))
             if self.well_weight > self.lowering_friction:
                 enough_density = True
             elif self.wall_thickness < 0.41:
@@ -76,10 +81,11 @@ class Ground(models.StationObject):
 
     def calc_well_weight(self, wall_vol, plug_vol):
         concrete_vol = wall_vol + plug_vol
-        weight = 9.81 * self.concrete_density.value * concrete_vol
-        return weight
+        weight = self.concrete_density.value * concrete_vol
+        return 9.81 * weight
 
     def calc_wall_vol(self, ins_d, out_d, well_h):
+        log.debug('ins: d: {}, well_h: {}'.format(ins_d, well_h))
         vol_ins = self.cylinder_vol(ins_d, well_h)
         vol_out = self.cylinder_vol(out_d, well_h)
         return vol_out - vol_ins
