@@ -152,6 +152,12 @@ class Station(models.StationObject):
         expedient_ord_sw_on = round(
             self.ord_inlet.value - self.difference_in_start.value, 2)
 
+        start_params = self.work_point(
+                self.average_flow(self.inflow_max, self.inflow_min),
+                expedient_ord_sw_on,
+                self.n_of_pumps)
+
+        '''
         while not enough_minimum:
             pumpset_params = self.pumpset_parameters(est_ord_sw_off, 'm')
             ord_sw_on_diff = expedient_ord_sw_on - pumpset_params[str(
@@ -176,6 +182,7 @@ class Station(models.StationObject):
                 self.ord_bottom.value = self.ord_sw_off - \
                     self.minimal_sewage_level.value
                 enough_minimum = True
+        '''
 
         return validation_flag
 
@@ -264,6 +271,21 @@ class Station(models.StationObject):
                     self.set_min_dims_as_current(self.n_of_pumps)
                     pump_that_has_area_for = self.n_of_pumps
                     self.n_of_pumps = 1
+
+        return parameters
+
+    def minimalisation_parameters(self):
+        enough_pumps = False
+        self.n_of_pumps = 1
+        parameters = {}
+        self.set_min_dims_as_current(self.n_of_pumps)
+        ord_minimal = self.ord_inlet.value - 
+
+        while not enough_pumps:
+
+            start_params = self.work_point(
+                self.average_flow(self.inflow_max, self.inflow_min),
+                ord_minimal, self.n_of_pumps)
 
         return parameters
 
