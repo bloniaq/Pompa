@@ -143,46 +143,15 @@ class Station(models.StationObject):
         return validation_flag
 
     def calc_minimalisation(self):
-
         log.error('CALC_MINIMALISATION')
         validation_flag = True
+        expedient_ord_sw_on = self.ord_inlet.value - \
+            self.difference_in_start.value
+        self.ord_sw_off = self.ord_bottom_minimal(expedient_ord_sw_on)
+        self.ord_bottom.value = self.ord_sw_off - \
+            self.minimal_sewage_level.value
 
-        enough_minimum = False
-        est_ord_sw_off = self.minimal_sewage_ord(self.ord_bottom.value)
-        expedient_ord_sw_on = round(
-            self.ord_inlet.value - self.difference_in_start.value, 2)
-
-        start_params = self.work_point(
-                self.average_flow(self.inflow_max, self.inflow_min),
-                expedient_ord_sw_on,
-                self.n_of_pumps)
-
-        '''
-        while not enough_minimum:
-            pumpset_params = self.pumpset_parameters(est_ord_sw_off, 'm')
-            ord_sw_on_diff = expedient_ord_sw_on - pumpset_params[str(
-                self.n_of_pumps)]['ord_sw_on']
-
-            log.debug('number of pumps: {}'.format(self.n_of_pumps))
-            log.debug('est_ord_sw_off: {}'.format(est_ord_sw_off))
-            log.debug('ORD_SW_OFF_DIFF: {}'.format(ord_sw_on_diff))
-            log.debug('expedient_ord_sw_on: {}'.format(expedient_ord_sw_on))
-            log.debug('actual ord sw on: {}'.format(pumpset_params[str(
-                self.n_of_pumps)]['ord_sw_on']))
-            log.debug('volume active: {}'.format(self.velocity(
-                pumpset_params[str(
-                    self.n_of_pumps)]['ord_sw_on'] - est_ord_sw_off)))
-
-            if ord_sw_on_diff > 0.01 or ord_sw_on_diff < -0.005:
-                est_ord_sw_off += 0.8 * ord_sw_on_diff
-            else:
-                log.debug('FOUND ORDS')
-                self.work_parameters = pumpset_params
-                self.ord_sw_off = est_ord_sw_off
-                self.ord_bottom.value = self.ord_sw_off - \
-                    self.minimal_sewage_level.value
-                enough_minimum = True
-        '''
+        self.work_parameters = self.pumpset_parameters(self.ord_sw_off)
 
         return validation_flag
 
@@ -192,7 +161,7 @@ class Station(models.StationObject):
         validation_flag = True
         self.ord_sw_off = self.minimal_sewage_ord(self.ord_bottom.value)
 
-        self.work_parameters = self.pumpset_parameters(self.ord_sw_off, 'c')
+        self.work_parameters = self.pumpset_parameters(self.ord_sw_off)
 
         return validation_flag
 
@@ -215,25 +184,20 @@ class Station(models.StationObject):
         requireing pumps it gets switching off ordinate, and sets mini
 
         '''
-        ord_bottom = 0
+        ord_min_sewage = 0
         enough_pumps = False
         n_of_pumps = 1
+        iter_height = 0.1
 
         while not enough_pumps:
             self.set_min_dims_as_current(n_of_pumps)
 
-            start_params = self.work_parameters(
+            start_params = self.work_point(
                 self.average_flow(self.inflow_max, self.inflow_min),
                 expedient_ord_sw_on,
-                self.n_of_pumps)
+                n_of_pumps)
 
             enough_time = False
-
-            if self.n_of_pumps == 1:
-                iter_height = 0.1
-            else:
-                iter_height = expedient_ord_sw_on - parameters[str(
-                    self.n_of_pumps - 1)]['ord_sw_off'] + 0.01
 
             while not enough_time:
 
@@ -249,9 +213,10 @@ class Station(models.StationObject):
                     (start_params[2].v_lps - stop_params[2].v_lps) / 2),
                     unit="liters")
                 inflow = self.get_worst_case_inflow(pump_flow)
-                volume_useful = self.velocity(ord_to_check - ord_sw_off)
+                volume_useful = self.velocity(
+                    expedient_ord_sw_on - ord_to_check)
                 cycle_times = self.get_cycle_times(
-                    volume_active, pump_flow, inflow)
+                    volume_useful, pump_flow, inflow)
 
                 if cycle_times[0] > self.pump.cycle_time_s:
                     enough_time = True
@@ -259,14 +224,17 @@ class Station(models.StationObject):
                 else:
                     iter_height += self.adjust_h_step(volume_useful, pump_flow)
 
-            # do stuff
-
             if stop_params[2].v_lps >= self.inflow_max.v_lps:
                 enough_pumps = True
-                ord_bottom = ord_to_check
+                ord_min_sewage = ord_to_check
+                log.debug('MINIMAL SW OFF ORD CALCULATED: {}'.format(
+                    ord_min_sewage))
+                log.debug('START Params: {}'.format(start_params))
+                log.debug('STOP Params: {}'.format(stop_params))
             else:
                 n_of_pumps += 1
-        return ord_bottom
+                iter_height = expedient_ord_sw_on - ord_to_check + 0.01
+        return ord_min_sewage
 
     def pumpset_parameters(self, ord_sw_off):
         ''' Returns dict of parameters. Keys of the dict are str of pump numbers.
@@ -344,11 +312,12 @@ class Station(models.StationObject):
                     enough_time = True
                     log.error('ENOUGH TIME ')
                 else:
-                    iter_height += self.adjust_h_step(volume_active, pump_flow)
+                    iter_height += self.adjust_h_step(
+                        pumpset_vol_useful, pump_flow)
 
             parameters[str(self.n_of_pumps)]['start'] = start_params
             parameters[str(self.n_of_pumps)]['times'] = cycle_times
-            parameters[str(self.n_of_pumps)]['vol_a'] = volume_active
+            parameters[str(self.n_of_pumps)]['vol_a'] = this_pump_vol_useful
             parameters[str(self.n_of_pumps)]['ord_sw_on'] = ord_to_check
             parameters[str(self.n_of_pumps)]['worst_infl'] = inflow
 
@@ -356,21 +325,6 @@ class Station(models.StationObject):
                 enough_pumps = True
             else:
                 self.n_of_pumps += 1
-
-        return parameters
-
-    def minimalisation_parameters(self):
-        enough_pumps = False
-        self.n_of_pumps = 1
-        parameters = {}
-        self.set_min_dims_as_current(self.n_of_pumps)
-        ord_minimal = self.ord_inlet.value - 
-
-        while not enough_pumps:
-
-            start_params = self.work_point(
-                self.average_flow(self.inflow_max, self.inflow_min),
-                ord_minimal, self.n_of_pumps)
 
         return parameters
 
