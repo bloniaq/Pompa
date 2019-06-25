@@ -215,14 +215,14 @@ class Station(models.StationObject):
         requireing pumps it gets switching off ordinate, and sets mini
 
         '''
-        parameters = {}
+        ord_bottom = 0
         enough_pumps = False
         n_of_pumps = 1
 
         while not enough_pumps:
             self.set_min_dims_as_current(n_of_pumps)
 
-            parameters[str(n_of_pumps)]['start'] = self.work_parameters(
+            start_params = self.work_parameters(
                 self.average_flow(self.inflow_max, self.inflow_min),
                 expedient_ord_sw_on,
                 self.n_of_pumps)
@@ -246,37 +246,27 @@ class Station(models.StationObject):
                     n_of_pumps)
 
                 pump_flow = v.CalcFlow(stop_params[2].v_lps + (
-                    (parameters[str(n_of_pumps)]['start'][2].v_lps -
-                        stop_params[2].v_lps) / 2),
+                    (start_params[2].v_lps - stop_params[2].v_lps) / 2),
                     unit="liters")
                 inflow = self.get_worst_case_inflow(pump_flow)
-
-                if self.n_of_pumps == 1:
-                    lower_va_ord = ord_sw_off
-                else:
-                    lower_va_ord = parameters[str(
-                        self.n_of_pumps - 1)]['ord_sw_on']
-                log.debug('lower_va_ord: {}'.format(lower_va_ord))
-                volume_active = self.velocity(ord_to_check - lower_va_ord)
-                log.debug('volume_active: {}'.format(volume_active))
+                volume_useful = self.velocity(ord_to_check - ord_sw_off)
                 cycle_times = self.get_cycle_times(
                     volume_active, pump_flow, inflow)
-
-                # do stuff
 
                 if cycle_times[0] > self.pump.cycle_time_s:
                     enough_time = True
                     log.error('ENOUGH TIME ')
                 else:
-                    iter_height += self.adjust_h_step(volume_active, pump_flow)
+                    iter_height += self.adjust_h_step(volume_useful, pump_flow)
 
             # do stuff
 
             if stop_params[2].v_lps >= self.inflow_max.v_lps:
                 enough_pumps = True
+                ord_bottom = ord_to_check
             else:
                 n_of_pumps += 1
-        return parameters
+        return ord_bottom
 
     def pumpset_parameters(self, ord_sw_off):
         ''' Returns dict of parameters. Keys of the dict are str of pump numbers.
@@ -343,10 +333,12 @@ class Station(models.StationObject):
                     lower_va_ord = parameters[str(
                         self.n_of_pumps - 1)]['ord_sw_on']
                 log.debug('lower_va_ord: {}'.format(lower_va_ord))
-                volume_active = self.velocity(ord_to_check - lower_va_ord)
-                log.debug('volume_active: {}'.format(volume_active))
+                this_pump_vol_useful = self.velocity(
+                    ord_to_check - lower_va_ord)
+                pumpset_vol_useful = self.velocity(ord_to_check - ord_sw_off)
+                log.debug('volume_active: {}'.format(this_pump_vol_useful))
                 cycle_times = self.get_cycle_times(
-                    volume_active, pump_flow, inflow)
+                    pumpset_vol_useful, pump_flow, inflow)
 
                 if cycle_times[0] > self.pump.cycle_time_s:
                     enough_time = True
