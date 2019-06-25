@@ -200,14 +200,111 @@ class Station(models.StationObject):
 
         pass
 
-    def pumpset_parameters(self, ord_sw_off, mode='c'):
-        # self.ord_sw_off = self.minimal_sewage_ord()
-        self.n_of_pumps = pump_that_has_area_for = 1
+    def ord_bottom_minimal(self, expedient_ord_sw_on):
+        ''' Returns ordinate that slightly meets the requirementes of pumping
+        volume and useful volume
+
+        It uses variables similar to pumpset_parameters function. Also core is
+        similar to those. The point of this one function is to find only the
+        last one pump, and its switching off ordinate.
+
+        It mainly works as loop, iterating thru useful height, until it finds
+        volume which satisfy cycle time requirements. If that stop parameters
+        didn't counterbalance maximum inflow, it attunes another pump, and does
+        iterate over heights in new conditions. After finding number of
+        requireing pumps it gets switching off ordinate, and sets mini
+
+        '''
+        parameters = {}
+        enough_pumps = False
+        n_of_pumps = 1
+
+        while not enough_pumps:
+            self.set_min_dims_as_current(n_of_pumps)
+
+            parameters[str(n_of_pumps)]['start'] = self.work_parameters(
+                self.average_flow(self.inflow_max, self.inflow_min),
+                expedient_ord_sw_on,
+                self.n_of_pumps)
+
+            enough_time = False
+
+            if self.n_of_pumps == 1:
+                iter_height = 0.1
+            else:
+                iter_height = expedient_ord_sw_on - parameters[str(
+                    self.n_of_pumps - 1)]['ord_sw_off'] + 0.01
+
+            while not enough_time:
+
+                ord_to_check = expedient_ord_sw_on - iter_height
+                log.error('ord_to_check : {}\n'.format(ord_to_check))
+
+                stop_params = self.work_point(
+                    self.average_flow(self.inflow_max, self.inflow_min),
+                    ord_to_check,
+                    n_of_pumps)
+
+                pump_flow = v.CalcFlow(stop_params[2].v_lps + (
+                    (parameters[str(n_of_pumps)]['start'][2].v_lps -
+                        stop_params[2].v_lps) / 2),
+                    unit="liters")
+                inflow = self.get_worst_case_inflow(pump_flow)
+
+                if self.n_of_pumps == 1:
+                    lower_va_ord = ord_sw_off
+                else:
+                    lower_va_ord = parameters[str(
+                        self.n_of_pumps - 1)]['ord_sw_on']
+                log.debug('lower_va_ord: {}'.format(lower_va_ord))
+                volume_active = self.velocity(ord_to_check - lower_va_ord)
+                log.debug('volume_active: {}'.format(volume_active))
+                cycle_times = self.get_cycle_times(
+                    volume_active, pump_flow, inflow)
+
+                # do stuff
+
+                if cycle_times[0] > self.pump.cycle_time_s:
+                    enough_time = True
+                    log.error('ENOUGH TIME ')
+                else:
+                    iter_height += self.adjust_h_step(volume_active, pump_flow)
+
+            # do stuff
+
+            if stop_params[2].v_lps >= self.inflow_max.v_lps:
+                enough_pumps = True
+            else:
+                n_of_pumps += 1
+        return parameters
+
+    def pumpset_parameters(self, ord_sw_off):
+        ''' Returns dict of parameters. Keys of the dict are str of pump numbers.
+        Values are also dicts, which keys are parameters strings:
+        - 'stop' - work_parameters values for proper pumps num for stop
+                   ordinate
+        - 'start' - work_parameters values for proper pumps num for start
+                    ordinate
+        - 'ord_sw_on' - ordinate of proper pump num start
+        - 'vol_a' - useful volume for proper pump num (pump, not set of pumps)
+        - 'times' - tuple returned from get_cycle_times, Cycle Time, Layover
+                    Time, Working Time
+        - 'worst_infl' - value of get_worst_case_inflow (type == CalcFlow)
+
+        args:
+        * ord_sw_off - ordinate, where pump has to stop
+
+        It mainly works as loop, iterating thru useful height, until it finds
+        volume which satisfy cycle time requirements. If that stop parameters
+        didn't counterbalance maximum inflow, it attunes another pump, and does
+        iterate over heights in new conditions. After finding number of
+        requireing pumps it saves founded parameters of all pumps.
+
+        '''
+
+        self.n_of_pumps = 1
         enough_pumps = False
         parameters = {}
-
-        if mode == 'm':
-            self.set_min_dims_as_current(pump_that_has_area_for)
 
         while not enough_pumps:
             parameters[str(self.n_of_pumps)] = {}
@@ -267,10 +364,6 @@ class Station(models.StationObject):
                 enough_pumps = True
             else:
                 self.n_of_pumps += 1
-                if mode == 'm' and pump_that_has_area_for < self.n_of_pumps:
-                    self.set_min_dims_as_current(self.n_of_pumps)
-                    pump_that_has_area_for = self.n_of_pumps
-                    self.n_of_pumps = 1
 
         return parameters
 
