@@ -32,7 +32,7 @@ class Report():
         self.content['12'] = 'Długość pojedynczego przewodu zewn...L= ' +\
             '{} [m]'.format(station.out_pipe.length.value)
         self.content['13'] = 'Długość przewodu wewn. pompowni......L= ' +\
-            '{} [m]'.format(station.ins_pipe.length.value)
+            '{} [m]'.format("%0.2f" % station.ins_pipe.length.value)
         self.content['14'] = 'Średnica pojedynczego przewodu zewn.Dn= ' +\
             '{} [mm]'.format(station.out_pipe.diameter.value)
         self.content['15'] = 'Średnica przewodu wewn. pompowni....Dn= ' +\

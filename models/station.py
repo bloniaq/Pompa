@@ -204,6 +204,12 @@ class Station(models.StationObject):
                 ord_to_check = expedient_ord_sw_on - iter_height
                 log.error('ord_to_check : {}\n'.format(ord_to_check))
 
+                # Estimates inside pipe length, and makes sure it not gonna
+                # refresh whole diagram every step
+                self.ins_pipe.length.load_flag = True
+                self.ins_pipe.length.value = self.ins_pipe_length(ord_to_check)
+                self.ins_pipe.length.load_flag = False
+
                 stop_params = self.work_point(
                     self.average_flow(self.inflow_max, self.inflow_min),
                     ord_to_check,
@@ -231,6 +237,7 @@ class Station(models.StationObject):
                     ord_min_sewage))
                 log.debug('START Params: {}'.format(start_params))
                 log.debug('STOP Params: {}'.format(stop_params))
+                self.app.pipe_fig.update()
             else:
                 n_of_pumps += 1
                 iter_height = expedient_ord_sw_on - ord_to_check + 0.01
@@ -467,3 +474,14 @@ class Station(models.StationObject):
         elif variant == 'safe':
             n_of_res_pumps = work_pumps_no
         return n_of_res_pumps
+
+    def ins_pipe_length(self, ord_sw_off):
+        ''' Returns estimated length of inside pipe. It is based on iterated
+        ordinate of pump switching off. Bottom of well is calculated by
+        subtrackting pump attribute of minimal sewage level. Then lenght of
+        pipe is from this place to outlet of well, and its added 5 meters
+        for valve chamber.
+        '''
+        ord_bottom = ord_sw_off - self.minimal_sewage_level.value
+        length = self.ord_outlet.value - ord_bottom + 5
+        return round(length, 2)
