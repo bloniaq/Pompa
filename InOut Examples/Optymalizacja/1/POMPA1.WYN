@@ -1,0 +1,150 @@
+POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA
+ 
+ 
+Liniowe ustawienie pomp w pompowni
+Liczba pomp rezerwowych..............n=1
+Srednica kola opisujacego pompe.....Dn=  .40     [m]
+Srednica pompowni...................DN= 1.40     [m]
+Minimalna srednica pompowni......DNmin= 1.40     [m]
+Pole poziomego przekroju pompowni....F=  1.5    [m2]
+Ciezar objetosciowy betonu..........Gb= 2.30  [T/m3]
+Jednostkowa srednia sila tarcia......T= 1.50  [T/m2]
+Wsp. zmniejszajacy j.s.s.t...........a=40       [%]
+Stos. obj. szkieletu gruntowego cz...m= .50
+Sredni obj. ciezar gruntu suchego...Gg= 2.65  [T/m3]
+Kat tarcia wew. gruntu suchego......fs= 32.0 [stop.]
+Kat tarcia wew. gruntu mokrego......fm= 35.0 [stop.]
+Sredni wsp. tarcia gruntu...........mi=  .25
+Ilosc przewodow tlocznych (kolektor)...1
+Dlugosc kolektora tlocznego..........L= 500.0    [m]
+Dlugosc przewodu w pompowni..........L=   4.4    [m]
+Srednica kolektora tlocznego........Dn= 200.0   [mm]
+Srednica przewodu w pompowni........Dn= 150.0   [mm]
+Chropowatosc kolektora tlocznego.....k=  .10    [mm]
+Chropowatosc przewodu w pompowni.....k=  .05    [mm]
+Doplyw do pomowni...Qmin=  10.0   Qmax=  14.0  [l/s]
+Rzedna terenu......................... 100.00    [m]
+Rzedna zwierciadla wody gruntowej.....  97.00    [m]
+Rzedna doplywu sciekow................  97.00    [m]
+Rzedna wylotu sciekow /przejscie
+osi rury przez sciane pompowni/.......  98.50    [m]
+Rzedna najwyzszego pkt. na trasie..... 105.00    [m]
+Rzedna zwierciadla w zbiorniku gornym. 105.00    [m]
+Min. wysokosc sciekow w  pompowni.....  .30      [m]
+Suma wsp. oporow miejsc. kolektora....  .00
+Suma wsp. oporow miejsc. w pompowni... 3.20
+Objetosc robot ziemnych kolektora.....  595     [m3]
+Objetosc robot ziemnych pompowni......   16     [m3]
+Grubosc sciany pompowni...............  .29      [m]
+Objetosc betonu {sciany pompowni}.....    8.4   [m3]
+Srednia grubosc korka................. 1.00      [m]
+Objetosc betonu {korek}...............    2.2   [m3]
+Calkowita sila tarcia {opuszczanie}...   16.8    [T]
+Wypor pompowni........................    1.6    [T]
+Ciezar pompowni+{korek}...............   24.5    [T]
+ 
+Okres amortyzacji.....................    5.0  [lat]
+Liczba osob obslugi pompowni.......... 2
+Wysokosc pensji jednej osoby..........300.0 [mln.zl]
+Czas bezawaryjnej pracy pompy.........20000. [godz.]
+Maksymalna liczba remontow pompy...... 3
+Cena 1kWh.............................55.00 [tys.zl]
+Cena jednej pompy.....................***** [mln.zl]
+Koszt remontu pompy {od ceny pompy}... 40.0      [%]
+Cena jednej zasuwy....................20.00 [mln.zl]
+Cena jednego zaworu klapowego.........40.00 [mln.zl]
+Cena 1mb. rury w pompowni.............10.00 [mln.zl]
+Cena 1m2 terenu.......................***** [mln.zl]
+Cena 1m3 betonu.......................30.00 [mln.zl]
+Robocizna i sprzet.................... 35.0      [%]
+Cena wydobycia 1m3 ziemi..............25.00 [mln.zl]
+Czas budowy pompowni.................. 21.0    [dni]
+Liczba studzien odwadniajacych........ 4
+ 
+Wydajnosc studni i rzedne dynamiczne zw. wody grunt.
+ 
+Q= 10.0 [l/s]    Rzedna   92.00 [m]
+Q=  8.0 [l/s]    Rzedna   93.00 [m]
+Q=  6.0 [l/s]    Rzedna   94.00 [m]
+Q=  3.0 [l/s]    Rzedna   95.50 [m]
+Q=   .0 [l/s]    Rzedna   97.00 [m]
+ 
+Rzedna dna studni odwadniajacej.......  91.00    [m]
+Rzedna dynamiczna z.w.g.{odwodnienie}.  92.99    [m]
+Cena 1mb. studni odwadniajacej........120.0 [mln.zl]
+Sprawnosc pompy w studni.............. 80.0      [%]
+Sredni doplyw sciekow do pompowni.....     8.0   [m3/d]
+Wsp. nierownom. rocznego doplywu...... .51
+Sprawnosc pompy sciekowej............. 92.0      [%]
+Sprawnosc silnika pompy............... 87.0      [%]
+Koszt wszystkich pomp.................  3600.0 [mln.zl]
+Koszt wszystkich zasuw................    40.0 [mln.zl]
+Koszt kompletu zaworow klapowych......    80.0 [mln.zl]
+Koszt rur.............................    88.1 [mln.zl]
+Koszt terenu.{ F*2 }..................   615.8 [mln.zl]
+Koszt betonu..........................   319.0 [mln.zl]
+Koszt robot ziemnych {pompownia}......   421.8 [mln.zl]
+Koszt studzien odwadniajacych......... 48000.0 [mln.zl]
+Koszt odwodnienia {energia el.}.......    19.0 [mln.zl]
+Koszt robocizny i sprzetu............. 18607.6 [mln.zl]
+Calkowite koszty inwestycyjne......... 71791.4 [mln.zl]
+ 
+Koszty eksploatacyjne 
+ 
+Koszt energii elektrycznej............    13.3 [mln.zl]
+Koszt remontow pomp...................      .0 [mln.zl]
+Koszt obslugi pompowni................ 36500.0 [mln.zl]
+Calkowite koszty eksploatacyjne....... 36513.3 [mln.zl]
+ 
+Calkowite koszty {inwest.+eksploat.}..108304.7 [mln.zl]
+ 
+CHARAKTERYSTYKA ZASTOSOWANYCH POMP
+ 
+Q= 30.0 [l/s]    H=   .0 [m]
+Q= 25.0 [l/s]    H=  6.0 [m]
+Q= 20.0 [l/s]    H=  8.0 [m]
+Q= 15.0 [l/s]    H= 10.0 [m]
+Q= 10.0 [l/s]    H= 11.0 [m]
+Q=  5.0 [l/s]    H= 12.0 [m]
+Q=   .0 [l/s]    H= 14.0 [m]
+ 
+Rzedna dna pompowni...................  95.49    [m]
+Rzedna wylaczenia sie pomp............  95.79    [m]
+Objetosc calkowita pompowni..........Vc=  6.9   [m3]
+Objetosc uzyteczna pompowni..........Vu=  1.4   [m3]
+Objetosc rezerwowa pompowni..........Vr=   .5   [m3]
+Objetosc martwa pompowni.............Vm=   .5   [m3]
+ 
+Vu/Vc = 19.7  %
+Vr/Vu = 35.6  %
+Vr/Vc =  7.0  %
+Vm/Vc =  6.7  %
+ 
+PARAMETRY POMPY NR: 1
+ 
+Rzeczywisty czas cyklu pompy.......T= 360.2      [s]
+Rzeczywisty czas postoju pompy....Tp= 137.0      [s]
+Rzeczywisty czas pracy pompy......Tr= 223.2      [s]
+Obj. uzyt. wyzn. przez pompe......Vu=  1.4      [m3]
+Rzedna wlaczenia pompy..............  96.68      [m]
+ 
+Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr1
+ 
+-wys. lc. u wylotu pompy.........Hlc= 9.13       [m]
+-geometryczna wys. podnoszenia.....H= 8.32       [m]
+-wydatek...........................Q=  17.18   [l/s]
+-predkosc w kolektorze tlocznym....v= .55      [m/s]
+-predkosc w przewodach w pompowni..v= .97      [m/s]
+-zapas wysokosci cisnienia.....dh=  .0   [m sl.wody]
+ 
+Parametry koncowe pracy zespolu pomp
+ 
+-wys. lc. u wylotu pompy.........Hlc= 9.97       [m]
+-geometryczna wys. podnoszenia.....H= 9.21       [m]
+-wydatek...........................Q=  15.10   [l/s]
+-predkosc w kolektorze tlocznym....v= .48      [m/s]
+-predkosc w przewodach w pompowni..v= .85      [m/s]
+-doplyw najniekorzystniejszy....Qdop=  10.00   [l/s]
+Zakres pracy pomp /maksymalna sprawnosc/
+Q1= 12.0 [l/s]    Q2= 17.0 [l/s]
