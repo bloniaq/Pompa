@@ -195,12 +195,12 @@ class Report():
             "%0.2f" % self.station.ground.plug_thickness)
         report += 'Objętość betonu (korek)...............  {} [m3]\n'.format(
             "%0.2f" % self.station.ground.plug_volume)
-        report += 'Całkowita siła tarcia (opuszczanie)...  {} [T]\n'.format(
+        report += 'Całkowita siła tarcia (opuszczanie)...  {} [kN]\n'.format(
             "%0.2f" % self.station.ground.lowering_friction)
         if self.station.ground.include_groundwater.value:
             report += 'Wypór pompowni........................  '
             report += '{} [T]\n'.format("%0.2f" % self.station.ground.buoyancy)
-        report += 'Ciężar pompowni razem z korkiem.......  {} [T]'.format(
+        report += 'Ciężar pompowni razem z korkiem.......  {} [kN]'.format(
             "%0.2f" % self.station.ground.well_weight)
 
         return report
