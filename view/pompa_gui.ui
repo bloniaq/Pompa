@@ -2444,7 +2444,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </columns>
                                 </layout>
                                 <child>
-                                  <object class="tk.Label" id="Label_Czas_optym">
+                                  <object class="tk.Label" id="Label_Op_time">
                                     <property name="text" translatable="yes">Czas prowadzenia optymalizacji [lata]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2455,9 +2455,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Czas_optym">
+                                  <object class="tk.Entry" id="Entry_Op_time">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">int:czas_optym</property>
+                                    <property name="textvariable">double:op_time</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2468,7 +2468,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_energii">
+                                  <object class="tk.Label" id="Label_Price_energy">
                                     <property name="text" translatable="yes">Cena 1kWh energii [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2479,9 +2479,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_energii">
+                                  <object class="tk.Entry" id="Entry_Price_energy">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_energii</property>
+                                    <property name="textvariable">double:price_energy</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2492,7 +2492,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Liczba_obslugi">
+                                  <object class="tk.Label" id="Label_Employees">
                                     <property name="text" translatable="yes">Liczba osób zatrudnionych przy obsłudze</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2503,9 +2503,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Liczba_obslugi">
+                                  <object class="tk.Entry" id="Entry_Employees">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">int:liczba_obslugi</property>
+                                    <property name="textvariable">int:employees</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2516,7 +2516,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Srednia_pensja">
+                                  <object class="tk.Label" id="Label_Salary">
                                     <property name="text" translatable="yes">Średnia pensja 1 pracownika [zł/mies.]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2527,9 +2527,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Srednia_pensja">
+                                  <object class="tk.Entry" id="Entry_Salary">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:srednia_pensja</property>
+                                    <property name="textvariable">double:salary</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2540,7 +2540,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Czas_bezawar">
+                                  <object class="tk.Label" id="Label_Failure_free_work">
                                     <property name="text" translatable="yes">Maksymalny czas bezawaryjnej pracy pompy do kolejnego remontu [h]</property>
                                     <property name="wraplength">300</property>
                                     <layout>
@@ -2552,9 +2552,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Czas_bezawar">
+                                  <object class="tk.Entry" id="Entry_Failure_free_work">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">int:czas_bezawar</property>
+                                    <property name="textvariable">int:failure_free_work</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2565,7 +2565,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Liczba_remontow">
+                                  <object class="tk.Label" id="Label_Repairs_no">
                                     <property name="text" translatable="yes">Maksymalna liczba remontów jednej pompy</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2576,9 +2576,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Liczba_remontow">
+                                  <object class="tk.Entry" id="Entry_Repairs_no">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">int:liczba_remontow</property>
+                                    <property name="textvariable">int:repairs_no</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2589,7 +2589,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_pompy">
+                                  <object class="tk.Label" id="Label_Price_pump">
                                     <property name="text" translatable="yes">Cena pompy (1 szt.) [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2600,9 +2600,8 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_pompy">
-                                    <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_pompy</property>
+                                  <object class="tk.Entry" id="Entry_Price_pump">
+                                    <property name="textvariable">double:price_pump</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2613,7 +2612,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Stosunek_remontu">
+                                  <object class="tk.Label" id="Label_Repair_cost">
                                     <property name="text" translatable="yes">Stosunek kosztu remontu pompy do jej ceny [%]</property>
                                     <property name="wraplength">300</property>
                                     <layout>
@@ -2625,9 +2624,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Stosunek_remontu">
+                                  <object class="tk.Entry" id="Entry_Repair_cost">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:stosunek_remontu</property>
+                                    <property name="textvariable">double:repair_cost</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2638,7 +2637,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_zasuwy">
+                                  <object class="tk.Label" id="Label_Price_close_valve">
                                     <property name="text" translatable="yes">Cena zasuwy (1 szt.) [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2649,9 +2648,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_zasuwy">
+                                  <object class="tk.Entry" id="Entry_Price_close_valve">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_zasuwy</property>
+                                    <property name="textvariable">double:price_close_valve</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2662,7 +2661,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_zaworu">
+                                  <object class="tk.Label" id="Label_Price_flap_valve">
                                     <property name="text" translatable="yes">Cena zaworu klapowego (1 szt.) [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2673,9 +2672,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_zaworu">
+                                  <object class="tk.Entry" id="Entry_Price_flap_valve">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_zaworu</property>
+                                    <property name="textvariable">double:price_flap_valve</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2686,7 +2685,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_przewodu">
+                                  <object class="tk.Label" id="Label_Price_pipe">
                                     <property name="text" translatable="yes">Cena 1 mb przewodu [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2697,9 +2696,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_przewodu">
+                                  <object class="tk.Entry" id="Entry_Price_pipe">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_przewodu</property>
+                                    <property name="textvariable">double:price_pipe</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2710,7 +2709,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_terenu">
+                                  <object class="tk.Label" id="Label_Price_terrain">
                                     <property name="text" translatable="yes">Cena 1 m² terenu pod pompownię [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2721,9 +2720,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_terenu">
+                                  <object class="tk.Entry" id="Entry_Price_terrain">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_terenu</property>
+                                    <property name="textvariable">double:price_terrain</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2734,7 +2733,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_betonu">
+                                  <object class="tk.Label" id="Label_Price_concrete">
                                     <property name="text" translatable="yes">Cena 1 m³ betonu [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2745,9 +2744,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_betonu">
+                                  <object class="tk.Entry" id="Entry_Price_concrete">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_betonu</property>
+                                    <property name="textvariable">double:price_concrete</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2758,7 +2757,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Stosunek_rms">
+                                  <object class="tk.Label" id="Label_Price_labor_eq">
                                     <property name="text" translatable="yes">Stosunek kosztów robocizny i sprzętu do kosztu materiału [%]</property>
                                     <property name="wraplength">300</property>
                                     <layout>
@@ -2770,9 +2769,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Stosunek_rms">
+                                  <object class="tk.Entry" id="Entry_Price_labor_eq">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:stosunek_rms</property>
+                                    <property name="textvariable">double:price_labor_eq</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2783,7 +2782,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_wydob">
+                                  <object class="tk.Label" id="Label_Price_extraction">
                                     <property name="text" translatable="yes">Koszt wydobycia 1 m³ ziemi [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2794,9 +2793,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_wydob">
+                                  <object class="tk.Entry" id="Entry_Price_extraction">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_wydob</property>
+                                    <property name="textvariable">double:price_extraction</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -2807,7 +2806,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Czas_budowy">
+                                  <object class="tk.Label" id="Label_Building_time">
                                     <property name="text" translatable="yes">Przewidywany czas budowy [doby]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -2818,9 +2817,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Czas_budowy">
+                                  <object class="tk.Entry" id="Entry_Building_time">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">int:czas_budowy</property>
+                                    <property name="textvariable">int:building_time</property>
                                     <property name="width">10</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -3249,7 +3248,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Liczba_studni_odw">
+                                  <object class="tk.Label" id="Label_Wells_no">
                                     <property name="text" translatable="yes">Liczba studni odwadniających teren</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -3260,9 +3259,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Liczba_studni_odw">
+                                  <object class="tk.Entry" id="Entry_Wells_no">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">int:liczba_studni_odw</property>
+                                    <property name="textvariable">int:wells_no</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -3273,7 +3272,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Rzedna_studni_odw">
+                                  <object class="tk.Label" id="Label_Well_bottom">
                                     <property name="text" translatable="yes">Rzędna studni odwadniającej [m]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -3284,9 +3283,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Rzedna_studni_odw">
+                                  <object class="tk.Entry" id="Entry_Well_bottom">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:rzedna_studni_odw</property>
+                                    <property name="textvariable">double:well_bottom</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -3297,7 +3296,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Cena_studni_odw">
+                                  <object class="tk.Label" id="Label_Price_well">
                                     <property name="text" translatable="yes">Cena 1 mb studni odwadniającej [zł]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -3308,9 +3307,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Cena_studni_odw">
+                                  <object class="tk.Entry" id="Entry_Price_well">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:cena_studni_odw</property>
+                                    <property name="textvariable">double:price_well</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -3321,7 +3320,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Sprawnosc_agregatu">
+                                  <object class="tk.Label" id="Label_Aggr_efficiency">
                                     <property name="cursor">arrow</property>
                                     <property name="justify">left</property>
                                     <property name="text" translatable="yes">Sprawność agregatu pompowego umieszczonego w studni odwadniającej [%]</property>
@@ -3335,9 +3334,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Sprawnosc_agregatu">
+                                  <object class="tk.Entry" id="Entry_Aggr_efficiency">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:sprawnosc_agregatu</property>
+                                    <property name="textvariable">double:aggr_efficiency</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -3348,7 +3347,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Sredni_doplyw">
+                                  <object class="tk.Label" id="Label_Daily_inflow">
                                     <property name="text" translatable="yes">Średni dobowy dopływ ścieków [m³/d]</property>
                                     <property name="wraplength">255</property>
                                     <layout>
@@ -3360,9 +3359,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Sredni_doplyw">
+                                  <object class="tk.Entry" id="Entry_Daily_inflow">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:sredni_doplyw</property>
+                                    <property name="textvariable">double:daily_inflow</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -3373,7 +3372,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Wspolczynnik_nierow">
+                                  <object class="tk.Label" id="Label_Yearly_inflow_irreg">
                                     <property name="text" translatable="yes">Współczynnik nierównomierności rocznego dopływu ścieków</property>
                                     <property name="wraplength">255</property>
                                     <layout>
@@ -3385,9 +3384,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Wspolczynnik_nierow">
+                                  <object class="tk.Entry" id="Entry_Yearly_inflow_irreg">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:wspolczynnik_nierow</property>
+                                    <property name="textvariable">double:yearly_inflow_irreg</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -3398,7 +3397,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Sprawnosc_pompy">
+                                  <object class="tk.Label" id="Label_Pump_efficiency">
                                     <property name="text" translatable="yes">Sprawność pompy ściekowej [%]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -3409,9 +3408,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Sprawnosc_pompy">
+                                  <object class="tk.Entry" id="Entry_Pump_efficiency">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:sprawnosc_pompy</property>
+                                    <property name="textvariable">double:pump_efficiency</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>
@@ -3422,7 +3421,7 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Label" id="Label_Sprawnosc_silnika">
+                                  <object class="tk.Label" id="Label_Engine_efficiency">
                                     <property name="text" translatable="yes">Sprawność silnik [%]</property>
                                     <layout>
                                       <property name="column">0</property>
@@ -3433,9 +3432,9 @@ POMPA    Wersja 2.00/2018r   POMPA</property>
                                   </object>
                                 </child>
                                 <child>
-                                  <object class="tk.Entry" id="Entry_Sprawnosc_silnika">
+                                  <object class="tk.Entry" id="Entry_Engine_efficiency">
                                     <property name="justify">right</property>
-                                    <property name="textvariable">double:sprawnosc_silnika</property>
+                                    <property name="textvariable">double:engine_efficiency</property>
                                     <property name="width">7</property>
                                     <layout>
                                       <property name="column">1</property>

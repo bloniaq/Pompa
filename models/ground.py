@@ -12,7 +12,7 @@ class Ground(models.StationObject):
     def __init__(self, app):
         super().__init__(app)
 
-    # input parameters
+        # input parameters
 
         self.concrete_density = None
         self.ground_friction = None
@@ -95,6 +95,7 @@ class Ground(models.StationObject):
         Następnie obliczamy objętość robót ziemnych
 
         '''
+        '''
         plug_th = 1
         wall_th = 0.25
 
@@ -121,6 +122,8 @@ class Ground(models.StationObject):
                 else:
                     plug_th = self.adjust_plug_th()
         return True
+        '''
+        pass
 
     def calc_buoyancy(self, ord_plug_bottom, diameter):
         ''' Returns buoyancy value

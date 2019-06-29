@@ -10,6 +10,7 @@ import models.well as well
 import models.pump as pump
 import models.pipe as pipe
 import models.ground as ground
+import models.economy as economy
 import view.figures as figs
 import view.view as view
 import view.report as report
@@ -97,6 +98,9 @@ class Application():
         self.station.ground = ground.Ground(self)
         data.ground_vars(self)
 
+        self.station.economy = economy.Economy(self)
+        data.economy_vars(self)
+
     def init_figures(self):
         """ Returns nothing
 
@@ -138,19 +142,25 @@ class Application():
         global path
         path = self.filepath.cget('path')
         log.debug('path: {}'.format(path))
+        filename = path.split('/')[-1]
+        log.debug('{}'.format(filename))
         with open(path, 'r+') as file:
             log.info('opening file: {0}\n\n'.format(str(file)))
             first_line = file.readline()
             # Checking if 1.0 version
             if first_line[0] == '1' and first_line[1] == ')':
-                data_dictionary = data.get_data_dict_from_dan_file(path)
-        self.mode.load_data(data_dictionary)
-        self.station.load_data(data_dictionary)
-        self.station.well.load_data(data_dictionary)
-        self.station.ins_pipe.load_data(data_dictionary)
-        self.station.out_pipe.load_data(data_dictionary)
-        self.station.pump.load_data(data_dictionary)
-        self.station.ground.load_data(data_dictionary)
+                data_dictionary = data.get_data_dict_from_dan_file(
+                    path, filename)
+        if filename != 'OPTYM.DAN':
+            self.mode.load_data(data_dictionary)
+            self.station.load_data(data_dictionary)
+            self.station.well.load_data(data_dictionary)
+            self.station.ins_pipe.load_data(data_dictionary)
+            self.station.out_pipe.load_data(data_dictionary)
+            self.station.pump.load_data(data_dictionary)
+            self.station.ground.load_data(data_dictionary)
+        else:
+            self.station.economy.load_data(data_dictionary)
 
         # Updating Figures
 
