@@ -95,6 +95,7 @@ class Ground(models.StationObject):
         Następnie obliczamy objętość robót ziemnych
 
         '''
+        '''
         plug_th = 1
         wall_th = 0.25
 
@@ -111,7 +112,7 @@ class Ground(models.StationObject):
                                                wall_vol_over_plug)
                 f_grav_plug = self.f_grav(self.concrete_density.value,
                                           self.cylinder_volume(plug_th, ins_d))
-                f_frict = 
+                # f_frict = 
                 f_stab = f_grav_wout_plug + f_grav_plug + f_frict
                 if True:  # buoyancy < f_stab:
                     buoyancy_overcome = True
@@ -121,6 +122,8 @@ class Ground(models.StationObject):
                 else:
                     plug_th = self.adjust_plug_th()
         return True
+        '''
+        pass
 
     def calc_buoyancy(self, ord_plug_bottom, diameter):
         ''' Returns buoyancy value
