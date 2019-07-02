@@ -21,12 +21,6 @@ class Report():
         self.content['8'] = self.write_min_dimensions(station.well.shape.value)
         self.content['9'] = 'Pole poziomego przekroju pompowni....F= ' +\
             '{} [m2]'.format(station.well.area)
-
-        if mode == 'minimalisation':
-            self.content['10'] = self.minimal_params_part1(
-                station.ground.is_walls_plain.value,
-                station.ground.include_groundwater.value)
-
         self.content['11'] = 'Liczba równoległych przewodów zewn..... ' +\
             '{} szt.'.format(station.out_pipe.parallels.value)
         self.content['12'] = 'Długość pojedynczego przewodu zewn...L= ' +\
@@ -46,11 +40,6 @@ class Report():
                 station.inflow_min.v_lps, station.inflow_max.v_lps)
         self.content['19'] = 'Rzędna terenu.........................  ' +\
             '{} [m]'.format(station.ord_terrain.value)
-
-        if station.ground.include_groundwater.value:
-            self.content['20'] = 'Rzędna zwierciadła wody gruntowej.....  ' +\
-                '{} [m]'.format(station.ground.ord_groundwater.value)
-
         self.content['21'] = 'Rzędna dopływu ścieków................  ' +\
             '{} [m]'.format(station.ord_inlet.value)
         self.content['22'] = 'Rzędna wylotu scieków /przejście'
@@ -66,10 +55,6 @@ class Report():
             '{} [-]'.format(sum(station.out_pipe.resistance.values))
         self.content['28'] = 'Suma wsp. oporów miejsc. przewodu wewn  ' +\
             '{} [-]'.format(sum(station.ins_pipe.resistance.values))
-
-        if mode == 'minimalisation':
-            self.content['29'] = self.minimal_params_part2(mode)
-
         self.content['30'] = '\nCHARAKTERYSTYKA ZASTOSOWANYCH POMP\n'
         self.content['31'] = self.station.pump.generate_pump_char_string()
         self.content['32'] = 'Rzędna dna pompowni...................  ' +\
@@ -154,56 +139,6 @@ class Report():
                 string_report += self.content[i]
                 string_report += '\n'
         return string_report
-
-    def minimal_params_part1(self, inc_plain_walls, inc_grndwater):
-        report = ''
-        report += 'Ciężar objętościowy betonu..........Gb= {} [T/m3]\n'.format(
-            "%0.2f" % self.station.ground.concrete_density.value)
-        report += 'Jednostkowa średnia siła tarcia......T= {} [T/m2]'.format(
-            "%0.2f" % self.station.ground.ground_friction.value)
-        if inc_plain_walls == 'plain':
-            report += '\nWsp. zmniejszający j.s.s.t...........a= '
-            report += '{} [%]'.format(
-                "%0.2f" % self.station.ground.friction_reduction_coef.value)
-        if inc_grndwater:
-            report += '\nStos. obj. szkieletu gruntowego cz...m= {}\n'.format(
-                "%0.2f" % self.station.ground.solid_particles_vol_ratio.value)
-            report += 'Średni obj. ciężar gruntu suchego...Gg= '
-            report += '{} [T/m3]\n'.format(
-                "%0.2f" % self.station.ground.solid_particles_density.value)
-            report += 'Kąt tarcia wew. gruntu suchego......fs= '
-            report += '{} [stop.]\n'.format(
-                "%0.2f" % self.station.ground.ground_fric_angle_dry.value)
-            report += 'Kąt tarcia wew. gruntu mokrego......fm= '
-            report += '{} [stop.]\n'.format(
-                "%0.2f" % self.station.ground.ground_fric_angle_wet.value)
-            report += 'Średni wsp. tarcia gruntu...........mi= {}'.format(
-                "%0.2f" % self.station.ground.wall_ground_fric_coef.value)
-        return report
-
-    def minimal_params_part2(self, mode):
-        report = ''
-        report += 'Objętość robót ziemnych przewodu zewn.  {} [m3]\n'.format(
-            "%0.2f" % self.station.ground.ground_vol_pipes)
-        report += 'Objętość robót ziemnych pompowni......  {} [m3]\n'.format(
-            "%0.2f" % self.station.ground.ground_vol_well)
-        report += 'Grubość ściany pompowni...............  {} [m]\n'.format(
-            "%0.2f" % self.station.ground.wall_thickness)
-        report += 'Objętość betonu (ściany pompowni).....  {} [m3]\n'.format(
-            "%0.2f" % self.station.ground.wall_volume)
-        report += 'Srednia grubosc korka.................  {} [m]\n'.format(
-            "%0.2f" % self.station.ground.plug_thickness)
-        report += 'Objętość betonu (korek)...............  {} [m3]\n'.format(
-            "%0.2f" % self.station.ground.plug_volume)
-        report += 'Całkowita siła tarcia (opuszczanie)...  {} [kN]\n'.format(
-            "%0.2f" % self.station.ground.lowering_friction)
-        if self.station.ground.include_groundwater.value:
-            report += 'Wypór pompowni........................  '
-            report += '{} [T]\n'.format("%0.2f" % self.station.ground.buoyancy)
-        report += 'Ciężar pompowni razem z korkiem.......  {} [kN]'.format(
-            "%0.2f" % self.station.ground.well_weight)
-
-        return report
 
     def pump_report(self):
         report = ''

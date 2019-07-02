@@ -95,12 +95,6 @@ class Application():
         self.station.out_pipe = pipe.Pipe(self)
         data.out_pipe_vars(self)
 
-        self.station.ground = ground.Ground(self)
-        data.ground_vars(self)
-
-        self.station.economy = economy.Economy(self)
-        data.economy_vars(self)
-
     def init_figures(self):
         """ Returns nothing
 
@@ -151,16 +145,12 @@ class Application():
             if first_line[0] == '1' and first_line[1] == ')':
                 data_dictionary = data.get_data_dict_from_dan_file(
                     path, filename)
-        if filename != 'OPTYM.DAN':
-            self.mode.load_data(data_dictionary)
-            self.station.load_data(data_dictionary)
-            self.station.well.load_data(data_dictionary)
-            self.station.ins_pipe.load_data(data_dictionary)
-            self.station.out_pipe.load_data(data_dictionary)
-            self.station.pump.load_data(data_dictionary)
-            self.station.ground.load_data(data_dictionary)
-        else:
-            self.station.economy.load_data(data_dictionary)
+        self.mode.load_data(data_dictionary)
+        self.station.load_data(data_dictionary)
+        self.station.well.load_data(data_dictionary)
+        self.station.ins_pipe.load_data(data_dictionary)
+        self.station.out_pipe.load_data(data_dictionary)
+        self.station.pump.load_data(data_dictionary)
 
         # Updating Figures
 
@@ -195,14 +185,6 @@ class Application():
     def set_shape(self, shape):
         self.station.well.shape.value = shape
         view.set_shape(self.builder, self.ui_vars, shape, self.mode.value)
-
-    def ui_groundwater_inclusion(self):
-        inclusion = self.ui_vars.__getitem__('include_groundwater').get()
-        self.groundwater_inclusion(inclusion)
-
-    def groundwater_inclusion(self, setting):
-        # self.station.ground.include_groundwater.value = setting
-        return view.set_groundwater_inclusion(self.builder, setting)
 
     def ui_change_wall_roughness(self):
         wall_roughness = self.ui_vars.__getitem__('wall_roughness').get()

@@ -137,10 +137,6 @@ class Station(models.StationObject):
 
         self.v_dead = self.velocity(self.minimal_sewage_level.value)
 
-        if mode == 'minimalisation':
-            well_height = self.ord_terrain.value - self.ord_bottom.value
-            self.ground.parameters(self.out_pipe, self.well, well_height)
-
         return validation_flag
 
     def calc_minimalisation(self):
