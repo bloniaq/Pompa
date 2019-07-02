@@ -112,10 +112,50 @@ def ground_vars(app):
     ins.wall_ground_fric_coef = v.P_Float(app, 0.0, 'avg_fric_coef', '27')
 
 
-def get_data_dict_from_dan_file(path):
+def economy_vars(app):
+    ins = app.station.economy
+    d = 47
+
+    ins.optimalisation_time = v.P_Float(app, 0.0, 'op_time', str(d + 1))
+    ins.price_energy = v.P_Float(app, 0.0, 'price_energy', str(d + 2))
+    ins.employees = v.P_Int(app, 0, 'employees', str(d + 3))
+    ins.salary = v.P_Float(app, 0.0, 'salary', str(d + 4))
+    ins.failure_free_work = v.P_Int(app, 0, 'failure_free_work', str(d + 5))
+    ins.repairs_no = v.P_Int(app, 0, 'repairs_no', str(d + 6))
+    ins.price_pump = v.P_Int(app, 0, 'price_pump', str(d + 7))
+    ins.repair_cost = v.P_Float(app, 0, 'repair_cost', str(d + 8))
+    ins.price_close_valve = v.P_Float(app, 0, 'price_close_valve', str(d + 9))
+    ins.price_flap_valve = v.P_Float(app, 0, 'price_flap_valve', str(d + 10))
+    ins.price_pipe = v.P_Float(app, 0, 'price_pipe', str(d + 11))
+    ins.price_terrain = v.P_Float(app, 0, 'price_terrain', str(d + 12))
+    ins.price_concrete = v.P_Float(app, 0, 'price_concrete', str(d + 13))
+    ins.price_labor_eq = v.P_Float(app, 0, 'price_labor_eq', str(d + 14))
+    ins.price_extraction = v.P_Float(app, 0, 'price_extraction', str(d + 15))
+    ins.building_time = v.P_Int(app, 0, 'building_time', str(d + 16))
+    # ins.characteristic = v.PumpCharacteristic(app, 'Treeview_Pump',
+    #                                           [str(d + 18), str(d + 19)],
+    #                                           'pump_flow_unit')
+    ins.wells_no = v.P_Int(app, 0, 'wells_no', str(d + 20))
+    ins.well_bottom = v.P_Float(app, 0, 'well_bottom', str(d + 21))
+    ins.price_well = v.P_Float(app, 0, 'price_well', str(d + 22))
+    ins.aggr_efficiency = v.P_Float(app, 0, 'aggr_efficiency', str(d + 23))
+    ins.daily_inflow = v.P_Float(app, 0, 'daily_inflow', str(d + 24))
+    ins.yearly_inflow_irreg = v.P_Float(app, 0, 'yearly_inflow_irreg', str(
+        d + 25))
+    ins.pump_efficiency = v.P_Float(app, 0, 'pump_efficiency', str(d + 26))
+    ins.engine_efficiency = v.P_Float(app, 0, 'engine_efficiency', str(d + 27))
+
+
+def get_data_dict_from_dan_file(path, filename):
     log.info('\ndan_load started\n')
     log.info('plik danych generowany wersją 1.0 aplikacji')
     data_dictionary = {}
+
+    if filename == 'OPTYM.DAN':
+        diff = 47
+    else:
+        diff = 0
+
     with open(path, 'r+') as file:
         log.info('opening file: {0}\n\n'.format(str(file)))
         for line in file:
@@ -123,6 +163,7 @@ def get_data_dict_from_dan_file(path):
                 id_line, line_datas = line.split(')')
             except ValueError as e:
                 log.error('ValueError {}'.format(e))
+            id_line = str(int(id_line) + diff)
             line_datas_list = line_datas.split()
             stored_value = line_datas_list[0]
             log.debug('id: {}, stored value: {}'.format(

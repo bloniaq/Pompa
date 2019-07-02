@@ -21,6 +21,7 @@ class Station(models.StationObject):
         self.out_pipe = None
         self.pump = None
         self.ground = None
+        self.economy = None
 
         # input parameters
         self.minimal_sewage_level = None
@@ -167,7 +168,19 @@ class Station(models.StationObject):
 
     def calc_optimalisation(self):
 
-        pass
+        log.error('CALC_OPTIMALISATION')
+        validation_flag = True
+        expedient_ord_sw_on = self.ord_inlet.value - \
+            self.difference_in_start.value
+        self.ord_sw_off = self.ord_bottom_minimal(expedient_ord_sw_on)
+        self.ord_bottom.value = self.ord_sw_off - \
+            self.minimal_sewage_level.value
+
+        self.work_parameters = self.pumpset_parameters(self.ord_sw_off)
+
+        self.economy.calculations()
+
+        return validation_flag
 
     def ord_bottom_minimal(self, expedient_ord_sw_on):
         ''' Returns ordinate that slightly meets the requirementes of pumping

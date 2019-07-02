@@ -12,7 +12,7 @@ class Ground(models.StationObject):
     def __init__(self, app):
         super().__init__(app)
 
-    # input parameters
+        # input parameters
 
         self.concrete_density = None
         self.ground_friction = None
