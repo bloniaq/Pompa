@@ -13,6 +13,7 @@ dan_gndwater = {'0': 0, '1': 1}
 default = {'mode': 'checking',
            'shape': 'round'}
 
+# HOW TO GET WIDGET BY TK VAR?
 
 def station_vars(app):
     ins = app.station
