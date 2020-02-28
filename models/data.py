@@ -14,6 +14,8 @@ default = {'mode': 'checking',
            'shape': 'round'}
 
 # HOW TO GET WIDGET BY TK VAR?
+# Another comment just for tests (git)
+
 
 def station_vars(app):
     ins = app.station
