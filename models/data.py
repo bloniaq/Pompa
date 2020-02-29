@@ -22,20 +22,27 @@ def station_vars(app):
 
     ins.reserve_pumps = v.Logic(app, 'optimal', 'reserve_pumps', '4',
                                 dan_reserve, None)
-    ins.minimal_sewage_level = v.P_Float(app, 0.0, 'minimal_sewage_level', '9')
-    ins.ord_terrain = v.P_Float(app, 0.0, 'ordinate_terrain', '10')
-    ins.ord_outlet = v.P_Float(app, 0.0, 'ordinate_outlet', '11')
+    ins.minimal_sewage_level = v.P_Float(app, 0.0, 'minimal_sewage_level', '9',
+                                         e='Entry_Minimal_height')
+    ins.ord_terrain = v.P_Float(app, 0.0, 'ordinate_terrain', '10',
+                                e='Entry_Ordinate_terrain')
+    ins.ord_outlet = v.P_Float(app, 0.0, 'ordinate_outlet', '11',
+                               e='Entry_Ordinate_outlet')
     ins.ord_inlet = v.P_Float(app, 0.0, 'ordinate_inlet', '12',
-                              fig_depend="schema")
-    ins.ord_bottom = v.P_Float(app, 0.0, 'ordinate_bottom', '13')
-    ins.difference_in_start = v.P_Float(app, 0.0, 'difference_in_start', '14')
-    ins.ord_highest_point = v.P_Float(app, 0.0, 'ordinate_highest_point', '15')
+                              fig_depend="schema", e='Entry_Ordinate_inlet')
+    ins.ord_bottom = v.P_Float(app, 0.0, 'ordinate_bottom', '13',
+                               e='Entry_Ordinate_bottom')
+    ins.difference_in_start = v.P_Float(app, 0.0, 'difference_in_start', '14',
+                                        e='Entry_Difference_in_start')
+    ins.ord_highest_point = v.P_Float(app, 0.0, 'ordinate_highest_point', '15',
+                                      e='Entry_Ordinate_highest_point')
     ins.ord_upper_level = v.P_Float(app, 0.0, 'ordinate_final_table', '16',
-                                    fig_depend="schema")
+                                    fig_depend="schema",
+                                    e='Entry_Ordinate_final_table')
     ins.inflow_min = v.Flow(app, 0.0, 'inflow_min', '33', 'inflow_unit',
-                            fig_depend="pump_char")
+                            fig_depend="pump_char", e='Entry_Inflow_min')
     ins.inflow_max = v.Flow(app, 0.0, 'inflow_max', '34', 'inflow_unit',
-                            fig_depend="pump_char")
+                            fig_depend="pump_char", e='Entry_Inflow_max')
 
 
 def well_vars(app):
@@ -45,20 +52,25 @@ def well_vars(app):
                         app.ui_set_shape)
     ins.config = v.Logic(app, 'singlerow', 'pump_configuration', '3',
                          dan_configuration, None)
-    ins.length = v.P_Float(app, 0.0, 'well_length', '6')
-    ins.width = v.P_Float(app, 0.0, 'well_width', '7')
-    ins.diameter = v.P_Float(app, 0.0, 'well_diameter', '8')
+    ins.length = v.P_Float(app, 0.0, 'well_length', '6', e='Entry_Well_length')
+    ins.width = v.P_Float(app, 0.0, 'well_width', '7', e='Entry_Well_width')
+    ins.diameter = v.P_Float(app, 0.0, 'well_diameter', '8',
+                             e='Entry_Well_diameter')
 
 
 def pump_vars(app):
     ins = app.station.pump
 
-    ins.contour = v.P_Float(app, 0.0, 'pump_contour', '5')
-    ins.cycle_time = v.P_Float(app, 0.0, 'work_cycle', '35')
+    ins.contour = v.P_Float(app, 0.0, 'pump_contour', '5',
+                            e='Entry_Pump_contour')
+    ins.cycle_time = v.P_Float(app, 0.0, 'work_cycle', '35',
+                               e='Entry_Work_cycle')
     ins.efficiency_from = v.Flow(app, 0.0, 'pump_efficiency_from', '39',
-                                 'pump_flow_unit', fig_depend="pump_char")
+                                 'pump_flow_unit', fig_depend="pump_char",
+                                 e='Entry_Pump_efficiency_from')
     ins.efficiency_to = v.Flow(app, 0.0, 'pump_efficiency_to', '40',
-                               'pump_flow_unit', fig_depend="pump_char")
+                               'pump_flow_unit', fig_depend="pump_char",
+                               e='Entry_Pump_efficiency_to')
     ins.characteristic = v.PumpCharacteristic(app, 'Treeview_Pump',
                                               ['37', '38'], 'pump_flow_unit')
 
@@ -67,26 +79,34 @@ def ins_pipe_vars(app):
     ins = app.station.ins_pipe
 
     ins.length = v.P_Float(app, 0.0, 'length_discharge_pipe', '28',
-                           fig_depend="pipe_char")
+                           fig_depend="pipe_char",
+                           e='Entry_Length_discharge_pipe')
     ins.diameter = v.P_Float(app, 0.0, 'diameter_discharge_pipe', '29',
-                             fig_depend="pipe_char")
+                             fig_depend="pipe_char",
+                             e='Entry_Diameter_discharge_pipe')
     ins.roughness = v.P_Float(app, 0.0, 'roughness_discharge_pipe', '30',
-                              fig_depend="pipe_char")
-    ins.resistance = v.Resistance(app, '', 'resistance_discharge_pipe', '32')
+                              fig_depend="pipe_char",
+                              e='Entry_Roughness_discharge_pipe')
+    ins.resistance = v.Resistance(app, '', 'resistance_discharge_pipe', '32',
+                                  e='Entry_Resistance_discharge_pipe')
     ins.l_res_coef = 0.6
 
 
 def out_pipe_vars(app):
     ins = app.station.out_pipe
 
-    ins.parallels = v.P_Int(app, 0, 'number_of_collectors', '41')
+    ins.parallels = v.P_Int(app, 0, 'number_of_collectors', '41',
+                            e='Entry_Number_of_collectors')
     ins.length = v.P_Float(app, 0.0, 'length_collector', '42',
-                           fig_depend="pipe_char")
+                           fig_depend="pipe_char", e='Entry_Length_collector')
     ins.diameter = v.P_Float(app, 0.0, 'diameter_collector', '43',
-                             fig_depend="pipe_char")
+                             fig_depend="pipe_char",
+                             e='Entry_Diameter_collector')
     ins.roughness = v.P_Float(app, 0.0, 'roughness_collector', '44',
-                              fig_depend="pipe_char")
-    ins.resistance = v.Resistance(app, '', 'resistance_collector', '47')
+                              fig_depend="pipe_char",
+                              e='Entry_Roughness_collector')
+    ins.resistance = v.Resistance(app, '', 'resistance_collector', '47',
+                                  e='Entry_Resistance_collector')
 
 
 def get_data_dict_from_dan_file(path, filename):

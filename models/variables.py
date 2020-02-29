@@ -24,6 +24,11 @@ class Variable():
             'w', lambda *_: self.update_attribute(attr)
         )
 
+    def bind_entries(self, entry_id, attr):
+        entry = self.builder.get_object(entry_id)
+        entry.bind('<Return>', lambda *_: self.update_attribute(attr))
+        entry.bind('<FocusOut>', lambda *_: self.update_attribute(attr))
+
     def update_attribute(self, attr):
         """ Returns nothing
 
@@ -36,7 +41,10 @@ class Variable():
             log.error('Tkinter error {}'.format(e))
             pass
         else:
-            setattr(self, attr, ui_content)
+            if self.__dict__[attr] != ui_content:
+                setattr(self, attr, ui_content)
+            else:
+                return
 
         if self.fig_depend and not self.load_flag:
             try:
@@ -55,11 +63,15 @@ class Variable():
 class Numeric(Variable):
     """keeps rational numbers or integers and connect them with ui variables"""
 
-    def __init__(self, app, value, ui_variable, dan_id, fig_depend):
+    def __init__(self, app, value, ui_variable, dan_id, fig_depend, e):
         self.fig_depend = fig_depend
+        self.entry = e
         super().__init__(app, ui_variable, dan_id)
         self.value = value
-        self.set_trace('value')
+        if e is None:
+            self.set_trace('value')
+        else:
+            self.bind_entries(e, 'value')
 
     def __repr__(self):
         try:
@@ -72,8 +84,9 @@ class Numeric(Variable):
 
 
 class P_Int(Numeric):
-    def __init__(self, app, value, ui_variable, dan_id, fig_depend=False):
-        super().__init__(app, value, ui_variable, dan_id, fig_depend)
+    def __init__(self, app, value, ui_variable, dan_id, fig_depend=False,
+                 e=None):
+        super().__init__(app, value, ui_variable, dan_id, fig_depend, e)
 
     def __setattr__(self, attr, value):
         if attr != 'value':
@@ -89,8 +102,9 @@ class P_Int(Numeric):
 
 
 class P_Float(Numeric):
-    def __init__(self, app, value, ui_variable, dan_id, fig_depend=False):
-        super().__init__(app, value, ui_variable, dan_id, fig_depend)
+    def __init__(self, app, value, ui_variable, dan_id, fig_depend=False,
+                 e=None):
+        super().__init__(app, value, ui_variable, dan_id, fig_depend, e)
 
     def __setattr__(self, attr, value):
         if attr != 'value':
@@ -143,11 +157,16 @@ class Logic(Variable):
 class Resistance(Variable):
     """class for local resistance in pipes"""
 
-    def __init__(self, app, string, ui_variable, dan_id, fig_depend=True):
+    def __init__(self, app, string, ui_variable, dan_id, fig_depend=True,
+                 e=None):
         super().__init__(app, ui_variable, dan_id)
         self.fig_depend = fig_depend
+        self.entry = e
         self.string = string
-        self.set_trace('string')
+        if e is None:
+            self.set_trace('string')
+        else:
+            self.bind_entries(e, 'string')
 
     def __repr__(self):
         output = 'Resistance({}, str:{}, val:{}, {});{}'.format(
@@ -194,16 +213,20 @@ class Flow(Variable):
     """class for flow"""
 
     def __init__(self, app, value, ui_variable, dan_id, unit_ui_var,
-                 unit='meters', fig_depend=False):
+                 unit='meters', fig_depend=False, e=None):
         super().__init__(app, ui_variable, dan_id)
         self.fig_depend = fig_depend
+        self.entry = e
         if unit_ui_var in self.tkvars:
             self.unit_var = self.tkvars.__getitem__(unit_ui_var)
         self.value = value
         self.unit = unit
         self.unit_var.set(unit)
         if ui_variable in self.tkvars:
-            self.set_trace('value')
+            if e is None:
+                self.set_trace('value')
+            else:
+                self.bind_entries(e, 'value')
         self.unit_var.trace('w', lambda *_: self.convert(self.unit_var.get()))
         self.value_meters = self.v_m3ph = 0
         self.value_liters = self.v_lps = 0
