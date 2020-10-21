@@ -1,4 +1,4 @@
-import pompa.__main__ as pompa
+import pompa.application as pompa
 
 
 def test_app_init():
