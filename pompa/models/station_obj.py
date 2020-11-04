@@ -1,6 +1,6 @@
 class StationObject():
 
-    kinematic_viscosity = 1.0068  # [mm²/s] dla 20°C
+    kinematic_viscosity = 0.0000010068  # [m²/s] dla 20°C
     std_grav = 9.81
 
     def __init__(self):

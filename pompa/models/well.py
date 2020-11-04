@@ -1,14 +1,15 @@
 import models.station_obj as station_object
+import models.variables as v
 
 
 class Well(station_object.StationObject):
 
     def __init__(self):
-        self.shape = None
-        self.config = None
-        self.diameter = 0
-        self.length = 0
-        self.width = 0
+        self.shape = v.SwitchVariable()
+        self.config = v.SwitchVariable()
+        self.diameter = v.FloatVariable()
+        self.length = v.FloatVariable()
+        self.width = v.FloatVariable()
 
     def minimal_diameter(self, n_of_pumps, netto_contour):
         """ Returns minimal diameter of round-shaped well.

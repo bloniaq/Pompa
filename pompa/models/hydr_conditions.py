@@ -1,13 +1,16 @@
+import models.variables as v
+
+
 class HydrConditions():
     """
     """
 
     def __init__(self):
-        self.ord_terrain = None
-        self.ord_inlet = None
-        self.ord_outlet = None
-        self.ord_bottom = None
-        self.ord_highest_point = None
-        self.ord_upper_level = None
-        self.inflow_max = None
-        self.inflow_min = None
+        self.ord_terrain = v.FloatVariable()
+        self.ord_inlet = v.FloatVariable()
+        self.ord_outlet = v.FloatVariable()
+        self.ord_bottom = v.FloatVariable()
+        self.ord_highest_point = v.FloatVariable()
+        self.ord_upper_level = v.FloatVariable()
+        self.inflow_max = v.FlowVariable()
+        self.inflow_min = v.FlowVariable()
