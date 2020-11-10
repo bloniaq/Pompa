@@ -1,8 +1,9 @@
-import models.station_obj as station_object
-import models.hydr_conditions as hydr_cond
-import models.pipe as pipe
-import models.well as well
-import models.pumptype as pump_type
+import pompa.models.station_obj as station_object
+import pompa.models.hydr_conditions as hydr_cond
+import pompa.models.pipe as pipe
+import pompa.models.well as well
+import pompa.models.pumptype as pump_type
+import pompa.models.pumpsystem as pumpsystem
 
 
 class Station(station_object.StationObject):
@@ -14,4 +15,13 @@ class Station(station_object.StationObject):
         self.hydr_cond = hydr_cond.HydrConditions()
         self.ins_pipe = pipe.Pipe()
         self.out_pipe = pipe.Pipe()
-        self.pump_type = pump_type.Pump_Type()
+        self.pump_type = pump_type.PumpType()
+
+    def calculate(self, mode='checking'):
+        self.pumpsystem = pumpsystem.PumpSystem(
+            self.well,
+            self.ins_pipe,
+            self.out_pipe,
+            self.pump_type,
+            self.hydr_cond,
+            mode)

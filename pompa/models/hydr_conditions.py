@@ -1,4 +1,4 @@
-import models.variables as v
+import pompa.models.variables as v
 
 
 class HydrConditions():

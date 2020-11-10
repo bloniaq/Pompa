@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="[pompa-pkg-bloniaq]",
+    name="pompa-pkg-bloniaq",
     version="2.0.1",
     author="Jakub Blonski",
     author_email="j.a.blonski@outlook.com",

@@ -1,7 +1,8 @@
 import pompa.models.variables as variables
-from exceptions import InputTypeError
+from pompa.exceptions import InputTypeError
 import pytest
 from unittest.mock import Mock
+import numpy as np
 
 
 class Test_Variable():
@@ -138,6 +139,11 @@ class Test_FloatVar():
         float_var.set(0.423672945)
         assert float_var.value == 0.42367
 
+    def test_add(self):
+        float1 = variables.FloatVariable(24.8)
+        float2 = variables.FloatVariable(3.17)
+        assert float1 + float2 == 27.97
+
 
 class Test_IntVar:
 
@@ -261,6 +267,11 @@ class Test_FlowVar:
         with pytest.raises(InputTypeError):
             flow_var.set("test string")
 
+    def test_m3ps(self):
+        flow_var = variables.FlowVariable(34, 'lps')
+        assert flow_var._m3ps(flow_var.value_lps) == 0.034
+        assert flow_var.value_m3ps == 0.034
+
 
 class Test_SwitchVar:
 
@@ -336,8 +347,8 @@ class Test_PumpCharVar:
         point_to_remove = (expected_flow_2, 11.95)
         characteristic.remove_point(point_to_remove)
         assert characteristic.value == [
-            (expected_flow_1, 12.34),
-            (expected_flow_3, 13.03)]
+            (expected_flow_3, 13.03),
+            (expected_flow_1, 12.34)]
 
     def test_sorting_characteristic(self):
         characteristic = variables.PumpCharVariable()
@@ -347,6 +358,15 @@ class Test_PumpCharVar:
         exp_point_1 = (variables.FlowVariable(35.56), 12.34)
         exp_point_2 = (variables.FlowVariable(36.05), 11.95)
         exp_point_3 = (variables.FlowVariable(33.4), 13.03)
-        characteristic.sort_points()
         assert characteristic.value == [
             exp_point_3, exp_point_1, exp_point_2]
+
+    def test_polynomial_coeff(self):
+        characteristic = variables.PumpCharVariable()
+        characteristic.add_point(1000, 5, 'lps')
+        characteristic.add_point(3000, 61, 'lps')
+        characteristic.add_point(2000, 25, 'lps')
+        characteristic.add_point(7000, 485, 'lps')
+        exp_coeffs = np.array([-5, 7, 2, 1])
+        result = characteristic.polynomial_coeff(1)
+        np.testing.assert_almost_equal(result, exp_coeffs)

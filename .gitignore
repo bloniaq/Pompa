@@ -1,6 +1,7 @@
 Functionality Prototypes/
 *.sublime-workspace
 logfile.log
+utils/
 
 # Created by https://www.gitignore.io/api/linux,python,windows,notepadpp
 

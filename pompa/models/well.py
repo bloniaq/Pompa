@@ -1,5 +1,5 @@
-import models.station_obj as station_object
-import models.variables as v
+import pompa.models.station_obj as station_object
+import pompa.models.variables as v
 
 
 class Well(station_object.StationObject):

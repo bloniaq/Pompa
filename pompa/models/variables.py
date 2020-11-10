@@ -1,4 +1,5 @@
-from exceptions import InputTypeError
+from pompa.exceptions import InputTypeError
+import numpy as np
 
 
 class Variable():
@@ -32,6 +33,12 @@ class FloatVariable(Variable):
         self.digits = digits
         value = self._round(value)
         super().__init__(value)
+
+    def __add__(self, other):
+        return (self.value + other.value)
+
+    def __eq__(self, other):
+        return (self.value == other.value)
 
     def set(self, value):
         value = self._round(value)
@@ -76,8 +83,17 @@ class FlowVariable(Variable):
         self.set(value, unit)
         self.init_unit = unit
 
+    def __repr__(self):
+        return '{} m3ph'.format(self.value_m3ph)
+
     def __eq__(self, other):
         return (self.value_m3ph == other.value_m3ph)
+
+    def __truediv__(self, other):
+        return (self.value_m3ph / other.value_m3ph)
+
+    def __floordiv__(self, other):
+        return (self.value_m3ph // other.value_m3ph)
 
     def set(self, value, unit='m3ph'):
         try:
@@ -87,6 +103,9 @@ class FlowVariable(Variable):
             elif unit == 'lps':
                 self.value_lps = round(value, 2)
                 self.value_m3ph = self._m3ph(value)
+            elif unit == 'm3ps':
+                self.set(value * 1000, 'lps')
+            self.value_m3ps = self._m3ps(self.value_lps)
         except (ValueError, TypeError):
             raise InputTypeError
         else:
@@ -97,6 +116,9 @@ class FlowVariable(Variable):
 
     def _m3ph(self, lps):
         return round(lps * 3.6, 2)
+
+    def _m3ps(self, lps):
+        return round(lps / 1000, 5)
 
 
 class SwitchVariable(Variable):
@@ -127,9 +149,16 @@ class PumpCharVariable(Variable):
     def add_point(self, flow, height, unit='m3ph'):
         point = (FlowVariable(flow, unit), height)
         self.value.append(point)
+        self._sort_points()
+        self._callbacks()
 
     def remove_point(self, point):
         self.value.remove(point)
 
-    def sort_points(self):
+    def _sort_points(self):
         self.value.sort(key=lambda point: point[0].value_m3ph)
+
+    def polynomial_coeff(self, w_pumps_amount):
+        flows = np.array([f[0].value_m3ps for f in self.value])
+        heights = np.array([h[1] for h in self.value])
+        return np.polynomial.polynomial.polyfit(flows, heights, 3)

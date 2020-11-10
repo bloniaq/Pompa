@@ -1,8 +1,8 @@
-import models.station_obj as station_object
-import models.variables as v
+import pompa.models.station_obj as station_object
+import pompa.models.variables as v
 
 
-class Pump_Type(station_object.StationObject):
+class PumpType(station_object.StationObject):
 
     def __init__(self):
         self.cycle_time = v.IntVariable()
@@ -12,7 +12,7 @@ class Pump_Type(station_object.StationObject):
         self.efficiency_to = v.FlowVariable()
         self.characteristic = v.PumpCharVariable()
 
-    def max_efficiency(self):
+    def best_efficiency(self):
         avg = ((self.efficiency_from.value_m3ph
                + self.efficiency_to.value_m3ph)
                / 2)
