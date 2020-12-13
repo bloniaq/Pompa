@@ -46,13 +46,3 @@ def test_flow_array(station_1):
         minimal_flow.value_m3ps, maximal_flow.value_m3ps, 200)
     assert isinstance(pumpsystem.flow_array, np.ndarray)
     np.testing.assert_equal(pumpsystem.flow_array, expected_array)
-
-
-def test_pipes_polynomial(station_1):
-    pumpsystem = create_pumpsystem_of_station_fixture(station_1)
-    pumpsystem.flow_array = np.array(
-        [0.022, 0.024, 0.026, 0.029, 0.031, 0.033, 0.036])
-    exp_array = np.array(
-        [9.653, -25.435, 6357.133, -7846.074])
-    np.testing.assert_almost_equal(
-        pumpsystem._pipes_dyn_loss_polynomial(), exp_array, decimal=3)

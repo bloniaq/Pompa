@@ -34,11 +34,56 @@ class FloatVariable(Variable):
         value = self._round(value)
         super().__init__(value)
 
+    def __repr__(self):
+        return str(self.value) + ' FV'
+
     def __add__(self, other):
-        return (self.value + other.value)
+        if isinstance(other, FloatVariable):
+            return FloatVariable(self.value + other.value)
+        else:
+            return FloatVariable(self.value + other)
+
+    def __sub__(self, other):
+        if isinstance(other, FloatVariable):
+            return FloatVariable(self.value - other.value)
+        else:
+            return FloatVariable(self.value - other)
+
+    def __truediv__(self, other):
+        if isinstance(other, FloatVariable):
+            return (self.value / other.value)
+        else:
+            return FloatVariable(self.value / other, self.digits)
 
     def __eq__(self, other):
-        return (self.value == other.value)
+        if isinstance(other, FloatVariable):
+            return (self.value == other.value)
+        else:
+            return (self.value == other)
+
+    def __lt__(self, other):
+        if isinstance(other, FloatVariable):
+            return (self.value < other.value)
+        else:
+            return (self.value < other)
+
+    def __le__(self, other):
+        if isinstance(other, FloatVariable):
+            return (self.value <= other.value)
+        else:
+            return (self.value <= other)
+
+    def __gt__(self, other):
+        if isinstance(other, FloatVariable):
+            return (self.value > other.value)
+        else:
+            return (self.value > other)
+
+    def __ge__(self, other):
+        if isinstance(other, FloatVariable):
+            return (self.value >= other.value)
+        else:
+            return (self.value >= other)
 
     def set(self, value):
         value = self._round(value)
@@ -84,13 +129,34 @@ class FlowVariable(Variable):
         self.init_unit = unit
 
     def __repr__(self):
-        return '{} m3ph'.format(self.value_m3ph)
+        return '{} lps'.format(self.value_lps)
 
     def __eq__(self, other):
         return (self.value_m3ph == other.value_m3ph)
 
+    def __lt__(self, other):
+        return (self.value_m3ph < other.value_m3ph)
+
+    def __le__(self, other):
+        return (self.value_m3ph <= other.value_m3ph)
+
+    def __gt__(self, other):
+        return (self.value_m3ph > other.value_m3ph)
+
+    def __ge__(self, other):
+        return (self.value_m3ph >= other.value_m3ph)
+
+    def __add__(self, other):
+        return FlowVariable(self.value_m3ph + other.value_m3ph)
+
+    def __sub__(self, other):
+        return FlowVariable(self.value_m3ph - other.value_m3ph)
+
     def __truediv__(self, other):
-        return (self.value_m3ph / other.value_m3ph)
+        if isinstance(other, FlowVariable):
+            return (self.value_m3ph / other.value_m3ph)
+        else:
+            return FlowVariable(self.value_m3ph / other, 'm3ph')
 
     def __floordiv__(self, other):
         return (self.value_m3ph // other.value_m3ph)
@@ -138,6 +204,12 @@ class ResistanceVariable(Variable):
     def sum(self):
         return sum(self.value)
 
+    def set(self, value):
+        if isinstance(value, list):
+            super().set(value)
+        else:
+            super().set([value])
+
 
 class PumpCharVariable(Variable):
     '''Holds pump characteristic'''
@@ -145,6 +217,9 @@ class PumpCharVariable(Variable):
     def __init__(self):
         self.value = []
         super().__init__(self.value)
+
+    def __repr__(self):
+        return str(self.value)
 
     def add_point(self, flow, height, unit='m3ph'):
         point = (FlowVariable(flow, unit), height)
@@ -158,7 +233,10 @@ class PumpCharVariable(Variable):
     def _sort_points(self):
         self.value.sort(key=lambda point: point[0].value_m3ph)
 
-    def polynomial_coeff(self, w_pumps_amount):
-        flows = np.array([f[0].value_m3ps for f in self.value])
+    def polynomial_coeff(self, w_pumps_amount=1):
+        flows = np.array(
+            [w_pumps_amount * f[0].value_m3ps for f in self.value])
         heights = np.array([h[1] for h in self.value])
+        print('poly flows: ', flows)
+        print('poly heights: ', heights)
         return np.polynomial.polynomial.polyfit(flows, heights, 3)

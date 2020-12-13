@@ -1,5 +1,5 @@
 import pompa.models.variables as v
-from pompa.exceptions import TooManyRootsError
+from pompa.exceptions import TooManyRootsError, NoRootsError
 import numpy as np
 
 
@@ -9,9 +9,8 @@ class WorkPoint:
     set of pipes in station.
     """
 
-    def __init__(self, pumpset_amount, geometric_height, ins_pipe_crossec_area,
+    def __init__(self, geometric_height, ins_pipe_crossec_area,
                  out_pipe_crossec_area, pumpset_poly, pipeset_hydr_poly):
-        self.pumpset_amount = pumpset_amount
         self.geometric_height = geometric_height
         self.ins_pipe_crossec_area = ins_pipe_crossec_area
         self.out_pipe_crossec_area = out_pipe_crossec_area
@@ -32,9 +31,9 @@ class WorkPoint:
         """To gotten array of polynomial coeefs describing pipe loss function,
         adds geometric height, and returns numpy-array-typed polynomial coeffs
         """
-        result_poly = self.pipeset_hydr_poly
-        result_poly[0] = self.pipeset_hydr_poly[0] + self.geometric_height
-        return result_poly
+        res_poly = self.pipeset_hydr_poly.copy()
+        res_poly[0] = self.pipeset_hydr_poly[0] + self.geometric_height.value
+        return res_poly
 
     def calculate(self):
         """Returns parameters of workpoint.
@@ -45,16 +44,40 @@ class WorkPoint:
         - Speed in outside pump [m/s]
         """
         pipeset_poly = self._full_loss_poly()
+
+        """
+        _36 = v.FlowVariable(36, 'lps')
+        pumps_f = np.polynomial.polynomial.Polynomial(self.pumpset_poly)
+        pipes_f = np.polynomial.polynomial.Polynomial(pipeset_poly)
+        print('36: ', round(pumps_f(_36.value_m3ps), 2))
+        print('36: ', round(pipes_f(_36.value_m3ps), 2))
+        """
+
         all_roots = np.polynomial.polynomial.polyroots(
             self.pumpset_poly - pipeset_poly)
+        # print('all roots: ', all_roots)
         roots = [np.real(i) for i in all_roots if np.isreal(i)]
+        # print('roots real: ', roots)
+        roots = [i for i in roots if i > 0]
+        """
+        print('roots > 0: ', roots)
+        print('pipeset_poly ', pipeset_poly)
+        print('pumpset_poly ', self.pumpset_poly)
+        """
         if len(roots) > 1:
-            raise TooManyRootsError
+            raise TooManyRootsError(roots, pipeset_poly, self.pumpset_poly)
             return
+        elif len(roots) == 0:
+            raise NoRootsError(roots, pipeset_poly, self.pumpset_poly,
+                               v.FlowVariable(11, 'lps'),
+                               v.FlowVariable(22, 'lps'))
         flow = v.FlowVariable(roots[0], 'm3ps')
         height = np.polynomial.polynomial.Polynomial(
             self.pumpset_poly)(roots[0])
         speed = self._speed(flow)
-        return (
-            height, flow, self.geometric_height, speed['ins_pipe'],
-            speed['out_pipe'])
+        result = {'height': height, 'flow': flow,
+                  'geom_h': self.geometric_height,
+                  'ins_pipe_speed': speed['ins_pipe'],
+                  'out_pipe_speed': speed['out_pipe']}
+        print(result)
+        return result

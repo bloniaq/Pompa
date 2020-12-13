@@ -12,5 +12,6 @@ class HydrConditions():
         self.ord_bottom = v.FloatVariable()
         self.ord_highest_point = v.FloatVariable()
         self.ord_upper_level = v.FloatVariable()
+        self.reserve_height = v.FloatVariable()
         self.inflow_max = v.FlowVariable()
         self.inflow_min = v.FlowVariable()

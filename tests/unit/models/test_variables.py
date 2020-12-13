@@ -2,7 +2,6 @@ import pompa.models.variables as variables
 from pompa.exceptions import InputTypeError
 import pytest
 from unittest.mock import Mock
-import numpy as np
 
 
 class Test_Variable():
@@ -142,7 +141,7 @@ class Test_FloatVar():
     def test_add(self):
         float1 = variables.FloatVariable(24.8)
         float2 = variables.FloatVariable(3.17)
-        assert float1 + float2 == 27.97
+        assert float1 + float2 == variables.FloatVariable(27.97)
 
 
 class Test_IntVar:
@@ -360,13 +359,3 @@ class Test_PumpCharVar:
         exp_point_3 = (variables.FlowVariable(33.4), 13.03)
         assert characteristic.value == [
             exp_point_3, exp_point_1, exp_point_2]
-
-    def test_polynomial_coeff(self):
-        characteristic = variables.PumpCharVariable()
-        characteristic.add_point(1000, 5, 'lps')
-        characteristic.add_point(3000, 61, 'lps')
-        characteristic.add_point(2000, 25, 'lps')
-        characteristic.add_point(7000, 485, 'lps')
-        exp_coeffs = np.array([-5, 7, 2, 1])
-        result = characteristic.polynomial_coeff(1)
-        np.testing.assert_almost_equal(result, exp_coeffs)

@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="284335cc-5d75-49a5-887d-6cc1a5826a7e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Przypadki uzycia.vsdx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Przypadki uzycia.vsdx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pompa/application.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/application.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pompa/models/hydr_conditions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/hydr_conditions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pompa/models/pipe.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/pipe.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pompa/models/pumptype.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/pumptype.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pompa/models/station.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/station.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pompa/exceptions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/exceptions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pompa/models/pumpset.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/pumpset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pompa/models/pumpsystem.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/pumpsystem.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pompa/models/variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/variables.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pompa/models/well.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/well.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/test_pumptype.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/test_pumptype.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/test_station.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/test_station.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/test_variables.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/test_variables.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pompa/models/workpoint.py" beforeDir="false" afterPath="$PROJECT_DIR$/pompa/models/workpoint.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/test_pumpset.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/test_pumpset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/test_workpoint.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/models/test_workpoint.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
