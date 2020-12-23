@@ -17,15 +17,15 @@ class WorkPoint:
         self.pumpset_poly = pumpset_poly
         self.pipeset_hydr_poly = pipeset_hydr_poly
 
-    def _speed(self, flow):
-        """ Returns dict of speed values in inside pipe and outside pipe.
+    def _velocity(self, flow):
+        """ Returns dict of velocity values in inside pipe and outside pipe.
         Expects instance od FlowVariable"""
-        speed = {}
-        speed['ins_pipe'] = round(
+        velocity = {}
+        velocity['ins_pipe'] = round(
             flow.value_m3ps / self.ins_pipe_crossec_area, 2)
-        speed['out_pipe'] = round(
+        velocity['out_pipe'] = round(
             flow.value_m3ps / self.out_pipe_crossec_area, 2)
-        return speed
+        return velocity
 
     def _full_loss_poly(self):
         """To gotten array of polynomial coeefs describing pipe loss function,
@@ -40,8 +40,8 @@ class WorkPoint:
         - Height of all loss [m]
         - Flow [FlovVariable]
         - Geometric height [m]
-        - Speed in inside pipe [m/s]
-        - Speed in outside pump [m/s]
+        - velocity in inside pipe [m/s]
+        - velocity in outside pump [m/s]
         """
         pipeset_poly = self._full_loss_poly()
 
@@ -74,10 +74,10 @@ class WorkPoint:
         flow = v.FlowVariable(roots[0], 'm3ps')
         height = np.polynomial.polynomial.Polynomial(
             self.pumpset_poly)(roots[0])
-        speed = self._speed(flow)
+        velocity = self._velocity(flow)
         result = {'height': height, 'flow': flow,
                   'geom_h': self.geometric_height,
-                  'ins_pipe_speed': speed['ins_pipe'],
-                  'out_pipe_speed': speed['out_pipe']}
+                  'ins_pipe_velo': velocity['ins_pipe'],
+                  'out_pipe_velo': velocity['out_pipe']}
         print(result)
         return result

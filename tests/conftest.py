@@ -3,6 +3,21 @@ import numpy as np
 import pompa.models.pipe as pipe
 import pompa.models.pumpset as pumpset
 import pompa.models.variables as v
+import pompa.models.workpoint
+
+
+@pytest.fixture()
+def workpoint_dummy_1pump():
+    geometric_height = v.FloatVariable(6)
+    ins_pipe_crossec_area = 6
+    out_pipe_crossec_area = 12
+    pumpset_poly = np.array([-4, 2, -3, 1])
+    pipeset_poly = np.array([2, 1, 2, -1])
+    wpoint = pompa.models.workpoint.WorkPoint(
+        geometric_height, ins_pipe_crossec_area,
+        out_pipe_crossec_area, pumpset_poly, pipeset_poly)
+
+    return wpoint
 
 
 @pytest.fixture

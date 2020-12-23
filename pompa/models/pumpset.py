@@ -3,6 +3,17 @@ import pompa.models.variables as v
 from pompa.exceptions import WellTooShallowError, WellTooDeepError
 
 
+
+
+
+
+
+
+
+
+# PONIŻEJ ZAKOMENTOWANY KOD - PIERWOTNA WERSJA
+
+'''
 class PumpSet():
 
     def __init__(self, required_cycle_time, inflow, pumpset_efficiency,
@@ -133,3 +144,5 @@ class PumpSet():
         start_ordinate argument."""
         height = start_ordinate - self.ord_latter_pumpset_startup
         return self._velocity(height.value)
+
+'''

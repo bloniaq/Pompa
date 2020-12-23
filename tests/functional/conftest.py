@@ -4,6 +4,9 @@ import numpy as np
 import pompa.models.pumpset
 
 
+# FIXTURE PUMPESTU DO ZAKOMENTOWANEGO KODU
+
+'''
 @pytest.fixture
 def pompa0_pumpset():
     required_cycle_time = 480
@@ -26,3 +29,4 @@ def pompa0_pumpset():
         ord_shutdown, ord_inlet)
     pumpset.expected_worst_inflow = v.FlowVariable(18, 'lps')
     return pumpset
+'''

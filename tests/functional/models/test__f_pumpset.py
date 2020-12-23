@@ -1,25 +1,9 @@
 import pytest
 import pompa.models.variables as v
-from unittest.mock import patch
 
 
-fixture_list = ['one_pump_pumpset', 'more_pump_pumpset']
-
-
-@pytest.mark.parametrize('fixture', fixture_list)
-@patch('pompa.models.pumpset.pompa.models.workpoint')
-def test_workpoint_method(mock_wpoint, fixture, request):
-    pumpset = request.getfixturevalue(fixture)
-    current_ordinate = 6
-    wpoint_calc_result = {}
-    wpoint_calc_result['height'] = 8
-    wpoint_calc_result['flow'] = v.FlowVariable(10)
-    wpoint_calc_result['geom_h'] = pumpset._geom_height(current_ordinate)
-    wpoint_calc_result['ins_pipe_speed'] = 6
-    wpoint_calc_result['out_pipe_speed'] = 5
-    mock_wpoint.WorkPoint().calculate.return_value = wpoint_calc_result
-    assert pumpset._workpoint(current_ordinate) == wpoint_calc_result
-
+def test_1_unit_pumpset():
+    pass
 
 """
 def test_calculate_one_pump(pompa0_pumpset):

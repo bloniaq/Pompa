@@ -2,9 +2,13 @@ import pompa.models.pumpset
 import pompa.models.variables as v
 import pompa.models.workpoint
 import numpy as np
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 import pytest
 
+
+
+# PONIŻEJ TESTY DO ZAKOMENTOWANEGO KODU
+'''
 
 fixture_list = ['one_pump_pumpset', 'more_pump_pumpset']
 
@@ -115,3 +119,20 @@ def test_useful_velo_more_pumps(more_pump_pumpset):
     pumpset = more_pump_pumpset
     start_ord = v.FloatVariable(4)
     assert pumpset._useful_velo(start_ord) == 9.62
+
+
+@pytest.mark.parametrize('fixture', fixture_list)
+@patch('pompa.models.pumpset.pompa.models.workpoint')
+def test_workpoint_method(mock_wpoint, fixture, request):
+    pumpset = request.getfixturevalue(fixture)
+    current_ordinate = 6
+    wpoint_calc_result = {}
+    wpoint_calc_result['height'] = 8
+    wpoint_calc_result['flow'] = v.FlowVariable(10)
+    wpoint_calc_result['geom_h'] = pumpset._geom_height(current_ordinate)
+    wpoint_calc_result['ins_pipe_speed'] = 6
+    wpoint_calc_result['out_pipe_speed'] = 5
+    mock_wpoint.WorkPoint().calculate.return_value = wpoint_calc_result
+    assert pumpset._workpoint(current_ordinate) == wpoint_calc_result
+
+'''
