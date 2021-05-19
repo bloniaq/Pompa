@@ -2,6 +2,10 @@ Functionality Prototypes/
 *.sublime-workspace
 logfile.log
 utils/
+.idea/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
 
 # Created by https://www.gitignore.io/api/linux,python,windows,notepadpp
 
