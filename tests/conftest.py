@@ -2,8 +2,117 @@ import pytest
 import numpy as np
 import pompa.models.pipe as pipe
 import pompa.models.pumpset as pumpset
+from pompa.models.station import Station
+from collections import OrderedDict, namedtuple
 import pompa.models.variables as v
 import pompa.models.workpoint
+
+
+@pytest.fixture
+def station_1(request):
+    station = Station()
+    safety_coeff = 1.4
+    # input values:
+    station.well.config.value = 'optimal'
+    station.well.diameter.set(2.5)
+    station.hydr_cond.ord_terrain.set(145)
+    station.hydr_cond.ord_inlet.set(140)
+    station.hydr_cond.ord_highest_point.set(148.12)
+    station.hydr_cond.ord_upper_level.set(146.7)
+    station.hydr_cond.reserve_height.set(0.2)
+    station.hydr_cond.inflow_min.set(80, 'm3ph')
+    station.hydr_cond.inflow_max.set(safety_coeff * 80, 'm3ph')
+    station.ins_pipe.length.set(6)
+    station.ins_pipe.diameter.set(0.15)
+    station.ins_pipe.roughness.set(0.002)
+    station.ins_pipe.resistance.set([3.38])
+    station.out_pipe.length.set(732)
+    station.out_pipe.diameter.set(0.2)
+    station.out_pipe.roughness.set(0.002)
+    station.out_pipe.resistance.set([0])
+    station.pump_type.cycle_time.set(480)
+    station.pump_type.contour.set(0.5)
+    station.pump_type.suction_level.set(0.3)
+    station.pump_type.efficiency_from.set(90, 'm3ph')
+    station.pump_type.efficiency_to.set(110, 'm3ph')
+    station.pump_type.characteristic.add_point(60, 14)
+    station.pump_type.characteristic.add_point(70, 13.5)
+    station.pump_type.characteristic.add_point(80, 12.8)
+    station.pump_type.characteristic.add_point(90, 12)
+    station.pump_type.characteristic.add_point(100, 11.3)
+    station.pump_type.characteristic.add_point(110, 10.6)
+    station.pump_type.characteristic.add_point(120, 9.8)
+    station.pump_type.characteristic.add_point(130, 9)
+    station.pump_type.characteristic.add_point(140, 8)
+
+    return station
+
+
+@pytest.fixture
+def station_2(request):
+    station = Station()
+
+    # Pump Type
+    station.pump_type.suction_level.set(0.3)
+    station.pump_type.efficiency_from.set(23.5, 'lps')
+    station.pump_type.efficiency_to.set(37, 'lps')
+    station.pump_type.cycle_time.set(480)
+
+    # Pump Characteristic
+    station.pump_type.characteristic.add_point(16.7, 14, 'lps')
+    station.pump_type.characteristic.add_point(19.4, 13.5, 'lps')
+    station.pump_type.characteristic.add_point(22.2, 12.8, 'lps')
+    station.pump_type.characteristic.add_point(25, 12, 'lps')
+    station.pump_type.characteristic.add_point(27.8, 11.3, 'lps')
+    station.pump_type.characteristic.add_point(30.6, 10.6, 'lps')
+    station.pump_type.characteristic.add_point(33.3, 9.8, 'lps')
+    station.pump_type.characteristic.add_point(36.1, 9, 'lps')
+    station.pump_type.characteristic.add_point(38.9, 8, 'lps')
+
+    # Well
+    station.well.shape.set('round')
+    station.well.diameter.set(2.5)
+
+    # Hydraulic Conditions
+    station.hydr_cond.ord_bottom.set(138.74)
+    station.hydr_cond.ord_upper_level.set(148.12)
+    station.hydr_cond.ord_inlet.set(140)
+    station.hydr_cond.inflow_min.set(11, 'lps')
+    station.hydr_cond.inflow_max.set(22, 'lps')
+
+    # Inside Pipe
+    station.ins_pipe.length.set(7)
+    station.ins_pipe.diameter.set(.150)
+    station.ins_pipe.roughness.set(.0008)
+    station.ins_pipe.resistance.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
+    station.ins_pipe.parallels.set(1)
+
+    # Outside Pipe
+    station.out_pipe.length.set(732)
+    station.out_pipe.diameter.set(.200)
+    station.out_pipe.roughness.set(0.0005)
+    station.out_pipe.resistance.set([])
+    station.out_pipe.parallels.set(1)
+    return station
+
+
+@pytest.fixture()
+def s2_pumpset_points(station_2):
+    ord_shutdown = 138.87
+    pset = pumpset.PumpSet(station_2, ord_shutdown)
+    wp = pset._workpoint
+    flow = v.FlowVariable
+    Point = namedtuple('Point', ['wpoint', 'it_v', 'it_eff', 'e_time'])
+    points = OrderedDict()
+    points['139.04'] = Point(wp(139.04), 0, None, 0)
+    points['139.14'] = Point(wp(139.14), 0.49, flow(0.0246, 'm3ps'), 19.93)
+    points['139.24'] = Point(wp(139.24), 0.49, flow(0.0248, 'm3ps'), 19.78)
+    points['139.34'] = Point(wp(139.34), 0.49, flow(0.0250, 'm3ps'), 19.62)
+    points['139.44'] = Point(wp(139.44), 0.49, flow(0.0252, 'm3ps'), 19.47)
+    points['139.54'] = Point(wp(139.54), 0.49, flow(0.0254, 'm3ps'), 19.33)
+    points['139.64'] = Point(wp(139.64), 0.49, flow(0.0256, 'm3ps'), 19.18)
+    points['139.74'] = Point(wp(139.74), 0.49, flow(0.0258, 'm3ps'), 19.04)
+    return points
 
 
 @pytest.fixture()
@@ -36,49 +145,3 @@ def friction_factor_turbulent_smooth_cond():
     reynolds = 20000
     factor = pipe.FrictionFactor(diameter, roughness, reynolds)
     return factor
-
-
-@pytest.fixture
-def one_pump_pumpset(request):
-    required_cycle_time = 100
-    inflow = (v.FlowVariable(3, 'm3ps'), v.FlowVariable(7, 'm3ps'))
-    pumpset_efficiency = (
-        v.FlowVariable(5, 'm3ps'), v.FlowVariable(10, 'm3ps'))
-    pipeset_poly = np.array([2, 1, 2, -1])
-    pumpset_poly = np.array([-4, 2, -3, 1])
-    ins_pipe_area = .2
-    out_pipe_area = 1.5
-    well_area = 3.14
-    ord_upper_level = v.FloatVariable(22)
-    ord_shutdown = v.FloatVariable(8)
-    ord_inlet = v.FloatVariable(16)
-    pset = pumpset.PumpSet(
-        required_cycle_time, inflow, pumpset_efficiency, pipeset_poly,
-        pumpset_poly, ins_pipe_area, out_pipe_area, well_area, ord_upper_level,
-        ord_shutdown, ord_inlet)
-    pset.expected_worst_inflow = v.FlowVariable(7, 'm3ps')
-    return pset
-
-
-@pytest.fixture
-def more_pump_pumpset(request):
-    required_cycle_time = 100
-    inflow = (v.FlowVariable(3, 'm3ps'), v.FlowVariable(11, 'm3ps'))
-    pumpset_efficiency = (
-        v.FlowVariable(5, 'm3ps'), v.FlowVariable(10, 'm3ps'))
-    pipeset_poly = np.array([2, 1, 2, -1])
-    pumpset_poly = np.array([-4, 2, -3, 1])
-    ins_pipe_area = .2
-    out_pipe_area = 1.5
-    well_area = 9.62
-    ord_upper_level = v.FloatVariable(10)
-    ord_shutdown = v.FloatVariable(1)
-    ord_inlet = v.FloatVariable(5)
-    ord_latter_pumpset_startup = v.FloatVariable(3)
-    pset = pumpset.PumpSet(
-        required_cycle_time, inflow, pumpset_efficiency, pipeset_poly,
-        pumpset_poly, ins_pipe_area, out_pipe_area, well_area, ord_upper_level,
-        ord_shutdown, ord_inlet, ord_latter_pumpset_startup)
-
-    pset.expected_worst_inflow = v.FlowVariable(10, 'm3ps')
-    return pset

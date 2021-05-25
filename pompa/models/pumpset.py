@@ -1,148 +1,153 @@
 import pompa.models.workpoint
 import pompa.models.variables as v
+import numpy as np
 from pompa.exceptions import WellTooShallowError, WellTooDeepError
+from collections import OrderedDict, namedtuple
 
 
+class PumpSet:
 
+    def __init__(self, station, ord_shutdown, pumps_amount=1):
 
+        # parameters
+        self.ORD_STEP = 0.01
 
+        self._well_area = station.well.cr_sec_area()
+        self._ord_upper_level = station.hydr_cond.ord_upper_level
+        self._req_cycle_time = station.pump_type.cycle_time
+        self._ord_inlet = station.hydr_cond.ord_inlet
+        self.ins_pipe_area = station.ins_pipe.area()
+        self.out_pipe_area = station.out_pipe.area()
+        self.pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
+            pumps_amount)
 
+        self.min_inflow = station.hydr_cond.inflow_min
+        self.max_inflow = station.hydr_cond.inflow_max
+        ins_pipe_poly = station.ins_pipe.dynamic_loss_polynomial(
+            self.min_inflow, self.max_inflow)
+        out_pipe_poly = station.out_pipe.dynamic_loss_polynomial(
+            self.min_inflow, self.max_inflow)
+        self.pipeset_poly = ins_pipe_poly + out_pipe_poly
 
+        # interface
+        self.ord_stop = ord_shutdown
+        self.cyc_time = None
+        self.wor_time = None
+        self.lay_time = None
+        self.vol_u = None
+        self.ord_start = None
+        self.wpoint_start = None
+        self.wpoint_stop = None
+        self.op_range = None
+        self.worst_inflow = None
 
+        # calculations
 
-
-# PONIŻEJ ZAKOMENTOWANY KOD - PIERWOTNA WERSJA
-
-'''
-class PumpSet():
-
-    def __init__(self, required_cycle_time, inflow, pumpset_efficiency,
-                 pipeset_poly, pumpset_poly, ins_pipe_area, out_pipe_area,
-                 well_area, ord_upper_level, ord_shutdown, ord_inlet,
-                 ord_latter_pumpset_startup=None):
-        self.required_cycle_time = required_cycle_time
-        self.inflow = inflow
-        self.pumpset_efficiency = pumpset_efficiency
-        self.pipeset_poly = pipeset_poly
-        self.pumpset_poly = pumpset_poly
-        self.ins_pipe_area = ins_pipe_area
-        self.out_pipe_area = out_pipe_area
-        self.well_area = well_area
-        self.ord_upper_level = ord_upper_level
-        self.ord_shutdown = ord_shutdown
-        self.ord_inlet = ord_inlet
-        if ord_latter_pumpset_startup is not None:
-            self.ord_latter_pumpset_startup = ord_latter_pumpset_startup
-        else:
-            self.ord_latter_pumpset_startup = ord_shutdown
-
-        self.workpoints = []
-        self.efficiencys = []
-        self.cycle_time = 0
-        self.working_time = 0
-        self.layover_time = 0
-
-        self.h_iterator = 0.01
-
-    def calculate(self):
-        print('\nworkpoint bottom')
-        self.workpoints.append(self._workpoint(self.ord_shutdown.value))
+    def _calculate(self):
+        Point = namedtuple('Point', ['wpoint', 'it_v', 'it_eff', 'e_time'])
+        points = OrderedDict()
 
         enough_time = False
-        current_ordinate = self.ord_shutdown
+        ordinate = round(self.ord_stop, 2)
+
+        points[str(ordinate)] = Point(self._workpoint(ordinate), 0, None, 0)
 
         while not enough_time:
-            print('\nworkpoint number ', len(self.workpoints))
-            current_ordinate.set(current_ordinate.value + self.h_iterator)
-            print('curr ord', current_ordinate)
-            if current_ordinate >= self.ord_inlet:
+            ordinate += self.ORD_STEP
+            ordinate = round(ordinate, 2)
+            print('oridnate: ', ordinate)
+
+            if ordinate > self._ord_inlet:
                 raise WellTooShallowError
-                break
 
-            self.workpoints.append(self._workpoint(current_ordinate))
-            self.efficiencys.append(self._current_average_eff())
-            self.worst_inflow = self._worst_inflow(
-                self._absolute_average_eff())
-            print('current worst ', self.worst_inflow)
+            last_ord = list(points.keys())[-1]
 
-            self._update_cycle_times(self._absolute_average_eff())
+            it_volume = round(
+                (ordinate - float(last_ord)) * self._well_area.value, 3)
+            print('it_volume: ', it_volume)
+            wpoint = self._workpoint(ordinate)
+            it_avg_eff = (wpoint.flow + points[last_ord].wpoint.flow) / 2
+            print('it_avg_eff: ', it_avg_eff)
+            it_e_time = round(it_volume / it_avg_eff.value_m3ps, 2)
+            print('e_time: ', it_e_time)
 
-            if self.cycle_time >= self.required_cycle_time:
-                print('enough_time')
+            points[ordinate] = Point(wpoint, it_volume, it_avg_eff, it_e_time)
+
+            worst_inflow = self._worst_inflow(points)
+
+            c_time, w_time, l_time = self._cycle_times(points, worst_inflow)
+            print('c_time, w_time, l_time: ', c_time, w_time, l_time)
+            print('\n')
+
+            if c_time > self._req_cycle_time.value:
+                print('req_c_time: ', self._req_cycle_time)
                 enough_time = True
 
-        if self.ord_inlet - current_ordinate > 0.3:
-            # raise WellTooDeepError
-            pass
+        if points[str(self.ord_stop)].wpoint.flow > self.max_inflow:
+            self.enough_pumps = True
 
-        result = {}
-        result['working_time'] = round(self.working_time)
-        result['layover_time'] = round(self.layover_time)
-        result['cycle_time'] = result['working_time'] + result['layover_time']
-        result['useful_velo'] = self._useful_velo(current_ordinate)
-        result['start_ordinate'] = current_ordinate
-        result['stop_wpoint'] = self.workpoints[0]
-        result['start_wpoint'] = self.workpoints[-1]
-        result['efficiency_from'] = self.pumpset_efficiency[0]
-        result['efficiency_to'] = self.pumpset_efficiency[1]
-        result['worst_inflow'] = self.worst_inflow
+        self.cyc_time = c_time
+        self.wor_time = w_time
+        self.lay_time = l_time
+        self.vol_u = round(
+            sum([points[point].it_v for point in points.keys()]), 2)
+        self.ord_start = ordinate
+        self.wpoint_start = wpoint
+        self.wpoint_stop = points[str(self.ord_stop)].wpoint
+        self.op_range = None
+        self.worst_inflow = worst_inflow
 
-        return result
+        print('c time: ', c_time)
+        print('w time: ', w_time)
+        print('l time: ', l_time)
+        print('vol_u: ', self.vol_u)
+        print('wpoint stop: ', self.wpoint_stop)
+        print('ord start: ', ordinate)
+        print('wpoint start: ', self.wpoint_start)
+
+    def _layover_time(self, points, inflow):
+        """ calculates pump layover time, when sewage are filling active volume
+        of station
+        """
+        vol_sum = sum([points[point].it_v for point in points.keys()])
+        return round(vol_sum / inflow.value_m3ps, 2)
+
+    def _working_time(self, points, inflow):
+        """ Calculates pump working time, considering inflow and real pump
+        efficiency on iterative volumes.
+        """
+        time = 0
+        for point in points.values():
+            if point.it_eff is None:
+                continue
+            balance = point.it_eff - inflow
+            time += (point.it_v / balance.value_m3ps)
+        return round(time, 2)
+
+    def _cycle_times(self, points, inflow):
+        """ Calculates pump cycle time as sum of working time and layover time
+        points: OrderedDict
+            value is namedtuple ['wpoint', 'it_v', 'it_eff', 'e_time']
+        worst_inflow: FlowVariable
+        """
+        working_time = self._working_time(points, inflow)
+        layover_time = self._layover_time(points, inflow)
+        cycle_time = round(working_time + layover_time, 2)
+        return cycle_time, working_time, layover_time
 
     def _workpoint(self, ordinate):
-        workpoint = pompa.models.workpoint.WorkPoint(
-            self._geom_height(ordinate), self.ins_pipe_area,
-            self.out_pipe_area, self.pumpset_poly, self.pipeset_poly)
-        return workpoint.calculate()
+        return pompa.models.workpoint.WorkPoint(
+            self._geom_height(ordinate),
+            self.ins_pipe_area, self.out_pipe_area, self.pumpset_poly,
+            self.pipeset_poly)
 
-    def _worst_inflow(self, average_efficiency):
-        """Returns the worst inflow in case of pumpset. It is equal to half
-        of outflow value. Expects average_efficiency as FlowVariable.
-        Retruns FlowVariable"""
-        absolute_worst_inflow = average_efficiency / 2
-        if self.inflow[0] <= absolute_worst_inflow <= self.inflow[1]:
-            worst_inflow = absolute_worst_inflow
-        elif absolute_worst_inflow < self.inflow[0]:
-            worst_inflow = self.inflow[0]
-        elif self.inflow[1] < absolute_worst_inflow:
-            worst_inflow = self.inflow[1]
-        return worst_inflow
+    def _worst_inflow(self, points):
+        vol_sum = sum([points[point].it_v for point in points.keys()])
+        time_sum = sum([points[point].e_time for point in points.keys()])
+        avg_eff = v.FlowVariable(vol_sum / time_sum, 'm3ps')
+        return avg_eff / 2
 
     def _geom_height(self, checked_ord):
         """Returns difference between ordinate of upper well, and current
         ordinate"""
-        return self.ord_upper_level - checked_ord
-
-    def _velocity(self, checked_height):
-        """Returns value of well velocity in passed height, based on well
-        cross-sectional area"""
-        return round(self.well_area * checked_height, 2)
-
-    def _current_average_eff(self):
-        """Returns FlowVariable type event to average flow of last two
-        workpoints in self.workpoints list"""
-        last_eff = self.workpoints[-1]['flow']
-        last_but_one_eff = self.workpoints[-2]['flow']
-        return (last_eff + last_but_one_eff) / 2
-
-    def _absolute_average_eff(self):
-        """Returns FlowVariable-typed value of average efficiency of pumping"""
-        return sum(self.efficiencys, v.FlowVariable(0)) / len(self.efficiencys)
-
-    def _update_cycle_times(self, avg_flow):
-        iterator_velo = self._velocity(self.h_iterator)
-        layover_time_addition = iterator_velo / self.worst_inflow.value_m3ps
-        working_time_addition = iterator_velo / (
-            avg_flow - self.worst_inflow).value_m3ps
-        self.layover_time += layover_time_addition
-        self.working_time += working_time_addition
-        self.cycle_time = self.working_time + self.layover_time
-        pass
-
-    def _useful_velo(self, start_ordinate):
-        """Returns useful velocity of pumpset. Expects FloatVariable as
-        start_ordinate argument."""
-        height = start_ordinate - self.ord_latter_pumpset_startup
-        return self._velocity(height.value)
-
-'''
+        return self._ord_upper_level - checked_ord

@@ -2,137 +2,92 @@ import pompa.models.pumpset
 import pompa.models.variables as v
 import pompa.models.workpoint
 import numpy as np
-from unittest.mock import Mock, patch
 import pytest
 
 
-
-# PONIŻEJ TESTY DO ZAKOMENTOWANEGO KODU
-'''
-
-fixture_list = ['one_pump_pumpset', 'more_pump_pumpset']
-
-
-@pytest.mark.parametrize('fixture', fixture_list)
-def test_init(fixture, request):
-    pumpset = request.getfixturevalue(fixture)
-    assert isinstance(pumpset, pompa.models.pumpset.PumpSet)
+@pytest.fixture
+def s2_pumpset(station_2):
+    ord_shutdown = 138.87
+    pumpset = pompa.models.pumpset.PumpSet(station_2, ord_shutdown)
+    return pumpset
 
 
-@pytest.mark.parametrize('fixture', fixture_list)
-def test_attributes_types(fixture, request):
-    pumpset = request.getfixturevalue(fixture)
-    assert isinstance(pumpset.required_cycle_time, int)
-    assert isinstance(pumpset.inflow, tuple)
-    assert isinstance(pumpset.inflow[0], v.FlowVariable)
-    assert isinstance(pumpset.inflow[1], v.FlowVariable)
-    assert isinstance(pumpset.pumpset_efficiency, tuple)
-    assert isinstance(pumpset.pumpset_efficiency[0], v.FlowVariable)
-    assert isinstance(pumpset.pumpset_efficiency[1], v.FlowVariable)
-    assert isinstance(pumpset.pipeset_poly, np.ndarray)
-    assert isinstance(pumpset.pumpset_poly, np.ndarray)
-    assert isinstance(pumpset.ins_pipe_area, float)
-    assert isinstance(pumpset.out_pipe_area, float)
-    assert isinstance(pumpset.well_area, float)
-    assert isinstance(pumpset.ord_upper_level, v.FloatVariable)
-    assert isinstance(pumpset.ord_shutdown, v.FloatVariable)
-    assert isinstance(pumpset.ord_inlet, v.FloatVariable)
-    assert isinstance(pumpset.ord_latter_pumpset_startup, v.FloatVariable)
+def test_pumpset_init(s2_pumpset):
+    assert s2_pumpset is not None
+    assert s2_pumpset._well_area == pytest.approx(4.9, abs=0.02)
+    assert s2_pumpset._req_cycle_time.value == 480
+
+    assert s2_pumpset.ord_stop == 138.87
+    assert s2_pumpset.cyc_time is None
+    assert s2_pumpset.wor_time is None
+    assert s2_pumpset.lay_time is None
+    assert s2_pumpset.vol_u is None
+    assert s2_pumpset.ord_start is None
+    assert s2_pumpset.wpoint_start is None
+    assert s2_pumpset.wpoint_stop is None
+    assert s2_pumpset.op_range is None
+    assert s2_pumpset.worst_inflow is None
 
 
-@pytest.mark.parametrize('fixture', fixture_list)
-def test_geometric_height(fixture, request):
-    pumpset = request.getfixturevalue(fixture)
-    checked_ordinate = v.FloatVariable(3)
-    expected_result = pumpset.ord_upper_level - checked_ordinate
-    assert pumpset._geom_height(checked_ordinate) == expected_result
+def test_pumpset_layover_time(s2_pumpset, s2_pumpset_points):
+    worst_inflow = v.FlowVariable(12.59, 'lps')
+    assert s2_pumpset._layover_time(
+        s2_pumpset_points, worst_inflow) == pytest.approx(273, abs=1)
 
 
-@pytest.mark.parametrize('fixture', fixture_list)
-def test_velocity(fixture, request):
-    pumpset = request.getfixturevalue(fixture)
-    checked_height = .1
-    expected_result = round(pumpset.well_area * checked_height, 2)
-    assert pumpset._velocity(checked_height) == expected_result
+def test_pumpset_working_time(s2_pumpset, s2_pumpset_points):
+    worst_inflow = v.FlowVariable(12.59, 'lps')
+    assert s2_pumpset._working_time(
+        s2_pumpset_points, worst_inflow) == pytest.approx(273, abs=1)
 
 
-@pytest.mark.parametrize('fixture', fixture_list)
-def test_current_average_eff(fixture, request):
-    pumpset = request.getfixturevalue(fixture)
-    workpoint_last = {}
-    workpoint_last_but_one = {}
-    workpoint_last_but_one['flow'] = v.FlowVariable(5, 'm3ph')
-    workpoint_last['flow'] = v.FlowVariable(15, 'm3ph')
-    pumpset.workpoints = [workpoint_last_but_one, workpoint_last]
-    expected_result = v.FlowVariable(10, 'm3ph')
-    assert pumpset._current_average_eff() == expected_result
+def test_pumpset_cycle_time(s2_pumpset, s2_pumpset_points):
+    worst_inflow = v.FlowVariable(12.59, 'lps')
+    assert s2_pumpset._cycle_times(
+        s2_pumpset_points, worst_inflow)[0] == pytest.approx(545, abs=2)
 
 
-@pytest.mark.parametrize('fixture', fixture_list)
-def test_absolute_average_eff(fixture, request):
-    pumpset = request.getfixturevalue(fixture)
-    pumpset.efficiencys = [
-        v.FlowVariable(11, 'lps'),
-        v.FlowVariable(12, 'lps'),
-        v.FlowVariable(13, 'lps'),
-        v.FlowVariable(14, 'lps'),
-        v.FlowVariable(15, 'lps')]
-    expected_result = v.FlowVariable(13, 'lps')
-    assert pumpset._absolute_average_eff() == expected_result
+@pytest.mark.parametrize('ord_, height, flow_val, geom_h, ins_p_v, out_p_v', [
+    (139.04, 12.19, 24.52, 9.08, 1.35, .76),
+    (139.64, 11.90, 25.67, 8.48, 1.41, .79),
+    (140.24, 11.61, 26.79, 7.88, 1.52, .85)])
+def test_pumpset_workpoint_interface(ord_, height, flow_val, geom_h, ins_p_v,
+                                     out_p_v, s2_pumpset):
+    wpoint = s2_pumpset._workpoint(ord_)
+    assert wpoint is not None
+    assert wpoint.height == pytest.approx(height, rel=.02)
+    assert wpoint.flow.value_lps == pytest.approx(flow_val, rel=.02)
+    assert wpoint.geom_h == geom_h
+    assert wpoint.ins_pipe_v == pytest.approx(ins_p_v, rel=.05)
+    assert wpoint.out_pipe_v == pytest.approx(out_p_v, rel=.05)
 
 
-def test_worst_inflow_between_inflow(one_pump_pumpset):
-    pumpset = one_pump_pumpset
-    average_efficiency = v.FlowVariable(8, 'm3ps')
-    expected_result = v.FlowVariable(4, 'm3ps')
-    assert pumpset._worst_inflow(average_efficiency) == expected_result
+def test_pumpset_geom_height(s2_pumpset):
+    assert s2_pumpset._geom_height(139.44) == 8.68
 
 
-def test_worst_inflow_outside_inflow(one_pump_pumpset):
-    pumpset = one_pump_pumpset
-    average_efficiency = v.FlowVariable(17, 'm3ps')
-    expected_result = v.FlowVariable(7, 'm3ps')
-    assert pumpset._worst_inflow(average_efficiency) == expected_result
+def test_worst_inflow(s2_pumpset, s2_pumpset_points):
+    assert s2_pumpset._worst_inflow(
+        s2_pumpset_points).value_lps == pytest.approx(12.59, rel=.02)
 
 
-@pytest.mark.parametrize('avg_flow, exp_times', [
-    (v.FlowVariable(15, 'm3ps'), (12, 24)),
-    (v.FlowVariable(20, 'm3ps'), (12, 12))])
-def test_update_cycle_times(one_pump_pumpset, avg_flow, exp_times):
-    pumpset = one_pump_pumpset
-    pumpset._velocity = Mock()
-    pumpset._velocity.return_value = 120
-    pumpset.worst_inflow = v.FlowVariable(10, 'm3ps')
-    pumpset._update_cycle_times(avg_flow)
-    assert pumpset.layover_time == exp_times[0]
-    assert pumpset.working_time == exp_times[1]
-    assert pumpset.cycle_time == sum(list(exp_times))
-
-
-def test_useful_velo_one_pump(one_pump_pumpset):
-    pumpset = one_pump_pumpset
-    start_ord = v.FloatVariable(12)
-    assert pumpset._useful_velo(start_ord) == 12.56
-
-
-def test_useful_velo_more_pumps(more_pump_pumpset):
-    pumpset = more_pump_pumpset
-    start_ord = v.FloatVariable(4)
-    assert pumpset._useful_velo(start_ord) == 9.62
-
-
-@pytest.mark.parametrize('fixture', fixture_list)
-@patch('pompa.models.pumpset.pompa.models.workpoint')
-def test_workpoint_method(mock_wpoint, fixture, request):
-    pumpset = request.getfixturevalue(fixture)
-    current_ordinate = 6
-    wpoint_calc_result = {}
-    wpoint_calc_result['height'] = 8
-    wpoint_calc_result['flow'] = v.FlowVariable(10)
-    wpoint_calc_result['geom_h'] = pumpset._geom_height(current_ordinate)
-    wpoint_calc_result['ins_pipe_speed'] = 6
-    wpoint_calc_result['out_pipe_speed'] = 5
-    mock_wpoint.WorkPoint().calculate.return_value = wpoint_calc_result
-    assert pumpset._workpoint(current_ordinate) == wpoint_calc_result
-
-'''
+def test_calculate(s2_pumpset):
+    s2_pumpset.ORD_STEP = 0.1
+    exp_dict = {
+        'cyc_time': 545,
+        'wor_time': 273,
+        'lay_time': 273,
+        'vol_u': 3.43,
+        'wpoint_stop': s2_pumpset._workpoint(139.04),
+        'ord_start': 139.74,
+        'wpoint_start': s2_pumpset._workpoint(139.74),
+        'worst_inflow': v.FlowVariable(12.59, 'lps')}
+    s2_pumpset._calculate()
+    assert s2_pumpset.cyc_time == pytest.approx(exp_dict['cyc_time'], rel=.02)
+    assert s2_pumpset.wor_time == pytest.approx(exp_dict['wor_time'], rel=.015)
+    assert s2_pumpset.lay_time == pytest.approx(exp_dict['lay_time'], rel=.015)
+    assert s2_pumpset.vol_u == pytest.approx(exp_dict['vol_u'], rel=.01)
+    assert s2_pumpset.ord_start == pytest.approx(
+        exp_dict['ord_start'], rel=.002)
+    assert s2_pumpset.worst_inflow.value_lps == pytest.approx(
+        exp_dict['worst_inflow'].value_lps, rel=.02)

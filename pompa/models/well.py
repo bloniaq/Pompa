@@ -5,6 +5,13 @@ import pompa.models.variables as v
 class Well(station_object.StationObject):
 
     def __init__(self):
+        """
+        shape: round, rectangle - shape of well
+        config: optimal, singlerow - strings defining pump configuration
+        diameter: [meters]
+        length:
+        width:
+        """
         self.shape = v.SwitchVariable()
         self.config = v.SwitchVariable()
         self.diameter = v.FloatVariable()
@@ -46,3 +53,11 @@ class Well(station_object.StationObject):
         min_diam = round(min_diam, 2)
 
         return min_diam
+
+    def cr_sec_area(self):
+        if self.shape.value == 'rectangle':
+            return v.FloatVariable(round(
+                self.width.value * self.length.value, 2))
+        elif self.shape.value == 'round':
+            return v.FloatVariable(round(pow(
+                self.diameter.value / 2, 2) * 3.14, 2))

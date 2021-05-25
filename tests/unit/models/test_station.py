@@ -6,8 +6,7 @@ def test_init():
     assert station is not None
 
 
-def test_calculation_run():
-    station = pompa.models.station.Station()
-    station.calculate()
+def test_calculation_run(station_2):
+    station_2.calculate()
     assert isinstance(
-        station.pumpsystem, pompa.models.station.pumpsystem.PumpSystem)
+        station_2.pumpsystem, pompa.models.station.pumpsystem.PumpSystem)

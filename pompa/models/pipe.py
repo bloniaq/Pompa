@@ -30,9 +30,6 @@ class Pipe(station_object.StationObject):
     def area(self):
         return round((3.14 * ((self.diameter.value / 2) ** 2)), 4)
 
-    def _epsilon(self):
-        return round(self.roughness.value / self.diameter.value, 4)
-
     def _velocity(self, flow):
         '''
         Returns value of average velocity inside pipe. Expects FlowVariable.
@@ -52,38 +49,12 @@ class Pipe(station_object.StationObject):
         return round(((self.diameter.value) * self._velocity(flow)) / (
             self.kinematic_viscosity))
 
-    def _boundary_lambda(self, re):
-        if re > 0:
-            lambda_boundary = (-2 * np.log10((6.1 / (re ** 0.915)) + (
-                0.268 * self._epsilon()))) ** -2
-        else:
-            lambda_boundary = 0
-        return round(lambda_boundary, 4)
-
-    def _boundary_reynolds(self, _lambda):
-        return round(200 / (self._epsilon() * (_lambda ** 0.5)))
-
     def _lambda(self, re):
         """Returns numeric value of lambda coefficient of line loss.
         Pattern used for calculation it depends on value of Reynolds number.
         """
-        if re == 0:
-            lambda_ = 0
-        elif re <= 2320:
-            lambda_ = 64 / re
-        elif re < 4000:
-            """strefa gwałtownego wzrostu wsp. oporów liniowych.
-            Zmienny charakter ruchu, wartości nie są określone.
-            Mechanika Płynów Mitoska s. 146
-            """
-            lambda_ = 0
-        elif re <= 100000:
-            lambda_ = 0.3164 / (re ** 0.25)
-        elif re < self._boundary_reynolds(self._boundary_lambda(re)):
-            lambda_ = self._boundary_lambda(re)
-        else:
-            lambda_ = (-2 * np.log10((self.roughness.value) / (
-                3.71 * self.diameter.value))) ** -2
+        lambda_ = FrictionFactor(self.diameter, self.roughness, re)(
+            method='bellos-nalbantis-tsakiris')
 
         return round(lambda_, 4)
 
@@ -106,7 +77,7 @@ class Pipe(station_object.StationObject):
         if parallels is None:
             parallels = self.parallels
         flows_array = np.linspace(
-            min_inflow.value_m3ps, max_inflow.value_m3ps, 20)
+            min_inflow.value_m3ps, 1.4 * max_inflow.value_m3ps, 20)
         heights_list = []
 
         for flow_val in flows_array:
@@ -162,7 +133,8 @@ class FrictionFactor:
             'cheng': self._cheng,
             'wood': self._wood,
             'swamee-jain': self._swamee_jain,
-            'churchill': self._churchill
+            'churchill': self._churchill,
+            'mitosek': self._mitosek
         }
 
     def __call__(self, method='colebrook-white'):
@@ -385,3 +357,43 @@ class FrictionFactor:
                 2 * (coeff_a - 1) * (1 - coeff_b))
         bnt = factor_1 * factor_2 * factor_3
         return round(bnt, self.precision)
+
+    def _mitosek(self):
+        """Returns numeric value of lambda coefficient of line loss.
+        Pattern used for calculation it depends on value of Reynolds number.
+        """
+
+        def _boundary_lambda():
+            if self.reynolds > 0:
+                lambda_boundary = (-2 * np.log10((6.1 / (
+                    self.reynolds ** 0.915)) + (
+                        0.268 * _epsilon()))) ** -2
+            else:
+                lambda_boundary = 0
+            return round(lambda_boundary, 4)
+
+        def _boundary_reynolds(_lambda):
+            return round(200 / (_epsilon() * (_lambda ** 0.5)))
+
+        def _epsilon():
+            return round(self.roughness / self.diameter, 4)
+
+        if self.reynolds == 0:
+            lambda_ = 0
+        elif self.reynolds <= 2320:
+            lambda_ = 64 / self.reynolds
+        elif self.reynolds < 4000:
+            """strefa gwałtownego wzrostu wsp. oporów liniowych.
+            Zmienny charakter ruchu, wartości nie są określone.
+            Mechanika Płynów Mitoska s. 146
+            """
+            lambda_ = 0
+        elif self.reynolds <= 100000:
+            lambda_ = 0.3164 / (self.reynolds ** 0.25)
+        elif self.reynolds < _boundary_reynolds(_boundary_lambda()):
+            lambda_ = self._boundary_lambda()
+        else:
+            lambda_ = (-2 * np.log10((self.roughness) / (
+                3.71 * self.diameter))) ** -2
+
+        return round(lambda_, 4)

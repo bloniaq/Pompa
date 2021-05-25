@@ -1,10 +1,48 @@
-# from pompa.models.pumpset import PumpSet
+from pompa.models.pumpset import PumpSet
 import pompa.models.variables as v
 import numpy as np
 
 import matplotlib.pyplot as plt
 
 
+class PumpSystem:
+
+    def __init__(self, station, mode='checking'):
+        self.station = station
+        self.mode = mode
+        self.pumpsets = []
+
+        self._calculate(mode)
+
+    def _calculate(self, mode):
+        """ Picks method of calculations based on mode chosen by user
+        """
+        pick_method = {'checking': self._checking_mode}
+        pick_method[mode]()
+
+    def _checking_mode(self):
+        """ Checks whether assumed bottom ordinate will let pump have
+        appropriate cycle time in worst inflow condition.
+        """
+        enough_pumps = False
+        ord_bottom = self.station.hydr_cond.ord_bottom
+
+        while not enough_pumps:
+            self.pumpsets.append(PumpSet(self.station, self._ord_shutdown(
+                ord_bottom)))
+            enough_pumps = True
+
+    def _ord_shutdown(self, ord_bottom):
+        """ Calculates ordinate of pumo shutdown as a sum of current bottom
+        ordinate and pumptype suction level.
+        """
+        return self.station.pump_type.suction_level + ord_bottom
+
+
+# KOD ZAKOMENTOWANY
+# DO WYRZUCENIA PO URUCHOMIENIU WERSJI NA CZYSTO (POWYZEJ)
+
+"""
 class PumpSystem():
     '''
     '''
@@ -54,3 +92,4 @@ class PumpSystem():
             1.5 * (self.pump_type.efficiency_to.value_m3ps + 0.003))
         flow_array = np.linspace(x_min, x_max, 200)
         return flow_array
+"""

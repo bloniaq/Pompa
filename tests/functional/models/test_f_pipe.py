@@ -15,7 +15,7 @@ class TestPipe:
         pipe_obj.diameter.set(diameter)
         pipe_obj.roughness.set(roughness)
         pipe_obj.length.set(length)
-        assert pipe_obj._line_loss(flow) == result
+        assert pipe_obj._line_loss(flow) == pytest.approx(result, rel=.01)
 
     def test_pipe_polynomial(self):
         pipe_obj = pipe.Pipe()
@@ -27,7 +27,7 @@ class TestPipe:
         min_inflow = v.FlowVariable(5, 'lps')
         max_inflow = v.FlowVariable(40, 'lps')
         exp_array = np.array(
-            [-1.25445410e-01, 1.07464882e+01, 3.70186942e+03, 0.00000000e+00])
+            [-6.86799e-03, -1.34499e+00, 3.91569385e+03, 0.00000e+00])
         print(pipe_obj.dynamic_loss_polynomial(min_inflow, max_inflow))
         print(exp_array)
         np.testing.assert_almost_equal(
@@ -49,7 +49,8 @@ class TestFrictionFactor:
             'cheng': 0.0256,
             'wood': 0.0267,
             'swamee-jain': 0.0270,
-            'churchill': 0.0270
+            'churchill': 0.0270,
+            'mitosek': 0.0266
         }
         assert factor._FrictionFactor__comparision() == expected_result
 
@@ -65,6 +66,7 @@ class TestFrictionFactor:
             'cheng': 0.0640,
             'wood': (0.0661, 'OUT OF RANGE'),
             'swamee-jain': (0.0698, 'OUT OF RANGE'),
-            'churchill': 0.0640
+            'churchill': 0.0640,
+            'mitosek': 0.064
         }
         assert factor._FrictionFactor__comparision() == expected_result

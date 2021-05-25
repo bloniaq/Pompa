@@ -18,10 +18,4 @@ class Station(station_object.StationObject):
         self.pump_type = pump_type.PumpType()
 
     def calculate(self, mode='checking'):
-        self.pumpsystem = pumpsystem.PumpSystem(
-            self.well,
-            self.ins_pipe,
-            self.out_pipe,
-            self.pump_type,
-            self.hydr_cond,
-            mode)
+        self.pumpsystem = pumpsystem.PumpSystem(self, mode)
