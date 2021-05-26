@@ -8,7 +8,6 @@ appdirs = "==1.4.3"
 pygubu = "==0.9.8.2"
 matplotlib = "*"
 pytest = "*"
-py = ">=1.10.0"
 
 [dev-packages]
 
