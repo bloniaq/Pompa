@@ -4,6 +4,10 @@ logfile.log
 utils/
 .idea/
 
+# Temp MS Office files
+~$*.xlsm
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 
