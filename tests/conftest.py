@@ -116,6 +116,54 @@ def s2_pumpset_points(station_2):
 
 
 @pytest.fixture()
+def station_3():
+    station = Station()
+
+    # Pump Type
+    station.pump_type.suction_level.set(0.3)
+    station.pump_type.efficiency_from.set(15, 'lps')
+    station.pump_type.efficiency_to.set(19, 'lps')
+    station.pump_type.cycle_time.set(600)
+
+    # Pump Characteristic
+    station.pump_type.characteristic.add_point(12, 19.6, 'lps')
+    station.pump_type.characteristic.add_point(13, 19.2, 'lps')
+    station.pump_type.characteristic.add_point(14, 18.9, 'lps')
+    station.pump_type.characteristic.add_point(15, 18.6, 'lps')
+    station.pump_type.characteristic.add_point(16, 18.4, 'lps')
+    station.pump_type.characteristic.add_point(17, 18.1, 'lps')
+    station.pump_type.characteristic.add_point(18, 17.7, 'lps')
+    station.pump_type.characteristic.add_point(19, 17.2, 'lps')
+    station.pump_type.characteristic.add_point(20, 16.6, 'lps')
+
+    # Well
+    station.well.shape.set('round')
+    station.well.diameter.set(2.0)
+
+    # Hydraulic Conditions
+    station.hydr_cond.ord_bottom.set(94.44)
+    station.hydr_cond.ord_upper_level.set(105)
+    station.hydr_cond.ord_inlet.set(96)
+    station.hydr_cond.inflow_min.set(10, 'lps')
+    station.hydr_cond.inflow_max.set(22.2, 'lps')
+
+    # Inside Pipe
+    station.ins_pipe.length.set(6)
+    station.ins_pipe.diameter.set(.110)
+    station.ins_pipe.roughness.set(.0008)
+    station.ins_pipe.resistance.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
+    station.ins_pipe.parallels.set(1)
+
+    # Outside Pipe
+    station.out_pipe.length.set(2500)
+    station.out_pipe.diameter.set(.180)
+    station.out_pipe.roughness.set(0.0005)
+    station.out_pipe.resistance.set([])
+    station.out_pipe.parallels.set(1)
+    return station
+
+
+@pytest.fixture()
 def workpoint_dummy_1pump():
     geometric_height = v.FloatVariable(6)
     ins_pipe_crossec_area = 6
