@@ -1,0 +1,79 @@
+POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA
+ 
+ 
+Optymalne {w szachownice} ustawienie pomp w pompowni
+Liczba pomp rezerwowych..............n=1
+Srednica kola opisujacego pompe.....Dn=  .30     [m]
+Srednica pompowni...................DN= 2.00     [m]
+Minimalna srednica pompowni......DNmin= 1.42     [m]
+Pole poziomego przekroju pompowni....F=  3.1    [m2]
+Ilosc przewodow tlocznych (kolektor)...1
+Dlugosc kolektora tlocznego..........L=2500.0    [m]
+Dlugosc przewodu w pompowni..........L=   6.0    [m]
+Srednica kolektora tlocznego........Dn= 180.0   [mm]
+Srednica przewodu w pompowni........Dn= 110.0   [mm]
+Chropowatosc kolektora tlocznego.....k=  .50    [mm]
+Chropowatosc przewodu w pompowni.....k=  .80    [mm]
+Doplyw do pomowni...Qmin=  10.0   Qmax=  22.2  [l/s]
+Rzedna terenu......................... 100.00    [m]
+Rzedna doplywu sciekow................  96.00    [m]
+Rzedna wylotu sciekow /przejscie
+osi rury przez sciane pompowni/.......  97.00    [m]
+Rzedna najwyzszego pkt. na trasie..... 105.00    [m]
+Rzedna zwierciadla w zbiorniku gornym. 105.00    [m]
+Min. wysokosc sciekow w  pompowni.....  .30      [m]
+Suma wsp. oporow miejsc. kolektora....  .00
+Suma wsp. oporow miejsc. w pompowni... 3.38
+ 
+CHARAKTERYSTYKA ZASTOSOWANYCH POMP
+ 
+Q= 20.0 [l/s]    H= 16.6 [m]
+Q= 19.0 [l/s]    H= 17.2 [m]
+Q= 18.0 [l/s]    H= 17.7 [m]
+Q= 17.0 [l/s]    H= 18.1 [m]
+Q= 16.0 [l/s]    H= 18.4 [m]
+Q= 15.0 [l/s]    H= 18.6 [m]
+Q= 14.0 [l/s]    H= 18.9 [m]
+Q= 13.0 [l/s]    H= 19.2 [m]
+Q= 12.0 [l/s]    H= 19.6 [m]
+ 
+Rzedna dna pompowni...................  94.44    [m]
+Rzedna wylaczenia sie pomp............  94.74    [m]
+Objetosc calkowita pompowni..........Vc= 17.5   [m3]
+Objetosc uzyteczna pompowni..........Vu=  2.3   [m3]
+Objetosc rezerwowa pompowni..........Vr=  1.7   [m3]
+Objetosc martwa pompowni.............Vm=   .9   [m3]
+ 
+Vu/Vc = 13.1  %
+Vr/Vu = 72.6  %
+Vr/Vc =  9.5  %
+Vm/Vc =  5.4  %
+ 
+PARAMETRY POMPY NR: 1
+ 
+Rzeczywisty czas cyklu pompy.......T= 606.0      [s]
+Rzeczywisty czas postoju pompy....Tp= 229.3      [s]
+Rzeczywisty czas pracy pompy......Tr= 376.6      [s]
+Obj. uzyt. wyzn. przez pompe......Vu=  2.3      [m3]
+Rzedna wlaczenia pompy..............  95.47      [m]
+ 
+Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr1
+ 
+-wys. lc. u wylotu pompy.........Hlc=18.30       [m]
+-geometryczna wys. podnoszenia.....H= 9.53       [m]
+-wydatek...........................Q=  16.37   [l/s]
+-predkosc w kolektorze tlocznym....v= .64      [m/s]
+-predkosc w przewodach w pompowni..v=1.72      [m/s]
+-zapas wysokosci cisnienia.....dh=  .0   [m sl.wody]
+ 
+Parametry koncowe pracy zespolu pomp
+ 
+-wys. lc. u wylotu pompy.........Hlc=18.44       [m]
+-geometryczna wys. podnoszenia.....H=10.26       [m]
+-wydatek...........................Q=  15.81   [l/s]
+-predkosc w kolektorze tlocznym....v= .62      [m/s]
+-predkosc w przewodach w pompowni..v=1.66      [m/s]
+-doplyw najniekorzystniejszy....Qdop=  10.00   [l/s]
+Zakres pracy pomp /maksymalna sprawnosc/
+Q1= 15.0 [l/s]    Q2= 19.0 [l/s]

@@ -1,0 +1,29 @@
+ 
+PARAMETRY POMPY NR: 2
+ 
+Rzeczywisty czas cyklu pompy.......T= 607.5      [s]
+Rzeczywisty czas postoju pompy....Tp=  73.9      [s]
+Rzeczywisty czas pracy pompy......Tr= 533.6      [s]
+Obj. uzyt. wyzn. przez pompe......Vu=   .0      [m3]
+Rzedna wlaczenia pompy..............  95.47      [m]
+ 
+Parametry poczatkowe pracy zespolu pomp
+w chwili wlaczenia pompy nr2
+ 
+-wys. lc. u wylotu pompy.........Hlc=20.57       [m]
+-geometryczna wys. podnoszenia.....H= 9.53       [m]
+-wydatek...........................Q=  19.47   [l/s]
+-predkosc w kolektorze tlocznym....v= .77      [m/s]
+-predkosc w przewodach w pompowni..v=1.02      [m/s]
+-zapas wysokosci cisnienia.....dh=  .0   [m sl.wody]
+ 
+Parametry koncowe pracy zespolu pomp
+ 
+-wys. lc. u wylotu pompy.........Hlc=20.62       [m]
+-geometryczna wys. podnoszenia.....H=10.26       [m]
+-wydatek...........................Q=  19.24   [l/s]
+-predkosc w kolektorze tlocznym....v= .76      [m/s]
+-predkosc w przewodach w pompowni..v=1.01      [m/s]
+-doplyw najniekorzystniejszy....Qdop=  17.00   [l/s]
+Zakres pracy pomp /maksymalna sprawnosc/
+Q1= 30.0 [l/s]    Q2= 38.0 [l/s]
