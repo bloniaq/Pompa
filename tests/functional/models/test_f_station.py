@@ -2,11 +2,14 @@ import pytest
 import pompa.models.variables as v
 
 
-def test_1_unit_pumpset(station_1):
-    station = station_1
+def test_1_unit_pumpset(station_2):
+    station = station_2
     station.calculate('checking')
-    assert station.pumpsystem.pumpsets[0].c_time > 480
-    assert station.pumpsystem.pumpsets[0].c_time < 581
+    print('PUMPSETS:', station.pumpsystem.pumpsets)
+    print('Pumpset 0', station.pumpsystem.pumpsets[0])
+    print('Pumpset0.cyc_time', station.pumpsystem.pumpsets[0].cyc_time)
+    assert station.pumpsystem.pumpsets[0].cyc_time > 480
+    assert station.pumpsystem.pumpsets[0].cyc_time < 581
 
 
 """

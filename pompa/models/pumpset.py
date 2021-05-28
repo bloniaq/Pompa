@@ -42,6 +42,7 @@ class PumpSet:
         self.worst_inflow = None
 
         # calculations
+        self._calculate()
 
     def _calculate(self):
         Point = namedtuple('Point', ['wpoint', 'it_v', 'it_eff', 'e_time'])
@@ -50,12 +51,12 @@ class PumpSet:
         enough_time = False
         ordinate = round(self.ord_stop, 2)
 
-        points[str(ordinate)] = Point(self._workpoint(ordinate), 0, None, 0)
+        points[str(ordinate.get())] = Point(
+            self._workpoint(ordinate), 0, None, 0)
 
         while not enough_time:
             ordinate += self.ORD_STEP
             ordinate = round(ordinate, 2)
-            print('oridnate: ', ordinate)
 
             if ordinate > self._ord_inlet:
                 raise WellTooShallowError
@@ -63,27 +64,22 @@ class PumpSet:
             last_ord = list(points.keys())[-1]
 
             it_volume = round(
-                (ordinate - float(last_ord)) * self._well_area.value, 3)
-            print('it_volume: ', it_volume)
+                (ordinate.get() - float(last_ord)) * self._well_area.value, 3)
             wpoint = self._workpoint(ordinate)
             it_avg_eff = (wpoint.flow + points[last_ord].wpoint.flow) / 2
-            print('it_avg_eff: ', it_avg_eff)
             it_e_time = round(it_volume / it_avg_eff.value_m3ps, 2)
-            print('e_time: ', it_e_time)
 
-            points[ordinate] = Point(wpoint, it_volume, it_avg_eff, it_e_time)
+            points[str(ordinate.get())] = Point(
+                wpoint, it_volume, it_avg_eff, it_e_time)
 
             worst_inflow = self._worst_inflow(points)
 
             c_time, w_time, l_time = self._cycle_times(points, worst_inflow)
-            print('c_time, w_time, l_time: ', c_time, w_time, l_time)
-            print('\n')
 
             if c_time > self._req_cycle_time.value:
-                print('req_c_time: ', self._req_cycle_time)
                 enough_time = True
 
-        if points[str(self.ord_stop)].wpoint.flow > self.max_inflow:
+        if points[str(self.ord_stop.value)].wpoint.flow > self.max_inflow:
             self.enough_pumps = True
 
         self.cyc_time = c_time
@@ -93,7 +89,7 @@ class PumpSet:
             sum([points[point].it_v for point in points.keys()]), 2)
         self.ord_start = ordinate
         self.wpoint_start = wpoint
-        self.wpoint_stop = points[str(self.ord_stop)].wpoint
+        self.wpoint_stop = points[str(self.ord_stop.get())].wpoint
         self.op_range = None
         self.worst_inflow = worst_inflow
 

@@ -91,6 +91,9 @@ class FloatVariable(Variable):
         else:
             return (self.value >= other)
 
+    def __round__(self, digits):
+        return FloatVariable(round(self.value, digits))
+
     def set(self, value):
         value = self._round(value)
         super().set(value)

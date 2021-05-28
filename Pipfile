@@ -8,6 +8,7 @@ appdirs = "==1.4.3"
 pygubu = "==0.9.8.2"
 matplotlib = "*"
 pytest = "*"
+pompa-pkg-bloniaq = {path = "."}
 
 [dev-packages]
 

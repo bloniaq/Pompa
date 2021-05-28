@@ -98,7 +98,7 @@ def station_2(request):
 
 @pytest.fixture()
 def s2_pumpset_points(station_2):
-    ord_shutdown = 138.87
+    ord_shutdown = v.FloatVariable(138.87)
     pset = pumpset.PumpSet(station_2, ord_shutdown)
     wp = pset._workpoint
     flow = v.FlowVariable
@@ -159,7 +159,7 @@ def station_3():
     station.out_pipe.diameter.set(.180)
     station.out_pipe.roughness.set(0.0005)
     station.out_pipe.resistance.set([])
-    station.out_pipe.parallels.set(1)
+    station.out_pipe.parallels.set(2)
     return station
 
 

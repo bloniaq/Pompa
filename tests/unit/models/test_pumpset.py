@@ -7,7 +7,7 @@ import pytest
 
 @pytest.fixture
 def s2_pumpset(station_2):
-    ord_shutdown = 138.87
+    ord_shutdown = v.FloatVariable(138.87)
     pumpset = pompa.models.pumpset.PumpSet(station_2, ord_shutdown)
     return pumpset
 
@@ -18,15 +18,6 @@ def test_pumpset_init(s2_pumpset):
     assert s2_pumpset._req_cycle_time.value == 480
 
     assert s2_pumpset.ord_stop == 138.87
-    assert s2_pumpset.cyc_time is None
-    assert s2_pumpset.wor_time is None
-    assert s2_pumpset.lay_time is None
-    assert s2_pumpset.vol_u is None
-    assert s2_pumpset.ord_start is None
-    assert s2_pumpset.wpoint_start is None
-    assert s2_pumpset.wpoint_stop is None
-    assert s2_pumpset.op_range is None
-    assert s2_pumpset.worst_inflow is None
 
 
 def test_pumpset_layover_time(s2_pumpset, s2_pumpset_points):
