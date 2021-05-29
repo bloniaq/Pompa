@@ -158,6 +158,12 @@ class FlowVariable(Variable):
     def __add__(self, other):
         return FlowVariable(self.value_m3ph + other.value_m3ph)
 
+    def __mul__(self, other):
+        if isinstance(other, FlowVariable):
+            return FlowVariable(self.value_m3ph * other.value_m3ph)
+        else:
+            return FlowVariable(self.value_m3ph * other)
+
     def __sub__(self, other):
         return FlowVariable(self.value_m3ph - other.value_m3ph)
 

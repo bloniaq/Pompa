@@ -25,7 +25,8 @@ class Pipe(station_object.StationObject):
         self.diameter = v.FloatVariable(digits=3)
         self.roughness = v.FloatVariable(digits=7)
         self.resistance = v.ResistanceVariable()
-        self.parallels = v.IntVariable(1)
+
+        self.gowno = 2
 
     def area(self):
         return round((3.14 * ((self.diameter.value / 2) ** 2)), 4)
@@ -37,8 +38,6 @@ class Pipe(station_object.StationObject):
         '''
 
         return round(flow.value_m3ps / self.area(), 4)
-
-###
 
     def _reynolds(self, flow):
         """Returns value of Reynolds number. Unit is none [-]
@@ -73,11 +72,10 @@ class Pipe(station_object.StationObject):
     def sum_loss(self, flow):
         return self._line_loss(flow) + self._local_loss(flow)
 
-    def dynamic_loss_polynomial(self, min_inflow, max_inflow, parallels=None):
-        if parallels is None:
-            parallels = self.parallels
+    def dynamic_loss_polynomial(self, min_inflow, max_inflow, parallels=1):
         flows_array = np.linspace(
             min_inflow.value_m3ps, 1.4 * max_inflow.value_m3ps, 20)
+
         heights_list = []
 
         for flow_val in flows_array:
@@ -87,7 +85,7 @@ class Pipe(station_object.StationObject):
         heights_array = np.array(heights_list)
 
         # PARALLEL PIPES
-        # flows_array *= parallels
+        flows_array *= parallels
 
         coeffs = np.polynomial.polynomial.polyfit(
             flows_array, heights_array, 2)
@@ -95,6 +93,7 @@ class Pipe(station_object.StationObject):
         coeffs = np.append(coeffs, 0)
 
         # DEBUG PRINTS
+
         """
         for j in range(len(flows_array)):
             print('{} {}'.format(flows_array[j], heights_array[j]))

@@ -14,7 +14,7 @@ Srednica kolektora tlocznego........Dn= 180.0   [mm]
 Srednica przewodu w pompowni........Dn= 110.0   [mm]
 Chropowatosc kolektora tlocznego.....k=  .50    [mm]
 Chropowatosc przewodu w pompowni.....k=  .80    [mm]
-Doplyw do pomowni...Qmin=  10.0   Qmax=  22.2  [l/s]
+Doplyw do pomowni...Qmin=  10.0   Qmax=  20.0  [l/s]
 Rzedna terenu......................... 100.00    [m]
 Rzedna doplywu sciekow................  96.00    [m]
 Rzedna wylotu sciekow /przejscie

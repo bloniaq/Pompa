@@ -23,7 +23,6 @@ class TestPipe:
         pipe_obj.diameter.set(.150)
         pipe_obj.roughness.set(.0008)
         pipe_obj.resistance.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
-        pipe_obj.parallels.set(1)
         min_inflow = v.FlowVariable(5, 'lps')
         max_inflow = v.FlowVariable(40, 'lps')
         exp_array = np.array(

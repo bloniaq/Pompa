@@ -1,6 +1,7 @@
 import pytest
 import pompa.models.pipe as pipe
 import pompa.models.variables as v
+import numpy as np
 from pompa.exceptions import FrictionFactorMethodOutOfRange
 
 
@@ -79,6 +80,89 @@ def test_local_loss(velocity, loc_resists, result):
 
     pipe_obj._velocity = fake_velocity
     assert pipe_obj._local_loss(_) == result
+
+
+@pytest.mark.parametrize('flow', [
+    v.FlowVariable(17, 'lps'),
+    v.FlowVariable(21, 'lps'),
+    v.FlowVariable(26, 'lps'),
+    v.FlowVariable(30, 'lps'),
+    v.FlowVariable(36, 'lps'),
+    v.FlowVariable(42, 'lps'),
+    v.FlowVariable(51, 'lps'),
+    v.FlowVariable(8, 'lps'),
+    v.FlowVariable(12, 'lps'),
+    v.FlowVariable(45, 'lps')])
+def test_dynamic_loss_poly(station_2, flow):
+    pipe_obj = station_2.out_pipe
+
+    min_inflow = v.FlowVariable(11, 'lps')
+    max_inflow = v.FlowVariable(22, 'lps')
+
+    exp_coeffs = np.array([0.055, -10.083, 4773.663, 0])
+    exp_height = np.polynomial.polynomial.Polynomial(exp_coeffs)(
+        flow.value_m3ps)
+
+    coeffs = pipe_obj.dynamic_loss_polynomial(min_inflow, max_inflow)
+    height = np.polynomial.polynomial.Polynomial(coeffs)(
+        flow.value_m3ps)
+
+    assert exp_height == pytest.approx(height, rel=0.008, abs=0.02)
+
+
+@pytest.mark.parametrize('flow', [
+    v.FlowVariable(16.7, 'lps'),
+    v.FlowVariable(19.4, 'lps'),
+    v.FlowVariable(22.2, 'lps'),
+    v.FlowVariable(25, 'lps'),
+    v.FlowVariable(27.8, 'lps'),
+    v.FlowVariable(30.6, 'lps'),
+    v.FlowVariable(33.3, 'lps'),
+    v.FlowVariable(36.1, 'lps'),
+    v.FlowVariable(38.9, 'lps'),
+    v.FlowVariable(8, 'lps')])
+def test_dynamic_loss_poly_2(station_2, flow):
+    pipe_obj = station_2.out_pipe
+
+    min_inflow = v.FlowVariable(10, 'lps')
+    max_inflow = v.FlowVariable(22.2, 'lps')
+
+    exp_coeffs = np.array([0.055, -5.441, 1193.416, 0])
+    exp_height = np.polynomial.polynomial.Polynomial(exp_coeffs)(
+        flow.value_m3ps)
+
+    coeffs = pipe_obj.dynamic_loss_polynomial(min_inflow, max_inflow, 2)
+    height = np.polynomial.polynomial.Polynomial(coeffs)(
+        flow.value_m3ps)
+
+    assert exp_height == pytest.approx(height, rel=0.008, abs=0.02)
+
+
+@pytest.mark.parametrize('flow', [
+    v.FlowVariable(10, 'lps'),
+    v.FlowVariable(12, 'lps'),
+    v.FlowVariable(14, 'lps'),
+    v.FlowVariable(16, 'lps'),
+    v.FlowVariable(18, 'lps'),
+    v.FlowVariable(20, 'lps'),
+    v.FlowVariable(22.2, 'lps'),
+    v.FlowVariable(8, 'lps'),
+    v.FlowVariable(28, 'lps')])
+def test_dynamic_loss_poly_parallels(station_3, flow):
+    pipe_obj = station_3.out_pipe
+
+    min_inflow = v.FlowVariable(10, 'lps')
+    max_inflow = v.FlowVariable(22.2, 'lps')
+
+    exp_coeffs = np.array([0.269, -29.808, 7153.488, 0])
+    exp_height = np.polynomial.polynomial.Polynomial(exp_coeffs)(
+        flow.value_m3ps)
+
+    coeffs = pipe_obj.dynamic_loss_polynomial(min_inflow, max_inflow, 2)
+    height = np.polynomial.polynomial.Polynomial(coeffs)(
+        flow.value_m3ps)
+
+    assert exp_height == pytest.approx(height, rel=0.04, abs=0.04)
 
 
 class TestFrictionFactor:

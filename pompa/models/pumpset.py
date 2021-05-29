@@ -26,7 +26,7 @@ class PumpSet:
         ins_pipe_poly = station.ins_pipe.dynamic_loss_polynomial(
             self.min_inflow, self.max_inflow)
         out_pipe_poly = station.out_pipe.dynamic_loss_polynomial(
-            self.min_inflow, self.max_inflow)
+            self.min_inflow, self.max_inflow, station.out_pipes_no.get())
         self.pipeset_poly = ins_pipe_poly + out_pipe_poly
 
         # interface

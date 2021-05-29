@@ -1,12 +1,16 @@
-Functionality Prototypes/
+
 *.sublime-workspace
 logfile.log
-utils/
+
 .idea/
+
+# My Utils
+Functionality Prototypes/
+utils/
+tests/scenarios/station_3/# Poprzednia wersja/
 
 # Temp MS Office files
 ~$*.xlsm
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

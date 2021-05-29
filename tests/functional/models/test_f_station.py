@@ -5,11 +5,16 @@ import pompa.models.variables as v
 def test_1_unit_pumpset(station_2):
     station = station_2
     station.calculate('checking')
-    print('PUMPSETS:', station.pumpsystem.pumpsets)
-    print('Pumpset 0', station.pumpsystem.pumpsets[0])
-    print('Pumpset0.cyc_time', station.pumpsystem.pumpsets[0].cyc_time)
     assert station.pumpsystem.pumpsets[0].cyc_time > 480
     assert station.pumpsystem.pumpsets[0].cyc_time < 581
+
+
+def test_1_unit_parallel_pipes(station_3):
+    station_3.calculate('checking')
+    pset = station_3.pumpsystem.pumpsets[0]
+    assert pset.wpoint_start.height == pytest.approx(13.95, rel=.01)
+    assert pset.wpoint_start.flow.value_lps == pytest.approx(22.57, rel=.01)
+    assert pset.ord_start == pytest.approx(95.79, rel=.001)
 
 
 """

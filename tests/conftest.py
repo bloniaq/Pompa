@@ -85,14 +85,12 @@ def station_2(request):
     station.ins_pipe.diameter.set(.150)
     station.ins_pipe.roughness.set(.0008)
     station.ins_pipe.resistance.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
-    station.ins_pipe.parallels.set(1)
 
     # Outside Pipe
     station.out_pipe.length.set(732)
     station.out_pipe.diameter.set(.200)
     station.out_pipe.roughness.set(0.0005)
     station.out_pipe.resistance.set([])
-    station.out_pipe.parallels.set(1)
     return station
 
 
@@ -117,7 +115,7 @@ def s2_pumpset_points(station_2):
 
 @pytest.fixture()
 def station_3():
-    station = Station()
+    station = pompa.models.station.Station()
 
     # Pump Type
     station.pump_type.suction_level.set(0.3)
@@ -152,14 +150,15 @@ def station_3():
     station.ins_pipe.diameter.set(.110)
     station.ins_pipe.roughness.set(.0008)
     station.ins_pipe.resistance.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
-    station.ins_pipe.parallels.set(1)
 
     # Outside Pipe
     station.out_pipe.length.set(2500)
     station.out_pipe.diameter.set(.180)
     station.out_pipe.roughness.set(0.0005)
     station.out_pipe.resistance.set([])
-    station.out_pipe.parallels.set(2)
+
+    station.out_pipes_no.set(2)
+
     return station
 
 
