@@ -25,7 +25,10 @@ class NoRootsError(ValueError):
 
 
 class WellTooShallowError(Exception):
-    pass
+    def __init__(self, ordinate, ord_inlet, c_time, pump_no):
+        print('Cycle Time {} is too short at {} and st. inlet is at {}'.format(
+            c_time, ordinate, ord_inlet))
+        print('pump no: ', pump_no)
 
 
 class WellTooDeepError(Exception):

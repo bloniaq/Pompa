@@ -252,6 +252,4 @@ class PumpCharVariable(Variable):
         flows = np.array(
             [w_pumps_amount * f[0].value_m3ps for f in self.value])
         heights = np.array([h[1] for h in self.value])
-        # print('poly flows: ', flows)
-        # print('poly heights: ', heights)
         return np.polynomial.polynomial.polyfit(flows, heights, 3)

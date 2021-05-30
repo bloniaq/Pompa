@@ -17,13 +17,16 @@ class WorkPoint:
     """
 
     def __init__(self, geometric_height, ins_pipe_crossec_area,
-                 out_pipe_crossec_area, pumpset_poly, pipeset_hydr_poly):
+                 out_pipe_crossec_area, pumpset_poly, pipeset_hydr_poly,
+                 ins_pipes_no=1, out_pipes_no=1):
         # parameters
         self._ins_pipe_crossec_area = ins_pipe_crossec_area
         self._out_pipe_crossec_area = out_pipe_crossec_area
         self._pumpset_poly = pumpset_poly
-        # print('pumpset poly: ', pumpset_poly)
         self._pipeset_hydr_poly = pipeset_hydr_poly
+
+        self.ins_pipes_no = ins_pipes_no
+        self.out_pipes_no = out_pipes_no
 
         # interface
         self.height = None
@@ -45,10 +48,10 @@ class WorkPoint:
         """ Returns dict of velocity values in inside pipe and outside pipe.
         Expects instance od FlowVariable"""
         velocity = {}
-        velocity['ins_pipe'] = round(
-            flow.value_m3ps / self._ins_pipe_crossec_area, 2)
-        velocity['out_pipe'] = round(
-            flow.value_m3ps / self._out_pipe_crossec_area, 2)
+        velocity['ins_pipe'] = round(flow.value_m3ps / (
+            self._ins_pipe_crossec_area * self.ins_pipes_no), 2)
+        velocity['out_pipe'] = round(flow.value_m3ps / (
+            self._out_pipe_crossec_area * self.out_pipes_no), 2)
         return velocity
 
     def _full_loss_poly(self):

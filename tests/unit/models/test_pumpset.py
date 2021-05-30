@@ -3,6 +3,7 @@ import pompa.models.variables as v
 import pompa.models.workpoint
 import numpy as np
 import pytest
+from unittest.mock  import Mock
 
 
 @pytest.fixture
@@ -60,6 +61,20 @@ def test_pumpset_geom_height(s2_pumpset):
 def test_worst_inflow(s2_pumpset, s2_pumpset_points):
     assert s2_pumpset._worst_inflow(
         s2_pumpset_points).value_lps == pytest.approx(12.59, rel=.02)
+
+
+def test_worst_inflow_multiple_pumps(station_4_psets):
+    station, pset_1, pset_2, pset_3 = station_4_psets
+    assert pset_2.worst_inflow.value_lps > pset_1.wpoint_start.flow.value_lps
+    assert pset_3.worst_inflow.value_lps > pset_2.wpoint_start.flow.value_lps
+
+
+def test_min_inflow(station_4_psets):
+    station, pset_1, pset_2, pset_3 = station_4_psets
+
+    assert pset_2.min_inflow.value_lps == pytest.approx(max(
+        pset_1.wpoint_start.flow.value_lps + .1,
+        station.hydr_cond.inflow_min.value_lps), rel=.0001)
 
 
 def test_calculate(s2_pumpset):

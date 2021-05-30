@@ -18,6 +18,7 @@ class Station(station_object.StationObject):
         self.out_pipe = pipe.Pipe()
         self.out_pipes_no = v.FloatVariable(1)
         self.pump_type = pump_type.PumpType()
+        self.pumpsystem = None
 
     def calculate(self, mode='checking'):
         self.pumpsystem = pumpsystem.PumpSystem(self, mode)

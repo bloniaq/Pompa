@@ -1,18 +1,18 @@
  
 PARAMETRY POMPY NR: 3
  
-Rzeczywisty czas cyklu pompy.......T= 609.7      [s]
+Rzeczywisty czas cyklu pompy.......T= 603.0      [s]
 Rzeczywisty czas postoju pompy....Tp=  89.5      [s]
-Rzeczywisty czas pracy pompy......Tr= 520.2      [s]
+Rzeczywisty czas pracy pompy......Tr= 513.5      [s]
 Obj. uzyt. wyzn. przez pompe......Vu=   .0      [m3]
-Rzedna wlaczenia pompy..............  95.47      [m]
+Rzedna wlaczenia pompy..............  95.57      [m]
  
 Parametry poczatkowe pracy zespolu pomp
 w chwili wlaczenia pompy nr3
  
--wys. lc. u wylotu pompy.........Hlc=21.38       [m]
--geometryczna wys. podnoszenia.....H= 9.53       [m]
--wydatek...........................Q=  23.57   [l/s]
+-wys. lc. u wylotu pompy.........Hlc=21.37       [m]
+-geometryczna wys. podnoszenia.....H= 9.43       [m]
+-wydatek...........................Q=  23.61   [l/s]
 -predkosc w kolektorze tlocznym....v= .93      [m/s]
 -predkosc w przewodach w pompowni..v= .83      [m/s]
 -zapas wysokosci cisnienia.....dh=  .0   [m sl.wody]
@@ -20,8 +20,8 @@ w chwili wlaczenia pompy nr3
 Parametry koncowe pracy zespolu pomp
  
 -wys. lc. u wylotu pompy.........Hlc=21.41       [m]
--geometryczna wys. podnoszenia.....H=10.26       [m]
--wydatek...........................Q=  23.32   [l/s]
+-geometryczna wys. podnoszenia.....H=10.16       [m]
+-wydatek...........................Q=  23.36   [l/s]
 -predkosc w kolektorze tlocznym....v= .92      [m/s]
 -predkosc w przewodach w pompowni..v= .82      [m/s]
 -doplyw najniekorzystniejszy....Qdop=  20.00   [l/s]

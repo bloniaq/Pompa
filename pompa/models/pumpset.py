@@ -7,10 +7,16 @@ from collections import OrderedDict, namedtuple
 
 class PumpSet:
 
-    def __init__(self, station, ord_shutdown, pumps_amount=1):
+    def __init__(self, station, ord_shutdown, pumps_amount=1, last_pset=None):
+
+        # TODO: POUSTAWIAC PRYWATNOSC PARAMETROW
 
         # parameters
         self.ORD_STEP = 0.01
+        self.enough_pumps = False
+
+        self.out_pipes_no = station.out_pipes_no.get()
+        self.pumps_amount = pumps_amount
 
         self._well_area = station.well.cr_sec_area()
         self._ord_upper_level = station.hydr_cond.ord_upper_level
@@ -21,12 +27,20 @@ class PumpSet:
         self.pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
             pumps_amount)
 
-        self.min_inflow = station.hydr_cond.inflow_min
+        if pumps_amount == 1:
+            last_pset_start_q = v.FlowVariable(0)
+            self._min_ord = ord_shutdown
+        elif pumps_amount > 1:
+            last_pset_start_q = last_pset.wpoint_start.flow
+            self._min_ord = last_pset.ord_start
+
+        self.min_inflow = max(station.hydr_cond.inflow_min,
+                              last_pset_start_q + v.FlowVariable(.1, 'lps'))
         self.max_inflow = station.hydr_cond.inflow_max
         ins_pipe_poly = station.ins_pipe.dynamic_loss_polynomial(
             self.min_inflow, self.max_inflow)
         out_pipe_poly = station.out_pipe.dynamic_loss_polynomial(
-            self.min_inflow, self.max_inflow, station.out_pipes_no.get())
+            self.min_inflow, self.max_inflow, self.out_pipes_no)
         self.pipeset_poly = ins_pipe_poly + out_pipe_poly
 
         # interface
@@ -54,14 +68,17 @@ class PumpSet:
         points[str(ordinate.get())] = Point(
             self._workpoint(ordinate), 0, None, 0)
 
+        c_time = 0
+
         while not enough_time:
             ordinate += self.ORD_STEP
             ordinate = round(ordinate, 2)
 
-            if ordinate > self._ord_inlet:
-                raise WellTooShallowError
-
             last_ord = list(points.keys())[-1]
+
+            if ordinate > self._ord_inlet:
+                raise WellTooShallowError(ordinate, self._ord_inlet, c_time,
+                                          self.pumps_amount)
 
             it_volume = round(
                 (ordinate.get() - float(last_ord)) * self._well_area.value, 3)
@@ -76,7 +93,8 @@ class PumpSet:
 
             c_time, w_time, l_time = self._cycle_times(points, worst_inflow)
 
-            if c_time > self._req_cycle_time.value:
+            if (c_time >= self._req_cycle_time.value and
+                    ordinate >= self._min_ord):
                 enough_time = True
 
         if points[str(self.ord_stop.value)].wpoint.flow > self.max_inflow:
@@ -93,6 +111,7 @@ class PumpSet:
         self.op_range = None
         self.worst_inflow = worst_inflow
 
+        print('\n\nPUMP no {}\n'.format(self.pumps_amount))
         print('c time: ', c_time)
         print('w time: ', w_time)
         print('l time: ', l_time)
@@ -100,6 +119,7 @@ class PumpSet:
         print('wpoint stop: ', self.wpoint_stop)
         print('ord start: ', ordinate)
         print('wpoint start: ', self.wpoint_start)
+        print('worst_inflow: {}\n\n'.format(worst_inflow))
 
     def _layover_time(self, points, inflow):
         """ calculates pump layover time, when sewage are filling active volume
@@ -135,13 +155,14 @@ class PumpSet:
         return pompa.models.workpoint.WorkPoint(
             self._geom_height(ordinate),
             self.ins_pipe_area, self.out_pipe_area, self.pumpset_poly,
-            self.pipeset_poly)
+            self.pipeset_poly, self.pumps_amount, self.out_pipes_no)
 
     def _worst_inflow(self, points):
         vol_sum = sum([points[point].it_v for point in points.keys()])
         time_sum = sum([points[point].e_time for point in points.keys()])
         avg_eff = v.FlowVariable(vol_sum / time_sum, 'm3ps')
-        return avg_eff / 2
+        worst_inflow = min(max(avg_eff / 2, self.min_inflow), self.max_inflow)
+        return worst_inflow
 
     def _geom_height(self, checked_ord):
         """Returns difference between ordinate of upper well, and current

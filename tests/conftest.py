@@ -139,11 +139,11 @@ def station_3():
     station.well.diameter.set(2.0)
 
     # Hydraulic Conditions
-    station.hydr_cond.ord_bottom.set(94.44)
+    station.hydr_cond.ord_bottom.set(94.54)
     station.hydr_cond.ord_upper_level.set(105)
     station.hydr_cond.ord_inlet.set(96)
     station.hydr_cond.inflow_min.set(10, 'lps')
-    station.hydr_cond.inflow_max.set(22.2, 'lps')
+    station.hydr_cond.inflow_max.set(20, 'lps')
 
     # Inside Pipe
     station.ins_pipe.length.set(6)
@@ -160,6 +160,22 @@ def station_3():
     station.out_pipes_no.set(2)
 
     return station
+
+
+@pytest.fixture()
+def station_4(station_3):
+    station = station_3
+    station.out_pipes_no.set(1)
+
+    return station
+
+
+@pytest.fixture()
+def station_4_psets(station_4):
+    station = station_4
+    station.calculate('checking')
+    pset_1, pset_2, pset_3 = station_4.pumpsystem.pumpsets
+    return station, pset_1, pset_2, pset_3
 
 
 @pytest.fixture()
