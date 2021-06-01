@@ -1,11 +1,40 @@
 import pompa.models.workpoint
 import pompa.models.variables as v
-import numpy as np
 from pompa.exceptions import WellTooShallowError, WellTooDeepError
 from collections import OrderedDict, namedtuple
 
 
 class PumpSet:
+    """Class used to represent a Pumpset.
+
+    Pumpset is a specific configuration of installed in station pumps, has a
+    specific ordinate of shutdown, specific ordinate of start-up, which have to
+    fulfill criterias of minimum cycle time provided by pump manufactor.
+
+    Attributes
+    ----------
+    ord_stop : FloatVariable
+        The ordinate of pumpset shutdown
+    cyc_time : float
+        Time of cycle, sum of working- and layover time
+    wor_time : float
+        Time of working, based on balance between inflow and pump efficiency
+    lay_time : float
+        Time of layover - time when inflow fulfill useful volume of station
+    vol_u : float
+        Useful volume of station, volume between start- and stop odrinate
+    ord_start : FloatVariable
+        The ordinate of pumpset start-up
+    wpoint_start : WorkPoint
+        Workpoint parameters at start-up ordinate
+    wpoint_stop : WorkPoint
+        Workpoint parameters at shutdown ordinate
+    op_range : NOT IMPLEMENTED YET
+        Optimal range of pumpset, based on information provided by pump
+        manufacturer
+    worst_inflow : FlowVariable
+        The least favorable inflow
+    """
 
     def __init__(self, station, ord_shutdown, pumps_amount=1, last_pset=None):
 
