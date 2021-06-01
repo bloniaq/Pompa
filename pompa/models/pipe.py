@@ -1,11 +1,10 @@
 import math
-import pompa.models.station_obj as station_object
 import pompa.models.variables as v
 import numpy as np
 from pompa.exceptions import FrictionFactorMethodOutOfRange
 
 
-class Pipe(station_object.StationObject):
+class Pipe(v.StationObject):
     """Class used for keep pipe used in station
 
     Attributes

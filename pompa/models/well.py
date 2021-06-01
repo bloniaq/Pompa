@@ -1,8 +1,7 @@
-import pompa.models.station_obj as station_object
 import pompa.models.variables as v
 
 
-class Well(station_object.StationObject):
+class Well(v.StationObject):
 
     def __init__(self):
         """

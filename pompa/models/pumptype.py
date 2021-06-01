@@ -1,8 +1,7 @@
-import pompa.models.station_obj as station_object
 import pompa.models.variables as v
 
 
-class PumpType(station_object.StationObject):
+class PumpType(v.StationObject):
     """Class used to keep type of pump used in Sewage Pumping Station
 
     Attributes

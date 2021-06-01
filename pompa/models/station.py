@@ -1,4 +1,3 @@
-import pompa.models.station_obj as station_object
 import pompa.models.hydr_conditions as hydr_cond
 import pompa.models.pipe as pipe
 import pompa.models.well as well
@@ -7,7 +6,7 @@ import pompa.models.pumptype as pump_type
 import pompa.models.pumpsystem as pumpsystem
 
 
-class Station(station_object.StationObject):
+class Station(v.StationObject):
     """Class used to keep the Sewage Pumping Station
 
     Attributes
