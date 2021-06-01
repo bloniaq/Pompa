@@ -3,6 +3,15 @@ import numpy as np
 
 
 class StationObject():
+    """Abstract class for subclassing Station objects.
+
+    Providing interface for loading values from file
+
+    Methods
+    -------
+    load_data(data_dict)
+
+    """
 
     kinematic_viscosity = 0.0000010068  # [m²/s] dla 20°C
     std_grav = 9.81
@@ -34,8 +43,7 @@ class StationObject():
 
 
 class Variable():
-    '''Abstract class responsible for provide interface of a model variable
-    '''
+    """Abstract class responsible for provide interface of a model variable."""
 
     def __init__(self, value=None):
         self.value = value
@@ -57,8 +65,7 @@ class Variable():
 
 
 class FloatVariable(Variable):
-    '''Holds variables needed to be represent in decimal numbers
-    '''
+    """Holds variables needed to be represent in decimal numbers"""
 
     def __init__(self, value=0.0, digits=2):
         self.digits = digits
@@ -139,8 +146,7 @@ class FloatVariable(Variable):
 
 
 class IntVariable(Variable):
-    '''Holds variables needed to be represent in integers
-    '''
+    """Holds variables needed to be represent in integers"""
 
     def __init__(self, value=0):
         value = self._round(value)
@@ -160,8 +166,7 @@ class IntVariable(Variable):
 
 
 class FlowVariable(Variable):
-    '''Holds variables which keep flow values, and provide unit conversion
-    '''
+    """Holds variables which keep flow values, and provide unit conversion"""
 
     def __init__(self, value=0, unit='m3ph'):
         super().__init__()
@@ -234,7 +239,7 @@ class FlowVariable(Variable):
 
 
 class SwitchVariable(Variable):
-    '''Holds variables which keep switchable things'''
+    """Holds variables which keep switchable things"""
 
     def __init__(self, value='', dictionary={}):
         super().__init__(value)
@@ -242,7 +247,7 @@ class SwitchVariable(Variable):
 
 
 class ResistanceVariable(Variable):
-    '''Holds list of resistance coefficients'''
+    """Holds list of resistance coefficients"""
 
     def __init__(self, value=[]):
         super().__init__(value)
@@ -258,7 +263,7 @@ class ResistanceVariable(Variable):
 
 
 class PumpCharVariable(Variable):
-    '''Holds pump characteristic'''
+    """Holds pump characteristic"""
 
     def __init__(self):
         self.value = []
