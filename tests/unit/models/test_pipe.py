@@ -181,7 +181,7 @@ class TestFrictionFactor:
 
     def test_existing_method_dict(self, friction_factor_base):
         factor = friction_factor_base
-        assert isinstance(factor.methods, dict)
+        assert isinstance(factor._methods, dict)
 
     def test_walden_base(self, friction_factor_base):
         factor = friction_factor_base
