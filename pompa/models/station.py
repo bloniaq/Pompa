@@ -8,7 +8,29 @@ import pompa.models.pumpsystem as pumpsystem
 
 
 class Station(station_object.StationObject):
-    """
+    """Class used to keep the Sewage Pumping Station
+
+    Attributes
+    ----------
+    well : Well
+        The well of station
+    hydr_cond : HydrConditions
+        The hydraulic conditions of station
+    ins_pipe : Pipe
+        The pipe(s) inside station
+    out_pipe : Pipe
+        The pipe(s) outside station
+    out_pipes_no : FloatVariable
+        The number of parallel outisde pipes
+    pump_type : PumpType
+        The type of pump used in station
+    pumpsystem : PumpSystem
+        All of pumpsets used in station
+
+    Methods
+    -------
+    calculate(mode='checking')
+        Calculates pumpsystem in a user-chosen mode
     """
 
     def __init__(self):
@@ -21,4 +43,6 @@ class Station(station_object.StationObject):
         self.pumpsystem = None
 
     def calculate(self, mode='checking'):
+        """Calculates pumpsystem in a user-chosen mode"""
+
         self.pumpsystem = pumpsystem.PumpSystem(self, mode)
