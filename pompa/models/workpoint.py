@@ -5,30 +5,57 @@ import numpy as np
 
 class WorkPoint:
     """
-    Class represent a work point - parameteres of pump set cooperating with
-    set of pipes in station.
+    Class used to represent a pump Workpoint.
 
-    Public parameters:
-        self.height
-        self.flow
-        self.geometric_height
-        self.ins_pipe_v
-        self.out_pipe_v
+    Workpoint is an equilibrium point between line losses and pump lifting
+    height calculated for a specific ordinate of sewage. Ordinates of this
+    point are calculated based on root of difference of two polynomials
+
+    Attributes
+    ----------
+    height : v.FloatVariable
+        The value of pump lifting height [m]
+    flow : v.FlowVariable
+        The value of pump flow [m3ph, m3ps, lps]
+    geometric_height : v.FloatVariable
+        Geometric height to pump - difference between ordinates of end of
+        pressurized pipe and sewage level in pump station
+    ins_pipe_v : float
+        Sewage velocity in pipe(s) inside station
+    out_pipe_v : float
+        Sewage velocity in pipe(s) outside station
     """
 
     def __init__(self, geometric_height, ins_pipe_crossec_area,
                  out_pipe_crossec_area, pumpset_poly, pipeset_hydr_poly,
                  ins_pipes_no=1, out_pipes_no=1):
-        # parameters
+        """
+        Parameters
+        ----------
+        geometric_height : v.FloatVariable
+        ins_pipe_crossec_area : float
+            Cross-sectional area of pipe(s) inside pump station
+        out_pipe_crossec_area : float
+            Cross-sectional area of pipe(s) outside pump station
+        pumpset_poly : numpy.ndarray
+            3rd grade polynomial of pump characteristic
+        pipeset_hydr_poly : numpy.ndarray
+            3rd grade polynomial of dynamic losses in pipeset
+        ins_pipes_no=1 : int, optional
+            The number of pipes inside station (equals number of pumps)
+        out_pipes_no=1 : int, optional
+            The number of pipes outside station
+        """
+
+        # private attributes
         self._ins_pipe_crossec_area = ins_pipe_crossec_area
         self._out_pipe_crossec_area = out_pipe_crossec_area
         self._pumpset_poly = pumpset_poly
         self._pipeset_hydr_poly = pipeset_hydr_poly
+        self._ins_pipes_no = ins_pipes_no
+        self._out_pipes_no = out_pipes_no
 
-        self.ins_pipes_no = ins_pipes_no
-        self.out_pipes_no = out_pipes_no
-
-        # interface
+        # interface declarations
         self.height = None
         self.flow = None
         self.geom_h = geometric_height
@@ -45,32 +72,65 @@ class WorkPoint:
         return string
 
     def _velocity(self, flow):
-        """ Returns dict of velocity values in inside pipe and outside pipe.
-        Expects instance od FlowVariable"""
+        """Return dict of velocity values of inside pipe and outside pipe.
+
+        Velocity is calculated as division of flow [m3ps] by cross-sectional
+        area of pipe [m2]. Result is dictionary of velocities in inside and
+        outside pipes
+
+        Parameters
+        ----------
+        flow : v.FlowVariable
+            Value of pumping flow in workpoint
+
+        Returns
+        -------
+        dict
+            a dictionary of velocities in inside ('ins_pipe') and outside
+            ('out_pipe') pipes
+        """
         velocity = {}
         velocity['ins_pipe'] = round(flow.value_m3ps / (
-            self._ins_pipe_crossec_area * self.ins_pipes_no), 2)
+            self._ins_pipe_crossec_area * self._ins_pipes_no), 2)
         velocity['out_pipe'] = round(flow.value_m3ps / (
-            self._out_pipe_crossec_area * self.out_pipes_no), 2)
+            self._out_pipe_crossec_area * self._out_pipes_no), 2)
         return velocity
 
     def _full_loss_poly(self):
-        """To gotten array of polynomial coeefs describing pipe loss function,
-        adds geometric height, and returns numpy-array-typed polynomial coeffs
+        """Return pipeset polynomial including geometric height
+
+        Gotten array of polynomial coefs describing pipeset loss function is
+        increment by geometric height
         """
         res_poly = self._pipeset_hydr_poly.copy()
-        # print('dynamic poly: ', res_poly)
         res_poly[0] = self._pipeset_hydr_poly[0] + self.geom_h.value
-        # print('full loss poly: ', res_poly)
         return res_poly
 
     def _calculate(self):
-        """Returns parameters of workpoint.
-        - Height of all loss [m]
-        - Flow [FlovVariable]
-        - Geometric height [m]
-        - velocity in inside pipe [m/s]
-        - velocity in outside pump [m/s]
+        """Return parameters of workpoint.
+
+        Flow and Height parameters are ordinates of cross point of pipe- and
+        pump- polynomials. First are find roots of subtraction one poly
+        from another. It is resulted flow Then, there is calculation of value
+        of pump poly in founded root, which is height of workpoint.
+
+        Raises
+        ------
+        TooManyRootsError
+            If subtraction resulted polynomial has more then one zero
+        NoRootsError
+            If subtraction resulted polynomial has no zeros
+
+        Returns
+        -------
+        height : float
+            The value of pump lifting height [m]
+        flow : v.FlowVariable
+            The value of pump flow [m3ph, m3ps, lps]
+        velocity['ins_pipe'] : float
+            The velocity in inside pipe [m/s]
+        velocity['out_pipe']
+            The velocity in outside pump [m/s]
         """
         pipeset_poly = self._full_loss_poly()
 
@@ -90,5 +150,4 @@ class WorkPoint:
         height = np.polynomial.polynomial.Polynomial(
             self._pumpset_poly)(roots[0])
         velocity = self._velocity(flow)
-        # print(height, flow, velocity['ins_pipe'], velocity['out_pipe'])
         return height, flow, velocity['ins_pipe'], velocity['out_pipe']
