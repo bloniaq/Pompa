@@ -6,7 +6,6 @@ import numpy as np
 def test_create(station_2):
     pumpsystem = pompa.models.pumpsystem.PumpSystem(station_2)
     assert pumpsystem is not None
-    assert pumpsystem.mode is 'checking' or pumpsystem.mode is 'minimalisation'
     assert isinstance(pumpsystem.pumpsets, list)
 
 
