@@ -72,13 +72,13 @@ def test_worst_inflow_multiple_pumps(station_4_psets):
 def test_min_inflow(station_4_psets):
     station, pset_1, pset_2, pset_3 = station_4_psets
 
-    assert pset_2.min_inflow.value_lps == pytest.approx(max(
+    assert pset_2._min_inflow.value_lps == pytest.approx(max(
         pset_1.wpoint_start.flow.value_lps + .1,
         station.hydr_cond.inflow_min.value_lps), rel=.0001)
 
 
 def test_calculate(s2_pumpset):
-    s2_pumpset.ORD_STEP = 0.1
+    s2_pumpset._ORD_STEP = 0.1
     exp_dict = {
         'cyc_time': 545,
         'wor_time': 273,
