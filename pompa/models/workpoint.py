@@ -13,11 +13,11 @@ class WorkPoint:
 
     Attributes
     ----------
-    height : v.FloatVariable
+    height : FloatVariable
         The value of pump lifting height [m]
-    flow : v.FlowVariable
+    flow : FlowVariable
         The value of pump flow [m3ph, m3ps, lps]
-    geometric_height : v.FloatVariable
+    geometric_height : FloatVariable
         Geometric height to pump - difference between ordinates of end of
         pressurized pipe and sewage level in pump station
     ins_pipe_v : float
@@ -32,7 +32,7 @@ class WorkPoint:
         """
         Parameters
         ----------
-        geometric_height : v.FloatVariable
+        geometric_height : FloatVariable
         ins_pipe_crossec_area : float
             Cross-sectional area of pipe(s) inside pump station
         out_pipe_crossec_area : float
@@ -80,7 +80,7 @@ class WorkPoint:
 
         Parameters
         ----------
-        flow : v.FlowVariable
+        flow : FlowVariable
             Value of pumping flow in workpoint
 
         Returns
@@ -125,7 +125,7 @@ class WorkPoint:
         -------
         height : float
             The value of pump lifting height [m]
-        flow : v.FlowVariable
+        flow : FlowVariable
             The value of pump flow [m3ph, m3ps, lps]
         velocity['ins_pipe'] : float
             The velocity in inside pipe [m/s]
