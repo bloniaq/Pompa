@@ -40,7 +40,7 @@ class Pipe(v.StationObject):
         return round((3.14 * ((self.diameter.value / 2) ** 2)), 4)
 
     def _velocity(self, flow):
-        """Returns value of average velocity inside pipe.
+        """Return value of average velocity inside pipe.
 
         Parameters
         ----------
