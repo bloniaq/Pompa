@@ -2,15 +2,24 @@ import pompa.models.variables as v
 
 
 class Well(v.StationObject):
+    """
+    Class used to represent station well.
+
+    Attributes
+    ----------
+    shape : SwitchVariable
+        The shape of well. 'round' or 'rectangle'
+    config : SwitchVariable
+        The configuration of pumps in well. 'optimal' or 'singlerow'
+    diameter : FloatVariable
+        The diameter of well. [m] Relevant when shape == 'round'
+    length : FloatVariable
+        The length of well. [m] Relevant when shape == 'rectangle'
+    width : FloatVariable
+        The width of well. [m] Relevant when shape == 'rectangle'
+    """
 
     def __init__(self):
-        """
-        shape: round, rectangle - shape of well
-        config: optimal, singlerow - strings defining pump configuration
-        diameter: [meters]
-        length:
-        width:
-        """
         self.shape = v.SwitchVariable()
         self.config = v.SwitchVariable()
         self.diameter = v.FloatVariable()
@@ -18,8 +27,14 @@ class Well(v.StationObject):
         self.width = v.FloatVariable()
 
     def minimal_diameter(self, n_of_pumps, netto_contour):
-        """ Returns minimal diameter of round-shaped well.
-        Based on number of pumps and contour of single pump
+        """Return minimal diameter of round-shaped well.
+
+        Parameters
+        ----------
+        n_of_pumps : int
+            The number of pumps including reserve pumps.
+        netto_contour : float
+            The netto contour of one pump.
         """
         contour = netto_contour + 0.3
 
@@ -54,6 +69,12 @@ class Well(v.StationObject):
         return min_diam
 
     def cr_sec_area(self):
+        """Return cross-sectional area of well
+
+        Returns
+        FloatVariable
+            Cross-sectional area of well [m2]
+        """
         if self.shape.value == 'rectangle':
             return v.FloatVariable(round(
                 self.width.value * self.length.value, 2))
