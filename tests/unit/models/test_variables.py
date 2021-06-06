@@ -1,6 +1,7 @@
 import pompa.models.variables as variables
 from pompa.exceptions import InputTypeError
 import pytest
+import numpy as np
 from unittest.mock import Mock
 
 
@@ -364,3 +365,33 @@ class Test_PumpCharVar:
         exp_point_3 = (variables.FlowVariable(33.4), 13.03)
         assert characteristic.value == [
             exp_point_3, exp_point_1, exp_point_2]
+
+    def test_polynomial_coeff(self):
+        characteristic = variables.PumpCharVariable()
+        characteristic.add_point(1000, 5, 'lps')
+        characteristic.add_point(3000, 61, 'lps')
+        characteristic.add_point(2000, 25, 'lps')
+        characteristic.add_point(7000, 485, 'lps')
+        exp_coeffs = np.array([-5, 7, 2, 1])
+        result = characteristic.polynomial_coeff(1)
+        np.testing.assert_almost_equal(result, exp_coeffs)
+
+    def test_polynomial_coeff_2_pumps(self):
+        characteristic = variables.PumpCharVariable()
+        characteristic.add_point(1000, 5, 'lps')
+        characteristic.add_point(3000, 61, 'lps')
+        characteristic.add_point(2000, 25, 'lps')
+        characteristic.add_point(7000, 485, 'lps')
+        exp_coeffs = np.array([-5, 3.5, 0.5, 0.125])
+        result = characteristic.polynomial_coeff(2)
+        np.testing.assert_almost_equal(result, exp_coeffs)
+
+    def test_polynomial_coeff_3_pumps(self):
+        characteristic = variables.PumpCharVariable()
+        characteristic.add_point(1000, 5, 'lps')
+        characteristic.add_point(3000, 61, 'lps')
+        characteristic.add_point(2000, 25, 'lps')
+        characteristic.add_point(7000, 485, 'lps')
+        exp_coeffs = np.array([-5, 2.3333, 0.2222, 0.037037])
+        result = characteristic.polynomial_coeff(3)
+        np.testing.assert_almost_equal(result, exp_coeffs, decimal=4)
