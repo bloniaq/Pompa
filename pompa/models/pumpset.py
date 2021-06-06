@@ -9,7 +9,7 @@ class PumpSet:
 
     Pumpset is a specific configuration of installed in station pumps, has a
     specific ordinate of shutdown, specific ordinate of start-up, which have to
-    fulfill criterias of minimum cycle time provided by pump manufactor.
+    fulfill criteria of minimum cycle time provided by pump manufacturer.
 
     Attributes
     ----------
@@ -22,7 +22,7 @@ class PumpSet:
     lay_time : float
         Time of layover - time when inflow fulfill useful volume of station
     vol_u : float
-        Useful volume of station, volume between start- and stop odrinate
+        Useful volume of station, volume between start- and stop ordinate
     ord_start : FloatVariable
         The ordinate of pumpset start-up
     wpoint_start : WorkPoint
@@ -160,6 +160,8 @@ class PumpSet:
 
         if points[str(self.ord_stop.value)].wpoint.flow > self._max_inflow:
             self.enough_pumps = True
+
+        # TODO: WellTooDeepError implementation
 
         self.cyc_time = c_time
         self.wor_time = w_time
