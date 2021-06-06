@@ -9,7 +9,7 @@ class Pipe(v.StationObject):
 
     Attributes
     ----------
-    lenght : FloatVariable
+    length : FloatVariable
         Lenght of pipe [m]
     diameter : FloatVariable
         Diameter of pipe [m]
