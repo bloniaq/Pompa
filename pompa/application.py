@@ -16,3 +16,10 @@ class Application:
         """Make infinite loop of GUI"""
 
         self.view_gui.mainwindow.mainloop()
+
+    def add_callback(self):
+        pass
+
+    def set_shape(self, shape):
+        mode = self.view_gui.ui_vars.__getitem__('mode')
+        self.view_gui.set_shape(shape, mode)
