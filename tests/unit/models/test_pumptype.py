@@ -14,3 +14,10 @@ def test_attributes_types():
     assert isinstance(pump_type.efficiency_from, pumptype.v.FlowVariable)
     assert isinstance(pump_type.efficiency_to, pumptype.v.FlowVariable)
     assert isinstance(pump_type.characteristic, pumptype.v.PumpCharVariable)
+
+def test_optimal_range():
+    pump_type = pumptype.PumpType()
+    pump_type.efficiency_from.set(15, 'lps')
+    pump_type.efficiency_to.set(20, 'lps')
+    assert pump_type.opt_range(2)[0].value_lps == 30
+    assert pump_type.opt_range(2)[1].value_lps == 40

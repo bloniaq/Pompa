@@ -98,8 +98,7 @@ class PumpSet:
         self.ord_start = None
         self.wpoint_start = None
         self.wpoint_stop = None
-        self.op_range = (station.pump_type.efficiency_from * pumps_amount,
-                         station.pump_type.efficiency_to * pumps_amount)
+        self.opt_range = station.pump_type.opt_range(pumps_amount)
         self.worst_inflow = None
 
         # calculations

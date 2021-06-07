@@ -101,5 +101,5 @@ def test_calculate(s2_pumpset):
 
 def test_optimal_range(station_4_psets):
     station, pset_1, pset_2, pset_3 = station_4_psets
-    assert pset_2.op_range[0] == station.pump_type.efficiency_from * 2
-    assert pset_2.op_range[1] == station.pump_type.efficiency_to * 2
+    assert pset_2.opt_range[0] == station.pump_type.efficiency_from * 2
+    assert pset_2.opt_range[1] == station.pump_type.efficiency_to * 2

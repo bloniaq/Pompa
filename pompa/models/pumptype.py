@@ -18,6 +18,11 @@ class PumpType(v.StationObject):
         Maximum value of best pump efficiency range
     characteristic : PumpCharVariable
         Set of pump characteristic graph points
+
+    Methods
+    -------
+    opt_range(pumps_amount)
+        Returns optimal range of pumpset efficiency
     """
 
     def __init__(self):
@@ -27,3 +32,13 @@ class PumpType(v.StationObject):
         self.efficiency_from = v.FlowVariable()
         self.efficiency_to = v.FlowVariable()
         self.characteristic = v.PumpCharVariable()
+
+    def opt_range(self, pumps_amount):
+        """Return pumpset efficiency optimal range
+
+        Parameters
+        ----------
+        pumps_amount : int
+            The number of pumps
+        """
+        return self.efficiency_from * pumps_amount, self.efficiency_to * 2
