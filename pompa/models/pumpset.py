@@ -70,6 +70,7 @@ class PumpSet:
         self._out_pipe_area = station.out_pipe.area()
         self._pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
             pumps_amount)
+        self._geom_height = station.hydr_cond.geom_height
 
         if pumps_amount == 1:
             last_pset_start_q = v.FlowVariable(0)
@@ -273,10 +274,3 @@ class PumpSet:
         worst_inflow = min(max(
             avg_eff / 2, self._min_inflow), self._max_inflow)
         return worst_inflow
-
-    def _geom_height(self, checked_ord):
-        """Return diff between ordinate of upper well, and current ordinate"""
-
-        # TODO Move this method to hydr_cond module
-
-        return self._ord_upper_level - checked_ord

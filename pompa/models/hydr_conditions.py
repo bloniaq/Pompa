@@ -36,3 +36,18 @@ class HydrConditions():
         self.reserve_height = v.FloatVariable()
         self.inflow_max = v.FlowVariable()
         self.inflow_min = v.FlowVariable()
+
+    def geom_height(self, ordinate):
+        """Return geometric height to pump
+
+        Parameters
+        ----------
+        ordinate : FloatVariable
+            Ordinate to check.
+
+        Returns
+        -------
+        FloatVariable
+            Difference between checked ordinate and upper level ordinate
+        """
+        return self.ord_upper_level - ordinate
