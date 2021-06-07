@@ -97,3 +97,9 @@ def test_calculate(s2_pumpset):
         exp_dict['ord_start'], rel=.002)
     assert s2_pumpset.worst_inflow.value_lps == pytest.approx(
         exp_dict['worst_inflow'].value_lps, rel=.02)
+
+
+def test_optimal_range(station_4_psets):
+    station, pset_1, pset_2, pset_3 = station_4_psets
+    assert pset_2.op_range[0] == station.pump_type.efficiency_from * 2
+    assert pset_2.op_range[1] == station.pump_type.efficiency_to * 2

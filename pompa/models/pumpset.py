@@ -29,14 +29,15 @@ class PumpSet:
         Workpoint parameters at start-up ordinate
     wpoint_stop : WorkPoint
         Workpoint parameters at shutdown ordinate
-    op_range : NOT IMPLEMENTED YET
-        Optimal range of pumpset, based on information provided by pump
-        manufacturer
+    op_range : tuple
+        Optimal range of pumpset efficiency. (min, max)
     worst_inflow : FlowVariable
         The least favorable inflow
     enough_pumps : bool
         Is true, when pumpset efficiency at shutdown ordinate (lowest eff) is
         higher than maximum expected inflow
+
+    TODO: Private attributes description
     """
 
     def __init__(self, station, ord_shutdown, pumps_amount=1, last_pset=None):
@@ -97,7 +98,8 @@ class PumpSet:
         self.ord_start = None
         self.wpoint_start = None
         self.wpoint_stop = None
-        self.op_range = None
+        self.op_range = (station.pump_type.efficiency_from * pumps_amount,
+                         station.pump_type.efficiency_to * pumps_amount)
         self.worst_inflow = None
 
         # calculations
@@ -171,7 +173,6 @@ class PumpSet:
         self.ord_start = ordinate
         self.wpoint_start = wpoint
         self.wpoint_stop = points[str(self.ord_stop.get())].wpoint
-        self.op_range = None
         self.worst_inflow = worst_inflow
 
         print('\n\nPUMP no {}\n'.format(self._pumps_amount))
