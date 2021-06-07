@@ -4,8 +4,8 @@ import pompa.models.station as station
 import pompa.view.gui_tk as gui_tk
 
 
-class Application():
-    """docstring for Application"""
+class Application:
+    """Class used for instantiation the Application"""
 
     def __init__(self):
 
@@ -13,6 +13,6 @@ class Application():
         self.gui_tkinter = gui_tk.Gui()
 
     def run_gui(self):
-        """ Makes infinite loop
-        """
+        """Make infinite loop of GUI"""
+
         self.gui_tkinter.mainwindow.mainloop()
