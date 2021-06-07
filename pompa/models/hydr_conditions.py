@@ -7,23 +7,28 @@ class HydrConditions():
     Attributes
     ----------
     ord_terrain : FloatVariable
-        The ordinate of terrain near sewage pumping station
+        The ordinate of terrain near sewage pumping station.
     ord_inlet : FloatVariable
-        The ordinate of lowest inlet pipe
+        The ordinate of lowest inlet pipe.
     ord_outlet : FloatVariable
-        The ordinate of outlet pipe
+        The ordinate of outlet pipe.
     ord_bottom : FloatVariable
-        Assumed ordinate of bottom of well
+        Assumed ordinate of bottom of well.
     ord_highest_point : FloatVariable
-        The highest point on pipe rout ordinate
+        The highest point on pipe rout ordinate.
     ord_upper_level : FloatVariable
-        The ordinate of end of outside pipe(s)
+        The ordinate of end of outside pipe(s).
     reserve_height : FloatVariable
-        Assumed distance between inlet ordinate and alarm ordinate
+        Assumed distance between inlet ordinate and alarm ordinate.
     inflow_max : FlowVariable
-        Assumed maximum inflow to sewage pumping station
+        Assumed maximum inflow to sewage pumping station.
     inflow_min : FlowVariable
-        Assumed minimum inflow to sewage pumping station
+        Assumed minimum inflow to sewage pumping station.
+
+    Methods
+    -------
+    geom_height(ordinate)
+        Returns difference between upper level ordinate and parameter ordinate.
     """
 
     def __init__(self):
