@@ -26,6 +26,7 @@ class PumpSystem:
 
         self._station = station
         self.pumpsets = []
+        self._ord_shutdown = station.pump_type.shutdown_ord
 
         self._calculate(mode)
 
@@ -57,19 +58,3 @@ class PumpSystem:
             enough_pumps = self.pumpsets[-1].enough_pumps
             if pumps_counter == PUMPSETS_LIMITER:
                 enough_pumps = True
-
-    def _ord_shutdown(self, ord_bottom):
-        """Calculate ordinate of pump shutdown.
-
-        Parameters
-        ----------
-        ord_bottom : FloatVariable
-            Current station bottom ordinate
-
-        Returns
-        -------
-        FloatVariable
-            Sum of current bottom ordinate and pumptype suction level.
-        """
-
-        return self._station.pump_type.suction_level + ord_bottom

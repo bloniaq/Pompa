@@ -22,7 +22,9 @@ class PumpType(v.StationObject):
     Methods
     -------
     opt_range(pumps_amount)
-        Returns optimal range of pumpset efficiency
+        Returns optimal range of pumpset efficiency.
+    shutdown_ord(ord_bottom)
+        Returns pumpset shutdown ordinate.
     """
 
     def __init__(self):
@@ -42,3 +44,20 @@ class PumpType(v.StationObject):
             The number of pumps
         """
         return self.efficiency_from * pumps_amount, self.efficiency_to * 2
+
+    def shutdown_ord(self, ord_bottom):
+        """Calculate ordinate of pump shutdown.
+
+        Parameters
+        ----------
+        ord_bottom : FloatVariable
+            Current station bottom ordinate
+
+        Returns
+        -------
+        FloatVariable
+            Sum of current bottom ordinate and pumptype suction level.
+        """
+
+        return self.suction_level + ord_bottom
+
