@@ -278,4 +278,6 @@ class PumpSet:
     def _geom_height(self, checked_ord):
         """Return diff between ordinate of upper well, and current ordinate"""
 
+        # TODO Move this method to hydr_cond module
+
         return self._ord_upper_level - checked_ord
