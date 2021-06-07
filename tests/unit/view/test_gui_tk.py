@@ -16,7 +16,7 @@ class Test_Gui:
     ])
     def test_set_shape(self, shape, mode, diam, leng, wid):
         gui = pompa.view.gui_tk.Gui()
-        gui.set_shape(shape, mode)
+        gui.ui_set_shape(shape, mode)
         diam_entry_st = gui.builder.get_object('Entry_Well_diameter').cget(
             'state')
         leng_entry_st = gui.builder.get_object('Entry_Well_length').cget(

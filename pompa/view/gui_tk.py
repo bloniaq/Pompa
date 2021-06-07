@@ -13,10 +13,10 @@ class Gui():
         self.ui_vars = self.builder.tkvariables
         self.builder.connect_callbacks(self)
 
-        self.set_shape(self.ui_vars.__getitem__('shape').get(),
+        self.ui_set_shape(self.ui_vars.__getitem__('shape').get(),
                        self.ui_vars.__getitem__('mode').get())
 
-    def set_shape(self, shape, mode):
+    def ui_set_shape(self, shape, mode):
         """Set shape of station well.
 
         :param shape: string
@@ -25,7 +25,6 @@ class Gui():
             The mode of calculations
         :return: None
         """
-        self.ui_vars.__getitem__('shape').set(shape)
         diameter = self.builder.get_object('Entry_Well_diameter')
         length = self.builder.get_object('Entry_Well_length')
         width = self.builder.get_object('Entry_Well_width')
@@ -42,3 +41,16 @@ class Gui():
             diameter.configure(state='disabled')
             length.configure(state='disabled')
             width.configure(state='disabled')
+
+    def ui_set_mode(self, mode):
+        """
+
+        :param mode:
+        :return:
+        """
+
+        ord_bottom_label = self.ui_vars.__getitem__('ord_bottom_label')
+        if mode == 'checking':
+            ord_bottom_label.set('Rzędna dna pompowni [m]')
+        elif mode == 'minimalisation':
+            ord_bottom_label.set('Rzędna dna pompowni (założenie) [m]')
