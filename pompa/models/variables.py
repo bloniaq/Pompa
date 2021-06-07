@@ -145,12 +145,17 @@ class FloatVariable(Variable):
             return value
 
 
-class IntVariable(Variable):
-    """Holds variables needed to be represent in integers"""
+class IntVariable(Variable, int):
+    """Class used to combine int values and tk-oriented callbacks interface"""
+
+    def __new__(self, value=0):
+        return int.__new__(self, value)
+        self.value = self
 
     def __init__(self, value=0):
         value = self._round(value)
         super().__init__(value)
+        self.value = self
 
     def set(self, value):
         value = self._round(value)
@@ -163,7 +168,6 @@ class IntVariable(Variable):
             raise InputTypeError()
         else:
             return value
-
 
 class FlowVariable(Variable):
     """Holds variables which keep flow values, and provide unit conversion"""

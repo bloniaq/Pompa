@@ -172,7 +172,7 @@ class Test_IntVar:
         assert isinstance(var.value, int)
 
     def test_string_input_value(self):
-        with pytest.raises(InputTypeError):
+        with pytest.raises(ValueError):
             variables.IntVariable("test string")
 
     @pytest.mark.parametrize(
@@ -196,6 +196,14 @@ class Test_IntVar:
         string_val = 'test string'
         with pytest.raises(InputTypeError):
             int_var.set(string_val)
+
+    def test_int_inheritance(self):
+        var_1 = variables.IntVariable(4)
+        var_2 = variables.IntVariable(8)
+        assert var_1 < var_2
+        assert var_2 > var_1
+        assert var_2 + var_1 == 12
+        assert var_2 - var_1 == 4
 
 
 class Test_FlowVar:
