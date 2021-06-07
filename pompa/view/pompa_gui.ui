@@ -82,7 +82,7 @@ __________________________________
  *      ****  *     * *     *   *
 __________________________________
 
-POMPA    Wersja 2.00/2018r   POMPA</property>
+POMPA    Wersja 2.01/2021r   POMPA</property>
                 <layout>
                   <property name="column">0</property>
                   <property name="propagate">True</property>
