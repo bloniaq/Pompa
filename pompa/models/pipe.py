@@ -73,7 +73,7 @@ class Pipe(v.StationObject):
             Reynolds number unit is none [-]
         """
 
-        return round(((self.diameter.value) * self._velocity(flow)) / (
+        return round((self.diameter.value * self._velocity(flow)) / (
             self.kinematic_viscosity))
 
     def _lambda(self, re):
@@ -289,12 +289,12 @@ class FrictionFactor:
         reynolds = self._reynolds
         enough_close = False
         while not enough_close:
-            leftF = 1 / cw_friction ** 0.5
-            rightF = - 2 * math.log10(2.51 / (
-                reynolds * cw_friction ** 0.5) + (self._roughness) / (
+            left_f = 1 / cw_friction ** 0.5
+            right_f = - 2 * math.log10(2.51 / (
+                reynolds * cw_friction ** 0.5) + self._roughness / (
                     3.72 * self._diameter))
             cw_friction -= 0.000001
-            if (rightF - leftF <= 0):  # Check if Left = Right
+            if right_f - left_f <= 0:  # Check if Left = Right
                 enough_close = True
 
         if self._reynolds < 4000:
@@ -489,9 +489,9 @@ class FrictionFactor:
         elif self._reynolds <= 100000:
             lambda_ = 0.3164 / (self._reynolds ** 0.25)
         elif self._reynolds < _boundary_reynolds(_boundary_lambda()):
-            lambda_ = self._boundary_lambda()
+            lambda_ = _boundary_lambda()
         else:
-            lambda_ = (-2 * np.log10((self._roughness) / (
+            lambda_ = (-2 * np.log10(self._roughness / (
                 3.71 * self._diameter))) ** -2
 
         return round(lambda_, 4)

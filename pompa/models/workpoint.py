@@ -89,11 +89,12 @@ class WorkPoint:
             a dictionary of velocities in inside ('ins_pipe') and outside
             ('out_pipe') pipes
         """
-        velocity = {}
-        velocity['ins_pipe'] = round(flow.value_m3ps / (
-            self._ins_pipe_crossec_area * self._ins_pipes_no), 2)
-        velocity['out_pipe'] = round(flow.value_m3ps / (
-            self._out_pipe_crossec_area * self._out_pipes_no), 2)
+        velocity = {
+            'ins_pipe': round(flow.value_m3ps / (
+                self._ins_pipe_crossec_area * self._ins_pipes_no), 2),
+            'out_pipe': round(flow.value_m3ps / (
+                self._out_pipe_crossec_area * self._out_pipes_no), 2)
+        }
         return velocity
 
     def _full_loss_poly(self):
@@ -141,7 +142,6 @@ class WorkPoint:
 
         if len(roots) > 1:
             raise TooManyRootsError(roots, pipeset_poly, self._pumpset_poly)
-            return
         elif len(roots) == 0:
             raise NoRootsError(roots, pipeset_poly, self._pumpset_poly,
                                v.FlowVariable(11, 'lps'),

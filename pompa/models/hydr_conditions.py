@@ -1,7 +1,7 @@
 import pompa.models.variables as v
 
 
-class HydrConditions():
+class HydrConditions:
     """Class used to keep hydraulic conditions of sewage pumping station
 
     Attributes

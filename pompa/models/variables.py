@@ -2,7 +2,7 @@ from pompa.exceptions import InputTypeError
 import numpy as np
 
 
-class StationObject():
+class StationObject:
     """Abstract class for subclassing Station objects.
 
     Providing interface for loading values from file
@@ -42,7 +42,7 @@ class StationObject():
                 self.__dict__[attribute].load_data(data_dict)
 
 
-class Variable():
+class Variable:
     """Abstract class responsible for provide interface of a model variable."""
 
     def __init__(self, value=None):
@@ -95,39 +95,39 @@ class FloatVariable(Variable):
 
     def __truediv__(self, other):
         if isinstance(other, FloatVariable):
-            return (self.value / other.value)
+            return self.value / other.value
         else:
             return FloatVariable(self.value / other, self.digits)
 
     def __eq__(self, other):
         if isinstance(other, FloatVariable):
-            return (self.value == other.value)
+            return self.value == other.value
         else:
-            return (self.value == other)
+            return self.value == other
 
     def __lt__(self, other):
         if isinstance(other, FloatVariable):
-            return (self.value < other.value)
+            return self.value < other.value
         else:
-            return (self.value < other)
+            return self.value < other
 
     def __le__(self, other):
         if isinstance(other, FloatVariable):
-            return (self.value <= other.value)
+            return self.value <= other.value
         else:
-            return (self.value <= other)
+            return self.value <= other
 
     def __gt__(self, other):
         if isinstance(other, FloatVariable):
-            return (self.value > other.value)
+            return self.value > other.value
         else:
-            return (self.value > other)
+            return self.value > other
 
     def __ge__(self, other):
         if isinstance(other, FloatVariable):
-            return (self.value >= other.value)
+            return self.value >= other.value
         else:
-            return (self.value >= other)
+            return self.value >= other
 
     def __round__(self, digits):
         return FloatVariable(round(self.value, digits))
@@ -177,19 +177,19 @@ class FlowVariable(Variable):
         return '{} lps'.format(self.value_lps)
 
     def __eq__(self, other):
-        return (self.value_m3ph == other.value_m3ph)
+        return self.value_m3ph == other.value_m3ph
 
     def __lt__(self, other):
-        return (self.value_m3ph < other.value_m3ph)
+        return self.value_m3ph < other.value_m3ph
 
     def __le__(self, other):
-        return (self.value_m3ph <= other.value_m3ph)
+        return self.value_m3ph <= other.value_m3ph
 
     def __gt__(self, other):
-        return (self.value_m3ph > other.value_m3ph)
+        return self.value_m3ph > other.value_m3ph
 
     def __ge__(self, other):
-        return (self.value_m3ph >= other.value_m3ph)
+        return self.value_m3ph >= other.value_m3ph
 
     def __add__(self, other):
         return FlowVariable(self.value_m3ph + other.value_m3ph)
@@ -205,12 +205,12 @@ class FlowVariable(Variable):
 
     def __truediv__(self, other):
         if isinstance(other, FlowVariable):
-            return (self.value_m3ph / other.value_m3ph)
+            return self.value_m3ph / other.value_m3ph
         else:
             return FlowVariable(self.value_m3ph / other, 'm3ph')
 
     def __floordiv__(self, other):
-        return (self.value_m3ph // other.value_m3ph)
+        return self.value_m3ph // other.value_m3ph
 
     def set(self, value, unit='m3ph'):
         try:

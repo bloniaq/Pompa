@@ -60,4 +60,3 @@ class PumpType(v.StationObject):
         """
 
         return self.suction_level + ord_bottom
-

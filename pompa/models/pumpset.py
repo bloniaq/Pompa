@@ -29,7 +29,7 @@ class PumpSet:
         Workpoint parameters at start-up ordinate
     wpoint_stop : WorkPoint
         Workpoint parameters at shutdown ordinate
-    op_range : tuple
+    opt_range : tuple
         Optimal range of pumpset efficiency. (min, max)
     worst_inflow : FlowVariable
         The least favorable inflow
