@@ -55,4 +55,5 @@ class HydrConditions():
         FloatVariable
             Difference between checked ordinate and upper level ordinate
         """
+
         return self.ord_upper_level - ordinate
