@@ -9,4 +9,4 @@ class Test_Application:
 
     def test_gui_tkinter(self):
         app = pompa.Application()
-        assert isinstance(app.gui_tkinter, pompa.gui_tk.Gui)
+        assert isinstance(app.view_gui, pompa.gui_tk.Gui)
