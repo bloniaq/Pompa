@@ -2,7 +2,7 @@ import tkinter as tk  # for python 3
 import pygubu
 
 
-class Gui():
+class Gui:
     
     def __init__(self):
 
@@ -10,11 +10,15 @@ class Gui():
         self.builder.add_from_file('pompa\\view\\pompa_gui.ui')
         self.mainwindow = self.builder.get_object('Toplevel_Main')
         self.filepath = self.builder.get_object('filepath')
-        self.ui_vars = self.builder.tkvariables
+        self.ui_vars = self.builder.tkvariables.__getitem__
         self.builder.connect_callbacks(self)
 
-        self.ui_set_shape(self.ui_vars.__getitem__('shape').get(),
-                       self.ui_vars.__getitem__('mode').get())
+        self.ui_set_shape(self.ui_vars('shape').get(),
+                          self.ui_vars('mode').get())
+
+    def set_trace(self, name_id, method):
+        self.ui_vars(name_id).trace('w', lambda name, index, mode: method(
+            name_id))
 
     def ui_set_shape(self, shape, mode):
         """Set shape of station well.
@@ -49,7 +53,7 @@ class Gui():
         :return:
         """
 
-        ord_bottom_label = self.ui_vars.__getitem__('ord_bottom_label')
+        ord_bottom_label = self.ui_vars('ord_bottom_label')
         if mode == 'checking':
             ord_bottom_label.set('Rzędna dna pompowni [m]')
         elif mode == 'minimalisation':

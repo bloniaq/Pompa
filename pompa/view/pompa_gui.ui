@@ -596,7 +596,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                               <object class="ttk.Entry" id="Entry_Ordinate_terrain">
                                 <property name="exportselection">false</property>
                                 <property name="justify">right</property>
-                                <property name="textvariable">double:ordinate_terrain</property>
+                                <property name=>double:ordinate_terrain</property>
                                 <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
@@ -665,7 +665,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                               <object class="ttk.Entry" id="Entry_Ordinate_final_table">
                                 <property name="exportselection">false</property>
                                 <property name="justify">right</property>
-                                <property name="textvariable">double:ordinate_final_table</property>
+                                <property name="textvariable">double:ordinate_upper_level</property>
                                 <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
@@ -690,7 +690,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                             <child>
                               <object class="ttk.Entry" id="Entry_Difference_in_start">
                                 <property name="justify">right</property>
-                                <property name="textvariable">double:difference_in_start</property>
+                                <property name="textvariable">double:reserve_height</property>
                                 <property name="width">7</property>
                                 <layout>
                                   <property name="column">1</property>
@@ -1055,7 +1055,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                           <object class="ttk.Entry" id="Entry_Length_discharge_pipe">
                             <property name="exportselection">false</property>
                             <property name="justify">right</property>
-                            <property name="textvariable">double:length_discharge_pipe</property>
+                            <property name="textvariable">double:length_inside_pipe</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1069,7 +1069,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                           <object class="ttk.Entry" id="Entry_Diameter_discharge_pipe">
                             <property name="exportselection">false</property>
                             <property name="justify">right</property>
-                            <property name="textvariable">double:diameter_discharge_pipe</property>
+                            <property name="textvariable">double:diameter_inside_pipe</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1083,7 +1083,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                           <object class="ttk.Entry" id="Entry_Roughness_discharge_pipe">
                             <property name="exportselection">false</property>
                             <property name="justify">right</property>
-                            <property name="textvariable">double:roughness_discharge_pipe</property>
+                            <property name="textvariable">double:roughness_inside_pipe</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1097,7 +1097,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                           <object class="ttk.Entry" id="Entry_Resistance_discharge_pipe">
                             <property name="exportselection">false</property>
                             <property name="justify">right</property>
-                            <property name="textvariable">string:resistance_discharge_pipe</property>
+                            <property name="textvariable">string:resistance_inside_pipe</property>
                             <property name="width">24</property>
                             <layout>
                               <property name="column">1</property>
@@ -1204,7 +1204,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                           <object class="ttk.Entry" id="Entry_Number_of_collectors">
                             <property name="exportselection">false</property>
                             <property name="justify">right</property>
-                            <property name="textvariable">int:number_of_collectors</property>
+                            <property name="textvariable">int:parallels_outside_pipe</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1218,7 +1218,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                           <object class="ttk.Entry" id="Entry_Length_collector">
                             <property name="exportselection">false</property>
                             <property name="justify">right</property>
-                            <property name="textvariable">double:length_collector</property>
+                            <property name="textvariable">double:length_outside_pipe</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1232,7 +1232,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                           <object class="ttk.Entry" id="Entry_Diameter_collector">
                             <property name="exportselection">false</property>
                             <property name="justify">right</property>
-                            <property name="textvariable">double:diameter_collector</property>
+                            <property name="textvariable">double:diameter_outside_pipe</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1246,7 +1246,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                           <object class="ttk.Entry" id="Entry_Roughness_collector">
                             <property name="exportselection">false</property>
                             <property name="justify">right</property>
-                            <property name="textvariable">double:roughness_collector</property>
+                            <property name="textvariable">double:roughness_outside_pipe</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
@@ -1259,7 +1259,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                         <child>
                           <object class="ttk.Entry" id="Entry_Resistance_collector">
                             <property name="justify">right</property>
-                            <property name="textvariable">string:resistance_collector</property>
+                            <property name="textvariable">string:resistance_outside_pipe</property>
                             <property name="width">24</property>
                             <layout>
                               <property name="column">1</property>
@@ -1406,7 +1406,7 @@ POMPA    Wersja 2.01/2021r   POMPA</property>
                         <child>
                           <object class="tk.Entry" id="Entry_Work_cycle">
                             <property name="justify">right</property>
-                            <property name="textvariable">double:work_cycle</property>
+                            <property name="textvariable">double:cycle_time</property>
                             <property name="width">7</property>
                             <layout>
                               <property name="column">1</property>
