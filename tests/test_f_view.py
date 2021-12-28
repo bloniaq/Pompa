@@ -1,10 +1,11 @@
-import pompa.view.gui_tk
+import pompa.application as app_module
 
 
 class Test_Gui:
 
     def test_init(self):
-        gui = pompa.view.gui_tk.Gui()
+        app = app_module.Application()
+        gui = app.view_gui
         assert gui.ui_vars.__getitem__('shape').get() == 'rectangle'
         assert gui.ui_vars.__getitem__('mode').get() == 'minimalisation'
         diam_entry_st = gui.builder.get_object('Entry_Well_diameter').cget(
