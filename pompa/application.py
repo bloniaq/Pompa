@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pompa.models.station as station
-import pompa.view.gui_tk as gui_tk
+import pompa.view.gui_tk_pygubu as gui_tk
 
 
 class Application:
