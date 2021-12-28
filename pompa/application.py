@@ -11,6 +11,8 @@ class Application:
 
         self.station = station.Station()
         self.view_gui = gui_tk.Gui()
+        # TODO:
+        # self.view - gui_tk.Gui()
 
         self._add_callbacks()
         self._add_commands()
@@ -19,6 +21,9 @@ class Application:
         """Make infinite loop of GUI"""
 
         self.view_gui.mainwindow.mainloop()
+
+        # TODO:
+        # self.view.run()
 
     def _add_callbacks(self):
         pass
