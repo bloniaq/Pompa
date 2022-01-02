@@ -11,7 +11,7 @@ class Application:
 
         self.station = station.Station()
         self.view_gui = gui_tk.Gui()
-        # TODO:
+        # TODO: zmiana nazw zmiennych
         # self.view - gui_tk.Gui()
 
         self._add_callbacks()
@@ -22,7 +22,7 @@ class Application:
 
         self.view_gui.mainwindow.mainloop()
 
-        # TODO:
+        # TODO: zmiana nazw zmiennych
         # self.view.run()
 
     def _add_callbacks(self):
