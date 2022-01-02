@@ -5,11 +5,14 @@ from tkinter import filedialog as fd
 
 class Buttonframe(tk.Frame):
 
-    def __init__(self, parent):
+    def __init__(self, parent, unit_var, unit_change_command):
         tk.Frame.__init__(self, parent,
                           relief='groove',
                           bd=2)
         self.parent = parent
+
+        self.unit_var = unit_var
+        self.change_unit = unit_change_command
 
         self.inner_frame = tk.Frame(self)
         self.inner_frame.pack(expand=True,
@@ -22,10 +25,14 @@ class Buttonframe(tk.Frame):
 
         self.calc_button = tk.Button(self.inner_frame,
                                      text='Oblicz',
-                                     pady=8)
+                                     pady=8,
+                                     command=self._calculate)
         self.calc_button.pack(expand=True,
                               side=tk.BOTTOM,
-                              fill=tk.BOTH,)
+                              fill=tk.BOTH)
+
+    def _change_unit(self):
+        self.change_unit()
 
     def _files_frame(self):
         self.files_frame = tk.Frame(self.inner_frame)
@@ -43,23 +50,22 @@ class Buttonframe(tk.Frame):
                               pady=10)
 
     def _units_frame(self):
-        self.units_var = tk.StringVar()
-        self.units_var.set('meters')
-
         self.units_lframe = tk.ttk.Labelframe(self.inner_frame,
                                               text='Jednostki',
                                               relief='groove')
         self.units_frame = tk.Frame(self.units_lframe)
         self.meters_radio = tk.Radiobutton(self.units_frame,
-                                           variable=self.units_var,
+                                           variable=self.unit_var,
                                            text='m³/h',
                                            value='meters',
-                                           font=20)
+                                           font=20,
+                                           command=self._change_unit)
         self.liters_radio = tk.Radiobutton(self.units_frame,
-                                           variable=self.units_var,
+                                           variable=self.unit_var,
                                            text='l/s',
                                            value='liters',
-                                           font=20)
+                                           font=20,
+                                           command=self._change_unit)
         self.meters_radio.pack(side=tk.LEFT)
         self.liters_radio.pack(side=tk.RIGHT)
         self.units_frame.pack(fill=tk.X,
@@ -130,14 +136,17 @@ class Buttonframe(tk.Frame):
         self.workmode_lframe.pack(fill=tk.X,
                                   pady=(10, 20))
 
+    def _calculate(self):
+        print('obliczenia')
+
     def _open_file(self):
         filename = fd.askopenfilename(
             filetypes=[("Plik tekstowy", "*.txt")])
         # wywołanie okna dialogowego open file
         if filename:
             with open(filename, "r", -1, "utf-8") as file:
-                self.text.delete(1.0, tk.END)
-                self.text.insert(tk.END, file.read())
+                self.data.delete(1.0, tk.END)
+                self.data.insert(tk.END, file.read())
 
     def _save_file(self):
         # TODO: Zapisz Dane do zakodowania
