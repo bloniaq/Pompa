@@ -1,4 +1,5 @@
 import pompa.application as pompa
+import pompa.view as view
 
 class Test_Application:
 
@@ -9,4 +10,4 @@ class Test_Application:
 
     def test_gui_tkinter(self):
         app = pompa.Application()
-        assert isinstance(app.view_gui, pompa.gui_tk.Gui)
+        assert isinstance(app.view, view.gui_tk.View)
