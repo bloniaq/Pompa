@@ -33,7 +33,7 @@ class Application:
 
     def __init__(self):
 
-        self.station = station.Station()
+        self.model = station.Station()
         self.view = gui_tk.View(self.VARIABLES, self.DEFAULT_VALUES)
 
         # self._add_callbacks()
