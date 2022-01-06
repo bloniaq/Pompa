@@ -17,11 +17,11 @@ class View:
         self.vars = self._create_view_variables(variables_ids)
         self._set_default_values(default_values)
 
+        self.callbacks = {}
+        self.values_port = None
+
         # build widgets
         self.gui = Gui(self.root)
-
-        self.callbacks = {}
-
         self._create_widget_aliases()
 
     def run(self):
@@ -68,14 +68,14 @@ class View:
 
         dictionary = {}
 
-        for id in identificators['string_ids']:
-            dictionary[id] = vv.StringVar(id)
+        for _id in identificators['string_ids']:
+            dictionary[_id] = vv.StringVar(_id)
 
-        for id in identificators['int_ids']:
-            dictionary[id] = vv.IntVar(id)
+        for _id in identificators['int_ids']:
+            dictionary[_id] = vv.IntVar(_id)
 
-        for id in identificators['double_ids']:
-            dictionary[id] = vv.DoubleVar(id)
+        for _id in identificators['double_ids']:
+            dictionary[_id] = vv.DoubleVar(_id)
 
         return dictionary
 
