@@ -12,22 +12,22 @@ class ViewVariable:
 class StringVar(tk.StringVar, ViewVariable):
     """Class to wrap id parameter around standard tk.StringVar """
 
-    def __init__(self, id, *args, **kwargs):
-        ViewVariable.__init__(self, id)
+    def __init__(self, id_, *args, **kwargs):
+        ViewVariable.__init__(self, id_)
         tk.StringVar.__init__(self, *args, **kwargs)
 
 
 class IntVar(tk.IntVar, ViewVariable):
     """Class to wrap id parameter around standard tk.IntVar"""
 
-    def __init__(self, id, *args, **kwargs):
-        ViewVariable.__init__(self, id)
+    def __init__(self, id_, *args, **kwargs):
+        ViewVariable.__init__(self, id_)
         tk.IntVar.__init__(self, *args, **kwargs)
 
 class DoubleVar(tk.DoubleVar, ViewVariable):
     """Class to wrap id parameter around standard tk.DoubleVar"""
 
-    def __init__(self, id, *args, **kwargs):
-        ViewVariable.__init__(self, id)
+    def __init__(self, id_, *args, **kwargs):
+        ViewVariable.__init__(self, id_)
         tk.DoubleVar.__init__(self, *args, **kwargs)
 
