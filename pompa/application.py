@@ -24,11 +24,17 @@ class Application:
         'int_ids': INT_VARIABLES,
         'double_ids': DOUBLE_VARIABLES
     }
+    DEFAULT_VALUES = {
+        'unit': 'meters',
+        'mode': 'checking',
+        'safety': 'optimal',
+        'shape': 'round'
+    }
 
     def __init__(self):
 
         self.station = station.Station()
-        self.view = gui_tk.View(self.VARIABLES)
+        self.view = gui_tk.View(self.VARIABLES, self.DEFAULT_VALUES)
 
         # self._add_callbacks()
         # self._add_commands()

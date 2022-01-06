@@ -10,12 +10,12 @@ from tkinter import ttk
 
 class View:
 
-    def __init__(self, variables_ids):
+    def __init__(self, variables_ids, default_values):
         self.root = tk.Tk()
 
         # initialize variables
         self.vars = self._create_view_variables(variables_ids)
-        # self._set_default_values(default_values)
+        self._set_default_values(default_values)
 
         # build widgets
         self.gui = Gui(self.root)
@@ -80,6 +80,10 @@ class View:
             dictionary[id] = vv.DoubleVar(id)
 
         return dictionary
+
+    def _set_default_values(self, values):
+        for _id in values.keys():
+            self.vars[_id].set(values[_id])
 
 
 class Gui(tk.Frame):

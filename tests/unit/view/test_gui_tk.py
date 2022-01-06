@@ -10,16 +10,17 @@ import tkinter as tk
 class Test_View:
 
     VARIABLES = app_module.Application.VARIABLES
+    DEFAULT_VALUES = app_module.Application.DEFAULT_VALUES
 
     def test_structure(self):
-        view = view_module.View(self.VARIABLES)
+        view = view_module.View(self.VARIABLES, self.DEFAULT_VALUES)
         assert isinstance(view, view_module.View)
         assert isinstance(view.root, tk.Tk)
         # test whether 'run' is a method of gui_str:
         assert hasattr(view, 'run') and callable(getattr(view, 'run'))
 
     def test_add_values_port(self):
-        view = view_module.View(self.VARIABLES)
+        view = view_module.View(self.VARIABLES, self.DEFAULT_VALUES)
 
         def port():
             pass
@@ -27,6 +28,12 @@ class Test_View:
         view.add_port(port)
 
         assert view.values_port == port
+
+    def test_default_values(self):
+        view = view_module.View(self.VARIABLES, self.DEFAULT_VALUES)
+
+        assert view.vars['shape'].get() == 'round'
+
 
 
 class Test_Variables:

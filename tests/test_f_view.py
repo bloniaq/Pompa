@@ -7,9 +7,10 @@ import pompa.view.widgets as vw
 class Test_Gui:
 
     VARIABLES = app_module.Application.VARIABLES
+    DEFAULT_VALUES = app_module.Application.DEFAULT_VALUES
 
     def test_init(self):
-        view = view_module.View(self.VARIABLES)
+        view = view_module.View(self.VARIABLES, self.DEFAULT_VALUES)
         assert view.vars['shape'].get() == 'round'
 
         """
@@ -25,7 +26,7 @@ class Test_Gui:
         """
 
     def test_sending_value(self):
-        view = view_module.View(self.VARIABLES)
+        view = view_module.View(self.VARIABLES, self.DEFAULT_VALUES)
 
         def port(id, value):
             return id, value
