@@ -1,5 +1,6 @@
 import pompa.view.gui_tk as view_module
 import pompa.view.variables as vv
+import pompa.view.widgets as vw
 
 import tkinter as tk
 
@@ -45,3 +46,23 @@ class Test_Variables:
         test_value = 13.12
         double_var = vv.DoubleVar('id', value=test_value)
         assert double_var.get() == test_value
+
+
+class Test_Widgets:
+
+    def test_Entry(self):
+        test_id = 'test_id'
+        test_value = 'test_value'
+        test_variable = vv.StringVar(test_id, value=test_value)
+        entry = vw.Entry(test_variable)
+        assert entry.variable == test_variable
+        assert entry.variable.id == test_id
+        assert entry.variable.get() == test_value
+        assert entry.get() == test_value
+
+        entry.delete(0, tk.END)
+        assert entry.get() == ''
+
+        other_value = 'other_value'
+        entry.insert(0, other_value)
+        assert entry.get() == other_value

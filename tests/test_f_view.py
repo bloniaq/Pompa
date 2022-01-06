@@ -1,4 +1,9 @@
 import pompa.application as app_module
+import pompa.view.gui_tk as view_module
+import pompa.view.variables as vv
+import pompa.view.widgets as vw
+
+import tkinter as tk
 
 
 class Test_Gui:
@@ -16,3 +21,24 @@ class Test_Gui:
         assert str(diam_entry_st) == 'disabled'
         assert str(leng_entry_st) == 'disabled'
         assert str(wid_entry_st) == 'disabled'
+
+    def test_sending_value(self):
+        view = view_module.View()
+
+        def port(id, value):
+            return id, value
+
+        view.add_port(port)
+
+        test_int_id = 'test_int_id'
+        test_int_value = 1916
+        int_var = vv.IntVar(test_int_id, value=test_int_value)
+        entry = vw.Entry(int_var)
+        assert view._send_value(entry) == (test_int_id, test_int_value)
+
+        test_string_id = 'test_string_id'
+        test_string_value = 'test_string_val'
+        string_var = vv.StringVar(test_string_id, value=test_string_value)
+        radio = vw.Radiobutton(string_var)
+        assert view._send_value(radio) == (test_string_id, test_string_value)
+
