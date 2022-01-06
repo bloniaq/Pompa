@@ -134,7 +134,7 @@ class Pipeframe(tk.Frame):
                              justify=tk.RIGHT,
                              width=self.RES_E_WIDTH)
         len_entry.grid(row=0, column=1, padx=PADX, pady=PADY, sticky=tk.E)
-        dim_entry.grid(row=1, column=1, padx=PADX, pady=PADY,sticky=tk.E)
+        dim_entry.grid(row=1, column=1, padx=PADX, pady=PADY, sticky=tk.E)
         rough_entry.grid(row=2, column=1, padx=PADX, pady=PADY, sticky=tk.E)
         res_entry.grid(row=4, column=1, padx=PADX, pady=PADY)
 
