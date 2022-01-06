@@ -22,7 +22,7 @@ class View:
 
         self.callbacks = {}
 
-        # self._create_widget_aliases()
+        self._create_widget_aliases()
 
     def run(self):
         self.root.mainloop()
@@ -65,8 +65,6 @@ class View:
 
     def _create_view_variables(self, identificators):
         """Create variables based on controller-provided ids"""
-        # TODO: Move to controller
-        # string_ids = ['unit', 'safety', 'mode']
 
         dictionary = {}
 

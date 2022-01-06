@@ -26,14 +26,12 @@ class Test_View:
             pass
 
         view.add_port(port)
-
         assert view.values_port == port
 
     def test_default_values(self):
         view = view_module.View(self.VARIABLES, self.DEFAULT_VALUES)
 
         assert view.vars['shape'].get() == 'round'
-
 
 
 class Test_Variables:
