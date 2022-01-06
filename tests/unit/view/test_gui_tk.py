@@ -15,7 +15,7 @@ class Test_View:
     def test_structure(self):
         view = view_module.View(self.VARIABLES, self.DEFAULT_VALUES)
         assert isinstance(view, view_module.View)
-        assert isinstance(view.root, tk.Tk)
+        assert isinstance(view, tk.Tk)
         # test whether 'run' is a method of gui_str:
         assert hasattr(view, 'run') and callable(getattr(view, 'run'))
 

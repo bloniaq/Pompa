@@ -8,10 +8,11 @@ class Application:
     """Class used as the Contoller for instantiation the Application"""
 
     STRING_VARIABLES = (
-        'unit',
         'mode',
+        'shape',
+        'config',
         'safety',
-        'shape'
+        'unit'
     )
     INT_VARIABLES = (
         'parallel_out_pipes'
@@ -25,10 +26,11 @@ class Application:
         'double_ids': DOUBLE_VARIABLES
     }
     DEFAULT_VALUES = {
-        'unit': 'meters',
         'mode': 'checking',
+        'shape': 'round',
+        'config': 'singlerow',
         'safety': 'optimal',
-        'shape': 'round'
+        'unit': 'meters'
     }
 
     def __init__(self):

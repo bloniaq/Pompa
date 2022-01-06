@@ -4,68 +4,74 @@ from tkinter import ttk
 
 class Pumpframe(tk.Frame):
 
-    def __init__(self, parent, unit_var):
+    def __init__(self, parent, view):
         tk.Frame.__init__(self, parent)
-        self.parent = parent
-        self.unit_var = unit_var
+        self.view = view
         self.add_point_window = None
 
-        lframes_frame = tk.Frame(self)
-        lframes_frame.pack()
-        prop_lframe = self._prop_lframe(lframes_frame)
-        points_lframe = self._points_lframe(lframes_frame)
-        chart_frame = self._chart_frame()
+        inner_frame = tk.Frame(self)
+        inner_frame.pack()
+        self._prop_lframe(inner_frame)
+        self._points_lframe(inner_frame)
+        self._chart_frame()
 
-        prop_lframe.pack(expand=True,
-                         fill=tk.BOTH,
-                         side=tk.LEFT,
-                         padx=10, pady=10)
-        points_lframe.pack(expand=True,
-                           fill=tk.BOTH,
-                           side=tk.RIGHT,
-                           padx=10, pady=10)
-        chart_frame.pack(expand=True,
-                         side=tk.BOTTOM,
-                         fill=tk.BOTH)
+        self.prop_lframe.pack(expand=True,
+                              fill=tk.BOTH,
+                              side=tk.LEFT,
+                              padx=10, pady=10)
+        self.points_lframe.pack(expand=True,
+                                fill=tk.BOTH,
+                                side=tk.RIGHT,
+                                padx=10, pady=10)
+        self.chart_frame.pack(expand=True,
+                              side=tk.BOTTOM,
+                              fill=tk.BOTH)
         self.pack()
 
     def update_units(self):
-        if self.unit_var.get() == 'meters':
+        """
+        Updates content of unit labels near entries
+        :return: None
+        """
+        unit_var_value = self.view.vars['unit'].get()
+        if unit_var_value == 'meters':
             self.minran_u_label.config(text='m³/h')
             self.maxran_u_label.config(text='m³/h')
-        elif self.unit_var.get() == 'liters':
+        elif unit_var_value == 'liters':
             self.minran_u_label.config(text='l/s')
             self.maxran_u_label.config(text='l/s')
 
-    def _prop_lframe(self, container):
-        lframe = tk.ttk.Labelframe(container,
-                                   text='Właściwości pompy')
-        frame = tk.Frame(lframe)
-        frame.pack(expand=True,
-                   fill=tk.BOTH,
-                   padx=10, pady=10)
-        dim_label = tk.Label(frame,
+    def _prop_lframe(self, parent):
+        self.prop_lframe = tk.ttk.Labelframe(parent,
+                                             text='Właściwości pompy')
+
+        # additional Frame prevents tk.Frames ipadx/ipady bug
+        inner_frame = tk.Frame(self.prop_lframe)
+        inner_frame.pack(expand=True,
+                         fill=tk.BOTH,
+                         padx=10, pady=10)
+        dim_label = tk.Label(inner_frame,
                              text='Średnica instalacyjna pompy')
-        cycle_label = tk.Label(frame,
+        cycle_label = tk.Label(inner_frame,
                                text='Min. czas cyklu pompy')
-        height_label = tk.Label(frame,
+        height_label = tk.Label(inner_frame,
                                 text='Min. wysokość ścieków')
-        range_label = tk.Label(frame,
+        range_label = tk.Label(inner_frame,
                                text='Zakres maksymalnej wydajności pompy:')
-        minran_label = tk.Label(frame,
+        minran_label = tk.Label(inner_frame,
                                 text='Od')
-        maxran_label = tk.Label(frame,
+        maxran_label = tk.Label(inner_frame,
                                 text='Do')
-        dim_u_label = tk.Label(frame,
+        dim_u_label = tk.Label(inner_frame,
                                text='m')
-        cycle_u_label = tk.Label(frame,
+        cycle_u_label = tk.Label(inner_frame,
                                  text='min')
-        height_u_label = tk.Label(frame,
+        height_u_label = tk.Label(inner_frame,
                                   text='m')
-        self.minran_u_label = tk.Label(frame,
+        self.minran_u_label = tk.Label(inner_frame,
                                        width=4,
                                        anchor=tk.W)
-        self.maxran_u_label = tk.Label(frame,
+        self.maxran_u_label = tk.Label(inner_frame,
                                        width=4,
                                        anchor=tk.W)
         dim_label.grid(row=0, column=0, columnspan=4, sticky=tk.W)
@@ -83,36 +89,35 @@ class Pumpframe(tk.Frame):
         self.maxran_u_label.grid(row=4, column=5)
 
         ENTRY_WID = 7
-        dim_entry = tk.Entry(frame,
-                             justify=tk.RIGHT,
-                             width=ENTRY_WID)
-        cycle_entry = tk.Entry(frame,
-                               justify=tk.RIGHT,
-                               width=ENTRY_WID)
-        height_entry = tk.Entry(frame,
-                                justify=tk.RIGHT,
-                                width=ENTRY_WID)
-        minran_entry = tk.Entry(frame,
-                                justify=tk.RIGHT,
-                                width=ENTRY_WID)
-        maxran_entry = tk.Entry(frame,
-                                justify=tk.RIGHT,
-                                width=ENTRY_WID)
+        self.dim_entry = tk.Entry(inner_frame,
+                                  justify=tk.RIGHT,
+                                  width=ENTRY_WID)
+        self.cycle_entry = tk.Entry(inner_frame,
+                                    justify=tk.RIGHT,
+                                    width=ENTRY_WID)
+        self.height_entry = tk.Entry(inner_frame,
+                                     justify=tk.RIGHT,
+                                     width=ENTRY_WID)
+        self.minran_entry = tk.Entry(inner_frame,
+                                     justify=tk.RIGHT,
+                                     width=ENTRY_WID)
+        self.maxran_entry = tk.Entry(inner_frame,
+                                     justify=tk.RIGHT,
+                                     width=ENTRY_WID)
 
-        dim_entry.grid(row=0, column=4, padx=2, pady=2)
-        cycle_entry.grid(row=1, column=4, padx=2, pady=2)
-        height_entry.grid(row=2, column=4, padx=2, pady=2)
-        minran_entry.grid(row=4, column=1, padx=2, pady=2)
-        maxran_entry.grid(row=4, column=4, padx=2, pady=2)
+        self.dim_entry.grid(row=0, column=4, padx=2, pady=2)
+        self.cycle_entry.grid(row=1, column=4, padx=2, pady=2)
+        self.height_entry.grid(row=2, column=4, padx=2, pady=2)
+        self.minran_entry.grid(row=4, column=1, padx=2, pady=2)
+        self.maxran_entry.grid(row=4, column=4, padx=2, pady=2)
 
-        return lframe
-
-    def _points_lframe(self, container):
-        lframe = tk.ttk.Labelframe(container,
-                                   text='Charakterystyka pompy')
-        in_frame = tk.Frame(lframe)
-        in_frame.pack(padx=10, pady=10)
-        button_frame = tk.Frame(in_frame)
+    def _points_lframe(self, parent):
+        self.points_lframe = tk.ttk.Labelframe(parent,
+                                               text='Charakterystyka pompy')
+        # additional Frame prevents tk.Frames ipadx/ipady bug
+        inner_frame = tk.Frame(self.points_lframe)
+        inner_frame.pack(padx=10, pady=10)
+        button_frame = tk.Frame(inner_frame)
         button_frame.pack(expand=True,
                           fill=tk.BOTH,
                           side=tk.LEFT)
@@ -121,19 +126,18 @@ class Pumpframe(tk.Frame):
                                text='+',
                                font=('Arial', 20, 'bold'),
                                fg='green',
-                               command=self._add_point)
+                               command=self._add_point_window)
         rem_button = tk.Button(button_frame,
                                text='-',
                                font=('Arial', 20, 'bold'),
-                               fg='red',
-                               command=self._remove_point)
+                               fg='red')
         add_button.pack(expand=True,
                         side=tk.TOP,
                         fill=tk.BOTH)
         rem_button.pack(expand=True,
                         fill=tk.BOTH)
 
-        self.points_tview = tk.ttk.Treeview(in_frame, height=6)
+        self.points_tview = tk.ttk.Treeview(inner_frame, height=6)
         self.points_tview['columns'] = ('id', 'vflow', 'height')
         self.points_tview.column('#0', width=0, stretch=tk.NO)
         self.points_tview.column('id', anchor=tk.CENTER, width=40)
@@ -146,56 +150,41 @@ class Pumpframe(tk.Frame):
         self.points_tview.pack(expand=True,
                                side=tk.LEFT,
                                fill=tk.Y)
-        scrollbar = tk.ttk.Scrollbar(in_frame, orient=tk.VERTICAL,
+        scrollbar = tk.ttk.Scrollbar(inner_frame, orient=tk.VERTICAL,
                                      command=self.points_tview.yview)
         self.points_tview.configure(yscroll=scrollbar.set)
         scrollbar.pack(side=tk.LEFT,
                        fill=tk.Y)
 
-        return lframe
+    def _chart_frame(self):
+        self.chart_frame = tk.Frame(self)
+        # TODO: Wykres matplotlib
 
-    def _add_point(self):
+        len_label = tk.Label(self.chart_frame,
+                             text='Wykres')
+        len_label.grid(row=0, column=0)
+
+    def _add_point_window(self):
         if self.add_point_window is not None:
             self.add_point_window.destroy()
-        self.add_point_window = AddPointWindow(self.parent.parent.parent.parent,
-                                               self.unit_var,
+        self.add_point_window = AddPointWindow(self.view,
                                                self.points_tview)
         # TODO: Add point method
         pass
 
-    def _remove_point(self):
-        # TODO: Remove point method
-
-        selected_items = self.points_tview.selection()
-        for selected_item in selected_items:
-           self.points_tview.delete(selected_item)
-
-    def _chart_frame(self):
-        frame = tk.Frame(self)
-        # TODO: Wykres matplotlib
-
-        len_label = tk.Label(frame,
-                             text='Wykres')
-        len_label.grid(row=0, column=0)
-        return frame
-
 
 class AddPointWindow(tk.Toplevel):
 
-    def __init__(self, root, unit_var, treeview):
-        tk.Toplevel.__init__(self, root)
+    def __init__(self, view, treeview):
+        tk.Toplevel.__init__(self, view)
+        self.view = view
         self.title('Dodaj Punkt')
-        self.unit_var = unit_var
+        self.unit_var = self.view.vars['unit']
 
         self.tv = treeview
         self.vflow_var = tk.DoubleVar()
         self.height_var = tk.DoubleVar()
 
-
-        # out_frame = tk.Frame(self,
-        #                      relief='ridge')
-        # out_frame.pack(padx=15, pady=15)
-#
         frame = tk.Frame(self,
                          relief='groove')
         frame.pack(padx=15, pady=15)
@@ -278,9 +267,9 @@ class AddPointWindow(tk.Toplevel):
         event.widget.delete(0, tk.END)
         event.widget.insert(0, content)
 
-
     def _unit_update(self):
-        if self.unit_var.get() == 'meters':
+        unit_var_value = self.view.vars['unit'].get()
+        if unit_var_value == 'meters':
             self.vflow_u_label.config(text='m³/h')
-        elif self.unit_var.get() == 'liters':
+        elif unit_var_value == 'liters':
             self.vflow_u_label.config(text='l/s')

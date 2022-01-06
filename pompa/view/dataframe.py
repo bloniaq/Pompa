@@ -4,43 +4,42 @@ from tkinter import ttk
 
 class Dataframe(tk.Frame):
 
-    def __init__(self, parent, unit_var):
+    def __init__(self, parent, view, unit_var):
         tk.Frame.__init__(self, parent)
         self.parent = parent
-        self.unit_var = unit_var
-        self.shape_var = tk.StringVar()
-        self.shape_var.set('round')
+        self.view = view
 
-        self.geometry_var = tk.StringVar()
-        self.geometry_var.set('linear')
+        inner_frame = tk.Frame(self)
+        inner_frame.pack(padx=20, pady=20)
 
-        dataframe = self._dataframe()
-        drawframe = self._drawframe()
+        self._dataframe(inner_frame)
+        self._drawframe(inner_frame)
 
-        dataframe.pack(expand=True,
-                       fill=tk.Y,
-                       side=tk.LEFT,
-                       padx=10)
-        drawframe.pack(expand=True,
-                       fill=tk.Y,
-                       side=tk.RIGHT)
+        self.dataframe.pack(expand=True,
+                            fill=tk.Y,
+                            side=tk.LEFT,
+                            padx=10)
+        self.drawframe.pack(expand=True,
+                            fill=tk.Y,
+                            side=tk.RIGHT)
 
         self.pack(anchor=tk.W)
 
-    def _dataframe(self):
-        frame = tk.Frame(self)
-        assump_lframe = tk.ttk.Labelframe(frame,
+    def _dataframe(self, parent):
+        self.dataframe = tk.Frame(parent)
+        assump_lframe = tk.ttk.Labelframe(self.dataframe,
                                           text='Założenia')
-        well_lframe = tk.ttk.Labelframe(frame,
+        well_lframe = tk.ttk.Labelframe(self.dataframe,
                                         text='Studnia')
-        assump_frame = self._assumpframe(assump_lframe)
-        well_frame = self._wellframe(well_lframe)
-        assump_frame.pack(expand=True,
-                          fill=tk.BOTH,
-                          padx=10, pady=10)
-        well_frame.pack(expand=True,
-                        fill=tk.BOTH,
-                        padx=10, pady=10)
+        self._assumpframe(assump_lframe)
+        self._wellframe(well_lframe)
+
+        self.assumpframe.pack(expand=True,
+                               fill=tk.BOTH,
+                               padx=10, pady=10)
+        self.wellframe.pack(expand=True,
+                            fill=tk.BOTH,
+                            padx=10, pady=10)
 
         assump_lframe.pack(expand=True,
                            fill=tk.BOTH,
@@ -49,16 +48,14 @@ class Dataframe(tk.Frame):
                          fill=tk.BOTH,
                          pady=10)
 
-        return frame
-
     def _assumpframe(self, parent):
-        frame = tk.Frame(parent)
+        self.assumpframe = tk.Frame(parent)
 
-        income_label = tk.Label(frame,
+        income_label = tk.Label(self.assumpframe,
                                 text='Dopływ ścieków:')
         income_label.pack(anchor=tk.W)
 
-        income_frame = tk.Frame(frame)
+        income_frame = tk.Frame(self.assumpframe)
         income_frame.pack(expand=True,
                           fill=tk.Y)
 
@@ -66,9 +63,9 @@ class Dataframe(tk.Frame):
                                  text='Minimalny:')
         max_inc_label = tk.Label(income_frame,
                                  text='Maksymalny:')
-        min_inc_entry = tk.Entry(income_frame,
+        self.min_inc_entry = tk.Entry(income_frame,
                                  width=5)
-        max_inc_entry = tk.Entry(income_frame,
+        self.max_inc_entry = tk.Entry(income_frame,
                                  width=5)
         self.min_inc_u_label = tk.Label(income_frame,
                                         width=4,
@@ -81,14 +78,14 @@ class Dataframe(tk.Frame):
 
         min_inc_label.grid(row=0, column=0, sticky=tk.W, padx=(10, 0))
         max_inc_label.grid(row=1, column=0, sticky=tk.W, padx=(10, 0))
-        min_inc_entry.grid(row=0, column=1, padx=(10, 2))
-        max_inc_entry.grid(row=1, column=1, padx=(10, 2))
+        self.min_inc_entry.grid(row=0, column=1, padx=(10, 2))
+        self.max_inc_entry.grid(row=1, column=1, padx=(10, 2))
         self.min_inc_u_label.grid(row=0, column=2)
         self.max_inc_u_label.grid(row=1, column=2)
 
         # ORD FRAME
 
-        ord_frame = tk.Frame(frame)
+        ord_frame = tk.Frame(self.assumpframe)
         ord_frame.pack(expand=True,
                        fill=tk.BOTH)
 
@@ -133,19 +130,19 @@ class Dataframe(tk.Frame):
         alarm_h_sym_label = tk.Label(ord_frame,
                                      text='Ha=')
 
-        ord_ter_entry = tk.Entry(ord_frame,
+        self.ord_ter_entry = tk.Entry(ord_frame,
                                  width=5)
-        ord_inl_entry = tk.Entry(ord_frame,
+        self.ord_inl_entry = tk.Entry(ord_frame,
                                  width=5)
-        ord_out_entry = tk.Entry(ord_frame,
+        self.ord_out_entry = tk.Entry(ord_frame,
                                  width=5)
-        ord_bottom_entry = tk.Entry(ord_frame,
+        self.ord_bottom_entry = tk.Entry(ord_frame,
                                     width=5)
-        ord_high_entry = tk.Entry(ord_frame,
+        self.ord_high_entry = tk.Entry(ord_frame,
                                   width=5)
-        ord_end_entry = tk.Entry(ord_frame,
+        self.ord_end_entry = tk.Entry(ord_frame,
                                  width=5)
-        alarm_h_entry = tk.Entry(ord_frame,
+        self.alarm_h_entry = tk.Entry(ord_frame,
                                  width=5)
 
         ord_ter_u_label = tk.Label(ord_frame, text='m n.p.m.')
@@ -172,13 +169,13 @@ class Dataframe(tk.Frame):
         ord_end_sym_label.grid(row=5, column=1, sticky=tk.E)
         alarm_h_sym_label.grid(row=6, column=1, sticky=tk.E)
 
-        ord_ter_entry.grid(row=0, column=2)
-        ord_inl_entry.grid(row=1, column=2)
-        ord_out_entry.grid(row=2, column=2)
-        ord_bottom_entry.grid(row=3, column=2)
-        ord_high_entry.grid(row=4, column=2)
-        ord_end_entry.grid(row=5, column=2)
-        alarm_h_entry.grid(row=6, column=2)
+        self.ord_ter_entry.grid(row=0, column=2)
+        self.ord_inl_entry.grid(row=1, column=2)
+        self.ord_out_entry.grid(row=2, column=2)
+        self.ord_bottom_entry.grid(row=3, column=2)
+        self.ord_high_entry.grid(row=4, column=2)
+        self.ord_end_entry.grid(row=5, column=2)
+        self.alarm_h_entry.grid(row=6, column=2)
 
         ord_ter_u_label.grid(row=0, column=3, sticky=tk.W)
         ord_inl_u_label.grid(row=1, column=3, sticky=tk.W)
@@ -188,58 +185,57 @@ class Dataframe(tk.Frame):
         ord_end_u_label.grid(row=5, column=3, sticky=tk.W)
         alarm_h_u_label.grid(row=6, column=3, sticky=tk.W)
 
-        return frame
-
     def update_units(self):
-        if self.unit_var.get() == 'meters':
+        unit_var_value = self.view.vars['unit'].get()
+        if unit_var_value == 'meters':
             self.min_inc_u_label.config(text='m³/h')
             self.max_inc_u_label.config(text='m³/h')
-        elif self.unit_var.get() == 'liters':
+        elif unit_var_value == 'liters':
             self.min_inc_u_label.config(text='l/s')
             self.max_inc_u_label.config(text='l/s')
 
     def _wellframe(self, parent):
-        frame = tk.Frame(parent)
+        self.wellframe = tk.Frame(parent)
 
-        shape_label = tk.Label(frame,
+        shape_label = tk.Label(self.wellframe,
                                text='Kształt studni:')
         shape_label.pack(anchor=tk.W)
 
-        round_radio = tk.Radiobutton(frame,
+        self.round_radio = tk.Radiobutton(self.wellframe,
                                      text='kołowy',
                                      value='round',
-                                     variable=self.shape_var,
+                                     variable=self.view.vars['shape'],
                                      command=self._update_shape,
                                      anchor=tk.W)
-        rectangle_radio = tk.Radiobutton(frame,
+        self.rectangle_radio = tk.Radiobutton(self.wellframe,
                                          text='prostokątny',
                                          value='rectangle',
-                                         variable=self.shape_var,
+                                         variable=self.view.vars['shape'],
                                          command=self._update_shape,
                                          anchor=tk.W)
-        round_radio.pack(padx=20,
+        self.round_radio.pack(padx=20,
                          anchor=tk.W)
-        rectangle_radio.pack(padx=20,
+        self.rectangle_radio.pack(padx=20,
                              anchor=tk.W)
 
-        geometry_label = tk.Label(frame,
+        geometry_label = tk.Label(self.wellframe,
                                   text='Rozmieszczenie pomp:')
         geometry_label.pack(anchor=tk.W)
 
-        linear_radio = tk.Radiobutton(frame,
+        self.linear_radio = tk.Radiobutton(self.wellframe,
                                       text='jednorzędowe',
-                                      variable=self.geometry_var,
+                                      variable=self.view.vars['config'],
                                       value='linear')
-        optimal_radio = tk.Radiobutton(frame,
+        self.optimal_radio = tk.Radiobutton(self.wellframe,
                                        text='optymalne',
-                                       variable=self.geometry_var,
+                                       variable=self.view.vars['config'],
                                        value='optimal')
-        linear_radio.pack(padx=20,
+        self.linear_radio.pack(padx=20,
                           anchor=tk.W)
-        optimal_radio.pack(padx=20,
+        self.optimal_radio.pack(padx=20,
                            anchor=tk.W)
 
-        dimensions_frame = tk.Frame(frame)
+        dimensions_frame = tk.Frame(self.wellframe)
         dimensions_frame.pack(expand=True,
                               fill=tk.Y)
         self.first_dim_label = tk.Label(dimensions_frame,
@@ -250,7 +246,7 @@ class Dataframe(tk.Frame):
                                       anchor=tk.W)
         self.first_dim_sym_label = tk.Label(dimensions_frame)
         self.sec_dim_sym_label = tk.Label(dimensions_frame)
-        first_dim_entry = tk.Entry(dimensions_frame,
+        self.first_dim_entry = tk.Entry(dimensions_frame,
                                    width=5)
         self.sec_dim_entry = tk.Entry(dimensions_frame,
                                       width=5)
@@ -263,17 +259,15 @@ class Dataframe(tk.Frame):
                                 sticky=tk.W)
         self.first_dim_sym_label.grid(row=0, column=1)
         self.sec_dim_sym_label.grid(row=1, column=1)
-        first_dim_entry.grid(row=0, column=2)
+        self.first_dim_entry.grid(row=0, column=2)
         self.sec_dim_entry.grid(row=1, column=2)
         first_dim_u_label.grid(row=0, column=3)
         self.sec_dim_u_label.grid(row=1, column=3)
 
         self._update_shape()
 
-        return frame
-
     def _update_shape(self):
-        shape = self.shape_var.get()
+        shape = self.view.vars['shape'].get()
         if shape == 'round':
             self.first_dim_label.config(text='Średnica')
             self.first_dim_sym_label.config(text='D=')
@@ -289,7 +283,5 @@ class Dataframe(tk.Frame):
             self.sec_dim_entry.config(state='normal')
             self.sec_dim_u_label.config(text='m')
 
-    def _drawframe(self):
-        frame = tk.Frame(self)
-
-        return frame
+    def _drawframe(self, parent):
+        self.drawframe = tk.Frame(parent)
