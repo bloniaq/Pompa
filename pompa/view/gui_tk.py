@@ -10,8 +10,10 @@ from tkinter import ttk
 
 class View:
 
-    def __init__(self):
+    def __init__(self, variables_ids=None):
         self.root = tk.Tk()
+
+        self.vars = self._create_view_variables(variables_ids)
         self.gui = Gui(self.root)
 
         self.callbacks = {}
@@ -42,9 +44,9 @@ class View:
 
     def _send_value(self, widget):
         variable = widget.variable
-        id = variable.id
+        var_id = variable.id
         value = variable.get()
-        return self.values_port(id, value)
+        return self.values_port(var_id, value)
 
     def _create_widget_aliases(self):
         self.load_button = self.gui.buttonframe.load_button
@@ -58,14 +60,23 @@ class View:
         self.mode_radio_minimal = self.gui.buttonframe.minimalisation_radio
         self.calc_button = self.gui.buttonframe.calc_button
 
-    def _create_view_variables(self):
-        self.vars = {
-            'unit': tk.StringVar(),
-            'safety': tk.StringVar(),
-            'mode': tk.StringVar(),
-            'inlet_min': tk.DoubleVar(),
-            'inlet_max': tk.DoubleVar()
-        }
+    def _create_view_variables(self, identificators):
+        """Create variables based on controller-provided ids"""
+        # TODO: Move to controller
+        # string_ids = ['unit', 'safety', 'mode']
+
+        dictionary = {}
+
+        for id in identificators[string_ids]:
+            dictionary[id] = vv.StringVar(id)
+
+        for id in identificators[int_ids]:
+            dictionary[id] = vv.IntVar(id)
+
+        for id in identificators[double_ids]:
+            dictionary[id] = vv.DoubleVar(id)
+
+        return dictionary
 
 
 class Gui(tk.Frame):
@@ -147,6 +158,6 @@ POMPA    Wersja 2.02/2022r   POMPA""")
         self.logo_label.pack(expand=True)
 
 
-if __name__ == "__main__":
-    view = View()
-    view.run()
+# if __name__ == "__main__":
+#     view = View()
+#     view.run()
