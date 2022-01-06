@@ -2,20 +2,24 @@ import pompa.view.gui_tk as view_module
 import pompa.view.variables as vv
 import pompa.view.widgets as vw
 
+import pompa.application as app_module
+
 import tkinter as tk
 
 
-class Test_Gui:
+class Test_View:
+
+    VARIABLES = app_module.Application.VARIABLES
 
     def test_structure(self):
-        view = view_module.View()
+        view = view_module.View(self.VARIABLES)
         assert isinstance(view, view_module.View)
         assert isinstance(view.root, tk.Tk)
         # test whether 'run' is a method of gui_str:
         assert hasattr(view, 'run') and callable(getattr(view, 'run'))
 
     def test_add_values_port(self):
-        view = view_module.View()
+        view = view_module.View(self.VARIABLES)
 
         def port():
             pass

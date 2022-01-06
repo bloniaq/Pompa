@@ -10,16 +10,19 @@ from tkinter import ttk
 
 class View:
 
-    def __init__(self, variables_ids=None):
+    def __init__(self, variables_ids):
         self.root = tk.Tk()
 
+        # initialize variables
         self.vars = self._create_view_variables(variables_ids)
+        # self._set_default_values(default_values)
+
+        # build widgets
         self.gui = Gui(self.root)
 
         self.callbacks = {}
 
-        self._create_widget_aliases()
-        self._create_view_variables()
+        # self._create_widget_aliases()
 
     def run(self):
         self.root.mainloop()
@@ -67,13 +70,13 @@ class View:
 
         dictionary = {}
 
-        for id in identificators[string_ids]:
+        for id in identificators['string_ids']:
             dictionary[id] = vv.StringVar(id)
 
-        for id in identificators[int_ids]:
+        for id in identificators['int_ids']:
             dictionary[id] = vv.IntVar(id)
 
-        for id in identificators[double_ids]:
+        for id in identificators['double_ids']:
             dictionary[id] = vv.DoubleVar(id)
 
         return dictionary
