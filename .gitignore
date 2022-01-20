@@ -1,6 +1,6 @@
 
 *.sublime-workspace
-logfile.log
+*.log
 
 .idea/
 
