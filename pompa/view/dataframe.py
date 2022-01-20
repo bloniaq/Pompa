@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from PIL import ImageTk, Image
 
 
 class Dataframe(tk.Frame):
@@ -285,3 +286,10 @@ class Dataframe(tk.Frame):
 
     def _drawframe(self, parent):
         self.drawframe = tk.Frame(parent)
+
+        self.scheme = Image.open("./images/scheme.png")
+        self.scheme.thumbnail((420, 610))
+
+        self.img = ImageTk.PhotoImage(self.scheme)
+        label = ttk.Label(self.drawframe, image=self.img)
+        label.pack()
