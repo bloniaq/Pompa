@@ -4,13 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-appdirs = "==1.4.3"
-pygubu = "==0.9.8.2"
-matplotlib = "*"
-pytest = "*"
 pompa-pkg-bloniaq = {editable = true, path = "."}
+pytest = "*"
+numpy = "*"
+matplotlib = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"
