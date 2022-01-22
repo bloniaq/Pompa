@@ -89,8 +89,8 @@ class Application:
         # 0. Arranging environment
         mock_pipe = self.model.ins_pipe
         mock_hc = self.model.hydr_cond
-        mock_hc.inflow_min.set(10, 'lps')
-        mock_hc.inflow_max.set(20, 'lps')
+        mock_hc.inflow_min.set(1, 'm3ps')
+        mock_hc.inflow_max.set(2, 'm3ps')
         mock_pipe.length.set(8)
         mock_pipe.diameter.set(.250)
         mock_pipe.roughness.set(.00001)
@@ -104,9 +104,10 @@ class Application:
         flows_array = np.linspace(
             mock_hc.inflow_min.value_m3ps,
             1.4 * mock_hc.inflow_max.value_m3ps,
-            20
+            200
         )
-
+        print(f"min inflow: {mock_hc.inflow_min}")
+        print(f"max inflow: {mock_hc.inflow_max}")
         ins_pipe_poly_coeffs = mock_pipe.dynamic_loss_polynomial(
             mock_hc.inflow_min,
             mock_hc.inflow_max
