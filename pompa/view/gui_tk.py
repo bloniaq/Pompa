@@ -14,6 +14,10 @@ class View(tk.Tk):
     def __init__(self, variables_ids, default_values):
         tk.Tk.__init__(self)
 
+        # Prevents keeping unfinished processes when quiting app by 'X' button,
+        # caused by matplotlib
+        self.protocol("WM_DELETE_WINDOW", self.quit_me)
+
         # initialize variables
         self.vars = self._create_view_variables(variables_ids)
         self._set_default_values(default_values)
@@ -28,6 +32,10 @@ class View(tk.Tk):
 
     def run(self):
         self.mainloop()
+
+    def quit_me(self):
+        self.quit()
+        self.destroy()
 
     def add_callback(self, key, method):
         """Lets controller point, what method bind to widget commands"""
