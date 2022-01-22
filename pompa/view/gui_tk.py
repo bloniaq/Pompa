@@ -71,7 +71,8 @@ class View(tk.Tk):
         :return: method
         """
         methods = {
-            'ins_pipe': self.gui.pipeframe.chart.draw_inside_pipe_plot
+            'ins_pipe': self.gui.pipeframe.chart.draw_inside_pipe_plot,
+            'geometric_height': self.gui.pipeframe.chart.draw_geometric_height
         }
         return methods[figure]
 

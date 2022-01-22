@@ -89,22 +89,26 @@ class Application:
         # 0. Arranging environment
         mock_pipe = self.model.ins_pipe
         mock_hc = self.model.hydr_cond
-        mock_hc.inflow_min.set(1, 'm3ps')
-        mock_hc.inflow_max.set(2, 'm3ps')
+        mock_hc.inflow_min.set(10, 'm3ph')
+        mock_hc.inflow_max.set(20, 'm3ph')
+        mock_hc.ord_terrain.set(100)
+        mock_hc.ord_highest_point.set(110)
+        mock_hc.ord_upper_level.set(110)
         mock_pipe.length.set(8)
         mock_pipe.diameter.set(.250)
         mock_pipe.roughness.set(.00001)
 
         # 1. Ask model which figures are ready to draw
         availability = {
-            'ins_pipe': True
+            'ins_pipe': True,
+            'geometric_height': True
         }
 
         # 2. Get available data from model
         flows_array = np.linspace(
             mock_hc.inflow_min.value_m3ps,
             1.4 * mock_hc.inflow_max.value_m3ps,
-            200
+            5
         )
         print(f"min inflow: {mock_hc.inflow_min}")
         print(f"max inflow: {mock_hc.inflow_max}")
@@ -116,7 +120,10 @@ class Application:
         args = {
             'x': flows_array,
             'ins_pipe': np.polynomial.polynomial.Polynomial(
-                ins_pipe_poly_coeffs)
+                ins_pipe_poly_coeffs) + mock_hc.geom_height(mock_hc.ord_terrain).get(),
+            'geometric_height': np.polynomial.polynomial.Polynomial(
+                [mock_hc.geom_height(mock_hc.ord_terrain).get()]
+            )
         }
 
         # 3. Draw possible figures
