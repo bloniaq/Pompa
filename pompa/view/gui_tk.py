@@ -16,7 +16,7 @@ class View(tk.Tk):
 
         # Prevents keeping unfinished processes when quiting app by 'X' button,
         # caused by matplotlib
-        self.protocol("WM_DELETE_WINDOW", self.quit_me)
+        self.protocol("WM_DELETE_WINDOW", self.quit)
 
         # initialize variables
         self.vars = self._create_view_variables(variables_ids)
@@ -33,8 +33,9 @@ class View(tk.Tk):
     def run(self):
         self.mainloop()
 
-    def quit_me(self):
-        self.quit()
+    def quit(self):
+        """Makes sure matplotlib plots are close with closing tkinter"""
+        tk.Tk.quit(self)
         self.destroy()
 
     def add_callback(self, key, method):
