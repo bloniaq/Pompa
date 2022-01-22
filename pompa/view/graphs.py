@@ -15,21 +15,13 @@ class PipesGraph:
         fig, axs = plt.subplots(figsize=(self.PIX_X/self.DPI, self.PIX_Y/self.DPI),
                                 dpi=self.DPI)
         self.plot = fig.add_subplot(111)
-
         self.canvas = FigureCanvasTkAgg(fig, master)
-
-        self.draw()
 
     def pack(self, *args, **kwargs):
         """Zastępuje pack() tak, żeby można było traktować obiekt jak widget tk
         """
         return self.canvas.get_tk_widget().pack(*args, **kwargs)
 
-    def pass_data(self, data):
-
-        # OBRÓBKA DANYCH
-
-        self.draw()
-
-    def draw(self):
-        pass
+    def draw_inside_pipe_plot(self, x, y):
+        self.plot.plot(x, y(x), 'r--', label='charakterystyka przewodu wewn.')
+        self.canvas.draw()
