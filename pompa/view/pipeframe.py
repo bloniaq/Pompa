@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+import pompa.view.graphs as graphs
 
 
 class Pipeframe(tk.Frame):
@@ -28,6 +29,7 @@ class Pipeframe(tk.Frame):
                              fill=tk.Y,
                              side=tk.RIGHT,
                              padx=10, pady=10)
+        self.chart.pack()
         self.chart_frame.pack(expand=True,
                               side=tk.BOTTOM,
                               fill=tk.BOTH)
@@ -151,8 +153,8 @@ class Pipeframe(tk.Frame):
         self.out_par_entry.grid(row=3, column=1, padx=PADX, pady=PADY, sticky=tk.E)
 
     def _chart_content(self):
-        # TODO: Wykres matplotlib
+        self.chart = graphs.PipesGraph(self.chart_frame)
 
-        len_label = tk.Label(self.chart_frame,
-                             text='Wykres')
-        len_label.grid(row=0, column=0)
+        # len_label = tk.Label(self.chart_frame,
+        #                      text='Wykres')
+        # len_label.grid(row=0, column=0)
