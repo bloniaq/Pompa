@@ -1,6 +1,8 @@
 import tkinter as tk
 from tkinter import ttk
 
+import pompa.view.graphs as graphs
+
 
 class Pumpframe(tk.Frame):
 
@@ -23,9 +25,11 @@ class Pumpframe(tk.Frame):
                                 fill=tk.BOTH,
                                 side=tk.RIGHT,
                                 padx=10, pady=10)
+        self.chart.pack()
         self.chart_frame.pack(expand=True,
                               side=tk.BOTTOM,
-                              fill=tk.BOTH)
+                              fill=tk.BOTH,
+                              pady=(10, 20))
         self.pack()
 
     def update_units(self):
@@ -158,11 +162,7 @@ class Pumpframe(tk.Frame):
 
     def _chart_frame(self):
         self.chart_frame = tk.Frame(self)
-        # TODO: Wykres matplotlib
-
-        len_label = tk.Label(self.chart_frame,
-                             text='Wykres')
-        len_label.grid(row=0, column=0)
+        self.chart = graphs.PumpGraph(self.chart_frame)
 
     def _add_point_window(self):
         if self.add_point_window is not None:
