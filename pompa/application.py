@@ -110,8 +110,6 @@ class Application:
             1.4 * mock_hc.inflow_max.value_m3ps,
             5
         )
-        print(f"min inflow: {mock_hc.inflow_min}")
-        print(f"max inflow: {mock_hc.inflow_max}")
         ins_pipe_poly_coeffs = mock_pipe.dynamic_loss_polynomial(
             mock_hc.inflow_min,
             mock_hc.inflow_max
