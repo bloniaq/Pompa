@@ -89,6 +89,7 @@ class Application:
         # 0. Arranging environment
         mock_pipe = self.model.ins_pipe
         mock_hc = self.model.hydr_cond
+        mock_pump = self.model.pump_type
         mock_hc.inflow_min.set(10, 'm3ph')
         mock_hc.inflow_max.set(20, 'm3ph')
         mock_hc.ord_terrain.set(100)
@@ -129,5 +130,6 @@ class Application:
             if availability[figure]:
                 self.view.draw_figure(figure)(
                     args['x'],
-                    args[figure]
+                    args[figure],
+                    'meters'
                 )
