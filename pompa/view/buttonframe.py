@@ -25,16 +25,18 @@ class Buttonframe(tk.Frame):
                                      pady=8)
 
         self.files_frame.pack(fill=tk.Y,
-                              pady=10)
+                              pady=5)
         self.units_lframe.pack(fill=tk.X,
-                               pady=10)
+                               pady=5)
         self.safety_lframe.pack(fill=tk.X,
-                                pady=10)
+                                pady=5)
         self.workmode_lframe.pack(fill=tk.X,
-                                  pady=(10, 20))
-        self.calc_button.pack(expand=True,
-                              side=tk.BOTTOM,
-                              fill=tk.BOTH)
+                                  pady=(5, 20))
+        self.calc_button.pack(
+            expand=True,
+            fill=tk.BOTH,
+            side=tk.BOTTOM
+                              )
 
     def _files_frame(self, parent):
         self.files_frame = tk.Frame(parent)
@@ -57,16 +59,16 @@ class Buttonframe(tk.Frame):
                                            variable=self.view.vars['unit'],
                                            text='m³/h',
                                            value='meters',
-                                           font=20)
+                                           font=15)
         self.liters_radio = tk.Radiobutton(self.units_frame,
                                            variable=self.view.vars['unit'],
                                            text='l/s',
                                            value='liters',
-                                           font=20)
+                                           font=15)
         self.meters_radio.pack(side=tk.LEFT)
         self.liters_radio.pack(side=tk.RIGHT)
         self.units_frame.pack(fill=tk.X,
-                              padx=40, pady=15)
+                              padx=40, pady=10)
 
     def _safety_frame(self, parent):
         self.safety_lframe = tk.ttk.Labelframe(parent,
