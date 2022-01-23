@@ -32,7 +32,8 @@ class Pipeframe(tk.Frame):
         self.chart.pack()
         self.chart_frame.pack(expand=True,
                               side=tk.BOTTOM,
-                              fill=tk.BOTH)
+                              fill=tk.BOTH,
+                              pady=(10, 20))
 
     def _int_lframe_content(self, parent_f):
         PADX = 2
