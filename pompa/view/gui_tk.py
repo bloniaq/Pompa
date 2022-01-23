@@ -28,6 +28,9 @@ class View(tk.Tk):
 
         # build widgets
         self.gui = Gui(self)
+        self.menubar = Menu(self)
+        # self.config(menu=self.menubar)
+        self.title("Pompa")
         self._create_widget_aliases()
 
     def run(self):
@@ -211,3 +214,24 @@ POMPA    Wersja 2.02/2022r   POMPA""")
 # if __name__ == "__main__":
 #     view = View()
 #     view.run()
+
+
+class Menu(tk.Menu):
+
+    def __init__(self, master):
+        tk.Menu.__init__(self, master)
+        filemenu = tk.Menu(self, tearoff=0)
+        helpmenu = tk.Menu(self, tearoff=0)
+
+        def empty_method():
+            pass
+
+        filemenu.add_command(label="Wczytaj", command=empty_method)
+        filemenu.add_command(label="Zapisz", command=empty_method)
+        filemenu.add_separator()
+        filemenu.add_command(label="Zakończ", command=empty_method)
+        self.add_cascade(menu=filemenu, label="Plik")
+        helpmenu.add_command(label="O Programie", command=empty_method)
+        self.add_cascade(menu=helpmenu, label="Pomoc")
+        master.config(menu=self)
+
