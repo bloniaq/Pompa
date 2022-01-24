@@ -11,7 +11,7 @@ class Dataframe(tk.Frame):
         self.view = view
 
         inner_frame = tk.Frame(self)
-        inner_frame.pack(padx=20, pady=20, fill=tk.BOTH, expand=True)
+        inner_frame.pack(padx=20, pady=20, expand=True)
 
         self._dataframe(inner_frame)
         self._drawframe(inner_frame)
@@ -22,9 +22,10 @@ class Dataframe(tk.Frame):
                             padx=10)
         self.drawframe.pack(expand=True,
                             fill=tk.Y,
-                            side=tk.RIGHT)
+                            side=tk.RIGHT
+                            )
 
-        self.pack(anchor=tk.W)
+        self.pack(anchor=tk.W, expand=True)
 
     def _dataframe(self, parent):
         self.dataframe = tk.Frame(parent)
@@ -35,18 +36,14 @@ class Dataframe(tk.Frame):
         self._assumpframe(assump_lframe)
         self._wellframe(well_lframe)
 
-        self.assumpframe.pack(expand=True,
-                               fill=tk.BOTH,
-                               padx=10, pady=10)
-        self.wellframe.pack(expand=True,
-                            fill=tk.BOTH,
-                            padx=10, pady=10)
+        self.assumpframe.pack(fill=tk.BOTH,
+                               padx=10, pady=20)
+        self.wellframe.pack(fill=tk.BOTH,
+                            padx=10, pady=20)
 
-        assump_lframe.pack(expand=True,
-                           fill=tk.BOTH,
+        assump_lframe.pack(fill=tk.BOTH,
                            pady=10)
-        well_lframe.pack(expand=True,
-                         fill=tk.BOTH,
+        well_lframe.pack(fill=tk.BOTH,
                          pady=10)
 
     def _assumpframe(self, parent):
@@ -58,7 +55,8 @@ class Dataframe(tk.Frame):
 
         income_frame = tk.Frame(self.assumpframe)
         income_frame.pack(expand=True,
-                          fill=tk.Y)
+                          fill=tk.Y,
+                          pady=(0, 10))
 
         min_inc_label = tk.Label(income_frame,
                                  text='Minimalny:')
@@ -77,8 +75,8 @@ class Dataframe(tk.Frame):
 
         self.update_units()
 
-        min_inc_label.grid(row=0, column=0, sticky=tk.W, padx=(10, 0))
-        max_inc_label.grid(row=1, column=0, sticky=tk.W, padx=(10, 0))
+        min_inc_label.grid(row=0, column=0, sticky=tk.W, padx=(10, 0), pady=2)
+        max_inc_label.grid(row=1, column=0, sticky=tk.W, padx=(10, 0), pady=2)
         self.min_inc_entry.grid(row=0, column=1, padx=(10, 2))
         self.max_inc_entry.grid(row=1, column=1, padx=(10, 2))
         self.min_inc_u_label.grid(row=0, column=2)
@@ -87,8 +85,7 @@ class Dataframe(tk.Frame):
         # ORD FRAME
 
         ord_frame = tk.Frame(self.assumpframe)
-        ord_frame.pack(expand=True,
-                       fill=tk.BOTH)
+        ord_frame.pack(fill=tk.BOTH)
 
         ord_ter_label = tk.Label(ord_frame,
                                  text='Rzędna terenu')
@@ -146,13 +143,13 @@ class Dataframe(tk.Frame):
         self.alarm_h_entry = tk.Entry(ord_frame,
                                  width=5)
 
-        ord_ter_u_label = tk.Label(ord_frame, text='m n.p.m.')
-        ord_inl_u_label = tk.Label(ord_frame, text='m n.p.m.')
-        ord_out_u_label = tk.Label(ord_frame, text='m n.p.m.')
-        ord_bottom_u_label = tk.Label(ord_frame, text='m n.p.m.')
-        ord_high_u_label = tk.Label(ord_frame, text='m n.p.m.')
-        ord_end_u_label = tk.Label(ord_frame, text='m n.p.m.')
-        alarm_h_u_label = tk.Label(ord_frame, text='m')
+        ord_ter_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
+        ord_inl_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
+        ord_out_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
+        ord_bottom_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
+        ord_high_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
+        ord_end_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
+        alarm_h_u_label = tk.Label(ord_frame, text='m', pady=3)
 
         ord_ter_label.grid(row=0, column=0, sticky=tk.W)
         ord_inl_label.grid(row=1, column=0, sticky=tk.W)
