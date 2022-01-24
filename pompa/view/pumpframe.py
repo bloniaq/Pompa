@@ -53,7 +53,7 @@ class Pumpframe(tk.Frame):
         inner_frame = tk.Frame(self.prop_lframe)
         inner_frame.pack(expand=True,
                          fill=tk.BOTH,
-                         padx=10, pady=10)
+                         padx=30, pady=10)
         dim_label = tk.Label(inner_frame,
                              text='Średnica instalacyjna pompy')
         cycle_label = tk.Label(inner_frame,
@@ -78,10 +78,10 @@ class Pumpframe(tk.Frame):
         self.maxran_u_label = tk.Label(inner_frame,
                                        width=4,
                                        anchor=tk.W)
-        dim_label.grid(row=0, column=0, columnspan=4, sticky=tk.W)
-        cycle_label.grid(row=1, column=0, columnspan=4, sticky=tk.W)
-        height_label.grid(row=2, column=0, columnspan=4, sticky=tk.W)
-        range_label.grid(row=3, column=0, columnspan=6, pady=(10, 2))
+        dim_label.grid(row=0, column=0, columnspan=4, sticky=tk.W, pady=2)
+        cycle_label.grid(row=1, column=0, columnspan=4, sticky=tk.W, pady=2)
+        height_label.grid(row=2, column=0, columnspan=4, sticky=tk.W, pady=2)
+        range_label.grid(row=3, column=0, columnspan=6, pady=(8, 2))
         minran_label.grid(row=4, column=0, sticky=tk.W)
         maxran_label.grid(row=4, column=3, sticky=tk.E)
         dim_u_label.grid(row=0, column=5, sticky=tk.W)
@@ -145,12 +145,12 @@ class Pumpframe(tk.Frame):
         self.points_tview['columns'] = ('id', 'vflow', 'height')
         self.points_tview.column('#0', width=0, stretch=tk.NO)
         self.points_tview.column('id', anchor=tk.CENTER, width=40)
-        self.points_tview.column('vflow', anchor=tk.CENTER, width=80)
-        self.points_tview.column('height', anchor=tk.CENTER, width=80)
+        self.points_tview.column('vflow', anchor=tk.CENTER, width=110)
+        self.points_tview.column('height', anchor=tk.CENTER, width=110)
         self.points_tview.heading('#0', text='', anchor=tk.CENTER)
         self.points_tview.heading('id', text='Nr', anchor=tk.CENTER)
-        self.points_tview.heading('vflow', text='Przepływ', anchor=tk.CENTER)
-        self.points_tview.heading('height', text='Wys. podn.', anchor=tk.CENTER)
+        self.points_tview.heading('vflow', text='Przepływ [m³/h]', anchor=tk.CENTER)
+        self.points_tview.heading('height', text='Wys. podn. [m]', anchor=tk.CENTER)
         self.points_tview.pack(expand=True,
                                side=tk.LEFT,
                                fill=tk.Y)
