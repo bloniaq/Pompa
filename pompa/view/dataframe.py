@@ -37,9 +37,9 @@ class Dataframe(tk.Frame):
         self._wellframe(well_lframe)
 
         self.assumpframe.pack(fill=tk.BOTH,
-                               padx=10, pady=20)
+                              padx=10, pady=10)
         self.wellframe.pack(fill=tk.BOTH,
-                            padx=10, pady=20)
+                            padx=10, pady=10)
 
         assump_lframe.pack(fill=tk.BOTH,
                            pady=10)
