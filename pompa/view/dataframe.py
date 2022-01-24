@@ -11,7 +11,7 @@ class Dataframe(tk.Frame):
         self.view = view
 
         inner_frame = tk.Frame(self)
-        inner_frame.pack(padx=20, pady=20)
+        inner_frame.pack(padx=20, pady=20, fill=tk.BOTH, expand=True)
 
         self._dataframe(inner_frame)
         self._drawframe(inner_frame)
@@ -94,27 +94,27 @@ class Dataframe(tk.Frame):
                                  text='Rzędna terenu')
         ord_inl_label = tk.Label(ord_frame,
                                  text='Rzędna dopływu ścieków',
-                                 wraplength=120,
+                                 # wraplength=120,
                                  justify=tk.LEFT)
         ord_out_label = tk.Label(ord_frame,
                                  text='Rzędna wylotu ścieków',
-                                 wraplength=120,
+                                 # wraplength=120,
                                  justify=tk.LEFT)
         ord_bottom_label = tk.Label(ord_frame,
                                     text='Rzędna dna pompowni',
-                                    wraplength=120,
+                                    # wraplength=120,
                                     justify=tk.LEFT)
         ord_high_label = tk.Label(ord_frame,
                                   text='Rzędna najwyższego punktu',
-                                  wraplength=120,
+                                  # wraplength=120,
                                   justify=tk.LEFT)
         ord_end_label = tk.Label(ord_frame,
                                  text='Rzędna zwierciadła w zb. górnym',
-                                 wraplength=110,
+                                 wraplength=160,
                                  justify=tk.LEFT)
         alarm_h_label = tk.Label(ord_frame,
-                                 text='Różnica między rz. wlotu, a rz. uruchomienia ostatniej pompy',
-                                 wraplength=120,
+                                 text='Wysokość obj. rezerwowej',
+                                 wraplength=160,
                                  justify=tk.LEFT)
         ord_ter_sym_label = tk.Label(ord_frame,
                                      text='Rt=')
@@ -162,13 +162,13 @@ class Dataframe(tk.Frame):
         ord_end_label.grid(row=5, column=0, sticky=tk.W)
         alarm_h_label.grid(row=6, column=0, sticky=tk.W)
 
-        ord_ter_sym_label.grid(row=0, column=1, sticky=tk.E)
-        ord_inl_sym_label.grid(row=1, column=1, sticky=tk.E)
-        ord_out_sym_label.grid(row=2, column=1, sticky=tk.E)
-        ord_bottom_sym_label.grid(row=3, column=1, sticky=tk.E)
-        ord_high_sym_label.grid(row=4, column=1, sticky=tk.E)
-        ord_end_sym_label.grid(row=5, column=1, sticky=tk.E)
-        alarm_h_sym_label.grid(row=6, column=1, sticky=tk.E)
+        # ord_ter_sym_label.grid(row=0, column=1, sticky=tk.E)
+        # ord_inl_sym_label.grid(row=1, column=1, sticky=tk.E)
+        # ord_out_sym_label.grid(row=2, column=1, sticky=tk.E)
+        # ord_bottom_sym_label.grid(row=3, column=1, sticky=tk.E)
+        # ord_high_sym_label.grid(row=4, column=1, sticky=tk.E)
+        # ord_end_sym_label.grid(row=5, column=1, sticky=tk.E)
+        # alarm_h_sym_label.grid(row=6, column=1, sticky=tk.E)
 
         self.ord_ter_entry.grid(row=0, column=2)
         self.ord_inl_entry.grid(row=1, column=2)
@@ -292,4 +292,4 @@ class Dataframe(tk.Frame):
 
         self.img = ImageTk.PhotoImage(self.scheme)
         label = ttk.Label(self.drawframe, image=self.img)
-        label.pack()
+        label.pack(expand=True, fill=tk.Y)
