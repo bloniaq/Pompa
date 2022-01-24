@@ -199,43 +199,53 @@ class Dataframe(tk.Frame):
                                text='Kształt studni:')
         shape_label.pack(anchor=tk.W)
 
-        self.round_radio = tk.Radiobutton(self.wellframe,
-                                     text='kołowy',
-                                     value='round',
-                                     variable=self.view.vars['shape'],
-                                     command=self._update_shape,
-                                     anchor=tk.W)
-        self.rectangle_radio = tk.Radiobutton(self.wellframe,
-                                         text='prostokątny',
-                                         value='rectangle',
-                                         variable=self.view.vars['shape'],
-                                         command=self._update_shape,
-                                         anchor=tk.W)
-        self.round_radio.pack(padx=20,
-                         anchor=tk.W)
-        self.rectangle_radio.pack(padx=20,
-                             anchor=tk.W)
+        shape_frame = tk.Frame(self.wellframe)
+        shape_frame.pack(pady=(5, 10), fill=tk.X)
+
+        self.round_radio = tk.Radiobutton(shape_frame,
+                                          text='kołowy',
+                                          value='round',
+                                          variable=self.view.vars['shape'],
+                                          command=self._update_shape,
+                                          anchor=tk.W)
+        self.rectangle_radio = tk.Radiobutton(shape_frame,
+                                              text='prostokątny',
+                                              value='rectangle',
+                                              variable=self.view.vars['shape'],
+                                              command=self._update_shape,
+                                              anchor=tk.W)
+        self.round_radio.pack(padx=40,
+                              anchor=tk.W)
+        self.rectangle_radio.pack(padx=40,
+                                  anchor=tk.W)
 
         geometry_label = tk.Label(self.wellframe,
                                   text='Rozmieszczenie pomp:')
         geometry_label.pack(anchor=tk.W)
 
-        self.linear_radio = tk.Radiobutton(self.wellframe,
+        config_frame = tk.Frame(self.wellframe)
+        config_frame.pack(pady=(5, 10), fill=tk.X)
+
+        self.linear_radio = tk.Radiobutton(config_frame,
                                       text='jednorzędowe',
                                       variable=self.view.vars['config'],
                                       value='linear')
-        self.optimal_radio = tk.Radiobutton(self.wellframe,
+        self.optimal_radio = tk.Radiobutton(config_frame,
                                        text='optymalne',
                                        variable=self.view.vars['config'],
                                        value='optimal')
-        self.linear_radio.pack(padx=20,
-                          anchor=tk.W)
-        self.optimal_radio.pack(padx=20,
-                           anchor=tk.W)
+        self.linear_radio.pack(padx=40,
+                               anchor=tk.W)
+        self.optimal_radio.pack(padx=40,
+                                anchor=tk.W)
+
+        dimensions_label = tk.Label(self.wellframe,
+                                    text="Wymiary:")
+        dimensions_label.pack(anchor=tk.W)
+
 
         dimensions_frame = tk.Frame(self.wellframe)
-        dimensions_frame.pack(expand=True,
-                              fill=tk.Y)
+        dimensions_frame.pack(pady=(5, 10), fill=tk.Y)
         self.first_dim_label = tk.Label(dimensions_frame,
                                         width=12,
                                         anchor=tk.W)
