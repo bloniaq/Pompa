@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from PIL import Image, ImageTk
 
 
 class Buttonframe(tk.Frame):
@@ -20,18 +21,22 @@ class Buttonframe(tk.Frame):
         self._units_frame(inner_frame)
         self._safety_frame(inner_frame)
         self._workmode_frame(inner_frame)
+        img = Image.open("images/calc.png")
+        self.calc_img = ImageTk.PhotoImage(img.resize((25, 25)))
         self.calc_button = tk.Button(inner_frame,
-                                     text='Oblicz',
+                                     text=' Przelicz',
+                                     font=("Arial", 15),
+                                     image=self.calc_img, compound="left",
                                      pady=8)
 
         self.files_frame.pack(fill=tk.Y,
                               pady=5)
         self.units_lframe.pack(fill=tk.X,
-                               pady=5)
+                               pady=10)
         self.safety_lframe.pack(fill=tk.X,
-                                pady=5)
+                                pady=10)
         self.workmode_lframe.pack(fill=tk.X,
-                                  pady=(5, 20))
+                                  pady=(10, 20))
         self.calc_button.pack(
             expand=True,
             fill=tk.BOTH,
@@ -92,14 +97,17 @@ class Buttonframe(tk.Frame):
                                          value='safe',
                                          anchor=tk.W)
         self.econ_radio.pack(expand=True,
-                             fill=tk.X)
+                             fill=tk.X,
+                             pady=2)
         self.optim_radio.pack(expand=True,
-                              fill=tk.X)
+                              fill=tk.X,
+                              pady=2)
         self.safe_radio.pack(expand=True,
-                             fill=tk.X)
+                             fill=tk.X,
+                             pady=2)
         self.safety_frame.pack(side=tk.LEFT,
                                fill=tk.X,
-                               padx=20, pady=(15, 5))
+                               padx=20, pady=10)
 
     def _workmode_frame(self, parent):
         self.workmode_lframe = tk.ttk.Labelframe(parent,
@@ -118,9 +126,11 @@ class Buttonframe(tk.Frame):
                                                    value='minimalisation',
                                                    anchor=tk.W)
         self.checking_radio.pack(expand=True,
-                                 fill=tk.X)
+                                 fill=tk.X,
+                                 pady=2)
         self.minimalisation_radio.pack(expand=True,
-                                       fill=tk.X)
+                                       fill=tk.X,
+                                       pady=2)
         self.workmode_frame.pack(side=tk.LEFT,
                                  fill=tk.X,
-                                 padx=20, pady=15)
+                                 padx=20, pady=10)
