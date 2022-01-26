@@ -4,6 +4,8 @@ import pompa.view.pipeframe as pipef
 import pompa.view.pumpframe as pumpf
 import pompa.view.variables as vv
 
+import matplotlib
+
 import tkinter as tk
 from tkinter import filedialog as fd
 from tkinter import ttk
@@ -29,17 +31,23 @@ class View(tk.Tk):
         # build widgets
         self.gui = Gui(self)
         self.menubar = Menu(self)
-        # self.config(menu=self.menubar)
         self.title("Pompa")
         self._create_widget_aliases()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.quit()
 
     def run(self):
         self.mainloop()
 
     def quit(self):
         """Makes sure matplotlib plots are close with closing tkinter"""
-        tk.Tk.quit(self)
         self.destroy()
+        matplotlib.pyplot.close('all')
+        tk.Tk.quit(self)
 
     def add_callback(self, key, method):
         """Lets controller point, what method bind to widget commands"""
