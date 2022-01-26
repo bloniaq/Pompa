@@ -51,6 +51,13 @@ class Application:
         # self._add_callbacks()
         # self._add_commands()
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.view.quit()
+        del self
+
     def run_gui(self):
         """Make infinite loop of GUI"""
 
