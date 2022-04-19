@@ -45,7 +45,8 @@ class StationObject:
 class Variable:
     """Abstract class responsible for provide interface of a model variable."""
 
-    def __init__(self, value=None):
+    def __init__(self, value=None, name=None):
+        self.name = name
         self.value = value
         self.callbacks = {}
 

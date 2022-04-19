@@ -10,8 +10,27 @@ import numpy as np
 DEVELOPER_MODE = True
 
 
+class VMVar:
+    """ViewModel Variable"""
+
+    def __init__(self, name, type, default_value):
+        self.name = name
+        self.type = type
+        self.default_value = default_value
+        self.viewvar = None
+        self.modelvar = None
+
+    def set_viewvar_callback(self):
+        self.viewvar.trace_add(self.set_in_model)
+
+    def set_in_model(self):
+        self.modelvar.set(self.viewar.get())
+
+
+
+
 class Application:
-    """Class used as the Controller for instantiation the Application"""
+    """Class used as the ViewModel for instantiation the Application"""
 
     STRING_VARIABLES = (
         'mode',
@@ -26,11 +45,7 @@ class Application:
     DOUBLE_VARIABLES = (
         'ord_terrain'
     )
-    VARIABLES = {
-        'string_ids': STRING_VARIABLES,
-        'int_ids': INT_VARIABLES,
-        'double_ids': DOUBLE_VARIABLES
-    }
+
     DEFAULT_VALUES = {
         'mode': 'checking',
         'shape': 'round',
@@ -39,10 +54,26 @@ class Application:
         'unit': 'meters'
     }
 
+    variables_init_values = [
+        ('mode', 'string', 'checking'),
+        ('shape', 'string', 'round'),
+        ('config', 'string', 'singlerow'),
+        ('safety', 'string', 'optimal'),
+        ('unit', 'string', 'meters'),
+        ('parallel_out_pipes', 'int', 1),
+        ('ord_terrain', 'double', None)
+    ]
+
     def __init__(self):
 
+        # Initializing Application (ViewModel) variables
+        self.variables = self._init_variables(self.variables_init_values)
+
+        # Creating View and Model
         self.model = station.Station()
-        self.view = gui_tk.View(self.VARIABLES, self.DEFAULT_VALUES)
+        self.view = gui_tk.View(self.variables)
+
+        # Variables binding
 
         if DEVELOPER_MODE:
             # TESTING FIGURES CREATING ONLY
@@ -65,6 +96,17 @@ class Application:
 
     def _add_callbacks(self):
         pass
+
+    def _init_variables(self, init_params):
+        """
+        init_values: tuple with all necessary data for binding and creating variables both in model and in view
+        """
+        variables = []
+        for variable_params in init_params:
+            variable = VMVar(*variable_params)
+            variables.append(variable)
+
+        return variables
 
     """
     def _add_commands(self):

@@ -13,7 +13,10 @@ from tkinter import ttk
 
 class View(tk.Tk):
 
-    def __init__(self, variables_ids, default_values):
+    def __init__(self, data):
+        """
+        data: list of application variables. must provide var type and def values information
+        """
         tk.Tk.__init__(self)
 
         # Prevents keeping unfinished processes when quiting app by 'X' button,
@@ -21,8 +24,7 @@ class View(tk.Tk):
         self.protocol("WM_DELETE_WINDOW", self.quit)
 
         # initialize variables
-        self.vars = self._create_view_variables(variables_ids)
-        self._set_default_values(default_values)
+        self.vars = self._create_view_variables(data)
 
         # initialize parameters
         self.callbacks = {}
@@ -116,19 +118,24 @@ class View(tk.Tk):
         value = variable.get()
         return self.values_port(var_id, value)
 
-    def _create_view_variables(self, identificators):
+    def _create_view_variables(self, data):
         """Create variables based on controller-provided ids"""
 
         dictionary = {}
+        types = {
+            'string': vv.StringVar,
+            'int': vv.IntVar,
+            'double': vv.DoubleVar
+        }
 
-        for _id in identificators['string_ids']:
-            dictionary[_id] = vv.StringVar(_id)
+        for variable in data:
+            variable.viewvar = types[variable.type](variable.name)
+            variable.viewvar.set(variable.default_value)
+            dictionary[variable.name] = variable.viewvar
 
-        for _id in identificators['int_ids']:
-            dictionary[_id] = vv.IntVar(_id)
-
-        for _id in identificators['double_ids']:
-            dictionary[_id] = vv.DoubleVar(_id)
+        # print("Testing view variables creation")
+        # for var_name in dictionary:
+        #     print(var_name, dictionary[var_name].get())
 
         return dictionary
 
