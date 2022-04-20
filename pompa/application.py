@@ -27,32 +27,8 @@ class VMVar:
         self.modelvar.set(self.viewar.get())
 
 
-
-
 class Application:
     """Class used as the ViewModel for instantiation the Application"""
-
-    STRING_VARIABLES = (
-        'mode',
-        'shape',
-        'config',
-        'safety',
-        'unit'
-    )
-    INT_VARIABLES = (
-        'parallel_out_pipes'
-    )
-    DOUBLE_VARIABLES = (
-        'ord_terrain'
-    )
-
-    DEFAULT_VALUES = {
-        'mode': 'checking',
-        'shape': 'round',
-        'config': 'singlerow',
-        'safety': 'optimal',
-        'unit': 'meters'
-    }
 
     variables_init_values = [
         ('mode', 'string', 'checking'),
