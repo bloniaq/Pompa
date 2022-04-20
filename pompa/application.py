@@ -30,7 +30,9 @@ class VMVar:
 class Application:
     """Class used as the ViewModel for instantiation the Application"""
 
-    variables_init_values = [
+    # Arguments for VMVar class constructor:
+    # (name, type, default_value)
+    _variables_init_values = [
         ('mode', 'string', 'checking'),
         ('shape', 'string', 'round'),
         ('config', 'string', 'singlerow'),
@@ -43,7 +45,7 @@ class Application:
     def __init__(self):
 
         # Initializing Application (ViewModel) variables
-        self.variables = self._init_variables(self.variables_init_values)
+        self.variables = self._init_variables()
 
         # Creating View and Model
         self.model = station.Station()
@@ -73,12 +75,13 @@ class Application:
     def _add_callbacks(self):
         pass
 
-    def _init_variables(self, init_params):
+    @classmethod
+    def _init_variables(cls):
         """
         init_values: tuple with all necessary data for binding and creating variables both in model and in view
         """
         variables = []
-        for variable_params in init_params:
+        for variable_params in  cls._variables_init_values:
             variable = VMVar(*variable_params)
             variables.append(variable)
 

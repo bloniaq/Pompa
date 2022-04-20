@@ -160,7 +160,7 @@ class View(tk.Tk):
         self.mode_radio_check = self.gui.buttonframe.checking_radio
         self.mode_radio_minimal = self.gui.buttonframe.minimalisation_radio
         self.calc_button = self.gui.buttonframe.calc_button
-        self.ord_terrain_entry = self.gui.dataframe
+        self.ord_terrain_entry = self.gui.dataframe.ord_ter_entry
 
 
 class Gui(tk.Frame):
