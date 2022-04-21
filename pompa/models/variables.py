@@ -45,10 +45,13 @@ class StationObject:
 class Variable:
     """Abstract class responsible for provide interface of a model variable."""
 
+    instances = []
+
     def __init__(self, value=None, name=None):
         self.name = name
         self.value = value
         self.callbacks = {}
+        Variable.instances.append(self)
 
     def add_callback(self, func):
         self.callbacks[func] = None
@@ -64,14 +67,18 @@ class Variable:
     def get(self):
         return self.value
 
+    @classmethod
+    def get_var(cls, name):
+        return [var for var in cls.instances if var.name == name][0]
+
 
 class FloatVariable(Variable):
     """Holds variables needed to be represent in decimal numbers"""
 
-    def __init__(self, value=0.0, digits=2):
+    def __init__(self, value=0.0, digits=2, name=None):
         self.digits = digits
         value = self._round(value)
-        super().__init__(value)
+        super().__init__(value, name)
 
     def __repr__(self):
         return str(self.value) + ' FV'

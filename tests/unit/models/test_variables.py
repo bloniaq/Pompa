@@ -5,7 +5,7 @@ import numpy as np
 from unittest.mock import Mock
 
 
-class Test_Variable():
+class TestVariable:
 
     fixture_list = [
         'variable_no_value',
@@ -76,8 +76,13 @@ class Test_Variable():
         var.set(new_value)
         assert var.get() == new_value
 
+    def test_get_var(self):
+        var = variables.FloatVariable(45, name='test_name')
+        result = variables.Variable.get_var('test_name')
+        assert result is var
 
-class Test_FloatVar():
+
+class TestFloatVar():
 
     @pytest.fixture
     def float_var_no_val(self, request):
