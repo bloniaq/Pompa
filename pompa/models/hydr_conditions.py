@@ -32,13 +32,13 @@ class HydrConditions:
     """
 
     def __init__(self):
-        self.ord_terrain = v.FloatVariable()
-        self.ord_inlet = v.FloatVariable()
-        self.ord_outlet = v.FloatVariable()
-        self.ord_bottom = v.FloatVariable()
-        self.ord_highest_point = v.FloatVariable()
-        self.ord_upper_level = v.FloatVariable()
-        self.reserve_height = v.FloatVariable()
+        self.ord_terrain = v.FloatVariable(name='ord_terrain')
+        self.ord_inlet = v.FloatVariable(name='ord_inlet')
+        self.ord_outlet = v.FloatVariable(name='ord_outlet')
+        self.ord_bottom = v.FloatVariable(name='ord_bottom')
+        self.ord_highest_point = v.FloatVariable(name='ord_highest_point')
+        self.ord_upper_level = v.FloatVariable(name='ord_upper_level')
+        self.reserve_height = v.FloatVariable(name='reserve_height')
         self.inflow_max = v.FlowVariable()
         self.inflow_min = v.FlowVariable()
 
