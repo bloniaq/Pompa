@@ -69,7 +69,7 @@ class Variable:
 
     @classmethod
     def get_var(cls, name):
-        return [var for var in cls.instances if var.name == name][0]
+        return [var for var in cls.instances if var.name == name][0].value
 
 
 class FloatVariable(Variable):
