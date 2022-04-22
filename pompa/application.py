@@ -81,7 +81,7 @@ class Application:
         init_values: tuple with all necessary data for binding and creating variables both in model and in view
         """
         variables = []
-        for variable_params in  cls._variables_init_values:
+        for variable_params in cls._variables_init_values:
             variable = VMVar(*variable_params)
             variables.append(variable)
 
