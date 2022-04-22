@@ -40,6 +40,7 @@ class Station(v.StationObject):
         self.out_pipes_no = v.FloatVariable(1)
         self.pump_type = pump_type.PumpType()
         self.pumpsystem = None
+        self.get_var = v.Variable.get_var
 
     def calculate(self, mode='checking'):
         """Calculates pumpsystem in a user-chosen mode"""
