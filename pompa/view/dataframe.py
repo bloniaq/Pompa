@@ -128,8 +128,8 @@ class Dataframe(tk.Frame):
         alarm_h_sym_label = tk.Label(ord_frame,
                                      text='Ha=')
 
-        self.ord_ter_entry = tk.Entry(ord_frame,
-                                 width=5)
+        self.ord_ter_entry = tk.Entry(ord_frame, width=5,
+                                      textvariable=self.view.vars['ord_terrain'])
         self.ord_inl_entry = tk.Entry(ord_frame,
                                  width=5)
         self.ord_out_entry = tk.Entry(ord_frame,
