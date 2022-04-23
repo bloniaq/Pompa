@@ -79,7 +79,7 @@ class TestVariable:
     def test_get_var(self):
         var = variables.FloatVariable(45, name='test_name')
         result = variables.Variable.get_var('test_name')
-        assert result is var
+        assert result.value is var.value
 
 
 class TestFloatVar():
