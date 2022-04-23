@@ -46,3 +46,7 @@ class Station(v.StationObject):
         """Calculates pumpsystem in a user-chosen mode"""
 
         self.pumpsystem = pumpsystem.PumpSystem(self, mode)
+
+    def bind_variables(self, variables):
+        for var in variables:
+            var.modelvar = self.get_var(var.name)
