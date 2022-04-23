@@ -130,7 +130,8 @@ class View(tk.Tk):
 
         for variable in data:
             variable.viewvar = types[variable.type](variable.name)
-            variable.viewvar.set(variable.default_value)
+            if variable.default_value is not None:
+                variable.viewvar.set(variable.default_value)
             dictionary[variable.name] = variable.viewvar
 
         # print("Testing view variables creation")
