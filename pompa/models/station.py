@@ -49,4 +49,7 @@ class Station(v.StationObject):
 
     def bind_variables(self, variables):
         for var in variables:
-            var.modelvar = self.get_var(var.name)
+            binded_var = self.get_var(var.name)
+            var.modelvar = binded_var
+            if binded_var is not None:
+                print('binded_var: ', binded_var, binded_var.value, binded_var.name)
