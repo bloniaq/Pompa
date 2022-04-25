@@ -13,18 +13,19 @@ DEVELOPER_MODE = True
 class VMVar:
     """ViewModel Variable"""
 
-    def __init__(self, name, type, default_value):
+    def __init__(self, name, var_type, default_value):
         self.name = name
-        self.type = type
+        self.type = var_type
         self.default_value = default_value
         self.viewvar = None
         self.modelvar = None
 
     def set_viewvar_callback(self):
-        self.viewvar.trace_add(self.set_in_model)
+        self.viewvar.trace_add('write', self.set_in_model)
 
-    def set_in_model(self):
-        self.modelvar.set(self.viewar.get())
+    def set_in_model(self, *args):
+        print('set in ', args)
+        self.modelvar.set(self.viewvar.get())
 
 
 class Application:
@@ -39,7 +40,7 @@ class Application:
         ('safety', 'string', 'optimal'),
         ('unit', 'string', 'meters'),
         ('parallel_out_pipes', 'int', 1),
-        ('ord_terrain', 'double', None)
+        ('ord_terrain', 'string', None)
     ]
 
     def __init__(self):
@@ -52,6 +53,8 @@ class Application:
         self.view = gui_tk.View(self.variables)
 
         # Variables binding
+        self.model.bind_variables(self.variables)
+        self.create_variables_tracing()
 
         if DEVELOPER_MODE:
             # TESTING FIGURES CREATING ONLY
@@ -86,6 +89,16 @@ class Application:
             variables.append(variable)
 
         return variables
+
+    def get_var(self, name):
+        for var in self.variables:
+            if name is var.name:
+                return var
+
+    def create_variables_tracing(self):
+        for var in self.variables:
+            var.set_viewvar_callback()
+
 
     """
     def _add_commands(self):
