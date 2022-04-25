@@ -69,7 +69,10 @@ class Variable:
 
     @classmethod
     def get_var(cls, name):
-        return [var for var in cls.instances if var.name == name][0].value
+        try:
+            return [var for var in cls.instances if var.name == name][0]
+        except IndexError:
+            return None
 
 
 class FloatVariable(Variable):
@@ -77,17 +80,16 @@ class FloatVariable(Variable):
 
     def __init__(self, value=0.0, digits=2, name=None):
         self.digits = digits
-        value = self._round(value)
-        super().__init__(value, name)
-
-    def __repr__(self):
-        return str(self.value) + ' FV'
+        value = float(round(value, digits))
+        Variable.__init__(self, value, name)
 
     def __add__(self, other):
         if isinstance(other, FloatVariable):
-            return FloatVariable(self.value + other.value)
+            self.value = self.value + other.value
+            return self
         else:
-            return FloatVariable(self.value + other)
+            self.value = self.value + other
+            return self
 
     def __sub__(self, other):
         if isinstance(other, FloatVariable):
@@ -141,6 +143,11 @@ class FloatVariable(Variable):
         return FloatVariable(round(self.value, digits))
 
     def set(self, value):
+        if not isinstance(value, float):
+            try:
+                value = float(value)
+            except ValueError:
+                raise InputTypeError
         value = self._round(value)
         super().set(value)
 

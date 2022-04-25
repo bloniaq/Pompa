@@ -15,32 +15,31 @@ class TestVariable:
         'variable_string']
 
     @pytest.fixture
-    def variable_no_value(self, request):
+    def variable_no_value(self):
         """Returns a Variable instance with default value"""
         return variables.Variable()
 
     @pytest.fixture
-    def variable_integer(self, request):
+    def variable_integer(self):
         return variables.Variable(5)
 
     @pytest.fixture
-    def variable_float(self, request):
+    def variable_float(self):
         return variables.Variable(13.0)
 
     @pytest.fixture
-    def variable_boolean(self, request):
+    def variable_boolean(self):
         return variables.Variable(True)
 
     @pytest.fixture
-    def variable_string(self, request):
+    def variable_string(self):
         return variables.Variable('test string')
 
     def test_var_init_default(self):
         var = variables.Variable()
         assert var.value is None
 
-    @pytest.mark.parametrize('value', [
-        5, 13.0, True, 'test string'])
+    @pytest.mark.parametrize('value', [5, 13.0, True, 'test string'])
     def test_var_init_vals(self, value):
         var = variables.Variable(value)
         assert var.value == value
@@ -103,7 +102,7 @@ class TestFloatVar():
         assert isinstance(float_var_value_20.value, float)
 
     def test_string_input_value(self):
-        with pytest.raises(InputTypeError):
+        with pytest.raises(TypeError):
             variables.FloatVariable("test string")
 
     @pytest.mark.parametrize(
@@ -125,7 +124,7 @@ class TestFloatVar():
         float_var = request.getfixturevalue(fixture)
         int_val = 7
         float_var.set(int_val)
-        assert float_var.value == 7.00
+        assert float_var == 7.00
 
     @pytest.mark.parametrize(
         'fixture', ['float_var_no_val', 'float_var_value_20'])
@@ -153,6 +152,13 @@ class TestFloatVar():
         float1 = variables.FloatVariable(13)
         float2 = variables.FloatVariable(2)
         assert float1 * float2 == variables.FloatVariable(26)
+
+    def test_name(self):
+        float1 = variables.FloatVariable(13, name='float1')
+        float2 = variables.FloatVariable(name='float2')
+        assert float1.name == 'float1'
+        assert float2.name == 'float2'
+        assert all(var in variables.Variable.instances for var in [float1, float2])
 
 
 class Test_IntVar:
