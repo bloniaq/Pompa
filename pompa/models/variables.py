@@ -69,7 +69,7 @@ class Variable:
 
     @classmethod
     def get_var(cls, name):
-        return [var for var in cls.instances if var.name == name][0].value
+        return [var for var in cls.instances if var.name == name][0]
 
 
 class FloatVariable(Variable):
@@ -80,7 +80,7 @@ class FloatVariable(Variable):
         value = self._round(value)
         super().__init__(value, name)
 
-    def __repr__(self):
+    def __str__(self):
         return str(self.value) + ' FV'
 
     def __add__(self, other):
