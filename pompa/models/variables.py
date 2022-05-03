@@ -51,7 +51,30 @@ class Variable:
         self.name = name
         self.value = value
         self.callbacks = {}
-        Variable.instances.append(self)
+        self._var_register()
+
+    def _var_register(self):
+        """
+        Appends self instance to class attribute list of all instances if name
+        attribute is specified.
+        In case of finding same-named instance in the list, it pops it
+
+        WARNING!
+        There is assumption, that list of instances is useless for variables
+        without name attribute specified. There are only non-None named
+        instances on the instances list.
+
+        :return: None
+        """
+        indexes_to_pop = []
+        for i in range(len(Variable.instances)):
+            var = Variable.instances[i]
+            if var.name == self.name:
+                indexes_to_pop.append(i)
+        for i in indexes_to_pop:
+            Variable.instances.pop(i)
+        if self.name is not None:
+            Variable.instances.append(self)
 
     def add_callback(self, func):
         self.callbacks[func] = None
@@ -69,7 +92,7 @@ class Variable:
 
     @classmethod
     def get_var(cls, name):
-        return [var for var in cls.instances if var.name == name][0]
+        return [var for var in cls.instances if var.name == name][-1]
 
 
 class FloatVariable(Variable):
@@ -138,13 +161,16 @@ class FloatVariable(Variable):
             return self.value >= other
 
     def __round__(self, digits):
-        return FloatVariable(round(self.value, digits))
+        # return FloatVariable(round(self.value, digits))
+        self.value.__round__(digits)
+        return self
 
     def set(self, value):
         value = self._round(value)
         super().set(value)
 
     def _round(self, value):
+        # TODO: Nie podoba mi się ta metoda
         try:
             value = float(round(value, self.digits))
         except (ValueError, TypeError):
@@ -170,6 +196,7 @@ class IntVariable(Variable, int):
         super().set(value)
 
     def _round(self, value):
+        # TODO: Nie podoba mi się ta metoda
         try:
             value = value = int(round(value))
         except (ValueError, TypeError):
