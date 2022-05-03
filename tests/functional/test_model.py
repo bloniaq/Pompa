@@ -23,3 +23,32 @@ def test_3_units(station_4):
     pset_1, pset_2, pset_3 = station_4.pumpsystem.pumpsets
     assert pset_3.ord_start == pytest.approx(95.57, rel=.001)
     assert pset_3.wpoint_start.height == pytest.approx(23.35, rel=.02)
+
+
+def test_variable_reference(station_1):
+    test_value = 34.6
+    var_thru_get_var = station_1.ins_pipe.length.get_var('ord_terrain')
+    var_thru_model = station_1.hydr_cond.ord_terrain
+    assert var_thru_model is var_thru_get_var
+    var_thru_get_var.set(test_value)
+    assert var_thru_model is var_thru_get_var
+    assert var_thru_get_var.get() == test_value
+    assert var_thru_model.get() == test_value
+
+
+def test_variable_singularity(station_1):
+    """Has list of all variables, with names other than None, unique elements"""
+    instances_all = station_1.ins_pipe.length.instances
+    instances_with_name = []
+    instances_with_unique_name = []
+    for i in instances_all:
+        if i.name is not None:
+            instances_with_name.append(i)
+            unique_flag = True
+            for unique in instances_with_unique_name:
+                if i.name == unique.name:
+                    unique_flag = False
+            if unique_flag:
+                instances_with_unique_name.append(i)
+    assert len(instances_with_unique_name) == len(instances_with_name)
+    assert instances_with_unique_name == instances_with_name
