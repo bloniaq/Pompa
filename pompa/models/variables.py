@@ -106,9 +106,14 @@ class FloatVariable(Variable):
     def __str__(self):
         return str(self.value) + ' FV'
 
+    def __repr__(self):
+        return str(self.name) + ": " + str(self.value) + ' FV'
+
     def __add__(self, other):
         if isinstance(other, FloatVariable):
-            return FloatVariable(self.value + other.value)
+            # return FloatVariable(self.value + other.value)
+            self.value = self.value + other.value
+            return self
         else:
             return FloatVariable(self.value + other)
 
