@@ -13,6 +13,8 @@ DEVELOPER_MODE = True
 class VMVar:
     """ViewModel Variable"""
 
+    controller = None
+
     def __init__(self, name, type, default_value):
         self.name = name
         self.type = type
@@ -24,7 +26,10 @@ class VMVar:
         self.viewvar.trace_add(self.set_in_model)
 
     def set_in_model(self):
-        self.modelvar.set(self.viewar.get())
+        self._modelvar().set(self.viewvar.get())
+
+    def _modelvar(self):
+        return self.controller.model.get_var(self.name)
 
 
 class Application:
@@ -45,6 +50,7 @@ class Application:
     def __init__(self):
 
         # Initializing Application (ViewModel) variables
+        VMVar.controller = self
         self.variables = self._init_variables()
 
         # Creating View and Model
