@@ -148,11 +148,13 @@ class TestFloatVar():
         float1 = variables.FloatVariable(24.8)
         float2 = variables.FloatVariable(3.17)
         assert float1 + float2 == variables.FloatVariable(27.97)
+        assert float1 + float2 is float1
 
     def test_mul(self):
         float1 = variables.FloatVariable(13)
         float2 = variables.FloatVariable(2)
         assert float1 * float2 == variables.FloatVariable(26)
+        # assert float1 * float2 is float1
 
 
 class Test_IntVar:
