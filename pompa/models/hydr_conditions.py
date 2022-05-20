@@ -56,4 +56,5 @@ class HydrConditions:
             Difference between checked ordinate and upper level ordinate
         """
 
-        return self.ord_upper_level - ordinate
+        height = self.ord_upper_level.value - ordinate.value
+        return v.FloatVariable(height, name="geom_height")
