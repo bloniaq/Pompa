@@ -36,7 +36,9 @@ class Station(v.StationObject):
         self.well = well.Well()
         self.hydr_cond = hydr_cond.HydrConditions()
         self.ins_pipe = pipe.Pipe()
+        self.ins_pipe.tag_name("ins")
         self.out_pipe = pipe.Pipe()
+        self.out_pipe.tag_name("out")
         self.out_pipes_no = v.FloatVariable(1)
         self.pump_type = pump_type.PumpType()
         self.pumpsystem = None

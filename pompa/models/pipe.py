@@ -39,6 +39,29 @@ class Pipe(v.StationObject):
 
         return round((3.14 * ((self.diameter.value / 2) ** 2)), 4)
 
+    def tag_name(self, tag):
+        """Set tag to variables name attribute
+
+        Affects all data atributes and changes its name attribute as in
+        <tag>_<attribute_name> scheme.
+
+        Parameters
+        ----------
+        tag : str
+            desirable tag
+
+        Returns
+        -------
+        None
+        """
+        self.length.name = tag + "_lenght"
+        self.diameter.name = tag + "_diameter"
+        self.roughness.name = tag + "_roughness"
+        # TODO: Uncomment this when v.ResistanceVariable will cover name
+        # attributes
+        # self.resistance.name = tag + "_roughness"
+
+
     def _velocity(self, flow):
         """Return value of average velocity inside pipe.
 
