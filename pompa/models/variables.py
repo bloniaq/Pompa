@@ -114,25 +114,32 @@ class FloatVariable(Variable):
             self.value = self.value + other.value
             return self
         else:
-            return FloatVariable(self.value + other)
+            self.value = self.value + other
+            return self
 
     def __sub__(self, other):
         if isinstance(other, FloatVariable):
-            return FloatVariable(self.value - other.value)
+            self.value = self.value - other.value
+            return self
         else:
-            return FloatVariable(self.value - other)
+            self.value = self.value - other
+            return self
 
     def __mul__(self, other):
         if isinstance(other, FloatVariable):
-            return FloatVariable(self.value * other.value)
+            self.value = self.value * other.value
+            return self
         else:
-            return FloatVariable(self.value * other)
+            self.value = self.value * other
+            return self
 
     def __truediv__(self, other):
         if isinstance(other, FloatVariable):
-            return self.value / other.value
+            self.value = self.value / other.value
+            return round(self)
         else:
-            return FloatVariable(self.value / other, self.digits)
+            self.value = self.value / other
+            return round(self)
 
     def __eq__(self, other):
         if isinstance(other, FloatVariable):
@@ -166,6 +173,8 @@ class FloatVariable(Variable):
 
     def __round__(self, digits):
         # return FloatVariable(round(self.value, digits))
+        if digits is None:
+            digits = self.digits
         self.value.__round__(digits)
         return self
 

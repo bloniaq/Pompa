@@ -126,8 +126,8 @@ class PumpSet:
         points = OrderedDict()
 
         enough_time = False
-        ordinate = round(self.ord_stop, 2)
-
+        ordinate = v.FloatVariable(self.ord_stop.value, digits=2,
+                                   name="examined_ord")
         points[str(ordinate.get())] = Point(
             self._workpoint(ordinate), 0, None, 0)
 
