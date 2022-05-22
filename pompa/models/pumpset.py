@@ -61,11 +61,11 @@ class PumpSet:
         self._ORD_STEP = 0.01
 
         self._pumps_amount = pumps_amount
-        self._out_pipes_no = station.out_pipes_no.get()
-        self._well_area = station.well.cr_sec_area()
-        self._ord_upper_level = station.hydr_cond.ord_upper_level
-        self._req_cycle_time = station.pump_type.cycle_time
-        self._ord_inlet = station.hydr_cond.ord_inlet
+        self._out_pipes_no = station.out_pipes_no.get() #
+        self._well_area = station.well.cr_sec_area() #
+        self._ord_upper_level = station.hydr_cond.ord_upper_level #
+        self._req_cycle_time = station.pump_type.cycle_time #
+        self._ord_inlet = station.hydr_cond.ord_inlet #
         self._ins_pipe_area = station.ins_pipe.area()
         self._out_pipe_area = station.out_pipe.area()
         self._pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
@@ -74,10 +74,10 @@ class PumpSet:
 
         if pumps_amount == 1:
             last_pset_start_q = v.FlowVariable(0)
-            self._min_ord = ord_shutdown
+            self._min_ord = ord_shutdown #
         elif pumps_amount > 1:
             last_pset_start_q = last_pset.wpoint_start.flow
-            self._min_ord = last_pset.ord_start
+            self._min_ord = last_pset.ord_start #
 
         self._min_inflow = max(station.hydr_cond.inflow_min,
                                last_pset_start_q + v.FlowVariable(.1, 'lps'))
@@ -91,7 +91,7 @@ class PumpSet:
         # interface
         self.enough_pumps = False
 
-        self.ord_stop = ord_shutdown
+        self.ord_stop = ord_shutdown #
         self.cyc_time = None
         self.wor_time = None
         self.lay_time = None
@@ -247,7 +247,18 @@ class PumpSet:
         return cycle_time, working_time, layover_time
 
     def _workpoint(self, ordinate):
-        """Return workpoint parameters at asked ordinate."""
+        """Return workpoint parameters at asked ordinate.
+
+        Parameters
+        ----------
+        ordinate : FloatVariable
+            ordinate to calculate its workpoint
+
+        Returns
+        -------
+        WorkPoint
+            object is list of work point parameters.
+        """
 
         return pompa.models.workpoint.WorkPoint(
             self._geom_height(ordinate),

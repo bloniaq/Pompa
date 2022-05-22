@@ -45,7 +45,8 @@ def test_pumpset_cycle_time(s2_pumpset, s2_pumpset_points):
     (140.24, 11.61, 26.79, 7.88, 1.52, .85)])
 def test_pumpset_workpoint_interface(ord_, height, flow_val, geom_h, ins_p_v,
                                      out_p_v, s2_pumpset):
-    wpoint = s2_pumpset._workpoint(ord_)
+    ordinate = v.FloatVariable(ord_)
+    wpoint = s2_pumpset._workpoint(ordinate)
     assert wpoint is not None
     assert wpoint.height == pytest.approx(height, rel=.02)
     assert wpoint.flow.value_lps == pytest.approx(flow_val, rel=.02)
@@ -55,7 +56,8 @@ def test_pumpset_workpoint_interface(ord_, height, flow_val, geom_h, ins_p_v,
 
 
 def test_pumpset_geom_height(s2_pumpset):
-    assert s2_pumpset._geom_height(139.44) == 8.68
+    ordinate = v.FloatVariable(139.44)
+    assert s2_pumpset._geom_height(ordinate) == 8.68
 
 
 def test_worst_inflow(s2_pumpset, s2_pumpset_points):
@@ -84,9 +86,9 @@ def test_calculate(s2_pumpset):
         'wor_time': 273,
         'lay_time': 273,
         'vol_u': 3.43,
-        'wpoint_stop': s2_pumpset._workpoint(139.04),
+        'wpoint_stop': s2_pumpset._workpoint(v.FloatVariable(139.04)),
         'ord_start': 139.74,
-        'wpoint_start': s2_pumpset._workpoint(139.74),
+        'wpoint_start': s2_pumpset._workpoint(v.FloatVariable(139.74)),
         'worst_inflow': v.FlowVariable(12.59, 'lps')}
     s2_pumpset._calculate()
     assert s2_pumpset.cyc_time == pytest.approx(exp_dict['cyc_time'], rel=.02)
