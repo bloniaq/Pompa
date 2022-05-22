@@ -111,7 +111,6 @@ class FloatVariable(Variable):
 
     def __add__(self, other):
         if isinstance(other, FloatVariable):
-            # return FloatVariable(self.value + other.value)
             self.value = self.value + other.value
             return self
         else:
