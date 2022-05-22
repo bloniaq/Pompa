@@ -59,4 +59,7 @@ class PumpType(v.StationObject):
             Sum of current bottom ordinate and pumptype suction level.
         """
 
-        return self.suction_level + ord_bottom
+        shutdown_ordinate = v.FloatVariable(
+            self.suction_level.value + ord_bottom.value)
+
+        return shutdown_ordinate
