@@ -257,7 +257,7 @@ class Test_FlowVar:
         fixture_list, fixtures_expected_attributes))
     def test_init_units(self, fixture, expected_args, request):
         flow_var = request.getfixturevalue(fixture)
-        assert flow_var.init_unit == expected_args[1]
+        assert flow_var.base_unit == expected_args[1]
 
     @pytest.mark.parametrize('fixture, expected_args', zip(
         fixture_list, fixtures_expected_attributes))

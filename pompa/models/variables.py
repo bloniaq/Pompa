@@ -195,13 +195,13 @@ class FloatVariable(Variable):
 class IntVariable(Variable, int):
     """Class used to combine int values and tk-oriented callbacks interface"""
 
-    def __new__(self, value=0):
-        return int.__new__(self, value)
-        self.value = self
+    # def __new__(self, value=0):
+    #     return int.__new__(self, value)
+    #     self.value = self
 
-    def __init__(self, value=0):
+    def __init__(self, value=0, name=None):
         value = self._round(value)
-        super().__init__(value)
+        super().__init__(value, name)
         self.value = self
 
     def set(self, value):
@@ -223,7 +223,7 @@ class FlowVariable(Variable):
     def __init__(self, value=0, unit='m3ph'):
         super().__init__()
         self.set(value, unit)
-        self.init_unit = unit
+        self.base_unit = unit
 
     def __repr__(self):
         return '{} lps'.format(self.value_lps)
