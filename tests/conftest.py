@@ -102,14 +102,14 @@ def s2_pumpset_points(station_2):
     flow = v.FlowVariable
     Point = namedtuple('Point', ['wpoint', 'it_v', 'it_eff', 'e_time'])
     points = OrderedDict()
-    points['139.04'] = Point(wp(139.04), 0, None, 0)
-    points['139.14'] = Point(wp(139.14), 0.49, flow(0.0246, 'm3ps'), 19.93)
-    points['139.24'] = Point(wp(139.24), 0.49, flow(0.0248, 'm3ps'), 19.78)
-    points['139.34'] = Point(wp(139.34), 0.49, flow(0.0250, 'm3ps'), 19.62)
-    points['139.44'] = Point(wp(139.44), 0.49, flow(0.0252, 'm3ps'), 19.47)
-    points['139.54'] = Point(wp(139.54), 0.49, flow(0.0254, 'm3ps'), 19.33)
-    points['139.64'] = Point(wp(139.64), 0.49, flow(0.0256, 'm3ps'), 19.18)
-    points['139.74'] = Point(wp(139.74), 0.49, flow(0.0258, 'm3ps'), 19.04)
+    points['139.04'] = Point(wp(v.FloatVariable(139.04)), 0, None, 0)
+    points['139.14'] = Point(wp(v.FloatVariable(139.14)), 0.49, flow(0.0246, 'm3ps'), 19.93)
+    points['139.24'] = Point(wp(v.FloatVariable(139.24)), 0.49, flow(0.0248, 'm3ps'), 19.78)
+    points['139.34'] = Point(wp(v.FloatVariable(139.34)), 0.49, flow(0.0250, 'm3ps'), 19.62)
+    points['139.44'] = Point(wp(v.FloatVariable(139.44)), 0.49, flow(0.0252, 'm3ps'), 19.47)
+    points['139.54'] = Point(wp(v.FloatVariable(139.54)), 0.49, flow(0.0254, 'm3ps'), 19.33)
+    points['139.64'] = Point(wp(v.FloatVariable(139.64)), 0.49, flow(0.0256, 'm3ps'), 19.18)
+    points['139.74'] = Point(wp(v.FloatVariable(139.74)), 0.49, flow(0.0258, 'm3ps'), 19.04)
     return points
 
 
