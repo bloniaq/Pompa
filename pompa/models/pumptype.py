@@ -43,7 +43,11 @@ class PumpType(v.StationObject):
         pumps_amount : int
             The number of pumps
         """
-        return self.efficiency_from * pumps_amount, self.efficiency_to * 2
+        range_start_value = self.efficiency_from.value_m3ph * pumps_amount
+        range_start = v.FlowVariable(range_start_value, "m3ph", "opt_ran_start")
+        range_stop_value = self.efficiency_to.value_m3ph * 2
+        range_stop = v.FlowVariable(range_stop_value, "m3ph", "opt_ran_stop")
+        return range_start, range_stop
 
     def shutdown_ord(self, ord_bottom):
         """Calculate ordinate of pump shutdown.
