@@ -150,4 +150,5 @@ class WorkPoint:
         height = np.polynomial.polynomial.Polynomial(
             self._pumpset_poly)(roots[0])
         velocity = self._velocity(flow)
-        return height, flow, velocity['ins_pipe'], velocity['out_pipe']
+        return round(height, 2), flow,\
+               velocity['ins_pipe'], velocity['out_pipe']
