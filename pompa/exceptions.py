@@ -43,3 +43,8 @@ class FrictionFactorMethodOutOfRange(Exception):
         self.error += '\nReynolds Number : ' + str(reynolds)
         self.error += '\nRoughness :       ' + str(roughness)
         self.error += '\nDiameter :        ' + str(diameter) + '\n'
+
+
+class UnsupportedOperationError(ValueError):
+    def __init__(self, operation):
+        print(f"Operation {operation} is not supported")
