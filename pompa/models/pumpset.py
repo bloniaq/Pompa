@@ -61,11 +61,11 @@ class PumpSet:
         self._ORD_STEP = 0.01
 
         self._pumps_amount = pumps_amount
-        self._out_pipes_no = station.out_pipes_no.get() #
-        self._well_area = station.well.cr_sec_area() #
-        self._ord_upper_level = station.hydr_cond.ord_upper_level #
-        self._req_cycle_time = station.pump_type.cycle_time #
-        self._ord_inlet = station.hydr_cond.ord_inlet #
+        self._out_pipes_no = station.out_pipes_no.get()
+        self._well_area = station.well.cr_sec_area()
+        self._ord_upper_level = station.hydr_cond.ord_upper_level
+        self._req_cycle_time = station.pump_type.cycle_time
+        self._ord_inlet = station.hydr_cond.ord_inlet
         self._ins_pipe_area = station.ins_pipe.area()
         self._out_pipe_area = station.out_pipe.area()
         self._pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
@@ -74,10 +74,10 @@ class PumpSet:
 
         if pumps_amount == 1:
             last_pset_start_q = v.FlowVariable(0)
-            self._min_ord = ord_shutdown #
+            self._min_ord = ord_shutdown.copy()
         elif pumps_amount > 1:
-            last_pset_start_q = last_pset.wpoint_start.flow
-            self._min_ord = last_pset.ord_start #
+            last_pset_start_q = last_pset.wpoint_start.flow.copy()
+            self._min_ord = last_pset.ord_start.copy()
 
         self._min_inflow = max(station.hydr_cond.inflow_min,
                                last_pset_start_q + v.FlowVariable(.1, 'lps'))
@@ -91,7 +91,7 @@ class PumpSet:
         # interface
         self.enough_pumps = False
 
-        self.ord_stop = ord_shutdown #
+        self.ord_stop = ord_shutdown.copy()
         self.cyc_time = None
         self.wor_time = None
         self.lay_time = None
@@ -146,7 +146,11 @@ class PumpSet:
             it_volume = round(
                 (ordinate.get() - float(last_ord)) * self._well_area.value, 3)
             wpoint = self._workpoint(ordinate)
-            it_avg_eff = (wpoint.flow + points[last_ord].wpoint.flow) / 2
+
+            # it_avg_eff = (wpoint.flow + points[last_ord].wpoint.flow) / 2
+            it_avg_eff = self._average_flow(
+                wpoint.flow, points[last_ord].wpoint.flow)
+
             it_e_time = round(it_volume / it_avg_eff.value_m3ps, 2)
 
             points[str(ordinate.get())] = Point(
@@ -217,9 +221,12 @@ class PumpSet:
 
         time = 0
         for point in points.values():
+            # TODO: Is not None
             if point.it_eff is None:
                 continue
-            balance = point.it_eff - inflow
+            balance_m3ps = point.it_eff.value_m3ps - inflow.value_m3ps
+            # balance = point.it_eff - inflow
+            balance = v.FlowVariable(balance_m3ps, "m3ps")
             time += (point.it_v / balance.value_m3ps)
         return round(time, 2)
 
@@ -285,3 +292,7 @@ class PumpSet:
         worst_inflow = min(max(
             avg_eff / 2, self._min_inflow), self._max_inflow)
         return worst_inflow
+
+    def _average_flow(self, flow_1, flow_2, name=None):
+        average = (flow_1.value_m3ph + flow_2.value_m3ph) / 2
+        return v.FlowVariable(average, "m3ph", name=name)

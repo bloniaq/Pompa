@@ -1,4 +1,4 @@
-from pompa.exceptions import InputTypeError
+from pompa.exceptions import InputTypeError, UnsupportedOperationError
 import numpy as np
 
 
@@ -111,35 +111,35 @@ class FloatVariable(Variable):
 
     def __add__(self, other):
         if isinstance(other, FloatVariable):
-            self.value = self.value + other.value
+            self.set(self.value + other.value)
             return self
         else:
-            self.value = self.value + other
+            self.set(self.value + other)
             return self
 
     def __sub__(self, other):
         if isinstance(other, FloatVariable):
-            self.value = self.value - other.value
+            self.set(self.value - other.value)
             return self
         else:
-            self.value = self.value - other
+            self.set(self.value - other)
             return self
 
     def __mul__(self, other):
         if isinstance(other, FloatVariable):
-            self.value = self.value * other.value
+            self.set(self.value * other.value)
             return self
         else:
-            self.value = self.value * other
+            self.set(self.value * other)
             return self
 
     def __truediv__(self, other):
         if isinstance(other, FloatVariable):
-            self.value = self.value / other.value
-            return round(self)
+            self.set(self.value / other.value)
+            return self
         else:
-            self.value = self.value / other
-            return round(self)
+            self.set(self.value / other)
+            return self
 
     def __eq__(self, other):
         if isinstance(other, FloatVariable):
@@ -191,6 +191,11 @@ class FloatVariable(Variable):
         else:
             return value
 
+    def copy(self):
+        if self.name is not None:
+            self.name += "-copy"
+        return FloatVariable(self.value, self.digits, self.name)
+
 
 class IntVariable(Variable, int):
     """Class used to combine int values and tk-oriented callbacks interface"""
@@ -220,8 +225,8 @@ class IntVariable(Variable, int):
 class FlowVariable(Variable):
     """Holds variables which keep flow values, and provide unit conversion"""
 
-    def __init__(self, value=0, unit='m3ph'):
-        super().__init__()
+    def __init__(self, value=0, unit='m3ph', name=None):
+        super().__init__(name=name)
         self.set(value, unit)
         self.base_unit = unit
 
@@ -244,22 +249,26 @@ class FlowVariable(Variable):
         return self.value_m3ph >= other.value_m3ph
 
     def __add__(self, other):
-        return FlowVariable(self.value_m3ph + other.value_m3ph)
+        self.set(self.value_m3ph + other.value_m3ph, "m3ph")
+        return self
 
     def __mul__(self, other):
         if isinstance(other, FlowVariable):
-            return FlowVariable(self.value_m3ph * other.value_m3ph)
+            raise UnsupportedOperationError("multiply FlowVariables")
         else:
-            return FlowVariable(self.value_m3ph * other)
+            self.set(self.value_m3ph * other, "m3ph")
+            return self
 
     def __sub__(self, other):
-        return FlowVariable(self.value_m3ph - other.value_m3ph)
+        self.set(self.value_m3ph - other.value_m3ph, "m3ph")
+        return self
 
     def __truediv__(self, other):
         if isinstance(other, FlowVariable):
-            return self.value_m3ph / other.value_m3ph
+            raise UnsupportedOperationError("division FlowVariables")
         else:
-            return FlowVariable(self.value_m3ph / other, 'm3ph')
+            self.set(self.value_m3ph / other, "m3ph")
+            return self
 
     def __floordiv__(self, other):
         return self.value_m3ph // other.value_m3ph
@@ -288,6 +297,11 @@ class FlowVariable(Variable):
 
     def _m3ps(self, lps):
         return round(lps / 1000, 5)
+
+    def copy(self):
+        if self.name is not None:
+            self.name += "-copy"
+        return FlowVariable(self.value_m3ph, "m3ph", self.name)
 
 
 class SwitchVariable(Variable):
