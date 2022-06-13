@@ -70,7 +70,7 @@ class Variable:
         for i in range(len(Variable.instances)):
             var = Variable.instances[i]
             if var.name == self.name:
-                indexes_to_pop.append(i)
+                indexes_to_pop.insert(0, i)
         for i in indexes_to_pop:
             Variable.instances.pop(i)
         if self.name is not None:
