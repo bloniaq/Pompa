@@ -80,7 +80,7 @@ class PumpSet:
             self._min_ord = last_pset.ord_start.copy()
 
         self._min_inflow = max(station.hydr_cond.inflow_min,
-                               last_pset_start_q + v.FlowVariable(.1, 'lps'))
+                               v.FlowVariable(.1, 'lps') + last_pset_start_q)
         self._max_inflow = station.hydr_cond.inflow_max
         ins_pipe_poly = station.ins_pipe.dynamic_loss_polynomial(
             self._min_inflow, self._max_inflow)
@@ -290,7 +290,7 @@ class PumpSet:
         time_sum = sum([points[point].e_time for point in points.keys()])
         avg_eff = v.FlowVariable(vol_sum / time_sum, 'm3ps')
         worst_inflow = min(max(
-            avg_eff / 2, self._min_inflow), self._max_inflow)
+            avg_eff / 2, self._min_inflow.copy()), self._max_inflow.copy())
         return worst_inflow
 
     def _average_flow(self, flow_1, flow_2, name=None):
