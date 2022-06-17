@@ -39,8 +39,10 @@ class Station(v.StationObject):
         self.ins_pipe.tag_name("ins")
         self.out_pipe = pipe.Pipe()
         self.out_pipe.tag_name("out")
-        self.out_pipes_no = v.FloatVariable(1)
+        self.out_pipes_no = v.FloatVariable(1, name="parallel_out_pipes")
         self.mode = v.SwitchVariable('checking', name="mode")
+        self.safety = v.SwitchVariable('optimal', name='safety')
+        self.unit = v.SwitchVariable('meters', name="unit")
         self.pump_type = pump_type.PumpType()
         self.pumpsystem = None
         self.get_var = v.Variable.get_var
