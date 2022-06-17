@@ -27,6 +27,10 @@ class TestController:
             controller.view.ord_terrain_entry.delete(0, tk.END)
             controller.view.ord_terrain_entry.insert(0, test_value)
 
+            assert controller.view.vars["ord_terrain"].get() == test_value
+            assert controller.variables[6].viewvar.get() == test_value
+            assert controller.variables[6].modelvar.get() == test_value
+
             assert controller.model.get_var("ord_terrain").value == test_value
             assert controller.model.get_var("ord_terrain").get() == test_value
             assert controller.model.hydr_cond.ord_terrain.get() == test_value
