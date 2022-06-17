@@ -40,6 +40,7 @@ class Station(v.StationObject):
         self.out_pipe = pipe.Pipe()
         self.out_pipe.tag_name("out")
         self.out_pipes_no = v.FloatVariable(1)
+        self.mode = v.SwitchVariable('checking', name="mode")
         self.pump_type = pump_type.PumpType()
         self.pumpsystem = None
         self.get_var = v.Variable.get_var
