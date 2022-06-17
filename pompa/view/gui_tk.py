@@ -121,7 +121,7 @@ class View(tk.Tk):
     def _create_view_variables(self, data):
         """Create variables based on controller-provided ids"""
 
-        dictionary = {}
+        view_variables = {}
         types = {
             'string': vv.StringVar,
             'int': vv.IntVar,
@@ -129,16 +129,12 @@ class View(tk.Tk):
         }
 
         for variable in data:
-            variable.viewvar = types[variable.type](variable.name)
+            view_variables[variable.name] = types[variable.type](variable.name)
+            variable.viewvar = view_variables[variable.name]
             if variable.default_value is not None:
                 variable.viewvar.set(variable.default_value)
-            dictionary[variable.name] = variable.viewvar
 
-        # print("Testing view variables creation")
-        # for var_name in dictionary:
-        #     print(var_name, dictionary[var_name].get())
-
-        return dictionary
+        return view_variables
 
     def _set_default_values(self, values):
         """
