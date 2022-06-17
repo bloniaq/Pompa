@@ -22,9 +22,9 @@ class Well(v.StationObject):
     def __init__(self):
         self.shape = v.SwitchVariable(name="shape")
         self.config = v.SwitchVariable(name="config")
-        self.diameter = v.FloatVariable()
-        self.length = v.FloatVariable()
-        self.width = v.FloatVariable()
+        self.diameter = v.FloatVariable(name="well_diam")
+        self.length = v.FloatVariable(name="well_length")
+        self.width = v.FloatVariable(name="well_width")
 
     def minimal_diameter(self, n_of_pumps, netto_contour):
         """Return minimal diameter of round-shaped well.
