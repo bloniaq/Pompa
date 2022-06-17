@@ -15,9 +15,9 @@ class TestController:
                 if v.name == "ord_terrain":
                     vm_var = v
                     break
-            assert vm_var._modelvar() is model_pointer
+            assert vm_var.modelvar is model_pointer
             model_pointer = model_pointer + model_pointer
-            assert vm_var._modelvar() is model_pointer
+            assert vm_var.modelvar is model_pointer
             # assert model_pointer is model_finder
 
     def test_rewriting_doublevar_data_from_view_to_model(self):
