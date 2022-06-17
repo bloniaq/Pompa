@@ -26,10 +26,7 @@ class VMVar:
         self.viewvar.trace_add("write", self.set_in_model)
 
     def set_in_model(self, *args):
-        self._modelvar().set(self.viewvar.get())
-
-    def _modelvar(self):
-        return self.controller.model.get_var(self.name)
+        self.modelvar.set(self.viewvar.get())
 
 
 class Application:
@@ -56,11 +53,13 @@ class Application:
         # Creating View and Model
         self.model = station.Station()
         self.model.bind_variables(self.variables)
+        # binding model vars from here, instead of passing variables to init
+        # to provide testability of model
         self.view = gui_tk.View(self.variables)
-        for var in self.variables:
-            var.set_viewvar_callback()
 
         # Variables binding
+        for var in self.variables:
+            var.set_viewvar_callback()
 
         if DEVELOPER_MODE:
             # TESTING FIGURES CREATING ONLY
