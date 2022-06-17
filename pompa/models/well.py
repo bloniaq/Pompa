@@ -20,8 +20,8 @@ class Well(v.StationObject):
     """
 
     def __init__(self):
-        self.shape = v.SwitchVariable()
-        self.config = v.SwitchVariable()
+        self.shape = v.SwitchVariable(name="shape")
+        self.config = v.SwitchVariable(name="config")
         self.diameter = v.FloatVariable()
         self.length = v.FloatVariable()
         self.width = v.FloatVariable()
