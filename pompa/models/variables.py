@@ -315,8 +315,8 @@ class SwitchVariable(Variable):
 class ResistanceVariable(Variable):
     """Holds list of resistance coefficients"""
 
-    def __init__(self, value=[]):
-        super().__init__(value)
+    def __init__(self, value=[], name=None):
+        super().__init__(value, name)
 
     def sum(self):
         return sum(self.value)

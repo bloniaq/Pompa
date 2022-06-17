@@ -57,9 +57,7 @@ class Pipe(v.StationObject):
         self.length.name = tag + "_lenght"
         self.diameter.name = tag + "_diameter"
         self.roughness.name = tag + "_roughness"
-        # TODO: Uncomment this when v.ResistanceVariable will cover name
-        # attributes
-        # self.resistance.name = tag + "_roughness"
+        self.resistance.name = tag + "_resistance"
 
 
     def _velocity(self, flow):
