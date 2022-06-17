@@ -23,9 +23,9 @@ class VMVar:
         self.modelvar = None
 
     def set_viewvar_callback(self):
-        self.viewvar.trace_add(self.set_in_model)
+        self.viewvar.trace_add("write", self.set_in_model)
 
-    def set_in_model(self):
+    def set_in_model(self, *args):
         self._modelvar().set(self.viewvar.get())
 
     def _modelvar(self):
@@ -55,7 +55,10 @@ class Application:
 
         # Creating View and Model
         self.model = station.Station()
+        self.model.bind_variables(self.variables)
         self.view = gui_tk.View(self.variables)
+        for var in self.variables:
+            var.set_viewvar_callback()
 
         # Variables binding
 
