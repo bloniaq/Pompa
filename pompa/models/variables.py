@@ -307,8 +307,8 @@ class FlowVariable(Variable):
 class SwitchVariable(Variable):
     """Holds variables which keep switchable things"""
 
-    def __init__(self, value='', dictionary={}):
-        super().__init__(value)
+    def __init__(self, value='', dictionary={}, name=None):
+        super().__init__(value, name)
         self.dictionary = dictionary
 
 
