@@ -39,8 +39,8 @@ class HydrConditions:
         self.ord_highest_point = v.FloatVariable(name='ord_highest_point')
         self.ord_upper_level = v.FloatVariable(name='ord_upper_level')
         self.reserve_height = v.FloatVariable(name='reserve_height')
-        self.inflow_max = v.FlowVariable()
-        self.inflow_min = v.FlowVariable()
+        self.inflow_max = v.FlowVariable(name='inflow_max')
+        self.inflow_min = v.FlowVariable(name='inflow_min')
 
     def geom_height(self, ordinate):
         """Return geometric height to pump
