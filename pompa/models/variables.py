@@ -53,6 +53,40 @@ class Variable:
         self.callbacks = {}
         self._var_register()
 
+    def __add__(self, other):
+        if isinstance(other, type(self)):
+            self.set(self.value + other.value)
+            return self
+        else:
+            self.set(self.value + other)
+            return self
+
+    def __sub__(self, other):
+        if isinstance(other, type(self)):
+            self.set(self.value - other.value)
+            return self
+        else:
+            self.set(self.value - other)
+            return self
+
+    def __lt__(self, other):
+        if isinstance(other, type(self)):
+            return self.value < other.value
+        else:
+            return self.value < other
+
+    def __ge__(self, other):
+        if isinstance(other, FloatVariable):
+            return self.value >= other.value
+        else:
+            return self.value >= other
+
+    def __eq__(self, other):
+        if isinstance(other, type(self)):
+            return self.value == other.value
+        else:
+            return self.value == other
+
     def _var_register(self):
         """
         Appends self instance to class attribute list of all instances if name
@@ -109,70 +143,7 @@ class FloatVariable(Variable):
     def __repr__(self):
         return str(self.name) + ": " + str(self.value) + ' FV'
 
-    def __add__(self, other):
-        if isinstance(other, FloatVariable):
-            self.set(self.value + other.value)
-            return self
-        else:
-            self.set(self.value + other)
-            return self
-
-    def __sub__(self, other):
-        if isinstance(other, FloatVariable):
-            self.set(self.value - other.value)
-            return self
-        else:
-            self.set(self.value - other)
-            return self
-
-    def __mul__(self, other):
-        if isinstance(other, FloatVariable):
-            self.set(self.value * other.value)
-            return self
-        else:
-            self.set(self.value * other)
-            return self
-
-    def __truediv__(self, other):
-        if isinstance(other, FloatVariable):
-            self.set(self.value / other.value)
-            return self
-        else:
-            self.set(self.value / other)
-            return self
-
-    def __eq__(self, other):
-        if isinstance(other, FloatVariable):
-            return self.value == other.value
-        else:
-            return self.value == other
-
-    def __lt__(self, other):
-        if isinstance(other, FloatVariable):
-            return self.value < other.value
-        else:
-            return self.value < other
-
-    def __le__(self, other):
-        if isinstance(other, FloatVariable):
-            return self.value <= other.value
-        else:
-            return self.value <= other
-
-    def __gt__(self, other):
-        if isinstance(other, FloatVariable):
-            return self.value > other.value
-        else:
-            return self.value > other
-
-    def __ge__(self, other):
-        if isinstance(other, FloatVariable):
-            return self.value >= other.value
-        else:
-            return self.value >= other
-
     def __round__(self, digits):
-        # return FloatVariable(round(self.value, digits))
         if digits is None:
             digits = self.digits
         self.value.__round__(digits)
@@ -197,17 +168,15 @@ class FloatVariable(Variable):
         return FloatVariable(self.value, self.digits, self.name)
 
 
-class IntVariable(Variable, int):
+class IntVariable(Variable):
     """Class used to combine int values and tk-oriented callbacks interface"""
-
-    # def __new__(self, value=0):
-    #     return int.__new__(self, value)
-    #     self.value = self
 
     def __init__(self, value=0, name=None):
         value = self._round(value)
         super().__init__(value, name)
-        self.value = self
+
+    def __index__(self):
+        return self.value
 
     def set(self, value):
         value = self._round(value)
@@ -221,6 +190,7 @@ class IntVariable(Variable, int):
             raise InputTypeError()
         else:
             return value
+
 
 class FlowVariable(Variable):
     """Holds variables which keep flow values, and provide unit conversion"""
@@ -331,9 +301,9 @@ class ResistanceVariable(Variable):
 class PumpCharVariable(Variable):
     """Holds pump characteristic"""
 
-    def __init__(self):
+    def __init__(self, name=None):
         self.value = []
-        super().__init__(self.value)
+        super().__init__(self.value, name)
 
     def __repr__(self):
         return str(self.value)
