@@ -28,12 +28,12 @@ class PumpType(v.StationObject):
     """
 
     def __init__(self):
-        self.cycle_time = v.IntVariable()
-        self.contour = v.FloatVariable()
-        self.suction_level = v.FloatVariable()
-        self.efficiency_from = v.FlowVariable()
-        self.efficiency_to = v.FlowVariable()
-        self.characteristic = v.PumpCharVariable()
+        self.cycle_time = v.IntVariable(name="cycle_time")
+        self.contour = v.FloatVariable(name="pump_contour")
+        self.suction_level = v.FloatVariable(name="suction_level")
+        self.efficiency_from = v.FlowVariable(name="eff_from")
+        self.efficiency_to = v.FlowVariable(name="eff_to")
+        self.characteristic = v.PumpCharVariable(name="pump_char")
 
     def opt_range(self, pumps_amount):
         """Return pumpset efficiency optimal range
