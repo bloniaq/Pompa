@@ -31,3 +31,7 @@ class DoubleVar(tk.DoubleVar, ViewVariable):
         ViewVariable.__init__(self, id_)
         tk.DoubleVar.__init__(self, *args, **kwargs)
 
+class PumpCharVar():
+    # placeholder for now
+    def __init__(self, *args):
+        pass
