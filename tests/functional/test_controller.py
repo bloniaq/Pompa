@@ -27,10 +27,15 @@ class TestController:
             controller.view.ord_terrain_entry.delete(0, tk.END)
             controller.view.ord_terrain_entry.insert(0, test_value)
 
-            assert controller.view.vars["ord_terrain"].get() == test_value
+            assert controller.view.get_var("ord_terrain").get() == test_value
             assert controller.variables[9].viewvar.get() == test_value
             assert controller.variables[9].modelvar.get() == test_value
 
             assert controller.model.get_var("ord_terrain").value == test_value
             assert controller.model.get_var("ord_terrain").get() == test_value
             assert controller.model.hydr_cond.ord_terrain.get() == test_value
+
+    # def test_rewriting_intvar_date_from_view_to_model(self):
+    #     with app_module.Application() as controller:
+    #
+    #         controller.view.

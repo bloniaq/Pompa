@@ -73,6 +73,9 @@ class View(tk.Tk):
         self.mode_radio_minimal.config(command=self.callbacks['mode'])
         self.calc_button.config(command=self.callbacks['calculate'])
 
+    def get_var(self, name):
+        return self.vars[name]
+
     ###
     # Controller steering section
     ###

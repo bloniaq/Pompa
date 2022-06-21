@@ -27,11 +27,10 @@ class Test_View:
             view.add_port(port)
             assert view.values_port == port
 
-    def test_default_values(self):
+    def test_get_var_method(self):
         with view_module.View(self.variables_data) as view:
-            # view = view_module.View(self.VARIABLES, self.DEFAULT_VALUES)
 
-            assert view.vars['shape'].get() == 'round'
+            assert view.get_var('shape').get() == 'round'
 
 
 class Test_Variables:
