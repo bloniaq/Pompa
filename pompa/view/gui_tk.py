@@ -125,7 +125,10 @@ class View(tk.Tk):
         types = {
             'string': vv.StringVar,
             'int': vv.IntVar,
-            'double': vv.DoubleVar
+            'double': vv.DoubleVar,
+            'res': vv.StringVar,
+            'flow': vv.DoubleVar,
+            'pump_char': vv.PumpCharVar
         }
 
         for variable in data:
