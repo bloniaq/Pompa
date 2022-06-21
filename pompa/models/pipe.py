@@ -28,37 +28,16 @@ class Pipe(v.StationObject):
         Returns polynomial of dynamic loss function of pipe
     """
 
-    def __init__(self):
-        self.length = v.FloatVariable()
-        self.diameter = v.FloatVariable(digits=3)
-        self.roughness = v.FloatVariable(digits=7)
-        self.resistance = v.ResistanceVariable()
+    def __init__(self, tag):
+        self.length = v.FloatVariable(name=tag+"_length")
+        self.diameter = v.FloatVariable(name=tag+"_diameter", digits=3)
+        self.roughness = v.FloatVariable(name=tag+"_roughness", digits=7)
+        self.resistances = v.ResistanceVariable(name=tag+"_resistances", )
 
     def area(self):
         """Calculate cross-sectional area of pipe"""
 
         return round((3.14 * ((self.diameter.value / 2) ** 2)), 4)
-
-    def tag_name(self, tag):
-        """Set tag to variables name attribute
-
-        Affects all data atributes and changes its name attribute as in
-        <tag>_<attribute_name> scheme.
-
-        Parameters
-        ----------
-        tag : str
-            desirable tag
-
-        Returns
-        -------
-        None
-        """
-        self.length.name = tag + "_lenght"
-        self.diameter.name = tag + "_diameter"
-        self.roughness.name = tag + "_roughness"
-        self.resistance.name = tag + "_resistance"
-
 
     def _velocity(self, flow):
         """Return value of average velocity inside pipe.
@@ -164,7 +143,7 @@ class Pipe(v.StationObject):
         """
 
         return round(((self._velocity(flow) ** 2) / (
-            2 * self.std_grav)) * self.resistance.sum(), 2)
+            2 * self.std_grav)) * self.resistances.sum(), 2)
 
     def sum_loss(self, flow):
         """Calculate sum of losses.
