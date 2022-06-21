@@ -38,7 +38,7 @@ def test_variable_reference(station_1):
 
 def test_variable_singularity(station_1):
     """Has list of all variables, with names other than None, unique elements"""
-    instances_all = station_1.ins_pipe.length.instances
+    instances_all = station_1.ins_pipe.length._registry
     instances_with_name = []
     instances_with_unique_name = []
     for i in instances_all:
