@@ -40,19 +40,19 @@ class Application:
         ('shape', 2, 'string', 'round'),
         ('config', 3, 'string', 'singlerow'),
         ('safety', 4, 'string', 'optimal'),
-        ('pump_diameter', 5, 'double', None),
+        ('pump_contour', 5, 'double', None),
         ('well_length', 6, 'double', None),
         ('well_width', 7, 'double', None),
         ('well_diameter', 8, 'double', None),
-        ('min_sewage_level', 9, 'double', None),
+        ('suction_level', 9, 'double', None),
         ('ord_terrain', 10, 'double', None),
         ('ord_outlet', 11, 'double', None),
         ('ord_inlet', 12, 'double', None),
         ('ord_bottom', 13, 'double', None),
         ('reserve_height', 14, 'double', None),
-        ('ord_heighest', 15, 'double', None),
-        ('ord_end', 16, 'double', None),
-        ('ins_pipe_diam', 29, 'double', None),
+        ('ord_highest_point', 15, 'double', None),
+        ('ord_upper_level', 16, 'double', None),
+        ('ins_pipe_diameter', 29, 'double', None),
         ('ins_pipe_roughness', 30, 'double', None),
         ('ins_pipe_resistances', 32, 'res', None),
         ('inflow_min', 33, 'flow', None),
@@ -62,10 +62,10 @@ class Application:
         ('pump_eff_min', 39, 'flow', None),
         ('pump_eff_max', 40, 'flow', None),
         ('parallel_out_pipes', 41, 'int', 1),
-        ('out_pipe_len', 42, 'double', None),
-        ('out_pipe_diam', 43, 'double', None),
+        ('out_pipe_length', 42, 'double', None),
+        ('out_pipe_diameter', 43, 'double', None),
         ('out_pipe_roughness', 44, 'double', None),
-        ('out_pipe_resistance', 46, 'res', None),
+        ('out_pipe_resistances', 46, 'res', None),
         ('unit', 100, 'string', 'meters')
     ]
 
@@ -180,9 +180,9 @@ class Application:
         args = {
             'x': flows_array,
             'ins_pipe': np.polynomial.polynomial.Polynomial(
-                ins_pipe_poly_coeffs) + mock_hc.geom_height(mock_hc.ord_terrain).get(),
+                ins_pipe_poly_coeffs) + mock_hc.geom_height(mock_hc.ord_terrain),
             'geometric_height': np.polynomial.polynomial.Polynomial(
-                [mock_hc.geom_height(mock_hc.ord_terrain).get()]
+                [mock_hc.geom_height(mock_hc.ord_terrain)]
             )
         }
 

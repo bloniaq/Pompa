@@ -1,4 +1,5 @@
-from pompa.exceptions import InputTypeError, UnsupportedOperationError
+from pompa.exceptions import InputTypeError, UnsupportedOperationError,\
+    NoSuchVariableError, DuplicatedVariableError
 import numpy as np
 
 
@@ -45,13 +46,17 @@ class StationObject:
 class Variable:
     """Abstract class responsible for provide interface of a model variable."""
 
-    instances = []
+    _registry = []
 
     def __init__(self, value=None, name=None):
         self.name = name
         self.value = value
         self.callbacks = {}
-        self._var_register()
+        if name is not None:
+            self._registry.append(self)
+            #debugging:
+            self.get_var(name)
+        # self._var_register()
 
     def __add__(self, other):
         if isinstance(other, type(self)):
@@ -87,29 +92,6 @@ class Variable:
         else:
             return self.value == other
 
-    def _var_register(self):
-        """
-        Appends self instance to class attribute list of all instances if name
-        attribute is specified.
-        In case of finding same-named instance in the list, it pops it
-
-        WARNING!
-        There is assumption, that list of instances is useless for variables
-        without name attribute specified. There are only non-None named
-        instances on the instances list.
-
-        :return: None
-        """
-        indexes_to_pop = []
-        for i in range(len(Variable.instances)):
-            var = Variable.instances[i]
-            if var.name == self.name:
-                indexes_to_pop.insert(0, i)
-        for i in indexes_to_pop:
-            Variable.instances.pop(i)
-        if self.name is not None:
-            Variable.instances.append(self)
-
     def add_callback(self, func):
         self.callbacks[func] = None
 
@@ -126,7 +108,18 @@ class Variable:
 
     @classmethod
     def get_var(cls, name):
-        return [var for var in cls.instances if var.name == name][-1]
+        variable = [var for var in cls._registry if var.name == name]
+        if len(variable) == 0:
+            raise NoSuchVariableError(name)
+        elif len(variable) > 1:
+            raise DuplicatedVariableError(name, cls._registry)
+        else:
+            return variable[0]
+
+    @classmethod
+    def clean_registry(cls):
+        cls._registry = []
+        print("registry cleaned")
 
 
 class FloatVariable(Variable):
@@ -162,7 +155,9 @@ class FloatVariable(Variable):
         else:
             return value
 
-    def copy(self):
+    def copy(self, name=None):
+        if name is not None:
+            return FloatVariable(self.value, self.digits, name)
         if self.name is not None:
             self.name += "-copy"
         return FloatVariable(self.value, self.digits, self.name)
@@ -249,8 +244,10 @@ class FlowVariable(Variable):
     def _m3ps(self, lps):
         return round(lps / 1000, 5)
 
-    def copy(self):
-        if self.name is not None:
+    def copy(self, name=None):
+        if name is not None:
+            return FlowVariable(self.value_m3ph, "m3ph", name)
+        elif self.name is not None:
             self.name += "-copy"
         return FlowVariable(self.value_m3ph, "m3ph", self.name)
 

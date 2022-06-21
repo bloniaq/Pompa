@@ -74,10 +74,11 @@ class PumpSet:
 
         if pumps_amount == 1:
             last_pset_start_q = v.FlowVariable(0)
-            self._min_ord = ord_shutdown.copy()
+            self._min_ord = ord_shutdown.copy(f"min_ord_pump_{pumps_amount}")
         elif pumps_amount > 1:
             last_pset_start_q = last_pset.wpoint_start.flow.copy()
-            self._min_ord = last_pset.ord_start.copy()
+            self._min_ord = last_pset.ord_start.copy(
+                f"min_ord_pump_{pumps_amount}")
 
         self._min_inflow = max(station.hydr_cond.inflow_min,
                                v.FlowVariable(.1, 'lps') + last_pset_start_q)
@@ -126,8 +127,7 @@ class PumpSet:
         points = OrderedDict()
 
         enough_time = False
-        ordinate = v.FloatVariable(self.ord_stop.value, digits=2,
-                                   name="examined_ord")
+        ordinate = v.FloatVariable(self.ord_stop.value, digits=2)
         points[str(ordinate.get())] = Point(
             self._workpoint(ordinate), 0, None, 0)
 
@@ -290,7 +290,7 @@ class PumpSet:
         time_sum = sum([points[point].e_time for point in points.keys()])
         avg_eff = v.FlowVariable(vol_sum / time_sum, 'm3ps')
         worst_inflow = min(max(
-            avg_eff / 2, self._min_inflow.copy()), self._max_inflow.copy())
+            avg_eff / 2, self._min_inflow), self._max_inflow)
         return worst_inflow
 
     def _average_flow(self, flow_1, flow_2, name=None):
