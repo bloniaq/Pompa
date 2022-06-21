@@ -15,9 +15,10 @@ class VMVar:
 
     controller = None
 
-    def __init__(self, name, type, default_value):
+    def __init__(self, name: str, id_: int, type_: str, default_value):
         self.name = name
-        self.type = type
+        self.id = id_
+        self.type = type_
         self.default_value = default_value
         self.viewvar = None
         self.modelvar = None
@@ -35,13 +36,37 @@ class Application:
     # Arguments for VMVar class constructor:
     # (name, type, default_value)
     _variables_init_values = [
-        ('mode', 'string', 'checking'),
-        ('shape', 'string', 'round'),
-        ('config', 'string', 'singlerow'),
-        ('safety', 'string', 'optimal'),
-        ('unit', 'string', 'meters'),
-        ('parallel_out_pipes', 'int', 1),
-        ('ord_terrain', 'double', None)
+        ('mode', 1, 'string', 'checking'),
+        ('shape', 2, 'string', 'round'),
+        ('config', 3, 'string', 'singlerow'),
+        ('safety', 4, 'string', 'optimal'),
+        ('pump_diameter', 5, 'double', None),
+        ('well_length', 6, 'double', None),
+        ('well_width', 7, 'double', None),
+        ('well_diameter', 8, 'double', None),
+        ('min_sewage_level', 9, 'double', None),
+        ('ord_terrain', 10, 'double', None),
+        ('ord_outlet', 11, 'double', None),
+        ('ord_inlet', 12, 'double', None),
+        ('ord_bottom', 13, 'double', None),
+        ('reserve_height', 14, 'double', None),
+        ('ord_heighest', 15, 'double', None),
+        ('ord_end', 16, 'double', None),
+        ('ins_pipe_diam', 29, 'double', None),
+        ('ins_pipe_roughness', 30, 'double', None),
+        ('ins_pipe_resistances', 32, 'res', None),
+        ('inflow_min', 33, 'flow', None),
+        ('inflow_max', 34, 'flow', None),
+        ('min_cycle_time', 35, 'double', None),
+        ('pump_characteristic', 37, 'pump_char', None),
+        ('pump_eff_min', 39, 'flow', None),
+        ('pump_eff_max', 40, 'flow', None),
+        ('parallel_out_pipes', 41, 'int', 1),
+        ('out_pipe_len', 42, 'double', None),
+        ('out_pipe_diam', 43, 'double', None),
+        ('out_pipe_roughness', 44, 'double', None),
+        ('out_pipe_resistance', 46, 'res', None),
+        ('unit', 100, 'string', 'meters')
     ]
 
     def __init__(self):
