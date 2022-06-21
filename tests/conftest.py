@@ -8,12 +8,16 @@ import pompa.models.variables as v
 import pompa.models.workpoint
 
 
+@pytest.fixture(autouse=True)
+def clean_model_variable_registry():
+    v.Variable.clean_registry()
+
 @pytest.fixture
 def station_1(request):
     station = Station()
     safety_coeff = 1.4
     # input values:
-    station.well.config.value = 'optimal'
+    station.well.config.set('optimal')
     station.well.diameter.set(2.5)
     station.hydr_cond.ord_terrain.set(145)
     station.hydr_cond.ord_inlet.set(140)
@@ -25,11 +29,11 @@ def station_1(request):
     station.ins_pipe.length.set(6)
     station.ins_pipe.diameter.set(0.15)
     station.ins_pipe.roughness.set(0.002)
-    station.ins_pipe.resistance.set([3.38])
+    station.ins_pipe.resistances.set([3.38])
     station.out_pipe.length.set(732)
     station.out_pipe.diameter.set(0.2)
     station.out_pipe.roughness.set(0.002)
-    station.out_pipe.resistance.set([0])
+    station.out_pipe.resistances.set([0])
     station.pump_type.cycle_time.set(480)
     station.pump_type.contour.set(0.5)
     station.pump_type.suction_level.set(0.3)
@@ -49,7 +53,7 @@ def station_1(request):
 
 
 @pytest.fixture
-def station_2(request):
+def station_2():
     station = Station()
 
     # Pump Type
@@ -84,19 +88,20 @@ def station_2(request):
     station.ins_pipe.length.set(7)
     station.ins_pipe.diameter.set(.150)
     station.ins_pipe.roughness.set(.0008)
-    station.ins_pipe.resistance.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
+    station.ins_pipe.resistances.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
 
     # Outside Pipe
     station.out_pipe.length.set(732)
     station.out_pipe.diameter.set(.200)
     station.out_pipe.roughness.set(0.0005)
-    station.out_pipe.resistance.set([])
+    station.out_pipe.resistances.set([])
     return station
 
 
 @pytest.fixture()
 def s2_pumpset_points(station_2):
     ord_shutdown = v.FloatVariable(138.87)
+    v.Variable.clean_registry()
     pset = pumpset.PumpSet(station_2, ord_shutdown)
     wp = pset._workpoint
     flow = v.FlowVariable
@@ -149,13 +154,13 @@ def station_3():
     station.ins_pipe.length.set(6)
     station.ins_pipe.diameter.set(.110)
     station.ins_pipe.roughness.set(.0008)
-    station.ins_pipe.resistance.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
+    station.ins_pipe.resistances.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
 
     # Outside Pipe
     station.out_pipe.length.set(2500)
     station.out_pipe.diameter.set(.180)
     station.out_pipe.roughness.set(0.0005)
-    station.out_pipe.resistance.set([])
+    station.out_pipe.resistances.set([])
 
     station.out_pipes_no.set(2)
 
@@ -180,7 +185,7 @@ def station_4_psets(station_4):
 
 @pytest.fixture()
 def workpoint_dummy_1pump():
-    geometric_height = v.FloatVariable(6)
+    geometric_height = 6
     ins_pipe_crossec_area = 6
     out_pipe_crossec_area = 12
     pumpset_poly = np.array([-4, 2, -3, 1])
