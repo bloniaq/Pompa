@@ -28,12 +28,12 @@ class PumpType(v.StationObject):
     """
 
     def __init__(self):
-        self.cycle_time = v.IntVariable(name="cycle_time")
+        self.cycle_time = v.IntVariable(name="min_cycle_time")
         self.contour = v.FloatVariable(name="pump_contour")
         self.suction_level = v.FloatVariable(name="suction_level")
-        self.efficiency_from = v.FlowVariable(name="eff_from")
-        self.efficiency_to = v.FlowVariable(name="eff_to")
-        self.characteristic = v.PumpCharVariable(name="pump_char")
+        self.efficiency_from = v.FlowVariable(name="pump_eff_min")
+        self.efficiency_to = v.FlowVariable(name="pump_eff_max")
+        self.characteristic = v.PumpCharVariable(name="pump_characteristic")
 
     def opt_range(self, pumps_amount):
         """Return pumpset efficiency optimal range
@@ -44,9 +44,11 @@ class PumpType(v.StationObject):
             The number of pumps
         """
         range_start_value = self.efficiency_from.value_m3ph * pumps_amount
-        range_start = v.FlowVariable(range_start_value, "m3ph", "opt_ran_start")
+        range_start = v.FlowVariable(range_start_value, "m3ph",
+                                     f"opt_ran_start_pump_{pumps_amount}")
         range_stop_value = self.efficiency_to.value_m3ph * 2
-        range_stop = v.FlowVariable(range_stop_value, "m3ph", "opt_ran_stop")
+        range_stop = v.FlowVariable(range_stop_value, "m3ph",
+                                    f"opt_ran_stop_pump_{pumps_amount}")
         return range_start, range_stop
 
     def shutdown_ord(self, ord_bottom):
