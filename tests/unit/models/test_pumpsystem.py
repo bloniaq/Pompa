@@ -17,7 +17,6 @@ def test_checking_method(station_2):
 def test_calculation(station_2):
     psystem = pompa.models.pumpsystem.PumpSystem(station_2)
     assert psystem._calculate is not None
-    psystem._calculate('checking')
     assert len(psystem.pumpsets) > 0
 
 
