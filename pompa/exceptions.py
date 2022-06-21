@@ -48,3 +48,16 @@ class FrictionFactorMethodOutOfRange(Exception):
 class UnsupportedOperationError(ValueError):
     def __init__(self, operation):
         print(f"Operation {operation} is not supported")
+
+
+class NoSuchVariableError(AttributeError):
+    def __init__(self, name):
+        print(f"There's no Variable named <<{name}>> in model")
+
+
+class DuplicatedVariableError(AttributeError):
+    def __init__(self, name, variables):
+        print(f"There's more than one Variable with <<{name}>> name in model")
+        print("all variables:")
+        for v in variables:
+            print(f"Name: {v.name}\t\tValue: {v.value}")
