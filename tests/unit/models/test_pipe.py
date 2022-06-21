@@ -10,7 +10,7 @@ class TestPipe:
         (1.5, 0.1, 0.001, 0.104),
         (50, 0.11, 0.0015, 2.437)])
     def test_line_loss(self, length, diameter, roughness, result):
-        pipe_obj = pipe.Pipe()
+        pipe_obj = pipe.Pipe("test_tag")
         flow = pipe.v.FlowVariable(15, 'lps')
         pipe_obj.diameter.set(diameter)
         pipe_obj.roughness.set(roughness)
@@ -18,11 +18,11 @@ class TestPipe:
         assert pipe_obj._line_loss(flow) == pytest.approx(result, rel=.01)
 
     def test_pipe_polynomial(self):
-        pipe_obj = pipe.Pipe()
+        pipe_obj = pipe.Pipe("test_tag")
         pipe_obj.length.set(100)
         pipe_obj.diameter.set(.150)
         pipe_obj.roughness.set(.0008)
-        pipe_obj.resistance.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
+        pipe_obj.resistances.set([0.27, 0.27, 0.6, 0.2, 2, 0.04])
         min_inflow = v.FlowVariable(5, 'lps')
         max_inflow = v.FlowVariable(40, 'lps')
         exp_array = np.array(
@@ -34,7 +34,7 @@ class TestPipe:
                 min_inflow, max_inflow), exp_array, decimal=4)
     
     def test_init(self):
-        pipe_obj = pipe.Pipe()
+        pipe_obj = pipe.Pipe("test_tag")
         assert pipe_obj is not None
 
 
@@ -44,7 +44,7 @@ class TestPipe:
         (0.500, 0.1963),
         (0.050, 0.0020)])
     def test_area(self, diameter, result):
-        pipe_obj = pipe.Pipe()
+        pipe_obj = pipe.Pipe("test_tag")
         pipe_obj.diameter.set(diameter)
         assert pipe_obj.area() == result
 
@@ -58,7 +58,7 @@ class TestPipe:
         (0.125, 145, 3.2748),
         (0.125, 94.78, 2.1407)])
     def test_velocity(self, diameter, flow, result):
-        pipe_obj = pipe.Pipe()
+        pipe_obj = pipe.Pipe("test_tag")
         pipe_obj.diameter.set(diameter)
         flow_var = pipe.v.FlowVariable(flow)
         assert pipe_obj._velocity(flow_var) == result
@@ -70,7 +70,7 @@ class TestPipe:
         (0.250, 150, 210742),
         (0.300, 12.45, 14571)])
     def test_reynolds(self, diameter, flow, result):
-        pipe_obj = pipe.Pipe()
+        pipe_obj = pipe.Pipe("test_tag")
         pipe_obj.diameter.set(diameter)
         flow_var = pipe.v.FlowVariable(flow)
         assert pipe_obj._reynolds(flow_var) == result
@@ -83,7 +83,7 @@ class TestPipe:
         (101000, 0.009, 0.0373),
         (189792, 0.01, 0.0379)])
     def test_lambda(self, reynolds, epsilon, result):
-        pipe_obj = pipe.Pipe()
+        pipe_obj = pipe.Pipe("test_tag")
         pipe_obj.diameter.set(0.100)
         pipe_obj.roughness.set(0.001)
 
@@ -99,8 +99,8 @@ class TestPipe:
         (1.91, [0.3, 0.5, 0.2, 0.1], 0.20),
         (1.58, [0.1, 0.1, 0.2], 0.05)])
     def test_local_loss(self, velocity, loc_resists, result):
-        pipe_obj = pipe.Pipe()
-        pipe_obj.resistance.set(loc_resists)
+        pipe_obj = pipe.Pipe("test_tag")
+        pipe_obj.resistances.set(loc_resists)
         _ = 0
 
         def fake_velocity(_):

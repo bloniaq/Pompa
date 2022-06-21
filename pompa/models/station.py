@@ -35,10 +35,8 @@ class Station(v.StationObject):
     def __init__(self):
         self.well = well.Well()
         self.hydr_cond = hydr_cond.HydrConditions()
-        self.ins_pipe = pipe.Pipe()
-        self.ins_pipe.tag_name("ins")
-        self.out_pipe = pipe.Pipe()
-        self.out_pipe.tag_name("out")
+        self.ins_pipe = pipe.Pipe("ins_pipe")
+        self.out_pipe = pipe.Pipe("out_pipe")
         self.out_pipes_no = v.FloatVariable(1, name="parallel_out_pipes")
         self.mode = v.SwitchVariable('checking', name="mode")
         self.safety = v.SwitchVariable('optimal', name='safety')
