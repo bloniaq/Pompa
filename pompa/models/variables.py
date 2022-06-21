@@ -203,20 +203,8 @@ class FlowVariable(Variable):
     def __repr__(self):
         return '{} lps'.format(self.value_lps)
 
-    def __eq__(self, other):
-        return self.value_m3ph == other.value_m3ph
-
     def __lt__(self, other):
         return self.value_m3ph < other.value_m3ph
-
-    def __le__(self, other):
-        return self.value_m3ph <= other.value_m3ph
-
-    def __gt__(self, other):
-        return self.value_m3ph > other.value_m3ph
-
-    def __ge__(self, other):
-        return self.value_m3ph >= other.value_m3ph
 
     def __add__(self, other):
         self.set(self.value_m3ph + other.value_m3ph, "m3ph")
@@ -229,19 +217,12 @@ class FlowVariable(Variable):
             self.set(self.value_m3ph * other, "m3ph")
             return self
 
-    def __sub__(self, other):
-        self.set(self.value_m3ph - other.value_m3ph, "m3ph")
-        return self
-
     def __truediv__(self, other):
         if isinstance(other, FlowVariable):
             raise UnsupportedOperationError("division FlowVariables")
         else:
             self.set(self.value_m3ph / other, "m3ph")
             return self
-
-    def __floordiv__(self, other):
-        return self.value_m3ph // other.value_m3ph
 
     def set(self, value, unit='m3ph'):
         try:
