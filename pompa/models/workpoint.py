@@ -26,13 +26,13 @@ class WorkPoint:
         Sewage velocity in pipe(s) outside station
     """
 
-    def __init__(self, geometric_height, ins_pipe_crossec_area,
+    def __init__(self, geometric_height: float, ins_pipe_crossec_area,
                  out_pipe_crossec_area, pumpset_poly, pipeset_hydr_poly,
                  ins_pipes_no=1, out_pipes_no=1):
         """
         Parameters
         ----------
-        geometric_height : FloatVariable
+        geometric_height : float
         ins_pipe_crossec_area : float
             Cross-sectional area of pipe(s) inside pump station
         out_pipe_crossec_area : float
@@ -104,7 +104,7 @@ class WorkPoint:
         increment by geometric height
         """
         res_poly = self._pipeset_hydr_poly.copy()
-        res_poly[0] = self._pipeset_hydr_poly[0] + self.geom_h.value
+        res_poly[0] = self._pipeset_hydr_poly[0] + self.geom_h
         return res_poly
 
     def _calculate(self):
