@@ -35,3 +35,6 @@ class PumpCharVar():
     # placeholder for now
     def __init__(self, *args):
         pass
+
+    def trace_add(self, *args):
+        pass
