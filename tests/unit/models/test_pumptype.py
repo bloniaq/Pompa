@@ -21,6 +21,7 @@ def test_optimal_range():
     pump_type.efficiency_from.set(15, 'lps')
     pump_type.efficiency_to.set(20, 'lps')
     assert pump_type.opt_range(2)[0].value_lps == 30
+    v.Variable.clean_registry()
     assert pump_type.opt_range(2)[1].value_lps == 40
 
 def test_shutdown_ord():
