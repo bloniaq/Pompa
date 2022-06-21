@@ -52,9 +52,9 @@ class HydrConditions:
 
         Returns
         -------
-        FloatVariable
+        float
             Difference between checked ordinate and upper level ordinate
         """
 
         height = self.ord_upper_level.value - ordinate.value
-        return v.FloatVariable(height, name="geom_height")
+        return round(height, 2)
