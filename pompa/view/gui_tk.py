@@ -92,7 +92,6 @@ class View(tk.Tk):
         }
         return methods[figure]
 
-
     # TODO: Not connected
     def load_datafile(self):
         filename = fd.askopenfilename(
@@ -252,4 +251,3 @@ class Menu(tk.Menu):
         helpmenu.add_command(label="O Programie", command=empty_method)
         self.add_cascade(menu=helpmenu, label="Pomoc")
         master.config(menu=self)
-
