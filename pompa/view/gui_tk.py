@@ -23,8 +23,8 @@ class View(tk.Tk):
         # caused by matplotlib
         self.protocol("WM_DELETE_WINDOW", self.quit)
 
-        # initialize variables
-        self.vars = self._create_view_variables(data)
+        # initialize variables dictionary
+        self.vars = View._create_view_variables(data)
 
         # initialize parameters
         self.callbacks = {}
@@ -34,7 +34,33 @@ class View(tk.Tk):
         self.gui = Gui(self)
         self.menubar = Menu(self)
         self.title("Pompa")
-        self._create_widget_aliases()
+        self.data_widgets = self._create_widget_dictionary()
+
+    @staticmethod
+    def _create_view_variables(data: list) -> dict:
+        """Create variables based on controller-provided ids"""
+
+        view_variables = {}
+        types = {
+            'string': vv.StringVar,
+            'int': vv.IntVar,
+            'double': vv.DoubleVar,
+            'res': vv.StringVar,
+            'flow': vv.DoubleVar,
+            'pump_char': vv.PumpCharVar
+        }
+
+        for variable in data:
+            # create ViewVariable
+            view_variables[variable.name] = types[variable.type](variable.name)
+            # bind ViewVariable to VMVariable attribute
+            variable.viewvar = view_variables[variable.name]
+            view_variables[variable.name].sent_to_model = variable.set_in_model
+            # set default value if exist
+            if variable.default_value is not None:
+                variable.viewvar.set(variable.default_value)
+
+        return view_variables
 
     def __enter__(self):
         return self
@@ -51,27 +77,29 @@ class View(tk.Tk):
         matplotlib.pyplot.close('all')
         tk.Tk.quit(self)
 
-    def add_callback(self, key, method):
-        """Lets controller point, what method bind to widget commands"""
-        self.callbacks[key] = method
+    # def add_callback(self, key, method):
+    #     """Lets controller point, what method bind to widget commands"""
+    #     self.callbacks[key] = method
 
     def add_port(self, port):
-        """Lets controller point, where to send variables values"""
+        """Lets controller point, where to send variables values
+
+        :param port: method or function
+
+        """
         self.values_port = port
 
     def bind_callbacks(self):
-        # TODO: rewrite dict keys as verbs, since callbacks are methods, not
-        #       parameters
-        self.load_button.config(command=self.callbacks['load_data'])
-        self.save_button.config(command=self.callbacks['save_data'])
-        self.unit_radio_meters.config(command=self.callbacks['units'])
-        self.unit_radio_liters.config(command=self.callbacks['units'])
-        self.safety_radio_econ.config(command=self.callbacks['safety'])
-        self.safety_radio_opti.config(command=self.callbacks['safety'])
-        self.safety_radio_safe.config(command=self.callbacks['safety'])
-        self.mode_radio_check.config(command=self.callbacks['mode'])
-        self.mode_radio_minimal.config(command=self.callbacks['mode'])
-        self.calc_button.config(command=self.callbacks['calculate'])
+        self.load_button.config(command=self.callbacks["load_data"])
+        self.save_button.config(command=self.callbacks["save_data"])
+        self.unit_radio_meters.config(command=self.callbacks["change_units"])
+        self.unit_radio_liters.config(command=self.callbacks["change_units"])
+        self.safety_radio_econ.config(command=self.callbacks["set_safety"])
+        self.safety_radio_opti.config(command=self.callbacks["set_safety"])
+        self.safety_radio_safe.config(command=self.callbacks["set_safety"])
+        self.mode_radio_check.config(command=self.callbacks["set_mode"])
+        self.mode_radio_minimal.config(command=self.callbacks["set_mode"])
+        self.calc_button.config(command=self.callbacks["calculate"])
 
     def get_var(self, name):
         return self.vars[name]
@@ -96,7 +124,7 @@ class View(tk.Tk):
     def load_datafile(self):
         filename = fd.askopenfilename(
             filetypes=[("Plik tekstowy", "*.txt")])
-        # wywołanie okna dialogowego open file
+        # Calling Open File dialog window
         if filename:
             with open(filename, "r", -1, "utf-8") as file:
                 self.data.delete(1.0, tk.END)
@@ -114,32 +142,11 @@ class View(tk.Tk):
     ###
 
     def _send_value(self, widget):
-        """Method provides that binded widget send its data to the controller"""
+        """Method provides that bound widget send its data to the controller"""
         variable = widget.variable
         var_id = variable.id
         value = variable.get()
         return self.values_port(var_id, value)
-
-    def _create_view_variables(self, data):
-        """Create variables based on controller-provided ids"""
-
-        view_variables = {}
-        types = {
-            'string': vv.StringVar,
-            'int': vv.IntVar,
-            'double': vv.DoubleVar,
-            'res': vv.StringVar,
-            'flow': vv.DoubleVar,
-            'pump_char': vv.PumpCharVar
-        }
-
-        for variable in data:
-            view_variables[variable.name] = types[variable.type](variable.name)
-            variable.viewvar = view_variables[variable.name]
-            if variable.default_value is not None:
-                variable.viewvar.set(variable.default_value)
-
-        return view_variables
 
     def _set_default_values(self, values):
         """
@@ -151,7 +158,11 @@ class View(tk.Tk):
         for _id in values.keys():
             self.vars[_id].set(values[_id])
 
-    def _create_widget_aliases(self):
+    def _create_widget_dictionary(self):
+        dictionary = {}
+
+        dictionary['ord_terrain'] = self.gui.dataframe.ord_ter_entry
+
         self.load_button = self.gui.buttonframe.load_button
         self.save_button = self.gui.buttonframe.save_button
         self.unit_radio_meters = self.gui.buttonframe.meters_radio
@@ -164,6 +175,8 @@ class View(tk.Tk):
         self.calc_button = self.gui.buttonframe.calc_button
         self.ord_terrain_entry = self.gui.dataframe.ord_ter_entry
 
+        return dictionary
+
 
 class Gui(tk.Frame):
 
@@ -171,15 +184,11 @@ class Gui(tk.Frame):
         parent = view
         tk.Frame.__init__(self, parent)
 
-        # TODO: delete this after refactor
-        unit_var = tk.StringVar()
-        unit_var.set('meters')
-
         self.mainframe = tk.Frame(self)
         self.notebook = tk.ttk.Notebook(self.mainframe)
         self.notebook.pack(expand=True,
                            fill=tk.BOTH)
-        self.dataframe = df.Dataframe(self.notebook, view, unit_var)
+        self.dataframe = df.Dataframe(self.notebook, view)
         self.pipeframe = pipef.Pipeframe(self.notebook, view)
         self.pumpframe = pumpf.Pumpframe(self.notebook, view)
         self.notebook.add(self.dataframe, text='  Dane Projektowe  ')

@@ -2,8 +2,9 @@
 
 import application
 
+def start_app():
+    return application.Application()
 
 if __name__ == '__main__':
-
-    app = application.Application()
-    app.run_gui()
+        app = start_app()
+        app.run_gui()

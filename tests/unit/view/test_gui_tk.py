@@ -70,7 +70,7 @@ class Test_Widgets:
         with view_module.View(self.variables_data) as root:
             test_id = 'test_id'
             test_value = 'test_value'
-            test_variable = vv.StringVar(test_id, master=root, value=test_value)
+            test_variable = vv.StringVar(test_id, master=root, value=test_value,)
             entry = vw.Entry(test_variable)
             assert entry.variable == test_variable
             assert entry.variable.id == test_id

@@ -7,6 +7,7 @@ class ViewVariable:
 
     def __init__(self, var_id):
         self.id = var_id
+        self.sent_to_model = None
 
 
 class StringVar(tk.StringVar, ViewVariable):

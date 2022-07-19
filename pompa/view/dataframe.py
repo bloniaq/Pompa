@@ -1,11 +1,12 @@
 import tkinter as tk
+import pompa.view.widgets as vw
 from tkinter import ttk
 from PIL import ImageTk, Image
 
 
 class Dataframe(tk.Frame):
 
-    def __init__(self, parent, view, unit_var):
+    def __init__(self, parent, view):
         tk.Frame.__init__(self, parent)
         self.parent = parent
         self.view = view
@@ -128,8 +129,8 @@ class Dataframe(tk.Frame):
         alarm_h_sym_label = tk.Label(ord_frame,
                                      text='Ha=')
 
-        self.ord_ter_entry = tk.Entry(ord_frame, width=5,
-                                      textvariable=self.view.vars['ord_terrain'])
+        self.ord_ter_entry = vw.Entry(self.view.vars['ord_terrain'],
+                                      ord_frame, width=5)
         self.ord_inl_entry = tk.Entry(ord_frame,
                                  width=5)
         self.ord_out_entry = tk.Entry(ord_frame,

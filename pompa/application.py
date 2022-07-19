@@ -23,11 +23,16 @@ class VMVar:
         self.viewvar = None
         self.modelvar = None
 
-    def set_viewvar_callback(self):
-        self.viewvar.trace_add("write", self.set_in_model)
+    # def set_viewvar_callback(self):
+    #     print(f"setting viewvar callback by {self.name}")
+    #     print(f"is {self.name}.viewvar is None: {self.viewvar is None}")
+    #     print(f"type(viewvar) {type(self.viewvar)}")
+    #     self.viewvar.send_to_model = self.set_in_model
+    #     print(f"self.viewvar sent to model type {type(self.viewvar.send_to_model)}")
 
-    def set_in_model(self, *args):
-        self.modelvar.set(self.viewvar.get())
+    def set_in_model(self, value):
+        print(f"{self.name} is seting {value} to model")
+        self.modelvar.set(value)
 
 
 class Application:
@@ -82,9 +87,9 @@ class Application:
         # to provide testability of model
         self.view = gui_tk.View(self.variables)
 
-        # Variables binding
-        for var in self.variables:
-            var.set_viewvar_callback()
+        # # Variables binding
+        # for var in self.variables:
+        #     var.set_viewvar_callback()
 
         if DEVELOPER_MODE:
             # TESTING FIGURES CREATING ONLY
