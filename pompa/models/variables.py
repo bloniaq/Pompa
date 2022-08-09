@@ -235,6 +235,14 @@ class FlowVariable(Variable):
         else:
             super().set(None)
 
+    def get_by_unit(self, unit):
+        if unit == 'm3ph':
+            return self.value_m3ph
+        elif unit == 'm3ps':
+            return self.value_m3ps
+        elif unit == 'lps':
+            return self.value_lps
+
     def _lps(self, m3ph):
         return round(m3ph / 3.6, 2)
 

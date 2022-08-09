@@ -6,11 +6,13 @@ from pompa.models.station import Station
 from collections import OrderedDict, namedtuple
 import pompa.models.variables as v
 import pompa.models.workpoint
+import pompa.application as app_module
 
 
 @pytest.fixture(autouse=True)
 def clean_model_variable_registry():
     v.Variable.clean_registry()
+
 
 @pytest.fixture
 def station_1(request):
@@ -213,3 +215,12 @@ def friction_factor_turbulent_smooth_cond():
     reynolds = 20000
     factor = pipe.FrictionFactor(diameter, roughness, reynolds)
     return factor
+
+# # ASYNCIO
+#
+# async def asynced_loop(app):
+#     app =
+#
+# @pytest.fixture
+# def
+#

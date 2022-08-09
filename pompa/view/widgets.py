@@ -21,12 +21,12 @@ class Entry(tk.Entry, Widget):
         self._bind_rewrite()
 
     def _rewrite(self, event):
-        print(f'rewriting by {event.widget}')
-        print(f"self.variable.type: {type(self.variable)}")
-        print(f"is variable.get() exists: {self.variable.get is not None}")
-        print(f"variable.get() {self.variable.get()}")
-        print(f"is variable.sent() exists: {self.variable.sent_to_model is not None}")
         self.variable.sent_to_model(self.variable.get())
+
+    def update_variable(self, new_variable):
+        self.variable = new_variable
+        self.config(textvariable=self.variable)
+        self._bind_rewrite()
 
 
 class Radiobutton(tk.Radiobutton, Widget):

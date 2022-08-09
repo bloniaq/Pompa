@@ -63,12 +63,12 @@ class Buttonframe(tk.Frame):
         self.meters_radio = tk.Radiobutton(self.units_frame,
                                            variable=self.view.vars['unit'],
                                            text='m³/h',
-                                           value='meters',
+                                           value='m3ph',
                                            font=15)
         self.liters_radio = tk.Radiobutton(self.units_frame,
                                            variable=self.view.vars['unit'],
                                            text='l/s',
-                                           value='liters',
+                                           value='lps',
                                            font=15)
         self.meters_radio.pack(side=tk.LEFT)
         self.liters_radio.pack(side=tk.RIGHT)

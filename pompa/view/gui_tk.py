@@ -24,7 +24,7 @@ class View(tk.Tk):
         self.protocol("WM_DELETE_WINDOW", self.quit)
 
         # initialize variables dictionary
-        self.vars = View._create_view_variables(data)
+        self.vars = self._create_view_variables(data)
 
         # initialize parameters
         self.callbacks = {}
@@ -36,8 +36,7 @@ class View(tk.Tk):
         self.title("Pompa")
         self.data_widgets = self._create_widget_dictionary()
 
-    @staticmethod
-    def _create_view_variables(data: list) -> dict:
+    def _create_view_variables(self, data: list) -> dict:
         """Create variables based on controller-provided ids"""
 
         view_variables = {}
@@ -50,15 +49,15 @@ class View(tk.Tk):
             'pump_char': vv.PumpCharVar
         }
 
-        for variable in data:
+        for vm_variable in data:
             # create ViewVariable
-            view_variables[variable.name] = types[variable.type](variable.name)
+            view_variables[vm_variable.name] = types[vm_variable.type](vm_variable.name, self)
             # bind ViewVariable to VMVariable attribute
-            variable.viewvar = view_variables[variable.name]
-            view_variables[variable.name].sent_to_model = variable.set_in_model
+            vm_variable.viewvar = view_variables[vm_variable.name]
+            view_variables[vm_variable.name].sent_to_model = vm_variable.set_in_model
             # set default value if exist
-            if variable.default_value is not None:
-                variable.viewvar.set(variable.default_value)
+            if vm_variable.default_value is not None:
+                vm_variable.viewvar.set(vm_variable.default_value)
 
         return view_variables
 
@@ -103,6 +102,9 @@ class View(tk.Tk):
 
     def get_var(self, name):
         return self.vars[name]
+
+    def get_current_unit(self):
+        return self.vars['unit'].get()
 
     ###
     # Controller steering section
@@ -162,6 +164,14 @@ class View(tk.Tk):
         dictionary = {}
 
         dictionary['ord_terrain'] = self.gui.dataframe.ord_ter_entry
+        dictionary['ord_inlet'] = self.gui.dataframe.ord_inl_entry
+        dictionary['ord_outlet'] = self.gui.dataframe.ord_out_entry
+        dictionary['ord_bottom'] = self.gui.dataframe.ord_bottom_entry
+        dictionary['ord_highest_point'] = self.gui.dataframe.ord_high_entry
+        dictionary['ord_upper_level'] = self.gui.dataframe.ord_end_entry
+        dictionary['reserve_height'] = self.gui.dataframe.alarm_h_entry
+        dictionary['inflow_min'] = self.gui.dataframe.inflow_min_entry
+        dictionary['inflow_max'] = self.gui.dataframe.inflow_max_entry
 
         self.load_button = self.gui.buttonframe.load_button
         self.save_button = self.gui.buttonframe.save_button

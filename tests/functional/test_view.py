@@ -25,12 +25,13 @@ class Test_View:
 
             test_int_id = 'test_int_id'
             test_int_value = 1916
-            int_var = vv.IntVar(test_int_id, value=test_int_value)
+            int_var = vv.IntVar(test_int_id, view_module, value=test_int_value)
             entry = vw.Entry(int_var)
             assert view._send_value(entry) == (test_int_id, test_int_value)
 
             test_string_id = 'test_string_id'
             test_string_value = 'test_string_val'
-            string_var = vv.StringVar(test_string_id, value=test_string_value)
+            string_var = vv.StringVar(test_string_id, view_module,
+                                      value=test_string_value)
             radio = vw.Radiobutton(string_var)
             assert view._send_value(radio) == (test_string_id, test_string_value)
