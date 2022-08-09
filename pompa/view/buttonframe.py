@@ -1,4 +1,5 @@
 import tkinter as tk
+import pompa.view.widgets as vw
 from tkinter import ttk
 from PIL import Image, ImageTk
 
@@ -81,21 +82,24 @@ class Buttonframe(tk.Frame):
                                                relief='groove')
         # additional Frame prevents tk.Frames ipadx/ipady bug
         self.safety_frame = tk.Frame(self.safety_lframe)
-        self.econ_radio = tk.Radiobutton(self.safety_frame,
-                                         variable=self.view.vars['safety'],
+        self.econ_radio = vw.Radiobutton(self.view.vars['safety'],
+                                         self.safety_frame,
                                          text='Ekonomiczny',
                                          value='economic',
-                                         anchor=tk.W)
-        self.optim_radio = tk.Radiobutton(self.safety_frame,
-                                          variable=self.view.vars['safety'],
+                                         anchor=tk.W,
+                                         command=self._update_safety)
+        self.optim_radio = vw.Radiobutton(self.view.vars['safety'],
+                                          self.safety_frame,
                                           text='Optymalny',
                                           value='optimal',
-                                          anchor=tk.W)
-        self.safe_radio = tk.Radiobutton(self.safety_frame,
-                                         variable=self.view.vars['safety'],
+                                          anchor=tk.W,
+                                          command=self._update_safety)
+        self.safe_radio = vw.Radiobutton(self.view.vars['safety'],
+                                         self.safety_frame,
                                          text='Bezpieczny',
                                          value='safe',
-                                         anchor=tk.W)
+                                         anchor=tk.W,
+                                         command=self._update_safety)
         self.econ_radio.pack(expand=True,
                              fill=tk.X,
                              pady=2)
@@ -109,6 +113,9 @@ class Buttonframe(tk.Frame):
                                fill=tk.X,
                                padx=20, pady=10)
 
+    def _update_safety(self):
+        self.view.vars['safety'].sent_to_model(self.view.vars['safety'].get())
+
     def _workmode_frame(self, parent):
         self.workmode_lframe = tk.ttk.Labelframe(parent,
                                                  text="Tryb obliczeń",
@@ -119,12 +126,14 @@ class Buttonframe(tk.Frame):
                                              variable=self.view.vars['mode'],
                                              text='Sprawdzenie istn. pompowni',
                                              value='checking',
-                                             anchor=tk.W)
+                                             anchor=tk.W,
+                                             command=self._update_workmode)
         self.minimalisation_radio = tk.Radiobutton(self.workmode_frame,
                                                    variable=self.view.vars['mode'],
                                                    text='Minimalizacja nakładów inwest.',
                                                    value='minimalisation',
-                                                   anchor=tk.W)
+                                                   anchor=tk.W,
+                                                   command=self._update_workmode)
         self.checking_radio.pack(expand=True,
                                  fill=tk.X,
                                  pady=2)
@@ -134,3 +143,6 @@ class Buttonframe(tk.Frame):
         self.workmode_frame.pack(side=tk.LEFT,
                                  fill=tk.X,
                                  padx=20, pady=10)
+
+    def _update_workmode(self):
+        self.view.vars['mode'].sent_to_model(self.view.vars['mode'].get())

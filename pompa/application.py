@@ -21,22 +21,20 @@ class VMVar:
         self.type = type_
         self.default_value = default_value
         self.viewvar = None
+        self.gui_widget = None
         self.modelvar = None
 
-    # def set_viewvar_callback(self):
-    #     print(f"setting viewvar callback by {self.name}")
-    #     print(f"is {self.name}.viewvar is None: {self.viewvar is None}")
-    #     print(f"type(viewvar) {type(self.viewvar)}")
-    #     self.viewvar.send_to_model = self.set_in_model
-    #     print(f"self.viewvar sent to model type {type(self.viewvar.send_to_model)}")
-
     def set_in_model(self, value):
-        print(f"{self.name} is seting {value} to model")
-        self.modelvar.set(value)
-
+        if self.type == 'flow':
+            unit = self.viewvar.get_current_unit()
+            self.modelvar.set(value, unit)
+            print(f"{self.name} is seting {value} to model: {self.modelvar.get_by_unit(unit)} {unit}")
+        else:
+            self.modelvar.set(value)
+            print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
 
 class Application:
-    """Class used as the ViewModel for instantiation the Application"""
+    """Class used as the ViewModel  for instantiation the Application"""
 
     # Arguments for VMVar class constructor:
     # (name, type, default_value)
@@ -71,7 +69,7 @@ class Application:
         ('out_pipe_diameter', 43, 'double', None),
         ('out_pipe_roughness', 44, 'double', None),
         ('out_pipe_resistances', 46, 'res', None),
-        ('unit', 100, 'string', 'meters')
+        ('unit', 100, 'string', 'm3ph')
     ]
 
     def __init__(self):
