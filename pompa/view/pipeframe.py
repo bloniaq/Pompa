@@ -1,4 +1,5 @@
 import tkinter as tk
+import pompa.view.widgets as vw
 from tkinter import ttk
 import pompa.view.graphs as graphs
 
@@ -8,7 +9,7 @@ class Pipeframe(tk.Frame):
     E_WIDTH = 5
     RES_E_WIDTH = 16
 
-    def __init__(self, view, parent):
+    def __init__(self, parent, view):
         tk.Frame.__init__(self, parent)
         self.view = view
 
@@ -68,16 +69,20 @@ class Pipeframe(tk.Frame):
         dim_u_label.grid(row=1, column=2, sticky=tk.W)
         rough_u_label.grid(row=2, column=2, sticky=tk.W)
 
-        self.ins_len_entry = tk.Entry(int_frame,
+        self.ins_len_entry = vw.Entry(self.view.vars['ins_pipe_length'],
+                                      int_frame,
                                       justify=tk.RIGHT,
                                       width=self.E_WIDTH)
-        self.ins_dim_entry = tk.Entry(int_frame,
+        self.ins_dim_entry = vw.Entry(self.view.vars['ins_pipe_diameter'],
+                                      int_frame,
                                       justify=tk.RIGHT,
                                       width=self.E_WIDTH)
-        self.ins_rough_entry = tk.Entry(int_frame,
+        self.ins_rough_entry = vw.Entry(self.view.vars['ins_pipe_roughness'],
+                                        int_frame,
                                         justify=tk.RIGHT,
                                         width=self.E_WIDTH)
-        self.ins_res_entry = tk.Entry(int_frame,
+        self.ins_res_entry = vw.Entry(self.view.vars['ins_pipe_resistances'],
+                                      int_frame,
                                       justify=tk.RIGHT,
                                       width=self.RES_E_WIDTH)
         self.ins_len_entry.grid(row=0, column=1, padx=PADX, pady=PADY, sticky=tk.E)
@@ -88,7 +93,7 @@ class Pipeframe(tk.Frame):
         hint_label = tk.Label(int_frame,
                               font=('Arial', 8, 'italic'),
                               text='Współczynniki należy oddzielać od siebie średnikiem,\n'
-                                   'jako separatora dziesiętnego należy używać przecinka',
+                                   'jako separatora dziesiętnego należy używać kropki',
                               fg='#7d807e')
         hint_label.grid(row=4, column=0, columnspan=3)
 
@@ -125,16 +130,20 @@ class Pipeframe(tk.Frame):
         dim_u_label.grid(row=1, column=2, sticky=tk.W)
         rough_u_label.grid(row=2, column=2, sticky=tk.W)
 
-        self.out_len_entry = tk.Entry(out_frame,
+        self.out_len_entry = vw.Entry(self.view.vars['out_pipe_length'],
+                                      out_frame,
                                       justify=tk.RIGHT,
                                       width=self.E_WIDTH)
-        self.out_dim_entry = tk.Entry(out_frame,
+        self.out_dim_entry = vw.Entry(self.view.vars['out_pipe_diameter'],
+                                      out_frame,
                                       justify=tk.RIGHT,
                                       width=self.E_WIDTH)
-        self.out_rough_entry = tk.Entry(out_frame,
+        self.out_rough_entry = vw.Entry(self.view.vars['out_pipe_roughness'],
+                                        out_frame,
                                         justify=tk.RIGHT,
                                         width=self.E_WIDTH)
-        self.out_res_entry = tk.Entry(out_frame,
+        self.out_res_entry = vw.Entry(self.view.vars['out_pipe_resistances'],
+                                      out_frame,
                                       justify=tk.RIGHT,
                                       width=self.RES_E_WIDTH)
         self.out_len_entry.grid(row=0, column=1, padx=PADX, pady=PADY,
@@ -147,7 +156,8 @@ class Pipeframe(tk.Frame):
 
         par_label = tk.Label(out_frame,
                              text='Liczba równoległych przewodów')
-        self.out_par_entry = tk.Entry(out_frame,
+        self.out_par_entry = vw.Entry(self.view.vars['parallel_out_pipes'],
+                                      out_frame,
                                       justify=tk.RIGHT,
                                       width=self.E_WIDTH)
         par_label.grid(row=3, column=0)

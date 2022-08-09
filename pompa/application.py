@@ -29,6 +29,11 @@ class VMVar:
             unit = self.viewvar.get_current_unit()
             self.modelvar.set(value, unit)
             print(f"{self.name} is seting {value} to model: {self.modelvar.get_by_unit(unit)} {unit}")
+        elif self.type == 'res':
+            resistances_string = list(value.split(";"))
+            resistances_float = [float(res) for res in resistances_string]
+            self.modelvar.set(resistances_float)
+            print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
         else:
             self.modelvar.set(value)
             print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
@@ -55,6 +60,8 @@ class Application:
         ('reserve_height', 14, 'double', None),
         ('ord_highest_point', 15, 'double', None),
         ('ord_upper_level', 16, 'double', None),
+        # TODO: Sprawdzić te id poniżej
+        ('ins_pipe_length', 28, 'double', None),
         ('ins_pipe_diameter', 29, 'double', None),
         ('ins_pipe_roughness', 30, 'double', None),
         ('ins_pipe_resistances', 32, 'res', None),
