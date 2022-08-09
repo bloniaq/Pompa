@@ -1,4 +1,5 @@
 import tkinter as tk
+import pompa.view.widgets as vw
 from tkinter import ttk
 
 import pompa.view.graphs as graphs
@@ -93,19 +94,24 @@ class Pumpframe(tk.Frame):
         self.maxran_u_label.grid(row=4, column=5)
 
         ENTRY_WID = 7
-        self.dim_entry = tk.Entry(inner_frame,
+        self.dim_entry = vw.Entry(self.view.vars['pump_contour'],
+                                  inner_frame,
                                   justify=tk.RIGHT,
                                   width=ENTRY_WID)
-        self.cycle_entry = tk.Entry(inner_frame,
+        self.cycle_entry = vw.Entry(self.view.vars['min_cycle_time'],
+                                    inner_frame,
                                     justify=tk.RIGHT,
                                     width=ENTRY_WID)
-        self.height_entry = tk.Entry(inner_frame,
+        self.height_entry = vw.Entry(self.view.vars['suction_level'],
+                                     inner_frame,
                                      justify=tk.RIGHT,
                                      width=ENTRY_WID)
-        self.minran_entry = tk.Entry(inner_frame,
+        self.minran_entry = vw.Entry(self.view.vars['pump_eff_min'],
+                                     inner_frame,
                                      justify=tk.RIGHT,
                                      width=ENTRY_WID)
-        self.maxran_entry = tk.Entry(inner_frame,
+        self.maxran_entry = vw.Entry(self.view.vars['pump_eff_max'],
+                                     inner_frame,
                                      justify=tk.RIGHT,
                                      width=ENTRY_WID)
 
