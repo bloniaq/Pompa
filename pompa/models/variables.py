@@ -54,7 +54,7 @@ class Variable:
         self.callbacks = {}
         if name is not None:
             self._registry.append(self)
-            #debugging:
+            # debugging:
             self.get_var(name)
         # self._var_register()
 
@@ -190,7 +190,7 @@ class IntVariable(Variable):
 class FlowVariable(Variable):
     """Holds variables which keep flow values, and provide unit conversion"""
 
-    def __init__(self, value=0, unit='m3ph', name=None):
+    def __init__(self, value=0.0, unit='m3ph', name=None):
         super().__init__(name=name)
         self.set(value, unit)
         self.base_unit = unit

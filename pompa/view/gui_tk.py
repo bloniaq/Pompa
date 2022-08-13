@@ -58,6 +58,8 @@ class View(tk.Tk):
             # set default value if exist
             if vm_variable.default_value is not None:
                 vm_variable.viewvar.set(vm_variable.default_value)
+            if vm_variable.type == 'flow':
+                view_variables[vm_variable.name].get_value_for_unit = vm_variable.return_value_for_unit
 
         return view_variables
 
@@ -172,6 +174,8 @@ class View(tk.Tk):
         dictionary['reserve_height'] = self.gui.dataframe.alarm_h_entry
         dictionary['inflow_min'] = self.gui.dataframe.inflow_min_entry
         dictionary['inflow_max'] = self.gui.dataframe.inflow_max_entry
+        dictionary['unit_m3ph'] = self.gui.buttonframe.meters_radio
+        dictionary['unit_lps'] = self.gui.buttonframe.liters_radio
 
         self.load_button = self.gui.buttonframe.load_button
         self.save_button = self.gui.buttonframe.save_button
@@ -220,6 +224,8 @@ class Gui(tk.Frame):
                               padx=(10, 20), pady=(10, 20),
                               ipadx=10, ipady=10)
         self.pack()
+        self.buttonframe.meters_radio.config(command=self.update_units)
+        self.buttonframe.liters_radio.config(command=self.update_units)
 
     def update_units(self):
         self.pumpframe.update_units()

@@ -186,12 +186,14 @@ class Dataframe(tk.Frame):
 
     def update_units(self):
         unit_var_value = self.view.vars['unit'].get()
-        if unit_var_value == 'meters':
+        if unit_var_value == 'm3ph':
             self.min_inc_u_label.config(text='m³/h')
             self.max_inc_u_label.config(text='m³/h')
-        elif unit_var_value == 'liters':
+        elif unit_var_value == 'lps':
             self.min_inc_u_label.config(text='l/s')
             self.max_inc_u_label.config(text='l/s')
+        self.view.vars['inflow_min'].convert_unit(unit_var_value)
+        self.view.vars['inflow_max'].convert_unit(unit_var_value)
 
     def _wellframe(self, parent):
         self.wellframe = tk.Frame(parent)

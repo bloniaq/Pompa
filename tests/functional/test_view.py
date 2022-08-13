@@ -4,7 +4,7 @@ import pompa.view.variables as vv
 import pompa.view.widgets as vw
 
 
-class Test_View:
+class TestView:
 
     variables_data = app_module.Application._init_variables()
 

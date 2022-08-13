@@ -39,12 +39,14 @@ class Pumpframe(tk.Frame):
         :return: None
         """
         unit_var_value = self.view.vars['unit'].get()
-        if unit_var_value == 'meters':
+        if unit_var_value == 'm3ph':
             self.minran_u_label.config(text='m³/h')
             self.maxran_u_label.config(text='m³/h')
-        elif unit_var_value == 'liters':
+        elif unit_var_value == 'lps':
             self.minran_u_label.config(text='l/s')
             self.maxran_u_label.config(text='l/s')
+        self.view.vars['pump_eff_min'].convert_unit(unit_var_value)
+        self.view.vars['pump_eff_max'].convert_unit(unit_var_value)
 
     def _prop_lframe(self, parent):
         self.prop_lframe = tk.ttk.Labelframe(parent,
@@ -140,7 +142,8 @@ class Pumpframe(tk.Frame):
         rem_button = tk.Button(button_frame,
                                text='-',
                                font=('Arial', 20, 'bold'),
-                               fg='red')
+                               fg='red',
+                               command=self._remove_selected_point)
         add_button.pack(expand=True,
                         side=tk.TOP,
                         fill=tk.BOTH)
@@ -175,8 +178,11 @@ class Pumpframe(tk.Frame):
             self.add_point_window.destroy()
         self.add_point_window = AddPointWindow(self.view,
                                                self.points_tview)
-        # TODO: Add point method
-        pass
+
+    def _remove_selected_point(self):
+        selected_items = self.points_tview.selection()
+        for item in selected_items:
+            self.points_tview.delete(item)
 
 
 class AddPointWindow(tk.Toplevel):
@@ -265,6 +271,10 @@ class AddPointWindow(tk.Toplevel):
         self.tv.insert('', tk.END, values=('x',
                                            self.vflow_var.get(),
                                            self.height_var.get()))
+        unit_var_value = self.view.vars['unit'].get()
+        self.view.vars['pump_characteristic'].add_point(id_, unit_var_value,
+                                                        self.vflow_var.get(),
+                                                        self.height_var.get())
         self.destroy()
 
     def _replace_comma(self, event):
@@ -275,7 +285,7 @@ class AddPointWindow(tk.Toplevel):
 
     def _unit_update(self):
         unit_var_value = self.view.vars['unit'].get()
-        if unit_var_value == 'meters':
+        if unit_var_value == 'm3ph':
             self.vflow_u_label.config(text='m³/h')
-        elif unit_var_value == 'liters':
+        elif unit_var_value == 'lps':
             self.vflow_u_label.config(text='l/s')
