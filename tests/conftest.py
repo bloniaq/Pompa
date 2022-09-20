@@ -224,3 +224,10 @@ def friction_factor_turbulent_smooth_cond():
 # @pytest.fixture
 # def
 #
+
+@pytest.fixture
+def mocked_vm_variables_data(mocker):
+    variables_data = app_module.Application._init_variables()
+    for v in variables_data:
+        v.modelvar = mocker.MagicMock()
+    return variables_data
