@@ -38,6 +38,9 @@ class VMVar:
             self.modelvar.set(value)
             print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
 
+    def return_value_for_unit(self, unit):
+        return self.modelvar.get_by_unit(unit)
+
 class Application:
     """Class used as the ViewModel  for instantiation the Application"""
 
