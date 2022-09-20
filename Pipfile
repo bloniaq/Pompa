@@ -8,6 +8,7 @@ pompa-pkg-bloniaq = {editable = true, path = "."}
 pytest = "*"
 numpy = "*"
 matplotlib = "*"
+pytest-mock = "==3.7.0"
 
 [dev-packages]
 
