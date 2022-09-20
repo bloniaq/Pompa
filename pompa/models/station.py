@@ -40,7 +40,7 @@ class Station(v.StationObject):
         self.out_pipes_no = v.FloatVariable(1, name="parallel_out_pipes")
         self.mode = v.SwitchVariable('checking', name="mode")
         self.safety = v.SwitchVariable('optimal', name='safety')
-        self.unit = v.SwitchVariable('meters', name="unit")
+        self.unit = v.SwitchVariable('m3ph', name="unit")
         self.pump_type = pump_type.PumpType()
         self.pumpsystem = None
         self.get_var = v.Variable.get_var
@@ -53,3 +53,6 @@ class Station(v.StationObject):
     def bind_variables(self, variables):
         for var in variables:
             var.modelvar = self.get_var(var.name)
+            if var.modelvar is None:
+                print(var.name)
+                raise TypeError

@@ -10,6 +10,7 @@ class ViewVariable:
         self.view = view
         self.sent_to_model = None
         self.get_value_for_unit = None
+        self.type = None
 
 
 class StringVar(tk.StringVar, ViewVariable):

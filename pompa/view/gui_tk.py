@@ -55,6 +55,7 @@ class View(tk.Tk):
             # bind ViewVariable to VMVariable attribute
             vm_variable.viewvar = view_variables[vm_variable.name]
             view_variables[vm_variable.name].sent_to_model = vm_variable.set_in_model
+            view_variables[vm_variable.name].type = vm_variable.type
             # set default value if exist
             if vm_variable.default_value is not None:
                 vm_variable.viewvar.set(vm_variable.default_value)
@@ -77,18 +78,6 @@ class View(tk.Tk):
         self.destroy()
         matplotlib.pyplot.close('all')
         tk.Tk.quit(self)
-
-    # def add_callback(self, key, method):
-    #     """Lets controller point, what method bind to widget commands"""
-    #     self.callbacks[key] = method
-
-    def add_port(self, port):
-        """Lets controller point, where to send variables values
-
-        :param port: method or function
-
-        """
-        self.values_port = port
 
     def bind_callbacks(self):
         self.load_button.config(command=self.callbacks["load_data"])
@@ -144,13 +133,6 @@ class View(tk.Tk):
     ###
     # Private View methods
     ###
-
-    def _send_value(self, widget):
-        """Method provides that bound widget send its data to the controller"""
-        variable = widget.variable
-        var_id = variable.id
-        value = variable.get()
-        return self.values_port(var_id, value)
 
     def _set_default_values(self, values):
         """
