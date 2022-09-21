@@ -151,13 +151,11 @@ class Pumpframe(tk.Frame):
                         fill=tk.BOTH)
 
         self.points_tview = tk.ttk.Treeview(inner_frame, height=6)
-        self.points_tview['columns'] = ('id', 'vflow', 'height')
+        self.points_tview['columns'] = ('vflow', 'height')
         self.points_tview.column('#0', width=0, stretch=tk.NO)
-        self.points_tview.column('id', anchor=tk.CENTER, width=40)
         self.points_tview.column('vflow', anchor=tk.CENTER, width=110)
         self.points_tview.column('height', anchor=tk.CENTER, width=110)
         self.points_tview.heading('#0', text='', anchor=tk.CENTER)
-        self.points_tview.heading('id', text='Nr', anchor=tk.CENTER)
         self.points_tview.heading('vflow', text='Przepływ [m³/h]', anchor=tk.CENTER)
         self.points_tview.heading('height', text='Wys. podn. [m]', anchor=tk.CENTER)
         self.points_tview.pack(expand=True,
@@ -183,6 +181,7 @@ class Pumpframe(tk.Frame):
         selected_items = self.points_tview.selection()
         for item in selected_items:
             self.points_tview.delete(item)
+            self.view.vars['pump_characteristic'].delete_point(item)
 
 
 class AddPointWindow(tk.Toplevel):
@@ -267,10 +266,13 @@ class AddPointWindow(tk.Toplevel):
         return button_frame
 
     def _add_point(self):
-
-        self.tv.insert('', tk.END, values=('x',
-                                           self.vflow_var.get(),
-                                           self.height_var.get()))
+        id_ = self.tv.insert('', tk.END, values=(self.vflow_var.get(),
+                                                 self.height_var.get()))
+        l = [(float(self.tv.set(k, "vflow")), k) for k in self.tv.get_children('')]
+        l.sort()
+        # rearrange items in sorted positions
+        for index, (val, k) in enumerate(l):
+            self.tv.move(k, '', index)
         unit_var_value = self.view.vars['unit'].get()
         self.view.vars['pump_characteristic'].add_point(id_, unit_var_value,
                                                         self.vflow_var.get(),

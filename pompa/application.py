@@ -34,6 +34,12 @@ class VMVar:
             resistances_float = [float(res) for res in resistances_string]
             self.modelvar.set(resistances_float)
             print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
+        elif self.type == 'pump_char':
+            self.modelvar.value.clear()
+            for point in value:
+                self.modelvar.add_point(
+                    point['flow'], point['height'], point['unit'])
+            print(f"{self.name} is setting {value} to model: {self.modelvar.value}")
         else:
             self.modelvar.set(value)
             print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")

@@ -43,12 +43,25 @@ class DoubleVar(tk.DoubleVar, ViewVariable):
         self.set(self.get_value_for_unit(unit))
 
 
-class PumpCharVar:
+class PumpCharVar(ViewVariable):
     # placeholder for now
-    def __init__(self, *args):
+    def __init__(self, id_, view):
+        ViewVariable.__init__(self, id_, view)
         self.values = []
 
     def add_point(self, id_, unit, flow, height):
-        pass
-        # self.values.append({'id': id_,
-        #                      flow})
+        point = {
+            'id': id_,
+            'unit': unit,
+            'flow': flow,
+            'height': height
+        }
+        self.values.append(point)
+        self.sent_to_model(self.values)
+
+    def delete_point(self, id_):
+        for p in self.values:
+            print(id_, type(id_))
+            if p['id'] == id_:
+                self.values.remove(p)
+        self.sent_to_model(self.values)
