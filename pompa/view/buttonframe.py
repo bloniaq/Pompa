@@ -48,7 +48,8 @@ class Buttonframe(tk.Frame):
         self.files_frame = tk.Frame(parent)
         self.load_button = tk.Button(self.files_frame,
                                      text='Wczytaj Dane',
-                                     padx=20, pady=5)
+                                     padx=20, pady=5,
+                                     command=self.view.load_datafile)
         self.save_button = tk.Button(self.files_frame,
                                      text='Zapisz Dane',
                                      padx=20, pady=5)

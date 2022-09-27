@@ -100,6 +100,7 @@ class Application:
         # binding model vars from here, instead of passing variables to init
         # to provide testability of model
         self.view = gui_tk.View(self.variables)
+        self.view.loadfile_procedure = self.load_file
 
         # # Variables binding
         # for var in self.variables:
@@ -213,3 +214,21 @@ class Application:
                     args[figure],
                     'meters'
                 )
+
+    def load_file(self, file):
+        with open(file, 'r') as f:
+            for line in f:
+                print(line)
+                [key, value] = line.split(')')
+                for v in self.variables:
+                    if int(key) == v.id:
+                        if v.type == 'string':
+                            print(key, value)
+                        elif v.type == 'double':
+                            print(key, 'double', float(value))
+                        elif v.type == 'res':
+                            print(key, 'res', value)
+                        elif v.type == 'pump_char':
+                            print('these will need magic')
+
+

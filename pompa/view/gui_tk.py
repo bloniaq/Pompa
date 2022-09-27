@@ -35,6 +35,7 @@ class View(tk.Tk):
         self.menubar = Menu(self)
         self.title("Pompa")
         self.data_widgets = self._create_widget_dictionary()
+        self.loadfile_procedure = None
 
     def _create_view_variables(self, data: list) -> dict:
         """Create variables based on controller-provided ids"""
@@ -113,15 +114,11 @@ class View(tk.Tk):
         }
         return methods[figure]
 
-    # TODO: Not connected
     def load_datafile(self):
         filename = fd.askopenfilename(
-            filetypes=[("Plik tekstowy", "*.txt")])
+            filetypes=[("Plik tekstowy", "*.DAN")])
         # Calling Open File dialog window
-        if filename:
-            with open(filename, "r", -1, "utf-8") as file:
-                self.data.delete(1.0, tk.END)
-                self.data.insert(tk.END, file.read())
+        self.loadfile_procedure(filename)
 
     def _remove_point(self):
         # TODO: Remove point from treeview method
