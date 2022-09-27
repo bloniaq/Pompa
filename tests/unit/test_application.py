@@ -7,14 +7,12 @@ class TestVMVar:
     def test_instance_init(self):
         test_name = "variable"
         test_id = 0
-        test_type = "double"
         test_def_value = 5.45
 
-        var = pompa.VMVar(test_name, test_id, test_type, test_def_value)
+        var = pompa.VMVar(test_name, test_id, test_def_value)
 
         assert var.name == test_name
         assert var.id == test_id
-        assert var.type == test_type
         assert var.default_value == test_def_value
         assert var.viewvar is None
         assert var.modelvar is None

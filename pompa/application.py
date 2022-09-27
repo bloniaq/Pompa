@@ -2,6 +2,7 @@
 
 import pompa.models.station as station
 import pompa.view.gui_tk as gui_tk
+from collections import namedtuple
 
 # TEST PURPOSES ONLY (VIEW BUILD)
 import numpy as np
@@ -15,10 +16,10 @@ class VMVar:
 
     controller = None
 
-    def __init__(self, name: str, id_: int, type_: str, default_value):
+    def __init__(self, name: str, id_: int, default_value):
         self.name = name
         self.id = id_
-        self.type = type_
+        self.type = "type"
         self.default_value = default_value
         self.viewvar = None
         self.gui_widget = None
@@ -46,6 +47,49 @@ class VMVar:
 
     def return_value_for_unit(self, unit):
         return self.modelvar.get_by_unit(unit)
+
+
+class StringVMVar(VMVar):
+
+    def __init__(self, name: str, id_: int, default_value):
+        super().__init__(name, id_, default_value)
+        self.type = "string"
+
+
+class DoubleVMVar(VMVar):
+
+    def __init__(self, name: str, id_: int, default_value):
+        super().__init__(name, id_, default_value)
+        self.type = "double"
+
+
+class IntVMVar(VMVar):
+
+    def __init__(self, name: str, id_: int, default_value):
+        super().__init__(name, id_, default_value)
+        self.type = "int"
+
+
+class ResVMVar(VMVar):
+
+    def __init__(self, name: str, id_: int, default_value):
+        super().__init__(name, id_, default_value)
+        self.type = "res"
+
+
+class FlowVMVar(VMVar):
+
+    def __init__(self, name: str, id_: int, default_value):
+        super().__init__(name, id_, default_value)
+        self.type = "flow"
+
+
+class PumpCharVMVar(VMVar):
+
+    def __init__(self, name: str, id_: int, default_value):
+        super().__init__(name, id_, default_value)
+        self.type = "pump_char"
+
 
 class Application:
     """Class used as the ViewModel  for instantiation the Application"""
@@ -134,28 +178,28 @@ class Application:
         init_values: tuple with all necessary data for binding and creating variables both in model and in view
         """
         variables = []
-        for variable_params in cls._variables_init_values:
-            variable = VMVar(*variable_params)
+        var_type = {
+            "string": StringVMVar,
+            "double": DoubleVMVar,
+            "int": IntVMVar,
+            "res": ResVMVar,
+            "flow": FlowVMVar,
+            "pump_char": PumpCharVMVar
+        }
+        # Changing data format to realize subclassing VMVar
+        init_data = []
+        Record = namedtuple('Record', ['type', 'data'])
+        for v_tuple in cls._variables_init_values:
+            v_list = list(v_tuple)
+            type_ = v_list.pop(2)
+            data = tuple(v_list)
+            init_data.append(Record(type_, data))
+        #
+        for var_params in init_data:
+            variable = var_type[var_params.type](*var_params.data)
             variables.append(variable)
 
         return variables
-
-    """
-    def _add_commands(self):
-        self.view_gui.builder.get_object('Radio_Shape_round').config(
-            command=self.set_shape_and_mode)
-        self.view_gui.builder.get_object('Radio_Shape_rectangle').config(
-            command=self.set_shape_and_mode)
-        self.view_gui.builder.get_object('Radio_Mode_checking').config(
-            command=self.set_shape_and_mode)
-        self.view_gui.builder.get_object('Radio_Mode_minimalisation').config(
-            command=self.set_shape_and_mode)
-
-    def set_shape_and_mode(self):
-        mode = self.view_gui.ui_vars.__getitem__('mode').get()
-        shape = self.view_gui.ui_vars.__getitem__('shape').get()
-        self.view_gui.ui_set_shape(shape, mode)
-        self.view_gui.ui_set_mode(mode)"""
 
     # DRAWING FIGURES
 
