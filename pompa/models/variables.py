@@ -220,6 +220,7 @@ class FlowVariable(Variable):
             return self
 
     def set(self, value, unit='m3ph'):
+        print(value, unit)
         try:
             if unit == 'm3ph':
                 self.value_m3ph = round(value, 2)
@@ -311,3 +312,10 @@ class PumpCharVariable(Variable):
             [w_pumps_amount * f[0].value_m3ps for f in self.value])
         heights = np.array([h[1] for h in self.value])
         return np.polynomial.polynomial.polyfit(flows, heights, 3)
+
+    def get_by_unit(self, unit):
+        print("pump char: ", self.value)
+        result = []
+        for point in self.value:
+            result.append(point[0].get_by_unit(unit))
+        return result

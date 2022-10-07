@@ -209,13 +209,13 @@ class Dataframe(tk.Frame):
                                           shape_frame,
                                           text='kołowy',
                                           value='round',
-                                          command=self._update_shape,
+                                          command=self.update_shape,
                                           anchor=tk.W)
         self.rectangle_radio = vw.Radiobutton(self.view.vars['shape'],
                                               shape_frame,
                                               text='prostokątny',
                                               value='rectangle',
-                                              command=self._update_shape,
+                                              command=self.update_shape,
                                               anchor=tk.W)
         self.round_radio.pack(padx=40,
                               anchor=tk.W)
@@ -277,9 +277,9 @@ class Dataframe(tk.Frame):
         first_dim_u_label.grid(row=0, column=3)
         self.sec_dim_u_label.grid(row=1, column=3)
 
-        self._update_shape()
+        self.update_shape()
 
-    def _update_shape(self):
+    def update_shape(self):
         shape = self.view.vars['shape'].get()
         if shape == 'round':
             self.first_dim_label.config(text='Średnica')

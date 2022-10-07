@@ -47,6 +47,7 @@ class Pumpframe(tk.Frame):
             self.maxran_u_label.config(text='l/s')
         self.view.vars['pump_eff_min'].convert_unit(unit_var_value)
         self.view.vars['pump_eff_max'].convert_unit(unit_var_value)
+        self.view.vars['pump_characteristic'].convert_unit(unit_var_value)
 
     def _prop_lframe(self, parent):
         self.prop_lframe = tk.ttk.Labelframe(parent,
@@ -166,6 +167,7 @@ class Pumpframe(tk.Frame):
         self.points_tview.configure(yscroll=scrollbar.set)
         scrollbar.pack(side=tk.LEFT,
                        fill=tk.Y)
+        self.view.vars['pump_characteristic'].treeview = self.points_tview
 
     def _chart_frame(self):
         self.chart_frame = tk.Frame(self)
@@ -180,7 +182,6 @@ class Pumpframe(tk.Frame):
     def _remove_selected_point(self):
         selected_items = self.points_tview.selection()
         for item in selected_items:
-            self.points_tview.delete(item)
             self.view.vars['pump_characteristic'].delete_point(item)
 
 
@@ -250,7 +251,7 @@ class AddPointWindow(tk.Toplevel):
         add_button = tk.Button(button_frame,
                                text='Dodaj Punkt',
                                padx=10, pady=5,
-                               command=self._add_point)
+                               command=self.add_point)
         cancel_button = tk.Button(button_frame,
                                   text='Anuluj',
                                   padx=10, pady=5,
@@ -265,18 +266,11 @@ class AddPointWindow(tk.Toplevel):
                            padx=10)
         return button_frame
 
-    def _add_point(self):
-        id_ = self.tv.insert('', tk.END, values=(self.vflow_var.get(),
-                                                 self.height_var.get()))
-        l = [(float(self.tv.set(k, "vflow")), k) for k in self.tv.get_children('')]
-        l.sort()
-        # rearrange items in sorted positions
-        for index, (val, k) in enumerate(l):
-            self.tv.move(k, '', index)
-        unit_var_value = self.view.vars['unit'].get()
-        self.view.vars['pump_characteristic'].add_point(id_, unit_var_value,
-                                                        self.vflow_var.get(),
-                                                        self.height_var.get())
+    def add_point(self):
+        self.view.vars['pump_characteristic'].add_point(
+            self.view.vars['unit'].get(),
+            self.vflow_var.get(),
+            self.height_var.get())
         self.destroy()
 
     def _replace_comma(self, event):

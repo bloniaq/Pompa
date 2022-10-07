@@ -48,13 +48,20 @@ class PumpCharVar(ViewVariable):
     def __init__(self, id_, view):
         ViewVariable.__init__(self, id_, view)
         self.values = []
+        self.treeview = None
 
-    def add_point(self, id_, unit, flow, height):
+    def add_point(self, unit, flow, height):
+        id_ = self.treeview.insert('', tk.END, values=(flow, height))
+        l = [(float(self.treeview.set(k, "vflow")), k) for k in self.treeview.get_children('')]
+        l.sort()
+        # rearrange items in sorted positions
+        for index, (val, k) in enumerate(l):
+            self.treeview.move(k, '', index)
         point = {
             'id': id_,
             'unit': unit,
-            'flow': flow,
-            'height': height
+            'flow': float(flow),
+            'height': float(height)
         }
         self.values.append(point)
         self.sent_to_model(self.values)
@@ -63,5 +70,14 @@ class PumpCharVar(ViewVariable):
         for p in self.values:
             print(id_, type(id_))
             if p['id'] == id_:
+                self.treeview.delete(id_)
                 self.values.remove(p)
         self.sent_to_model(self.values)
+
+    def convert_unit(self, unit):
+        values_list = self.get_value_for_unit(unit)
+        for i in range(len(self.values)):
+            self.values[i]['unit'] = unit
+            self.values[i]['flow'] = values_list[i]
+            self.treeview.set(self.values[i]['id'], "vflow", values_list[i])
+

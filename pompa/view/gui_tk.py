@@ -60,7 +60,7 @@ class View(tk.Tk):
             # set default value if exist
             if vm_variable.default_value is not None:
                 vm_variable.viewvar.set(vm_variable.default_value)
-            if vm_variable.type == 'flow':
+            if vm_variable.type == 'flow' or vm_variable.type == 'pump_char':
                 view_variables[vm_variable.name].get_value_for_unit = vm_variable.return_value_for_unit
 
         return view_variables
@@ -118,7 +118,9 @@ class View(tk.Tk):
         filename = fd.askopenfilename(
             filetypes=[("Plik tekstowy", "*.DAN")])
         # Calling Open File dialog window
-        self.loadfile_procedure(filename)
+        self.loadfile_procedure(filename, self.vars['unit'].get())
+        # TODO: changes in view provided by loaded file, i.e. shape
+        self.gui.dataframe.update_shape()
 
     def _remove_point(self):
         # TODO: Remove point from treeview method
