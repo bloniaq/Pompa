@@ -61,3 +61,8 @@ class DuplicatedVariableError(AttributeError):
         print("all variables:")
         for v in variables:
             print(f"Name: {v.name}\t\tValue: {v.value}")
+
+class BrokenDataError(Exception):
+    def __init__(self):
+        print("loaded file has broken or incomplete data")
+
