@@ -3,6 +3,7 @@
 import pompa.models.station as station
 import pompa.view.gui_tk as gui_tk
 from collections import namedtuple
+from pompa.exceptions import BrokenDataError
 
 # TEST PURPOSES ONLY (VIEW BUILD)
 import numpy as np
@@ -26,24 +27,12 @@ class VMVar:
         self.modelvar = None
 
     def set_in_model(self, value):
-        if self.type == 'flow':
-            unit = self.viewvar.get_current_unit()
-            self.modelvar.set(value, unit)
-            print(f"{self.name} is seting {value} to model: {self.modelvar.get_by_unit(unit)} {unit}")
-        elif self.type == 'res':
-            resistances_string = list(value.split(";"))
-            resistances_float = [float(res) for res in resistances_string]
-            self.modelvar.set(resistances_float)
-            print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
-        elif self.type == 'pump_char':
-            self.modelvar.value.clear()
-            for point in value:
-                self.modelvar.add_point(
-                    point['flow'], point['height'], point['unit'])
-            print(f"{self.name} is setting {value} to model: {self.modelvar.value}")
-        else:
-            self.modelvar.set(value)
-            print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
+        self.modelvar.set(value)
+        print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
+
+    def set_in_view(self, value):
+        self.viewvar.set(value)
+        print(f"{self.name} is seting {value} to view: {self.viewvar.get()}")
 
     def return_value_for_unit(self, unit):
         return self.modelvar.get_by_unit(unit)
@@ -51,9 +40,18 @@ class VMVar:
 
 class StringVMVar(VMVar):
 
-    def __init__(self, name: str, id_: int, default_value):
+    def __init__(self, name: str, id_: int, default_value, dictionary=None):
         super().__init__(name, id_, default_value)
         self.type = "string"
+        self.dictionary = dictionary
+
+    def load_data(self, data, *args):
+        if self.dictionary is not None:
+            value = self.dictionary[data[self.id][0]]
+        else:
+            value = data[self.id][0]
+        self.set_in_model(value)
+        self.set_in_view(value)
 
 
 class DoubleVMVar(VMVar):
@@ -62,12 +60,22 @@ class DoubleVMVar(VMVar):
         super().__init__(name, id_, default_value)
         self.type = "double"
 
+    def load_data(self, data, *args):
+        value = float(data[self.id][0])
+        self.set_in_view(value)
+        self.set_in_model(value)
+
 
 class IntVMVar(VMVar):
 
     def __init__(self, name: str, id_: int, default_value):
         super().__init__(name, id_, default_value)
         self.type = "int"
+
+    def load_data(self, data, *args):
+        value = int(data[self.id][0])
+        self.set_in_view(value)
+        self.set_in_model(value)
 
 
 class ResVMVar(VMVar):
@@ -76,12 +84,38 @@ class ResVMVar(VMVar):
         super().__init__(name, id_, default_value)
         self.type = "res"
 
+    def load_data(self, data, *args):
+        res_list = data[self.id]
+        res_list = map(float, res_list)
+        res_list = map(str, res_list)
+        string_format = '; '.join(res_list)
+        self.set_in_view(string_format)
+        self.set_in_model(string_format)
+
+
+    def set_in_model(self, value):
+        resistances_string = list(value.split(";"))
+        resistances_float = [float(res) for res in resistances_string]
+        self.modelvar.set(resistances_float)
+        print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
+
 
 class FlowVMVar(VMVar):
 
     def __init__(self, name: str, id_: int, default_value):
         super().__init__(name, id_, default_value)
         self.type = "flow"
+
+    def load_data(self, data, unit):
+        value = float(data[self.id][0])
+        self.set_in_model(value, 'lps')
+        self.set_in_view(self.modelvar.get_by_unit('lps'))
+
+    def set_in_model(self, value, unit=None):
+        if unit is None:
+            unit = self.viewvar.get_current_unit()
+        self.modelvar.set(value, unit)
+        print(f"{self.name} is seting {value} to model: {self.modelvar.get_by_unit(unit)} {unit}")
 
 
 class PumpCharVMVar(VMVar):
@@ -90,6 +124,24 @@ class PumpCharVMVar(VMVar):
         super().__init__(name, id_, default_value)
         self.type = "pump_char"
 
+    def load_data(self, data, unit):
+        flow_list = data[self.id]
+        height_list = data[self.id + 1]
+        if not len(flow_list) == len(height_list):
+            raise BrokenDataError
+        else:
+            for coord in range(len(flow_list)):
+                self.viewvar.add_point(unit,
+                                       flow_list[coord],
+                                       height_list[coord])
+
+    def set_in_model(self, value):
+        self.modelvar.value.clear()
+        for point in value:
+            self.modelvar.add_point(
+                point['flow'], point['height'], point['unit'])
+        print(f"{self.name} is setting {value} to model: {self.modelvar.value}")
+
 
 class Application:
     """Class used as the ViewModel  for instantiation the Application"""
@@ -97,10 +149,10 @@ class Application:
     # Arguments for VMVar class constructor:
     # (name, type, default_value)
     _variables_init_values = [
-        ('mode', 1, 'string', 'checking'),
-        ('shape', 2, 'string', 'round'),
-        ('config', 3, 'string', 'singlerow'),
-        ('safety', 4, 'string', 'optimal'),
+        ('mode', 1, 'string', 'checking', {"0": "minimalisation", "1": "checking"}),
+        ('shape', 2, 'string', 'round', {"0": "rectangle", "1": "round"}),
+        ('config', 3, 'string', 'singlerow', {"0": "singlerow", "1": "optimal"}),
+        ('safety', 4, 'string', 'optimal', {"1": "economic", "2": "optimal", "3": "safe"}),
         ('pump_contour', 5, 'double', None),
         ('well_length', 6, 'double', None),
         ('well_width', 7, 'double', None),
@@ -259,20 +311,36 @@ class Application:
                     'meters'
                 )
 
-    def load_file(self, file):
-        with open(file, 'r') as f:
-            for line in f:
-                print(line)
-                [key, value] = line.split(')')
-                for v in self.variables:
-                    if int(key) == v.id:
-                        if v.type == 'string':
-                            print(key, value)
-                        elif v.type == 'double':
-                            print(key, 'double', float(value))
-                        elif v.type == 'res':
-                            print(key, 'res', value)
-                        elif v.type == 'pump_char':
-                            print('these will need magic')
+    def get_var_by_name(self, name):
+        for v in self.variables:
+            if v.name == name:
+                return v
 
+    def get_var_by_id(self, id_):
+        for v in self.variables:
+            if v.id == id_:
+                return v
+
+    def load_file(self, file, unit):
+        data = self.read_file(file)
+        for v in self.variables:
+            if v.id in data.keys():
+                v.load_data(data, unit)
+
+        return data
+
+    def read_file(self, file):
+        data = {}
+        with open(file, 'r') as f:
+            file_data = f.read()
+        for line in file_data.split('\n'):
+            if ')' not in line:
+                continue
+            [key, value] = line.split(')')
+            if int(key) in data.keys():
+                data[int(key)].append(value.strip())
+            else:
+                data[int(key)] = [value.strip()]
+        print(data)
+        return data
 
