@@ -52,8 +52,8 @@ class Pipe(v.StationObject):
         float
             Speed [m/s]
         """
-
-        return round(flow.value_m3ps / self.area(), 4)
+        area = self.area()
+        return round(flow.value_m3ps / area, 4)
 
     def _reynolds(self, flow):
         """Return Reynolds number.
@@ -72,9 +72,9 @@ class Pipe(v.StationObject):
         float
             Reynolds number unit is none [-]
         """
-
-        return round((self.diameter.value * self._velocity(flow)) / (
-            self.kinematic_viscosity))
+        diameter = self.diameter.value
+        velocity = self._velocity(flow)
+        return round((diameter * velocity) / (self.kinematic_viscosity))
 
     def _lambda(self, re):
         """Return numeric value of lambda coefficient of line loss.
@@ -126,7 +126,10 @@ class Pipe(v.StationObject):
             Line loss
         """
 
-        return round(self.length.value * self._hydraulic_gradient(flow), 3)
+        gradient = self._hydraulic_gradient(flow)
+        length = self.length.value
+        result = round(length * gradient, 3)
+        return result
 
     def _local_loss(self, flow):
         """Calculate local loss.
@@ -142,8 +145,11 @@ class Pipe(v.StationObject):
             Local loss
         """
 
-        return round(((self._velocity(flow) ** 2) / (
-            2 * self.std_grav)) * self.resistances.sum(), 2)
+        velocity = self._velocity(flow)
+        grav = self.std_grav
+        resistances = self.resistances
+        result = round(((velocity ** 2) / (2 * grav)) * resistances.sum(), 2)
+        return result
 
     def sum_loss(self, flow):
         """Calculate sum of losses.
@@ -234,7 +240,8 @@ class FrictionFactor:
         }
 
     def __call__(self, method='colebrook-white'):
-        return self._methods[method]()
+        result = self._methods[method]()
+        return result
 
     def __comparision(self, print_errors=False, in_range_only=False,
                       compare_value=None):
@@ -449,9 +456,9 @@ class FrictionFactor:
         factor_1 = (64 / self._reynolds) ** coeff_a
         factor_2 = (0.75 * math.log(self._reynolds / 5.37)) ** (
             2 * (coeff_a - 1) * coeff_b)
-        factor_3 = (0.88 * math.log(3.41 * (
-            self._diameter / self._roughness))) ** (
-                2 * (coeff_a - 1) * (1 - coeff_b))
+        f3_exp = 2 * (coeff_a - 1) * (1 - coeff_b)
+        f3_base = (0.88 * math.log(3.41 * (self._diameter / self._roughness)))
+        factor_3 = f3_base ** f3_exp
         bnt = factor_1 * factor_2 * factor_3
         return round(bnt, self._precision)
 
