@@ -81,8 +81,11 @@ def station_2():
 
     # Hydraulic Conditions
     station.hydr_cond.ord_bottom.set(138.74)
+    station.hydr_cond.ord_terrain.set(142)
     station.hydr_cond.ord_upper_level.set(148.12)
+    station.hydr_cond.ord_highest_point.set(150.24)
     station.hydr_cond.ord_inlet.set(140)
+    station.hydr_cond.ord_outlet.set(141)
     station.hydr_cond.inflow_min.set(11, 'lps')
     station.hydr_cond.inflow_max.set(22, 'lps')
 
@@ -216,14 +219,6 @@ def friction_factor_turbulent_smooth_cond():
     factor = pipe.FrictionFactor(diameter, roughness, reynolds)
     return factor
 
-# # ASYNCIO
-#
-# async def asynced_loop(app):
-#     app =
-#
-# @pytest.fixture
-# def
-#
 
 @pytest.fixture
 def mocked_vm_variables_data(mocker):
