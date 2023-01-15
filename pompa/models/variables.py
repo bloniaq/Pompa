@@ -220,7 +220,6 @@ class FlowVariable(Variable):
             return self
 
     def set(self, value, unit='m3ph'):
-        print(value, unit)
         try:
             if unit == 'm3ph':
                 self.value_m3ph = round(value, 2)
