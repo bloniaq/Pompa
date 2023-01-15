@@ -1,6 +1,5 @@
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
-from matplotlib.figure import Figure
 from matplotlib.ticker import MultipleLocator
 
 
@@ -23,17 +22,43 @@ class PipesGraph:
         """
         return self.canvas.get_tk_widget().pack(*args, **kwargs)
 
+    def clear(self):
+        self.plot.clear()
+        self.canvas.draw()
+
     def set_plot_grids(self, x, unit):
-        if unit == 'meters':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        elif unit == 'liters':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(2))
-        self.plot.yaxis.set_minor_locator(MultipleLocator(1))
+        # if unit == 'm3ph':
+        #     self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        # elif unit == 'lps':
+        #     self.plot.xaxis.set_minor_locator(MultipleLocator(2))
+        # elif unit == 'm3ps':
+        #     self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        self.plot.yaxis.set_minor_locator(MultipleLocator(5))
+        # self.plot.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
         # self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
         self.plot.grid(True, 'major', linestyle='--')
-        unit_bracket_dict = {'liters': '[l/s]', 'meters': '[m³/h]'}
-        self.plot.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict[unit]))
+        unit_bracket_dict = {'lps': '[l/s]', 'm3ph': '[m³/h]', 'm3ps': '[m³/s]'}
+        self.plot.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict['m3ps']))
         self.plot.set_ylabel('Strata ciśnienia [m. sł. c.]')
+
+        def m3ps2lps(x):
+            return x * 1000
+
+        def lps2m3ps(x):
+            return x * 0.001
+
+        def m3ps2m3ph(x):
+            return x * 3600
+
+        def m3ph2m3ps(x):
+            return x / 3600
+
+        if unit == 'lps':
+            secax = self.plot.secondary_xaxis('top', functions=(m3ps2lps, lps2m3ps))
+        elif unit == 'm3ph':
+            secax = self.plot.secondary_xaxis('top', functions=(m3ps2m3ph, m3ph2m3ps))
+        secax.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict[unit]))
         self.plot.set_xlim(left=x[0], right=x[-1])
         self.plot.legend(fontsize='small')
 
@@ -44,6 +69,16 @@ class PipesGraph:
 
     def draw_inside_pipe_plot(self, x, y, unit):
         self.plot.plot(x, y(x), 'r--', label='charakterystyka przewodu wewn.')
+        self.set_plot_grids(x, unit)
+        self.canvas.draw()
+
+    def draw_outside_pipe_plot(self, x, y, unit):
+        self.plot.plot(x, y(x), 'b--', label='charakterystyka przewodu zewn.')
+        self.set_plot_grids(x, unit)
+        self.canvas.draw()
+
+    def draw_both_pipe_plot(self, x, y, unit):
+        self.plot.plot(x, y(x), 'y--', label='charakterystyka przewodu zewn.')
         self.set_plot_grids(x, unit)
         self.canvas.draw()
 
@@ -87,7 +122,7 @@ class PumpGraph:
         self.set_plot_grids(x, unit)
         self.canvas.draw()
 
-    def draw_efficiency(selfself, x, y, unit):
+    def draw_efficiency(self, x, y, unit):
         eff_from_x = y[0]
         eff_from_y = y[1]
         eff_to_x = y[2]

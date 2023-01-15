@@ -36,6 +36,7 @@ class View(tk.Tk):
         self.title("Pompa")
         self.data_widgets = self._create_widget_dictionary()
         self.loadfile_procedure = None
+        self.draw_figures_procedure = None
 
     def _create_view_variables(self, data: list) -> dict:
         """Create variables based on controller-provided ids"""
@@ -80,17 +81,10 @@ class View(tk.Tk):
         matplotlib.pyplot.close('all')
         tk.Tk.quit(self)
 
-    def bind_callbacks(self):
-        self.load_button.config(command=self.callbacks["load_data"])
-        self.save_button.config(command=self.callbacks["save_data"])
-        self.unit_radio_meters.config(command=self.callbacks["change_units"])
-        self.unit_radio_liters.config(command=self.callbacks["change_units"])
-        self.safety_radio_econ.config(command=self.callbacks["set_safety"])
-        self.safety_radio_opti.config(command=self.callbacks["set_safety"])
-        self.safety_radio_safe.config(command=self.callbacks["set_safety"])
-        self.mode_radio_check.config(command=self.callbacks["set_mode"])
-        self.mode_radio_minimal.config(command=self.callbacks["set_mode"])
-        self.calc_button.config(command=self.callbacks["calculate"])
+    def draw_figs_callback(self, *args):
+        print('oh yes oh yes')
+        print('args:', args)
+        self.draw_figures_procedure()
 
     def get_var(self, name):
         return self.vars[name]
@@ -110,7 +104,9 @@ class View(tk.Tk):
         """
         methods = {
             'ins_pipe': self.gui.pipeframe.chart.draw_inside_pipe_plot,
-            'geometric_height': self.gui.pipeframe.chart.draw_geometric_height
+            'geometric_height': self.gui.pipeframe.chart.draw_geometric_height,
+            'out_pipe': self.gui.pipeframe.chart.draw_outside_pipe_plot,
+            'cooperation': self.gui.pipeframe.chart.draw_both_pipe_plot
         }
         return methods[figure]
 
@@ -118,9 +114,15 @@ class View(tk.Tk):
         filename = fd.askopenfilename(
             filetypes=[("Plik tekstowy", "*.DAN")])
         # Calling Open File dialog window
+        # poprzednia wersja - jednostka brana z ustawien - skad mi się to wzielo
+        # przeciez powinna byc taka jednostka jak w danych czyli lps
+        # self.loadfile_procedure(filename, self.vars['unit'].get())
+        self.vars['unit'].set('lps')
+        self.gui.update_units()
         self.loadfile_procedure(filename, self.vars['unit'].get())
         # TODO: changes in view provided by loaded file, i.e. shape
         self.gui.dataframe.update_shape()
+        self.draw_figures_procedure()
 
     def _remove_point(self):
         # TODO: Remove point from treeview method
@@ -177,6 +179,7 @@ class Gui(tk.Frame):
 
     def __init__(self, view):
         parent = view
+        self.view = view
         tk.Frame.__init__(self, parent)
 
         self.mainframe = tk.Frame(self)
@@ -211,6 +214,7 @@ class Gui(tk.Frame):
     def update_units(self):
         self.pumpframe.update_units()
         self.dataframe.update_units()
+        self.view.draw_figures_procedure()
 
 
 class Logo(tk.Frame):
@@ -232,11 +236,6 @@ __________________________________
 
 POMPA    Wersja 2.02/2022r   POMPA""")
         self.logo_label.pack(expand=True)
-
-
-# if __name__ == "__main__":
-#     view = View()
-#     view.run()
 
 
 class Menu(tk.Menu):

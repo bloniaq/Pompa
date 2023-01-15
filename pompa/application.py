@@ -8,10 +8,6 @@ from pompa.exceptions import BrokenDataError
 # TEST PURPOSES ONLY (VIEW BUILD)
 import numpy as np
 
-
-DEVELOPER_MODE = True
-
-
 class VMVar:
     """ViewModel Variable"""
 
@@ -56,14 +52,25 @@ class StringVMVar(VMVar):
 
 class DoubleVMVar(VMVar):
 
-    def __init__(self, name: str, id_: int, default_value):
+    def __init__(self, name: str, id_: int, default_value, multipl=1):
+        # multiplayer added for cover differences between the units in view and
+        # in model, specifically in pipe diameter parameter
+        # it equals view_unit/model_unit
+        # if there's i.e. meters in model, and milimeters in view, multipl=.001
         super().__init__(name, id_, default_value)
+        self.multipl = multipl
         self.type = "double"
 
     def load_data(self, data, *args):
         value = float(data[self.id][0])
         self.set_in_view(value)
         self.set_in_model(value)
+
+    def set_in_model(self, value):
+        # multiplayer added for cover differences between the units in view and
+        # in model, specifically in pipe diameter parameter
+        self.modelvar.set(value * self.multipl)
+        print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
 
 
 class IntVMVar(VMVar):
@@ -95,6 +102,8 @@ class ResVMVar(VMVar):
 
     def set_in_model(self, value):
         resistances_string = list(value.split(";"))
+        if resistances_string == ['']:
+            resistances_string = ['0']
         resistances_float = [float(res) for res in resistances_string]
         self.modelvar.set(resistances_float)
         print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
@@ -167,8 +176,8 @@ class Application:
         ('ord_upper_level', 16, 'double', None),
         # TODO: Sprawdzić te id poniżej
         ('ins_pipe_length', 28, 'double', None),
-        ('ins_pipe_diameter', 29, 'double', None),
-        ('ins_pipe_roughness', 30, 'double', None),
+        ('ins_pipe_diameter', 29, 'double', None, 0.001),
+        ('ins_pipe_roughness', 30, 'double', None, 0.001),
         ('ins_pipe_resistances', 32, 'res', None),
         ('inflow_min', 33, 'flow', None),
         ('inflow_max', 34, 'flow', None),
@@ -178,8 +187,8 @@ class Application:
         ('pump_eff_max', 40, 'flow', None),
         ('parallel_out_pipes', 41, 'int', 1),
         ('out_pipe_length', 42, 'double', None),
-        ('out_pipe_diameter', 43, 'double', None),
-        ('out_pipe_roughness', 44, 'double', None),
+        ('out_pipe_diameter', 43, 'double', None, 0.001),
+        ('out_pipe_roughness', 44, 'double', None, 0.001),
         ('out_pipe_resistances', 46, 'res', None),
         ('unit', 100, 'string', 'm3ph')
     ]
@@ -197,14 +206,13 @@ class Application:
         # to provide testability of model
         self.view = gui_tk.View(self.variables)
         self.view.loadfile_procedure = self.load_file
+        self.view.draw_figures_procedure = self.draw_possible_figures
 
         # # Variables binding
         # for var in self.variables:
         #     var.set_viewvar_callback()
 
-        if DEVELOPER_MODE:
-            # TESTING FIGURES CREATING ONLY
-            self.draw_possible_figures()
+        self.view.draw_figures_procedure()
 
         # self._add_callbacks()
         # self._add_commands()
@@ -263,52 +271,66 @@ class Application:
         figures. That should be its only purpose until the view is completed.
         Then the method should be recoded from scratch
         """
+
+        self.view.gui.pipeframe.chart.clear()
+
         # 0. Arranging environment
-        mock_pipe = self.model.ins_pipe
-        mock_hc = self.model.hydr_cond
-        mock_pump = self.model.pump_type
-        mock_hc.inflow_min.set(10, 'm3ph')
-        mock_hc.inflow_max.set(20, 'm3ph')
-        mock_hc.ord_terrain.set(100)
-        mock_hc.ord_highest_point.set(110)
-        mock_hc.ord_upper_level.set(110)
-        mock_pipe.length.set(8)
-        mock_pipe.diameter.set(.250)
-        mock_pipe.roughness.set(.00001)
+        ins_pipe = self.model.ins_pipe
+        out_pipe = self.model.out_pipe
+        hc = self.model.hydr_cond
 
         # 1. Ask model which figures are ready to draw
-        availability = {
-            'ins_pipe': True,
-            'geometric_height': True
-        }
+        if not self.model.figure_preconditions():
+            return
+        availability = self.model.available_figures()
+        if not any(availability.values()):
+            return
+        unit = self.get_var_by_name('unit').viewvar.get()
 
-        # 2. Get available data from model
-        flows_array = np.linspace(
-            mock_hc.inflow_min.value_m3ps,
-            1.4 * mock_hc.inflow_max.value_m3ps,
-            5
+        def flows_array(unit):
+            array = np.linspace(
+                hc.inflow_min.get_by_unit(unit),
+                1.4 * hc.inflow_max.get_by_unit(unit),
+                10
+            )
+            return array
+
+        ins_pipe_poly_coeffs = ins_pipe.dynamic_loss_polynomial(
+            hc.inflow_min,
+            hc.inflow_max
         )
-        ins_pipe_poly_coeffs = mock_pipe.dynamic_loss_polynomial(
-            mock_hc.inflow_min,
-            mock_hc.inflow_max
+        out_pipe_poly_coeffs = out_pipe.dynamic_loss_polynomial(
+            hc.inflow_min,
+            hc.inflow_max
         )
+        print("ins pipe polynomial:")
+        print(np.poly1d(ins_pipe_poly_coeffs))
+        print("out pipe polynomial:")
+        print(np.poly1d(out_pipe_poly_coeffs))
+
+        geom_height = hc.geom_height(hc.ord_outlet)
 
         args = {
-            'x': flows_array,
+            'x': flows_array('m3ps'),
             'ins_pipe': np.polynomial.polynomial.Polynomial(
-                ins_pipe_poly_coeffs) + mock_hc.geom_height(mock_hc.ord_terrain),
+                ins_pipe_poly_coeffs) + geom_height,
             'geometric_height': np.polynomial.polynomial.Polynomial(
-                [mock_hc.geom_height(mock_hc.ord_terrain)]
-            )
+                geom_height),
+            'out_pipe': np.polynomial.polynomial.Polynomial(
+                out_pipe_poly_coeffs) + geom_height,
+            'cooperation': np.polynomial.polynomial.Polynomial(
+                ins_pipe_poly_coeffs) + np.polynomial.polynomial.Polynomial(
+                out_pipe_poly_coeffs) + geom_height
         }
 
         # 3. Draw possible figures
         for figure in availability.keys():
             if availability[figure]:
+                print("DRAWING {}".format(figure))
                 self.view.draw_figure(figure)(
                     args['x'],
                     args[figure],
-                    'meters'
+                    unit
                 )
 
     def get_var_by_name(self, name):
