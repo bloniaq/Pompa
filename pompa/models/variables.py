@@ -201,6 +201,21 @@ class FlowVariable(Variable):
     def __lt__(self, other):
         return self.value_m3ph < other.value_m3ph
 
+    def __le__(self, other):
+        return  self.value_m3ph <= other.value_m3ph
+
+    def __eq__(self, other):
+        return  self.value_m3ph == other.value_m3ph
+
+    def __ne__(self, other):
+        return self.value_m3ph != other.value_m3ph
+
+    def __gt__(self, other):
+        return self.value_m3ph > other.value_m3ph
+
+    def __ge__(self, other):
+        return self.value_m3ph >= other.value_m3ph
+
     def __add__(self, other):
         self.set(self.value_m3ph + other.value_m3ph, "m3ph")
         return self
