@@ -4,6 +4,7 @@ import pompa.models.well as well
 import pompa.models.variables as v
 import pompa.models.pumptype as pump_type
 import pompa.models.pumpsystem as pumpsystem
+import pompa.models.figures_data as fig_data
 
 
 class Station(v.StationObject):
@@ -43,6 +44,7 @@ class Station(v.StationObject):
         self.unit = v.SwitchVariable('m3ph', name="unit")
         self.pump_type = pump_type.PumpType()
         self.pumpsystem = None
+        self.figures_data = fig_data.ChartData(self)
         self.get_var = v.Variable.get_var
 
     def calculate(self, mode='checking'):
@@ -57,6 +59,8 @@ class Station(v.StationObject):
                 print(var.name)
                 raise TypeError
 
+    def get_figure_data(self):
+        return self.figures_data.get_data()
 
     def available_figures(self):
         result = {

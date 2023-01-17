@@ -264,78 +264,12 @@ class Application:
     # DRAWING FIGURES
 
     def draw_possible_figures(self):
-        """
-        WARNING!
-        It does not do it's future job right now - while View is still not
-        finished. Although it plays a role as testing Mock-like initiator of
-        figures. That should be its only purpose until the view is completed.
-        Then the method should be recoded from scratch
-        """
 
-
-        # 0. Arranging environment
-        ins_pipe = self.model.ins_pipe
-        out_pipe = self.model.out_pipe
-        hc = self.model.hydr_cond
-
-        # 1. Ask model which figures are ready to draw
-        if not self.model.figure_preconditions():
-            return
-        availability = self.model.available_figures()
-        if not any(availability.values()):
-            return
-        unit = self.get_var_by_name('unit').viewvar.get()
-
-        def flows_array(unit):
-            array = np.linspace(
-                hc.inflow_min.get_by_unit(unit),
-                1.4 * hc.inflow_max.get_by_unit(unit),
-                10
-            )
-            return array
-
-        ins_pipe_poly_coeffs = ins_pipe.dynamic_loss_polynomial(
-            hc.inflow_min,
-            hc.inflow_max
-        )
-        out_pipe_poly_coeffs = out_pipe.dynamic_loss_polynomial(
-            hc.inflow_min,
-            hc.inflow_max
-        )
-        # print("ins pipe polynomial:")
-        # print(np.poly1d(ins_pipe_poly_coeffs))
-        # print("out pipe polynomial:")
-        # print(np.poly1d(out_pipe_poly_coeffs))
-
-        geom_height = hc.geom_height(hc.ord_outlet)
-
-        # args = {
-        #     'x': flows_array('m3ps'),
-        #     'ins_pipe': np.polynomial.polynomial.Polynomial(
-        #         ins_pipe_poly_coeffs) + geom_height,
-        #     'geometric_height': np.polynomial.polynomial.Polynomial(
-        #         geom_height),
-        #     'out_pipe': np.polynomial.polynomial.Polynomial(
-        #         out_pipe_poly_coeffs) + geom_height,
-        #     'cooperation': np.polynomial.polynomial.Polynomial(
-        #         ins_pipe_poly_coeffs) + np.polynomial.polynomial.Polynomial(
-        #         out_pipe_poly_coeffs) + geom_height
-        # }
-
-        args = {
-            'x': flows_array('m3ps'),
-            'y_ins_pipe': np.polynomial.polynomial.Polynomial(
-                ins_pipe_poly_coeffs) + geom_height,
-            'y_geom_h': np.polynomial.polynomial.Polynomial(
-                geom_height),
-            'y_out_pipe': np.polynomial.polynomial.Polynomial(
-                out_pipe_poly_coeffs) + geom_height,
-            'y_coop': np.polynomial.polynomial.Polynomial(
-                ins_pipe_poly_coeffs) + np.polynomial.polynomial.Polynomial(
-                out_pipe_poly_coeffs) + geom_height
-        }
-
-        result = self.view.update_figures(args)
+        data = self.model.get_figure_data()
+        if isinstance(data, dict):
+            result = self.view.update_figures(data)
+        else:
+            result = data
         print(result)
 
     def get_var_by_name(self, name):
