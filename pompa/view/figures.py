@@ -46,7 +46,7 @@ class PipesGraph(DynamicGraph):
                         y_coop: np.polynomial.polynomial.Polynomial or None
         :return:
         """
-        if data == 'Not enough data':
+        if data['x'] is None:
             self.clear()
             return "pipechart cleared"
 
