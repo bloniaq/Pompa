@@ -19,6 +19,7 @@ class Pipeframe(tk.Frame):
         self.pack()
 
         self.chart_frame = tk.Frame(self)
+        self.chart_frame.view = view
 
         self._int_lframe_content(inner_frame)
         self._out_lframe_content(inner_frame)

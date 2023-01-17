@@ -272,7 +272,6 @@ class Application:
         Then the method should be recoded from scratch
         """
 
-        self.view.gui.pipeframe.chart.clear()
 
         # 0. Arranging environment
         ins_pipe = self.model.ins_pipe
@@ -303,35 +302,41 @@ class Application:
             hc.inflow_min,
             hc.inflow_max
         )
-        print("ins pipe polynomial:")
-        print(np.poly1d(ins_pipe_poly_coeffs))
-        print("out pipe polynomial:")
-        print(np.poly1d(out_pipe_poly_coeffs))
+        # print("ins pipe polynomial:")
+        # print(np.poly1d(ins_pipe_poly_coeffs))
+        # print("out pipe polynomial:")
+        # print(np.poly1d(out_pipe_poly_coeffs))
 
         geom_height = hc.geom_height(hc.ord_outlet)
 
+        # args = {
+        #     'x': flows_array('m3ps'),
+        #     'ins_pipe': np.polynomial.polynomial.Polynomial(
+        #         ins_pipe_poly_coeffs) + geom_height,
+        #     'geometric_height': np.polynomial.polynomial.Polynomial(
+        #         geom_height),
+        #     'out_pipe': np.polynomial.polynomial.Polynomial(
+        #         out_pipe_poly_coeffs) + geom_height,
+        #     'cooperation': np.polynomial.polynomial.Polynomial(
+        #         ins_pipe_poly_coeffs) + np.polynomial.polynomial.Polynomial(
+        #         out_pipe_poly_coeffs) + geom_height
+        # }
+
         args = {
             'x': flows_array('m3ps'),
-            'ins_pipe': np.polynomial.polynomial.Polynomial(
+            'y_ins_pipe': np.polynomial.polynomial.Polynomial(
                 ins_pipe_poly_coeffs) + geom_height,
-            'geometric_height': np.polynomial.polynomial.Polynomial(
+            'y_geom_h': np.polynomial.polynomial.Polynomial(
                 geom_height),
-            'out_pipe': np.polynomial.polynomial.Polynomial(
+            'y_out_pipe': np.polynomial.polynomial.Polynomial(
                 out_pipe_poly_coeffs) + geom_height,
-            'cooperation': np.polynomial.polynomial.Polynomial(
+            'y_coop': np.polynomial.polynomial.Polynomial(
                 ins_pipe_poly_coeffs) + np.polynomial.polynomial.Polynomial(
                 out_pipe_poly_coeffs) + geom_height
         }
 
-        # 3. Draw possible figures
-        for figure in availability.keys():
-            if availability[figure]:
-                print("DRAWING {}".format(figure))
-                self.view.draw_figure(figure)(
-                    args['x'],
-                    args[figure],
-                    unit
-                )
+        result = self.view.update_figures(args)
+        print(result)
 
     def get_var_by_name(self, name):
         for v in self.variables:

@@ -14,6 +14,9 @@ class PipesGraph:
         # This formula lets define figure dimensions in pixels
         fig = plt.figure(figsize=(self.PIX_X/self.DPI, self.PIX_Y/self.DPI),
                          dpi=self.DPI)
+        self.master = master
+        self._last_data = None
+        self._last_unit = None
         self.plot = fig.add_subplot(111)
         self.canvas = FigureCanvasTkAgg(fig, master)
 
@@ -62,6 +65,47 @@ class PipesGraph:
         self.plot.set_xlim(left=x[0], right=x[-1])
         self.plot.legend(fontsize='small')
 
+    def draw_possible_figures(self, data):
+        """
+
+        :param data: dict
+                        x: numpy.linspace or None
+                        y_geom_h: np.polynomial.polynomial.Polynomial or None
+                        y_ins_pipe: np.polynomial.polynomial.Polynomial or None
+                        y_out_pipe: np.polynomial.polynomial.Polynomial or None
+                        y_coop: np.polynomial.polynomial.Polynomial or None
+        :return:
+        """
+        unit = self.master.view.vars['unit'].get()
+        print('unit from view: ', unit)
+
+        if self._last_data is not None:
+            if unit == self._last_unit and self.new_data(data):
+                return "no new data for pipe chart"
+        self._last_data = data
+        self._last_unit = unit
+
+        self.clear()
+
+        if data['x'] is None:
+            return "cleared"
+
+        methods = {
+            'y_geom_h': self.draw_geometric_height,
+            'y_ins_pipe': self.draw_inside_pipe_plot,
+            'y_out_pipe': self.draw_outside_pipe_plot,
+            'y_coop': self.draw_both_pipe_plot
+        }
+
+        for figure in data.keys():
+            if figure != 'x' and data[figure]:
+                print("DRAWING {}".format(figure))
+                methods[figure](data['x'], data[figure], unit)
+
+        return "pipechart updated"
+
+
+
     def draw_geometric_height(self, x, y, unit):
         self.plot.plot(x, y(x), 'm--', label='geometr. wys. podn.')
         self.set_plot_grids(x, unit)
@@ -82,6 +126,19 @@ class PipesGraph:
         self.set_plot_grids(x, unit)
         self.canvas.draw()
 
+    def new_data(self, data):
+        comp_x = data['x'] == self._last_data['x']
+        comp_y_geom_h = data['y_geom_h'] == self._last_data['y_geom_h']
+        comp_y_ins_pipe = data['y_ins_pipe'] == self._last_data['y_ins_pipe']
+        comp_y_out_pipe = data['y_out_pipe'] == self._last_data['y_out_pipe']
+        comp_y_coop = data['y_coop'] == self._last_data['y_coop']
+        return all([
+            comp_x.all(),
+            comp_y_geom_h.all(),
+            comp_y_ins_pipe.all(),
+            comp_y_out_pipe.all(),
+            comp_y_coop.all()
+        ])
 
 class PumpGraph:
     # DPI rate is a monitor property

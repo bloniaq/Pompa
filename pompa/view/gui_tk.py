@@ -96,19 +96,9 @@ class View(tk.Tk):
     # Controller steering section
     ###
 
-    def draw_figure(self, figure: str):
-        """Returns method for drawing desirable figure
-
-        :param figure: str
-        :return: method
-        """
-        methods = {
-            'ins_pipe': self.gui.pipeframe.chart.draw_inside_pipe_plot,
-            'geometric_height': self.gui.pipeframe.chart.draw_geometric_height,
-            'out_pipe': self.gui.pipeframe.chart.draw_outside_pipe_plot,
-            'cooperation': self.gui.pipeframe.chart.draw_both_pipe_plot
-        }
-        return methods[figure]
+    def update_figures(self, data):
+        pipechart_result = self.gui.pipeframe.chart.draw_possible_figures(data)
+        return pipechart_result
 
     def load_datafile(self):
         filename = fd.askopenfilename(
