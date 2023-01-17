@@ -1,6 +1,7 @@
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
+from matplotlib.ticker import FormatStrFormatter
 
 
 class PipesGraph:
@@ -30,38 +31,22 @@ class PipesGraph:
         self.canvas.draw()
 
     def set_plot_grids(self, x, unit):
-        # if unit == 'm3ph':
-        #     self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        # elif unit == 'lps':
-        #     self.plot.xaxis.set_minor_locator(MultipleLocator(2))
-        # elif unit == 'm3ps':
-        #     self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        if unit == 'm3ph':
+            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        elif unit == 'lps':
+            self.plot.xaxis.set_minor_locator(MultipleLocator(2))
+        elif unit == 'm3ps':
+            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
         self.plot.xaxis.set_minor_locator(MultipleLocator(5))
         self.plot.yaxis.set_minor_locator(MultipleLocator(5))
-        # self.plot.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+        self.plot.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+        self.plot.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
         # self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
         self.plot.grid(True, 'major', linestyle='--')
         unit_bracket_dict = {'lps': '[l/s]', 'm3ph': '[m³/h]', 'm3ps': '[m³/s]'}
-        self.plot.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict['m3ps']))
+        self.plot.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict[unit]))
         self.plot.set_ylabel('Strata ciśnienia [m. sł. c.]')
 
-        def m3ps2lps(x):
-            return x * 1000
-
-        def lps2m3ps(x):
-            return x * 0.001
-
-        def m3ps2m3ph(x):
-            return x * 3600
-
-        def m3ph2m3ps(x):
-            return x / 3600
-
-        if unit == 'lps':
-            secax = self.plot.secondary_xaxis('top', functions=(m3ps2lps, lps2m3ps))
-        elif unit == 'm3ph':
-            secax = self.plot.secondary_xaxis('top', functions=(m3ps2m3ph, m3ph2m3ps))
-        secax.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict[unit]))
         self.plot.set_xlim(left=x[0], right=x[-1])
         self.plot.legend(fontsize='small')
 
@@ -77,18 +62,17 @@ class PipesGraph:
         :return:
         """
         unit = self.master.view.vars['unit'].get()
-        print('unit from view: ', unit)
 
         if self._last_data is not None:
-            if unit == self._last_unit and self.new_data(data):
-                return "no new data for pipe chart"
+            if unit == self._last_unit and self._same_data(data):
+                return "no new data for pipechart"
         self._last_data = data
         self._last_unit = unit
 
         self.clear()
 
         if data['x'] is None:
-            return "cleared"
+            return "pipechart cleared"
 
         methods = {
             'y_geom_h': self.draw_geometric_height,
@@ -96,37 +80,32 @@ class PipesGraph:
             'y_out_pipe': self.draw_outside_pipe_plot,
             'y_coop': self.draw_both_pipe_plot
         }
-
+        x_mul = {'lps': 1000, 'm3ps': 1, 'm3ph': 3600}[unit]
         for figure in data.keys():
             if figure != 'x' and data[figure]:
                 print("DRAWING {}".format(figure))
-                methods[figure](data['x'], data[figure], unit)
+                methods[figure](x_mul * data['x'],
+                                data[figure](data['x']))
+
+        self.set_plot_grids(x_mul * data['x'], unit)
+        self.canvas.draw()
 
         return "pipechart updated"
 
+    def draw_geometric_height(self, x, y):
+        self.plot.plot(x, y, 'm--', label='geometr. wys. podn.')
 
+    def draw_inside_pipe_plot(self, x, y):
+        self.plot.plot(x, y, 'r--', label='charakterystyka przewodu wewn.')
 
-    def draw_geometric_height(self, x, y, unit):
-        self.plot.plot(x, y(x), 'm--', label='geometr. wys. podn.')
-        self.set_plot_grids(x, unit)
-        self.canvas.draw()
+    def draw_outside_pipe_plot(self, x, y):
+        self.plot.plot(x, y, 'b--', label='charakterystyka przewodu zewn.')
 
-    def draw_inside_pipe_plot(self, x, y, unit):
-        self.plot.plot(x, y(x), 'r--', label='charakterystyka przewodu wewn.')
-        self.set_plot_grids(x, unit)
-        self.canvas.draw()
+    def draw_both_pipe_plot(self, x, y):
+        self.plot.plot(x, y, 'y--', label='charakterystyka zespołu przewodów')
 
-    def draw_outside_pipe_plot(self, x, y, unit):
-        self.plot.plot(x, y(x), 'b--', label='charakterystyka przewodu zewn.')
-        self.set_plot_grids(x, unit)
-        self.canvas.draw()
-
-    def draw_both_pipe_plot(self, x, y, unit):
-        self.plot.plot(x, y(x), 'y--', label='charakterystyka przewodu zewn.')
-        self.set_plot_grids(x, unit)
-        self.canvas.draw()
-
-    def new_data(self, data):
+    def _same_data(self, data):
+        """Returns if data arrays are the same as last time"""
         comp_x = data['x'] == self._last_data['x']
         comp_y_geom_h = data['y_geom_h'] == self._last_data['y_geom_h']
         comp_y_ins_pipe = data['y_ins_pipe'] == self._last_data['y_ins_pipe']
