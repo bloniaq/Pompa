@@ -2,7 +2,7 @@ import tkinter as tk
 import pompa.view.widgets as vw
 from tkinter import ttk
 
-import pompa.view.graphs as graphs
+import pompa.view.figures as graphs
 
 
 class Pumpframe(tk.Frame):
