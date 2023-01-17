@@ -15,9 +15,14 @@ class ChartData:
                                         self.out_pipe)
 
     def get_data(self):
+        data = {
+            'pipechart_data': 'Not enough data',
+            'pumpchart_data': 'Not enough data'
+        }
         if not self.check_conditions():
-            return "no figures available"
-        return self.pipe_chart.prepare_data()
+            return data
+        data['pipechart_data'] = self.pipe_chart.prepare_data()
+        return data
 
     def check_conditions(self):
         if not self.station.figure_preconditions():

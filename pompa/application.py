@@ -266,10 +266,10 @@ class Application:
     def draw_possible_figures(self):
 
         data = self.model.get_figure_data()
-        if isinstance(data, dict):
-            result = self.view.update_figures(data)
-        else:
-            result = data
+        result = self.view.update_figures(
+            data['pipechart_data'],
+            data['pumpchart_data']
+        )
         print(result)
 
     def get_var_by_name(self, name):

@@ -61,6 +61,10 @@ class PipesGraph:
                         y_coop: np.polynomial.polynomial.Polynomial or None
         :return:
         """
+        if data == 'Not enough data':
+            self.clear()
+            return "pipechart cleared"
+
         unit = self.master.view.vars['unit'].get()
 
         if self._last_data is not None:
@@ -71,9 +75,6 @@ class PipesGraph:
 
         self.clear()
 
-        if data['x'] is None:
-            return "pipechart cleared"
-
         methods = {
             'y_geom_h': self.draw_geometric_height,
             'y_ins_pipe': self.draw_inside_pipe_plot,
@@ -81,8 +82,8 @@ class PipesGraph:
             'y_coop': self.draw_both_pipe_plot
         }
         x_mul = {'lps': 1000, 'm3ps': 1, 'm3ph': 3600}[unit]
-        for figure in data.keys():
-            if figure != 'x' and data[figure]:
+        for figure in methods.keys():
+            if data[figure]:
                 print("DRAWING {}".format(figure))
                 methods[figure](x_mul * data['x'],
                                 data[figure](data['x']))
@@ -132,6 +133,9 @@ class PumpGraph:
                          dpi=self.DPI)
         self.plot = fig.add_subplot(111)
         self.canvas = FigureCanvasTkAgg(fig, master)
+
+    def draw_possible_figures(self, data):
+        return "couldn't draw pipechart"
 
     def pack(self, *args, **kwargs):
         """Zastępuje pack() tak, żeby można było traktować obiekt jak widget tk

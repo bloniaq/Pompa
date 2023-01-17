@@ -96,9 +96,17 @@ class View(tk.Tk):
     # Controller steering section
     ###
 
-    def update_figures(self, data):
-        pipechart_result = self.gui.pipeframe.chart.draw_possible_figures(data)
-        return pipechart_result
+    def update_figures(self, pipechart_data, pumpchart_data):
+        pipechart_result = self.gui.pipeframe.chart.draw_possible_figures(
+            pipechart_data)
+        pumpchart_result = self.gui.pumpframe.chart.draw_possible_figures(
+            pumpchart_data
+        )
+        results = {
+            'pipechart': pipechart_result,
+            'pumpchart': pumpchart_result
+        }
+        return results
 
     def load_datafile(self):
         filename = fd.askopenfilename(
