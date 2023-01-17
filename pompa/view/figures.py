@@ -4,16 +4,12 @@ from matplotlib.ticker import MultipleLocator
 from matplotlib.ticker import FormatStrFormatter
 
 
-class PipesGraph:
+class DynamicGraph:
     # DPI rate is a monitor property
     DPI = 81
-    # Figure dimensions in pixels
-    PIX_X = 690
-    PIX_Y = 510
 
-    def __init__(self, master):
-        # This formula lets define figure dimensions in pixels
-        fig = plt.figure(figsize=(self.PIX_X/self.DPI, self.PIX_Y/self.DPI),
+    def __init__(self, master, pix_x, pix_y):
+        fig = plt.figure(figsize=(pix_x / self.DPI, pix_y / self.DPI),
                          dpi=self.DPI)
         self.master = master
         self._last_data = None
@@ -30,25 +26,14 @@ class PipesGraph:
         self.plot.clear()
         self.canvas.draw()
 
-    def set_plot_grids(self, x, unit):
-        if unit == 'm3ph':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        elif unit == 'lps':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(2))
-        elif unit == 'm3ps':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        self.plot.yaxis.set_minor_locator(MultipleLocator(5))
-        self.plot.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
-        self.plot.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
-        # self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
-        self.plot.grid(True, 'major', linestyle='--')
-        unit_bracket_dict = {'lps': '[l/s]', 'm3ph': '[m³/h]', 'm3ps': '[m³/s]'}
-        self.plot.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict[unit]))
-        self.plot.set_ylabel('Strata ciśnienia [m. sł. c.]')
 
-        self.plot.set_xlim(left=x[0], right=x[-1])
-        self.plot.legend(fontsize='small')
+class PipesGraph(DynamicGraph):
+    # Figure dimensions in pixels
+    PIX_X = 690
+    PIX_Y = 510
+
+    def __init__(self, master):
+        super().__init__(master, self.PIX_X, self.PIX_Y)
 
     def draw_possible_figures(self, data):
         """
@@ -93,6 +78,26 @@ class PipesGraph:
 
         return "pipechart updated"
 
+    def set_plot_grids(self, x, unit):
+        if unit == 'm3ph':
+            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        elif unit == 'lps':
+            self.plot.xaxis.set_minor_locator(MultipleLocator(2))
+        elif unit == 'm3ps':
+            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        self.plot.yaxis.set_minor_locator(MultipleLocator(5))
+        self.plot.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+        self.plot.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+        # self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
+        self.plot.grid(True, 'major', linestyle='--')
+        unit_bracket_dict = {'lps': '[l/s]', 'm3ph': '[m³/h]', 'm3ps': '[m³/s]'}
+        self.plot.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict[unit]))
+        self.plot.set_ylabel('Strata ciśnienia [m. sł. c.]')
+
+        self.plot.set_xlim(left=x[0], right=x[-1])
+        self.plot.legend(fontsize='small')
+
     def draw_geometric_height(self, x, y):
         self.plot.plot(x, y, 'm--', label='geometr. wys. podn.')
 
@@ -120,27 +125,18 @@ class PipesGraph:
             comp_y_coop.all()
         ])
 
-class PumpGraph:
-    # DPI rate is a monitor property
-    DPI = 81
+
+class PumpGraph(DynamicGraph):
     # Figure dimensions in pixels
     PIX_X = 690
     PIX_Y = 490
 
     def __init__(self, master):
         # This formula lets define figure dimensions in pixels
-        fig = plt.figure(figsize=(self.PIX_X/self.DPI, self.PIX_Y/self.DPI),
-                         dpi=self.DPI)
-        self.plot = fig.add_subplot(111)
-        self.canvas = FigureCanvasTkAgg(fig, master)
+        super().__init__(master, self.PIX_X, self.PIX_Y)
 
     def draw_possible_figures(self, data):
         return "couldn't draw pipechart"
-
-    def pack(self, *args, **kwargs):
-        """Zastępuje pack() tak, żeby można było traktować obiekt jak widget tk
-        """
-        return self.canvas.get_tk_widget().pack(*args, **kwargs)
 
     def set_plot_grids(self, x, unit):
         if unit == 'meters':
