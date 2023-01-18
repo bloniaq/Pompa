@@ -123,8 +123,6 @@ class PipesGraph(DynamicGraph):
             expression = data[key] == self._last_data[key]
             if not isinstance(data[key], bool) and not expression.all():
                 return False
-            # if data[key] != self._last_data[key]:
-            #     return False
         return True
 
 
