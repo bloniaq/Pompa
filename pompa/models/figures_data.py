@@ -12,7 +12,7 @@ class ChartData:
 
         self.pipe_chart = PipeChartData(self.hydr_cond, self.ins_pipe,
                                         self.out_pipe)
-        self.pump_chart = PumpCharData()
+        self.pump_chart = PumpCharData(self.hydr_cond, self.pump)
 
         self.pointer = {
             'pipechart_data': self.pipe_chart,
@@ -46,42 +46,43 @@ class PipeChartData:
             'y_coop': None
         }
 
-        if not self.check_conditions():
-            return empty_data
+        checked_data = self.check_conditions(empty_data)
+
+        if not checked_data['x']:
+            return checked_data
+
+        return self.prepare_data(checked_data)
+
+    def prepare_data(self, data_container):
+
+        if data_container['x']:
+            data_container['x'] = self.create_x_array()
+        if data_container['y_geom_h']:
+            geom_height = self.hydr_cond.geom_height(self.hydr_cond.ord_outlet)
         else:
-            return self.prepare_data()
-
-    def prepare_data(self):
-
-        ins_pipe_poly_coeffs = self.ins_pipe.dynamic_loss_polynomial(
-            self.hydr_cond.inflow_min,
-            self.hydr_cond.inflow_max
-        )
-        out_pipe_poly_coeffs = self.out_pipe.dynamic_loss_polynomial(
-            self.hydr_cond.inflow_min,
-            self.hydr_cond.inflow_max
-        )
-        # print("ins pipe polynomial:")
-        # print(np.poly1d(ins_pipe_poly_coeffs))
-        # print("out pipe polynomial:")
-        # print(np.poly1d(out_pipe_poly_coeffs))
-
-        geom_height = self.hydr_cond.geom_height(self.hydr_cond.ord_outlet)
-
-        data = {
-            'x': self.create_x_array(),
-            'y_ins_pipe': np.polynomial.polynomial.Polynomial(
-                ins_pipe_poly_coeffs) + geom_height,
-            'y_geom_h': np.polynomial.polynomial.Polynomial(
-                geom_height),
-            'y_out_pipe': np.polynomial.polynomial.Polynomial(
-                out_pipe_poly_coeffs) + geom_height,
-            'y_coop': np.polynomial.polynomial.Polynomial(
+            geom_height = 0
+        data_container['y_geom_h'] = np.polynomial.polynomial.Polynomial(geom_height)
+        if data_container['y_ins_pipe']:
+            ins_pipe_poly_coeffs = self.ins_pipe.dynamic_loss_polynomial(
+                self.hydr_cond.inflow_min,
+                self.hydr_cond.inflow_max
+            )
+            data_container['y_ins_pipe'] = np.polynomial.polynomial.Polynomial(
+                ins_pipe_poly_coeffs) + geom_height
+        if data_container['y_out_pipe']:
+            out_pipe_poly_coeffs = self.out_pipe.dynamic_loss_polynomial(
+                self.hydr_cond.inflow_min,
+                self.hydr_cond.inflow_max
+            )
+            data_container['y_out_pipe'] = np.polynomial.polynomial.Polynomial(
+                out_pipe_poly_coeffs) + geom_height
+            print('outputed data container for out pipe: ', data_container['y_out_pipe'])
+        if data_container['y_coop'] and data_container['y_out_pipe'] and data_container['y_ins_pipe']:
+            data_container['y_coop'] = np.polynomial.polynomial.Polynomial(
                 ins_pipe_poly_coeffs) + np.polynomial.polynomial.Polynomial(
                 out_pipe_poly_coeffs) + geom_height
-        }
 
-        return data
+        return data_container
 
     def create_x_array(self):
         array = np.linspace(
@@ -91,24 +92,21 @@ class PipeChartData:
         )
         return array
 
-    def check_conditions(self):
+    def check_conditions(self, container):
         if not self.figure_preconditions():
-            return False
-        availability = self.available_figures()
-        if not any(availability.values()):
-            return False
-        return True
+            return container
 
-    def available_figures(self):
-        result = {
-            'geometric_height': self.geom_h_figure_ready(),
-            'ins_pipe': self.ins_pipe_figure_ready(),
-            'out_pipe': self.out_pipe_figure_ready(),
-            'cooperation': all([self.ins_pipe_figure_ready(),
+        validators = {
+            'x': self.figure_preconditions(),
+            'y_geom_h': self.geom_h_figure_ready(),
+            'y_ins_pipe': self.ins_pipe_figure_ready(),
+            'y_out_pipe': self.out_pipe_figure_ready(),
+            'y_coop': all([self.ins_pipe_figure_ready(),
                                 self.out_pipe_figure_ready()])
         }
-
-        return result
+        for figure in validators.keys():
+            container[figure] = validators[figure]
+        return container
 
     def figure_preconditions(self):
         rules = [
@@ -144,11 +142,39 @@ class PipeChartData:
 
 class PumpCharData:
 
-    def __init__(self):
-        pass
+    def __init__(self, hydr_cond, pumptype):
+        self.hydr_cond = hydr_cond
+        self.pumptype = pumptype
 
     def get_data(self):
-        return None
+        empty_data = {
+            'x': None,
+            'y_p_char': None,
+            'y_p_eff': None,
+        }
+        if not self.check_conditions():
+            return empty_data
+        else:
+            return self.prepare_data()
 
     def check_conditions(self):
-        return None
+        return False
+
+    def prepare_data(self):
+        pump_polynomial = self.pumptype.characteristic.polynomial_coeff()
+        data = {
+            'x': self.create_x_array(),
+            'y_p_char': pump_polynomial,
+            'y_p_eff': None
+        }
+        return data
+
+    def create_x_array(self):
+        start = min(self.hydr_cond.inflow_min, self.pumptype.efficiency_from)
+        stop = max(self.hydr_cond.inflow_max, self.pumptype.efficiency_to)
+        array = np.linspace(
+            0.9 * start.get_by_unit('m3ps'),
+            1.6 * stop.get_by_unit('m3ps'),
+            10
+        )
+        return array
