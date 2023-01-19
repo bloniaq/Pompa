@@ -16,6 +16,8 @@ class Pumpframe(tk.Frame):
         inner_frame.pack()
         self._prop_lframe(inner_frame)
         self._points_lframe(inner_frame)
+        self.update_units()
+
         self._chart_frame()
 
         self.prop_lframe.pack(expand=True,
@@ -42,12 +44,15 @@ class Pumpframe(tk.Frame):
         if unit_var_value == 'm3ph':
             self.minran_u_label.config(text='m³/h')
             self.maxran_u_label.config(text='m³/h')
+            self.points_tview.heading('vflow', text='Przepływ [m³/h]', anchor=tk.CENTER)
         elif unit_var_value == 'lps':
             self.minran_u_label.config(text='l/s')
             self.maxran_u_label.config(text='l/s')
+            self.points_tview.heading('vflow', text='Przepływ [l/s]', anchor=tk.CENTER)
         self.view.vars['pump_eff_min'].convert_unit(unit_var_value)
         self.view.vars['pump_eff_max'].convert_unit(unit_var_value)
         self.view.vars['pump_characteristic'].convert_unit(unit_var_value)
+
 
     def _prop_lframe(self, parent):
         self.prop_lframe = tk.ttk.Labelframe(parent,
@@ -92,7 +97,6 @@ class Pumpframe(tk.Frame):
         cycle_u_label.grid(row=1, column=5, sticky=tk.W)
         height_u_label.grid(row=2, column=5, sticky=tk.W)
 
-        self.update_units()
         self.minran_u_label.grid(row=4, column=2, padx=(0, 45))
         self.maxran_u_label.grid(row=4, column=5)
 
