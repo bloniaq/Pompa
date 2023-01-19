@@ -36,6 +36,7 @@ class View(tk.Tk):
         self.title("Pompa")
         self.data_widgets = self._create_widget_dictionary()
         self.loadfile_procedure = None
+        self.savefile_procedure = None
         self.draw_figures_procedure = None
 
     def _create_view_variables(self, data: list) -> dict:
@@ -121,6 +122,11 @@ class View(tk.Tk):
         # TODO: changes in view provided by loaded file, i.e. shape
         self.gui.dataframe.update_shape()
         self.draw_figures_procedure()
+
+    def save_datafile(self):
+        filename = fd.asksaveasfilename(
+            filetypes=[("Plik tekstowy", "*.DAN")])
+        self.savefile_procedure(filename)
 
     def _remove_point(self):
         # TODO: Remove point from treeview method

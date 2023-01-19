@@ -207,6 +207,7 @@ class Application:
         # to provide testability of model
         self.view = gui_tk.View(self.variables)
         self.view.loadfile_procedure = self.load_file
+        self.view.savefile_procedure = self.save_file
         self.view.draw_figures_procedure = self.draw_possible_figures
 
         # # Variables binding
@@ -305,4 +306,33 @@ class Application:
                 data[int(key)] = [value.strip()]
         print(data)
         return data
+
+    def save_file(self, file):
+        with open(file, 'w') as f:
+            for v in self.variables:
+                if v.type == 'flow':
+                    f.write(f"{v.id}) {v.modelvar.value_lps}\n")
+                elif v.type == 'string':
+                    if not v.dictionary:
+                        continue
+                    for key, val in v.dictionary.items():
+                        if val == v.modelvar.value:
+                            f.write(f"{v.id}) {key}\n")
+                elif v.type == 'res':
+                    for coef in v.modelvar.value:
+                        f.write(f"{v.id}) {coef}\n")
+                elif v.type == 'pump_char':
+                    for p in v.modelvar.value:
+                        f.write(f"{v.id}) {p[0].value_lps}\n")
+                    for p in v.modelvar.value:
+                        f.write(f"{v.id + 1}) {p[1]}\n")
+                elif v.type == 'int':
+                    f.write(f"{v.id}) {int(v.modelvar.value)}\n")
+                elif v.multipl != 1:
+                    if 'roughness' in v.name:
+                        f.write(f"{v.id}) {v.modelvar.value / v.multipl:.4f}\n")
+                    else:
+                        f.write(f"{v.id}) {v.modelvar.value / v.multipl}\n")
+                else:
+                    f.write(f"{v.id}) {v.modelvar.value}\n")
 

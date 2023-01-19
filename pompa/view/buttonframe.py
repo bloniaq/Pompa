@@ -52,7 +52,8 @@ class Buttonframe(tk.Frame):
                                      command=self.view.load_datafile)
         self.save_button = tk.Button(self.files_frame,
                                      text='Zapisz Dane',
-                                     padx=20, pady=5)
+                                     padx=20, pady=5,
+                                     command=self.view.save_datafile)
         self.load_button.pack(side=tk.LEFT)
         self.save_button.pack(side=tk.RIGHT)
 
