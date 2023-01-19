@@ -190,11 +190,13 @@ class PumpCharData:
         return (x_coords, y_coords)
 
     def create_x_array(self):
-        start = min(self.hydr_cond.inflow_min, self.pumptype.efficiency_from)
-        stop = max(self.hydr_cond.inflow_max, self.pumptype.efficiency_to)
+        p_flows = [f[0] for f in self.pumptype.characteristic.value]
+        start = min(p_flows[0], self.pumptype.efficiency_from)
+        stop = max(p_flows[-1].value_m3ps,
+                   1.6 * self.pumptype.efficiency_to.value_m3ps)
         array = np.linspace(
             0.9 * start.get_by_unit('m3ps'),
-            1.6 * stop.get_by_unit('m3ps'),
+            stop,
             10
         )
         return array
