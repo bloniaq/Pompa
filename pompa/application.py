@@ -139,6 +139,7 @@ class PumpCharVMVar(VMVar):
         if not len(flow_list) == len(height_list):
             raise BrokenDataError
         else:
+            self.viewvar.clear_points()
             for coord in range(len(flow_list)):
                 self.viewvar.add_point(unit,
                                        flow_list[coord],
