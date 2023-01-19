@@ -128,6 +128,7 @@ class View(tk.Tk):
         selected_items = self.points_tview.selection()
         for selected_item in selected_items:
             self.points_tview.delete(selected_item)
+        self.draw_figures_procedure()
 
     ###
     # Private View methods

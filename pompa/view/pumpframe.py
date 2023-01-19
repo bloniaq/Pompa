@@ -172,6 +172,7 @@ class Pumpframe(tk.Frame):
     def _chart_frame(self):
         self.chart_frame = tk.Frame(self)
         self.chart = graphs.PumpGraph(self.chart_frame)
+        self.chart.master = self
 
     def _add_point_window(self):
         if self.add_point_window is not None:
@@ -183,6 +184,7 @@ class Pumpframe(tk.Frame):
         selected_items = self.points_tview.selection()
         for item in selected_items:
             self.view.vars['pump_characteristic'].delete_point(item)
+        self.view.draw_figures_procedure()
 
 
 class AddPointWindow(tk.Toplevel):
@@ -271,6 +273,7 @@ class AddPointWindow(tk.Toplevel):
             self.view.vars['unit'].get(),
             self.vflow_var.get(),
             self.height_var.get())
+        self.view.draw_figures_procedure()
         self.destroy()
 
     def _replace_comma(self, event):

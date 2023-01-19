@@ -136,9 +136,10 @@ class PumpGraph(DynamicGraph):
         super().__init__(master, self.PIX_X, self.PIX_Y)
 
     def draw_possible_figures(self, data):
-        if data['x'] is None:
-            self.clear()
-            return "pipechart cleared"
+        if isinstance(data['x'], bool):
+            if not data['x']:
+                self.clear()
+                return "pumpchart cleared"
 
         unit = self.master.view.vars['unit'].get()
 
@@ -150,30 +151,25 @@ class PumpGraph(DynamicGraph):
 
         self.clear()
 
-        methods = {
-            'y_p_charact': self.draw_characteristic,
-            'y_p_eff': self.draw_efficiency
-        }
-
         x_mul = self.X_MULTIPLIER[unit]
 
-        for figure in methods.keys():
-            if data[figure]:
-                print("DRAWING {}".format(figure))
-                methods[figure](x_mul * data['x'],
-                                data[figure](data['x']))
-
+        if data['y_p_points']:
+            self.draw_points(data['y_p_points'], x_mul)
+        if data['y_p_char']:
+            self.draw_characteristic(data['x'], data['y_p_char'], x_mul)
+        if data['y_p_eff']:
+            self.draw_efficiency(data['y_p_eff'], data['y_p_char'], x_mul)
         self.set_plot_grids(x_mul * data['x'], unit)
         self.canvas.draw()
 
-        return "couldn't draw pipechart"
+        return "pumpchart updated"
 
     def set_plot_grids(self, x, unit):
-        if unit == 'm3ph':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        elif unit == 'lps':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(2))
-        self.plot.yaxis.set_minor_locator(MultipleLocator(1))
+        # if unit == 'm3ph':
+        #     self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        # elif unit == 'lps':
+        #     self.plot.xaxis.set_minor_locator(MultipleLocator(2))
+        # self.plot.yaxis.set_minor_locator(MultipleLocator(1))
         # self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
         self.plot.grid(True, 'major', linestyle='--')
         unit_bracket_dict = {'lps': '[l/s]', 'm3ph': '[m³/h]'}
@@ -183,26 +179,34 @@ class PumpGraph(DynamicGraph):
         self.plot.set_ylim(bottom=0)
         self.plot.legend(fontsize='small')
 
-    def draw_characteristic(self, x, y):
-        self.plot.plot(x, y(x), 'b-', label='charakterystyka pompy')
+    def draw_characteristic(self, x, y, mul):
+        self.plot.plot(x * mul, y(x), 'b-', label='charakterystyka pompy')
 
-    def draw_efficiency(self, x, y):
-        eff_from_x = y[0] # self.station.pump.efficiency_from.value
-        eff_from_y = y[1] # self.app.interp(eff_from_x, x, y_pump(x))
-        eff_to_x = y[2] # self.station.pump.efficiency_to.value
-        eff_to_y = y[3] # self.app.interp(eff_to_x, x, y_pump(x))
+    def draw_points(self, coords, mul):
+        x_coords = [mul * c for c in coords[0]]
+        self.plot.scatter(x_coords, coords[1])
+
+    def draw_efficiency(self, values, y_pump, mul):
+        eff_from_x = mul * values[0]
+        eff_from_y = y_pump(eff_from_x / mul)
+        eff_to_x = mul * values[1]
+        eff_to_y = y_pump(eff_to_x / mul)
         self.plot.plot([eff_from_x, eff_from_x], [0, eff_from_y], 'r--')
         self.plot.plot([eff_to_x, eff_to_x], [0, eff_to_y], 'r--',
                        label='obszar maks. wydajności pompy')
 
     def _same_data(self, data):
         """Returns if data arrays are the same as last time"""
-        comp_x = data['x'] == self._last_data['x']
-        comp_y_p_char = data['y_p_charact'] == self._last_data['y_p_charact']
-        comp_y_p_eff = data['y_p_eff'] == self._last_data['y_p_eff']
-        return all([
-            comp_x.all(),
-            comp_y_p_char.all(),
-            comp_y_p_eff.all()
-        ])
-
+        if set(data.keys()) != set(self._last_data.keys()):
+            return False
+        for key in data.keys():
+            if type(data[key]) != type(self._last_data[key]):
+                return False
+            expression = data[key] == self._last_data[key]
+            if type(data[key]) is bool or type(self._last_data[key]) is bool:
+                if not expression:
+                    return False
+            if not type(expression) == bool:
+                if not expression.all():
+                    return False
+        return True

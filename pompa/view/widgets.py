@@ -28,7 +28,9 @@ class Entry(tk.Entry, Widget):
         "out_pipe_diameter",
         "out_pipe_roughness",
         "out_pipe_resistances",
-        "parallel_out_pipes"
+        "parallel_out_pipes",
+        "pump_eff_min",
+        "pump_eff_max"
     ]
 
     def __init__(self, variable, *args, **kwargs):
