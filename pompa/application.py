@@ -208,6 +208,7 @@ class Application:
         self.view = gui_tk.View(self.variables)
         self.view.loadfile_procedure = self.load_file
         self.view.savefile_procedure = self.save_file
+        self.view.get_results_procedure = self.get_results
         self.view.draw_figures_procedure = self.draw_possible_figures
 
         # # Variables binding
@@ -335,4 +336,9 @@ class Application:
                         f.write(f"{v.id}) {v.modelvar.value / v.multipl}\n")
                 else:
                     f.write(f"{v.id}) {v.modelvar.value}\n")
+
+    def get_results(self):
+        results = self.model.calculate(self.model.mode.value)
+        station = self.model
+        return results, station
 
