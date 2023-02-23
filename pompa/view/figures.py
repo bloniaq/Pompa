@@ -210,3 +210,24 @@ class PumpGraph(DynamicGraph):
                 if not expression.all():
                     return False
         return True
+
+
+class ResultGraph:
+    # DPI rate is a monitor property
+    DPI = 81
+    # PIX_X = 690
+    # PIX_Y = 490
+
+    def __init__(self, parent, pix_x, pix_y, data):
+        fig = plt.figure(figsize=(pix_x / self.DPI, pix_y / self.DPI),
+                         dpi=self.DPI)
+        self.parent = parent
+        self.data = data
+        self.plot = fig.add_subplot(111)
+        self.canvas = FigureCanvasTkAgg(fig, parent)
+        self.canvas.draw()
+
+    def pack(self, *args, **kwargs):
+        """Zastępuje pack() tak, żeby można było traktować obiekt jak widget tk
+        """
+        return self.canvas.get_tk_widget().pack(*args, **kwargs)
