@@ -1,4 +1,5 @@
 from pompa.models.pumpset import PumpSet
+import math
 
 
 PUMPSETS_LIMITER = 5
@@ -26,6 +27,7 @@ class PumpSystem:
 
         self._station = station
         self.pumpsets = []
+        self.reserve_pumps = 0
         self._ord_shutdown = station.pump_type.shutdown_ord
 
         self._calculate(mode)
@@ -58,3 +60,15 @@ class PumpSystem:
             enough_pumps = self.pumpsets[-1].enough_pumps
             if pumps_counter == PUMPSETS_LIMITER:
                 enough_pumps = True
+
+        self.reserve_pumps = self._calc_reserve_pumps(pumps_counter)
+
+    def _calc_reserve_pumps(self, working_pumps: int):
+        mode = self._station.safety.value
+        print(mode)
+        if mode == 'economic':
+            return 1
+        elif mode == 'optimal':
+            return math.ceil(working_pumps / 2)
+        elif mode == 'safe':
+            return working_pumps
