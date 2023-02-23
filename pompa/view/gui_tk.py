@@ -3,6 +3,7 @@ import pompa.view.dataframe as df
 import pompa.view.pipeframe as pipef
 import pompa.view.pumpframe as pumpf
 import pompa.view.variables as vv
+import pompa.view.results as res
 
 import matplotlib
 
@@ -37,6 +38,7 @@ class View(tk.Tk):
         self.data_widgets = self._create_widget_dictionary()
         self.loadfile_procedure = None
         self.savefile_procedure = None
+        self.get_results_procedure = None
         self.draw_figures_procedure = None
 
     def _create_view_variables(self, data: list) -> dict:
@@ -178,6 +180,11 @@ class View(tk.Tk):
         self.ord_terrain_entry = self.gui.dataframe.ord_ter_entry
 
         return dictionary
+
+    def calculate(self):
+        print('calculations')
+        results, station = self.get_results_procedure()
+        res.ResultsWindow(self, results, station)
 
 
 class Gui(tk.Frame):
