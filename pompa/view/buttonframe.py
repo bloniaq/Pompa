@@ -28,7 +28,8 @@ class Buttonframe(tk.Frame):
                                      text=' Przelicz',
                                      font=("Arial", 15),
                                      image=self.calc_img, compound="left",
-                                     pady=8)
+                                     pady=8,
+                                     command=self.view.calculate)
 
         self.files_frame.pack(fill=tk.Y,
                               pady=5)
