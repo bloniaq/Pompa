@@ -67,9 +67,7 @@ class WorkPoint:
             self.ins_pipe_v, self.out_pipe_v) = self._calculate()
 
     def __repr__(self):
-        string = 'WPoint (Q: ' + str(
-            self.flow.value_lps) + ' lps; H: ' + str(self.height) + ' m)'
-        return string
+        return f"WPoint (Q: {self.flow.value_lps} lps; H: {self.height} m)"
 
     def _velocity(self, flow):
         """Return dict of velocity values of inside pipe and outside pipe.
