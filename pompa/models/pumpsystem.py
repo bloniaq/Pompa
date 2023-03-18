@@ -25,9 +25,11 @@ class PumpSystem:
             User-chosen mode of pumpsystem calculation (default = 'checking')
         """
 
-        self._station = station
+        self.station = station
+        self.enough_pumps = False
         self.pumpsets = []
         self.reserve_pumps = 0
+        self.all_pumps = 0
         self._ord_shutdown = station.pump_type.shutdown_ord
 
         self._calculate(mode)
@@ -45,7 +47,7 @@ class PumpSystem:
 
         self.pumpsets = []
         enough_pumps = False
-        ord_bottom = self._station.hydr_cond.ord_bottom
+        ord_bottom = self.station.hydr_cond.ord_bottom
         pumps_counter = 0
 
         while not enough_pumps:
@@ -54,7 +56,7 @@ class PumpSystem:
                 last_pset = None
             else:
                 last_pset = self.pumpsets[-1]
-            self.pumpsets.append(PumpSet(self._station, self._ord_shutdown(
+            self.pumpsets.append(PumpSet(self.station, self._ord_shutdown(
                 ord_bottom), pumps_counter, last_pset))
             print('pumpsets len: ', len(self.pumpsets))
             enough_pumps = self.pumpsets[-1].enough_pumps
@@ -64,7 +66,7 @@ class PumpSystem:
         self.reserve_pumps = self._calc_reserve_pumps(pumps_counter)
 
     def _calc_reserve_pumps(self, working_pumps: int):
-        mode = self._station.safety.value
+        mode = self.station.safety.value
         print(mode)
         if mode == 'economic':
             return 1
@@ -72,3 +74,6 @@ class PumpSystem:
             return math.ceil(working_pumps / 2)
         elif mode == 'safe':
             return working_pumps
+
+    def _update_all_pumps_number(self):
+        self.all_pumps = len(self.pumpsets) + self.reserve_pumps

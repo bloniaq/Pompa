@@ -29,7 +29,7 @@ class ResultsWindow(tk.Toplevel):
             'singlerow': "Liniowe ustawienie pomp w pompowni\n"
         }
         content += config_dict[station.well.config.get()]
-        content += f"Liczba pomp rezerwowych..............n={results.reserve_pumps}"
+        content += f"Liczba pomp rezerwowych..............n={results.reserve_pumps}\n"
         content += "results"
 
         return content
