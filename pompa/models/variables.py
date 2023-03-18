@@ -20,22 +20,22 @@ class StationObject:
     def __init__(self):
         pass
 
-    def __setattr__(self, attr, value):
-        if '.' not in attr:
-            self.__dict__[attr] = value
-        else:
-            attr_name, rest = attr.split('.', 1)
-            setattr(getattr(self, attr_name), rest, value)
-
-    def __getattr__(self, attr):
-        if '.' not in attr:
-            try:
-                return super().__getattr__(attr)
-            except AttributeError as e:
-                raise AttributeError(e)
-        else:
-            attr_name, rest = attr.split('.', 1)
-            return getattr(getattr(self, attr_name), rest)
+    # def __setattr__(self, attr, value):
+    #     if '.' not in attr:
+    #         self.__dict__[attr] = value
+    #     else:
+    #         attr_name, rest = attr.split('.', 1)
+    #         setattr(getattr(self, attr_name), rest, value)
+    #
+    # def __getattr__(self, attr):
+    #     if '.' not in attr:
+    #         try:
+    #             return super().__getattr__(attr)
+    #         except AttributeError as e:
+    #             raise AttributeError(e)
+    #     else:
+    #         attr_name, rest = attr.split('.', 1)
+    #         return getattr(getattr(self, attr_name), rest)
 
     def load_data(self, data_dict):
         for attribute in self.__dict__:
@@ -325,7 +325,7 @@ class PumpCharVariable(Variable):
         flows = np.array(
             [w_pumps_amount * f[0].value_m3ps for f in self.value])
         heights = np.array([h[1] for h in self.value])
-        return np.polynomial.polynomial.polyfit(flows, heights, 3)
+        return np.polynomial.polynomial.polyfit(flows, heights, 2)
 
     def get_by_unit(self, unit):
         print("pump char: ", self.value)
