@@ -74,11 +74,19 @@ class PumpSet:
 
         if pumps_amount == 1:
             last_pset_start_q = v.FlowVariable(0)
-            self._min_ord = ord_shutdown.copy(f"min_ord_pump_{pumps_amount}")
+            """
+            Te zakomentowane linijki to stare rozwiazanie, które powodowało że 
+            próba wykonania powtórnych obliczeń była blokowana z powodu powołania
+            zmienny o zajętej już nazwie. Problem unikalności zmiennych w modelu
+            należałoby jakoś w przyszłości rozwiązać
+            """
+            # self._min_ord = ord_shutdown.copy(f"min_ord_pump_{pumps_amount}")
+            self._min_ord = ord_shutdown.get()
         elif pumps_amount > 1:
             last_pset_start_q = last_pset.wpoint_start.flow.copy()
-            self._min_ord = last_pset.ord_start.copy(
-                f"min_ord_pump_{pumps_amount}")
+            # self._min_ord = last_pset.ord_start.copy(
+            #     f"min_ord_pump_{pumps_amount}")
+            self._min_ord = last_pset.ord_start.get()
 
         self._min_inflow = max(station.hydr_cond.inflow_min,
                                v.FlowVariable(.1, 'lps') + last_pset_start_q)

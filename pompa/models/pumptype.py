@@ -44,11 +44,19 @@ class PumpType(v.StationObject):
             The number of pumps
         """
         range_start_value = self.efficiency_from.value_m3ph * pumps_amount
-        range_start = v.FlowVariable(range_start_value, "m3ph",
-                                     f"opt_ran_start_pump_{pumps_amount}")
+        """
+        Te zakomentowane linijki to stare rozwiazanie, które powodowało że 
+        próba wykonania powtórnych obliczeń była blokowana z powodu powołania
+        zmienny o zajętej już nazwie. Problem unikalności zmiennych w modelu
+        należałoby jakoś w przyszłości rozwiązać
+        """
+        # range_start = v.FlowVariable(range_start_value, "m3ph",
+        #                              f"opt_ran_start_pump_{pumps_amount}")
+        range_start = v.FlowVariable(range_start_value, "m3ph", name=None)
         range_stop_value = self.efficiency_to.value_m3ph * 2
-        range_stop = v.FlowVariable(range_stop_value, "m3ph",
-                                    f"opt_ran_stop_pump_{pumps_amount}")
+        # range_stop = v.FlowVariable(range_stop_value, "m3ph",
+        #                             f"opt_ran_stop_pump_{pumps_amount}")
+        range_stop = v.FlowVariable(range_stop_value, "m3ph", None)
         return range_start, range_stop
 
     def shutdown_ord(self, ord_bottom):
