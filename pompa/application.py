@@ -338,7 +338,8 @@ class Application:
                     f.write(f"{v.id}) {v.modelvar.value}\n")
 
     def get_results(self):
-        results = self.model.calculate(self.model.mode.value)
+        self.model.calculate(self.model.mode.value)
+        results = self.model.pumpsystem
         station = self.model
         return results, station
 
