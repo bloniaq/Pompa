@@ -203,7 +203,7 @@ class Pipe(v.StationObject):
         coeffs = np.polynomial.polynomial.polyfit(
             flows_array, heights_array, 2)
 
-        coeffs = np.append(coeffs, 0)
+        # coeffs = np.append(coeffs, 0)
 
         return coeffs
 

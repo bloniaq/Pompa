@@ -26,7 +26,7 @@ class TestPipe:
         min_inflow = v.FlowVariable(5, 'lps')
         max_inflow = v.FlowVariable(40, 'lps')
         exp_array = np.array(
-            [-6.86799e-03, -1.34499e+00, 3.91569385e+03, 0.00000e+00])
+            [-6.86799e-03, -1.34499e+00, 3.91569385e+03])
         print(pipe_obj.dynamic_loss_polynomial(min_inflow, max_inflow))
         print(exp_array)
         np.testing.assert_almost_equal(
