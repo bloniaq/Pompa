@@ -23,7 +23,7 @@ def test_calculation(station_2):
 def test_ord_shutdown(station_2):
     psystem = pompa.models.pumpsystem.PumpSystem(station_2)
     ord_bottom = station_2.hydr_cond.ord_bottom
-    assert psystem._ord_shutdown(ord_bottom) == v.FloatVariable(139.04)
+    assert psystem.ord_shutdown(ord_bottom) == v.FloatVariable(139.04)
 
 def test_reserve_pumps_economic(station_2):
     psystem = pompa.models.pumpsystem.PumpSystem(station_2)

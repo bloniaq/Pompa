@@ -60,15 +60,16 @@ class PumpSet:
         # parameters
         self._ORD_STEP = 0.01
 
-        self._pumps_amount = pumps_amount
+        self.pumps_amount = pumps_amount
+        self.station = station
         self._out_pipes_no = station.out_pipes_no.get()
         self._well_area = station.well.cr_sec_area()
         self._ord_upper_level = station.hydr_cond.ord_upper_level
-        self._req_cycle_time = station.pump_type.cycle_time
+        self._req_cycle_time = station.pump_type.cycle_time.value * 60
         self._ord_inlet = station.hydr_cond.ord_inlet
         self._ins_pipe_area = station.ins_pipe.area()
         self._out_pipe_area = station.out_pipe.area()
-        self._pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
+        self.pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
             pumps_amount)
         self._geom_height = station.hydr_cond.geom_height
 
@@ -88,13 +89,13 @@ class PumpSet:
             #     f"min_ord_pump_{pumps_amount}")
             self._min_ord = last_pset.ord_start.get()
 
-        self._min_inflow = max(station.hydr_cond.inflow_min,
-                               v.FlowVariable(.1, 'lps') + last_pset_start_q)
-        self._max_inflow = station.hydr_cond.inflow_max
+        self.min_inflow = max(station.hydr_cond.inflow_min,
+                              v.FlowVariable(.1, 'lps') + last_pset_start_q)
+        self.max_inflow = station.hydr_cond.inflow_max
         ins_pipe_poly = station.ins_pipe.dynamic_loss_polynomial(
-            self._min_inflow, self._max_inflow)
+            self.min_inflow, self.max_inflow, pumps_amount)
         out_pipe_poly = station.out_pipe.dynamic_loss_polynomial(
-            self._min_inflow, self._max_inflow, self._out_pipes_no)
+            self.min_inflow, self.max_inflow, self._out_pipes_no)
         self.pipeset_poly = ins_pipe_poly + out_pipe_poly
 
         # interface
@@ -149,7 +150,7 @@ class PumpSet:
 
             if ordinate > self._ord_inlet:
                 raise WellTooShallowError(ordinate, self._ord_inlet, c_time,
-                                          self._pumps_amount)
+                                          self.pumps_amount)
 
             it_volume = round(
                 (ordinate.get() - float(last_ord)) * self._well_area.value, 3)
@@ -168,18 +169,18 @@ class PumpSet:
 
             c_time, w_time, l_time = self._cycle_times(points, worst_inflow)
 
-            if (c_time >= self._req_cycle_time.value and
+            if (c_time >= self._req_cycle_time and
                     ordinate >= self._min_ord):
                 enough_time = True
 
-        if points[str(self.ord_stop.value)].wpoint.flow > self._max_inflow:
+        if points[str(self.ord_stop.value)].wpoint.flow > self.max_inflow:
             self.enough_pumps = True
 
         # TODO: WellTooDeepError implementation
 
-        self.cyc_time = c_time
-        self.wor_time = w_time
-        self.lay_time = l_time
+        self.cyc_time = round(c_time, 1)
+        self.wor_time = round(w_time, 1)
+        self.lay_time = round(l_time, 1)
         self.vol_u = round(
             sum([points[point].it_v for point in points.keys()]), 2)
         self.ord_start = ordinate
@@ -187,7 +188,7 @@ class PumpSet:
         self.wpoint_stop = points[str(self.ord_stop.get())].wpoint
         self.worst_inflow = worst_inflow
 
-        print('\n\nPUMP no {}\n'.format(self._pumps_amount))
+        print('\n\nPUMP no {}\n'.format(self.pumps_amount))
         print('c time: ', c_time)
         print('w time: ', w_time)
         print('l time: ', l_time)
@@ -277,8 +278,8 @@ class PumpSet:
 
         return pompa.models.workpoint.WorkPoint(
             self._geom_height(ordinate),
-            self._ins_pipe_area, self._out_pipe_area, self._pumpset_poly,
-            self.pipeset_poly, self._pumps_amount, self._out_pipes_no)
+            self._ins_pipe_area, self._out_pipe_area, self.pumpset_poly,
+            self.pipeset_poly, self.pumps_amount, self._out_pipes_no)
 
     def _worst_inflow(self, points):
         """Calculate least favorable inflow.
@@ -298,7 +299,7 @@ class PumpSet:
         time_sum = sum([points[point].e_time for point in points.keys()])
         avg_eff = v.FlowVariable(vol_sum / time_sum, 'm3ps')
         worst_inflow = min(max(
-            avg_eff / 2, self._min_inflow), self._max_inflow)
+            avg_eff / 2, self.min_inflow), self.max_inflow)
         return worst_inflow
 
     def _average_flow(self, flow_1, flow_2, name=None):

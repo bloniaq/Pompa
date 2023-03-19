@@ -131,17 +131,17 @@ class WorkPoint:
         velocity['out_pipe']
             The velocity in outside pump [m/s]
         """
-        pipeset_poly = self._full_loss_poly()
+        self.pipeset_poly = self._full_loss_poly()
 
         all_roots = np.polynomial.polynomial.polyroots(
-            self._pumpset_poly - pipeset_poly)
+            self._pumpset_poly - self.pipeset_poly)
         roots = [np.real(i) for i in all_roots if np.isreal(i)]
         roots = [i for i in roots if i > 0]
 
         if len(roots) > 1:
-            raise TooManyRootsError(roots, pipeset_poly, self._pumpset_poly)
+            raise TooManyRootsError(roots, self.pipeset_poly, self._pumpset_poly)
         elif len(roots) == 0:
-            raise NoRootsError(roots, pipeset_poly, self._pumpset_poly,
+            raise NoRootsError(roots, self.pipeset_poly, self._pumpset_poly,
                                v.FlowVariable(11, 'lps'),
                                v.FlowVariable(22, 'lps'))
         flow = v.FlowVariable(roots[0], 'm3ps')
