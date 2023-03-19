@@ -188,7 +188,8 @@ class Pipe(v.StationObject):
             Coefficients of losses polynomial function
         """
         flows_array = np.linspace(
-            min_inflow.value_m3ps, 1.4 * max_inflow.value_m3ps, 20)
+            min_inflow.value_m3ps, 1.4 * parallels * max_inflow.value_m3ps,
+            int(20 * parallels))
 
         heights_list = []
 
