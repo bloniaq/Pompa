@@ -143,6 +143,7 @@ def station_3():
     station.pump_type.characteristic.add_point(18, 17.7, 'lps')
     station.pump_type.characteristic.add_point(19, 17.2, 'lps')
     station.pump_type.characteristic.add_point(20, 16.6, 'lps')
+    station.pump_type.characteristic.add_point(23, 0, 'lps')
 
     # Well
     station.well.shape.set('round')
