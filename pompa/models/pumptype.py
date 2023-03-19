@@ -53,7 +53,7 @@ class PumpType(v.StationObject):
         # range_start = v.FlowVariable(range_start_value, "m3ph",
         #                              f"opt_ran_start_pump_{pumps_amount}")
         range_start = v.FlowVariable(range_start_value, "m3ph", name=None)
-        range_stop_value = self.efficiency_to.value_m3ph * 2
+        range_stop_value = self.efficiency_to.value_m3ph * pumps_amount
         # range_stop = v.FlowVariable(range_stop_value, "m3ph",
         #                             f"opt_ran_stop_pump_{pumps_amount}")
         range_stop = v.FlowVariable(range_stop_value, "m3ph", None)
