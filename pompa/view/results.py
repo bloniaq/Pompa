@@ -17,8 +17,29 @@ class ResultsWindow(tk.Toplevel):
         self.text_f.pack(side=tk.LEFT, padx=10, pady=10)
         self.text_f.insert(1.0, text_content)
 
-        self.graph = graphs.ResultGraph(frame, 800, 800, "data")
-        self.graph.pack(side=tk.RIGHT, padx=10, pady=10)
+    def prepare_graphs(self, parent, pumpsets, data_provider):
+        graphs_nbook = tk.ttk.Notebook(parent)
+        title_dict = {
+            0: "  1 pompa pracująca  ",
+            1: "  2 pompy pracujące  ",
+            2: "  3 pompy pracujące  ",
+            3: "  4 pompy pracujące  ",
+            4: "  5 pomp pracujących  ",
+        }
+        graphs_list = []
+
+        for i, pumpset in enumerate(pumpsets):
+            data = data_provider(pumpset).prepare_data()
+            container = {}
+            container['frame'] = tk.Frame(graphs_nbook)
+            container['graph'] = graphs.ResultGraph(container['frame'],
+                                                    800, 760,
+                                                    data)
+            container['graph'].pack(side=tk.RIGHT, padx=10, pady=10)
+            graphs_nbook.add(container['frame'], text=title_dict[i])
+            graphs_list.append(container)
+
+        return graphs_nbook
 
     def prepare_results(self, results, station):
         content = ""
