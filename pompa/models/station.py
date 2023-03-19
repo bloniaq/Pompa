@@ -45,6 +45,7 @@ class Station(v.StationObject):
         self.pump_type = pump_type.PumpType()
         self.pumpsystem = None
         self.figures_data = fig_data.ChartData(self)
+        self.result_data_provider = fig_data.ResultPumpsetCharData
         self.get_var = v.Variable.get_var
 
     def calculate(self, mode='checking'):

@@ -225,3 +225,43 @@ class PumpCharData:
             len(self.pumptype.characteristic.value) > 4
         ]
         return all(rules)
+
+
+class ResultPumpsetCharData:
+
+    def __init__(self, pumpset):
+        self.pset = pumpset
+
+    def prepare_data(self):
+        data = {}
+        data['x'] = self.create_x_array()
+        data['pipeset_start'] = np.polynomial.polynomial.Polynomial(
+            self.pset.wpoint_start.pipeset_poly)
+        data['pipeset_stop'] = np.polynomial.polynomial.Polynomial(
+            self.pset.wpoint_stop.pipeset_poly)
+        data['pumpset'] = np.poly1d(np.flip(self.pset.pumpset_poly))
+        data['workpoint_start'] = self.create_wpoint_data(self.pset.wpoint_start)
+        data['workpoint_stop'] = self.create_wpoint_data(self.pset.wpoint_stop)
+        data['pump_eff'] = self.create_efficiency_data(self.pset.pumpset_poly)
+        return data
+
+    def create_x_array(self):
+        left = 0.9 * self.pset.min_inflow.get_by_unit('m3ps')
+        right = max(1.6 * self.pset.max_inflow.get_by_unit('m3ps'),
+                    1.05 * self.pset.pumps_amount * self.pset.station.pump_type.efficiency_to.value_m3ps)
+        array = np.linspace(left, right, 10000)
+        return array
+
+    def create_wpoint_data(self, wpoint):
+        flow = wpoint.flow.value_m3ps
+        height = wpoint.height
+        return (flow, height)
+
+    def create_efficiency_data(self, y_pump):
+        pumps_no = self.pset.pumps_amount
+        eff_from_x = self.pset.station.pump_type.efficiency_from.value_m3ps * pumps_no
+        eff_to_x = self.pset.station.pump_type.efficiency_to.value_m3ps * pumps_no
+        values = (eff_from_x, eff_to_x)
+        print('y_pump (eff): \n', y_pump)
+        print('EFFICIENCY values: ', values)
+        return values
