@@ -331,7 +331,7 @@ class Test_ResistanceVar:
 
     def test_sum(self):
         res_var = variables.ResistanceVariable([0.1, 0.2, 0.333])
-        assert res_var.sum() == 0.633
+        assert res_var.sum() == 0.63
 
 
 class Test_PumpCharVar:
@@ -382,7 +382,8 @@ class Test_PumpCharVar:
         characteristic.add_point(3000, 61, 'lps')
         characteristic.add_point(2000, 25, 'lps')
         characteristic.add_point(7000, 485, 'lps')
-        exp_coeffs = np.array([-5, 7, 2, 1])
+        exp_coeffs = np.array([1.6565410199556908e+001, -2.3090909090909363e+001, 1.2855875831485621e+001])
+        # arachnoid.com
         result = characteristic.polynomial_coeff(1)
         np.testing.assert_almost_equal(result, exp_coeffs)
 
@@ -392,7 +393,7 @@ class Test_PumpCharVar:
         characteristic.add_point(3000, 61, 'lps')
         characteristic.add_point(2000, 25, 'lps')
         characteristic.add_point(7000, 485, 'lps')
-        exp_coeffs = np.array([-5, 3.5, 0.5, 0.125])
+        exp_coeffs = np.array([1.6565410199556936e+001, -1.1545454545454682e+001, 3.2139689578714052e+000])
         result = characteristic.polynomial_coeff(2)
         np.testing.assert_almost_equal(result, exp_coeffs)
 
@@ -402,6 +403,6 @@ class Test_PumpCharVar:
         characteristic.add_point(3000, 61, 'lps')
         characteristic.add_point(2000, 25, 'lps')
         characteristic.add_point(7000, 485, 'lps')
-        exp_coeffs = np.array([-5, 2.3333, 0.2222, 0.037037])
+        exp_coeffs = np.array([1.6565410199556368e+001, -7.6969696969696493e+000, 1.4284306479428412e+000])
         result = characteristic.polynomial_coeff(3)
         np.testing.assert_almost_equal(result, exp_coeffs, decimal=4)

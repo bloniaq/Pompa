@@ -290,7 +290,7 @@ class ResistanceVariable(Variable):
         super().__init__(value, name)
 
     def sum(self):
-        return sum(self.value)
+        return round(sum(self.value), 2)
 
     def set(self, value):
         if isinstance(value, list):
