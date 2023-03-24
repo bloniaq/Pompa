@@ -62,7 +62,7 @@ def station_2():
     station.pump_type.suction_level.set(0.3)
     station.pump_type.efficiency_from.set(23.5, 'lps')
     station.pump_type.efficiency_to.set(37, 'lps')
-    station.pump_type.cycle_time.set(480)
+    station.pump_type.cycle_time.set(8)
 
     # Pump Characteristic
     station.pump_type.characteristic.add_point(16.7, 14, 'lps')
@@ -131,7 +131,7 @@ def station_3():
     station.pump_type.suction_level.set(0.3)
     station.pump_type.efficiency_from.set(15, 'lps')
     station.pump_type.efficiency_to.set(19, 'lps')
-    station.pump_type.cycle_time.set(600)
+    station.pump_type.cycle_time.set(10)
 
     # Pump Characteristic
     station.pump_type.characteristic.add_point(12, 19.6, 'lps')
