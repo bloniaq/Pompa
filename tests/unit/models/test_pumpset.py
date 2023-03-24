@@ -16,7 +16,7 @@ def s2_pumpset(station_2):
 def test_pumpset_init(s2_pumpset):
     assert s2_pumpset is not None
     assert s2_pumpset._well_area == pytest.approx(4.9, abs=0.02)
-    assert s2_pumpset._req_cycle_time.value == 480
+    assert s2_pumpset._req_cycle_time == 480
 
     assert s2_pumpset.ord_stop == 138.87
 

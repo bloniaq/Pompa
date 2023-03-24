@@ -87,7 +87,10 @@ class PumpSet:
             last_pset_start_q = last_pset.wpoint_start.flow.copy()
             # self._min_ord = last_pset.ord_start.copy(
             #     f"min_ord_pump_{pumps_amount}")
-            self._min_ord = last_pset.ord_start.get()
+
+            # pompa 1.0 przynajmniej w trybie checking podaje tę samą rzędną
+            # włączenia dla kolejnych włączanych pomp
+            self._min_ord = last_pset.ord_start.get() + 0.1
 
         self.min_inflow = max(station.hydr_cond.inflow_min,
                               v.FlowVariable(.1, 'lps') + last_pset_start_q)
