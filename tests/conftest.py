@@ -134,6 +134,7 @@ def station_3():
     station.pump_type.cycle_time.set(10)
 
     # Pump Characteristic
+    # station.pump_type.characteristic.add_point(0, 23, 'lps')
     station.pump_type.characteristic.add_point(12, 19.6, 'lps')
     station.pump_type.characteristic.add_point(13, 19.2, 'lps')
     station.pump_type.characteristic.add_point(14, 18.9, 'lps')
@@ -143,7 +144,7 @@ def station_3():
     station.pump_type.characteristic.add_point(18, 17.7, 'lps')
     station.pump_type.characteristic.add_point(19, 17.2, 'lps')
     station.pump_type.characteristic.add_point(20, 16.6, 'lps')
-    station.pump_type.characteristic.add_point(23, 0, 'lps')
+    station.pump_type.characteristic.add_point(35, 0, 'lps')
 
     # Well
     station.well.shape.set('round')
@@ -165,7 +166,11 @@ def station_3():
     # Outside Pipe
     station.out_pipe.length.set(2500)
     station.out_pipe.diameter.set(.180)
-    station.out_pipe.roughness.set(0.0005)
+    station.out_pipe.roughness.set(0.000045)
+    # https://www.pumpfundamentals.com/PIPE%20ROUGHNESS%20VALUES.pdf
+    # stal nierdzewna
+    # station.out_pipe.roughness.set(0.0005)
+    # stara wartość
     station.out_pipe.resistances.set([])
 
     station.out_pipes_no.set(2)
@@ -177,6 +182,10 @@ def station_3():
 def station_4(station_3):
     station = station_3
     station.out_pipes_no.set(1)
+    station.out_pipe.roughness.set(0.005)
+    station.hydr_cond.inflow_max.set(20, 'lps')
+    station.hydr_cond.ord_highest_point.set(105)
+    station.hydr_cond.ord_outlet.set(97)
 
     return station
 
