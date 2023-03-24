@@ -188,8 +188,8 @@ class Pipe(v.StationObject):
             Coefficients of losses polynomial function
         """
         flows_array = np.linspace(
-            min_inflow.value_m3ps, 1.4 * parallels * max_inflow.value_m3ps,
-            int(20 * parallels))
+            min_inflow.value_m3ps, 1.4 * max_inflow.value_m3ps,
+            20)
 
         heights_list = []
 
@@ -203,8 +203,6 @@ class Pipe(v.StationObject):
 
         coeffs = np.polynomial.polynomial.polyfit(
             flows_array, heights_array, 2)
-
-        # coeffs = np.append(coeffs, 0)
 
         return coeffs
 
