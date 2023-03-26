@@ -153,7 +153,7 @@ def station_3():
     # Hydraulic Conditions
     station.hydr_cond.ord_bottom.set(94.54)
     station.hydr_cond.ord_upper_level.set(105)
-    station.hydr_cond.ord_inlet.set(96)
+    station.hydr_cond.ord_inlet.set(96.5)
     station.hydr_cond.ord_outlet.set(97)
     station.hydr_cond.inflow_min.set(10, 'lps')
     station.hydr_cond.inflow_max.set(20, 'lps')
