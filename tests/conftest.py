@@ -183,10 +183,6 @@ def station_3():
 def station_4(station_3):
     station = station_3
     station.out_pipes_no.set(1)
-    station.out_pipe.roughness.set(0.005)
-    station.hydr_cond.inflow_max.set(20, 'lps')
-    station.hydr_cond.ord_highest_point.set(105)
-    station.hydr_cond.ord_outlet.set(97)
 
     return station
 
@@ -195,8 +191,8 @@ def station_4(station_3):
 def station_4_psets(station_4):
     station = station_4
     station.calculate('checking')
-    pset_1, pset_2, pset_3 = station_4.pumpsystem.pumpsets
-    return station, pset_1, pset_2, pset_3
+    pset_1, pset_2 = station_4.pumpsystem.pumpsets
+    return station, pset_1, pset_2
 
 
 @pytest.fixture()

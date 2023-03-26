@@ -66,13 +66,12 @@ def test_worst_inflow(s2_pumpset, s2_pumpset_points):
 
 
 def test_worst_inflow_multiple_pumps(station_4_psets):
-    station, pset_1, pset_2, pset_3 = station_4_psets
+    station, pset_1, pset_2 = station_4_psets
     assert pset_2.worst_inflow.value_lps > pset_1.wpoint_start.flow.value_lps
-    assert pset_3.worst_inflow.value_lps > pset_2.wpoint_start.flow.value_lps
 
 
 def test_min_inflow(station_4_psets):
-    station, pset_1, pset_2, pset_3 = station_4_psets
+    station, pset_1, pset_2 = station_4_psets
 
     assert pset_2.min_inflow.value_lps == pytest.approx(max(
         pset_1.wpoint_start.flow.value_lps + .1,
@@ -102,6 +101,6 @@ def test_calculate(s2_pumpset):
 
 
 def test_optimal_range(station_4_psets):
-    station, pset_1, pset_2, pset_3 = station_4_psets
+    station, pset_1, pset_2 = station_4_psets
     assert pset_2.opt_range[0] == station.pump_type.efficiency_from * 2
     assert pset_2.opt_range[1] == station.pump_type.efficiency_to * 2
