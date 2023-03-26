@@ -66,7 +66,7 @@ class PumpSet:
         self._well_area = station.well.cr_sec_area()
         self._ord_upper_level = station.hydr_cond.ord_upper_level
         self._req_cycle_time = station.pump_type.cycle_time.value * 60
-        self._ord_inlet = station.hydr_cond.ord_inlet
+        self._max_inlet_ordinate = station.hydr_cond.ord_inlet - station.hydr_cond.reserve_height
         self._ins_pipe_area = station.ins_pipe.area()
         self._out_pipe_area = station.out_pipe.area()
         self.pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
@@ -151,9 +151,9 @@ class PumpSet:
 
             last_ord = list(points.keys())[-1]
 
-            if ordinate > self._ord_inlet:
-                raise WellTooShallowError(ordinate, self._ord_inlet, c_time,
-                                          self.pumps_amount)
+            if ordinate > self._max_inlet_ordinate:
+                raise WellTooShallowError(ordinate, self._max_inlet_ordinate,
+                                          c_time, self.pumps_amount)
 
             it_volume = round(
                 (ordinate.get() - float(last_ord)) * self._well_area.value, 3)

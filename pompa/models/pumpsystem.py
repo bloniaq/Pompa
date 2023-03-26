@@ -30,7 +30,6 @@ class PumpSystem:
         self.pumpsets = []
         self.reserve_pumps = 0
         self.all_pumps = 0
-        self.ord_shutdown = station.pump_type.shutdown_ord
 
         self._calculate(mode)
 
@@ -48,6 +47,7 @@ class PumpSystem:
         self.pumpsets = []
         enough_pumps = False
         self.ord_bottom = self.station.hydr_cond.ord_bottom
+        self.ord_shutdown = self.station.pump_type.shutdown_ord(self.ord_bottom)
         pumps_counter = 0
 
 
@@ -57,8 +57,8 @@ class PumpSystem:
                 last_pset = None
             else:
                 last_pset = self.pumpsets[-1]
-            self.pumpsets.append(PumpSet(self.station, self.ord_shutdown(
-                self.ord_bottom), pumps_counter, last_pset))
+            self.pumpsets.append(PumpSet(self.station, self.ord_shutdown,
+                                         pumps_counter, last_pset))
             print('pumpsets len: ', len(self.pumpsets))
             enough_pumps = self.pumpsets[-1].enough_pumps
             if pumps_counter == PUMPSETS_LIMITER:

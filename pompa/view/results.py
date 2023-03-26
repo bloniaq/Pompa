@@ -94,8 +94,8 @@ class ResultsWindow(tk.Toplevel):
         content += f'Suma wsp. oporow miejsc. w pompowni...{station.ins_pipe.resistances.sum():7}\n\n'
         content += 'CHARAKTERYSTYKA ZASTOSOWANYCH POMP\n\n'
         content += self.prepare_pump_char_report(station.pump_type.characteristic.value)
-        content += f'Rzedna dna pompowni...................{station.hydr_cond.ord_outlet.get():7}    [m]\n'
-        content += f'Rzedna wylaczenia sie pomp............{results.ord_bottom.get():7}    [m]\n'
+        content += f'Rzedna dna pompowni...................{station.hydr_cond.ord_bottom.get():7}    [m]\n'
+        content += f'Rzedna wylaczenia sie pomp............{results.ord_shutdown.get():7}    [m]\n'
         content += f'Objetosc calkowita pompowni..........Vc={FILLER:5}   [m3]\n'
         content += f'Objetosc uzyteczna pompowni..........Vu={FILLER:5}   [m3]\n'
         content += f'Objetosc rezerwowa pompowni..........Vr={FILLER:5}   [m3]\n'

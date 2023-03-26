@@ -11,10 +11,10 @@ def test_1_unit_pumpset(station_2):
 def test_1_unit_parallel_pipes(station_3):
     station_3.calculate('checking')
     pset = station_3.pumpsystem.pumpsets[0]
-    assert pset.wpoint_start.height == pytest.approx(14.63, rel=0.05)
-    assert pset.wpoint_start.flow.value_lps == pytest.approx(23.17, rel=.05)
-    assert pset.ord_start == pytest.approx(95.93, abs=0.20)
-    assert pset.wpoint_start.out_pipe_v == pytest.approx(0.46, abs=.02)
+    assert pset.wpoint_start.height == pytest.approx(13.99, rel=0.05)
+    assert pset.wpoint_start.flow.value_lps == pytest.approx(24.21, rel=.05)
+    assert pset.ord_start == pytest.approx(95.97, abs=0.20)
+    assert pset.wpoint_start.out_pipe_v == pytest.approx(0.48, abs=.02)
 
 
 def test_3_units(station_4):
