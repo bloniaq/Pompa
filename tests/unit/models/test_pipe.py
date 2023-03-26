@@ -165,6 +165,7 @@ class TestPipe:
         assert exp_height == pytest.approx(height, rel=0.05)
 
     @pytest.mark.parametrize('flow', [
+        v.FlowVariable(8, 'lps'),
         v.FlowVariable(10, 'lps'),
         v.FlowVariable(12, 'lps'),
         v.FlowVariable(14, 'lps'),
@@ -172,7 +173,6 @@ class TestPipe:
         v.FlowVariable(18, 'lps'),
         v.FlowVariable(20, 'lps'),
         v.FlowVariable(22.2, 'lps'),
-        v.FlowVariable(8, 'lps'),
         v.FlowVariable(28, 'lps')])
     def test_dynamic_loss_poly_parallels(self, station_3, flow):
         pipe_obj = station_3.out_pipe
@@ -190,6 +190,13 @@ class TestPipe:
         # stara pompa
         # https://arachnoid.com/polysolve/
         exp_coeffs = np.array([-4.1344071227009582e-001, 5.1392397030049608e+001, 4.6214326748354915e+003])
+        # 3 kalkulatory
+        # https://www.pipeflowcalculations.com/reynolds/calculator.xhtml
+        # https://www.omnicalculator.com/physics/friction-factor
+        # https://www.engineeringtoolbox.com/darcy-weisbach-equation-d_646.html
+        # https://arachnoid.com/polysolve/
+        # exp_coeffs = np.array([-2.8833541534732277e-002, 2.3765701501814021e+001, 4.8023228278361275e+003])
+
 
 
         exp_height = np.polynomial.polynomial.Polynomial(exp_coeffs)(
