@@ -17,11 +17,15 @@ class ResultsWindow(tk.Toplevel):
         frame.pack(padx=15, pady=15)
 
         self.text_f = tk.Text(frame, height=50, width=60)
-        self.text_f.pack(side=tk.LEFT, padx=10, pady=10)
+        self.text_f.pack(side=tk.LEFT, padx=(10, 0), pady=10, fill=tk.BOTH)
         # wcięcie
         self.insert_text_with_indent(self.text_f, text_content,
                                      l_marg=20, r_marg=20)
 
+        scrollbar = tk.Scrollbar(frame)
+        self.text_f.config(yscrollcommand=scrollbar.set)
+        scrollbar.config(command=self.text_f.yview)
+        scrollbar.pack(side=tk.LEFT, fill=tk.Y, padx=(0, 10), pady=10)
 
         data_provider = station.result_data_provider
 
