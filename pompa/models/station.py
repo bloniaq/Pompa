@@ -54,7 +54,7 @@ class Station(v.StationObject):
         self.pumpsystem = pumpsystem.PumpSystem(self, mode)
 
     def bind_variables(self, variables):
-        for var in variables:
+        for var in variables.values():
             var.modelvar = self.get_var(var.name)
             if var.modelvar is None:
                 print(var.name)

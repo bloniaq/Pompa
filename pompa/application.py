@@ -240,7 +240,7 @@ class Application:
         """
         init_values: tuple with all necessary data for binding and creating variables both in model and in view
         """
-        variables = []
+        variables = {}
         var_type = {
             "string": StringVMVar,
             "double": DoubleVMVar,
@@ -260,7 +260,7 @@ class Application:
         #
         for var_params in init_data:
             variable = var_type[var_params.type](*var_params.data)
-            variables.append(variable)
+            variables[variable.name] = variable
 
         return variables
 
@@ -276,18 +276,18 @@ class Application:
         print(result)
 
     def get_var_by_name(self, name):
-        for v in self.variables:
+        for v in self.variables.values():
             if v.name == name:
                 return v
 
     def get_var_by_id(self, id_):
-        for v in self.variables:
+        for v in self.variables.values():
             if v.id == id_:
                 return v
 
     def load_file(self, file, unit):
         data = self.read_file(file)
-        for v in self.variables:
+        for v in self.variables.values():
             if v.id in data.keys():
                 v.load_data(data, unit)
 
@@ -309,37 +309,66 @@ class Application:
         return data
 
     def save_file(self, file):
+        v = self.variables
+
+        def get_symbol_for_string_var(name):
+            for key, val in v[name].dictionary.items():
+                if val == v[name].modelvar.value:
+                    return key
+
         with open(file + ".DAN", 'w') as f:
-            for v in self.variables:
-                if v.type == 'flow':
-                    f.write(f"{v.id}) {v.modelvar.value_lps}\n")
-                elif v.type == 'string':
-                    if not v.dictionary:
-                        continue
-                    for key, val in v.dictionary.items():
-                        if val == v.modelvar.value:
-                            f.write(f"{v.id}) {key}\n")
-                elif v.type == 'res':
-                    for coef in v.modelvar.value:
-                        f.write(f"{v.id}) {coef}\n")
-                elif v.type == 'pump_char':
-                    for p in v.modelvar.value:
-                        f.write(f"{v.id}) {p[0].value_lps}\n")
-                    for p in v.modelvar.value:
-                        f.write(f"{v.id + 1}) {p[1]}\n")
-                elif v.type == 'int':
-                    f.write(f"{v.id}) {int(v.modelvar.value)}\n")
-                elif v.multipl != 1:
-                    if 'roughness' in v.name:
-                        f.write(f"{v.id}) {v.modelvar.value / v.multipl:.4f}\n")
-                    else:
-                        f.write(f"{v.id}) {v.modelvar.value / v.multipl}\n")
-                else:
-                    f.write(f"{v.id}) {v.modelvar.value}\n")
+            f.write(f"1){get_symbol_for_string_var('mode')}\n")
+            f.write(f"2) {get_symbol_for_string_var('shape')}\n")
+            f.write(f"3) {get_symbol_for_string_var('config')}\n")
+            f.write(f"4){get_symbol_for_string_var('safety')}\n")
+            f.write(f"5) {v['pump_contour'].modelvar.value}\n")
+            if self.model.well.shape.get() == 'rectangle':
+                f.write(f"6) {v['well_length'].modelvar.value}\n")
+                f.write(f"7) {v['well_width'].modelvar.value}\n")
+            elif self.model.well.shape.get() == 'rectangle':
+                f.write(f"8) {v['well_diameter'].modelvar.value}\n")
+            f.write(f"9) {v['suction_level'].modelvar.value}\n")
+            f.write(f"10) {v['ord_terrain'].modelvar.value}\n")
+            f.write(f"11) {v['ord_outlet'].modelvar.value}\n")
+            f.write(f"12) {v['ord_inlet'].modelvar.value}\n")
+            f.write(f"13) {v['ord_bottom'].modelvar.value}\n")
+            if self.model.mode.get() == 'minimalisation':
+                f.write(f"14) {v['reserve_height'].modelvar.value}\n")
+            f.write(f"15) {v['ord_highest_point'].modelvar.value}\n")
+            f.write(f"16) {v['ord_upper_level'].modelvar.value}\n")
+            f.write(f"28) {v['ins_pipe_length'].modelvar.value}\n")
+            f.write(f"29) {v['ins_pipe_diameter'].modelvar.value * 1000}\n")
+            f.write(f"30) {v['ins_pipe_roughness'].modelvar.value * 1000}\n")
+            ins_pipe_res_count = len(v['ins_pipe_resistances'].modelvar.value)
+            f.write(f"31) {ins_pipe_res_count}\n")
+            if ins_pipe_res_count > 0:
+                for res in v['ins_pipe_resistances'].modelvar.value:
+                    f.write(f"32) {res}\n")
+            f.write(f"33) {v['inflow_min'].modelvar.value_lps}\n")
+            f.write(f"34) {v['inflow_max'].modelvar.value_lps}\n")
+            f.write(f"35) {round(v['min_cycle_time'].modelvar.value, 1)}\n")
+            pump_char_points_count = len(v['pump_characteristic'].modelvar.value)
+            f.write(f"36){pump_char_points_count}\n")
+            if pump_char_points_count > 0:
+                points_list = list(reversed(v['pump_characteristic'].modelvar.value))
+                for point in points_list:
+                    f.write(f"37) {point[0].value_lps}\n")
+                for point in points_list:
+                    f.write(f"38) {point[1]}\n")
+            f.write(f"39) {v['pump_eff_min'].modelvar.value_lps}\n")
+            f.write(f"40) {v['pump_eff_max'].modelvar.value_lps}\n")
+            f.write(f"41) {int(v['parallel_out_pipes'].modelvar.value)}\n")
+            f.write(f"42) {v['out_pipe_length'].modelvar.value}\n")
+            f.write(f"43) {v['out_pipe_diameter'].modelvar.value * 1000}\n")
+            f.write(f"44) {v['out_pipe_roughness'].modelvar.value * 1000}\n")
+            out_pipe_res_count = len(v['out_pipe_resistances'].modelvar.value)
+            f.write(f"45) {out_pipe_res_count}\n")
+            if out_pipe_res_count > 0:
+                for res in v['out_pipe_resistances'].modelvar.value:
+                    f.write(f"46) {res}\n")
 
     def get_results(self):
         self.model.calculate(self.model.mode.value)
         results = self.model.pumpsystem
         station = self.model
         return results, station
-

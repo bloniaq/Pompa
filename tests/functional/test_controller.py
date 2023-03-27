@@ -12,7 +12,7 @@ class TestController:
             model_finder = controller.model.get_var("ord_terrain")
             assert model_pointer is model_finder
 
-            for v in controller.variables:
+            for v in controller.variables.values():
                 if v.name == "ord_terrain":
                     vm_var = v
                     break

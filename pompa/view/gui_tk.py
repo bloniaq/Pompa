@@ -41,7 +41,7 @@ class View(tk.Tk):
         self.get_results_procedure = None
         self.draw_figures_procedure = None
 
-    def _create_view_variables(self, data: list) -> dict:
+    def _create_view_variables(self, data: dict) -> dict:
         """Create variables based on controller-provided ids"""
 
         view_variables = {}
@@ -54,7 +54,7 @@ class View(tk.Tk):
             'pump_char': vv.PumpCharVar
         }
 
-        for vm_variable in data:
+        for vm_variable in data.values():
             # create ViewVariable
             view_variables[vm_variable.name] = types[vm_variable.type](vm_variable.name, self)
             # bind ViewVariable to VMVariable attribute
