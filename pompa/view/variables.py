@@ -82,6 +82,9 @@ class PumpCharVar(ViewVariable):
             self.values[i]['flow'] = values_list[i]
             self.treeview.set(self.values[i]['id'], "vflow", values_list[i])
 
+    def get(self):
+        return self.values
+
     def clear_points(self):
         print("Points clearing")
         ids = [p['id'] for p in self.values]

@@ -183,6 +183,8 @@ class View(tk.Tk):
 
     def calculate(self):
         print('calculations')
+        for var in self.vars.values():
+            var.sent_to_model(var.get())
         results, station = self.get_results_procedure()
         res.ResultsWindow(self, results, station)
 
