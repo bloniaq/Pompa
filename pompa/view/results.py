@@ -107,14 +107,17 @@ class ResultsWindow(tk.Toplevel):
         content += self.prepare_pump_char_report(station.pump_type.characteristic.value)
         content += f'Rzędna dna pompowni...................{station.hydr_cond.ord_bottom.get():7}    [m]\n'
         content += f'Rzędna wyłączenia się pomp............{results.ord_shutdown.get():7}    [m]\n'
-        content += f'Objętość całkowita pompowni..........Vc={FILLER:5}   [m3]\n'
-        content += f'Objętość użyteczna pompowni..........Vu={FILLER:5}   [m3]\n'
-        content += f'Objętość rezerwowa pompowni..........Vr={FILLER:5}   [m3]\n'
-        content += f'Objętość martwa pompowni.............Vm={FILLER:5}   [m3]\n\n'
-        content += f'Vu/Vc ={FILLER:5}%\n'
-        content += f'Vr/Vu ={FILLER:5}%\n'
-        content += f'Vr/Vc ={FILLER:5}%\n'
-        content += f'Vm/Vc ={FILLER:5}%\n\n'
+
+        total_v, useful_v, reserve_v, dead_v = results.calculate_volumes()
+
+        content += f'Objętość całkowita pompowni..........Vc={total_v:5}   [m3]\n'
+        content += f'Objętość użyteczna pompowni..........Vu={useful_v:5}   [m3]\n'
+        content += f'Objętość rezerwowa pompowni..........Vr={reserve_v:5}   [m3]\n'
+        content += f'Objętość martwa pompowni.............Vm={dead_v:5}   [m3]\n\n'
+        content += f'Vu/Vc ={round(100 * useful_v / total_v, 1):5}%\n'
+        content += f'Vr/Vu ={round(100 * reserve_v / useful_v, 1):5}%\n'
+        content += f'Vr/Vc ={round(100 * reserve_v / total_v, 1):5}%\n'
+        content += f'Vm/Vc ={round(100 * dead_v / total_v, 1):5}%\n\n'
 
         for i, pumpset in enumerate(results.pumpsets):
             content += self.prepare_pset_report(i, pumpset)

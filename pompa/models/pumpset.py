@@ -73,6 +73,10 @@ class PumpSet:
             pumps_amount)
         self._geom_height = station.hydr_cond.geom_height
 
+        if last_pset is None:
+            self.last_pset_start_ord = ord_shutdown
+        else:
+            self.last_pset_start_ord = last_pset.ord_start
         if pumps_amount == 1:
             last_pset_start_q = v.FlowVariable(0)
             """
@@ -184,8 +188,10 @@ class PumpSet:
         self.cyc_time = round(c_time, 1)
         self.wor_time = round(w_time, 1)
         self.lay_time = round(l_time, 1)
-        self.vol_u = round(
-            sum([points[point].it_v for point in points.keys()]), 2)
+        self.vol_u = round(self.station.well.cr_sec_area().get() * (
+                ordinate.get() - self.last_pset_start_ord.get()), 2)
+        # self.vol_u = round(
+        #     sum([points[point].it_v for point in points.keys()]), 2)
         self.ord_start = ordinate
         self.wpoint_start = wpoint
         self.wpoint_stop = points[str(self.ord_stop.get())].wpoint

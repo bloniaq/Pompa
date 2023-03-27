@@ -78,3 +78,17 @@ class PumpSystem:
 
     def _update_all_pumps_number(self):
         self.all_pumps = len(self.pumpsets) + self.reserve_pumps
+
+    def calculate_volumes(self):
+        area = self.station.well.cr_sec_area().get()
+        total_h = self.station.hydr_cond.ord_terrain.get() - self.ord_bottom.get()
+        useful_h = self.pumpsets[-1].ord_start.get() - self.ord_shutdown.get()
+        reserve_h = self.station.hydr_cond.ord_inlet.get() - self.pumpsets[-1].ord_start.get()
+        dead_h = self.station.pump_type.suction_level.get()
+        total_v = round(total_h * area, 2)
+        useful_v = round(useful_h * area, 2)
+        reserve_v = round(reserve_h * area, 2)
+        dead_v = round(dead_h * area, 2)
+
+        return (total_v, useful_v, reserve_v, dead_v)
+
