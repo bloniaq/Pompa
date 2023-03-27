@@ -309,7 +309,7 @@ class Application:
         return data
 
     def save_file(self, file):
-        with open(file, 'w') as f:
+        with open(file + ".DAN", 'w') as f:
             for v in self.variables:
                 if v.type == 'flow':
                     f.write(f"{v.id}) {v.modelvar.value_lps}\n")
