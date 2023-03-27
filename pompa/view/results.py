@@ -62,8 +62,6 @@ class ResultsWindow(tk.Toplevel):
         content = ""
         content += "POMPA   POMPA   POMPA   POMPA   POMPA   POMPA   POMPA\n\n\n"
 
-        FILLER = 'FILLER'
-
         config_dict = {
             'optimal': "Optymalne ustawienie pomp w pompowni\n",
             'singlerow': "Liniowe ustawienie pomp w pompowni\n"
