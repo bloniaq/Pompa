@@ -71,8 +71,19 @@ class ResultsWindow(tk.Toplevel):
         content += config_dict[station.well.config.get()]
         content += f"Liczba pomp rezerwowych..............n={results.reserve_pumps:6}\n"
         content += f'Średnica koła opisującego pompę.....Dn={station.pump_type.contour.value:6}    [m]\n'
-        content += f'Średnica pompowni...................DN={station.well.diameter.value:6}    [m]\n'
-        content += f'Minimalna średnica pompowni......DNmin={FILLER:6}    [m]\n'
+
+        pumps_count = len(results.pumpsets) + results.reserve_pumps
+        if station.well.shape.get() == 'round':
+            content += f'Średnica pompowni...................DN={station.well.diameter.value:6}    [m]\n'
+            min_well_diam = station.min_well_dimension(pumps_count)
+            content += f'Minimalna średnica pompowni......DNmin={min_well_diam:6}    [m]\n'
+        elif station.well.shape.get() == 'rectangle':
+            content += f'Długość pompowni.....................L={station.well.length.value:6}    [m]\n'
+            content += f'Szerokość pompowni...................B={station.well.width.value:6}    [m]\n'
+            min_w, min_l = station.min_well_dimension(pumps_count)
+            content += f'Minimalna długość pompowni........Lmin={min_l:6}    [m]\n'
+            content += f'Minimalna szerokość pompowni......Bmin={min_w:6}    [m]\n'
+
         content += f'Pole poziomego przekroju pompowni....F={station.well.cr_sec_area().value:6}   [m2]\n'
         content += f'Ilość przewodów tłocznych (kolektor)..{int(station.out_pipes_no.get()):7}\n'
         content += f'Długość kolektora tłocznego..........L={station.out_pipe.length.get():6}    [m]\n'

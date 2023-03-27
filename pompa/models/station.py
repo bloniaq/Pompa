@@ -62,3 +62,50 @@ class Station(v.StationObject):
 
     def get_figure_data(self):
         return self.figures_data.get_data()
+
+    def min_well_dimension(self, pump_count):
+        # do średnicy montażowej pompy dodano 30cm na postawienie stopy
+        # pomiedzy pompami w pompowni
+        pump_d = self.pump_type.contour.get() + 0.3
+        if self.well.config.get() == "singlerow":
+            if self.well.shape.get() == "round":
+                min_d = max(pump_count * pump_d, 1.5)
+                return round(min_d, 2)
+            elif self.well.shape.get() == "rectangle":
+                min_l = max(pump_count * pump_d, 1.5)
+                min_w = max(pump_d + 0.3, 1.5)
+                return (round(min_w, 2), round(min_l, 2))
+        elif self.well.config.get() == "optimal":
+            if self.well.shape.get() == "round":
+                # https://en.wikipedia.org/wiki/Circle_packing_in_a_circle
+                coeff_dict = {
+                    1: 1,
+                    2: 2,
+                    3: 2.154,
+                    4: 2.414,
+                    5: 2.701,
+                    6: 3,
+                    7: 3,
+                    8: 3.304,
+                    9: 3.613,
+                    10: 3.813
+                }
+                min_d = max(pump_d * coeff_dict[pump_count], 1.5)
+                return round(min_d, 2)
+            elif self.well.shape.get() == "rectangle":
+                # https://en.wikipedia.org/wiki/Circle_packing_in_a_square
+                coeff_dict = {
+                    1: 2,
+                    2: 3.414,
+                    3: 3.931,
+                    4: 4,
+                    5: 4.828,
+                    6: 5.328,
+                    7: 5.732,
+                    8: 5.863,
+                    9: 6,
+                    10: 6.747
+                }
+                r_d = pump_d / 2
+                min_a = max(r_d * coeff_dict[pump_count], 1.5)
+                return (round(min_a, 2), round(min_a, 2))
