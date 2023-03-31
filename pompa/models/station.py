@@ -42,6 +42,7 @@ class Station(v.StationObject):
         self.mode = v.SwitchVariable('checking', name="mode")
         self.safety = v.SwitchVariable('optimal', name='safety')
         self.unit = v.SwitchVariable('m3ph', name="unit")
+        self.fixing_mode = v.BoolVariable(False, name='fixing')
         self.pump_type = pump_type.PumpType()
         self.pumpsystem = None
         self.figures_data = fig_data.ChartData(self)

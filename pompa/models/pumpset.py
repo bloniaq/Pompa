@@ -70,7 +70,7 @@ class PumpSet:
         self._ins_pipe_area = station.ins_pipe.area()
         self._out_pipe_area = station.out_pipe.area()
         self.pumpset_poly = station.pump_type.characteristic.polynomial_coeff(
-            pumps_amount)
+            pumps_amount, self.station.fixing_mode)
         self._geom_height = station.hydr_cond.geom_height
 
         if last_pset is None:

@@ -51,7 +51,8 @@ class View(tk.Tk):
             'double': vv.DoubleVar,
             'res': vv.StringVar,
             'flow': vv.DoubleVar,
-            'pump_char': vv.PumpCharVar
+            'pump_char': vv.PumpCharVar,
+            'bool': vv.BoolVar
         }
 
         for vm_variable in data.values():

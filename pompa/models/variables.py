@@ -282,6 +282,13 @@ class SwitchVariable(Variable):
         self.dictionary = dictionary
 
 
+class BoolVariable(Variable):
+    """Holds variables which keep switchable things"""
+
+    def __init__(self, value=False, name=None):
+        super().__init__(value, name)
+
+
 class ResistanceVariable(Variable):
     """Holds list of resistance coefficients"""
 
@@ -320,10 +327,13 @@ class PumpCharVariable(Variable):
     def _sort_points(self):
         self.value.sort(key=lambda point: point[0].value_m3ph)
 
-    def polynomial_coeff(self, w_pumps_amount=1, fixing_mode=0):
-        if fixing_mode == 0:
+    def polynomial_coeff(self, w_pumps_amount=1, fixing_mode=False):
+        if hasattr(fixing_mode, "value"):
+            fixing_mode = fixing_mode.value
+        print("fixing mode before drawing: ", fixing_mode)
+        if not fixing_mode:
             return self.polynomial_coeff_simple(w_pumps_amount)
-        elif fixing_mode == 1:
+        elif fixing_mode:
             return self.polynomial_coeff_fixed(w_pumps_amount)
 
     def polynomial_coeff_simple(self, w_pumps_amount=1):
@@ -343,12 +353,14 @@ class PumpCharVariable(Variable):
         # find the polynomial for the original points
         coeffs = np.polynomial.polynomial.polyfit(flows, heights, 2)
         print('coeffs: ', coeffs)
-        h_min_flow = np.polynomial.polynomial.polyval(min_flow, coeffs)
+        # h_min_flow = np.polynomial.polynomial.polyval(min_flow, coeffs)
+        h_min_flow = heights[np.where(flows == min_flow)[0][0]]
         print('h_min_flow: ', h_min_flow)
 
         # create a new vector of flows from 0 to min_flow
-        correction_points = round(0.2 * len(self.value))
+        correction_points = 2 + round(0.2 * len(self.value))
         new_flows = np.linspace(0, min_flow, num=correction_points)
+        new_flows = new_flows[1:-1]
         print('new_flows: ', new_flows)
 
         # find values for new_flows

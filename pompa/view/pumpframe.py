@@ -128,9 +128,21 @@ class Pumpframe(tk.Frame):
         self.minran_entry.grid(row=4, column=1, padx=2, pady=2)
         self.maxran_entry.grid(row=4, column=4, padx=2, pady=2)
 
+    def _fixing_procedure(self):
+        self.view.vars['fixing'].sent_to_model(self.view.vars['fixing'].get())
+        self.view.draw_figs_callback("changing fixing mode")
+
     def _points_lframe(self, parent):
         self.points_lframe = tk.ttk.Labelframe(parent,
                                                text='Charakterystyka pompy')
+
+        # Fixing checkbox
+        self.fixing_checkbox = vw.Checkbutton(self.view.vars['fixing'],
+                                              self.points_lframe,
+                                              text="Stosuj poprawki do charakterystyki",
+                                              command=self._fixing_procedure)
+        self.fixing_checkbox.pack(side=tk.TOP, pady=(5,0))
+
         # additional Frame prevents tk.Frames ipadx/ipady bug
         inner_frame = tk.Frame(self.points_lframe)
         inner_frame.pack(padx=10, pady=10)

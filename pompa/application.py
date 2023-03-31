@@ -85,6 +85,13 @@ class IntVMVar(VMVar):
         self.set_in_model(value)
 
 
+class BoolVMVar(VMVar):
+
+    def __init__(self, name: str, id_: int, default_value):
+        super().__init__(name, id_, default_value)
+        self.type = "bool"
+
+
 class ResVMVar(VMVar):
 
     def __init__(self, name: str, id_: int, default_value):
@@ -191,6 +198,7 @@ class Application:
         ('out_pipe_diameter', 43, 'double', None, 0.001),
         ('out_pipe_roughness', 44, 'double', None, 0.001),
         ('out_pipe_resistances', 46, 'res', None),
+        ('fixing', 99, 'bool', False),
         ('unit', 100, 'string', 'm3ph')
     ]
 
@@ -247,7 +255,8 @@ class Application:
             "int": IntVMVar,
             "res": ResVMVar,
             "flow": FlowVMVar,
-            "pump_char": PumpCharVMVar
+            "pump_char": PumpCharVMVar,
+            "bool": BoolVMVar
         }
         # Changing data format to realize subclassing VMVar
         init_data = []

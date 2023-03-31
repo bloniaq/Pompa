@@ -65,3 +65,11 @@ class Radiobutton(tk.Radiobutton, Widget):
         Widget.__init__(self, variable)
         tk.Radiobutton.__init__(self, *args, **kwargs)
         self.config(variable=variable)
+
+class Checkbutton(tk.Checkbutton, Widget):
+
+    def __init__(self, variable, *args, **kwargs):
+        """variable: ViewVariable"""
+        Widget.__init__(self, variable)
+        tk.Checkbutton.__init__(self, *args, **kwargs)
+        self.config(variable=variable)

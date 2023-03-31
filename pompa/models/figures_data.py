@@ -12,7 +12,7 @@ class ChartData:
 
         self.pipe_chart = PipeChartData(self.hydr_cond, self.ins_pipe,
                                         self.out_pipe)
-        self.pump_chart = PumpCharData(self.hydr_cond, self.pump)
+        self.pump_chart = PumpCharData(self.hydr_cond, self.pump, station.fixing_mode)
 
         self.pointer = {
             'pipechart_data': self.pipe_chart,
@@ -138,9 +138,10 @@ class PipeChartData:
 
 class PumpCharData:
 
-    def __init__(self, hydr_cond, pumptype):
+    def __init__(self, hydr_cond, pumptype, fixing_mode):
         self.hydr_cond = hydr_cond
         self.pumptype = pumptype
+        self.fixing_mode = fixing_mode
 
     def get_data(self):
         empty_data = {
@@ -173,7 +174,8 @@ class PumpCharData:
         if data_container['y_p_points']:
             data_container['y_p_points'] = self.prepare_points()
         if data_container['y_p_char']:
-            polyfit = self.pumptype.characteristic.polynomial_coeff()
+            polyfit = self.pumptype.characteristic.polynomial_coeff(
+                fixing_mode=self.fixing_mode)
             pump_polynomial = np.poly1d(np.flip(polyfit))
             print("Type ypchar", type(pump_polynomial))
             print('y_pump (poly): \n', pump_polynomial)

@@ -29,6 +29,14 @@ class IntVar(tk.IntVar, ViewVariable):
         tk.IntVar.__init__(self, *args, **kwargs)
 
 
+class BoolVar(tk.BooleanVar, ViewVariable):
+    """Class to wrap id parameter around standard tk.IntVar"""
+
+    def __init__(self, id_, view, *args, **kwargs):
+        ViewVariable.__init__(self, id_, view)
+        tk.BooleanVar.__init__(self, *args, **kwargs)
+
+
 class DoubleVar(tk.DoubleVar, ViewVariable):
     """Class to wrap id parameter around standard tk.DoubleVar"""
 
