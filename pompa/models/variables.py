@@ -1,5 +1,4 @@
-from pompa.exceptions import InputTypeError, UnsupportedOperationError,\
-    NoSuchVariableError, DuplicatedVariableError
+from pompa.exceptions import InputTypeError, UnsupportedOperationError, NoSuchVariableError, DuplicatedVariableError
 import numpy as np
 
 
@@ -321,11 +320,54 @@ class PumpCharVariable(Variable):
     def _sort_points(self):
         self.value.sort(key=lambda point: point[0].value_m3ph)
 
-    def polynomial_coeff(self, w_pumps_amount=1):
+    def polynomial_coeff(self, w_pumps_amount=1, fixing_mode=0):
+        if fixing_mode == 0:
+            return self.polynomial_coeff_simple(w_pumps_amount)
+        elif fixing_mode == 1:
+            return self.polynomial_coeff_fixed(w_pumps_amount)
+
+    def polynomial_coeff_simple(self, w_pumps_amount=1):
         flows = np.array(
             [w_pumps_amount * f[0].value_m3ps for f in self.value])
         heights = np.array([h[1] for h in self.value])
         return np.polynomial.polynomial.polyfit(flows, heights, 2)
+
+    def polynomial_coeff_fixed(self, w_pumps_amount=1):
+        flows = np.array([w_pumps_amount * f[0].value_m3ps for f in self.value])
+        print('flows: ', flows)
+        heights = np.array([h[1] for h in self.value])
+        print('heights: ', heights)
+        min_flow = np.min(flows)
+        print('min_flows: ', min_flow)
+
+        # find the polynomial for the original points
+        coeffs = np.polynomial.polynomial.polyfit(flows, heights, 2)
+        print('coeffs: ', coeffs)
+        h_min_flow = np.polynomial.polynomial.polyval(min_flow, coeffs)
+        print('h_min_flow: ', h_min_flow)
+
+        # create a new vector of flows from 0 to min_flow
+        correction_points = round(0.2 * len(self.value))
+        new_flows = np.linspace(0, min_flow, num=correction_points)
+        print('new_flows: ', new_flows)
+
+        # find values for new_flows
+        new_heights = np.polynomial.polynomial.polyval(new_flows, coeffs)
+        print('new_heights: ', new_heights)
+
+        # fix values to make sure, there are above h_min_flow
+        new_heights_fixed = np.clip(new_heights, a_min=h_min_flow, a_max=None)
+        print('new_heights_fixed: ', new_heights_fixed)
+
+        # find the polynomial for the extended points
+        extended_flows = np.concatenate([new_flows, flows])
+        print('extended_flows: ', extended_flows)
+        extended_heights = np.concatenate([new_heights_fixed, heights])
+        print('extended_heights: ', extended_heights)
+        extended_coeffs = np.polynomial.polynomial.polyfit(
+            extended_flows, extended_heights, 2)
+
+        return extended_coeffs
 
     def get_by_unit(self, unit):
         print("pump char: ", self.value)
