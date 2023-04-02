@@ -244,7 +244,7 @@ class ResultGraph:
         self.draw_characteristic(data['x'], data['pumpset'], x_mul)
         self.draw_efficiency(data['pump_eff'], data['pumpset'], x_mul)
         self.draw_pipeset_stop(x_mul * data['x'], data['pipeset_stop'](data['x']))
-        self.draw_workpoints(data['workpoint_start'], data['workpoint_stop'], x_mul)
+        self.draw_workpoints(data['workpoint_stop'], x_mul)
         self.set_plot_grids(x_mul * data['x'], unit)
 
     def draw_characteristic(self, x, y, mul):
@@ -266,8 +266,7 @@ class ResultGraph:
         self.plot.plot(x, y, color='gray', linestyle='--',
                        label='zespół przewodów (uruchomienie)')
 
-    def draw_workpoints(self, wp_start, wp_stop, xmul):
-        # self.plot.plot(wp_start[0] * xmul, wp_start[1], 'bo')
+    def draw_workpoints(self, wp_stop, xmul):
         self.plot.plot(wp_stop[0] * xmul, wp_stop[1], 'ro',
                        label='punkt pracy (zatrzymanie pracy)')
 
