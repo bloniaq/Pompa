@@ -11,7 +11,7 @@ class ChartData:
         self.pump = station.pump_type
 
         self.pipe_chart = PipeChartData(self.hydr_cond, self.ins_pipe,
-                                        self.out_pipe)
+                                        self.out_pipe, self.pump.shutdown_ord)
         self.pump_chart = PumpCharData(self.hydr_cond, self.pump, station.fixing_mode)
 
         self.pointer = {
@@ -31,10 +31,11 @@ class ChartData:
 
 class PipeChartData:
 
-    def __init__(self, hydr_cond, ins_pipe, out_pipe):
+    def __init__(self, hydr_cond, ins_pipe, out_pipe, get_shutdown_ord):
         self.hydr_cond = hydr_cond
         self.ins_pipe = ins_pipe
         self.out_pipe = out_pipe
+        self.get_shutdown_ord = get_shutdown_ord
 
     def get_data(self):
         empty_data = {
@@ -54,7 +55,8 @@ class PipeChartData:
         else:
             return data_container
         if data_container['y_geom_h']:
-            geom_height = self.hydr_cond.geom_height(self.hydr_cond.ord_outlet)
+            shutdown_ord = self.get_shutdown_ord(self.hydr_cond.ord_bottom)
+            geom_height = self.hydr_cond.geom_height(shutdown_ord)
         else:
             geom_height = 0
         data_container['y_geom_h'] = np.polynomial.polynomial.Polynomial(geom_height)
