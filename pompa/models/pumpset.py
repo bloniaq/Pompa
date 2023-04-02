@@ -86,7 +86,7 @@ class PumpSet:
             należałoby jakoś w przyszłości rozwiązać
             """
             # self._min_ord = ord_shutdown.copy(f"min_ord_pump_{pumps_amount}")
-            self._min_ord = ord_shutdown.get()
+            self._min_ord = ord_shutdown.get() + 0.1
         elif pumps_amount > 1:
             last_pset_start_q = last_pset.wpoint_start.flow.copy()
             # self._min_ord = last_pset.ord_start.copy(
