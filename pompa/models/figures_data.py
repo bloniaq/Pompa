@@ -248,9 +248,12 @@ class ResultPumpsetCharData:
         return data
 
     def create_x_array(self):
-        left = 0.9 * self.pset.min_inflow.get_by_unit('m3ps')
+        left = min(0.9 * self.pset.min_inflow.get_by_unit('m3ps'),
+                   0.9 * self.pset.pumps_amount * self.pset.station.pump_type.efficiency_from.value_m3ps,
+                   0.9 * self.pset.wpoint_stop.flow.value_m3ps)
         right = max(1.6 * self.pset.max_inflow.get_by_unit('m3ps'),
-                    1.05 * self.pset.pumps_amount * self.pset.station.pump_type.efficiency_to.value_m3ps)
+                    1.05 * self.pset.pumps_amount * self.pset.station.pump_type.efficiency_to.value_m3ps,
+                    1.1 * self.pset.wpoint_stop.flow.value_m3ps)
         array = np.linspace(left, right, 10000)
         return array
 
