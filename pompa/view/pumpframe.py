@@ -211,6 +211,12 @@ class AddPointWindow(tk.Toplevel):
         self.title('Dodaj Punkt')
         self.unit_var = self.view.vars['unit']
 
+        cursor_x = view.winfo_pointerx()
+        cursor_y = view.winfo_pointery()
+        position_x = cursor_x - 350
+        position_y = cursor_y
+        self.geometry(f"+{position_x}+{position_y}")
+
         self.tv = treeview
         self.vflow_var = tk.DoubleVar()
         self.height_var = tk.DoubleVar()
