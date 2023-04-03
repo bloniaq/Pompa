@@ -99,7 +99,7 @@ class ResultsWindow(tk.Toplevel):
         content += f'Rzędna dopływu ścieków................{station.hydr_cond.ord_inlet.get():7}    [m]\n'
         content += 'Rzędna wylotu ścieków /przejście\n'
         content += f'osi rury przez ścianę pompowni/.......{station.hydr_cond.ord_outlet.get():7}    [m]\n'
-        content += f'Rzędna najwyższego pkt. na trasie.....{station.hydr_cond.ord_highest_point.get():7}    [m]\n'
+        # content += f'Rzędna najwyższego pkt. na trasie.....{station.hydr_cond.ord_highest_point.get():7}    [m]\n'
         content += f'Rzędna zwierciadła w zbiorniku górnym.{station.hydr_cond.ord_upper_level.get():7}    [m]\n'
         content += f'Min. wysokość ścieków w  pompowni.....{station.pump_type.suction_level.get():7}    ' \
                    f'[m]\n'

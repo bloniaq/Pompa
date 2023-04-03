@@ -160,7 +160,7 @@ class View(tk.Tk):
         dictionary['ord_inlet'] = self.gui.dataframe.ord_inl_entry
         dictionary['ord_outlet'] = self.gui.dataframe.ord_out_entry
         dictionary['ord_bottom'] = self.gui.dataframe.ord_bottom_entry
-        dictionary['ord_highest_point'] = self.gui.dataframe.ord_high_entry
+        # dictionary['ord_highest_point'] = self.gui.dataframe.ord_high_entry
         dictionary['ord_upper_level'] = self.gui.dataframe.ord_end_entry
         dictionary['reserve_height'] = self.gui.dataframe.alarm_h_entry
         dictionary['inflow_min'] = self.gui.dataframe.inflow_min_entry

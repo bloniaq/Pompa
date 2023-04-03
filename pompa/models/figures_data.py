@@ -116,8 +116,7 @@ class PipeChartData:
 
     def geom_h_figure_ready(self):
         rules = [
-            self.hydr_cond.ord_upper_level.value <= self.hydr_cond.ord_highest_point.value,
-            self.hydr_cond.ord_outlet < self.hydr_cond.ord_highest_point
+            self.hydr_cond.ord_outlet < self.hydr_cond.ord_upper_level
         ]
         return all(rules)
 

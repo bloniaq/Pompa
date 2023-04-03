@@ -102,10 +102,10 @@ class Dataframe(tk.Frame):
                                     text='Rzędna dna pompowni',
                                     # wraplength=120,
                                     justify=tk.LEFT)
-        ord_high_label = tk.Label(ord_frame,
-                                  text='Rzędna najwyższego punktu',
-                                  # wraplength=120,
-                                  justify=tk.LEFT)
+        # ord_high_label = tk.Label(ord_frame,
+        #                           text='Rzędna najwyższego punktu',
+        #                           # wraplength=120,
+        #                           justify=tk.LEFT)
         ord_end_label = tk.Label(ord_frame,
                                  text='Rzędna zwierciadła w zb. górnym',
                                  wraplength=160,
@@ -137,8 +137,8 @@ class Dataframe(tk.Frame):
                                       ord_frame, width=5)
         self.ord_bottom_entry = vw.Entry(self.view.vars['ord_bottom'],
                                          ord_frame, width=5)
-        self.ord_high_entry = vw.Entry(self.view.vars['ord_highest_point'],
-                                       ord_frame, width=5)
+        # self.ord_high_entry = vw.Entry(self.view.vars['ord_highest_point'],
+        #                                ord_frame, width=5)
         self.ord_end_entry = vw.Entry(self.view.vars['ord_upper_level'],
                                       ord_frame, width=5)
         self.alarm_h_entry = vw.Entry(self.view.vars['reserve_height'],
@@ -148,7 +148,7 @@ class Dataframe(tk.Frame):
         ord_inl_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
         ord_out_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
         ord_bottom_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
-        ord_high_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
+        # ord_high_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
         ord_end_u_label = tk.Label(ord_frame, text='m n.p.m.', pady=3)
         alarm_h_u_label = tk.Label(ord_frame, text='m', pady=3)
 
@@ -156,7 +156,7 @@ class Dataframe(tk.Frame):
         ord_inl_label.grid(row=1, column=0, sticky=tk.W)
         ord_out_label.grid(row=2, column=0, sticky=tk.W)
         ord_bottom_label.grid(row=3, column=0, sticky=tk.W)
-        ord_high_label.grid(row=4, column=0, sticky=tk.W)
+        # ord_high_label.grid(row=4, column=0, sticky=tk.W)
         ord_end_label.grid(row=5, column=0, sticky=tk.W)
         alarm_h_label.grid(row=6, column=0, sticky=tk.W)
 
@@ -172,7 +172,7 @@ class Dataframe(tk.Frame):
         self.ord_inl_entry.grid(row=1, column=2)
         self.ord_out_entry.grid(row=2, column=2)
         self.ord_bottom_entry.grid(row=3, column=2)
-        self.ord_high_entry.grid(row=4, column=2)
+        # self.ord_high_entry.grid(row=4, column=2)
         self.ord_end_entry.grid(row=5, column=2)
         self.alarm_h_entry.grid(row=6, column=2)
 
@@ -180,7 +180,7 @@ class Dataframe(tk.Frame):
         ord_inl_u_label.grid(row=1, column=3, sticky=tk.W)
         ord_out_u_label.grid(row=2, column=3, sticky=tk.W)
         ord_bottom_u_label.grid(row=3, column=3, sticky=tk.W)
-        ord_high_u_label.grid(row=4, column=3, sticky=tk.W)
+        # ord_high_u_label.grid(row=4, column=3, sticky=tk.W)
         ord_end_u_label.grid(row=5, column=3, sticky=tk.W)
         alarm_h_u_label.grid(row=6, column=3, sticky=tk.W)
 
