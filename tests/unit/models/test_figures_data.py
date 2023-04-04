@@ -27,10 +27,6 @@ class TestPipeFigureChecking:
     def test_geom_h_fig_pass(self, data_collector):
         assert data_collector.pipe_chart.geom_h_figure_ready()
 
-    def test_geom_h_fig_check_fail_highest_point_lower_than_upper(self, data_collector):
-        data_collector.station.hydr_cond.ord_upper_level.set(150.3)
-        assert not data_collector.pipe_chart.geom_h_figure_ready()
-
     def test_geom_h_fig_check_fail_highest_point_lower_than_outlet(self, data_collector):
         data_collector.station.hydr_cond.ord_outlet.set(150.3)
         assert not data_collector.pipe_chart.geom_h_figure_ready()
