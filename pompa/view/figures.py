@@ -1,3 +1,4 @@
+import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MultipleLocator
@@ -134,20 +135,23 @@ class PumpGraph(DynamicGraph):
     def __init__(self, master):
         # This formula lets define figure dimensions in pixels
         super().__init__(master, self.PIX_X, self.PIX_Y)
+        self.clear_flag = False
 
     def draw_possible_figures(self, data):
-        if isinstance(data['x'], bool):
-            if not data['x']:
-                self.clear()
-                return "pumpchart cleared"
+        if data['x'] is None:
+            self.clear()
+            self.clear_flag = True
+            return "pumpchart cleared"
 
         unit = self.master.view.vars['unit'].get()
 
-        if self._last_data is not None:
-            if unit == self._last_unit and self._same_data(data):
+        if self._last_data is not None and not self.clear_flag:
+            if unit == self._last_unit and self._same_data(
+                    data, self._last_data):
                 return "no new data for pumpchart"
         self._last_data = data
         self._last_unit = unit
+        self.clear_flag = False
 
         self.clear()
 
@@ -159,24 +163,20 @@ class PumpGraph(DynamicGraph):
             self.draw_characteristic(data['x'], data['y_p_char'], x_mul)
         if data['y_p_eff']:
             self.draw_efficiency(data['y_p_eff'], data['y_p_char'], x_mul)
-        self.set_plot_grids(x_mul * data['x'], unit)
+
+        highest_elevation = max(data['y_p_points'][1])
+        self.set_plot_grids(x_mul * data['x'], unit, highest_elevation)
         self.canvas.draw()
 
         return "pumpchart updated"
 
-    def set_plot_grids(self, x, unit):
-        # if unit == 'm3ph':
-        #     self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        # elif unit == 'lps':
-        #     self.plot.xaxis.set_minor_locator(MultipleLocator(2))
-        # self.plot.yaxis.set_minor_locator(MultipleLocator(1))
-        # self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
+    def set_plot_grids(self, x, unit, first_point_val):
         self.plot.grid(True, 'major', linestyle='--')
         unit_bracket_dict = {'lps': '[l/s]', 'm3ph': '[m³/h]'}
         self.plot.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict[unit]))
         self.plot.set_ylabel('Ciśnienie [m. sł. c.]')
         self.plot.set_xlim(left=x[0], right=x[-1])
-        self.plot.set_ylim(bottom=0)
+        self.plot.set_ylim(bottom=0, top=1.1 * first_point_val)
         self.plot.legend(fontsize='small')
 
     def draw_characteristic(self, x, y, mul):
@@ -184,7 +184,7 @@ class PumpGraph(DynamicGraph):
 
     def draw_points(self, coords, mul):
         x_coords = [mul * c for c in coords[0]]
-        self.plot.scatter(x_coords, coords[1])
+        self.plot.scatter(x_coords, coords[1], label='punkty charakterystyki')
 
     def draw_efficiency(self, values, y_pump, mul):
         eff_from_x = mul * values[0]
@@ -195,20 +195,47 @@ class PumpGraph(DynamicGraph):
         self.plot.plot([eff_to_x, eff_to_x], [0, eff_to_y], 'r--',
                        label='obszar maks. wydajności pompy')
 
-    def _same_data(self, data):
+    def _same_data(self, new_data, old_data):
         """Returns if data arrays are the same as last time"""
-        if set(data.keys()) != set(self._last_data.keys()):
+        if set(new_data.keys()) != set(old_data.keys()):
             return False
-        for key in data.keys():
-            if type(data[key]) != type(self._last_data[key]):
+
+        # comparing x array
+        if not np.array_equal(new_data['x'], old_data['x']):
+            return False
+
+        # comparing y_p_points
+        if new_data['y_p_points'] is None or old_data['y_p_points'] is None:
+            if new_data['y_p_points'] != old_data['y_p_points']:
                 return False
-            expression = data[key] == self._last_data[key]
-            if type(data[key]) is bool or type(self._last_data[key]) is bool:
-                if not expression:
+        if new_data['y_p_points'] is not None:
+            if len(new_data['y_p_points'][0]) != len(old_data['y_p_points'][0]):
+                return False
+            for p in range(len(new_data['y_p_points'][0])):
+                if new_data['y_p_points'][0][p] != \
+                        old_data['y_p_points'][0][p] or\
+                        new_data['y_p_points'][1][p] != \
+                        old_data['y_p_points'][1][p]:
                     return False
-            if not type(expression) == bool:
-                if not expression.all():
+
+        # comparing y_p_char
+        if new_data['y_p_char'] is None or old_data['y_p_char'] is None:
+            if new_data['y_p_char'] != old_data['y_p_char']:
+                return False
+        if new_data['y_p_char'] is not None:
+            if not new_data['y_p_char'].has_samecoef(old_data['y_p_char']):
+                return False
+
+        # comparing y_p_eff
+        if new_data['y_p_eff'] is None or old_data['y_p_eff'] is None:
+            if new_data['y_p_eff'] != old_data['y_p_eff']:
+                return False
+        if new_data['y_p_eff'] is not None:
+            for border in range(len(new_data['y_p_eff'])):
+                if old_data['y_p_eff'][border] != new_data['y_p_eff'][border]:
                     return False
+
+        # no differences
         return True
 
 

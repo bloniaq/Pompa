@@ -10,19 +10,19 @@ def data_collector(station_2):
 class TestPipeFigureChecking:
 
     def test_preconditions_pass(self, data_collector):
-        assert data_collector.pipe_chart.figure_preconditions()
+        assert data_collector.pipe_chart._figure_preconditions()
 
     def test_preconditions_fail_inflow_max_zero(self, data_collector):
         data_collector.station.hydr_cond.inflow_max.set(0, 'lps')
-        assert not data_collector.pipe_chart.figure_preconditions()
+        assert not data_collector.pipe_chart._figure_preconditions()
 
     def test_preconditions_fail_inflow_min_zero(self, data_collector):
         data_collector.station.hydr_cond.inflow_min.set(0, 'lps')
-        assert not data_collector.pipe_chart.figure_preconditions()
+        assert not data_collector.pipe_chart._figure_preconditions()
 
     def test_preconditions_fail_inflow_min_higher_than_max(self, data_collector):
         data_collector.station.hydr_cond.inflow_min.set(23, 'lps')
-        assert not data_collector.pipe_chart.figure_preconditions()
+        assert not data_collector.pipe_chart._figure_preconditions()
 
     def test_geom_h_fig_pass(self, data_collector):
         assert data_collector.pipe_chart.geom_h_figure_ready()

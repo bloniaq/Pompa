@@ -91,11 +91,11 @@ class PipeChartData:
         return array
 
     def check_conditions(self, container):
-        if not self.figure_preconditions():
+        if not self._figure_preconditions():
             return container
 
         validators = {
-            'x': self.figure_preconditions(),
+            'x': self._figure_preconditions(),
             'y_geom_h': self.geom_h_figure_ready(),
             'y_ins_pipe': self.ins_pipe_figure_ready(),
             'y_out_pipe': self.out_pipe_figure_ready(),
@@ -106,7 +106,7 @@ class PipeChartData:
             container[figure] = validators[figure]
         return container
 
-    def figure_preconditions(self):
+    def _figure_preconditions(self):
         rules = [
             self.hydr_cond.inflow_max.value_lps > 0,
             self.hydr_cond.inflow_min.value_lps > 0,
@@ -145,54 +145,41 @@ class PumpCharData:
         self.fixing_mode = fixing_mode
 
     def get_data(self):
-        empty_data = {
+        """
+        Every key-value pair has to have proper comparision procedure for
+        checking if data for chart has changed. Adding pair has to be followed
+        in making that procedure there.
+        """
+        data = {
             'x': None,
             'y_p_points': None,
             'y_p_char': None,
             'y_p_eff': None,
         }
-        checked_data = self.check_conditions(empty_data)
-        return self.prepare_data(checked_data)
-        # return empty_data
-
-    def check_conditions(self, container):
-        validators = {
-            'x': self.figure_preconditions(),
-            'y_p_points': self.pump_char_ready(),
-            'y_p_char': self.pump_char_ready(),
-            'y_p_eff': self.figure_preconditions(),
-        }
-        for figure in validators.keys():
-            container[figure] = validators[figure]
-        return container
-
-    def prepare_data(self, data_container):
-        if data_container['x']:
-            x_array = self.create_x_array()
-            data_container['x'] = x_array
+        # return empty dictionary if conditions for graph are unfulfilled
+        if not self._figure_preconditions():
+            return data
         else:
-            return data_container
-        if data_container['y_p_points']:
-            data_container['y_p_points'] = self.prepare_points()
-        if data_container['y_p_char']:
-            polyfit = self.pumptype.characteristic.polynomial_coeff(
-                fixing_mode=self.fixing_mode)
-            pump_polynomial = np.poly1d(np.flip(polyfit))
-            print("Type ypchar", type(pump_polynomial))
-            print('y_pump (poly): \n', pump_polynomial)
-            data_container['y_p_char'] = pump_polynomial
-            if data_container['y_p_eff']:
-                data_container['y_p_eff'] = self.create_efficiency_data(
-                    x_array, pump_polynomial)
+            data['x'] = self._create_x_array()
+            data['y_p_points'] = self._prepare_points()
+        if self._pump_char_ready():
+            polynomial = self._prepare_polynomial()
+            data['y_p_char'] = polynomial
+            data['y_p_eff'] = self._create_efficiency_data(polynomial)
+        return data
 
-        return data_container
-
-    def prepare_points(self):
+    def _prepare_points(self):
         x_coords = [p[0].value_m3ps for p in self.pumptype.characteristic.value]
         y_coords = [p[1] for p in self.pumptype.characteristic.value]
         return (x_coords, y_coords)
 
-    def create_x_array(self):
+    def _prepare_polynomial(self):
+        polyfit = self.pumptype.characteristic.polynomial_coeff(
+            fixing_mode=self.fixing_mode)
+        pump_polynomial = np.polynomial.Polynomial(polyfit)
+        return pump_polynomial
+
+    def _create_x_array(self):
         p_flows = [f[0] for f in self.pumptype.characteristic.value]
         start = min(p_flows[0], self.pumptype.efficiency_from)
         stop = max(p_flows[-1].value_m3ps,
@@ -204,15 +191,13 @@ class PumpCharData:
         )
         return array
 
-    def create_efficiency_data(self, x, y_pump):
+    def _create_efficiency_data(self, y_pump):
         eff_from_x = self.pumptype.efficiency_from.value_m3ps
         eff_to_x = self.pumptype.efficiency_to.value_m3ps
         values = (eff_from_x, eff_to_x)
-        print('y_pump (eff): \n', y_pump)
-        print('EFFICIENCY values: ', values)
         return values
 
-    def figure_preconditions(self):
+    def _figure_preconditions(self):
         rules = [
             self.hydr_cond.inflow_max.value_lps > 0,
             self.hydr_cond.inflow_min.value_lps > 0,
@@ -223,7 +208,7 @@ class PumpCharData:
         ]
         return all(rules)
 
-    def pump_char_ready(self):
+    def _pump_char_ready(self):
         rules = [
             len(self.pumptype.characteristic.value) > 4
         ]
