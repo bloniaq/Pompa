@@ -44,6 +44,14 @@ class DoubleVar(tk.DoubleVar, ViewVariable):
         ViewVariable.__init__(self, id_, view)
         tk.DoubleVar.__init__(self, *args, **kwargs)
 
+    def get(self):
+        try:
+            value = tk.DoubleVar.get(self)
+        except tk.TclError:
+            return 0
+        else:
+            return value
+
     def get_current_unit(self):
         return self.view.get_current_unit()
 
