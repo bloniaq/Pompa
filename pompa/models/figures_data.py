@@ -38,15 +38,47 @@ class PipeChartData:
         self.get_shutdown_ord = get_shutdown_ord
 
     def get_data(self):
-        empty_data = {
+        data = {
             'x': None,
             'y_ins_pipe': None,
             'y_geom_h': None,
             'y_out_pipe': None,
             'y_coop': None
         }
-        checked_data = self.check_conditions(empty_data)
-        return self.prepare_data(checked_data)
+
+        if not self._figure_preconditions():
+            return data
+
+        data['x'] = self.create_x_array()
+        if self.geom_h_figure_ready():
+            shutdown_ord = self.get_shutdown_ord(self.hydr_cond.ord_bottom)
+            geom_height = self.hydr_cond.geom_height(shutdown_ord)
+            data['y_geom_h'] = np.polynomial.polynomial.Polynomial(geom_height)
+        else:
+            # defining geom_height because next parts of chart can be in need for it
+            geom_height = 0
+        if self.ins_pipe_figure_ready():
+            ins_pipe_poly_coeffs = self.ins_pipe.dynamic_loss_polynomial(
+                self.hydr_cond.inflow_min,
+                self.hydr_cond.inflow_max
+            )
+            data['y_ins_pipe'] = np.polynomial.polynomial.Polynomial(
+                ins_pipe_poly_coeffs) + geom_height
+        if self.out_pipe_figure_ready():
+            out_pipe_poly_coeffs = self.out_pipe.dynamic_loss_polynomial(
+                self.hydr_cond.inflow_min,
+                self.hydr_cond.inflow_max
+            )
+            data['y_out_pipe'] = np.polynomial.polynomial.Polynomial(
+                out_pipe_poly_coeffs) + geom_height
+        if all([self.ins_pipe_figure_ready(), self.out_pipe_figure_ready()]):
+            data['y_coop'] = np.polynomial.polynomial.Polynomial(
+                ins_pipe_poly_coeffs) + np.polynomial.polynomial.Polynomial(
+                out_pipe_poly_coeffs) + geom_height
+
+        #checked_data = self.check_conditions(empty_data)
+        #return self.prepare_data(checked_data)
+        return data
 
     def prepare_data(self, data_container):
 
