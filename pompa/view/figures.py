@@ -17,6 +17,7 @@ class DynamicGraph:
         self.master = master
         self._last_data = None
         self._last_unit = None
+        self.clear_flag = False
         self.plot = fig.add_subplot(111)
         self.canvas = FigureCanvasTkAgg(fig, master)
 
@@ -51,34 +52,46 @@ class PipesGraph(DynamicGraph):
         """
         if data['x'] is None:
             self.clear()
+            self.clear_flag = True
             return "pipechart cleared"
 
         unit = self.master.view.vars['unit'].get()
 
-        if self._last_data is not None:
-            if unit == self._last_unit and self._same_data(data):
+        # First checking if any data were last passed for drawing
+        if self._last_data is not None and not self.clear_flag:
+            # Second, check if new data are not the same as last data
+            if unit == self._last_unit \
+                    and self._same_data(data, self._last_data):
                 return "no new data for pipechart"
         self._last_data = data
         self._last_unit = unit
 
         self.clear()
+        # above self.clear is clearing before actual drawing. So flag should
+        # remain False for next method call
+        self.clear_flag = False
 
-        methods = {
-            'y_geom_h': self.draw_geometric_height,
-            'y_ins_pipe': self.draw_inside_pipe_plot,
-            'y_out_pipe': self.draw_outside_pipe_plot,
-            'y_coop': self.draw_both_pipe_plot
-        }
-        x_mul = X_MULTIPLIER[unit]
-        for figure in methods.keys():
-            if data[figure]:
-                print(data[figure])
-                print("DRAWING {}".format(figure))
-                methods[figure](x_mul * data['x'],
-                                data[figure](data['x']))
+        x = data['x'] * X_MULTIPLIER[unit]
+        print("len(x): ", len(x))
 
-        self.set_plot_grids(x_mul * data['x'], unit)
+        if data['y_geom_h']:
+            print("got data for geom h: ", data['y_geom_h'])
+            self.draw_geometric_height(x, data['y_geom_h'](data['x']))
+        if data['y_ins_pipe']:
+            print("got data for y_ins_pipe: ", data['y_ins_pipe'])
+            self.draw_inside_pipe_plot(x, data['y_ins_pipe'](data['x']))
+        if data['y_out_pipe']:
+            print("got data for y_out_pipe: ", data['y_out_pipe'])
+            self.draw_outside_pipe_plot(x, data['y_out_pipe'](data['x']))
+        if data['y_coop']:
+            print("got data for y_coop: ", data['y_coop'])
+            self.draw_both_pipe_plot(x, data['y_coop'](data['x']))
+
+        print("a")
+        self.set_plot_grids(x, unit)
+        print("b")
         self.canvas.draw()
+        print("c")
 
         return "pipechart updated"
 
@@ -89,7 +102,7 @@ class PipesGraph(DynamicGraph):
             self.plot.xaxis.set_minor_locator(MultipleLocator(2))
         elif unit == 'm3ps':
             self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        self.plot.xaxis.set_minor_locator(MultipleLocator(5))
+        # self.plot.xaxis.set_minor_locator(MultipleLocator(5))
         self.plot.yaxis.set_minor_locator(MultipleLocator(5))
         self.plot.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
         self.plot.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
@@ -114,14 +127,12 @@ class PipesGraph(DynamicGraph):
     def draw_both_pipe_plot(self, x, y):
         self.plot.plot(x, y, 'y--', label='charakterystyka zespołu przewodów')
 
-    def _same_data(self, data):
+    def _same_data(self, data, last_data):
         """Returns if data arrays are the same as last time"""
-        if set(data.keys()) != set(self._last_data.keys()):
-            return False
         for key in data.keys():
-            if type(data[key]) != type(self._last_data[key]):
+            if type(data[key]) != type(last_data[key]):
                 return False
-            expression = data[key] == self._last_data[key]
+            expression = data[key] == last_data[key]
             if not isinstance(data[key], bool) and not expression.all():
                 return False
         return True
@@ -135,7 +146,6 @@ class PumpGraph(DynamicGraph):
     def __init__(self, master):
         # This formula lets define figure dimensions in pixels
         super().__init__(master, self.PIX_X, self.PIX_Y)
-        self.clear_flag = False
 
     def draw_possible_figures(self, data):
         if data['x'] is None:
@@ -146,14 +156,16 @@ class PumpGraph(DynamicGraph):
         unit = self.master.view.vars['unit'].get()
 
         if self._last_data is not None and not self.clear_flag:
-            if unit == self._last_unit and self._same_data(
-                    data, self._last_data):
+            if unit == self._last_unit \
+                    and self._same_data(data, self._last_data):
                 return "no new data for pumpchart"
         self._last_data = data
         self._last_unit = unit
-        self.clear_flag = False
 
         self.clear()
+        # above self.clear is clearing before actual drawing. So flag should
+        # remain False for next method call
+        self.clear_flag = False
 
         x_mul = X_MULTIPLIER[unit]
 
