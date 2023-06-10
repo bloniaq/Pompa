@@ -259,14 +259,15 @@ class Menu(tk.Menu):
         tk.Menu.__init__(self, master)
         filemenu = tk.Menu(self, tearoff=0)
         helpmenu = tk.Menu(self, tearoff=0)
+        self.view = master
 
         def empty_method():
             pass
 
-        filemenu.add_command(label="Wczytaj", command=empty_method)
-        filemenu.add_command(label="Zapisz", command=empty_method)
+        filemenu.add_command(label="Wczytaj", command=self.view.load_datafile)
+        filemenu.add_command(label="Zapisz", command=self.view.save_datafile)
         filemenu.add_separator()
-        filemenu.add_command(label="Zakończ", command=empty_method)
+        filemenu.add_command(label="Zakończ", command=self.view.quit)
         self.add_cascade(menu=filemenu, label="Plik")
         helpmenu.add_command(label="O Programie", command=empty_method)
         self.add_cascade(menu=helpmenu, label="Pomoc")
