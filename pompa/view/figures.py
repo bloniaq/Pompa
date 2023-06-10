@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MultipleLocator
+from matplotlib.ticker import MultipleLocator, AutoMinorLocator, EngFormatter
 from matplotlib.ticker import FormatStrFormatter
 
 X_MULTIPLIER = {'lps': 1000, 'm3ps': 1, 'm3ph': 3600}
@@ -87,11 +87,8 @@ class PipesGraph(DynamicGraph):
             print("got data for y_coop: ", data['y_coop'])
             self.draw_both_pipe_plot(x, data['y_coop'](data['x']))
 
-        print("a")
         self.set_plot_grids(x, unit)
-        print("b")
         self.canvas.draw()
-        print("c")
 
         return "pipechart updated"
 
@@ -99,14 +96,12 @@ class PipesGraph(DynamicGraph):
         if unit == 'm3ph':
             self.plot.xaxis.set_minor_locator(MultipleLocator(5))
         elif unit == 'lps':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(2))
+            self.plot.xaxis.set_minor_locator(MultipleLocator(1))
         elif unit == 'm3ps':
-            self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        # self.plot.xaxis.set_minor_locator(MultipleLocator(5))
-        self.plot.yaxis.set_minor_locator(MultipleLocator(5))
-        self.plot.yaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+            self.plot.xaxis.set_minor_locator(MultipleLocator(0.005))
+        self.plot.yaxis.set_minor_locator(AutoMinorLocator())
+        self.plot.yaxis.set_major_formatter(EngFormatter())
         self.plot.xaxis.set_major_formatter(FormatStrFormatter('%.2f'))
-        # self.plot.grid(True, 'minor', linestyle='--', linewidth=.3)
         self.plot.grid(True, 'major', linestyle='--')
         unit_bracket_dict = {'lps': '[l/s]', 'm3ph': '[m³/h]', 'm3ps': '[m³/s]'}
         self.plot.set_xlabel('Przepływ Q {}'.format(unit_bracket_dict[unit]))
