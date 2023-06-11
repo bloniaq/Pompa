@@ -1,3 +1,5 @@
+import os.path
+
 import pompa.view.buttonframe as bf
 import pompa.view.dataframe as df
 import pompa.view.pipeframe as pipef
@@ -6,6 +8,7 @@ import pompa.view.variables as vv
 import pompa.view.results as res
 
 import matplotlib
+import webbrowser, os
 
 import tkinter as tk
 from tkinter import filedialog as fd
@@ -267,12 +270,17 @@ class Menu(tk.Menu):
         filemenu.add_separator()
         filemenu.add_command(label="Zakończ", command=self.view.quit)
         self.add_cascade(menu=filemenu, label="Plik")
+        helpmenu.add_command(label="Pomoc", command=self.show_help)
+        helpmenu.add_separator()
         helpmenu.add_command(label="O Programie", command=self.show_about_app_window)
         self.add_cascade(menu=helpmenu, label="Pomoc")
         master.config(menu=self)
 
     def show_about_app_window(self):
         self.about_app_window = AboutAppWindow(self.view)
+
+    def show_help(self):
+        webbrowser.open("file://" + os.path.realpath("./docs/help.html"))
 
 
 class AboutAppWindow(tk.Toplevel):
