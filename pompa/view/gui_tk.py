@@ -10,6 +10,7 @@ import matplotlib
 import tkinter as tk
 from tkinter import filedialog as fd
 from tkinter import ttk
+from PIL import ImageTk, Image
 
 
 class View(tk.Tk):
@@ -269,6 +270,64 @@ class Menu(tk.Menu):
         filemenu.add_separator()
         filemenu.add_command(label="Zakończ", command=self.view.quit)
         self.add_cascade(menu=filemenu, label="Plik")
-        helpmenu.add_command(label="O Programie", command=empty_method)
+        helpmenu.add_command(label="O Programie", command=self.show_about_app_window)
         self.add_cascade(menu=helpmenu, label="Pomoc")
         master.config(menu=self)
+
+    def show_about_app_window(self):
+        self.about_app_window = AboutAppWindow(self.view, self)
+        # tk.messagebox.showinfo(title="O programie", message="Piwo Wóda Polibuda")
+
+
+class AboutAppWindow(tk.Toplevel):
+
+    def __init__(self, view, menu):
+        tk.Toplevel.__init__(self, view)
+        self.view = view
+        self.title('O programie')
+
+        # TODO: version should be recognized automatic
+        version = "2.02"
+        content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+        images = self.get_imageframe()
+        images.grid(row=0, column=0)
+        paragraph1 = self.get_paragraph1(version, content)
+        paragraph1.grid(row=0, column=1)
+        paragraph2 = self.get_paragraph2(content)
+        paragraph2.grid(row=1, column=0, columnspan=2)
+        button = tk.Button(self, text="OK", command=self.destroy)
+        button.grid(row=2, column=0, columnspan=2, pady=20, ipadx=30, ipady=5)
+
+    def get_imageframe(self):
+        frame = tk.Frame(self)
+        logo1 = Image.open("./images/logo-placeholder.png")
+        logo1.thumbnail((100, 100))
+        logo2 = Image.open("./images/logo-placeholder.png")
+        logo2.thumbnail((200, 200))
+        img1 = ImageTk.PhotoImage(logo1)
+        img2 = ImageTk.PhotoImage(logo2)
+        imagelabel1 = ttk.Label(frame, image=img1)
+        # A reference of image to avoid instant garbage collecting of img1 object
+        imagelabel1.image = img1
+        imagelabel2 = ttk.Label(frame, image=img2)
+        imagelabel2.image = img2
+        imagelabel1.pack(expand=True, fill=tk.Y)
+        imagelabel2.pack(expand=True, fill=tk.Y)
+        return frame
+
+    def get_paragraph1(self, version_number, content):
+        frame = tk.Frame(self)
+        name = tk.Label(frame, text="Pompa", font=('Times', 24), anchor="w")
+        name.pack(fill=tk.X, pady=3, padx=10)
+        version = tk.Label(frame, text=version_number, font=("Times", 16), anchor="w")
+        version.pack(fill=tk.X, pady=3, padx=10)
+        text = tk.Label(frame, text=content, wraplength=300, anchor="w", justify=tk.LEFT)
+        text.pack(fill=tk.X, pady=5)
+        return frame
+
+    def get_paragraph2(self, content):
+        frame = tk.Frame(self)
+        text = tk.Label(frame, text=content, wraplength=700)
+        text.pack()
+        return frame
