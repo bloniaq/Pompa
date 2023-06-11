@@ -262,9 +262,6 @@ class Menu(tk.Menu):
         helpmenu = tk.Menu(self, tearoff=0)
         self.view = master
 
-        def empty_method():
-            pass
-
         filemenu.add_command(label="Wczytaj", command=self.view.load_datafile)
         filemenu.add_command(label="Zapisz", command=self.view.save_datafile)
         filemenu.add_separator()
@@ -275,36 +272,46 @@ class Menu(tk.Menu):
         master.config(menu=self)
 
     def show_about_app_window(self):
-        self.about_app_window = AboutAppWindow(self.view, self)
-        # tk.messagebox.showinfo(title="O programie", message="Piwo Wóda Polibuda")
+        self.about_app_window = AboutAppWindow(self.view)
 
 
 class AboutAppWindow(tk.Toplevel):
 
-    def __init__(self, view, menu):
+    def __init__(self, view):
         tk.Toplevel.__init__(self, view)
         self.view = view
+        outer_frame = tk.Frame(self)
+        outer_frame.pack()
+        inner_frame = tk.Frame(outer_frame)
+        inner_frame.pack(pady=15, padx=15)
         self.title('O programie')
 
         # TODO: version should be recognized automatic
         version = "2.02"
-        content = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-        images = self.get_imageframe()
-        images.grid(row=0, column=0)
-        paragraph1 = self.get_paragraph1(version, content)
+        par1_content = "Pompa to aplikacja wspomagająca obliczenia projektowe pompowni ścieków komunalnych.\n\n"\
+                       "Aplikacja sprawdza dobór jednostek pompowych względem warunków hydraulicznych, oblicza punkty "\
+                       "pracy dla poszczególnych zespołów współpracujących pomp, proponuje minimalizacje parametrów " \
+                       "studni.\n\n"\
+                       "Autor: Jakub Błoński\n"\
+                       "Kontakt: j.a.blonski@outlook.com"
+        par2_content = "Program został stworzony w ramach pracy inżynierskiej na Wydziale Instalacji Budowlanych, " \
+                       "Hydrotechniki i Inżynierii Środowiska Politechniki Warszawskiej. Program pozostaje własnością "\
+                       "Wydziału."
+        images = self.get_imageframe(inner_frame)
+        images.grid(row=0, column=0, pady=20)
+        paragraph1 = self.get_paragraph1(inner_frame, version, par1_content)
         paragraph1.grid(row=0, column=1)
-        paragraph2 = self.get_paragraph2(content)
+        paragraph2 = self.get_paragraph2(inner_frame, par2_content)
         paragraph2.grid(row=1, column=0, columnspan=2)
-        button = tk.Button(self, text="OK", command=self.destroy)
+        button = tk.Button(inner_frame, text="OK", command=self.destroy)
         button.grid(row=2, column=0, columnspan=2, pady=20, ipadx=30, ipady=5)
 
-    def get_imageframe(self):
-        frame = tk.Frame(self)
-        logo1 = Image.open("./images/logo-placeholder.png")
-        logo1.thumbnail((100, 100))
-        logo2 = Image.open("./images/logo-placeholder.png")
-        logo2.thumbnail((200, 200))
+    def get_imageframe(self, parent):
+        frame = tk.Frame(parent)
+        logo1 = Image.open("./images/logo_wibhis.jpg")
+        logo1.thumbnail((160, 160))
+        logo2 = Image.open("./images/logo_pw.jpg")
+        logo2.thumbnail((160, 160))
         img1 = ImageTk.PhotoImage(logo1)
         img2 = ImageTk.PhotoImage(logo2)
         imagelabel1 = ttk.Label(frame, image=img1)
@@ -316,18 +323,20 @@ class AboutAppWindow(tk.Toplevel):
         imagelabel2.pack(expand=True, fill=tk.Y)
         return frame
 
-    def get_paragraph1(self, version_number, content):
-        frame = tk.Frame(self)
-        name = tk.Label(frame, text="Pompa", font=('Times', 24), anchor="w")
+    def get_paragraph1(self, parent, version_number, content):
+        frame = tk.Frame(parent)
+        name = tk.Label(frame, text="Pompa", font=('Arial', 24), anchor="w")
         name.pack(fill=tk.X, pady=3, padx=10)
-        version = tk.Label(frame, text=version_number, font=("Times", 16), anchor="w")
+        version = tk.Label(frame, text="  " + version_number,
+                           font=("Arial", 16), anchor="w")
         version.pack(fill=tk.X, pady=3, padx=10)
-        text = tk.Label(frame, text=content, wraplength=300, anchor="w", justify=tk.LEFT)
+        text = tk.Label(frame, text=content, wraplength=300, anchor="w",
+                        justify=tk.LEFT)
         text.pack(fill=tk.X, pady=5)
         return frame
 
-    def get_paragraph2(self, content):
-        frame = tk.Frame(self)
-        text = tk.Label(frame, text=content, wraplength=700)
-        text.pack()
+    def get_paragraph2(self, parent, content):
+        frame = tk.Frame(parent)
+        text = tk.Label(frame, text=content, wraplength=450, justify=tk.LEFT)
+        text.pack(padx=50, pady=10)
         return frame
