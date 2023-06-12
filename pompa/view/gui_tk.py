@@ -23,6 +23,7 @@ class View(tk.Tk):
         data: list of application variables. must provide var type and def values information
         """
         tk.Tk.__init__(self)
+        self.resizable(width=False, height=False)
 
         # Prevents keeping unfinished processes when quiting app by 'X' button,
         # caused by matplotlib
