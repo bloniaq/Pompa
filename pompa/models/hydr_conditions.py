@@ -58,3 +58,20 @@ class HydrConditions:
 
         height = self.ord_upper_level.value - ordinate.value
         return round(height, 2)
+
+    def max_pump_start_ord(self):
+        """Returns highest ordinate, above which pump should not be activated.
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+        FloatVariable
+            Difference between inlet ordinate and reserve height
+        """
+
+        height = v.FloatVariable(
+            self.ord_inlet.value - self.reserve_height.value)
+        print(f"\n\nMAX PUMP START ORD: {height}")
+        return height
