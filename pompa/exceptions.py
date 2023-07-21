@@ -2,15 +2,54 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+class ErrorContainer:
+    # Singleton
+
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+            cls._instance.errors = []
+        return cls._instance
+
+    def add_error(self, error):
+        self.errors.append(error)
+
+    def get_errors(self):
+        return self.errors
+
+    def clear_errors(self):
+        self.errors = []
+
+
+class Registration:
+
+    def __init__(self):
+        errors = ErrorContainer()
+        errors.add_error(self)
+        self.critical_flag = False
+
+    def get_message(self):
+        message = "Błąd" + self
+        return message
+
 class InputTypeError(ValueError):
     pass
 
 
-class TooManyRootsError(ValueError):
+class TooManyRootsError(ValueError, Registration):
     def __init__(self, roots, pipeset_poly, pumpset_poly):
+        Registration.__init__(self)
+        self.critical_flag = True
         print('Too many roots: ', roots)
         print('pipeset_poly: ', pipeset_poly)
         print('pumpset_poly: ', pumpset_poly)
+
+    def get_message(self):
+        message = "Błędny kształt charakterystyki pompy. Należy poprawić " \
+                  "wprowadzone dane lub skorzystać z opcji poprawki"
+        return message
 
 
 class NoRootsError(ValueError):
@@ -24,15 +63,59 @@ class NoRootsError(ValueError):
         plt.show()
 
 
-class WellTooShallowError(Exception):
+class WellTooShallowError(Exception, Registration):
     def __init__(self, ordinate, ord_inlet, c_time, pump_no):
-        print('Cycle Time {} is too short at {} and st. inlet is at {}'.format(
-            c_time, ordinate, ord_inlet))
-        print('pump no: ', pump_no)
+        Registration.__init__(self)
+        self.critical_flag = True
+
+        self.ordinate = ordinate
+        self.ord_inlet = ord_inlet
+        self.c_time = c_time
+        self.pump_no = pump_no
+
+    def get_message(self):
+        message = f"Studnia ma za małą objętość czynną. Dla danego przekroju" \
+                  f" poprzecznego, przy próbie włączenia pomp na rzędnej " \
+                  f"{self.ordinate.value:5.2f} czas cyklu przy najmniej " \
+                  f"korzystnym dopływie wyniesie {self.c_time}s"
+        return message
 
 
 class WellTooDeepError(Exception):
     pass
+
+
+class NotEnoughPointsInPumpCharError(Exception, Registration):
+    def __init__(self):
+        Registration.__init__(self)
+        self.critical_flag = True
+
+    def get_message(self):
+        message = f"Niewystarczająca liczba punktów charakterystyki pompy"
+        return message
+
+
+class NotEnouthDataInPipeCharError(Exception, Registration):
+    def __init__(self):
+        Registration.__init__(self)
+        self.critical_flag = True
+
+    def get_message(self):
+        message = "Niewystarczająca ilość danych dla charakterystyki przewodów"
+        return message
+
+
+class IdealSmoothnessPipeError(Exception, Registration):
+    def __init__(self, error):
+        Registration.__init__(self)
+        self.error = error
+        print(error)
+        self.critical_flag = True
+
+    def get_message(self):
+        message = "Nie wprowadzono parametru chropowatości co najmniej " \
+                  "jednego z przewodów"
+        return message
 
 
 class FrictionFactorMethodOutOfRange(Exception):

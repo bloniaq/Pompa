@@ -1,5 +1,7 @@
-from pompa.exceptions import InputTypeError, UnsupportedOperationError, NoSuchVariableError, DuplicatedVariableError
+from pompa.exceptions import InputTypeError, UnsupportedOperationError,\
+    NoSuchVariableError, DuplicatedVariableError, NotEnoughPointsInPumpCharError
 import numpy as np
+import traceback
 
 
 class StationObject:
@@ -340,7 +342,16 @@ class PumpCharVariable(Variable):
         flows = np.array(
             [w_pumps_amount * f[0].value_m3ps for f in self.value])
         heights = np.array([h[1] for h in self.value])
-        return np.polynomial.polynomial.polyfit(flows, heights, 2)
+        if len(flows) < 5:
+            raise NotEnoughPointsInPumpCharError()
+        try:
+            poly = np.polynomial.polynomial.polyfit(flows, heights, 2)
+        except TypeError as e:
+            if "expected non-empty vector for x" in str(e):
+                raise NotEnoughPointsInPumpCharError()
+            else:
+                print("TypeError occurred at:", traceback.format_exc())
+        return poly
 
     def polynomial_coeff_fixed(self, w_pumps_amount=1):
         flows = np.array([w_pumps_amount * f[0].value_m3ps for f in self.value])

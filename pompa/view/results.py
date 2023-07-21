@@ -1,6 +1,8 @@
 import tkinter as tk
 import pompa.view.figures as graphs
 import re
+import textwrap
+from pompa.exceptions import ErrorContainer
 
 
 class ResultsWindow(tk.Toplevel):
@@ -8,8 +10,10 @@ class ResultsWindow(tk.Toplevel):
     def __init__(self, view, results, station):
         tk.Toplevel.__init__(self, view)
         self.view = view
+        self.errors = ErrorContainer().get_errors()
         text_content = self.prepare_results(results, station)
         self.title('Wyniki')
+
 
         self.pumpsets_number = len(results.pumpsets)
 
@@ -110,19 +114,13 @@ class ResultsWindow(tk.Toplevel):
         content += f'Rzędna dna pompowni...................{station.hydr_cond.ord_bottom.get():7}    [m]\n'
         content += f'Rzędna wyłączenia się pomp............{results.ord_shutdown.get():7}    [m]\n'
 
-        total_v, useful_v, reserve_v, dead_v = results.calculate_volumes()
+        if not self.critical_errors():
+            content += self.prepare_well_report(results)
+            for i, pumpset in enumerate(results.pumpsets):
+                content += self.prepare_pset_report(i, pumpset)
 
-        content += f'Objętość całkowita pompowni..........Vc={total_v:5}   [m3]\n'
-        content += f'Objętość użyteczna pompowni..........Vu={useful_v:5}   [m3]\n'
-        content += f'Objętość rezerwowa pompowni..........Vr={reserve_v:5}   [m3]\n'
-        content += f'Objętość martwa pompowni.............Vm={dead_v:5}   [m3]\n\n'
-        content += f'Vu/Vc ={round(100 * useful_v / total_v, 1):5}%\n'
-        content += f'Vr/Vu ={round(100 * reserve_v / useful_v, 1):5}%\n'
-        content += f'Vr/Vc ={round(100 * reserve_v / total_v, 1):5}%\n'
-        content += f'Vm/Vc ={round(100 * dead_v / total_v, 1):5}%\n\n'
-
-        for i, pumpset in enumerate(results.pumpsets):
-            content += self.prepare_pset_report(i, pumpset)
+        if len(self.errors) > 0:
+            content += self.prepare_error_report()
 
         return content
 
@@ -159,3 +157,36 @@ class ResultsWindow(tk.Toplevel):
             report += f'Q={point[0].value_lps:5} [l/s]    H={point[1]:5} [m]\n'
         report += '\n'
         return report
+
+    def prepare_well_report(self, results):
+        content = ""
+
+        total_v, useful_v, reserve_v, dead_v = results.calculate_volumes()
+
+        content += f'Objętość całkowita pompowni..........Vc={total_v:5}   [m3]\n'
+        content += f'Objętość użyteczna pompowni..........Vu={useful_v:5}   [m3]\n'
+        content += f'Objętość rezerwowa pompowni..........Vr={reserve_v:5}   [m3]\n'
+        content += f'Objętość martwa pompowni.............Vm={dead_v:5}   [m3]\n\n'
+        content += f'Vu/Vc ={round(100 * useful_v / total_v, 1):5}%\n'
+        content += f'Vr/Vu ={round(100 * reserve_v / useful_v, 1):5}%\n'
+        content += f'Vr/Vc ={round(100 * reserve_v / total_v, 1):5}%\n'
+        content += f'Vm/Vc ={round(100 * dead_v / total_v, 1):5}%\n\n'
+
+        return content
+
+    def prepare_error_report(self):
+        content = "\n\n\nBŁĘDY:\n\n"
+        for i, e in enumerate(self.errors):
+            content += str(i + 1) + ". "
+            content += textwrap.fill(e.get_message(), width=52)
+            content += "\n\n"
+
+        return content
+
+    def critical_errors(self):
+        result = False
+        if len(self.errors) != 0:
+            for e in self.errors:
+                if e.critical_flag:
+                    result = True
+        return result

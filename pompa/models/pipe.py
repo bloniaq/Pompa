@@ -1,7 +1,8 @@
-import math
+import math, traceback
 import pompa.models.variables as v
 import numpy as np
-from pompa.exceptions import FrictionFactorMethodOutOfRange
+from pompa.exceptions import FrictionFactorMethodOutOfRange,\
+    NotEnouthDataInPipeCharError, IdealSmoothnessPipeError
 
 
 class Pipe(v.StationObject):
@@ -74,7 +75,14 @@ class Pipe(v.StationObject):
         """
         diameter = self.diameter.value
         velocity = self._velocity(flow)
-        return round((diameter * velocity) / (self.kinematic_viscosity))
+        try:
+            reynolds = round((diameter * velocity) / (self.kinematic_viscosity))
+        except ValueError as e:
+            if "cannot convert float NaN to integer" in str(e):
+                raise NotEnouthDataInPipeCharError()
+            else:
+                print("TypeError occurred at:", traceback.format_exc())
+        return reynolds
 
     def _lambda(self, re):
         """Return numeric value of lambda coefficient of line loss.
@@ -89,9 +97,14 @@ class Pipe(v.StationObject):
         float
             lambda coefficient
         """
-
         lambda_ = FrictionFactor(self.diameter, self.roughness, re)(
             method='bellos-nalbantis-tsakiris')
+
+        # try:
+        #     lambda_ = FrictionFactor(self.diameter, self.roughness, re)(
+        #         method='mitosek')
+        # except OverflowError as e:
+        #     raise IdealSmoothnessPipeError(e)
         return round(lambda_, 4)
 
     def _hydraulic_gradient(self, flow):
@@ -477,10 +490,15 @@ class FrictionFactor:
             return round(lambda_boundary, 4)
 
         def _boundary_reynolds(_lambda):
-            return round(200 / (_epsilon() * (_lambda ** 0.5)))
+            print("lambda into Boundary Reynolds: ", _lambda)
+            b_reynolds = round(200 / (_epsilon() * (_lambda ** 0.5)))
+            print("Boundary Reynolds: ", b_reynolds)
+            return b_reynolds
 
         def _epsilon():
-            return round(self._roughness / self._diameter, 4)
+            epsilon = round(self._roughness / self._diameter, 6)
+            print("epsilon: ", epsilon)
+            return epsilon
 
         if self._reynolds == 0:
             lambda_ = 0

@@ -128,7 +128,13 @@ class PipesGraph(DynamicGraph):
             if type(data[key]) != type(last_data[key]):
                 return False
             expression = data[key] == last_data[key]
+            if isinstance(expression, bool):
+                if expression:
+                    return True
             if not isinstance(data[key], bool) and not expression.all():
+                print("expression: ", expression)
+                print("type(expression): ", type(expression))
+                print("data: ", data)
                 return False
         return True
 

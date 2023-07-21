@@ -1,5 +1,8 @@
 from pompa.models.pumpset import PumpSet
 import math
+from pompa.exceptions import ErrorContainer, WellTooShallowError,\
+    NotEnoughPointsInPumpCharError, NotEnouthDataInPipeCharError,\
+    IdealSmoothnessPipeError, TooManyRootsError
 
 
 PUMPSETS_LIMITER = 5
@@ -30,6 +33,8 @@ class PumpSystem:
         self.pumpsets = []
         self.reserve_pumps = 0
         self.all_pumps = 0
+        self.error_container = ErrorContainer()
+        self.error_container.clear_errors()
 
         self._calculate(mode)
 
@@ -57,8 +62,19 @@ class PumpSystem:
                 last_pset = None
             else:
                 last_pset = self.pumpsets[-1]
-            self.pumpsets.append(PumpSet(self.station, self.ord_shutdown,
-                                         pumps_counter, last_pset))
+            try:
+                self.pumpsets.append(PumpSet(self.station, self.ord_shutdown,
+                                             pumps_counter, last_pset))
+            except WellTooShallowError as well:
+                break
+            except NotEnouthDataInPipeCharError as e:
+                break
+            except NotEnoughPointsInPumpCharError as e:
+                break
+            except IdealSmoothnessPipeError:
+                break
+            except TooManyRootsError:
+                break
             print('pumpsets len: ', len(self.pumpsets))
             enough_pumps = self.pumpsets[-1].enough_pumps
             if pumps_counter == PUMPSETS_LIMITER:

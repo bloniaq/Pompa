@@ -1,6 +1,6 @@
 import pompa.models.workpoint
 import pompa.models.variables as v
-from pompa.exceptions import WellTooShallowError, WellTooDeepError
+from pompa.exceptions import WellTooShallowError
 from collections import OrderedDict, namedtuple
 
 
@@ -156,7 +156,8 @@ class PumpSet:
             last_ord = list(points.keys())[-1]
 
             if ordinate > self._max_pump_start_ord:
-                raise WellTooShallowError(ordinate, self._max_pump_start_ord,
+                raise WellTooShallowError(ordinate - self._ORD_STEP,
+                                          self._max_pump_start_ord,
                                           c_time, self.pumps_amount)
 
             it_volume = round(
