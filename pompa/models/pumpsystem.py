@@ -65,11 +65,11 @@ class PumpSystem:
             try:
                 self.pumpsets.append(PumpSet(self.station, self.ord_shutdown,
                                              pumps_counter, last_pset))
-            except WellTooShallowError as well:
+            except WellTooShallowError:
                 break
-            except NotEnouthDataInPipeCharError as e:
+            except NotEnouthDataInPipeCharError:
                 break
-            except NotEnoughPointsInPumpCharError as e:
+            except NotEnoughPointsInPumpCharError:
                 break
             except IdealSmoothnessPipeError:
                 break
