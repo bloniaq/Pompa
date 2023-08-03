@@ -382,7 +382,9 @@ class Test_PumpCharVar:
         characteristic.add_point(3000, 61, 'lps')
         characteristic.add_point(2000, 25, 'lps')
         characteristic.add_point(7000, 485, 'lps')
-        exp_coeffs = np.array([1.6565410199556908e+001, -2.3090909090909363e+001, 1.2855875831485621e+001])
+        characteristic.add_point(5000, 231, 'lps')
+
+        exp_coeffs = np.array([1.0562899786780264e+001, -1.8450959488272856e+001, 1.2344349680170567e+001])
         # arachnoid.com
         result = characteristic.polynomial_coeff(1)
         np.testing.assert_almost_equal(result, exp_coeffs)
@@ -393,7 +395,8 @@ class Test_PumpCharVar:
         characteristic.add_point(3000, 61, 'lps')
         characteristic.add_point(2000, 25, 'lps')
         characteristic.add_point(7000, 485, 'lps')
-        exp_coeffs = np.array([1.6565410199556936e+001, -1.1545454545454682e+001, 3.2139689578714052e+000])
+        characteristic.add_point(5000, 231, 'lps')
+        exp_coeffs = np.array([1.0562899786780264e+001, -9.2254797441364278e+000, 3.0860874200426418e+000])
         result = characteristic.polynomial_coeff(2)
         np.testing.assert_almost_equal(result, exp_coeffs)
 
@@ -403,6 +406,7 @@ class Test_PumpCharVar:
         characteristic.add_point(3000, 61, 'lps')
         characteristic.add_point(2000, 25, 'lps')
         characteristic.add_point(7000, 485, 'lps')
-        exp_coeffs = np.array([1.6565410199556368e+001, -7.6969696969696493e+000, 1.4284306479428412e+000])
+        characteristic.add_point(5000, 231, 'lps')
+        exp_coeffs = np.array([1.0562899786780321e+001, -6.1503198294242875e+000, 1.3715944089078410+000])
         result = characteristic.polynomial_coeff(3)
         np.testing.assert_almost_equal(result, exp_coeffs, decimal=4)
