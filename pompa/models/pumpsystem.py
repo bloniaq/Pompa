@@ -2,7 +2,7 @@ from pompa.models.pumpset import PumpSet
 import math
 from pompa.exceptions import ErrorContainer, WellTooShallowError,\
     NotEnoughPointsInPumpCharError, NotEnouthDataInPipeCharError,\
-    IdealSmoothnessPipeError, TooManyRootsError
+    IdealSmoothnessPipeError, TooManyRootsError, NoPumpsetError
 
 
 PUMPSETS_LIMITER = 5
@@ -65,6 +65,8 @@ class PumpSystem:
             try:
                 self.pumpsets.append(PumpSet(self.station, self.ord_shutdown,
                                              pumps_counter, last_pset))
+                if not self.data_validation():
+                    raise NoPumpsetError
             except WellTooShallowError:
                 break
             except NotEnouthDataInPipeCharError:
@@ -74,6 +76,8 @@ class PumpSystem:
             except IdealSmoothnessPipeError:
                 break
             except TooManyRootsError:
+                break
+            except NoPumpsetError:
                 break
             print('pumpsets len: ', len(self.pumpsets))
             enough_pumps = self.pumpsets[-1].enough_pumps
@@ -107,4 +111,8 @@ class PumpSystem:
         dead_v = round(dead_h * area, 2)
 
         return (total_v, useful_v, reserve_v, dead_v)
+
+    def data_validation(self):
+        validators = [self.station.pump_type.validate()]
+        return all(validators)
 

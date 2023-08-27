@@ -134,18 +134,16 @@ class InfiniteWorkingTimeError(Exception, Registration):
         return message
 
 
-# NOT USED YET
-#
-# class NoPumpsetError(Exception, Registration):
-#
-#     def __init__(self):
-#         Registration.__init__(self)
-#         self.critical_flag = False
-#
-#     def get_message(self):
-#         message = "Nie udało się przeprowadzić obliczeń dla ani jednej" \
-#                   " pracującej pompy"
-#         return message
+class NoPumpsetError(Exception, Registration):
+
+    def __init__(self):
+        Registration.__init__(self)
+        self.critical_flag = False
+
+    def get_message(self):
+        message = "Nie udało się przeprowadzić poprawnych obliczeń dla ani " \
+                  "jednej pracującej pompy. Niewystarczające dane pompy."
+        return message
 
 
 class FrictionFactorMethodOutOfRange(Exception):
