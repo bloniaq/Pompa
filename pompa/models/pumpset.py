@@ -1,7 +1,10 @@
+import math
+
 import pompa.models.workpoint
 import pompa.models.variables as v
-from pompa.exceptions import WellTooShallowError
+from pompa.exceptions import WellTooShallowError, InfiniteWorkingTimeError
 from collections import OrderedDict, namedtuple
+import numpy as np
 
 
 class PumpSet:
@@ -177,6 +180,10 @@ class PumpSet:
 
             c_time, w_time, l_time = self._cycle_times(points, worst_inflow)
 
+            # Wyjście z pętli jeśli czas pracy jest nieskończony
+            if math.isinf(w_time):
+                enough_time = True
+
             if (c_time >= self._req_cycle_time and
                     ordinate >= self._min_ord):
                 enough_time = True
@@ -240,13 +247,19 @@ class PumpSet:
 
         time = 0
         for point in points.values():
-            # TODO: Is not None
-            if point.it_eff is None:
-                continue
-            balance_m3ps = point.it_eff.value_m3ps - inflow.value_m3ps
-            # balance = point.it_eff - inflow
-            balance = v.FlowVariable(balance_m3ps, "m3ps")
-            time += (point.it_v / balance.value_m3ps)
+            try:
+                # TODO: Is not None
+                if point.it_eff is None:
+                    continue
+                balance_m3ps = point.it_eff.value_m3ps - inflow.value_m3ps
+                balance = v.FlowVariable(balance_m3ps, "m3ps")
+                time += (point.it_v / balance.value_m3ps)
+                if np.isinf(time):
+                    raise InfiniteWorkingTimeError(self.pumps_amount)
+            except InfiniteWorkingTimeError:
+                # Przechwycenie wyjątku, wykonanie dodatkowych czynności i kontynuacja pętli
+                break
+
         return round(time, 2)
 
     def _cycle_times(self, points, inflow):

@@ -118,6 +118,36 @@ class IdealSmoothnessPipeError(Exception, Registration):
         return message
 
 
+class InfiniteWorkingTimeError(Exception, Registration):
+
+    def __init__(self, pumps_no):
+        Registration.__init__(self)
+        self.pumps_no = pumps_no
+        self.critical_flag = False
+
+    def get_message(self):
+        if self.pumps_no == 1:
+            message = "Nie udało się obliczyć czasu pracy pojedynczej pompy"
+        else:
+            message = "Nie udało się obliczyć czasu pracy zestawu" \
+                      f" {self.pumps_no} współpracujących pomp"
+        return message
+
+
+# NOT USED YET
+#
+# class NoPumpsetError(Exception, Registration):
+#
+#     def __init__(self):
+#         Registration.__init__(self)
+#         self.critical_flag = False
+#
+#     def get_message(self):
+#         message = "Nie udało się przeprowadzić obliczeń dla ani jednej" \
+#                   " pracującej pompy"
+#         return message
+
+
 class FrictionFactorMethodOutOfRange(Exception):
     def __init__(self, docstring, diameter, roughness, reynolds, value):
         self.value = value
