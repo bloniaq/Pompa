@@ -77,3 +77,17 @@ class PumpType(v.StationObject):
             self.suction_level.value + ord_bottom.value)
 
         return shutdown_ordinate
+
+    def validate(self):
+        validator = True
+        if len(self.characteristic.value) < 5:
+            validator = False
+        if self.efficiency_to.value_lps <= self.efficiency_from.value_lps:
+            validator = False
+        if self.contour.value <= 0:
+            validator = False
+        if self.cycle_time.value <= 0:
+            validator = False
+        if self.suction_level.value <= 0:
+            validator = False
+        return validator
