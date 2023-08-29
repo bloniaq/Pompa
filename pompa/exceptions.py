@@ -146,6 +146,18 @@ class NoPumpsetError(Exception, Registration):
         return message
 
 
+class WellTooSmallError(Exception, Registration):
+
+    def __init__(self):
+        Registration.__init__(self)
+        self.critical_flag = False
+
+    def get_message(self):
+        message = "Studnia ma zbyt małą powierzchnię, żeby pomieścić dobraną" \
+                  "liczbę pomp."
+        return message
+
+
 class FrictionFactorMethodOutOfRange(Exception):
     def __init__(self, docstring, diameter, roughness, reynolds, value):
         self.value = value
