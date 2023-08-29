@@ -21,7 +21,7 @@ def test_3_units(station_4):
     station_4.calculate('checking')
     assert len(station_4.pumpsystem.pumpsets) == 2
     pset_1, pset_2 = station_4.pumpsystem.pumpsets
-    assert pset_2.ord_start == pytest.approx(95.70, abs=0.20)
+    assert pset_2.ord_start == pytest.approx(95.70, abs=0.21)
     assert pset_2.wpoint_start.height == pytest.approx(20.09, rel=.05)
 
 

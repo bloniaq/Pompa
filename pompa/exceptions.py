@@ -74,10 +74,12 @@ class WellTooShallowError(Exception, Registration):
         self.pump_no = pump_no
 
     def get_message(self):
-        message = f"Studnia ma za małą objętość czynną. Dla danego przekroju" \
-                  f" poprzecznego, przy próbie włączenia pomp na rzędnej " \
-                  f"{self.ordinate.value:5.2f} czas cyklu przy najmniej " \
-                  f"korzystnym dopływie wyniesie {self.c_time}s"
+        # message = f"Studnia ma za małą objętość czynną. Dla danego przekroju" \
+        #           f" poprzecznego, przy próbie włączenia pomp na rzędnej " \
+        #           f"{self.ordinate.value:5.2f} czas cyklu przy najmniej " \
+        #           f"korzystnym dopływie wyniesie {self.c_time}s"
+        message = f"Obliczenia czasu cyklu dla danych parametrów studni nie " \
+                  f"powiodły się."
         return message
 
 

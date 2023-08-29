@@ -129,6 +129,7 @@ def station_3():
 
     # Pump Type
     station.pump_type.suction_level.set(0.3)
+    station.pump_type.contour.set(0.3)
     station.pump_type.efficiency_from.set(15, 'lps')
     station.pump_type.efficiency_to.set(19, 'lps')
     station.pump_type.cycle_time.set(10)
@@ -183,6 +184,28 @@ def station_3():
 def station_4(station_3):
     station = station_3
     station.out_pipes_no.set(1)
+    station.fixing_mode.set(True)
+    station.hydr_cond.inflow_max.set(25, 'lps')
+
+    for p in station.pump_type.characteristic.value:
+        station.pump_type.characteristic.remove_point(p)
+
+    station.pump_type.characteristic.add_point(12, 19.6, 'lps')
+    station.pump_type.characteristic.add_point(13, 19.2, 'lps')
+    station.pump_type.characteristic.add_point(14, 18.9, 'lps')
+    station.pump_type.characteristic.add_point(15, 18.6, 'lps')
+    station.pump_type.characteristic.add_point(16, 18.4, 'lps')
+    station.pump_type.characteristic.add_point(17, 18.1, 'lps')
+    station.pump_type.characteristic.add_point(18, 18.0, 'lps')
+    station.pump_type.characteristic.add_point(19, 17.7, 'lps')
+    station.pump_type.characteristic.add_point(20, 17.3, 'lps')
+    station.pump_type.characteristic.add_point(40, 0, 'lps')
+
+    station.hydr_cond.ord_upper_level.set(104.7)
+
+    station.out_pipe.length.set(1930)
+    station.out_pipe.diameter.set(.190)
+    station.out_pipe.roughness.set(0.00045)
 
     return station
 
