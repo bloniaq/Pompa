@@ -110,3 +110,57 @@ class Station(v.StationObject):
                 r_d = pump_d / 2
                 min_a = max(r_d * coeff_dict[pump_count], 1.5)
                 return (round(min_a, 2), round(min_a, 2))
+
+    def check_well_area_for_pumps(self, pumps_count):
+
+        pump = self.pump_type.contour.get() + 0.3
+
+        def rectangle_singlerow():
+            side = max(self.well.length.value, self.well.width.value)
+            pumps_len = pumps_count * self.pump_type.contour.value
+            return pumps_len <= side
+
+        def rectangle_optimal():
+            a = self.well.width.value
+            b = self.well.length.value
+            # a >= (2m + 1) * r
+            rows = ((a/pump) - 1) / 2
+            # b >= (2 + (n - 1)sqrt(3)) * r
+            columns = (((b/pump) - 2) / (3 ** (1/2))) + 1
+            return columns * rows >= pumps_count
+
+        def round_singlerow():
+            diameter = self.well.diameter.value
+            pumps_len = pumps_count * self.pump_type.contour.value
+            return pumps_len <= diameter
+
+        def round_optimal():
+            coeff_dict = {
+                1: 1,
+                2: 2,
+                3: 2.154,
+                4: 2.414,
+                5: 2.701,
+                6: 3,
+                7: 3,
+                8: 3.304,
+                9: 3.613,
+                10: 3.813
+            }
+            min_d = max(pump * coeff_dict[pumps_count], 1.5)
+            return self.well.diameter.value >= min_d
+
+        if self.well.shape.get() == 'rectangle':
+            if self.well.config.get() == 'singlerow':
+                print('rectangle', 'singlerow')
+                return rectangle_singlerow()
+            elif self.well.config.get() == 'optimal':
+                print('rectangle', 'optimal')
+                return rectangle_optimal()
+        elif self.well.shape.get() == 'round':
+            if self.well.config.get() == 'singlerow':
+                print('round', 'singlerow')
+                return round_singlerow()
+            elif self.well.config.get() == 'optimal':
+                print('round', 'optimal')
+                return round_optimal()

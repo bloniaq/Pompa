@@ -60,6 +60,7 @@ def station_2():
 
     # Pump Type
     station.pump_type.suction_level.set(0.3)
+    station.pump_type.contour.set(0.3)
     station.pump_type.efficiency_from.set(23.5, 'lps')
     station.pump_type.efficiency_to.set(37, 'lps')
     station.pump_type.cycle_time.set(8)

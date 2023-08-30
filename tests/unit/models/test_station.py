@@ -91,3 +91,18 @@ def test_min_well_dim_rectangle_optimal():
     station.pump_type.contour.set(0.2)
     complete_pump_number = 5
     assert station.min_well_dimension(complete_pump_number) == (1.50, 1.50)
+
+def test_check_well_area_station_2(station_2):
+    all_pumps_count = 6
+    assert station_2.check_well_area_for_pumps(all_pumps_count)
+    all_pumps_count = 7
+    assert not station_2.check_well_area_for_pumps(all_pumps_count)
+
+def test_check_well_area_station_2_rectangular_(station_2):
+    s = station_2
+    s.well.config.set('optimal')
+    s.well.diameter.set(1.7)
+    all_pumps_count = 5
+    assert s.check_well_area_for_pumps(all_pumps_count)
+    all_pumps_count = 6
+    assert not s.check_well_area_for_pumps(all_pumps_count)
