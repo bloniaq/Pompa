@@ -3,7 +3,7 @@ import math
 from pompa.exceptions import ErrorContainer, WellTooShallowError,\
     NotEnoughPointsInPumpCharError, NotEnouthDataInPipeCharError,\
     IdealSmoothnessPipeError, TooManyRootsError, NoPumpsetError, \
-    WellTooSmallError
+    WellTooSmallError, InletInDeadVolumeError
 
 
 PUMPSETS_LIMITER = 5
@@ -36,6 +36,14 @@ class PumpSystem:
         self.all_pumps = 0
         self.error_container = ErrorContainer()
         self.error_container.clear_errors()
+
+        # Raising non-critical pre-calculations exceptions
+
+        try:
+            if not self.station.validate_dead_volume_under_inlet():
+                raise InletInDeadVolumeError
+        except InletInDeadVolumeError:
+            pass
 
         self._calculate(mode)
         print('all pumps : ', self.all_pumps)
