@@ -186,3 +186,9 @@ class Station(v.StationObject):
         print('hydr_cond.ord_inlet', self.hydr_cond.ord_inlet.value)
         return dead_vol_ord + self.hydr_cond.reserve_height.value <=\
             self.hydr_cond.ord_inlet.value
+
+    def validate_min_ins_pipe_length(self):
+        ord_lowest = self.hydr_cond.ord_bottom.value + \
+                     self.pump_type.suction_level.value
+        min_ins_pipe_len = self.hydr_cond.ord_outlet.value - ord_lowest + 1
+        return self.ins_pipe.length >= min_ins_pipe_len

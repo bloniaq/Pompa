@@ -168,6 +168,18 @@ class InletInDeadVolumeError(Exception, Registration):
         return message
 
 
+class InsidePipesTooShortError(Exception, Registration):
+
+    def __init__(self):
+        Registration.__init__(self)
+        self.critical_flag = False
+
+    def get_message(self):
+        message = "Podano zbyt małą długość przewodów wewnętrznych wobec " \
+                  "podanych rzędnych"
+        return message
+
+
 class FrictionFactorMethodOutOfRange(Exception):
     def __init__(self, docstring, diameter, roughness, reynolds, value):
         self.value = value

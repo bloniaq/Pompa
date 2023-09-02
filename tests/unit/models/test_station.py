@@ -174,3 +174,8 @@ def test_validate_dead_volume_under_inlet(station_2):
     s.hydr_cond.ord_inlet.set(139.11)
     assert not s.validate_dead_volume_under_inlet()
 
+def test_min_ins_pipe_length(station_2):
+    s = station_2
+    assert s.validate_min_ins_pipe_length()
+    s.ins_pipe.length.set(2)
+    assert not s.validate_min_ins_pipe_length()
