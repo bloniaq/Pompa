@@ -113,28 +113,46 @@ class Station(v.StationObject):
 
     def check_well_area_for_pumps(self, pumps_count):
 
-        pump = self.pump_type.contour.get() + 0.3
+        pump_c = self.pump_type.contour.value
+        safe_pump_c = self.pump_type.contour.value + 0.3
 
         def rectangle_singlerow():
+            # No unused area around pump : contour = pump_c
             side = max(self.well.length.value, self.well.width.value)
-            pumps_len = pumps_count * self.pump_type.contour.value
+            pumps_len = pumps_count * pump_c
             return pumps_len <= side
 
         def rectangle_optimal():
+            # Installation area around pump : contour = safe_pump_c
             a = self.well.width.value
             b = self.well.length.value
-            # a >= (2m + 1) * r
-            rows = ((a/pump) - 1) / 2
-            # b >= (2 + (n - 1)sqrt(3)) * r
-            columns = (((b/pump) - 2) / (3 ** (1/2))) + 1
-            return columns * rows >= pumps_count
+            safe_radius = safe_pump_c / 2
+
+            def dim_setup(a, b):
+
+                # a >= (2m + 1) * r
+                # after reformulation:
+                rows = ((a/safe_radius) - 1) // 2
+                # b >= (2 + (n - 1)sqrt(3)) * r
+                # after reformulation:
+                columns = (((b/safe_radius) - 2) // (3 ** (1/2))) + 1
+
+                return rows * columns
+
+            return max(dim_setup(a, b), dim_setup(b, a)) >= pumps_count
 
         def round_singlerow():
+            # No unused area around pump : contour = pump_c
+            # min_d = 1,5 # meters
             diameter = self.well.diameter.value
-            pumps_len = pumps_count * self.pump_type.contour.value
-            return pumps_len <= diameter
+            pumps_len = pumps_count * pump_c
+            min_d = max(pumps_len, 1.5)
+            return min_d <= diameter
 
         def round_optimal():
+            # Installation area around pump : contour = safe_pump_c
+            # min_d = 1,5 # meters
+
             coeff_dict = {
                 1: 1,
                 2: 2,
@@ -147,20 +165,15 @@ class Station(v.StationObject):
                 9: 3.613,
                 10: 3.813
             }
-            min_d = max(pump * coeff_dict[pumps_count], 1.5)
+
+            min_d = max(safe_pump_c * coeff_dict[pumps_count], 1.5)
             return self.well.diameter.value >= min_d
 
-        if self.well.shape.get() == 'rectangle':
-            if self.well.config.get() == 'singlerow':
-                print('rectangle', 'singlerow')
-                return rectangle_singlerow()
-            elif self.well.config.get() == 'optimal':
-                print('rectangle', 'optimal')
-                return rectangle_optimal()
-        elif self.well.shape.get() == 'round':
-            if self.well.config.get() == 'singlerow':
-                print('round', 'singlerow')
-                return round_singlerow()
-            elif self.well.config.get() == 'optimal':
-                print('round', 'optimal')
-                return round_optimal()
+        result = {
+            'rectangle': {'singlerow': rectangle_singlerow,
+                          'optimal': rectangle_optimal},
+            'round': {'singlerow': round_singlerow,
+                      'optimal': round_optimal}
+        }
+
+        return result[self.well.shape.get()][self.well.config.get()]()
