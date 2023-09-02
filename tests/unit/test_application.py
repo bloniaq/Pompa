@@ -20,10 +20,10 @@ class TestVMVar:
 
 class TestApplication:
 
-    def test_app_init(self):
-        with pompa.Application() as app:
+    def test_app_init(self, app_fixture):
+        with app_fixture as app:
             assert isinstance(app, pompa.Application)
 
-    def test_gui_tkinter(self):
-        with pompa.Application() as app:
+    def test_gui_tkinter(self, app_fixture):
+        with app_fixture as app:
             assert isinstance(app.view, view.gui_tk.View)
