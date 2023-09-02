@@ -166,3 +166,11 @@ def test_check_well_area_station_2_rectangular_singlerow(station_2):
     assert s.check_well_area_for_pumps(all_pumps_count)
     all_pumps_count = 5
     assert not s.check_well_area_for_pumps(all_pumps_count)
+
+def test_validate_dead_volume_under_inlet(station_2):
+    s = station_2
+    s.pump_type.suction_level.set(0.6)
+    assert s.validate_dead_volume_under_inlet()
+    s.hydr_cond.ord_inlet.set(139.11)
+    assert not s.validate_dead_volume_under_inlet()
+

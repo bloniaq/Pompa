@@ -177,3 +177,12 @@ class Station(v.StationObject):
         }
 
         return result[self.well.shape.get()][self.well.config.get()]()
+
+    def validate_dead_volume_under_inlet(self):
+        dead_vol_ord = self.hydr_cond.ord_bottom.value + \
+                       self.pump_type.suction_level.value
+        print('dead vol ord', dead_vol_ord)
+        print('reserve_height', self.hydr_cond.reserve_height.value)
+        print('hydr_cond.ord_inlet', self.hydr_cond.ord_inlet.value)
+        return dead_vol_ord + self.hydr_cond.reserve_height.value <=\
+            self.hydr_cond.ord_inlet.value

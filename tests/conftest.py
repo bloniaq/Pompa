@@ -89,6 +89,7 @@ def station_2():
     station.hydr_cond.ord_outlet.set(141)
     station.hydr_cond.inflow_min.set(11, 'lps')
     station.hydr_cond.inflow_max.set(22, 'lps')
+    station.hydr_cond.reserve_height.set(0.1)
 
     # Inside Pipe
     station.ins_pipe.length.set(7)
