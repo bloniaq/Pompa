@@ -6,8 +6,8 @@ import pompa.application as app_module
 
 class TestController:
 
-    def test_binding_variables(self):
-        with app_module.Application() as controller:
+    def test_binding_variables(self, app_fixture):
+        with app_fixture as controller:
             model_pointer = controller.model.hydr_cond.ord_terrain
             model_finder = controller.model.get_var("ord_terrain")
             assert model_pointer is model_finder
