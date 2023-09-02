@@ -156,7 +156,7 @@ class WellTooSmallError(Exception, Registration):
 
     def get_message(self):
         message = "Studnia ma zbyt małą powierzchnię, żeby pomieścić dobraną" \
-                  "liczbę pomp."
+                  " liczbę pomp."
         return message
 
 

@@ -257,3 +257,7 @@ def mocked_vm_variables_data(mocker):
     for v in variables_data.values():
         v.modelvar = mocker.MagicMock()
     return variables_data
+
+@pytest.fixture
+def app_fixture():
+    yield app_module.Application()

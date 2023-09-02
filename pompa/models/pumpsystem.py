@@ -2,7 +2,8 @@ from pompa.models.pumpset import PumpSet
 import math
 from pompa.exceptions import ErrorContainer, WellTooShallowError,\
     NotEnoughPointsInPumpCharError, NotEnouthDataInPipeCharError,\
-    IdealSmoothnessPipeError, TooManyRootsError, NoPumpsetError
+    IdealSmoothnessPipeError, TooManyRootsError, NoPumpsetError, \
+    WellTooSmallError
 
 
 PUMPSETS_LIMITER = 5
@@ -37,6 +38,15 @@ class PumpSystem:
         self.error_container.clear_errors()
 
         self._calculate(mode)
+        print('all pumps : ', self.all_pumps)
+
+        # Raising non-critical post-calculations exceptions based on validators
+
+        try:
+            if not self.station.check_well_area_for_pumps(self.all_pumps):
+                raise WellTooSmallError
+        except WellTooSmallError:
+            pass
 
     def _calculate(self, mode):
         """Made calculations based on chosen mode"""
@@ -54,7 +64,6 @@ class PumpSystem:
         self.ord_bottom = self.station.hydr_cond.ord_bottom
         self.ord_shutdown = self.station.pump_type.shutdown_ord(self.ord_bottom)
         pumps_counter = 0
-
 
         while not enough_pumps:
             pumps_counter += 1
@@ -85,6 +94,7 @@ class PumpSystem:
                 enough_pumps = True
 
         self.reserve_pumps = self._calc_reserve_pumps(pumps_counter)
+        self._update_all_pumps_number()
 
     def _calc_reserve_pumps(self, working_pumps: int):
         mode = self.station.safety.value
