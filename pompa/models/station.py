@@ -65,6 +65,12 @@ class Station(v.StationObject):
         return self.figures_data.get_data()
 
     def min_well_dimension(self, pump_count):
+        """For report purposes generates snippet with proper minimal dimensions
+
+        :param pump_count: int
+        :return: float or tuple (of two floats)
+        """
+        #
         # do średnicy montażowej pompy dodano 30cm na postawienie stopy
         # pomiedzy pompami w pompowni
         pump_d = self.pump_type.contour.get() + 0.3
