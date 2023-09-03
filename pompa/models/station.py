@@ -21,7 +21,7 @@ class Station(v.StationObject):
     out_pipe : Pipe
         The pipe(s) outside station
     out_pipes_no : FloatVariable
-        The number of parallel outisde pipes
+        The number of parallel outside pipes
     pump_type : PumpType
         The type of pump used in station
     pumpsystem : PumpSystem
@@ -33,6 +33,7 @@ class Station(v.StationObject):
         Calculates pumpsystem in a user-chosen mode
     """
 
+    # noinspection PyMissingConstructor
     def __init__(self):
         # There's no need for calling super class __init__
         self.well = well.Well()
@@ -73,8 +74,8 @@ class Station(v.StationObject):
         :return: float or tuple (of two floats)
         """
         #
-        # do średnicy montażowej pompy dodano 30cm na postawienie stopy
-        # pomiedzy pompami w pompowni
+        # do średnicy montażowej pompy dodano 30 cm na postawienie stopy
+        # pomiędzy pompami w pompowni
         pump_d = self.pump_type.contour.get() + 0.3
         if self.well.config.get() == "singlerow":
             if self.well.shape.get() == "round":
@@ -83,7 +84,7 @@ class Station(v.StationObject):
             elif self.well.shape.get() == "rectangle":
                 min_l = max(pump_count * pump_d, 1.5)
                 min_w = max(pump_d + 0.3, 1.5)
-                return (round(min_w, 2), round(min_l, 2))
+                return round(min_w, 2), round(min_l, 2)
         elif self.well.config.get() == "optimal":
             if self.well.shape.get() == "round":
                 # https://en.wikipedia.org/wiki/Circle_packing_in_a_circle
@@ -117,7 +118,7 @@ class Station(v.StationObject):
                 }
                 r_d = pump_d / 2
                 min_a = max(r_d * coeff_dict[pump_count], 1.5)
-                return (round(min_a, 2), round(min_a, 2))
+                return round(min_a, 2), round(min_a, 2)
 
     def check_well_area_for_pumps(self, pumps_count):
 
@@ -132,8 +133,8 @@ class Station(v.StationObject):
 
         def rectangle_optimal():
             # Installation area around pump : contour = safe_pump_c
-            a = self.well.width.value
-            b = self.well.length.value
+            wi = self.well.width.value
+            le = self.well.length.value
             safe_radius = safe_pump_c / 2
 
             def dim_setup(a, b):
@@ -147,7 +148,7 @@ class Station(v.StationObject):
 
                 return rows * columns
 
-            return max(dim_setup(a, b), dim_setup(b, a)) >= pumps_count
+            return max(dim_setup(wi, le), dim_setup(le, wi)) >= pumps_count
 
         def round_singlerow():
             # No unused area around pump : contour = pump_c

@@ -1,6 +1,7 @@
 import pompa.models.variables as v
 
 
+# noinspection GrazieInspection
 class PumpType(v.StationObject):
     """Class used to keep type of pump used in Sewage Pumping Station
 
@@ -27,7 +28,9 @@ class PumpType(v.StationObject):
         Returns pumpset shutdown ordinate.
     """
 
+    # noinspection PyMissingConstructor
     def __init__(self):
+        # There's no need for calling super class __init__
         self.cycle_time = v.IntVariable(name="min_cycle_time")
         self.contour = v.FloatVariable(name="pump_contour")
         self.suction_level = v.FloatVariable(name="suction_level")
@@ -45,7 +48,7 @@ class PumpType(v.StationObject):
         """
         range_start_value = self.efficiency_from.value_m3ph * pumps_amount
         """
-        Te zakomentowane linijki to stare rozwiazanie, które powodowało że 
+        Te zakomentowane linijki to stare rozwiązanie, które powodowało że 
         próba wykonania powtórnych obliczeń była blokowana z powodu powołania
         zmienny o zajętej już nazwie. Problem unikalności zmiennych w modelu
         należałoby jakoś w przyszłości rozwiązać
@@ -70,7 +73,7 @@ class PumpType(v.StationObject):
         Returns
         -------
         FloatVariable
-            Sum of current bottom ordinate and pumptype suction level.
+            Sum of current bottom ordinate and pump type suction level.
         """
 
         shutdown_ordinate = v.FloatVariable(

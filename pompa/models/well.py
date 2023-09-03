@@ -19,13 +19,16 @@ class Well(v.StationObject):
         The width of well. [m] Relevant when shape == 'rectangle'
     """
 
+    # noinspection PyMissingConstructor
     def __init__(self):
+        # There's no need for calling super class __init__
         self.shape = v.SwitchVariable(name="shape")
         self.config = v.SwitchVariable("singlerow", name="config")
         self.diameter = v.FloatVariable(name="well_diameter")
         self.length = v.FloatVariable(name="well_length")
         self.width = v.FloatVariable(name="well_width")
 
+    # TODO: this is redundant method
     def minimal_diameter(self, n_of_pumps, netto_contour):
         """Return minimal diameter of round-shaped well.
 

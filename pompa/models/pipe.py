@@ -1,34 +1,37 @@
-import math, traceback
+import math
+import traceback
 import pompa.models.variables as v
 import numpy as np
 from pompa.exceptions import FrictionFactorMethodOutOfRange,\
-    NotEnouthDataInPipeCharError, IdealSmoothnessPipeError
+    NotEnouthDataInPipeCharError
 
 
 class Pipe(v.StationObject):
+    # There's no need for calling super class __init__
     """Class used for keep pipe used in station
 
     Attributes
     ----------
     length : FloatVariable
-        Lenght of pipe [m]
+        Length of pipe [m]
     diameter : FloatVariable
         Diameter of pipe [m]
     roughness : FloatVariable
         Value of pipe roughness [m]
-    resistance : ResistanceVariable
+    resistances : ResistanceVariable
         Values of local resistances [-]
 
     Methods
     -------
     area
-        Returns corss-sectional area of pipe [m²]
+        Returns cross-sectional area of pipe [m²]
     sum_loss(flow)
         Returns sum of line and local loss for passed flow
     dynamic_loss_polynomial(min_inflow, max_inflow, parallels=1)
         Returns polynomial of dynamic loss function of pipe
     """
 
+    # noinspection PyMissingConstructor
     def __init__(self, tag):
         self.length = v.FloatVariable(name=tag+"_length")
         self.diameter = v.FloatVariable(name=tag+"_diameter", digits=3)
@@ -59,7 +62,7 @@ class Pipe(v.StationObject):
     def _reynolds(self, flow):
         """Return Reynolds number.
 
-        Kinematic viscosity unit is m2/s (water in 20 Celsius deegrees). Its
+        Kinematic viscosity unit is m2/s (water in 20 Celsius degrees). Its
         value is constant, and provided in models.py module.
         velocity should be in m/s unit, and diameter in m unit.
 
@@ -76,12 +79,13 @@ class Pipe(v.StationObject):
         diameter = self.diameter.value
         velocity = self._velocity(flow)
         try:
-            reynolds = round((diameter * velocity) / (self.kinematic_viscosity))
+            reynolds = round((diameter * velocity) / self.kinematic_viscosity)
         except ValueError as e:
             if "cannot convert float NaN to integer" in str(e):
                 raise NotEnouthDataInPipeCharError()
             else:
                 print("TypeError occurred at:", traceback.format_exc())
+        # noinspection PyUnboundLocalVariable
         return reynolds
 
     def _lambda(self, re):
@@ -220,6 +224,7 @@ class Pipe(v.StationObject):
         return coeffs
 
 
+# noinspection SpellCheckingInspection
 class FrictionFactor:
     """Class used for Darcy friction factor calculations.
 
@@ -352,7 +357,7 @@ class FrictionFactor:
 
     def _blasius(self):
         """
-        Blasius approximation
+        Blasius' approximation
         1913
         Range:
             4000 < Re < 100000
@@ -406,7 +411,7 @@ class FrictionFactor:
 
     def _churchill(self):
         """
-        Churchill approximation
+        Churchill's approximation
         1977
         Range:
             All Flow Regimes
@@ -437,7 +442,7 @@ class FrictionFactor:
 
     def _cheng(self):
         """
-        Cheng approximation
+        Cheng's approximation
         2008
         Range:
             All Flow Regimes
