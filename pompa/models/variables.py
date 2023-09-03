@@ -9,6 +9,8 @@ class StationObject:
 
     Providing interface for loading values from file
 
+    No need for executing __init__ when subclassing.
+
     Methods
     -------
     load_data(data_dict)

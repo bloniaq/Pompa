@@ -34,6 +34,7 @@ class Station(v.StationObject):
     """
 
     def __init__(self):
+        # There's no need for calling super class __init__
         self.well = well.Well()
         self.hydr_cond = hydr_cond.HydrConditions()
         self.ins_pipe = pipe.Pipe("ins_pipe")
@@ -65,7 +66,8 @@ class Station(v.StationObject):
         return self.figures_data.get_data()
 
     def min_well_dimension(self, pump_count):
-        """For report purposes generates snippet with proper minimal dimensions
+        """For report purposes generates snippet with proper minimal dimensions.
+        At the moment of executing this method, all calculations should be done.
 
         :param pump_count: int
         :return: float or tuple (of two floats)
