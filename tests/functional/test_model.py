@@ -1,5 +1,7 @@
 import pytest
 
+import pompa.models.pumpsystem
+
 
 def test_1_unit_pumpset(station_2):
     station = station_2
@@ -52,3 +54,13 @@ def test_variable_singularity(station_1):
                 instances_with_unique_name.append(i)
     assert len(instances_with_unique_name) == len(instances_with_name)
     assert instances_with_unique_name == instances_with_name
+
+
+def test_minimal_rectangle_well_dimensions_for_optimal_config(app_fixture):
+
+    with app_fixture as app:
+        filepath = 'tests/scenarios/15-FIX-minimalne_wymiary_studni_prostok.DAN'
+        app.load_file(filepath, 'lps')
+        s = app.model
+        ps = pompa.models.pumpsystem.PumpSystem(s)
+        assert s.min_well_dimension(ps.all_pumps) == (2.43, 2.6)

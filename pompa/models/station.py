@@ -6,6 +6,8 @@ import pompa.models.pumptype as pump_type
 import pompa.models.pumpsystem as pumpsystem
 import pompa.models.figures_data as fig_data
 
+import math
+
 
 class Station(v.StationObject):
     """Class used to keep the Sewage Pumping Station
@@ -76,33 +78,58 @@ class Station(v.StationObject):
         #
         # do średnicy montażowej pompy dodano 30 cm na postawienie stopy
         # pomiędzy pompami w pompowni
-        pump_d = self.pump_type.contour.get() + 0.3
+        safe_pump_c = self.pump_type.contour.get() + 0.3
+        if self.pump_type.contour.get() < 0.7:
+            pump_c = self.pump_type.contour.get()
+        else:
+            pump_c = safe_pump_c
+
+        def optimize_rectangle(a, b):
+            # min 1,0 x 2,5 or 1,5 x 2,0
+            wi = min(a, b)
+            le = max(a, b)
+            if wi < 1.5:
+                if wi < 1:
+                    wi = 1
+                if le < 2.5:
+                    le = 2.5
+            elif le < 2:
+                le = 2
+            return round(wi, 2), round(le, 2)
 
         def rectangle_singlerow():
-            min_l = max(pump_count * pump_d, 1.5)
-            min_w = max(pump_d + 0.3, 1.5)
-            return round(min_w, 2), round(min_l, 2)
+            opt_l = pump_count * pump_c
+            opt_w = safe_pump_c + 0.5
+            return optimize_rectangle(opt_w, opt_l)
 
         def rectangle_optimal():
             # https://en.wikipedia.org/wiki/Circle_packing_in_a_square
-            coeff_dict = {
-                1: 2,
-                2: 3.414,
-                3: 3.931,
-                4: 4,
-                5: 4.828,
-                6: 5.328,
-                7: 5.732,
-                8: 5.863,
-                9: 6,
-                10: 6.747
-            }
-            r_d = pump_d / 2
-            min_a = max(r_d * coeff_dict[pump_count], 1.5)
-            return round(min_a, 2), round(min_a, 2)
+            # coeff_dict = {
+            #     1: 2,
+            #     2: 3.414,
+            #     3: 3.931,
+            #     4: 4,
+            #     5: 4.828,
+            #     6: 5.328,
+            #     7: 5.732,
+            #     8: 5.863,
+            #     9: 6,
+            #     10: 6.747
+            # }
+            # r_d = safe_pump_c / 2
+            # min_a = max(r_d * coeff_dict[pump_count], 1.5)
+            p_in_len = pump_count // 2
+            if pump_count % 2 != 0:
+                p_in_len += 1
+                opt_l = p_in_len * safe_pump_c
+            else:
+                opt_l = (p_in_len + 0.5) * safe_pump_c
+            opt_w = safe_pump_c + safe_pump_c * 0.5 * math.sqrt(3)
+
+            return optimize_rectangle(opt_w, opt_l)
 
         def round_singlerow():
-            min_d = max(pump_count * pump_d, 1.5)
+            min_d = max(pump_count * pump_c, 1.5)
             return round(min_d, 2)
 
         def round_optimal():
@@ -119,7 +146,7 @@ class Station(v.StationObject):
                 9: 3.613,
                 10: 3.813
             }
-            min_d = max(pump_d * coeff_dict[pump_count], 1.5)
+            min_d = max(safe_pump_c * coeff_dict[pump_count], 1.5)
             return round(min_d, 2)
 
         result = {
