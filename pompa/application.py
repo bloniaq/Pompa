@@ -6,7 +6,8 @@ from collections import namedtuple
 from pompa.exceptions import BrokenDataError
 
 # TEST PURPOSES ONLY (VIEW BUILD)
-import numpy as np
+# import numpy as np
+
 
 class VMVar:
     """ViewModel Variable"""
@@ -24,16 +25,17 @@ class VMVar:
 
     def set_in_model(self, value):
         self.modelvar.set(value)
-        print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
+        print(f"{self.name} is setting {value} to model: {self.modelvar.get()}")
 
     def set_in_view(self, value):
         self.viewvar.set(value)
-        print(f"{self.name} is seting {value} to view: {self.viewvar.get()}")
+        print(f"{self.name} is setting {value} to view: {self.viewvar.get()}")
 
     def return_value_for_unit(self, unit):
         return self.modelvar.get_by_unit(unit)
 
 
+# noinspection PyUnusedLocal
 class StringVMVar(VMVar):
 
     def __init__(self, name: str, id_: int, default_value, dictionary=None):
@@ -56,7 +58,7 @@ class DoubleVMVar(VMVar):
         # multiplayer added for cover differences between the units in view and
         # in model, specifically in pipe diameter parameter
         # it equals view_unit/model_unit
-        # if there's i.e. meters in model, and milimeters in view, multipl=.001
+        # if there's i.e. meters in model, and millimeters in view, multipl=.001
         super().__init__(name, id_, default_value)
         self.multipl = multipl
         self.type = "double"
@@ -70,7 +72,7 @@ class DoubleVMVar(VMVar):
         # multiplayer added for cover differences between the units in view and
         # in model, specifically in pipe diameter parameter
         self.modelvar.set(value * self.multipl)
-        print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
+        print(f"{self.name} is setting {value} to model: {self.modelvar.get()}")
 
 
 class IntVMVar(VMVar):
@@ -106,14 +108,13 @@ class ResVMVar(VMVar):
         self.set_in_view(string_format)
         self.set_in_model(string_format)
 
-
     def set_in_model(self, value):
         resistances_string = list(value.split(";"))
         if resistances_string == ['']:
             resistances_string = ['0']
         resistances_float = [float(res) for res in resistances_string]
         self.modelvar.set(resistances_float)
-        print(f"{self.name} is seting {value} to model: {self.modelvar.get()}")
+        print(f"{self.name} is setting {value} to model: {self.modelvar.get()}")
 
 
 class FlowVMVar(VMVar):
@@ -131,7 +132,7 @@ class FlowVMVar(VMVar):
         if unit is None:
             unit = self.viewvar.get_current_unit()
         self.modelvar.set(value, unit)
-        print(f"{self.name} is seting {value} to model: {self.modelvar.get_by_unit(unit)} {unit}")
+        print(f"{self.name} is setting {value} to model: {self.modelvar.get_by_unit(unit)} {unit}")
 
 
 class PumpCharVMVar(VMVar):
@@ -302,6 +303,7 @@ class Application:
 
         return data
 
+    # noinspection PyMethodMayBeStatic
     def read_file(self, file):
         data = {}
         with open(file, 'r') as f:
@@ -385,5 +387,5 @@ class Application:
     def get_results(self):
         self.model.calculate(self.model.mode.value)
         results = self.model.pumpsystem
-        station = self.model
-        return results, station
+        model = self.model
+        return results, model
