@@ -38,10 +38,13 @@ pumpsystems_check_area = [
     ('round', 'singlerow', 0.3, 2.5, 9, False),
     ('round', 'optimal', 0.3, 1.7, 5, True),
     ('round', 'optimal', 0.3, 1.7, 6, False),
-    ('rectangle', 'optimal', 0.3, (3.0, 4.0), 30, True),
-    ('rectangle', 'optimal', 0.3, (3.0, 4.0), 31, False),
+    ('rectangle', 'optimal', 0.3, (3.0, 4.0), 32, True),
+    ('rectangle', 'optimal', 0.3, (3.0, 4.0), 33, False),
     ('rectangle', 'singlerow', 0.5, (2.2, 1.8), 4, True),
     ('rectangle', 'singlerow', 0.5, (2.2, 1.8), 5, False),
+    ('rectangle', 'optimal', 0.7, (2.0, 3.2), 5, True),
+    ('rectangle', 'optimal', 0.7, (2.0, 3.2), 6, False),
+    ('rectangle', 'optimal', 0.7, (2.0, 3.6), 6, True),
 ]
 
 

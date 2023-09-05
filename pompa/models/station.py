@@ -68,6 +68,14 @@ class Station(v.StationObject):
     def get_figure_data(self):
         return self.figures_data.get_data()
 
+    def contours(self):
+        safe_pump_c = self.pump_type.contour.get() + 0.3
+        if self.pump_type.contour.get() < 0.7:
+            pump_c = self.pump_type.contour.get()
+        else:
+            pump_c = safe_pump_c
+        return pump_c, safe_pump_c
+
     def min_well_dimension(self, pump_count):
         """For report purposes generates snippet with proper minimal dimensions.
         At the moment of executing this method, all calculations should be done.
@@ -78,11 +86,7 @@ class Station(v.StationObject):
         #
         # do średnicy montażowej pompy dodano 30 cm na postawienie stopy
         # pomiędzy pompami w pompowni
-        safe_pump_c = self.pump_type.contour.get() + 0.3
-        if self.pump_type.contour.get() < 0.7:
-            pump_c = self.pump_type.contour.get()
-        else:
-            pump_c = safe_pump_c
+        pump_c, safe_pump_c = self.contours()
 
         def optimize_rectangle(a, b):
             # min 1,0 x 2,5 or 1,5 x 2,0
@@ -104,20 +108,6 @@ class Station(v.StationObject):
 
         def rectangle_optimal():
             # https://en.wikipedia.org/wiki/Circle_packing_in_a_square
-            # coeff_dict = {
-            #     1: 2,
-            #     2: 3.414,
-            #     3: 3.931,
-            #     4: 4,
-            #     5: 4.828,
-            #     6: 5.328,
-            #     7: 5.732,
-            #     8: 5.863,
-            #     9: 6,
-            #     10: 6.747
-            # }
-            # r_d = safe_pump_c / 2
-            # min_a = max(r_d * coeff_dict[pump_count], 1.5)
             p_in_len = pump_count // 2
             if pump_count % 2 != 0:
                 p_in_len += 1
@@ -160,8 +150,7 @@ class Station(v.StationObject):
 
     def check_well_area_for_pumps(self, pumps_count):
 
-        pump_c = self.pump_type.contour.value
-        safe_pump_c = self.pump_type.contour.value + 0.3
+        pump_c, safe_pump_c = self.contours()
 
         def rectangle_singlerow():
             # No unused area around pump : contour = pump_c
@@ -177,14 +166,18 @@ class Station(v.StationObject):
 
             def dim_setup(a, b):
 
-                # a >= (2m + 1) * r
-                # after reformulation:
-                rows = ((a/safe_radius) - 1) // 2
+                rows_rough = a / safe_pump_c
+                rows_clean = a // safe_pump_c
+                if rows_rough - rows_clean < 0.5:
+                    rows = rows_clean - 0.5
+                else:
+                    rows = rows_clean
+                # rows = (rows_rough - 1) // 2
                 # b >= (2 + (n - 1)sqrt(3)) * r
                 # after reformulation:
                 columns = (((b/safe_radius) - 2) // (3 ** (1/2))) + 1
 
-                return rows * columns
+                return math.ceil(rows * columns)
 
             return max(dim_setup(wi, le), dim_setup(le, wi)) >= pumps_count
 
@@ -192,8 +185,7 @@ class Station(v.StationObject):
             # No unused area around pump : contour = pump_c
             # min_d = 1,5 # meters
             diameter = self.well.diameter.value
-            pumps_len = pumps_count * pump_c
-            min_d = max(pumps_len, 1.5)
+            min_d = self.min_well_dimension(pumps_count)
             return min_d <= diameter
 
         def round_optimal():
