@@ -77,6 +77,7 @@ class ResultsWindow(tk.Toplevel):
         content += config_dict[station.well.config.get()]
         content += f"Liczba pomp rezerwowych..............n={results.reserve_pumps:6}\n"
         content += f'Średnica koła opisującego pompę.....Dn={station.pump_type.contour.value:6}    [m]\n'
+        content += f'Minimalny czas cyklu pompy...........t={station.pump_type.cycle_time.value * 60:6}    [s]\n'
 
         pumps_count = len(results.pumpsets) + results.reserve_pumps
         if station.well.shape.get() == 'round':
