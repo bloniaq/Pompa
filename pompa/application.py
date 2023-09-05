@@ -325,7 +325,13 @@ class Application:
                 if val == v[name].modelvar.value:
                     return key
 
-        with open(file + ".DAN", 'w') as f:
+        def filename(name):
+            if name.endswith(".DAN"):
+                return name
+            else:
+                return name + ".DAN"
+
+        with open(filename(file), 'w') as f:
             f.write(f"1){get_symbol_for_string_var('mode')}\n")
             f.write(f"2) {get_symbol_for_string_var('shape')}\n")
             f.write(f"3) {get_symbol_for_string_var('config')}\n")
