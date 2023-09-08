@@ -64,3 +64,38 @@ def test_minimal_rectangle_well_dimensions_for_optimal_config(app_fixture):
         s = app.model
         ps = pompa.models.pumpsystem.PumpSystem(s)
         assert s.min_well_dimension(ps.all_pumps) == (2.43, 2.6)
+
+
+def test_volumes(app_fixture):
+
+    with app_fixture as app:
+        filepath = 'tests/scenarios/16-objetosci charakterystyczne.DAN'
+        app.load_file(filepath, 'lps')
+        s = app.model
+        ps = pompa.models.pumpsystem.PumpSystem(s)
+        # Długość pompowni.....................L = 2.0[m]
+        # Szerokość pompowni...................B = 2.5[m]
+        # Rzędna terenu......................... 100.0[m]
+        # Rzędna dopływu ścieków................ 96.6[m]
+        # Rzędna wylotu ścieków / przejście
+        # osi rury przez ścianę pompowni / .......97.2[m]
+        # Min. wysokość ścieków w  pompowni.....    0.3    [m]
+        # Rzędna dopływu ścieków................ 96.6[m]
+        # Rzędna dna pompowni................... 94.54[m]
+        # Rzędna wyłączenia się pomp............ 94.84[m]
+        # Objętość całkowita pompowni..........Vc = 27.3[m3]
+        # Objętość użyteczna pompowni..........Vu = 5.95[m3]
+        # Objętość rezerwowa pompowni..........Vr = 2.85[m3]
+        # Objętość martwa pompowni.............Vm = 1.5[m3]
+        #
+        # Vu / Vc = 21.8 %
+        # Vr / Vu = 47.9 %
+        # Vr / Vc = 10.4 %
+        # Vm / Vc = 5.5 %
+        #
+        # Obj. użyt. wyzn. przez pompę......Vu=   3.25    [m3]
+        # Rzędna włączenia pompy..............   95.49     [m]
+        # Obj. użyt. wyzn. przez pompę......Vu=    2.7    [m3]
+        # Rzędna włączenia pompy..............   96.03     [m]
+
+        assert False
