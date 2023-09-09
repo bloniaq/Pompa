@@ -98,4 +98,14 @@ def test_volumes(app_fixture):
         # Obj. użyt. wyzn. przez pompę......Vu=    2.7    [m3]
         # Rzędna włączenia pompy..............   96.03     [m]
 
-        assert False
+        # pole przekroju: 5.0 m2
+        # objętość martwa: 5 x 0.3 = 1.5 m3
+
+        # (total_v, useful_v, reserve_v, dead_v)
+
+        volumes = ps.calculate_volumes()
+        # cała obj.: od dna do terenu
+        assert volumes[0] == 5.46 * 5
+        assert volumes[1] == round(1.19 * 5, 2)
+        assert volumes[2] == round(0.57 * 5, 2)
+        assert volumes[3] == 1.5
